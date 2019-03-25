@@ -1,0 +1,104 @@
+<!--pages/jgdetails/jgdetails.wxml-->
+<view style='position: relative;height:600rpx ' class=''>
+  <view class=' ' style=''>
+    <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:300rpx'></image>
+  </view>
+  <view class='flex-row flex-column '>
+    <view class='radius-10 bg-white padding-15 mid margin-bottom-10'>
+      <view class='padding-10 '>
+        <view class='txt-black txt-bold h4'>{{jginfo.jigou}}</view>
+
+        <view class='flex-row margin-top-10'>
+          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>芭蕾舞</view>
+          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>拉丁舞</view>
+        </view>
+
+        <view class='flex-row flex-center margin-top-10'>
+          <view class='flex-1 h5 txt-black'>评分：暂无评分</view>
+
+        </view>
+
+        <view class='flex-row  margin-top-5 padding-10'>
+
+          <view class='flex-row flex-column flex-1'>
+            <view class='h5 txt-black'>适合年龄</view>
+            <view class='h4-5 txt-black txt-bold margin-top-5'>4-12岁</view>
+          </view>
+
+          <view class='flex-row flex-column flex-1'>
+            <view class='h5 txt-black'>营业时间</view>
+            <view class='h4-5 txt-black txt-bold margin-top-5'>{{jginfo.time}}</view>
+          </view>
+
+          <view class='flex-row flex-column flex-1'>
+            <view class='h5 txt-black'>预约</view>
+            <view class='h4-5 txt-black txt-bold margin-top-5'>需要预约</view>
+            <view class='h7 txt-gray '>已预约1522人</view>
+          </view>
+
+        </view>
+
+        <view class='flex-row flex-center margin-top-10'>
+          <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+          <view class='flex-1 h5 margin-left-10 txt-blue'>{{jginfo.address}}</view>
+          <view class='h6 txt-black'>距你1.5km</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='margin-40 bg-white radius-10 shadow'>
+  <view class='flex-row flex-center  radius-10 padding-20'>
+    <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view>
+    <view class='margin-left-10'>机构简介</view>
+  </view>
+
+  <view class='padding-20'>
+     <video class='pos' style='width:4rpx;height:4rpx' style='width:100%;height:300rpx; objectFit="fill" muted='true' autoplay='true' loop='true' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
+ </video> 
+    <!-- <view style='width:100%;height:300rpx;' class='bg-primary'>视频</view> -->
+  </view>
+
+  <view class='padding-20'>
+    {{jginfo.jieshao}}
+  </view>
+
+</view>
+
+<view class='height-70'></view>
+
+<view class='margin-40 bg-white radius-10 shadow margin-bottom-10'>
+
+  <view class='flex-row flex-center  radius-10 padding-20'>
+    <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view>
+    <view class='margin-left-10'>课程</view>
+  </view>
+
+  <view class='padding-20 flex-row' wx:for='{{courselist}}' wx:key='k' style='border-top:1rpx solid #CFCECF'>
+    <image class='icon-100 radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+    <view class='flex-row column flex-1 margin-left-20'>
+      <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
+      <view class='h5 flex-1'>评分：{{item.scoring}}</view>
+      <view class='flex-row flex-center flex-1'>
+        <view class='h5 flex-1'>{{item.JG_jigou}}</view>
+        <view class='h5 flex-1'>368人购课</view>
+      </view>
+      <view class='flex-row flex-center flex-1'>
+        <view class='h5 txt-black flex-1'>{{item.age}}岁</view>
+        <view class='h5 txt-black flex-1'>{{item.class_hours}}节课</view>
+        <view class='h5 txt-black flex-1'>{{item.duration}}/节</view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+</view>
+
+<view class='height-50'></view>

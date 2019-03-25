@@ -99,7 +99,7 @@ view,navigator,input,text,textarea{
   background: white;
 }
 .bg-primary{
-  background: #2699EC;
+  background: #DFB726;
 }
 .bg-green{
   background: #23AC38;
@@ -309,6 +309,9 @@ button[disabled][type=primary] {
 .padding-right-30{
   padding-right: 30rpx;
 }
+.margin-5{
+  margin:5rpx;
+}
 .margin-10{
   margin:10rpx;
 }
@@ -411,6 +414,9 @@ button[disabled][type=primary] {
 }
 .radius-5{
   border-radius: 5%;
+}
+.radius-10{
+  border-radius: 10rpx;
 }
 .icon-10{
   width: 20rpx;

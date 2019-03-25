@@ -1,1 +1,99 @@
-home
+<view class=' '>
+
+  <view class='padding-15  bg-primary'>
+    <view class=' flex-row '>
+      <view class='flex-row flex-center'>
+        <view class='txt-black h5'>深圳</view>
+        <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+      </view>
+      <navigator url='/pages/search/search' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
+        <view class='flex-1' style='width:20rpx;'></view>
+        <image class='icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+        <view class='h5 txt-gray'>搜索你要找的机构、课程、老师</view>
+        <view class='flex-1'></view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+<!-- <view class='' style='height:76rpx'></view> -->
+
+<view class='bnk'>
+  <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:320rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;'></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+
+
+<view class='flex-row flex-center margin-10 padding-top-10 '>
+  <view class='flex-1 text-center'>
+    <image src='{{uploadpath}}resource/{{res.home_1}}' mode='scaleToFill' class='img radius-10' style=''></image>
+  </view>
+
+  <view class='flex-1 text-center'>
+    <image src='{{uploadpath}}resource/{{res.home_2}}' class='img radius-10' style=''></image>
+  </view>
+
+  <view class='flex-1 text-center'>
+    <image src='{{uploadpath}}resource/{{res.home_3}}' class='img radius-10' style=''></image>
+  </view>
+
+</view>
+
+<view class=''>
+  <view class='text-center h4 txt-bold txt-black'>附近机构</view>
+
+  <view wx:for='{{jglist}}' wx:for-key='k' id='{{item.id}}'  bindtap='tojgdetails' style='position: relative;height:450rpx ' class=''>
+    <view class='margin-top-20 padding-15' style=''>
+      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:300rpx'></image>
+    </view>
+
+    <view class='flex-row flex-column '>
+      <view class='radius-10 bg-white padding-left-40 mid margin-bottom-10'>
+
+        <view class='padding-10 '>
+          <view class='txt-black txt-bold'>{{item.jigou}}</view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <view class='flex-1 h5 txt-black'>评分：暂无评分</view>
+            <view class='h6'>已预约15人</view>
+          </view>
+
+
+          <view class='flex-row margin-top-5'>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+          </view>
+
+
+
+          <view class='flex-row flex-center margin-top-5'>
+            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.address}}</view>
+            <view class='h6 txt-gray'>1.25km</view>
+            
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+
+
+  </view>
+
+
+  
+
+
+</view>
+
+<view class='height-70' style=''></view>

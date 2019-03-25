@@ -1,0 +1,19 @@
+/* pages/jgdetails/jgdetails.wxss */
+Page{
+  background: #F5F5F5;
+}
+.img{
+  width: 230rpx;
+  height: 240rpx;
+}
+.mid{
+  position: absolute;
+  width: 85%;
+  z-index: 10;
+  bottom:0%;
+  opacity: 0.9;
+  box-shadow: 1px 1px 5px #888888;
+}
+.shadow{
+  box-shadow: 1px 1px 10px #888888;
+}
