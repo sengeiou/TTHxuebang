@@ -1,0 +1,63 @@
+<!--pages/mine/mine.wxml-->
+<view class='bg-primary'>
+
+
+  <view class='flex-row flex-center margin-top-30'>
+
+    <view class='flex-1'></view>
+    <view class=' h6 padding-10 text-center radius-10 txt-white margin-right-40' style='width:130rpx;background:#9f8626'>信息修改</view>
+  </view>
+
+
+  <view class=' flex-row flex-column   ' style='width:100%'>
+    <image class='icon-60 radius-50  ' style='border:4rpx solid #CECFCE' src='{{memberinfo.avatarUrl}}'></image>
+    <view class='txt-black  txt-bold '>{{memberinfo.nickName}}</view>
+  </view>
+
+  <view class='' style='height:30rpx'></view>
+
+</view>
+
+
+<navigator url='/pages/myreading/myreading' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20' style=''>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.myorder}}'></image>
+  <view class='margin-left-20  txt-black  flex-1 '>我的订单</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/mylike/mylike' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.mymessage}}'></image>
+  <view class='margin-left-20  txt-black  flex-1'>我的消息</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/mytalk/mytalk' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.problem}}'></image>
+  <view class='margin-left-20  txt-black  flex-1'>常见问题</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/subtitles/subtitles' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.mycollect}}'></image>
+  <view class='margin-left-20  txt-black  flex-1'>我的收藏</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.customer}}'></image>
+  <view class='margin-left-20  txt-black  '>联系客服</view>
+  <view class='margin-left-40  txt-gray h6 flex-1'>工作日 9:00-17:00</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.aboutus}}'></image>
+  <view class='margin-left-20  txt-black  flex-1'>关于我们</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center margin-30 bg-white  padding-bottom-20'>
+  <image class='icon-25' src='{{uploadpath}}resource/{{res.mechanism}}'></image>
+  <view class='margin-left-20  txt-black  flex-1'>机构入驻</view>
+  <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+</navigator>

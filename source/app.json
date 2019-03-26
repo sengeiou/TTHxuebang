@@ -2,6 +2,10 @@
   "pages":[
     "pages/home/home",
     "pages/jgdetails/jgdetails",
+    "pages/seek/seek",
+    "pages/jigou/jigou",
+    "pages/teacher/teacher",
+    "pages/mine/mine",
     "pages/auth/auth"
   ],
    "permission": {
@@ -14,5 +18,31 @@
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "#DFB726",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/home-a.png",
+        "selectedIconPath": "images/icons/home.png"
+      },
+      {
+        "text": "名师",
+        "pagePath": "pages/teacher/teacher",
+        "iconPath": "images/icons/book-a.png",
+        "selectedIconPath": "images/icons/book.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/mine-a.png",
+        "selectedIconPath": "images/icons/mine.png"
+      }
+    ]
   }
 }

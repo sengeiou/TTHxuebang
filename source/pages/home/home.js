@@ -30,6 +30,21 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
    })
   }
+  totake(e){
+   var name=e.currentTarget.dataset.name;
+   console.log(name);
+   if (name=="jg"){
+      wx.navigateTo({
+        url: '/pages/seek/seek?type=' + "jg",
+      })
+   }
+   else{
+     wx.navigateTo({
+       url: '/pages/seek/seek?type='+"kc",
+     })
+   }
+
+  }
 }
 
 var content = new Content();
@@ -37,4 +52,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.tojgdetails = content.tojgdetails; 
+body.totake = content.totake; 
 Page(body)

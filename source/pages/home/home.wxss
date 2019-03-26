@@ -12,7 +12,7 @@
 }
 .img{
   width: 230rpx;
-  height: 240rpx;
+  height: 280rpx;
 }
 .mid{
   position: absolute;

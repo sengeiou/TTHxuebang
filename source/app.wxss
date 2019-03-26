@@ -104,6 +104,9 @@ view,navigator,input,text,textarea{
 .bg-green{
   background: #23AC38;
 }
+.bg-red{
+  background: red;
+}
 .bg-blue{
   background: #3c78d8;
 }
@@ -220,6 +223,10 @@ button[disabled][type=primary] {
   background-color: #999db4;
 }
 
+.border_bottom {
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
 .input{
   border-bottom:1rpx solid #ddd;
   padding-bottom:20rpx;
@@ -309,6 +316,9 @@ button[disabled][type=primary] {
 .padding-right-30{
   padding-right: 30rpx;
 }
+.padding-right-40{
+  padding-right: 40rpx;
+}
 .margin-5{
   margin:5rpx;
 }
@@ -318,11 +328,17 @@ button[disabled][type=primary] {
 .margin-20{
   margin:20rpx;
 }
+.margin-30{
+  margin:30rpx;
+}
 .margin-40{
   margin:40rpx;
 }
 .margin-top-20{
   margin-top:20rpx;
+}
+.margin-top-30{
+  margin-top:30rpx;
 }
 .margin-top{
   margin-top:40rpx;
@@ -333,6 +349,9 @@ button[disabled][type=primary] {
 .margin-top-80{
   margin-top:80rpx;
 }
+.margin-bottom-5{
+  margin-bottom:5rpx;
+}
 .margin-bottom-10{
   margin-bottom:10rpx;
 }
@@ -341,6 +360,9 @@ button[disabled][type=primary] {
 }
 .margin-bottom-40{
   margin-bottom:40rpx;
+}
+.height-30{
+  height: 30rpx;
 }
 .height-40{
   height: 40rpx;
@@ -417,6 +439,9 @@ button[disabled][type=primary] {
 }
 .radius-10{
   border-radius: 10rpx;
+}
+.radius-20{
+  border-radius: 20rpx;
 }
 .icon-10{
   width: 20rpx;

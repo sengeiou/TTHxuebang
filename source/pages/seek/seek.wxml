@@ -1,0 +1,244 @@
+<!--pages/seek/seek.wxml  wx:if='{{type=="jg"}}'-->
+
+<view wx:if='{{type=="jg"}}'>
+  <view class='bg-primary'>
+    <view class='padding-left-20 padding-right-20 padding-top-20 '>
+      <navigator url='/pages/search/search' class='search  flex-row flex-center  padding-5 '>
+        <image class='icon-25 margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+        <view class='h5 txt-gray'>搜索机构名字</view>
+      </navigator>
+    </view>
+
+    <view class=' flex-row flex-center toutiao'>
+
+      <view class='bg-red padding-10 icon-60 red_block radius-10  flex-row flex-column' style='line-height:60rpx'>
+        <view class='txt-white h4 txt-bold'>学榜</view>
+        <view class='txt-white h4 txt-bold'>头条</view>
+      </view>
+
+      <view class='flex-1 flex-row column bg-white gongao padding-15'>
+
+        <view class='flex-row flex-center margin-left-20'>
+          <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
+          <view class='txt-black h6 margin-left-10'>沙发斯蒂芬</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-20 margin-top-5'>
+          <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
+          <view class='txt-black h6 margin-left-10'>沙发斯蒂芬</view>
+        </view>
+
+      </view>
+    </view>
+
+
+    <view class='flex-row flex-center' style=''>
+
+      <picker>
+        <view class='flex-row flex-center  weizhi' style=''>
+          <view class='txt-black h5'>南山区</view>
+          <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+        </view>
+      </picker>
+
+      <view class='flex-1 flex-row flex-center'>
+
+        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
+          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-white":""}} txt-black'>精选</view>
+          <view wx:if='{{show=="jx"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+          <view wx:if='{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        </view>
+
+        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
+          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-white":""}} txt-black'>新上</view>
+          <view wx:if='{{show=="xs"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+          <view wx:if='{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        </view>
+
+        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
+          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-white":""}} txt-black'>好评</view>
+          <view wx:if='{{show=="hp"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+          <view wx:if='{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}'  bindtap='tojgdetails' >
+    <image src='{{uploadpath}}jigou/{{item.jg_img}}' style='width:100%;height:278rpx;'></image>
+
+    <view class='padding-20 flex-row column'>
+      <view class='flex-row flex-center '>
+        <view class='flex-1 txt-bold txt-black '>{{item.jigou}}</view>
+        <view class='h6'>⭐⭐⭐⭐⭐</view>
+      </view>
+
+      <view class='flex-row margin-top-5'>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>芭蕾舞</view>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>拉丁舞</view>
+      </view>
+
+      <view class='flex-row flex-center margin-top-5'>
+        <view class='flex-1 h6 txt-black '>{{item.address}}</view>
+        <view class='h6'>1.25km</view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+
+
+<view wx:if='{{type=="kc"}}' class='' style=''>
+  <view class='bg-primary'>
+
+    <view class='padding-left-20 padding-right-20 padding-top-20 '>
+      <navigator url='/pages/search/search' class='search  flex-row flex-center  padding-5 '>
+        <image class='icon-25 margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+        <view class='h5 txt-gray'>搜索课程</view>
+      </navigator>
+    </view>
+
+    <view class=' flex-row flex-center margin-top-20'>
+
+      <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
+        <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-white":""}} txt-black'>精选</view>
+        <view wx:if='{{options=="j_x"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
+        <view wx:if='{{options!="j_x"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
+      </view>
+
+      <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
+        <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black'>新上</view>
+        <view wx:if='{{options=="x_s"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
+        <view wx:if='{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
+      </view>
+
+      <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
+        <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black'>宝妈最爱</view>
+        <view wx:if='{{options=="bm_za"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
+        <view wx:if='{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
+      </view>
+
+      <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
+        <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black'>好评</view>
+        <view wx:if='{{options=="h_p"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
+        <view wx:if='{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
+      </view>
+
+      <view class='margin-bottom-10' style='width:4rpx;height:40rpx;background:#E5E5E5'></view>
+
+      <view class='flex-1 flex-row flex-column' bindtap='bindScreening'>
+
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.shaixuan}}' class='icon-15'></image>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="s_x"?"txt-white":""}} txt-black'>筛选</view>
+        </view>
+
+        <view class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{courselist}}' wx:key='k'>
+    <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+    <view class='flex-row column   margin-left-20 flex-1'>
+      <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
+
+      <view class='flex-row flex-center'>
+        <view class='h7 '>⭐⭐⭐⭐⭐</view>
+        <view class='h6 flex-1 margin-left-20 txt-primary'>368人购课</view>
+      </view>
+
+      <view class='flex-row flex-center flex-1' style=''>
+        <view class='h6 txt-black flex-1'>{{item.age}}岁</view>
+        <view class='h6 txt-black flex-1'>{{item.class_hours}}节课</view>
+        <view class='h6 txt-black flex-1'>{{item.duration}}/节</view>
+      </view>
+
+
+      <view class='flex-row flex-center flex-1'>
+        <image class='icon-10 radius-10 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+        <view class='h6 flex-1 margin-left-10'>{{item.JG_jigou}}</view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view class='h6 flex-1'>{{item.JG_address}}</view>
+        <view class='h6   txt-primary'>1.5km</view>
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class='SX flex-row flex-center' wx:if='{{options_show==true}}'>
+
+    <view class='' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></view>
+
+    <view class='bg-white' style='width:74.6%;height:100%;'>
+
+      <view class='height-30'></view>
+
+      <view class='flex-row column padding-bottom-20'>
+        <view class='margin_L_T'>区域</view>
+        <view class='flex-row flex-center  flex-wrap'>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>罗湖区</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>福田区</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>南山区</view>
+        </view>
+      </view>
+
+      <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
+
+
+      <view class='flex-row column padding-bottom-20'>
+        <view class='margin_L_T'>区域</view>
+        <view class='flex-row flex-center  flex-wrap'>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>美术</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>跆拳道</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>书法</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>围棋</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>电竞</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>音乐</view>
+        </view>
+      </view>
+
+      <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
+
+
+      <view class='flex-row column padding-bottom-20'>
+        <view class='margin_L_T'>年龄</view>
+        <view class='flex-row flex-center  flex-wrap'>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>0-4岁</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>4-6岁</view>
+          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>6-12岁</view>
+        </view>
+
+
+      </view>
+
+
+
+      <view class='flex-row flex-center padding-40'>
+
+        <view class='txt-white bg-primary radius-20 padding-20 text-center flex-1  margin-20' style='width:20%;'>重置</view>
+        <view class='txt-white bg-primary radius-20 padding-20 text-center flex-1 margin-20' style='width:20%;' data-qd='ok' bindtap='bindScreening'>确定</view>
+
+      </view>
+
+
+
+    </view>
+
+  </view>
+
+
+</view>
