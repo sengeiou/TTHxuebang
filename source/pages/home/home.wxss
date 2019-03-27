@@ -22,3 +22,18 @@
   opacity: 0.8;
   box-shadow: 1px 1px 5px #888888;
 }
+
+.li{
+  width: 100%;
+  height: 312rpx;
+}
+.li1{
+  width: 506rpx;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  height: 300rpx;
+  transform: scale(0.9);
+}
+.selected{
+  transform: scale(1)
+}

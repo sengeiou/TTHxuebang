@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 9,
 			"list": [
 				{
 					"id": -1,
@@ -78,6 +78,34 @@
 					"id": -1,
 					"name": "机构、课程",
 					"pathName": "pages/seek/seek",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/kcdetails/kcdetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/aboutus/aboutus",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的消息",
+					"pathName": "pages/mymessage/mymessage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "常见问题",
+					"pathName": "pages/problem/problem",
 					"scene": null
 				}
 			]

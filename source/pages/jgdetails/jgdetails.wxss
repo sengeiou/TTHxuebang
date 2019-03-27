@@ -1,6 +1,6 @@
 /* pages/jgdetails/jgdetails.wxss */
 Page{
-  background: #F5F5F5;
+  background: #83403A;
 }
 .img{
   width: 230rpx;
@@ -8,9 +8,9 @@ Page{
 }
 .mid{
   position: absolute;
-  width: 85%;
+  width: 90%;
   z-index: 10;
-  bottom:0%;
+  bottom:0;
   opacity: 0.9;
   box-shadow: 1px 1px 5px #888888;
 }

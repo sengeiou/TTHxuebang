@@ -1,4 +1,4 @@
-// pages/jigou/jigou.js
+// pages/kcdetails/kcdetails.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -12,29 +12,56 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({
+      show: "kcxq",
+      
+    })
+    
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
-    jigouapi.jglist({}, (jglist) => {
-      this.Base.setMyData({ jglist });
+
+    jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
+
+      this.Base.setMyData({ courseinfo });
+
     });
+
   }
-  tojgdetails(e) {
-    var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/jgdetails/jgdetails?id=' + id,
-    })
+  bindcut(e){
+   var type=e.currentTarget.dataset.type;
+    console.log(type);
+
+    if(type=="kcxq"){
+     this.Base.setMyData({
+       show:"kcxq"
+     })
+    }
+    if (type == "gmxz") {
+      this.Base.setMyData({
+        show: "gmxz"
+      })
+    }
+
   }
+
+  
+
+
+
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.tojgdetails = content.tojgdetails;
+body.bindcut = content.bindcut;
+
+
 Page(body)

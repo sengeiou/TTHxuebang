@@ -1,0 +1,17 @@
+<!--pages/myorder/myorder.wxml-->
+      <view class=' flex-row flex-center padding-20'>
+
+        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="finished"?"txt-primary":""}} txt-black'>已购买</view>
+          <view wx:if='{{show=="finished"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+          <view wx:if='{{show!="finished"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        </view>
+
+        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="wait"?"txt-primary":""}} txt-black'>代付款</view>
+          <view wx:if='{{show=="wait"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+          <view wx:if='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        </view>
+
+
+      </view>

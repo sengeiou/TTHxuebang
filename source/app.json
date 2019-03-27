@@ -2,9 +2,15 @@
   "pages":[
     "pages/home/home",
     "pages/jgdetails/jgdetails",
+    "pages/aboutus/aboutus",
+    "pages/mycollect/mycollect",
+    "pages/myorder/myorder",
+    "pages/mymessage/mymessage",
+    "pages/problem/problem",
+    "pages/kcdetails/kcdetails",
     "pages/seek/seek",
-    "pages/jigou/jigou",
     "pages/teacher/teacher",
+    "pages/addmechanism/addmechanism",
     "pages/mine/mine",
     "pages/auth/auth"
   ],

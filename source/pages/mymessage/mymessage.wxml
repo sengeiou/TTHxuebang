@@ -1,0 +1,26 @@
+<!--pages/mymessage/mymessage.wxml-->
+<view class='flex-row bg-white  margin-top padding-30 shadow '>
+  <image class='icon-75 radius-10' src='{{uploadpath}}resource/{{res.details_icon}}'></image>
+  <view class='flex-row column flex-1 margin-left-10'>
+    <view class='flex-row flex-center'>
+      <view class='txt-black flex-1'>交易消息</view>
+      <view class='h6'>2019-12-12 12：00</view>
+    </view>
+    <view class='h5 margin-top-5'>
+      施蒂利克骄傲了深刻的房间里肯定手动阀撒地方三房是福利卡机
+    </view>
+  </view>
+</view>
+
+<view class='flex-row bg-white  margin-top padding-30 shadow '>
+  <image class='icon-75 radius-10' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+  <view class='flex-row column flex-1 margin-left-10'>
+    <view class='flex-row flex-center'>
+      <view class='txt-black flex-1'>交易消息</view>
+      <view class='h6'>2019-09-12 08：00</view>
+    </view>
+    <view class='h5 margin-top-5'>
+      施蒂利克骄傲了深刻的房间里肯定手动阀撒地方三房是福利卡机
+    </view>
+  </view>
+</view>

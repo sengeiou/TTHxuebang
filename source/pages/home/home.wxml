@@ -16,22 +16,25 @@
         <view class='h5 txt-gray'>搜索你要找的机构、课程、老师</view>
         <view class='flex-1'></view>
       </navigator>
+
     </view>
   </view>
 </view>
 
 
-<!-- <view class='' style='height:76rpx'></view> -->
 
-<view class='bnk'>
-  <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:320rpx;'>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
-      <view>
-        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;'></image>
+
+<view class='bnk  ' style=''>
+
+  <swiper bindchange="swiperChange" indicator-dots='{{false}}' current-item-id='{{currentItemId}}' next-margin="100rpx" previous-margin="120rpx" autoplay='false' interval='3000' duration='1000' circular='true' style='width:750rpx;height:310rpx;margin-top:20rpx'>
+
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" bindtap='clickChange'>
+      <view class='li'>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </view>
     </swiper-item>
   </swiper>
+
 </view>
 
 
@@ -99,8 +102,6 @@
 
 
   </view>
-
-
 
 
 

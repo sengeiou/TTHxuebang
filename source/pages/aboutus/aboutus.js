@@ -1,4 +1,4 @@
-// pages/content/content.js
+// pages/aboutus/aboutus.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -12,39 +12,23 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ currentItemId: 2 })
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
-
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+     
+    jigouapi.aboutus({id:1}, (aboutus) => {
+      this.Base.setMyData({ aboutus });
     });
-    
-    jigouapi.jginfo({id:this.options.id}, (jginfo) => {
-      this.Base.setMyData({ jginfo });
-
-      jigouapi.courselist({ jg_id: jginfo.id }, (courselist) => {
-        this.Base.setMyData({ courselist: courselist});
-      });
-      
-    }); 
-
   }
-
-  tokcdetails(e) {
-    var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + id,
-    })
-  }
+ 
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.tokcdetails = content.tokcdetails;
-
+ 
 Page(body)

@@ -46,6 +46,13 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
+
+  tokcdetails(e){
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + id,
+    })
+  }
   
   bindshow(e){
     var type=e.currentTarget.dataset.type;
@@ -116,7 +123,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.bindxuanxiang = content.bindxuanxiang;
+body.tokcdetails = content.tokcdetails;
+body.bindxuanxiang = content.bindxuanxiang; 
 
 body.bindScreening = content.bindScreening;
 body.bindshow = content.bindshow;

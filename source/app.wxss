@@ -123,7 +123,7 @@ view,navigator,input,text,textarea{
   
 }
 .txt-primary{
-  color:#2699EC;
+  color:#FFC200;
 }
 .txt-black{
   color: black;
@@ -360,6 +360,9 @@ button[disabled][type=primary] {
 }
 .margin-bottom-40{
   margin-bottom:40rpx;
+}
+.height-20{
+  height: 20rpx;
 }
 .height-30{
   height: 30rpx;

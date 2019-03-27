@@ -1,0 +1,114 @@
+<!--pages/kcdetails/kcdetails.wxml-->
+
+<view >
+
+
+  <view class=''>
+    <image src='{{uploadpath}}resource/{{ res.ceshi}}' class='' style='height:140rpx;width:100%;'></image>
+  </view>
+
+  <view class=''>
+    <swiper indicator-dots='{{true}}' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:400rpx;'>
+      <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+        <view>
+          <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+          <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+
+  <view style=' ' class=''>
+
+    <view class='flex-row column margin-20'>
+      <view class='radius-10 bg-white  margin-bottom-10'>
+        <view class='padding-10 '>
+          <view class='flex-row flex-center'>
+            <view class='txt-black txt-bold ' style='font-size:52rpx;'>{{courseinfo.JG_jigou}}</view>
+            <view class='txt-black  flex-1 padding-top-10 padding-left-20'>{{courseinfo.name}}</view>
+            <view class='txt-black h6'>⭐⭐⭐⭐⭐</view>
+          </view>
+
+
+          <view class='flex-row margin-top-5'>
+            <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>{{courseinfo.type_name}}</view>
+            <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>{{courseinfo.age}}岁</view>
+            <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>{{courseinfo.class_hours}}节课</view>
+          </view>
+
+
+          <!-- <view class='flex-row flex-center margin-top-10'>
+          <view class='flex-1 h5 txt-black'>{{courseinfo.scoring}}</view>
+        </view> -->
+
+          <view class='flex-row  margin-top-5 padding-10'>
+
+            <view class='flex-row flex-column flex-1 '>
+              <view class='h5 txt-black'>适合年龄</view>
+              <view class='h4-5 txt-black txt-bold margin-top-5'>4-12岁</view>
+            </view>
+
+            <view class='' style='width:40rpx;'>
+            </view>
+
+            <view class='flex-row flex-column flex-1'>
+              <view class='h5 txt-black'>营业时间</view>
+              <view class='h4-5 txt-black txt-bold margin-top-5'>{{courseinfo.JG_time}}</view>
+            </view>
+
+            <view class='' style='width:40rpx;'>
+            </view>
+
+            <view class='flex-row flex-column flex-1 '>
+              <view class='h5 txt-black'>预约</view>
+              <view class='h4-5 txt-black txt-bold margin-top-5'>需要预约</view>
+              <view class='h7 txt-gray '>已预约1522人</view>
+            </view>
+
+          </view>
+
+          <view class='flex-row flex-center margin-top-10'>
+            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+            <view class='flex-1 h5 margin-left-10 txt-blue'>{{courseinfo.JG_address}}</view>
+            <view class='h6 txt-black margin-right-20'>距你1.5km</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='height-20 bg-gray' style=''></view>
+
+
+  <view class='flex-row ' style=''>
+    <view class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</view>
+    <view class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='bindcut' data-type='gmxz'>购买须知</view>
+  </view>
+
+
+  <view wx:if='{{show=="kcxq"}}' class=''>
+    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' radius-10 ' style='height:2828rpx;width:750rpx '></image>
+  </view>
+
+  <view wx:if='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
+    {{courseinfo.description}}
+  </view>
+
+  <view class='height-100 '></view>
+
+  <view class='margin-40 flex-row flex-column '>
+    <image src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-75 '></image>
+  </view>
+
+  <view class='height-100 '></view>
+</view>
+
+
+
+
+
+
+
+

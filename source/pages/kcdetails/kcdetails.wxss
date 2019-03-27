@@ -1,0 +1,14 @@
+/* pages/kcdetails/kcdetails.wxss */
+.type {
+  padding-left: 17rpx;
+  padding-right: 17rpx;
+  padding-top: 4rpx;
+  padding-bottom: 4rpx;
+}
+.txt{
+  color: #FFC200;
+}
+
+
+
+

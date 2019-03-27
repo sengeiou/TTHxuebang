@@ -12,6 +12,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ currentItemId: 2})
   }
   onMyShow() {
     var that = this;
@@ -45,6 +46,20 @@ class Content extends AppBase {
    }
 
   }
+
+  swiperChange(e) {
+    var currentItemId = e.detail.currentItemId;
+    this.Base.setMyData({
+      currentItemId: currentItemId
+    })
+  }
+
+  clickChange(e) {
+    var itemId = e.currentTarget.dataset.itemId;
+    this.Base.setMyData({
+      currentItemId: itemId
+    })
+  }
 }
 
 var content = new Content();
@@ -53,4 +68,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.tojgdetails = content.tojgdetails; 
 body.totake = content.totake; 
+body.swiperChange = content.swiperChange;
+body.clickChange = content.clickChange;
 Page(body)
