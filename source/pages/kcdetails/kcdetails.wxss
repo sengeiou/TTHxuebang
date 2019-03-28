@@ -1,4 +1,7 @@
 /* pages/kcdetails/kcdetails.wxss */
+page{
+  background: #132056;
+}
 .type {
   padding-left: 17rpx;
   padding-right: 17rpx;
@@ -8,7 +11,6 @@
 .txt{
   color: #FFC200;
 }
-
-
-
-
+.buy{
+  background: #FE792E;
+}

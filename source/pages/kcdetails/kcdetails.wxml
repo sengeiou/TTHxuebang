@@ -1,6 +1,6 @@
 <!--pages/kcdetails/kcdetails.wxml-->
 
-<view >
+<view>
 
 
   <view class=''>
@@ -21,8 +21,8 @@
 
   <view style=' ' class=''>
 
-    <view class='flex-row column margin-20'>
-      <view class='radius-10 bg-white  margin-bottom-10'>
+    <view class='flex-row column '>
+      <view class=' bg-white  margin-bottom-10'>
         <view class='padding-10 '>
           <view class='flex-row flex-center'>
             <view class='txt-black txt-bold ' style='font-size:52rpx;'>{{courseinfo.JG_jigou}}</view>
@@ -82,33 +82,55 @@
   <view class='height-20 bg-gray' style=''></view>
 
 
-  <view class='flex-row ' style=''>
+  <view class='flex-row bg-white' style=''>
     <view class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</view>
     <view class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='bindcut' data-type='gmxz'>购买须知</view>
   </view>
 
 
   <view wx:if='{{show=="kcxq"}}' class=''>
-    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' radius-10 ' style='height:2828rpx;width:750rpx '></image>
+    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' ' style='height:2828rpx;width:750rpx '></image>
   </view>
 
   <view wx:if='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
     {{courseinfo.description}}
   </view>
 
-  <view class='height-100 '></view>
+  <view class='height-50 '></view>
 
   <view class='margin-40 flex-row flex-column '>
-    <image src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-75 '></image>
+    <image src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-50 '></image>
   </view>
 
-  <view class='height-100 '></view>
+  <view class='height-80 '></view>
+
+
+  <view style='' class='flex-row flex-1'>
+
+    <view class='flex-1 flex-row flex-column padding-15 bg-white'>
+      <image class='icon-25' src='{{uploadpath}}resource/{{res.shoucang}}'></image>
+      <view class='h6'>收藏</view>
+    </view>
+
+
+    <view class='flex-1  bg-orange padding-15'>
+      <button class=' clear-button' open-type='contact' style='border-radius:0;border:0;'>
+        <view class='flex-row flex-column'>
+          <image class='icon-25' src='{{uploadpath}}resource/{{res.customer}}'></image>
+          <view class='h6 txt-white'>客服</view>
+        </view>
+      </button>
+    </view>
+
+
+    <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase'>
+      <view class='txt-white txt-bold h5'>￥365</view>
+      <view class='h6 txt-white '>立即购买</view>
+    </view>
+
+
+
+
+  </view>
+
 </view>
-
-
-
-
-
-
-
-

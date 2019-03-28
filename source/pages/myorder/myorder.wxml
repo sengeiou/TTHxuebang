@@ -1,17 +1,102 @@
 <!--pages/myorder/myorder.wxml-->
-      <view class=' flex-row flex-center padding-20'>
+<view class=' flex-row flex-center  bg-white bor_bot'>
 
-        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
-          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="finished"?"txt-primary":""}} txt-black'>已购买</view>
-          <view wx:if='{{show=="finished"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
-          <view wx:if='{{show!="finished"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>已购买</view>
+    <view wx:if='{{show=="finished"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{show!="finished"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>代付款</view>
+    <view wx:if='{{show=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+</view>
+
+
+<view class='' wx:if='{{show=="finished"}}'>
+  <view class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+    <view class='flex-row flex-center padding-20 bor_bot' style=''>
+      <view class='flex-1 txt-gray'>2019-02-03 12:00</view>
+      <view class='txt-gray'>已完成</view>
+    </view>
+
+    <view class='flex-row  padding-20 bor_bot' style=''>
+
+      <image class='icon radius-10' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+
+      <view class='flex-1 flex-row column margin-left-20'>
+
+        <view class='flex-row flex-center'>
+          <view class='flex-1 txt-black'>美术绘画</view>
+          <view class='txt-black'>￥69.90</view>
         </view>
 
-        <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
-          <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="wait"?"txt-primary":""}} txt-black'>代付款</view>
-          <view wx:if='{{show=="wait"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
-          <view wx:if='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
+        <view class='flex-row flex-center margin-top-10'>
+          <view class='flex-1 txt-gray h5'>童彩飞扬</view>
+          <view class='txt-gray h5'>x1</view>
         </view>
+
 
 
       </view>
+
+
+
+
+
+
+
+    </view>
+
+    <view class='flex-row flex-center padding-20' style=''>
+      <view class='flex-1'></view>
+      <view class='txt-black '>共1个课程</view>
+      <view class='txt-black txt-bold margin-left-20'>实付金额：￥69.90</view>
+    </view>
+
+  </view>
+</view>
+
+<view class='' wx:if='{{show=="wait"}}'>
+  <view class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+    <view class='flex-row flex-center padding-20 bor_bot' style=''>
+      <view class='flex-1 txt-gray'>2019-02-03 12:00</view>
+      <view class='txt-gray'>已完成</view>
+    </view>
+
+    <view class='flex-row  padding-20 bor_bot' style=''>
+
+      <image class='icon radius-10' src='{{uploadpath}}resource/{{res.bg_1}}'></image>
+
+      <view class='flex-1 flex-row column margin-left-20'>
+
+        <view class='flex-row flex-center'>
+          <view class='flex-1 txt-black'>书法书法</view>
+          <view class='txt-black'>￥99.90</view>
+        </view>
+
+        <view class='flex-row flex-center margin-top-10'>
+          <view class='flex-1 txt-gray h5'>童彩飞扬</view>
+          <view class='txt-gray h5'>x1</view>
+        </view>
+
+
+
+      </view>
+
+
+
+
+    </view>
+
+    <view class='flex-row flex-center padding-20' style=''>
+      <view class='flex-1'></view>
+      <view class='txt-black '>共1个课程</view>
+      <view class='txt-black txt-bold margin-left-20'>实付金额：￥99.90</view>
+    </view>
+
+  </view>
+</view>

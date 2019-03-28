@@ -112,7 +112,7 @@ view,navigator,input,text,textarea{
 }
 .bg-orange{
 
-  background: #FBC02D;
+  background: #FFC200;
 }
 .white_primary{
   background: #2699EC;
@@ -375,6 +375,9 @@ button[disabled][type=primary] {
 }
 .height-70{
   height: 70rpx;
+}
+.height-80{
+  height: 80rpx;
 }
 .height-100{
   height: 100rpx;

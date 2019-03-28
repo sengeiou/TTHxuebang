@@ -12,6 +12,8 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
+    "pages/order/order",
+    "pages/purchase/purchase",
     "pages/auth/auth"
   ],
    "permission": {

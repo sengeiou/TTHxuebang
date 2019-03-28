@@ -1,0 +1,29 @@
+<!--pages/order/order.wxml-->
+<view class='height-30'></view>
+<view class='flex-row flex-column'>
+  <view style='color:#FFC200' class='txt-bold'>订单已完成</view>
+  <view class='height-20'></view>
+  <image src='{{uploadpath}}resource/{{res.ok_order}}' class='icon-75'></image>
+  <view class='height-20'></view>
+  <view class='h6 txt-gray'>感谢您对学榜的信任，期待再次购买</view>
+  <view class='height-20'></view>
+  <view style='width:560rpx;height:160rpx;background:#50B674' class='flex-row flex-column padding-20 rad' >
+    <view class='txt-white '>机构老师微信号</view>
+
+
+
+    <view class='flex-row flex-center flex-1'>
+      <view class=''></view>
+      <view class=' txt-bold txt-white flex-1 h5 '>沙发斯蒂芬</view>
+      <view class='radius-10 h7 txt-white text-center ' style='border:1rpx solid white;height:48rpx;width:120rpx;line-height:48rpx;'>点击复制</view>
+    </view>
+
+
+
+    <view class='flex-row flex-center '>
+      <view class=' txt-bold txt-white flex-1 h6'>添加微信号 > 联系机构老师 > 确定上课时间</view>
+
+    </view>
+
+  </view>
+</view>

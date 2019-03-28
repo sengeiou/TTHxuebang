@@ -26,6 +26,8 @@
     </view>
 </view>
 
+
+
 <view class='flex-row bg-white  margin-top-20  shadow '>
     <view class='flex-row flex-center padding-30 ' style=''>
       <image class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.to}}'></image>

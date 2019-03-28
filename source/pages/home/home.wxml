@@ -40,11 +40,11 @@
 
 
 <view class='flex-row flex-center margin-10 padding-top-10 '>
-  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
+  <view class='flex-1 text-center' bindtap='totake' data-name='kc'>
     <image src='{{uploadpath}}resource/{{res.home_1}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view>
 
-  <view class='flex-1 text-center' bindtap='totake' data-name='kc'>
+  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
     <image src='{{uploadpath}}resource/{{res.home_2}}' class='img radius-10' style=''></image>
   </view>
 
@@ -53,6 +53,8 @@
   </view>
 
 </view>
+
+
 
 <view class=''>
   <view class='text-center h4 txt-bold txt-black'>附近机构</view>

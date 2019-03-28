@@ -12,6 +12,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ show: "finished"})
   }
   onMyShow() {
     var that = this;
@@ -34,7 +35,6 @@ class Content extends AppBase {
     if (type == "df") {
       this.Base.setMyData({ show: "wait" })
     }
-
   }
 
 }
