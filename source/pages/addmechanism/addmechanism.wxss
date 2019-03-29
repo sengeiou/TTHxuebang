@@ -14,3 +14,9 @@ Page{
 .txt-gray{
   color: #C8C8C8;
 }
+.dis{
+  background: #b9b9b9;
+}
+.dis_hov{
+  background: #b9b8b8;
+}

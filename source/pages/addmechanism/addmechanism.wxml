@@ -71,10 +71,11 @@
       <view class='font-30 txt-blue margin-left-5'> 学榜用户协议</view>
       <view class='flex-1'></view>
     </view>
-    <!--bor_bak -->
+    <!--bor_bak  disabled='{{show==1}}' -->
   </view>
-
-  <button class='btn_bg margin-40 txt-white' form-type='submit' hover-class='bg_hov'>提交</button>
+  
+  <button class='dis margin-40 txt-white'   wx:if='{{show==1}}'  hover-class='dis_hov'>提交</button>
+  <button class='btn_bg margin-40 txt-white' wx:if='{{show==2}}' form-type='submit' hover-class='bg_hov'>提交</button>
 
 </form>
 
