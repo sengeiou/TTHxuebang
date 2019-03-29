@@ -124,7 +124,7 @@
 
 
     <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase'>
-      <view class='txt-white txt-bold h5'>￥365</view>
+      <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
       <view class='h6 txt-white '>立即购买</view>
     </view>
 

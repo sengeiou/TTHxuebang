@@ -36,6 +36,11 @@ class Content extends AppBase {
       this.Base.setMyData({ show: "wait" })
     }
   }
+  bindback(e){
+    wx.navigateBack({
+      delta: 2,
+    })
+  }
 
 }
 
@@ -45,4 +50,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindshow = content.bindshow;
+body.bindback = content.bindback;
 Page(body)

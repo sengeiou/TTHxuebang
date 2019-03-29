@@ -36,20 +36,20 @@
       {
         "text": "首页",
         "pagePath": "pages/home/home",
-        "iconPath": "images/icons/home-a.png",
-        "selectedIconPath": "images/icons/home.png"
+        "iconPath": "images/icons/sy.png",
+        "selectedIconPath": "images/icons/sy1.png"
       },
       {
         "text": "名师",
         "pagePath": "pages/teacher/teacher",
-        "iconPath": "images/icons/book-a.png",
-        "selectedIconPath": "images/icons/book.png"
+        "iconPath": "images/icons/ms.png",
+        "selectedIconPath": "images/icons/ms1.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/mine/mine",
-        "iconPath": "images/icons/mine-a.png",
-        "selectedIconPath": "images/icons/mine.png"
+        "iconPath": "images/icons/wd.png",
+        "selectedIconPath": "images/icons/wd1.png"
       }
     ]
   }

@@ -1,10 +1,23 @@
 /* pages/teacher/teacher.wxss */
-Page{
+
+Page {
   background: #f5f5f5;
 }
-.org_block{
-padding-left:10rpx;
-padding-right: 10rpx;
-padding-top: 5rpx;
-padding-bottom: 5rpx;
+
+.org_block {
+  padding-left: 5rpx;
+  padding-right: 15rpx;
+  padding-top: 6rpx;
+  padding-bottom: 6rpx;
+}
+
+.title {
+  position: absolute;
+  width: 50%;
+  top: 24rpx;
+  left: 32rpx;
+  z-index: 10;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -2,6 +2,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { JigouApi } from "../../apis/jigou.api.js";
+import { TeacherApi } from "../../apis/teacher.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -15,12 +16,12 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-    var jigouapi = new JigouApi();
+    var teacherapi = new TeacherApi();
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
-    jigouapi.jglist({}, (jglist) => {
-      this.Base.setMyData({ jglist });
+    teacherapi.teachlist({orderby:'r_main.id'}, (teachlist) => {
+      this.Base.setMyData({ teachlist });
     });
   }
   tojgdetails(e) {

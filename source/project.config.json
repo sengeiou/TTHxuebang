@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -127,6 +127,20 @@
 					"id": -1,
 					"name": "订单完成",
 					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "名师",
+					"pathName": "pages/teacher/teacher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "机构入驻",
+					"pathName": "pages/addmechanism/addmechanism",
 					"scene": null
 				}
 			]
