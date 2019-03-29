@@ -5,7 +5,7 @@
   <view class='flex-row flex-center margin-top-30'>
 
     <view class='flex-1'></view>
-    <view class=' h6 padding-10 text-center radius-10 txt-white margin-right-40' style='width:130rpx;background:#9f8626'>信息修改</view>
+    <navigator url='/pages/personaldata/personaldata' class=' h6 padding-10 text-center radius-10 txt-white margin-right-40' style='width:130rpx;background:#9f8626'>信息修改</navigator>
   </view>
 
 
@@ -45,12 +45,12 @@
 
 <navigator class=' margin-30 bg-white border_bottom padding-bottom-20'>
   <button class='bg-white clear-button' open-type='contact' style='border-radius:0;border:0;'>
-<view class='flex-row flex-center'>
-    <image class='icon' src='{{uploadpath}}resource/{{res.customer}}'></image>
-    <view class='margin-left-20  txt-black h '>联系客服</view>
-    <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 9:00-17:00</view>
-    <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-</view>
+    <view class='flex-row flex-center'>
+      <image class='icon' src='{{uploadpath}}resource/{{res.customer}}'></image>
+      <view class='margin-left-20  txt-black h '>联系客服</view>
+      <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 9:00-17:00</view>
+      <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+    </view>
   </button>
 </navigator>
 

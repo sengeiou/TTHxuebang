@@ -12,6 +12,7 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
+    "pages/personaldata/personaldata",
     "pages/order/order",
     "pages/purchase/purchase",
     "pages/auth/auth"
