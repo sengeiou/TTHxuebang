@@ -1,9 +1,19 @@
 // pages/personaldata/personaldata.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { JigouApi } from "../../apis/jigou.api.js";
-import { MineApi } from "../../apis/mine.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  JigouApi
+} from "../../apis/jigou.api.js";
+import {
+  MineApi
+} from "../../apis/mine.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -13,18 +23,27 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ show: 2 })
+    this.Base.setMyData({
+      show: 2
+    })
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-    var jigouapi = new JigouApi();
+    var mineapi = new MineApi();
+
     instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+      this.Base.setMyData({
+        indexbanner
+      });
     });
-    jigouapi.jglist({}, (jglist) => {
-      this.Base.setMyData({ jglist });
+
+    mineapi.mydata({}, (mydata) => {
+      this.Base.setMyData({
+        mydata
+      });
     });
+
   }
 
 
@@ -77,16 +96,20 @@ class Content extends AppBase {
       this.Base.info("请点击同意用户协议");
       return;
     }
-    
-    if (show== 2 ){
-      this.Base.setMyData({sex:"M"})
+
+    if (show == 2) {
+      this.Base.setMyData({
+        sex: "M"
+      })
     }
     if (show == 1) {
-      this.Base.setMyData({ sex: "W" })
+      this.Base.setMyData({
+        sex: "W"
+      })
     }
 
     var mineapi = new MineApi();
-    var sex=this.Base.getMyData().sex;
+    var sex = this.Base.getMyData().sex;
     wx.showModal({
       title: '提交',
       content: '确认提交机构申请？',
@@ -95,15 +118,16 @@ class Content extends AppBase {
       cancelColor: '#EE2222',
       confirmText: '确定',
       confirmColor: '#2699EC',
-      success: function (res) {
+      success: function(res) {
+
         if (res.confirm) {
           wx.showLoading({
-            title: '正在提交',
+            title: '正在保存',
             mask: true
           })
-          //console.log(data.name);return;
+
           mineapi.updatemydata({
-            member_id: memberinfo.id,
+            id: memberinfo.id,
             name: data.name,
             mobile: data.mobile,
             sex: sex,
@@ -115,21 +139,17 @@ class Content extends AppBase {
               updatemydata
             });
           });
-
           wx.hideLoading();
           wx.navigateBack({
             delta: 1
           });
           wx.showToast({
-            title: '提交成功',
+            title: '保存成功',
             icon: '',
           })
         }
-
       }
-
     });
-
   }
 
 

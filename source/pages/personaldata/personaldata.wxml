@@ -22,7 +22,7 @@
   <view class='padding-30  bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>昵称</view>
-      <input class=' flex-2' name='name' style='' placeholder='请填写机构名称'></input>
+      <input class=' flex-2' name='name' style='' value='{{memberinfo.name}}' placeholder='请填写昵称'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -35,7 +35,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>手机号：</view>
-      <input class=' flex-2' style='' name='mobile' placeholder='请填写联系电话'></input>
+      <input class=' flex-2' style='' name='mobile' value='{{memberinfo.mobile}}' placeholder='请填写联系电话'></input>
     </view>
     <!--bor_bak -->
   </view>

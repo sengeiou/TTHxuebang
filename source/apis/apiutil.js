@@ -176,6 +176,9 @@ export class ApiUtil {
   }
   static GetMileTxt(mile) {
     console.log(mile);
+    if(mile>100000){
+      return "";
+    }
     if (mile > 1000) {
       return "约" + (mile / 1000.0).toFixed(0) + "公里";
     } else if (mile < 100) {

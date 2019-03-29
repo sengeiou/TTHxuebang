@@ -140,6 +140,11 @@ class Content extends AppBase {
 
   }
 
+  tocontent(e){
+    wx.navigateTo({
+      url: '/pages/content/content',
+    })
+  }
 
 }
 
@@ -149,5 +154,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcheck = content.bindcheck;
 body.confirm = content.confirm;
-
+body.tocontent = content.tocontent;
 Page(body)

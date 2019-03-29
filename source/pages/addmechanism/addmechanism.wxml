@@ -68,7 +68,7 @@
 
 
       <view class='font-30 txt-black margin-left-10'>我已详细阅读并同意</view>
-      <view class='font-30 txt-blue margin-left-5'> 学榜用户协议</view>
+      <view class='font-30 txt-blue margin-left-5' bindtap='tocontent'> 学榜用户协议</view>
       <view class='flex-1'></view>
     </view>
     <!--bor_bak  disabled='{{show==1}}' -->

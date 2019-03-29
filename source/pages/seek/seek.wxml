@@ -136,7 +136,7 @@
 
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.shaixuan}}' class='icon-15'></image>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="s_x"?"txt-white":""}} txt-black'>筛选</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5  txt-black'>筛选</view>
         </view>
 
         <view class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
@@ -188,10 +188,8 @@
       <view class='flex-row column padding-bottom-20'>
         <view class='margin_L_T'>区域</view>
         <view class='flex-row flex-center  flex-wrap'>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>罗湖区</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>福田区</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;'>南山区</view>
+          <view class='{{tdistrict_id=="0"?"bg-primary":"bg-gray"}} radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTDistrict' >全部</view>
+          <view class='{{tdistrict_id==item.id?"bg-primary":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filterdistrict}}" wx:key="k" id="{{item.id}}" bindtap='setTDistrict'   >{{item.name}}</view>
         </view>
       </view>
 
@@ -199,15 +197,10 @@
 
 
       <view class='flex-row column padding-bottom-20'>
-        <view class='margin_L_T'>区域</view>
+        <view class='margin_L_T'>类型</view>
         <view class='flex-row flex-center  flex-wrap'>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>美术</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>跆拳道</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>书法</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>围棋</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>电竞</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>音乐</view>
+          <view class='{{ttype_id=="0"?"bg-primary":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'  id="0" bindtap='setTType' >全部</view>
+          <view class='{{ttype_id==item.id?"bg-primary":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'  wx:for="{{filtercoursetype}}" wx:key="k" id="{{item.id}}" bindtap='setTType'  >{{item.typename}}</view>
         </view>
       </view>
 
@@ -217,10 +210,8 @@
       <view class='flex-row column padding-bottom-20'>
         <view class='margin_L_T'>年龄</view>
         <view class='flex-row flex-center  flex-wrap'>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>全部</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>0-4岁</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>4-6岁</view>
-          <view class='bg-gray radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;'>6-12岁</view>
+          <view class='{{tage_id=="0"?"bg-primary":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTAge' >全部</view>
+          <view class='{{tage_id==item.id?"bg-primary":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filtercourseage}}" wx:key="k" id="{{item.id}}" bindtap='setTAge'  >{{item.name}}</view>
         </view>
 
 
@@ -230,7 +221,7 @@
 
       <view class='flex-row flex-center padding-40'>
 
-        <view class='txt-white bg-primary radius-20 padding-20 text-center flex-1  margin-20' style='width:20%;'>重置</view>
+        <view class='txt-white bg-primary radius-20 padding-20 text-center flex-1  margin-20' style='width:20%;' bindtap='resetFilter'>重置</view>
         <view class='txt-white bg-primary radius-20 padding-20 text-center flex-1 margin-20' style='width:20%;' data-qd='ok' bindtap='bindScreening'>确定</view>
 
       </view>
