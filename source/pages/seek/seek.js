@@ -30,6 +30,15 @@ class Content extends AppBase {
       options: "j_x",
       mylat: 0,
       mylng: 0,
+      filtercoursetype: [],
+      ftype_id: "0",
+      ttype_id: "0",
+      filtercourseage: [],
+      fage_id: "0",
+      tage_id: "0",
+      filterdistrict: [],
+      fdistrict_id: "0",
+      tdistrict_id: "0",
       options_show: false
     })
     //  console.log(this.options.type);
@@ -40,32 +49,50 @@ class Content extends AppBase {
     var show = this.Base.getMyData().show;
 
 
+    var jigouapi = new JigouApi();
+
+    jigouapi.activedistrictlist({}, (filterdistrict) => {
+      this.Base.setMyData({
+        filterdistrict
+      });
+    });
+    jigouapi.coursetype({}, (filtercoursetype) => {
+      this.Base.setMyData({
+        filtercoursetype
+      });
+    });
+    jigouapi.courseage({}, (filtercourseage) => {
+      this.Base.setMyData({
+        filtercourseage
+      });
+    });
+
 
     console.log(show);
 
-    
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
-        console.log("mylat");
-        this.Base.setMyData({
-          mylat,
-          mylng
-        });
-        if(show=="jx"){
 
-          this.loadjg();
-        }
-        this.loadcourse();
-      },()=>{
-
-        if (show == "jx") {
-
-          this.loadjg();
-        }
-        this.loadcourse();
+    this.Base.getAddress((address) => {
+      console.log(address);
+      var mylat = address.location.lat;
+      var mylng = address.location.lng;
+      console.log("mylat");
+      this.Base.setMyData({
+        mylat,
+        mylng
       });
+      if (show == "jx") {
+
+        this.loadjg();
+      }
+      this.loadcourse();
+    }, () => {
+
+      if (show == "jx") {
+
+        this.loadjg();
+      }
+      this.loadcourse();
+    });
 
 
   }
@@ -157,21 +184,7 @@ class Content extends AppBase {
       })
 
     }
-  }
-
-  bindScreening(e) {
-    var qd = e.currentTarget.dataset.qd;
-    if (qd == "ok") {
-      this.Base.setMyData({
-        options_show: false
-      })
-    } else {
-      this.Base.setMyData({
-        options: "s_x",
-        options_show: true
-      })
-    }
-
+    this.loadcourse();
   }
   loadjg() {
     var jigouapi = new JigouApi();
@@ -199,11 +212,35 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
     var mylng = this.Base.getMyData().mylng;
-    jigouapi.courselist({
+    var opt = {
       mylat,
       mylng,
       orderby: "distance"
-    }, (courselist) => {
+    };
+
+    var data = this.Base.getMyData();
+    if (data.fdistrict_id != "0") {
+      opt.district_id = data.fdistrict_id;
+    }
+    if (data.ftype_id != "0") {
+      opt.type = data.ftype_id;
+    }
+    if (data.fage_id != "0") {
+      opt.age = data.fage_id;
+    }
+    if (data.options =="j_x"){
+      opt.orderby="jxrate,distance";
+    }
+    if (data.options == "x_s") {
+      opt.orderby = "up_time desc,distance";
+    }
+    if (data.options == "bm_za") {
+      opt.orderby = "zarate,distance";
+    }
+    if (data.options == "h_p") {
+      opt.orderby = "scoring desc,distance";
+    }
+    jigouapi.courselist(opt, (courselist) => {
       for (var i = 0; i < courselist.length; i++) {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
         console.log("mile=" + mile);
@@ -216,8 +253,77 @@ class Content extends AppBase {
       });
     });
   }
-  hideFilter(){
-    this.Base.setMyData({ options_show:false});
+  hideFilter() {
+    var data = this.Base.getMyData();
+    var tdistrict_id = data.fdistrict_id;
+    var ttype_id = data.ftype_id;
+    var tage_id = data.fage_id;
+    this.Base.setMyData({
+      options_show: false,
+      tdistrict_id,
+      ttype_id,
+      tage_id
+    });
+  }
+
+
+  bindScreening(e) {
+    var data = this.Base.getMyData();
+    var qd = e.currentTarget.dataset.qd;
+    if (qd == "ok") {
+      var fdistrict_id = data.tdistrict_id;
+      var ftype_id = data.ttype_id;
+      var fage_id = data.tage_id;
+      this.Base.setMyData({
+        options_show: false,
+        fdistrict_id,
+        ftype_id,
+        fage_id
+      });
+      this.loadcourse();
+    } else {
+
+      var tdistrict_id = data.fdistrict_id;
+      var ttype_id = data.ftype_id;
+      var tage_id = data.fage_id;
+      this.Base.setMyData({
+        options: "s_x",
+        options_show: true,
+        tdistrict_id,
+        ttype_id,
+        tage_id
+      })
+    }
+
+  }
+  
+  setTDistrict(e) {
+    var id = e.currentTarget.id;
+    this.Base.setMyData({
+      tdistrict_id: id
+    });
+  }
+  setTType(e) {
+    var id = e.currentTarget.id;
+    this.Base.setMyData({
+      ttype_id: id
+    });
+  } 
+  setTAge(e) {
+    var id = e.currentTarget.id;
+    this.Base.setMyData({
+      tage_id: id
+    });
+  }
+  resetFilter() {
+
+    this.Base.setMyData({
+      options_show: false,
+      fdistrict_id: "0",
+      ftype_id: "0",
+      fage_id: "0"
+    });
+    this.loadcourse();
   }
 }
 
@@ -231,7 +337,11 @@ body.bindxuanxiang = content.bindxuanxiang;
 
 body.bindScreening = content.bindScreening;
 body.bindshow = content.bindshow;
-body.loadjg = content.loadjg; 
+body.loadjg = content.loadjg;
 body.loadcourse = content.loadcourse;
 body.hideFilter = content.hideFilter;
+body.resetFilter = content.resetFilter;
+body.setTDistrict = content.setTDistrict;
+body.setTType = content.setTType;
+body.setTAge = content.setTAge;
 Page(body)
