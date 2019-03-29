@@ -12,7 +12,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ currentItemId: 2 })
+    this.Base.setMyData({ currentItemId: 2, show: 1})
   }
   onMyShow() {
     var that = this;
@@ -23,12 +23,97 @@ class Content extends AppBase {
       this.Base.setMyData({ aboutus });
     });
   }
+  bindcheck(e){
+    var check=e.currentTarget.dataset.sf;
+
+    console.log(check)
+    if(check=='N'){
+       this.Base.setMyData({show:2})
+    }
+    if (check == 'Y'){
+      this.Base.setMyData({ show: 1 })
+    }
+
+  }
+  // addjigou
+
+  confirm(e) {
+  
+    console.log(e);
+    var that = this;
+    var data=e.detail.value;
+    var name=data.name;
+    var show=this.Base.getMyData().show;
+    var memberinfo=this.Base.getMyData().memberinfo;
+    //console.log(memberinfo.id)
+    console.log(data.name);
+    if (data.jigou == "") {
+      this.Base.info("请填写机构名");
+      return;
+    }
+    if (data.name == "") {
+      this.Base.info("请填写联系人姓名");
+      return;
+    }
+    if (data.mobile == "") {
+      this.Base.info("请填写联系电话");
+      return;
+    }
+    if (data.address == "") {
+      this.Base.info("请填写地址");
+      return;
+    }
+    if (data.housenum == "") {
+      this.Base.info("请填写门牌号");
+      return;
+    }
+    if (show==1){
+      this.Base.info("请点击同意用户协议");
+      return;
+    }
+    
+    var api = new BookApi();
+
+    wx.showModal({
+      title: '提交',
+      content: '确认提交机构申请？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '加载中',
+            mask: true
+          })
+
+          jigouapi.addjigou({
+            member_id:memberinfo.id,
+          
+           }, (addjigou) => {
+            this.Base.setMyData({ addjigou });
+          });
+
+         
+         
+          wx.hideLoading();
+        }
+      }
+    });
+
+
+  }
+  
 
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
+body.bindcheck = content.bindcheck;
+body.confirm = content.confirm;
 
 Page(body)

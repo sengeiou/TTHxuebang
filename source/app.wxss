@@ -114,6 +114,16 @@ view,navigator,input,text,textarea{
 
   background: #FFC200;
 }
+.bor_bak{
+  border: 1px solid black;
+}
+
+.bor_bot{
+  border-bottom:1px solid #e5e5e5
+}
+.bor_top{
+  border-top:1px solid #e5e5e5
+}
 .white_primary{
   background: #2699EC;
   color: white;
