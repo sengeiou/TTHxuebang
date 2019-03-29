@@ -93,7 +93,7 @@
           <view class='flex-row flex-center margin-top-5'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h6 margin-left-10 txt-black'>{{item.address}}</view>
-            <view class='h6 txt-gray'>1.25km</view>
+            <view class='h6 txt-gray'>{{item.miletxt}}</view>
 
           </view>
         </view>
