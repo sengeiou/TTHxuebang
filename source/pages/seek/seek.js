@@ -58,6 +58,13 @@ class Content extends AppBase {
           this.loadjg();
         }
         this.loadcourse();
+      },()=>{
+
+        if (show == "jx") {
+
+          this.loadjg();
+        }
+        this.loadcourse();
       });
 
 

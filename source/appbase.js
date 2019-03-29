@@ -354,7 +354,7 @@ export class AppBase {
       phoneNumber: tel
     })
   }
-  getAddress(callback, lat, lng) {
+  getAddress(callback,failcallback, lat, lng) {
     var that = this;
     if (AppBase.QQMAP == null) {
       var QQMapWX = require('libs/qqmap/qqmap-wx-jssdk.js');
@@ -387,6 +387,12 @@ export class AppBase {
               console.log(res);
             }
           });
+        }, fail: function (res) {
+          console.log("fail open location");
+          console.log(res);
+          if(failcallback!=undefined){
+            failcallback();
+          }
         }
       });
     } else {

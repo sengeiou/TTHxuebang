@@ -24,7 +24,9 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      currentItemId: 2
+      currentItemId: 2,
+      mylat:0,
+      mylng:0
     })
   }
   onMyShow() {
@@ -40,18 +42,14 @@ class Content extends AppBase {
       console.log(address);
       var mylat=address.location.lat;
       var mylng = address.location.lng;
-      jigouapi.jglist({mylat,mylng,orderby:"distance"}, (jglist) => {
-        for(var i=0;i<jglist.length;i++){
-          var mile=ApiUtil.GetDistance(mylat,mylng,jglist[i].lat,jglist[i].lng);
-          console.log("mile="+mile);
-          var miletxt = ApiUtil.GetMileTxt(mile);
-          console.log("miletxt=" + miletxt);
-          jglist[i]["miletxt"]=miletxt;
-        }
-        this.Base.setMyData({
-          jglist
-        });
+
+      this.Base.setMyData({
+        mylat, mylng
       });
+      this.loadjg();
+    },()=>{
+
+      this.loadjg();
     });
   }
   tojgdetails(e) {
@@ -88,6 +86,28 @@ class Content extends AppBase {
       currentItemId: itemId
     })
   }
+  loadjg() {
+    var jigouapi = new JigouApi();
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
+    jigouapi.jglist({
+      mylat,
+      mylng,
+      orderby: "distance"
+    }, (jglist) => {
+      for (var i = 0; i < jglist.length; i++) {
+        console.log(jglist[i]);
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
+        console.log("mile=" + mile);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        console.log("miletxt=" + miletxt);
+        jglist[i]["miletxt"] = miletxt;
+      }
+      this.Base.setMyData({
+        jglist
+      });
+    });
+  }
 }
 
 var content = new Content();
@@ -95,7 +115,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.totake = content.totake;
+body.totake = content.totake; 
 body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange;
+body.loadjg = content.loadjg;
 Page(body)
