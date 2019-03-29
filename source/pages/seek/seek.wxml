@@ -85,7 +85,7 @@
 
       <view class='flex-row flex-center margin-top-5'>
         <view class='flex-1 h6 txt-black '>{{item.address}}</view>
-        <view class='h6'>1.25km</view>
+        <view class='h6'>{{item.miletxt}}</view>
       </view>
 
     </view>
@@ -170,7 +170,7 @@
 
       <view class='flex-row flex-center'>
         <view class='h6 flex-1'>{{item.JG_address}}</view>
-        <view class='h6   txt-primary'>1.5km</view>
+        <view class='h6   txt-primary'>{{item.miletxt}}</view>
       </view>
 
     </view>
@@ -179,7 +179,7 @@
 
   <view class='SX flex-row flex-center' wx:if='{{options_show==true}}'>
 
-    <view class='' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></view>
+    <view class='' bindtap='hideFilter' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></view>
 
     <view class='bg-white' style='width:74.6%;height:100%;'>
 
