@@ -51,11 +51,6 @@ class Content extends AppBase {
 
     var jigouapi = new JigouApi();
 
-    jigouapi.activedistrictlist({}, (filterdistrict) => {
-      this.Base.setMyData({
-        filterdistrict
-      });
-    });
     jigouapi.coursetype({}, (filtercoursetype) => {
       this.Base.setMyData({
         filtercoursetype
@@ -80,18 +75,33 @@ class Content extends AppBase {
         mylat,
         mylng
       });
-      if (show == "jx") {
-
-        this.loadjg();
-      }
       this.loadcourse();
+
+
+      jigouapi.activedistrictlist({}, (filterdistrict) => {
+        this.Base.setMyData({
+          filterdistrict
+        });
+        var adcode=address.ad_info.adcode;
+        for(var i=0;i<filterdistrict.length;i++){
+          if(adcode==filterdistrict[i].id){
+            var fdistrict_id = filterdistrict[i].id;
+            this.Base.setMyData({fdistrict_id});
+          }
+        }
+        this.loadjg();
+      });
+
     }, () => {
-
-      if (show == "jx") {
-
-        this.loadjg();
-      }
+      this.loadjg();
       this.loadcourse();
+
+
+      jigouapi.activedistrictlist({}, (filterdistrict) => {
+        this.Base.setMyData({
+          filterdistrict
+        });
+      });
     });
 
 
@@ -117,40 +127,18 @@ class Content extends AppBase {
       this.Base.setMyData({
         show: "jx"
       })
-      var jigouapi = new JigouApi();
-      jigouapi.jglist({}, (jglist) => {
-        this.Base.setMyData({
-          jglist
-        });
-      });
     }
     if (type == "xs") {
       this.Base.setMyData({
         show: "xs"
       })
-      var jigouapi = new JigouApi();
-      jigouapi.jglist({
-        jigou: "测试机构二"
-      }, (jglist) => {
-        this.Base.setMyData({
-          jglist
-        });
-      });
-
     }
     if (type == "hp") {
       this.Base.setMyData({
         show: "hp"
       })
-      var jigouapi = new JigouApi();
-      jigouapi.jglist({
-        jigou: "测试机构一"
-      }, (jglist) => {
-        this.Base.setMyData({
-          jglist
-        });
-      });
     }
+    this.loadjg();
 
   }
 
@@ -190,11 +178,29 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
     var mylng = this.Base.getMyData().mylng;
-    jigouapi.jglist({
+
+    var opt = {
       mylat,
       mylng,
       orderby: "distance"
-    }, (jglist) => {
+    };
+    var data = this.Base.getMyData();
+
+    if (data.fdistrict_id != "0") {
+      opt.district_id = data.fdistrict_id;
+    }
+    if (data.show == "jx") {
+      opt.orderby = "jxrate,distance";
+    }
+    if (data.show == "xs") {
+      opt.orderby = "up_time desc,distance";
+    }
+    if (data.show == "hp") {
+      opt.orderby = "scoring desc,distance";
+    }
+
+
+    jigouapi.jglist(opt, (jglist) => {
       for (var i = 0; i < jglist.length; i++) {
         console.log(jglist[i]);
         var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
@@ -296,7 +302,13 @@ class Content extends AppBase {
     }
 
   }
-  
+  changeDistrict(e){
+    console.log(e);
+    var seq=parseInt(e.detail.value);
+    var filterdistrict = this.Base.getMyData().filterdistrict;
+    this.Base.setMyData({fdistrict_id:filterdistrict[seq].id});
+    this.loadjg();
+  }
   setTDistrict(e) {
     var id = e.currentTarget.id;
     this.Base.setMyData({
@@ -342,6 +354,7 @@ body.loadcourse = content.loadcourse;
 body.hideFilter = content.hideFilter;
 body.resetFilter = content.resetFilter;
 body.setTDistrict = content.setTDistrict;
-body.setTType = content.setTType;
+body.setTType = content.setTType; 
 body.setTAge = content.setTAge;
+body.changeDistrict = content.changeDistrict;
 Page(body)

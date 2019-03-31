@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/content/content",
     "pages/home/home",
+    "pages/content/content",
     "pages/liucheng/liucheng",
     "pages/jgdetails/jgdetails",
     "pages/aboutus/aboutus",
