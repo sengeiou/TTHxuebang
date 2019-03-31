@@ -82,13 +82,19 @@ class Content extends AppBase {
         this.Base.setMyData({
           filterdistrict
         });
-        var adcode=address.ad_info.adcode;
-        for(var i=0;i<filterdistrict.length;i++){
-          if(adcode==filterdistrict[i].id){
-            var fdistrict_id = filterdistrict[i].id;
-            this.Base.setMyData({fdistrict_id});
+        if (this.Base.options.type == 'jg') {
+
+          var adcode = address.ad_info.adcode;
+          for (var i = 0; i < filterdistrict.length; i++) {
+            if (adcode == filterdistrict[i].id) {
+              var fdistrict_id = filterdistrict[i].id;
+              this.Base.setMyData({
+                fdistrict_id
+              });
+            }
           }
         }
+
         this.loadjg();
       });
 
@@ -234,8 +240,8 @@ class Content extends AppBase {
     if (data.fage_id != "0") {
       opt.age = data.fage_id;
     }
-    if (data.options =="j_x"){
-      opt.orderby="jxrate,distance";
+    if (data.options == "j_x") {
+      opt.orderby = "jxrate,distance";
     }
     if (data.options == "x_s") {
       opt.orderby = "up_time desc,distance";
@@ -302,11 +308,13 @@ class Content extends AppBase {
     }
 
   }
-  changeDistrict(e){
+  changeDistrict(e) {
     console.log(e);
-    var seq=parseInt(e.detail.value);
+    var seq = parseInt(e.detail.value);
     var filterdistrict = this.Base.getMyData().filterdistrict;
-    this.Base.setMyData({fdistrict_id:filterdistrict[seq].id});
+    this.Base.setMyData({
+      fdistrict_id: filterdistrict[seq].id
+    });
     this.loadjg();
   }
   setTDistrict(e) {
@@ -320,7 +328,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       ttype_id: id
     });
-  } 
+  }
   setTAge(e) {
     var id = e.currentTarget.id;
     this.Base.setMyData({
@@ -354,7 +362,7 @@ body.loadcourse = content.loadcourse;
 body.hideFilter = content.hideFilter;
 body.resetFilter = content.resetFilter;
 body.setTDistrict = content.setTDistrict;
-body.setTType = content.setTType; 
+body.setTType = content.setTType;
 body.setTAge = content.setTAge;
 body.changeDistrict = content.changeDistrict;
 Page(body)

@@ -8,7 +8,7 @@
   </view>
 
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
-    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>代付款</view>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>待付款</view>
     <view wx:if='{{show=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
     <view wx:if='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
@@ -17,26 +17,35 @@
 
 
 <view class='' wx:if='{{show=="finished"}}'>
-  <view class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+  <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' 
+  wx:for="{{wclist}}" wx:key='k'
+  >
     <view class='flex-row flex-center padding-20 bor_bot' style=''>
-      <view class='flex-1 txt-gray'>2019-02-03 12:00</view>
-      <view class='txt-gray'>已完成</view>
+      <view class='flex-1 txt-gray'>
+      {{item.pstatus=='W'?item.submit_time_formatting:''}}
+      {{item.pstatus=='P'?item.pay_time_formatting:''}}
+      {{item.pstatus=='C'?item.cancel_time_formatting:''}}
+      {{item.pstatus=='U'?item.use_time_formatting:''}}
+      {{item.pstatus=='R'?item.refund_time_formatting:''}}
+      {{item.pstatus=='F'?item.finishrefund_time_formatting:''}}
+      {{item.pstatus=='S'?item.success_time_formatting:''}}
+      </view>
+      <view class='txt-gray'>{{item.pstatus_name}}</view>
     </view>
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
-      <image class='icon radius-10' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+      <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
       <view class='flex-1 flex-row column margin-left-20'>
 
         <view class='flex-row flex-center'>
-          <view class='flex-1 txt-black'>美术绘画</view>
-          <view class='txt-black'>￥69.90</view>
+          <view class='flex-1 txt-black'>{{item.course_name}}</view>
+          <view class='txt-black'>￥{{item.amount}}</view>
         </view>
 
         <view class='flex-row flex-center margin-top-10'>
-          <view class='flex-1 txt-gray h5'>童彩飞扬</view>
-          <view class='txt-gray h5'>x1</view>
+          <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
         </view>
 
 
@@ -53,34 +62,40 @@
 
     <view class='flex-row flex-center padding-20' style=''>
       <view class='flex-1'></view>
-      <view class='txt-black '>共1个课程</view>
-      <view class='txt-black txt-bold margin-left-20'>实付金额：￥69.90</view>
+      <view class='txt-black txt-bold margin-left-20'>实付金额：￥{{item.amount}}</view>
     </view>
 
-  </view>
+  </navigator>
 </view>
 
 <view class='' wx:if='{{show=="wait"}}'>
-  <view class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+  <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' 
+  wx:for="{{dflist}}" wx:key='k'>
     <view class='flex-row flex-center padding-20 bor_bot' style=''>
-      <view class='flex-1 txt-gray'>2019-02-03 12:00</view>
-      <view class='txt-gray'>已完成</view>
+      <view class='flex-1 txt-gray'>
+      {{item.pstatus=='W'?item.submit_time_formatting:''}}
+      {{item.pstatus=='P'?item.pay_time_formatting:''}}
+      {{item.pstatus=='C'?item.cancel_time_formatting:''}}
+      {{item.pstatus=='U'?item.use_time_formatting:''}}
+      {{item.pstatus=='R'?item.refund_time_formatting:''}}
+      {{item.pstatus=='F'?item.finishrefund_time_formatting:''}}
+      {{item.pstatus=='S'?item.success_time_formatting:''}}</view>
+      <view class='txt-gray'>{{item.pstatus_name}}</view>
     </view>
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
-      <image class='icon radius-10' src='{{uploadpath}}resource/{{res.bg_1}}'></image>
+      <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
       <view class='flex-1 flex-row column margin-left-20'>
 
         <view class='flex-row flex-center'>
-          <view class='flex-1 txt-black'>书法书法</view>
-          <view class='txt-black'>￥99.90</view>
+          <view class='flex-1 txt-black'>{{item.course_name}}</view>
+          <view class='txt-black'>￥{{item.amount}}</view>
         </view>
 
         <view class='flex-row flex-center margin-top-10'>
-          <view class='flex-1 txt-gray h5'>童彩飞扬</view>
-          <view class='txt-gray h5'>x1</view>
+          <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
         </view>
 
 
@@ -94,9 +109,8 @@
 
     <view class='flex-row flex-center padding-20' style=''>
       <view class='flex-1'></view>
-      <view class='txt-black '>共1个课程</view>
-      <view class='txt-black txt-bold margin-left-20'>实付金额：￥99.90</view>
+      <view class='txt-black txt-bold margin-left-20'>实付金额：￥{{item.amount}}</view>
     </view>
 
-  </view>
+  </navigator>
 </view>

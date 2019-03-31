@@ -1,22 +1,22 @@
 {
   "pages":[
+    "pages/order/order",
+    "pages/myorder/myorder",
     "pages/home/home",
+    "pages/purchase/purchase",
+    "pages/kcdetails/kcdetails",
     "pages/content/content",
     "pages/liucheng/liucheng",
     "pages/jgdetails/jgdetails",
     "pages/aboutus/aboutus",
     "pages/mycollect/mycollect",
-    "pages/myorder/myorder",
     "pages/mymessage/mymessage",
     "pages/problem/problem",
-    "pages/kcdetails/kcdetails",
     "pages/seek/seek",
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
     "pages/personaldata/personaldata",
-    "pages/order/order",
-    "pages/purchase/purchase",
     "pages/auth/auth"
   ],
    "permission": {

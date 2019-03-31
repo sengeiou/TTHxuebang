@@ -38,8 +38,9 @@
       <view class='flex-row flex-center' style=''>
 
         <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'>
-          <view class='flex-row flex-center  weizhi' style=''><view class='txt-black h5'  wx:if="{{'0'==fdistrict_id}}" >区域</view>
-            <view class='txt-black h5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}" >{{ditem.name}}</view>
+          <view class='flex-row flex-center  weizhi' style=''>
+            <view class='txt-black h5' wx:if="{{'0'==fdistrict_id}}">区域</view>
+            <view class='txt-black h5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
             <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
           </view>
         </picker>

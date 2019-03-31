@@ -27,10 +27,8 @@ class Content extends AppBase {
       this.Base.setMyData({ indexbanner });
     });
     //this.Base.options.id
-    jigouapi.courseinfo({ id: 1 }, (courseinfo) => {
-
+    jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
       this.Base.setMyData({ courseinfo });
-
     });
 
   }
@@ -52,7 +50,7 @@ class Content extends AppBase {
   }
   bindtopurchase(e){
     wx.navigateTo({
-      url: '/pages/purchase/purchase'
+      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
     })
   }
 
