@@ -49,7 +49,7 @@ class Content extends AppBase {
 
     var timerStart = setInterval(() => {
       var jgapi = new JigouApi();
-      jgapi.latestbuy((buyshow) => {
+      jgapi.latestbuy(() => {
         this.Base.setMyData({
           buyshow
         });

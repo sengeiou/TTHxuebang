@@ -61,7 +61,8 @@ class Content extends AppBase {
   fav(e){
     var status=e.currentTarget.id;
     var jigouapi=new JigouApi();
-    jigouapi.coursefav({ course_id: this.Base.options.id, status},()=>{
+    jigouapi.coursefav({ course_id: this.Base.options.id, status},(ret)=>{
+      //this.Base.info(ret.result);
       this.Base.setMyData({ isfav:status});
     });
   }

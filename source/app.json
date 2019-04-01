@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/mycollect/mycollect",
     "pages/liucheng/liucheng",
     "pages/baomainfo/baomainfo",
     "pages/baoma/baoma",
@@ -16,7 +17,6 @@
     "pages/content/content",
     "pages/jgdetails/jgdetails",
     "pages/aboutus/aboutus",
-    "pages/mycollect/mycollect",
     "pages/mymessage/mymessage",
     "pages/problem/problem",
     "pages/teacher/teacher",

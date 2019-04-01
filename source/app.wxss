@@ -2,7 +2,7 @@
 @import "wxParse/wxParse.wxss";
 
 page{
-  background: white;
+  background: #f5f5f5;
 }
 .clear-contact{
   position: absolute;  
@@ -142,7 +142,7 @@ view,navigator,input,text,textarea{
   color:white;
 }
 .txt-gray{
-  color:#84817E;
+  color:#AAAAAA;
 }
 .txt-blue{
   color:#3c78d8;
