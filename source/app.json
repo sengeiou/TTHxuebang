@@ -4,6 +4,7 @@
     "pages/liucheng/liucheng",
     "pages/order/order",
     "pages/search/search",
+    "pages/city/city",
     "pages/myorder/myorder",
     "pages/purchase/purchase",
     "pages/kcdetails/kcdetails",
