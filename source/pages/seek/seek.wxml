@@ -152,11 +152,15 @@
     </view>
   </view>
   <view style='height:180rpx;'></view>
+
+
+
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{courselist}}' wx:key='k'>
     <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
       <block wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem">
+      
       <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
         <view class='flex-row flex-center'>
           <view class='line-height-0'>
@@ -165,6 +169,7 @@
           <view style='margin-left:10rpx;'>***成功预约了***课程</view>
         </view>
       </view>
+
       </block>
       <view class='flex-row flex-center'>
         <view class='h7 '>⭐⭐⭐⭐⭐</view>

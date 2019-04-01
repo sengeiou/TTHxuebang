@@ -8,3 +8,8 @@
 .h{
 font-size: 30rpx;
 }
+.bg_img{
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}

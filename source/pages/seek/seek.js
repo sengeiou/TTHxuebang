@@ -69,7 +69,6 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
 
-
     var jigouapi = new JigouApi();
 
     jigouapi.coursetype({}, (filtercoursetype) => {

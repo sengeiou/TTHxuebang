@@ -3,6 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { JigouApi } from "../../apis/jigou.api.js";
+import { TeacherApi } from "../../apis/teacher.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -17,16 +18,48 @@ class Content extends AppBase {
     };
     this.Base.setMyData({ show: 0, shows: "finished", });
 
-    if (options.new != undefined) {
-      json.newphone = "N";
+    // if (options.new != undefined) {
+    //   json.newphone = "N";
+    // }
+    // var bookapi = new BookApi();
+
+
+  }
+ 
+
+
+
+
+    onMyShow() {
+      var that = this;
+      var instapi = new InstApi();
+      var show = this.Base.getMyData().show;
+      var teacherapi = new TeacherApi();
+      var jigouapi = new JigouApi();
+
+      jigouapi.courselist({}, (courselist) => {
+        this.Base.setMyData({
+          courselist
+        });
+      });
+      jigouapi.jglist({}, (jglist) => {
+        this.Base.setMyData({
+          jglist
+        });
+      });
+      teacherapi.teachlist({ orderby: 'r_main.id' }, (teachlist) => {
+        this.Base.setMyData({ teachlist });
+      });
+
+
     }
-    var bookapi = new BookApi();
 
 
-  }
-  onMyShow() {
-    var that = this;
-  }
+
+
+
+
+
   skey(e) {
     var keyword = e.detail.value;
     console.log(keyword);
@@ -36,42 +69,42 @@ class Content extends AppBase {
   }
 
 
-  search(e) {
-    //console.log(e.detail.value);
-    this.Base.setMyData({ show: 1 });
-    wx.showLoading({
-      title: '加载中...',
-    })
-    setTimeout(() => {
-      var json = {};
-      var data = e.detail.value;
-      this.Base.setMyData({ value: data });
-      json.searchkeyword = data;
+  // search(e) {
+    
+  //   this.Base.setMyData({ show: 1 });
+  //   wx.showLoading({
+  //     title: '加载中...',
+  //   })
+  //   setTimeout(() => {
+  //     var json = {};
+  //     var data = e.detail.value;
+  //     this.Base.setMyData({ value: data });
+  //     json.searchkeyword = data;
 
-      var bookapi = new BookApi();
-      bookapi.keywordlist(json, (result) => {
-        this.Base.setMyData({ result });
-        wx.hideLoading();
-      });
-    }, 100);
+  //     var bookapi = new BookApi();
+  //     bookapi.keywordlist(json, (result) => {
+  //       this.Base.setMyData({ result });
+  //       wx.hideLoading();
+  //     });
+  //   }, 100);
 
-  }
+  // }
 
-  tosearch(e) {
-    var word = this.Base.getMyData().value;
-    if (word != null) {
-      wx.navigateTo({
-        url: '/pages/searchbook/searchbook?keyword=' + word,
-      })
-    }
-  }
+  // tosearch(e) {
+  //   var word = this.Base.getMyData().value;
+  //   if (word != null) {
+  //     wx.navigateTo({
+  //       url: '/pages/searchbook/searchbook?keyword=' + word,
+  //     })
+  //   }
+  // }
 
-  todetails(e) {
-    var name = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/searchbook/searchbook?keyword=' + name,
-    })
-  }
+  // todetails(e) {
+  //   var name = e.currentTarget.id;
+  //   wx.navigateTo({
+  //     url: '/pages/searchbook/searchbook?keyword=' + name,
+  //   })
+  // }
 
   bindshow(e) {
     var type = e.currentTarget.dataset.type;

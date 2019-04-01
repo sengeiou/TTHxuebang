@@ -89,20 +89,20 @@
 
 
   <view wx:if='{{show=="kcxq"}}' class=''>
-    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' ' style='height:2828rpx;width:750rpx '></image>
+    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' ' mode='widthFix' style='width:100vw'></image>
   </view>
 
   <view wx:if='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
     {{courseinfo.description}}
   </view>
 
-  <view class='height-50 '></view>
+  <!-- <view class='height-50 '></view>
 
   <view class='margin-40 flex-row flex-column '>
     <image src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-50 '></image>
-  </view>
+  </view> -->
 
-  <view class='height-80 '></view>
+  <!-- <view class='height-80 '></view> -->
 
 
   <view style='' class='flex-row flex-1'>
