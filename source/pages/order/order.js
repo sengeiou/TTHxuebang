@@ -32,15 +32,14 @@ class Content extends AppBase {
       var reminderpay = this.Base.getMyData().reminderpay;
       if(reminderpay>0){
         reminderpay--;
+        console.log(reminderpay);
         
-        var mHour = reminderpay / 3600;
-        var mMinute = (reminderpay - mHour * 3600) / 60;
+        var mMinute = (reminderpay ) / 60;
         var mSecond = (reminderpay) % 60;
-        mHour = this.Base.util.ten2(mHour);
         mMinute = this.Base.util.ten2(mMinute);
         mSecond = this.Base.util.ten2(mSecond);
         console.log("reminderpay" + reminderpay);
-        this.Base.setMyData({ mHour, mMinute, mSecond, reminderpay});
+        this.Base.setMyData({  mMinute, mSecond, reminderpay});
 
         if(reminderpay<=0){
           this.onMyShow();

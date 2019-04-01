@@ -4,7 +4,7 @@
 
 
   <view style='color:#FFC200' class='txt-bold'>等待支付</view>
-  <view style='color:#FFC200' class='txt-bold'>剩余支付时间{{mHour}}:{{mMinute}}:{{mSecond}}</view>
+  <view style='color:#FFC200' class='txt-bold'>剩余支付时间{{mMinute}}:{{mSecond}}</view>
   <view>
     <button bindtap='bindpay'>支付</button>
   </view>
