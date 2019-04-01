@@ -39,7 +39,7 @@
 </navigator>
 
 <navigator url='/pages/mycollect/mycollect' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20'>
-  <image class='icon' src='{{uploadpath}}resource/{{res.mycollect}}'></image>
+  <image class='icon' src='{{uploadpath}}resource/{{res.fav}}'></image>
   <view class='margin-left-20  txt-black  flex-1 h'>我的收藏</view>
   <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
 </navigator>
