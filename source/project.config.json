@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 18,
+			"current": 20,
 			"list": [
 				{
 					"id": -1,
@@ -169,6 +169,20 @@
 					"id": -1,
 					"name": "城市选择",
 					"pathName": "pages/city/city",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "宝妈优选",
+					"pathName": "pages/baoma/baoma",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "宝妈优选详情",
+					"pathName": "pages/baomainfo/baomainfo",
 					"query": "",
 					"scene": null
 				}

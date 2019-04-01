@@ -1,0 +1,3 @@
+<!--pages/baomainfo/baomainfo.wxml-->
+
+<image src='{{uploadpath}}baoma/{{baoma.content}}' class='img' style=''></image>

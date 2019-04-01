@@ -2,6 +2,8 @@
   "pages":[
     "pages/home/home",
     "pages/liucheng/liucheng",
+    "pages/baomainfo/baomainfo",
+    "pages/baoma/baoma",
     "pages/seek/seek",
     "pages/cityselect/cityselect",
     "pages/order/order",

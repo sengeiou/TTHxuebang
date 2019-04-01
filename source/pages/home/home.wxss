@@ -11,13 +11,14 @@
   background-color: white;
 }
 .img{
-  width: 230rpx;
-  height: 280rpx;
+  width: 220rpx;
+  height: 252rpx;
 }
 .mid{
   position: absolute;
   width: 80%;
   z-index: 10;
+  height: 220rpx;
   bottom:0%;
   opacity: 0.8;
   box-shadow: 1px 1px 5px #888888;
@@ -28,7 +29,7 @@
   height: 312rpx;
 }
 .li1{
-  width: 506rpx;
+  width: 600rpx;
   margin: 0 auto;
   border-radius: 10rpx;
   height: 300rpx;

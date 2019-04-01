@@ -72,6 +72,12 @@ class Content extends AppBase {
     }
 
   }
+  
+  tobaoma(e){
+    wx.navigateTo({
+      url: '/pages/baoma/baoma',
+    })
+  }
 
   swiperChange(e) {
     var currentItemId = e.detail.currentItemId;
@@ -117,6 +123,7 @@ body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.totake = content.totake; 
 body.swiperChange = content.swiperChange;
-body.clickChange = content.clickChange;
+body.clickChange = content.clickChange; 
+body.tobaoma = content.tobaoma; 
 body.loadjg = content.loadjg;
 Page(body)

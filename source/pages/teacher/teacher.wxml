@@ -11,12 +11,11 @@
       <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
       <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
 
-
     </view>
 
 
+    <view bindtap='tojgdetails' id='{{item.mechanism_id}}'  class='flex-1 margin-left-20 txt-blue h5'>{{item.mechanism_id_name}}</view>
 
-    <view class='flex-1 margin-left-20 txt-blue h5'>{{item.mechanism_id_name}}</view>
     <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
     <view class='h5'>{{item.count}}次</view>
   </view>

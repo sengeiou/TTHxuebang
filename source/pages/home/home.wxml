@@ -26,8 +26,7 @@
 
 <view class='bnk  ' style=''>
 
-  <swiper bindchange="swiperChange" indicator-dots='{{false}}' current-item-id='{{currentItemId}}' next-margin="100rpx" previous-margin="120rpx" autoplay='false' interval='3000' duration='1000' circular='true' style='width:750rpx;height:310rpx;margin-top:20rpx'>
-
+  <swiper bindchange="swiperChange" indicator-dots='{{false}}' current-item-id='{{currentItemId}}' next-margin="75rpx" previous-margin="75rpx" autoplay='false' interval='3000' duration='1000' circular='true' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" bindtap='clickChange'>
       <view class='li'>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
@@ -48,11 +47,12 @@
     <image src='{{uploadpath}}resource/{{res.home_2}}' class='img radius-10' style=''></image>
   </view>
 
-  <view class='flex-1 text-center'>
+  <view class='flex-1 text-center' bindtap='tobaoma'>
     <image src='{{uploadpath}}resource/{{res.home_3}}' class='img radius-10' style=''></image>
   </view>
 
 </view>
+
 
 
 
@@ -65,25 +65,23 @@
 
   </view>
 
-  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:450rpx ' class=''>
-    <view class='margin-top-20 padding-15' style=''>
-      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:300rpx'></image>
+  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:620rpx ' class=''>
+    <view class='margin-top-20 padding-20' style=''>
+      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
     <view class='flex-row flex-column '>
-      <view class='radius-10 bg-white padding-left-40 mid margin-bottom-10'>
+      <view class='radius-10 bg-white  mid margin-bottom-10'>
 
-        <view class='padding-10 '>
+        <view class='padding-20 '>
           <view class='txt-black txt-bold'>{{item.jigou}}</view>
 
+
           <view class='flex-row flex-center margin-top-5'>
-            <view class='flex-1 h5 txt-black'>评分：暂无评分</view>
+            <view class='flex-row flex-1'>
+              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+            </view>
             <view class='h6'>已预约15人</view>
-          </view>
-
-
-          <view class='flex-row margin-top-5'>
-            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
 
 
