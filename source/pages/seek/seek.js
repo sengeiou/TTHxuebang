@@ -47,18 +47,8 @@ class Content extends AppBase {
     });
     //  console.log(this.options.type);
 
-    var timerStart = setInterval(() => {
-      var jgapi = new JigouApi();
-      jgapi.latestbuy(() => {
-        this.Base.setMyData({
-          buyshow
-        });
-      });
-    }, 15000);
+    
 
-    this.Base.setMyData({
-      timerStart
-    });
   }
 
   onUnload() {
@@ -80,6 +70,11 @@ class Content extends AppBase {
     jigouapi.courseage({}, (filtercourseage) => {
       this.Base.setMyData({
         filtercourseage
+      });
+    });
+    jigouapi.buyshow({}, (buyshow) => {
+      this.Base.setMyData({
+        buyshow
       });
     });
 
@@ -383,7 +378,9 @@ class Content extends AppBase {
   yingcang(){
     this.Base.setMyData({ xiala: "yc" })
   }
-
+  catchTouchMove(){
+    return false;
+  }
 
 
 }
@@ -408,4 +405,5 @@ body.setTDistrict = content.setTDistrict;
 body.setTType = content.setTType;
 body.setTAge = content.setTAge;
 body.changeDistrict = content.changeDistrict;
+body.catchTouchMove = content.catchTouchMove;
 Page(body)
