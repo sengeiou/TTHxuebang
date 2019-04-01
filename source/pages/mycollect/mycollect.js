@@ -35,8 +35,20 @@ class Content extends AppBase {
       this.Base.setMyData({
         kclist
       });
+      });
+    api.favjigoulist({
+    }, (jglist) => {
+      this.Base.setMyData({
+        jglist
+      });
     });
-    
+
+    api.favvideolist({
+    }, (splist) => {
+      this.Base.setMyData({
+        splist
+      });
+    });
   }
 
   bindshow(e) {

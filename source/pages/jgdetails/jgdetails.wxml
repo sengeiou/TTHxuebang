@@ -9,7 +9,13 @@
   <view class='flex-row flex-column '>
     <view class='radius-10 bg-white padding-15 mid margin-bottom-10'>
       <view class='padding-10 '>
-        <view class='txt-black txt-bold h4'>{{jginfo.jigou}}</view>
+        <view class='flex-row'>
+          <view class='flex-1 txt-black txt-bold h4'>{{jginfo.jigou}}</view>
+          <view>
+            <button  bindtap='fav' id='Y' wx:if="{{isfav=='N'}}">未收藏</button>
+            <button  bindtap='fav' id='N' wx:if="{{isfav=='Y'}}">已收藏</button>
+          </view>
+        </view>
 
         <view class='flex-row margin-top-10'>
           <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>

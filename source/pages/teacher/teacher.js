@@ -30,7 +30,25 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-  
+
+  fav(e) {
+    var id = e.currentTarget.id;
+    console.log(id);
+    id=id.split("_");
+    var status=id[1];
+    id=id[0];
+    var teachlist = this.Base.getMyData().teachlist;
+    for(var i=0;i<teachlist.length;i++){
+      if(teachlist[i].id==id){
+        teachlist[i].isfav=status;
+      }
+    }
+    var jigouapi = new JigouApi();
+    jigouapi.videofav({ video_id: id, status }, (ret) => {
+      //this.Base.info(ret.result);
+      this.Base.setMyData({ teachlist });
+    });
+  }
 }
 
 var content = new Content();
@@ -38,4 +56,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
+body.fav = content.fav;
 Page(body)

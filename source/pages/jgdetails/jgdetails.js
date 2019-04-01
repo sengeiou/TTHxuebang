@@ -54,7 +54,7 @@ class Content extends AppBase {
       });
 
       this.Base.setMyData({
-        jginfo
+        jginfo,isfav:jginfo.isfav
       });
 
       jigouapi.courselist({
@@ -75,12 +75,21 @@ class Content extends AppBase {
       url: '/pages/kcdetails/kcdetails?id=' + id,
     })
   }
+
+  fav(e) {
+    var status = e.currentTarget.id;
+    var jigouapi = new JigouApi();
+    jigouapi.jigoufav({ jg_id: this.Base.options.id, status }, (ret) => {
+      this.Base.setMyData({ isfav: status });
+    });
+  }
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
 body.tokcdetails = content.tokcdetails;
+body.fav = content.fav;
 
 Page(body)
