@@ -375,8 +375,9 @@ class Content extends AppBase {
 
 
   bindxiala(e){
-    
-    this.Base.setMyData({ xiala: "xs"})
+    var xiala=this.Base.getMyData().xiala;
+
+    this.Base.setMyData({ xiala: xiala=="xs"?"yc":"xs"})
 
   }
   yingcang(){

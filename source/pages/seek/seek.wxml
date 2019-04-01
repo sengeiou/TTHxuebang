@@ -39,29 +39,29 @@
 
         <!-- <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'> -->
 
-          <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
-            <view class='txt-black h5' wx:if="{{'0'==fdistrict_id}}">区域</view>
-            <view class='txt-black h5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
-            <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
-          </view>
+        <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
+          <view class='txt-black h5' wx:if="{{'0'==fdistrict_id}}">区域</view>
+          <view class='txt-black h5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+          <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+        </view>
 
         <!-- </picker> -->
 
 
 
 
-<view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
+        <view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
 
-</view>
-<view wx:if='{{xiala=="xs"}}' class='bg-white list' style=''>
+        </view>
+        <view wx:if='{{xiala=="xs"}}' class='bg-white list' style=''>
 
 
-  <scroll-view scroll-y>
-<view bindchange='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
+          <scroll-view scroll-y>
+            <view bindchange='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
 
-  </scroll-view>
+          </scroll-view>
 
-</view>
+        </view>
 
 
 
@@ -182,14 +182,14 @@
       <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
       <block wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem">
 
-      <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
-        <view class='flex-row flex-center'>
-          <view class='line-height-0'>
-            <image src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+        <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
+          <view class='flex-row flex-center'>
+            <view class='line-height-0'>
+              <image src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+            </view>
+            <view style='margin-left:10rpx;'>***成功预约了***课程</view>
           </view>
-          <view style='margin-left:10rpx;'>***成功预约了***课程</view>
         </view>
-      </view>
 
       </block>
       <view class='flex-row flex-center'>
@@ -227,7 +227,7 @@
       <view class='height-30'></view>
 
       <view class='flex-row column padding-bottom-20'>
-        <view class='margin_L_T' >区域</view>
+        <view class='margin_L_T'>区域</view>
 
         <view class='flex-row flex-center  flex-wrap'>
           <view class='{{tdistrict_id=="0"?"bg-primary":"bg-gray"}} radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTDistrict'>全部</view>
