@@ -393,8 +393,7 @@ export class JigouApi{
         })
     }
 
-    keywordlist(json, callback, showLoading = true) {
-
+    checkcanbuy(json, callback, showLoading = true) {
         if (showLoading)
             ApiConfig.ShowLoading();
 
@@ -402,7 +401,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/keywordlist',
+            url: ApiConfig.GetApiUrl() + 'jigou/checkcanbuy',
             data: json,
             method: 'POST',
             dataType: 'json',

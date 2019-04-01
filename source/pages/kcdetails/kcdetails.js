@@ -27,7 +27,7 @@ class Content extends AppBase {
     });
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
-      this.Base.setMyData({ courseinfo });
+      this.Base.setMyData({ courseinfo,isfav:courseinfo.isfav });
     });
 
     jigouapi.checkcanbuy({course_id:this.Base.options.id},(canbuy)=>{
@@ -58,7 +58,13 @@ class Content extends AppBase {
     })
   }
 
-  
+  fav(e){
+    var status=e.currentTarget.id;
+    var jigouapi=new JigouApi();
+    jigouapi.coursefav({ course_id: this.Base.options.id, status},()=>{
+      this.Base.setMyData({ isfav:status});
+    });
+  }
 
 
 
@@ -68,7 +74,8 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.bindcut = content.bindcut;
+body.bindcut = content.bindcut; 
 body.bindtopurchase = content.bindtopurchase;
+body.fav = content.fav;
 
 Page(body)

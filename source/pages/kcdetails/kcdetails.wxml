@@ -109,9 +109,13 @@
     <view class='bg-white' wx:if="{{canbuy.code!='0'}}" >{{canbuy.result}}</view>
     <view style='' class='flex-row flex-1'>
 
-      <view class='flex-1 flex-row flex-column padding-15 bg-white'>
-        <image class='icon-25' src='{{uploadpath}}resource/{{res.shoucang}}'></image>
+      <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
+        <image class='icon-25'  src='{{uploadpath}}resource/{{res.unfav}}'></image>
         <view class='h6'>收藏</view>
+      </view>
+      <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
+        <image class='icon-25'  src='{{uploadpath}}resource/{{res.fav}}'></image>
+        <view class='h6'>已收藏</view>
       </view>
 
 

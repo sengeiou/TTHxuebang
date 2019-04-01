@@ -1,5 +1,6 @@
 <!--pages/search/search.wxml-->
-<view class='Top padding-20 flex-row flex-center'>
+
+<!-- <view class='Top padding-20 flex-row flex-center'>
   <view class='search flex-row flex-center padding-5'>
     <view style='width:20rpx;'></view>
     <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
@@ -10,7 +11,7 @@
     </view>
   </view>
   <view class='padding-left-10 h5 ' bindtap='tosearch' id='{{item.name}}'>取消</view>
-</view>
+</view> -->
 
 
 <!-- <view bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
@@ -92,8 +93,6 @@
 
 
 
-
-
   <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
@@ -116,8 +115,6 @@
             <view class='h6'>已预约15人</view>
           </view>
 
-
-
           <view class='flex-row flex-center margin-top-5'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h6 margin-left-10 txt-black'>{{item.address}}</view>
@@ -134,12 +131,6 @@
   </view>
 
   <view class='height-20'></view>
-
-
-
-
-
-
 
 
 

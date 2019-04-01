@@ -16,7 +16,7 @@ class Content extends AppBase {
     var json = {
       searchrecomm: ""
     };
-    this.Base.setMyData({ show: 0, shows: "finished", });
+    this.Base.setMyData({ keyword: this.options.keyword, shows: "finished", });
 
     // if (options.new != undefined) {
     //   json.newphone = "N";
@@ -37,26 +37,37 @@ class Content extends AppBase {
       var teacherapi = new TeacherApi();
       var jigouapi = new JigouApi();
 
-      // jigouapi.courselist({}, (courselist) => {
-      //   this.Base.setMyData({
-      //     courselist
-      //   });
-      // });
-      // jigouapi.jglist({}, (jglist) => {
-      //   this.Base.setMyData({
-      //     jglist
-      //   });
-      // });
-      // teacherapi.teachlist({ orderby: 'r_main.id' }, (teachlist) => {
-      //   this.Base.setMyData({ teachlist });
-      // });
+      var json = {};
+      var kc = {};
+      var video = {};
+      json.searchkeyword = this.Base.getMyData().keyword;
+      kc.searchkeyword = this.Base.getMyData().keyword;
+      video.searchkeyword = this.Base.getMyData().keyword;
+      console.log(json.searchkeyword+"电风扇");
+
+
+
+      jigouapi.jglist(json, (jglist) => {
+        this.Base.setMyData({
+          jglist
+        });
+      });
+      
+      
+      jigouapi.courselist(kc, (courselist) => {
+         this.Base.setMyData({
+           courselist
+       });
+      });
+
+      
+
+      teacherapi.teachlist(video, (teachlist) => {
+         this.Base.setMyData({ teachlist });
+       });
 
 
     }
-
-
-
-
 
 
 
@@ -69,47 +80,47 @@ class Content extends AppBase {
   }
 
 
-   search(e) {
+  //  search(e) {
     
-     this.Base.setMyData({ show: 1 });
-     wx.showLoading({
-       title: '加载中...',
-     })
+  //    this.Base.setMyData({ show: 1 });
+  //    wx.showLoading({
+  //      title: '加载中...',
+  //    })
      
-       var json = {};
-       var data = e.detail.value;
+  //      var json = {};
+  //      var data = e.detail.value;
 
-       this.Base.setMyData({ value: data });
+  //      this.Base.setMyData({ value: data });
 
-     json.searchkeyword = data;
+  //    json.searchkeyword = data;
 
-     var teacherapi = new TeacherApi();
-     var jigouapi = new JigouApi();
+  //    var teacherapi = new TeacherApi();
+  //    var jigouapi = new JigouApi();
 
-     jigouapi.courselist(json, (courselist) => {
-       this.Base.setMyData({
-         courselist
-       });
-     });
-     jigouapi.jglist(json, (jglist) => {
-       this.Base.setMyData({
-         jglist
-       });
-     });
-     teacherapi.teachlist(json, (teachlist) => {
-       this.Base.setMyData({ teachlist });
-     });
+  //    jigouapi.courselist(json, (courselist) => {
+  //      this.Base.setMyData({
+  //        courselist
+  //      });
+  //    });
+  //    jigouapi.jglist(json, (jglist) => {
+  //      this.Base.setMyData({
+  //        jglist
+  //      });
+  //    });
+  //    teacherapi.teachlist(json, (teachlist) => {
+  //      this.Base.setMyData({ teachlist });
+  //    });
 
 
 
-      //  var bookapi = new BookApi();
-      //  bookapi.keywordlist(json, (result) => {
-      //    this.Base.setMyData({ result });
-      //   
-      //  });
-     wx.hideLoading();
+  //     //  var bookapi = new BookApi();
+  //     //  bookapi.keywordlist(json, (result) => {
+  //     //    this.Base.setMyData({ result });
+  //     //   
+  //     //  });
+  //    wx.hideLoading();
 
-   }
+  //  }
 
    tosearch(e) {
     //  var word = this.Base.getMyData().value;

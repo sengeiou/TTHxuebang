@@ -19,11 +19,6 @@ class Content extends AppBase {
     };
     this.Base.setMyData({ show: 0 });
 
-    if (options.new != undefined) {
-      json.newphone = "N";
-    }
-    
-
 
   }
   onMyShow() {
@@ -63,9 +58,10 @@ class Content extends AppBase {
 
   tosearch(e) {
     var word = this.Base.getMyData().value;
+
     if (word != null) {
       wx.navigateTo({
-        url: '/pages/searchbook/searchbook?keyword=' + word,
+        url: '/pages/search/search?keyword=' + word,
       })
     }
   }
@@ -73,9 +69,10 @@ class Content extends AppBase {
   todetails(e) {
     var name = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/searchbook/searchbook?keyword=' + name,
+      url: '/pages/search/search?keyword=' + name,
     })
   }
+
 
 }
 var content = new Content();
