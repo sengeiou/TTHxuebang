@@ -8,7 +8,7 @@
         <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       </navigator>
 
-      <navigator url='/pages/search/search' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
+      <navigator url='/pages/searchword/searchword' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
         <view class='flex-1' style='width:20rpx;'></view>
         <image class='icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
         <view class='h5 txt-gray'>搜索你要找的机构、课程、老师</view>
