@@ -22,9 +22,10 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
-    //this.options.type="kc";
+    this.options.type="jg";
     this.Base.setMyData({
       type: this.options.type,
+      xiala: "xs",
       //type: "kc",
       show: "jx",
       options: "j_x",
@@ -370,6 +371,16 @@ class Content extends AppBase {
     });
     this.loadcourse();
   }
+
+
+  bindxiala(e){
+    
+    this.Base.setMyData({ xiala: "xs"})
+
+  }
+
+
+
 }
 
 var content = new Content();
@@ -378,7 +389,8 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.tokcdetails = content.tokcdetails;
-body.bindxuanxiang = content.bindxuanxiang;
+body.bindxuanxiang = content.bindxuanxiang; 
+body.bindxiala = content.bindxiala;
 
 body.bindScreening = content.bindScreening;
 body.bindshow = content.bindshow;

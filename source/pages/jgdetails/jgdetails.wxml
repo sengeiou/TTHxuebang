@@ -41,8 +41,8 @@
 
         <view class='flex-row flex-center margin-top-10'>
           <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-          <view class='flex-1 h5 margin-left-10 txt-blue'>{{jginfo.address}}</view>
-          <view class='h6 txt-black'>距你1.5km</view>
+          <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
+          <view class='h6 txt-black'>{{miletxt}}</view>
         </view>
 
       </view>
