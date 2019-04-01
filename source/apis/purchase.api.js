@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/wechat.api';
+import { InstApi } from '../../apis/purchase.api';
 
-var wechatApi=new WechatApi();
+var purchaseApi=new PurchaseApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class WechatApi{
+export class PurchaseApi{
 
 
-    decrypteddata(json, callback, showLoading = true) {
+    create(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/decrypteddata',
+            url: ApiConfig.GetApiUrl() + 'purchase/create',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class WechatApi{
         })
     }
 
-    notify(json, callback, showLoading = true) {
+    purchaselist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/notify',
+            url: ApiConfig.GetApiUrl() + 'purchase/purchaselist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class WechatApi{
         })
     }
 
-    prepay(json, callback, showLoading = true) {
+    purchaseinfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,39 +82,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/prepay',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    refund(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/refund',
+            url: ApiConfig.GetApiUrl() + 'purchase/purchaseinfo',
             data: json,
             method: 'POST',
             dataType: 'json',

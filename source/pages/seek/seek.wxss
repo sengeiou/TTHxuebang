@@ -82,3 +82,11 @@ Page {
     text-overflow:ellipsis;
     white-space:nowrap; 
 }
+
+
+.fixedtop{
+  position: fixed;
+  left: 0px;
+  top:0px;
+  width:100vw;
+}

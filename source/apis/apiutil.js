@@ -63,6 +63,14 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
   }
 
+  static ten2(i) {
+    i = parseInt(i);
+    if (i > 9) {
+      return i.toString();
+    } else {
+      return "0" + i.toString();
+    }
+  }
   static IsMobileNo(str) {
 
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;

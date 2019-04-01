@@ -102,6 +102,7 @@ export class AppBase {
       contactweixin: base.contactweixin,
       download: base.download,
       checkPermission: base.checkPermission,
+      copytext: base.copytext,
       recorderManager: base.recorderManager,
       backtotop: base.backtotop
 
@@ -901,6 +902,12 @@ export class AppBase {
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 300
+    })
+  }
+  copytext(e){
+    var id=e.currentTarget.id;
+    wx.setClipboardData({
+      data: id,
     })
   }
 } 
