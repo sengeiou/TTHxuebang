@@ -1,8 +1,19 @@
 // pages/content/content.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { JigouApi } from "../../apis/jigou.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  ApiUtil
+} from "../../apis/apiutil";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  JigouApi
+} from "../../apis/jigou.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -19,17 +30,42 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
-    });
-    
-    jigouapi.jginfo({id:this.options.id}, (jginfo) => {
-      this.Base.setMyData({ jginfo });
-
-      jigouapi.courselist({ jg_id: jginfo.id }, (courselist) => {
-        this.Base.setMyData({ courselist: courselist});
+      this.Base.setMyData({
+        indexbanner
       });
-      
-    }); 
+    });
+
+    jigouapi.jginfo({
+      id: this.options.id
+    }, (jginfo) => {
+
+
+      this.Base.getAddress((address) => {
+        console.log(address);
+        var mylat = address.location.lat;
+        var mylng = address.location.lng;
+
+        var mile = ApiUtil.GetDistance(mylat, mylng, jginfo.lat, jginfo.lng);
+        
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        this.Base.setMyData({
+          miletxt
+        });
+      });
+
+      this.Base.setMyData({
+        jginfo
+      });
+
+      jigouapi.courselist({
+        jg_id: jginfo.id
+      }, (courselist) => {
+        this.Base.setMyData({
+          courselist: courselist
+        });
+      });
+
+    });
 
   }
 

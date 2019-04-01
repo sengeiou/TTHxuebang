@@ -28,7 +28,7 @@
 
   <view style='background:#50B674' class='flex-row flex-column padding-20 radius-10'>
     <view class='txt-white '>核销码</view>
-    <view class='txt-white h3'  id='{{info.usecode}}' bindtap='copytext'>{{info.usecode}}</view>
+    <view class='txt-white h3' id='{{info.usecode}}' bindtap='copytext'>{{info.usecode}}</view>
     <view class='txt-white '>机构老师微信号</view>
     <view class='flex-row flex-center ' style='width:100%'>
       <view class='flex-1'></view>
