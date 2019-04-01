@@ -14,3 +14,10 @@ page{
 .buy{
   background: #FE792E;
 }
+
+.fixedbottom{
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width:100vw;
+}

@@ -13,8 +13,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: "kcxq",
-      
+      show: "kcxq"
     })
     
   }
@@ -29,6 +28,11 @@ class Content extends AppBase {
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
       this.Base.setMyData({ courseinfo });
+    });
+
+    jigouapi.checkcanbuy({course_id:this.Base.options.id},(canbuy)=>{
+
+      this.Base.setMyData({ canbuy });
     });
 
   }

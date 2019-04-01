@@ -104,33 +104,35 @@
 
   <!-- <view class='height-80 '></view> -->
 
+  <view class='fixedbottom'   >
 
-  <view style='' class='flex-row flex-1'>
+    <view class='bg-white' wx:if="{{canbuy.code!='0'}}" >{{canbuy.result}}</view>
+    <view style='' class='flex-row flex-1'>
 
-    <view class='flex-1 flex-row flex-column padding-15 bg-white'>
-      <image class='icon-25' src='{{uploadpath}}resource/{{res.shoucang}}'></image>
-      <view class='h6'>收藏</view>
+      <view class='flex-1 flex-row flex-column padding-15 bg-white'>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.shoucang}}'></image>
+        <view class='h6'>收藏</view>
+      </view>
+
+
+      <view class='flex-1  bg-orange padding-15'>
+        <button class=' clear-button' open-type='contact' style='border-radius:0;border:0;'>
+          <view class='flex-row flex-column'>
+            <image class='icon-25' src='{{uploadpath}}resource/{{res.customer}}'></image>
+            <view class='h6 txt-white'>客服</view>
+          </view>
+        </button>
+      </view>
+
+
+      <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
+        <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
+        <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
+      </view>
+      <navigator url='/pages/seek/seek?type=kc' class='flex-2 flex-row flex-column buy padding-15' wx:if="{{canbuy.code!='0'}}">
+        <view class='h6 txt-white'>查看其它课程</view>
+      </navigator>
     </view>
-
-
-    <view class='flex-1  bg-orange padding-15'>
-      <button class=' clear-button' open-type='contact' style='border-radius:0;border:0;'>
-        <view class='flex-row flex-column'>
-          <image class='icon-25' src='{{uploadpath}}resource/{{res.customer}}'></image>
-          <view class='h6 txt-white'>客服</view>
-        </view>
-      </button>
-    </view>
-
-
-    <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase'>
-      <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
-      <view class='h6 txt-white '>立即购买</view>
-    </view>
-
-
-
-
   </view>
 
 </view>
