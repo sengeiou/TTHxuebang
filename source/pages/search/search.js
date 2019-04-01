@@ -69,35 +69,38 @@ class Content extends AppBase {
   }
 
 
-  // search(e) {
+   search(e) {
     
-  //   this.Base.setMyData({ show: 1 });
-  //   wx.showLoading({
-  //     title: '加载中...',
-  //   })
-  //   setTimeout(() => {
-  //     var json = {};
-  //     var data = e.detail.value;
-  //     this.Base.setMyData({ value: data });
-  //     json.searchkeyword = data;
+     this.Base.setMyData({ show: 1 });
+     wx.showLoading({
+       title: '加载中...',
+     })
+     setTimeout(() => {
+       var json = {};
+       var data = e.detail.value;
+       this.Base.setMyData({ value: data });
+       json.searchkeyword = data;
 
-  //     var bookapi = new BookApi();
-  //     bookapi.keywordlist(json, (result) => {
-  //       this.Base.setMyData({ result });
-  //       wx.hideLoading();
-  //     });
-  //   }, 100);
+       var bookapi = new BookApi();
+       bookapi.keywordlist(json, (result) => {
+         this.Base.setMyData({ result });
+         wx.hideLoading();
+       });
+     }, 100);
 
-  // }
+   }
 
-  // tosearch(e) {
-  //   var word = this.Base.getMyData().value;
-  //   if (word != null) {
-  //     wx.navigateTo({
-  //       url: '/pages/searchbook/searchbook?keyword=' + word,
-  //     })
-  //   }
-  // }
+   tosearch(e) {
+    //  var word = this.Base.getMyData().value;
+    //  if (word != null) {
+    //    wx.navigateTo({
+    //      url: '/pages/searchbook/searchbook?keyword=' + word,
+    //    })
+    //  }
+    wx.navigateBack({
+      
+    })
+   }
 
   // todetails(e) {
   //   var name = e.currentTarget.id;
