@@ -83,9 +83,7 @@
       </view>
 
       <view class='flex-row margin-top-5'>
-        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
-        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>芭蕾舞</view>
-        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>拉丁舞</view>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
       </view>
 
       <view class='flex-row flex-center margin-top-5'>
@@ -158,7 +156,16 @@
     <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
-
+      <block wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem">
+      <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
+        <view class='flex-row flex-center'>
+          <view class='line-height-0'>
+            <image src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+          </view>
+          <view style='margin-left:10rpx;'>***成功预约了***课程</view>
+        </view>
+      </view>
+      </block>
       <view class='flex-row flex-center'>
         <view class='h7 '>⭐⭐⭐⭐⭐</view>
         <view class='h6 flex-1 margin-left-20 txt-primary'>368人购课</view>

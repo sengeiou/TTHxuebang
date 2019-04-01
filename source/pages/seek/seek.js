@@ -21,8 +21,8 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
     super.onLoad(options);
+    //this.options.type="kc";
     this.Base.setMyData({
       type: this.options.type,
       //type: "kc",
@@ -39,9 +39,26 @@ class Content extends AppBase {
       filterdistrict: [],
       fdistrict_id: "0",
       tdistrict_id: "0",
-      options_show: false
-    })
+      options_show: false,
+      courselist:[],
+      jglist:[],
+      buyshow:[]
+    });
     //  console.log(this.options.type);
+
+    var timerStart=setInterval(()=>{
+      var jgapi = new JigouApi();
+      jgapi.latestbuy((buyshow)=>{
+        this.Base.setMyData({ buyshow});
+      });
+    },15000);
+
+    this.Base.setMyData({ timerStart});
+  }
+
+  onUnload(){
+    var timerStart = this.Base.getMyData().timerStart;
+    clearInterval(timerStart);
   }
   onMyShow() {
     var that = this;
@@ -259,6 +276,7 @@ class Content extends AppBase {
         var miletxt = ApiUtil.GetMileTxt(mile);
         console.log("miletxt=" + miletxt);
         courselist[i]["miletxt"] = miletxt;
+
       }
       this.Base.setMyData({
         courselist

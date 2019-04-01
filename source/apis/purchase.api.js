@@ -41,6 +41,38 @@ export class PurchaseApi{
         })
     }
 
+    purchaseinfo(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'purchase/purchaseinfo',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     purchaselist(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -73,7 +105,7 @@ export class PurchaseApi{
         })
     }
 
-    purchaseinfo(json, callback, showLoading = true) {
+    usecode(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +114,7 @@ export class PurchaseApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'purchase/purchaseinfo',
+            url: ApiConfig.GetApiUrl() + 'purchase/usecode',
             data: json,
             method: 'POST',
             dataType: 'json',

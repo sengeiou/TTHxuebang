@@ -2,6 +2,8 @@
   "pages":[
     "pages/home/home",
     "pages/liucheng/liucheng",
+    "pages/seek/seek",
+    "pages/cityselect/cityselect",
     "pages/order/order",
     "pages/search/search",
     "pages/city/city",
@@ -14,7 +16,6 @@
     "pages/mycollect/mycollect",
     "pages/mymessage/mymessage",
     "pages/problem/problem",
-    "pages/seek/seek",
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
