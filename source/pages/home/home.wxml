@@ -58,7 +58,7 @@
 
   <view hidden='{{jglist.length>0}}'>
 
-    <image src='{{uploadpath}}resource/{{res.null_icon}}'></image>
+    <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 
   </view>
 

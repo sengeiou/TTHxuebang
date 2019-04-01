@@ -4,6 +4,7 @@
   <view class='fixedtop'>
 
     <view class='bg-primary'>
+
       <view class='padding-left-20 padding-right-20 padding-top-20 '>
         <navigator url='/pages/search/search' class='search  flex-row flex-center  padding-5 '>
           <image class='icon-25 margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
@@ -11,29 +12,28 @@
         </navigator>
       </view>
 
+      <view class=' flex-row flex-center margin-top-10' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
+
+        <view class='flex-1  flex-row flex-center '>
+          <view class='flex-1'></view>
+          <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
+        </view>
 
 
-      <view class=' flex-row flex-center margin-top-10' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;'>
-
-        <image src='' class='xb_bg'></image>
-
-        <view class='flex-row flex-center  margin-top-5 zhong'>
-          <view class='flex-1' style='padding-left:72rpx'>
-            <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='' style='height:33rpx;width:154rpx;'></image>
-          </view>
-
-          <view class='flex-2 flex-row flex-center'>
+        <view class='flex-2 flex-row flex-center '>
+          <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
-          <view class='txt-black h6 margin-left-10'>沙发斯蒂芬</view>
-          </view>
+          <swiper vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='width:324rpx;height:30rpx;'>
+            <swiper-item wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+              {{showitem.member_nickName}}成功预约了{{showitem.course_name}}课程
+            </swiper-item>
+          </swiper>
         </view>
 
       </view>
 
 
-
-
-      <view class='flex-row flex-center margin-top-10' style=''>
+      <view class='flex-row flex-center margin-top-5' style=''>
 
         <!-- <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'> -->
 
@@ -87,8 +87,12 @@
     </view>
 
   </view>
-  <view style='height:340rpx;'></view>
-  <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
+
+
+  <view style='height:240rpx;'></view>
+
+
+  <!-- <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
     <image src='{{uploadpath}}jigou/{{item.jg_img}}' style='width:100%;height:278rpx;'></image>
 
     <view class='padding-20 flex-row column'>
@@ -107,7 +111,53 @@
       </view>
 
     </view>
+  </view> -->
+
+
+
+  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx;' class=''>
+    <view class=' padding-20' style=''>
+      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+    </view>
+
+    <view class='flex-row flex-column '>
+      <view class='radius-10 bg-white  mid margin-bottom-10'>
+
+        <view class='padding-20 '>
+
+          <view class='flex-row flex-center '>
+            <view class='flex-1 txt-bold txt-black '>{{item.jigou}}</view>
+            <view class='h6'>⭐⭐⭐⭐⭐</view>
+          </view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <view class='flex-row flex-1'>
+              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+            </view>
+            <view class='h6'>已预约15人</view>
+          </view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
+            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.address}}</view>
+            <view class='h6 txt-gray'>{{item.miletxt}}</view>
+
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+
   </view>
+
+
+
+
+
+
+
+
 </view>
 
 
@@ -260,14 +310,17 @@
 
 </view>
 
-<swiper wx:if="{{type=='kc'}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" style='height:50rpx; tipsshowfull'>
-  <swiper-item wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem">
-    <view class='tipsshow'>
-      <view class='flex-row flex-center'>
-        <view class='line-height-0'>
-          <image src='{{showitem.member_avatarUrl}}'></image>
+<swiper wx:if="{{type=='kc'}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
+  <swiper-item style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
+    <view class='flex-row'>
+      <view class='flex-1'></view>
+      <view class='tipsshow'>
+        <view class='flex-row flex-center'>
+          <view class='line-height-0'>
+            <image src='{{showitem.member_avatarUrl}}'></image>
+          </view>
+          <view style='margin-left:10rpx;width:250rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}成功预约了{{showitem.course_name}}课程</view>
         </view>
-        <view style='margin-left:10rpx;'>{{showitem.member_nickName}}成功预约了{{showitem.course_name}}课程</view>
       </view>
     </view>
   </swiper-item>

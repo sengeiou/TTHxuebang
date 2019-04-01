@@ -7,3 +7,8 @@
   bottom: 0;
   top: 0; 
 }
+.nostyle view,navigator,input,text,textarea{
+color:unset;
+font-size:unset;
+word-break: normal;
+}

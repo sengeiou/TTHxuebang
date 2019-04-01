@@ -1,3 +1,6 @@
 <!--pages/baomainfo/baomainfo.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
 
-<image src='{{uploadpath}}baoma/{{baoma.content}}' class='img' style=''></image>
+<view class='nostyle padding-40'>
+<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+</view>

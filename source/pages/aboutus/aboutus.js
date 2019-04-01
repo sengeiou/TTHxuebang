@@ -1,8 +1,7 @@
-// pages/aboutus/aboutus.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { JigouApi } from "../../apis/jigou.api.js";
+import { ContentApi } from "../../apis/content.api";
+var WxParse = require('../../wxParse/wxParse');
 
 class Content extends AppBase {
   constructor() {
@@ -10,25 +9,37 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    options.keycode = "aboutus";
+    options.title = "aaaas";
     super.onLoad(options);
-    this.Base.setMyData({ currentItemId: 2 })
   }
-  onMyShow() {
+  onShow() {
+    var keycode = this.Base.options.keycode;
+    var title = this.Base.options.title;
+    var contentapi = new ContentApi();
     var that = this;
-    var instapi = new InstApi();
-    var jigouapi = new JigouApi();
-     
-    jigouapi.aboutus({id:1}, (aboutus) => {
-      this.Base.setMyData({ aboutus });
+    contentapi.get({ keycode: keycode }, function (data) {
+      if (data == null) {
+        WxParse.wxParse('content', 'html', "请去后台设置文字内容:" + keycode, that, 10);
+        that.setData({ title: title });
+        wx.setNavigationBarTitle({
+          title: title,
+        })
+      } else {
+        data.content = that.Base.util.HtmlDecode(data.content);
+        WxParse.wxParse('content', 'html', data.content, that, 10);
+        that.setData({ title: data.name });
+        wx.setNavigationBarTitle({
+          title: data.name,
+        })
+      }
     });
-  }
- 
-}
 
+  }
+}
 var content = new Content();
+content.PageName = "content";
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
- 
+body.onShow = content.onShow;
 Page(body)

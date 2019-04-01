@@ -108,19 +108,18 @@ Page {
     opacity: 0; /*结尾状态 透明度为1*/
   }
 }
-
-.tipsshow {
-  position: absolute;
+.tipsshowfull{
+  position: fixed;
   right: 0px;
-  margin-top: 20px;
+  top:822rpx;
+  width:360rpx;
   background-color: rgba(150, 150, 150, 0.6);
+  border-top-left-radius: 8rpx;
+  border-bottom-left-radius: 8rpx;
+}
+.tipsshow {
+  
   padding: 8rpx 46rpx 8rpx 14rpx;
-  border-radius: 4rpx;
-  opacity: 0;
-  -webkit-animation-name: fadeIn; /*动画名称*/
-  -webkit-animation-duration: 10s; /*动画持续时间*/
-  -webkit-animation-iteration-count: 1; /*动画次数*/
-  -webkit-animation-delay: 0s; /*延迟时间*/
 }
 
 .tipsshow image {
@@ -139,7 +138,7 @@ Page {
   z-index: 100;
   width: 100%;
   background: black;
-  top: 338rpx;
+  top: 238rpx;
   bottom: 0;
   /* height: 500rpx; */
   opacity:0.7;
@@ -149,7 +148,7 @@ Page {
   position: fixed;
   width: 230rpx;
   z-index: 110;
-  top: 338rpx;
+  top: 238rpx;
 }
 .img{
   width: 220rpx;
@@ -170,8 +169,6 @@ Page {
   width: 100%;
 }
 .xb_bg{
-  position: absolute;
-  z-index: 1;
-  height: 60rpx;
-  width: 100%;
+  height: 32rpx;
+  width: 154rpx;
 }
