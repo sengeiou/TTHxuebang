@@ -12,22 +12,35 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({})
+
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
-
+    var img=new array();
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
     
     jigouapi.jginfo({id:this.options.id}, (jginfo) => {
-      this.Base.setMyData({ jginfo });
+      
 
+      
+      //console.log(jginfo.jg_img);
+      //return;
+      img[0] = jginfo.jg_img;
+      img[1] = jginfo.waitimg;
+      //jginfo.jg_img.push(img);
+
+      this.Base.setMyData({ img });
       jigouapi.courselist({ jg_id: jginfo.id }, (courselist) => {
         this.Base.setMyData({ courselist: courselist});
       });
+
+     
+      
       
     }); 
 

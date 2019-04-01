@@ -16,12 +16,12 @@
 }
 .mid{
   position: absolute;
-  width: 80%;
+  width: 85.5%;
   z-index: 10;
-  height: 220rpx;
+  height: 186rpx;
   bottom:0%;
-  opacity: 0.8;
-  box-shadow: 1px 1px 5px #888888;
+  /* opacity: 0.8; */
+  box-shadow: 1px 1px 5px #dfdfdf;
 }
 
 .li{

@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class BaomaApi{
 
 
-    baomalist(json, callback, showLoading = true) {
+    baomainfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class BaomaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'baoma/baomalist',
+            url: ApiConfig.GetApiUrl() + 'baoma/baomainfo',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class BaomaApi{
         })
     }
 
-    baomainfo(json, callback, showLoading = true) {
+    baomalist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class BaomaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'baoma/baomainfo',
+            url: ApiConfig.GetApiUrl() + 'baoma/baomalist',
             data: json,
             method: 'POST',
             dataType: 'json',

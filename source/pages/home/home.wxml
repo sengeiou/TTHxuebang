@@ -1,14 +1,12 @@
-<view class=' '>
+<view class=' ' style='background:{{jginfo.bgcolor}}'>
 
   <view class='padding-15  bg-primary'>
     <view class=' flex-row '>
 
-      <picker>
-        <view class='flex-row flex-center'>
-          <view class='txt-black h5'>深圳</view>
-          <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
-        </view>
-      </picker>
+      <navigator url='/pages/city/city' class='flex-row flex-center'>
+        <view class='txt-black h5'>{{cityname}}</view>
+        <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+      </navigator>
 
       <navigator url='/pages/search/search' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
         <view class='flex-1' style='width:20rpx;'></view>
@@ -20,7 +18,6 @@
     </view>
   </view>
 </view>
-
 
 
 
@@ -65,8 +62,8 @@
 
   </view>
 
-  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:620rpx ' class=''>
-    <view class='margin-top-20 padding-20' style=''>
+  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+    <view class=' padding-20' style=''>
       <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
@@ -74,8 +71,10 @@
       <view class='radius-10 bg-white  mid margin-bottom-10'>
 
         <view class='padding-20 '>
-          <view class='txt-black txt-bold'>{{item.jigou}}</view>
 
+          <view class='flex-row flex-center'>
+            <view class='txt-black txt-bold'>{{item.jigou}}</view>
+          </view>
 
           <view class='flex-row flex-center margin-top-5'>
             <view class='flex-row flex-1'>
