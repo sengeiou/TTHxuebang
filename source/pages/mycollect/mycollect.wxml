@@ -100,36 +100,20 @@
 
 
 
-  <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' wx:for="{{dflist}}" wx:key='k'>
-    <view class='flex-row flex-center padding-20 bor_bot' style=''>
-      <view class='flex-1 txt-gray'>
-        {{item.pstatus=='W'?item.submit_time_formatting:''}} {{item.pstatus=='P'?item.pay_time_formatting:''}} {{item.pstatus=='C'?item.cancel_time_formatting:''}} {{item.pstatus=='U'?item.use_time_formatting:''}} {{item.pstatus=='R'?item.refund_time_formatting:''}}
-        {{item.pstatus=='F'?item.finishrefund_time_formatting:''}} {{item.pstatus=='S'?item.success_time_formatting:''}}
-      </view>
-      <view class='txt-gray'>{{item.pstatus_name}}</view>
-    </view>
+  <navigator url='/pages/jgdetails/jgdetails?id={{item.jg_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' wx:for="{{jglist}}" wx:key='k'>
+
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
-      <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
+      <image class='icon radius-10' src='{{uploadpath}}jigou/{{item.jg_jg_img}}'></image>
 
       <view class='flex-1 flex-row column margin-left-20'>
 
         <view class='flex-row flex-center'>
-          <view class='flex-1 txt-black'>{{item.course_name}}</view>
-          <view class='txt-black'>￥{{item.amount}}</view>
+          <view class='flex-1 txt-black'>{{item.jg_jigou}}</view>
         </view>
-
-        <view class='flex-row flex-center margin-top-10'>
-          <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
-        </view>
-
-
 
       </view>
-
-
-
 
     </view>
 
@@ -159,14 +143,13 @@
         </view>
       </view>
       <view class='flex-1'>
-
       </view>
     </view>
   </view>
 
 
 
-  <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' wx:for="{{dflist}}" wx:key='k'>
+  <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' wx:for="{{splist}}" wx:key='k'>
     <view class='flex-row flex-center padding-20 bor_bot' style=''>
       <view class='flex-1 txt-gray'>
         {{item.pstatus=='W'?item.submit_time_formatting:''}} {{item.pstatus=='P'?item.pay_time_formatting:''}} {{item.pstatus=='C'?item.cancel_time_formatting:''}} {{item.pstatus=='U'?item.use_time_formatting:''}} {{item.pstatus=='R'?item.refund_time_formatting:''}}

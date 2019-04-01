@@ -22,8 +22,8 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+    jigouapi.kechenlunbo({}, (kechenlunbo) => {
+      this.Base.setMyData({ kechenlunbo });
     });
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
@@ -66,6 +66,11 @@ class Content extends AppBase {
       this.Base.setMyData({ isfav:status});
     });
   }
+  todetails(e){
+    wx.navigateTo({
+      url: '/pages/jgdetails/jgdetails?id=' + this.Base.getMyData().courseinfo.jg_id,
+    })
+  }
 
 
 
@@ -77,6 +82,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcut = content.bindcut; 
 body.bindtopurchase = content.bindtopurchase;
-body.fav = content.fav;
-
+body.fav = content.fav; 
+body.todetails = content.todetails;
 Page(body)

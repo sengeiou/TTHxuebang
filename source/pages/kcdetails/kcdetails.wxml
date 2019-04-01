@@ -3,21 +3,23 @@
 <view>
 
 
-  <view class=''>
-    <image src='{{uploadpath}}resource/{{ res.ceshi}}' class='' style='height:140rpx;width:100%;'></image>
-  </view>
+  <view class='' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
 
-  <view class=''>
-    <swiper indicator-dots='{{true}}' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:400rpx;'>
-      <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+    <view style='height:140rpx;'></view>
+
+    <swiper indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' style='width:750rpx;height:400rpx;'>
+      <swiper-item wx:for="{{kechenlunbo}}" wx:key="k">
         <view>
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-          <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
+          <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
+          <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}'   style='width:750rpx;height:400rpx;'></video>
         </view>
       </swiper-item>
     </swiper>
-  </view>
+    <view style='height:116rpx;'></view>
 
+
+  </view>
 
   <view style=' ' class=''>
 
@@ -25,7 +27,7 @@
       <view class=' bg-white  margin-bottom-10'>
         <view class='padding-10 '>
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold ' style='font-size:52rpx;'>{{courseinfo.JG_jigou}}</view>
+            <view class='txt-black txt-bold ' style='font-size:52rpx;' bindtap='todetails'>{{courseinfo.JG_jigou}}</view>
             <view class='txt-black  flex-1 padding-top-10 padding-left-20'>{{courseinfo.name}}</view>
             <view class='txt-black h6'>⭐⭐⭐⭐⭐</view>
           </view>
@@ -104,17 +106,17 @@
 
   <!-- <view class='height-80 '></view> -->
 
-  <view class='fixedbottom'   >
+  <view class='fixedbottom'>
 
-    <view class='bg-white' wx:if="{{canbuy.code!='0'}}" >{{canbuy.result}}</view>
+    <view class='bg-white' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
     <view style='' class='flex-row flex-1'>
 
       <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
-        <image class='icon-25'  src='{{uploadpath}}resource/{{res.unfav}}'></image>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
         <view class='h6'>收藏</view>
       </view>
       <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
-        <image class='icon-25'  src='{{uploadpath}}resource/{{res.fav}}'></image>
+        <image class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
         <view class='h6'>已收藏</view>
       </view>
 
@@ -140,3 +142,5 @@
   </view>
 
 </view>
+
+<view style='height:110rpx;'></view>

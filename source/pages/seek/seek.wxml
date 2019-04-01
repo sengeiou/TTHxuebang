@@ -117,7 +117,7 @@
 
   <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx;' class=''>
     <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
     <view class='flex-row flex-column '>
@@ -147,6 +147,7 @@
 
       </view>
     </view>
+
 
 
   </view>
