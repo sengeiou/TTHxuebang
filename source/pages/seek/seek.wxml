@@ -47,14 +47,10 @@
 
         <!-- </picker> -->
 
-
-
-
         <view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
 
         </view>
         <view wx:if='{{xiala=="xs"}}' class='bg-white list' style=''>
-
 
           <scroll-view scroll-y>
             <view bindchange='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
@@ -62,7 +58,6 @@
           </scroll-view>
 
         </view>
-
 
 
 
@@ -94,7 +89,10 @@
 
   </view>
   <view style='height:340rpx;'></view>
-  <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
+
+
+
+  <!-- <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
     <image src='{{uploadpath}}jigou/{{item.jg_img}}' style='width:100%;height:278rpx;'></image>
 
     <view class='padding-20 flex-row column'>
@@ -113,7 +111,52 @@
       </view>
 
     </view>
+  </view> -->
+
+  <view  wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+    <view class=' padding-20' style=''>
+      <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+    </view>
+
+    <view class='flex-row flex-column '>
+      <view class='radius-10 bg-white  mid margin-bottom-10'>
+
+        <view class='padding-20 '>
+
+          <view class='flex-row flex-center'>
+            <view class='txt-black txt-bold'>{{item.jigou}}</view>
+          </view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <view class='flex-row flex-1'>
+              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+            </view>
+            <view class='h6'>已预约15人</view>
+          </view>
+
+
+
+          <view class='flex-row flex-center margin-top-5'>
+            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.address}}</view>
+            <view class='h6 txt-gray'>{{item.miletxt}}</view>
+
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+
+
   </view>
+
+
+
+
+
+
+
 </view>
 
 

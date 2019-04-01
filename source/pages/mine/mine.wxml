@@ -19,7 +19,8 @@
 
 </view>
 
-
+ <view class='' style='height:30rpx'></view>
+ 
 <navigator url='/pages/myorder/myorder' class='flex-row flex-center margin-30 bg-white border_bottom padding-bottom-20' style=''>
   <image class='icon' src='{{uploadpath}}resource/{{res.myorder}}'></image>
   <view class='margin-left-20  txt-black  flex-1 h'>我的订单</view>

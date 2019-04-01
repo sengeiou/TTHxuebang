@@ -5,16 +5,19 @@
     <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
     <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您想要的' bindinput='search'></input>
 
-    <view class='padding-left-20 padding-right-10' bindtap=''><image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image></view>
+    <view class='padding-left-20 padding-right-10' bindtap=''>
+      <image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image>
+    </view>
   </view>
   <view class='padding-left-10 h5 ' bindtap='tosearch' id='{{item.name}}'>取消</view>
 </view>
 
 
-<view  bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
-  <view >{{item.name}}</view>
+<!-- <view bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
+  <view>{{item.name}}</view>
   <view class='h6 txt-red margin-left-20'></view>
-</view>
+</view> -->
+
 
 
 <view class=' flex-row flex-center  bg-white bor_bot'>
@@ -31,7 +34,7 @@
     <view wx:if='{{shows!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
 
-    <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='mv'>
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='mv'>
     <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="video"?"txt":""}} txt-black'>视频</view>
     <view wx:if='{{shows=="video"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
     <view wx:if='{{shows!="video"}}' class='' style='width:80rpx;height:6rpx;'></view>
@@ -47,14 +50,14 @@
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
       <block wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem">
-      <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
-        <view class='flex-row flex-center'>
-          <view class='line-height-0'>
-            <image src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+        <view class='tipsshow' wx:if="{{showitem.course_id==item.id}}">
+          <view class='flex-row flex-center'>
+            <view class='line-height-0'>
+              <image src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+            </view>
+            <view style='margin-left:10rpx;'>***成功预约了***课程</view>
           </view>
-          <view style='margin-left:10rpx;'>***成功预约了***课程</view>
         </view>
-      </view>
       </block>
       <view class='flex-row flex-center'>
         <view class='h7 '>⭐⭐⭐⭐⭐</view>
@@ -91,7 +94,7 @@
 
 
 
-  <view  wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}jigou/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
@@ -103,7 +106,7 @@
 
           <view class='flex-row flex-center'>
             <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
-            <view class='' wx:for='{{4}}' wx:key='s' >⭐</view>
+            <view class='' wx:for='{{4}}' wx:key='s'>⭐</view>
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
@@ -130,7 +133,7 @@
 
   </view>
 
-<view class='height-20'></view>
+  <view class='height-20'></view>
 
 
 
@@ -144,19 +147,19 @@
 
 <view class='' wx:if='{{shows=="video"}}'>
 
-<view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
-  <view class='title txt-white  txt-bold'>{{item.title}}</view>
-  <video class='pos' style='width:100%; height:400rpx;' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}Teach/{{item.video}} '>
-  </video>
-  <view class='flex-row flex-center padding-30'>
-    <view class='bg-primary radius-30 org_block flex-row flex-center'>
-      <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
-      <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
+  <view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
+    <view class='title txt-white  txt-bold'>{{item.title}}</view>
+    <video class='pos' style='width:100%; height:400rpx;' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}Teach/{{item.video}} '>
+    </video>
+    <view class='flex-row flex-center padding-30'>
+      <view class='bg-primary radius-30 org_block flex-row flex-center'>
+        <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
+        <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
+      </view>
+      <view bindtap='tojgdetails' id='{{item.mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.mechanism_id_name}}</view>
+      <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
+      <view class='h5'>{{item.count}}次</view>
     </view>
-    <view bindtap='tojgdetails' id='{{item.mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.mechanism_id_name}}</view>
-    <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
-    <view class='h5'>{{item.count}}次</view>
   </view>
-</view>
 
 </view>

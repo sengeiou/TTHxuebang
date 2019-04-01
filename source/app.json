@@ -8,6 +8,7 @@
     "pages/cityselect/cityselect",
     "pages/order/order",
     "pages/search/search",
+    "pages/searchword/searchword",
     "pages/city/city",
     "pages/myorder/myorder",
     "pages/purchase/purchase",

@@ -37,19 +37,19 @@ class Content extends AppBase {
       var teacherapi = new TeacherApi();
       var jigouapi = new JigouApi();
 
-      jigouapi.courselist({}, (courselist) => {
-        this.Base.setMyData({
-          courselist
-        });
-      });
-      jigouapi.jglist({}, (jglist) => {
-        this.Base.setMyData({
-          jglist
-        });
-      });
-      teacherapi.teachlist({ orderby: 'r_main.id' }, (teachlist) => {
-        this.Base.setMyData({ teachlist });
-      });
+      // jigouapi.courselist({}, (courselist) => {
+      //   this.Base.setMyData({
+      //     courselist
+      //   });
+      // });
+      // jigouapi.jglist({}, (jglist) => {
+      //   this.Base.setMyData({
+      //     jglist
+      //   });
+      // });
+      // teacherapi.teachlist({ orderby: 'r_main.id' }, (teachlist) => {
+      //   this.Base.setMyData({ teachlist });
+      // });
 
 
     }
@@ -75,18 +75,39 @@ class Content extends AppBase {
      wx.showLoading({
        title: '加载中...',
      })
-     setTimeout(() => {
+     
        var json = {};
        var data = e.detail.value;
-       this.Base.setMyData({ value: data });
-       json.searchkeyword = data;
 
-       var bookapi = new BookApi();
-       bookapi.keywordlist(json, (result) => {
-         this.Base.setMyData({ result });
-         wx.hideLoading();
+       this.Base.setMyData({ value: data });
+
+     json.searchkeyword = data;
+
+     var teacherapi = new TeacherApi();
+     var jigouapi = new JigouApi();
+
+     jigouapi.courselist(json, (courselist) => {
+       this.Base.setMyData({
+         courselist
        });
-     }, 100);
+     });
+     jigouapi.jglist(json, (jglist) => {
+       this.Base.setMyData({
+         jglist
+       });
+     });
+     teacherapi.teachlist(json, (teachlist) => {
+       this.Base.setMyData({ teachlist });
+     });
+
+
+
+      //  var bookapi = new BookApi();
+      //  bookapi.keywordlist(json, (result) => {
+      //    this.Base.setMyData({ result });
+      //   
+      //  });
+     wx.hideLoading();
 
    }
 
@@ -98,7 +119,7 @@ class Content extends AppBase {
     //    })
     //  }
     wx.navigateBack({
-      
+
     })
    }
 
