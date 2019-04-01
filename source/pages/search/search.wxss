@@ -1,0 +1,17 @@
+/* pages/search/search.wxss */
+.search{
+  width:620rpx;
+  border-radius: 50rpx;
+  background-color: rgb(240, 240, 240);
+}
+.search_icon{
+  height:40rpx;
+  width:40rpx;
+}
+.prohibit_icon{
+  height:30rpx;
+  width:30rpx;
+}
+.shadow {
+  box-shadow: 1px 1px 5px #d1d1d1;
+}

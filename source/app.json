@@ -1,12 +1,13 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/liucheng/liucheng",
     "pages/order/order",
+    "pages/search/search",
     "pages/myorder/myorder",
     "pages/purchase/purchase",
     "pages/kcdetails/kcdetails",
     "pages/content/content",
-    "pages/liucheng/liucheng",
     "pages/jgdetails/jgdetails",
     "pages/aboutus/aboutus",
     "pages/mycollect/mycollect",

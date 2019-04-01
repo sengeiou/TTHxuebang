@@ -1,0 +1,79 @@
+<!--pages/search/search.wxml-->
+<view class='Top padding-20 flex-row flex-center'>
+  <view class='search flex-row flex-center padding-5'>
+    <view style='width:20rpx;'></view>
+    <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+    <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您想要的' bindinput='search'></input>
+
+    <view class='padding-left-20 padding-right-10' bindtap=''><image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image></view>
+  </view>
+  <view class='padding-left-10 h5 ' bindtap='tosearch' id='{{item.name}}'>取消</view>
+</view>
+
+
+<view  bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
+  <view >{{item.name}}</view>
+  <view class='h6 txt-red margin-left-20'></view>
+</view>
+
+
+<view class=' flex-row flex-center  bg-white bor_bot'>
+
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程</view>
+    <view wx:if='{{shows=="finished"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{shows!="finished"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构</view>
+    <view wx:if='{{shows=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{shows!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+    <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='mv'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="video"?"txt":""}} txt-black'>视频</view>
+    <view wx:if='{{shows=="video"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{shows!="video"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+</view>
+
+
+<view class='' wx:if='{{shows=="finished"}}'>
+  <view  class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
+    <image src='{{uploadpath}}resource/{{res.ceshi}}' style='width:100%;height:278rpx;'></image>
+
+    <view class='padding-20 flex-row column'>
+      <view class='flex-row flex-center '>
+        <view class='flex-1 txt-bold txt-black '>aaa</view>
+        <view class='h6'>⭐⭐⭐⭐⭐</view>
+      </view>
+
+      <view class='flex-row margin-top-5'>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>芭蕾舞</view>
+        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>拉丁舞</view>
+      </view>
+
+      <view class='flex-row flex-center margin-top-5'>
+        <view class='flex-1 h6 txt-black '>深圳市罗湖区</view>
+        <view class='h6'>1.6km</view>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+<view class='' wx:if='{{shows=="wait"}}'>
+
+<view>2</view>
+
+</view>
+
+<view class='' wx:if='{{shows=="video"}}'>
+
+<view>3</view>
+
+</view>

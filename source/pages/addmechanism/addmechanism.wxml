@@ -88,7 +88,7 @@
 
   <view class='flex-row flex-center'>
     <view class='txt-gray h5'>如果您的企业需要对公付款，请查看</view>
-    <view class='txt-blue h5 margin-left-5'>付款流程</view>
+    <navigator url='/pages/liucheng/liucheng' class='txt-blue h5 margin-left-5'>付款流程</navigator>
   </view>
 
 
