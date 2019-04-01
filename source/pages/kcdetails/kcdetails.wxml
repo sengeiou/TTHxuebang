@@ -16,6 +16,7 @@
         </view>
       </swiper-item>
     </swiper>
+
     <view style='height:116rpx;'></view>
 
 
@@ -29,8 +30,9 @@
           <view class='flex-row flex-center'>
             <view class='txt-black txt-bold ' style='font-size:52rpx;' bindtap='todetails'>{{courseinfo.JG_jigou}}</view>
             <view class='txt-black  flex-1 padding-top-10 padding-left-20'>{{courseinfo.name}}</view>
-            <view class='txt-black h6'>⭐⭐⭐⭐⭐</view>
+            <view class='txt-black h6'  ><view wx:for="{{2}}"><image src='{{uploadpath}}resource/{{res.star}}' class='icon-15'></image></view></view>
           </view>
+
 
 
           <view class='flex-row margin-top-5'>
@@ -38,6 +40,7 @@
             <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>{{courseinfo.age}}岁</view>
             <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>{{courseinfo.class_hours}}节课</view>
           </view>
+
 
 
           <!-- <view class='flex-row flex-center margin-top-10'>
@@ -144,3 +147,5 @@
 </view>
 
 <view style='height:110rpx;'></view>
+
+

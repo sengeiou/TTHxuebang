@@ -38,6 +38,7 @@ class Content extends AppBase {
         indexbanner
       });
     });
+    
   }
   onMyShow() {
     var that = this;

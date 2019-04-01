@@ -1,7 +1,7 @@
 /* pages/jgdetails/jgdetails.wxss */
-Page{
+/* Page{
   background: #83403A;
-}
+} */
 .img{
   width: 230rpx;
   height: 240rpx;
