@@ -99,7 +99,7 @@ view,navigator,input,text,textarea{
   background: white;
 }
 .bg-primary{
-  background: #DFB726;
+  background: #FFC200;
 }
 .bg-green{
   background: #23AC38;

@@ -32,7 +32,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "#DFB726",
+    "navigationBarBackgroundColor": "#FFC200",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
