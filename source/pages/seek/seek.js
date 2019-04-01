@@ -25,7 +25,7 @@ class Content extends AppBase {
     this.options.type="jg";
     this.Base.setMyData({
       type: this.options.type,
-      xiala: "xs",
+      xiala: "yc",
       //type: "kc",
       show: "jx",
       options: "j_x",
@@ -336,12 +336,13 @@ class Content extends AppBase {
   }
   changeDistrict(e) {
     console.log(e);
-    var seq = parseInt(e.detail.value);
+    var seq = parseInt(e.currentTarget.id);
     var filterdistrict = this.Base.getMyData().filterdistrict;
     this.Base.setMyData({
-      fdistrict_id: filterdistrict[seq].id
+      fdistrict_id: filterdistrict[seq].id, xiala: "yc"
     });
     this.loadjg();
+    
   }
   setTDistrict(e) {
     var id = e.currentTarget.id;
@@ -378,6 +379,9 @@ class Content extends AppBase {
     this.Base.setMyData({ xiala: "xs"})
 
   }
+  yingcang(){
+    this.Base.setMyData({ xiala: "yc" })
+  }
 
 
 
@@ -391,6 +395,7 @@ body.tojgdetails = content.tojgdetails;
 body.tokcdetails = content.tokcdetails;
 body.bindxuanxiang = content.bindxuanxiang; 
 body.bindxiala = content.bindxiala;
+body.yingcang = content.yingcang;
 
 body.bindScreening = content.bindScreening;
 body.bindshow = content.bindshow;

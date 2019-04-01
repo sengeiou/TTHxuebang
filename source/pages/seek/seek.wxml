@@ -37,7 +37,7 @@
 
       <view class='flex-row flex-center' style=''>
 
-        <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'>
+        <!-- <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'> -->
 
           <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
             <view class='txt-black h5' wx:if="{{'0'==fdistrict_id}}">区域</view>
@@ -45,38 +45,20 @@
             <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
           </view>
 
-        </picker>
+        <!-- </picker> -->
 
 
 
 
-<view wx:if='{{xiala=="xs"}}' class='xiala'>
+<view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
 
 </view>
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style=''>
 
 
   <scroll-view scroll-y>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
-<view class='margin-10'>111</view>
+<view bindchange='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
+
   </scroll-view>
 
 </view>
