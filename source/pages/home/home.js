@@ -14,6 +14,9 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  MemberApi
+} from "../../apis/member.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -25,8 +28,8 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({
       currentItemId: 2,
-      mylat:0,
-      mylng:0
+      mylat: 0,
+      mylng: 0
     })
   }
   onMyShow() {
@@ -40,15 +43,43 @@ class Content extends AppBase {
     });
     this.Base.getAddress((address) => {
       console.log(address);
-      var mylat=address.location.lat;
+      var mylat = address.location.lat;
       var mylng = address.location.lng;
+      var memberinfo = this.Base.getMyData().memberinfo;
+      var citylist = memberinfo.citylist;
+
+      var citycode = address.ad_info.adcode.substr(0, 4) + "00";
+      console.log("citycode" + citycode);
+      if (AppBase.CITYSET == false) {
+        for (var i = 0; i < citylist.length; i++) {
+          if (citylist[i].id == citycode) {
+            AppBase.CITYID = citylist[i].id;
+            AppBase.CITYNAME = citylist[i].name;
+            break;
+          }
+        }
+      }
+
+      var memberapi = new MemberApi();
+      memberapi.usecity({
+        city_id: AppBase.CITYID
+      });
 
       this.Base.setMyData({
-        mylat, mylng
+        mylat,
+        mylng,
+        cityname: AppBase.CITYNAME
       });
       this.loadjg();
-    },()=>{
-
+    }, () => {
+      if (AppBase.CITYSET == false) {
+        this.Base.setMyData({
+          cityname: AppBase.CITYNAME
+        });
+      }
+      memberapi.usecity({
+        city_id: AppBase.CITYID
+      });
       this.loadjg();
     });
   }
@@ -84,7 +115,7 @@ class Content extends AppBase {
     var itemId = e.currentTarget.dataset.itemId;
     this.Base.setMyData({
       currentItemId: itemId
-    })
+    });
   }
   loadjg() {
     var jigouapi = new JigouApi();
@@ -93,6 +124,7 @@ class Content extends AppBase {
     jigouapi.jglist({
       mylat,
       mylng,
+      city_id: AppBase.CITYID,
       orderby: "distance"
     }, (jglist) => {
       for (var i = 0; i < jglist.length; i++) {
@@ -115,7 +147,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.totake = content.totake; 
+body.totake = content.totake;
 body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange;
 body.loadjg = content.loadjg;

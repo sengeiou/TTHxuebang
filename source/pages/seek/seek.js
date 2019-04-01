@@ -40,23 +40,27 @@ class Content extends AppBase {
       fdistrict_id: "0",
       tdistrict_id: "0",
       options_show: false,
-      courselist:[],
-      jglist:[],
-      buyshow:[]
+      courselist: [],
+      jglist: [],
+      buyshow: []
     });
     //  console.log(this.options.type);
 
-    var timerStart=setInterval(()=>{
+    var timerStart = setInterval(() => {
       var jgapi = new JigouApi();
-      jgapi.latestbuy((buyshow)=>{
-        this.Base.setMyData({ buyshow});
+      jgapi.latestbuy((buyshow) => {
+        this.Base.setMyData({
+          buyshow
+        });
       });
-    },15000);
+    }, 15000);
 
-    this.Base.setMyData({ timerStart});
+    this.Base.setMyData({
+      timerStart
+    });
   }
 
-  onUnload(){
+  onUnload() {
     var timerStart = this.Base.getMyData().timerStart;
     clearInterval(timerStart);
   }
@@ -95,7 +99,9 @@ class Content extends AppBase {
       this.loadcourse();
 
 
-      jigouapi.activedistrictlist({}, (filterdistrict) => {
+      jigouapi.activedistrictlist({
+        city_id: AppBase.CITYID
+      }, (filterdistrict) => {
         this.Base.setMyData({
           filterdistrict
         });
@@ -120,7 +126,8 @@ class Content extends AppBase {
       this.loadcourse();
 
 
-      jigouapi.activedistrictlist({}, (filterdistrict) => {
+      jigouapi.activedistrictlist({
+        city_id: AppBase.CITYID}, (filterdistrict) => {
         this.Base.setMyData({
           filterdistrict
         });
@@ -205,6 +212,7 @@ class Content extends AppBase {
     var opt = {
       mylat,
       mylng,
+      city_id: AppBase.CITYID,
       orderby: "distance"
     };
     var data = this.Base.getMyData();

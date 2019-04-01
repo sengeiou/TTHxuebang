@@ -3,12 +3,10 @@
   <view class='padding-15  bg-primary'>
     <view class=' flex-row '>
 
-      <picker>
-        <view class='flex-row flex-center'>
-          <view class='txt-black h5'>深圳</view>
+        <navigator url='/pages/city/city' class='flex-row flex-center'>
+          <view class='txt-black h5'>{{cityname}}</view>
           <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
-        </view>
-      </picker>
+        </navigator>
 
       <navigator url='/pages/search/search' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
         <view class='flex-1' style='width:20rpx;'></view>
