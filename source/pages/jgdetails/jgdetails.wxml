@@ -2,27 +2,44 @@
 <view style='position: relative;height:864rpx ' class=''>
 
 
-  <view class=' ' style=''>
+  <!-- <view class=' ' style=''>
     <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:444rpx'></image>
+  </view> -->
+
+  <view>
+    <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
+      <swiper-item wx:for="{{jigouimg}}" wx:key="k">
+        <view>
+          <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+          <image src='{{uploadpath}}jigouimg/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}jigouimg/{{item.img}}' style='width:750rpx;height:444rpx;'></image>
+        </view>
+      </swiper-item>
+    </swiper>
   </view>
 
   <view class='flex-row flex-column '>
     <view class='radius-10 bg-white padding-15 mid margin-bottom-10'>
       <view class='padding-10 '>
-        <view class='flex-row'>
-          <view class='flex-1 txt-black txt-bold h4'>{{jginfo.jigou}}</view>
-          <view>
-            <button  bindtap='fav' id='Y' wx:if="{{isfav=='N'}}">未收藏</button>
-            <button  bindtap='fav' id='N' wx:if="{{isfav=='Y'}}">已收藏</button>
-          </view>
+
+
+
+        <view class='flex-row flex-center'>
+          <view class='txt-black txt-bold h4 flex-1'>{{jginfo.jigou}}</view>
+          <view class='flex-1 h5 txt-black text-right'>⭐⭐⭐⭐⭐</view>
         </view>
 
-        <view class='flex-row margin-top-10'>
-          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
-        </view>
 
         <view class='flex-row flex-center margin-top-10'>
-          <view class='flex-1 h5 txt-black'>评分：暂无评分</view>
+          <view class='flex-row flex-1'>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+          </view>
+
+          <view>
+            <button bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='bg-primary txt-white h6' style='height:48rpx;width:152rpx;line-height:48rpx;border-radius:35rpx;'>取消收藏</button>
+            <button bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary txt-white h6' style='height:48rpx;width:132rpx;line-height:48rpx;border-radius:40rpx;'>已收藏</button>
+          </view>
+
+
         </view>
 
         <view class='flex-row  margin-top-5 padding-10'>

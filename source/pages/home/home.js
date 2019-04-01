@@ -31,16 +31,18 @@ class Content extends AppBase {
       mylat: 0,
       mylng: 0
     })
-  }
-  onMyShow() {
-    var that = this;
+
     var instapi = new InstApi();
-    var jigouapi = new JigouApi();
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({
         indexbanner
       });
     });
+  }
+  onMyShow() {
+    var that = this;
+    var jigouapi = new JigouApi();
+    
     this.Base.getAddress((address) => {
       console.log(address);
       var mylat = address.location.lat;

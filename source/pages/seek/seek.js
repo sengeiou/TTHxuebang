@@ -133,6 +133,7 @@ class Content extends AppBase {
   }
   tojgdetails(e) {
     var id = e.currentTarget.id;
+    
     wx.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })

@@ -29,16 +29,17 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({
-        indexbanner
-      });
-    });
+
 
     jigouapi.jginfo({
       id: this.options.id
     }, (jginfo) => {
 
+      jigouapi.jigouimg({ jigou: jginfo.id }, (jigouimg) => {
+        this.Base.setMyData({
+          jigouimg
+        });
+      });
 
       this.Base.getAddress((address) => {
         console.log(address);

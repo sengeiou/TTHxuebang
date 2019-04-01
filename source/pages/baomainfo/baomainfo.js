@@ -3,7 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { BaomaApi } from "../../apis/baoma.api.js";
-
+var WxParse = require('../../wxParse/wxParse');
 class Content extends AppBase {
   constructor() {
     super();
@@ -25,7 +25,25 @@ class Content extends AppBase {
     });
     baomaapi.baomainfo({id:this.Base.options.id}, (baoma) => {
       this.Base.setMyData({ baoma });
+
+      baomaapi.getnr({ id: baoma.id }, function (data) {
+        if (data == null) {
+          WxParse.wxParse('content', 'html', "请去后台设置文字内容:" + keycode, that, 10);
+
+        } else {
+          data.content = that.Base.util.HtmlDecode(data.content);
+          WxParse.wxParse('content', 'html', data.content, that, 10);
+        }
+      });
+
+
+
     });
+
+    
+    
+
+
   }
 
 

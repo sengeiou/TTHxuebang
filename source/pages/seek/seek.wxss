@@ -138,7 +138,7 @@ Page {
   z-index: 100;
   width: 100%;
   background: black;
-  top: 338rpx;
+  top: 238rpx;
   bottom: 0;
   /* height: 500rpx; */
   opacity:0.7;
@@ -148,5 +148,27 @@ Page {
   position: fixed;
   width: 230rpx;
   z-index: 110;
-  top: 338rpx;
+  top: 238rpx;
+}
+.img{
+  width: 220rpx;
+  height: 252rpx;
+}
+.mid{
+  position: absolute;
+  width: 85.5%;
+  z-index: 10;
+  height: 186rpx;
+  bottom:0%;
+  /* opacity: 0.8; */
+  box-shadow: 1px 1px 5px #dfdfdf;
+}
+.zhong{
+  
+  z-index: 20;
+  width: 100%;
+}
+.xb_bg{
+  height: 32rpx;
+  width: 154rpx;
 }
