@@ -56,7 +56,7 @@ class Content extends AppBase {
             if (ret.code == '0') {
               if (ret.return.pstatus == 'P') {
                 wx.navigateTo({
-                  url: '/pages/order/order',
+                  url: '/pages/order/order' + ret.return.id,
                 })
                 return;
               } else {
@@ -64,7 +64,7 @@ class Content extends AppBase {
                 wechatapi.prepay({id:ret.return.id},(payret)=>{
                   payret.complete = function (e) {
                     wx.redirectTo({
-                      url: '/pages/order/order',
+                      url: '/pages/order/order?id='+ret.return.id,
                     })
                   }
                   console.log(payret);

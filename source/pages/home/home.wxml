@@ -83,9 +83,7 @@
 
 
           <view class='flex-row margin-top-5'>
-            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
-            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
-            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
 
 

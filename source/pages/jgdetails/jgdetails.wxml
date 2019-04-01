@@ -12,9 +12,7 @@
         <view class='txt-black txt-bold h4'>{{jginfo.jigou}}</view>
 
         <view class='flex-row margin-top-10'>
-          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>中国舞</view>
-          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>芭蕾舞</view>
-          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid green'>拉丁舞</view>
+          <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
         </view>
 
         <view class='flex-row flex-center margin-top-10'>
