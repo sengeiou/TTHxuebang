@@ -25,7 +25,7 @@ class Content extends AppBase {
   
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 18;
+    //options.id = 21;
     super.onLoad(options);
 
     var timerid=setInterval(()=>{

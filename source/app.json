@@ -1,13 +1,14 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/hexiao/hexiao",
+    "pages/order/order",
     "pages/mycollect/mycollect",
     "pages/liucheng/liucheng",
     "pages/baomainfo/baomainfo",
     "pages/baoma/baoma",
     "pages/seek/seek",
     "pages/cityselect/cityselect",
-    "pages/order/order",
     "pages/search/search",
     "pages/city/city",
     "pages/myorder/myorder",
