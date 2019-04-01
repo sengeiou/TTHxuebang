@@ -148,7 +148,6 @@ Page {
 .list {
   position: fixed;
   width: 230rpx;
-  height: 50%;
   z-index: 110;
   top: 338rpx;
 }

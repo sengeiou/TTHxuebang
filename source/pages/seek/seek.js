@@ -22,7 +22,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
-    this.options.type="jg";
+    //this.options.type="jg";
     this.Base.setMyData({
       type: this.options.type,
       xiala: "yc",
