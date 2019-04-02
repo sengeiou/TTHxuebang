@@ -106,9 +106,10 @@ export class AppBase {
       contactweixin: base.contactweixin,
       download: base.download,
       checkPermission: base.checkPermission,
-      copytext: base.copytext,
+      copytext: base.copytext, 
       recorderManager: base.recorderManager,
-      backtotop: base.backtotop
+      backtotop: base.backtotop,
+      gotoBottom: base.gotoBottom
 
 
 
@@ -905,6 +906,12 @@ export class AppBase {
     console.log("backtotop");
     wx.pageScrollTo({
       scrollTop: 0,
+      duration: 300
+    })
+  }
+  gotoBottom(){
+    wx.pageScrollTo({
+      scrollTop: 100000,
       duration: 300
     })
   }

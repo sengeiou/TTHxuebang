@@ -90,7 +90,7 @@
 
   <view class='flex-row bg-white' style=''>
     <view class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</view>
-    <view class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='bindcut' data-type='gmxz'>购买须知</view>
+    <view class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='gotoBottom' data-type='gmxz'>购买须知</view>
   </view>
 
 
