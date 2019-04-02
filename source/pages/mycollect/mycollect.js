@@ -14,7 +14,9 @@ import {
 import {
   MemberApi
 } from "../../apis/member.api.js";
-import { TeacherApi } from "../../apis/teacher.api.js";
+import {
+  TeacherApi
+} from "../../apis/teacher.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -31,30 +33,24 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new MemberApi();
-    api.favcourselist({
-    }, (kclist) => {
+    api.favcourselist({}, (kclist) => {
       this.Base.setMyData({
         kclist
       });
-      });
-    api.favjigoulist({
-    }, (jglist) => {
+    });
+    api.favjigoulist({}, (jglist) => {
       this.Base.setMyData({
         jglist
       });
     });
 
-    api.favvideolist({
-    }, (splist) => {
+    api.favvideolist({}, (splist) => {
       this.Base.setMyData({
         splist
       });
     });
 
-    var teacherapi = new TeacherApi();
-    teacherapi.teachlist({  }, (teachlist) => {
-      this.Base.setMyData({ teachlist });
-    });
+
   }
 
   bindshow(e) {
@@ -67,23 +63,28 @@ class Content extends AppBase {
 
   fav(e) {
     var id = e.currentTarget.id;
-    console.log(id);
-    id = id.split("_");
-    var status = id[1];
-    id = id[0];
-    var teachlist = this.Base.getMyData().teachlist;
-    for (var i = 0; i < teachlist.length; i++) {
-      if (teachlist[i].id == id) {
-        teachlist[i].isfav = status;
-      }
-    }
     var jigouapi = new JigouApi();
-    jigouapi.videofav({ video_id: id, status }, (ret) => {
+    jigouapi.videofav({
+      video_id: id,
+      status: "N"
+    }, (ret) => {
       //this.Base.info(ret.result);
-      this.Base.setMyData({ teachlist });
+
+      var api = new MemberApi();
+      api.favvideolist({}, (splist) => {
+        this.Base.setMyData({
+          splist
+        });
+      });
     });
   }
+  tojgdetails(e){
 
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/jgdetails/jgdetails?id='+id,
+    })
+  }
 }
 
 var content = new Content();

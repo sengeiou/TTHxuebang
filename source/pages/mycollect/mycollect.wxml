@@ -183,7 +183,7 @@
 <!--视频收藏-->
 <view class='' hidden='{{show!="t3"}}'>
 
-  <view wx:if="{{teachlist.length==0}}">
+  <view wx:if="{{splist.length==0}}">
     <view class='flex-row text-center'>
       <view class='flex-1'>
 
@@ -244,26 +244,23 @@
 
   </navigator> -->
 
-  <view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
-    <view class='title txt-white  txt-bold'>{{item.title}}</view>
-    <video class='pos' style='width:100%; height:400rpx;' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}Teach/{{item.video}} '>
+  <view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{splist}}' wx:key='k'>
+    <view class='title txt-white  txt-bold'>{{item.video_title}}</view>
+    <video class='pos' style='width:100%; height:400rpx;' title='{{item.video_title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}Teach/{{item.video_video}} '>
     </video>
     <view class='flex-row flex-center padding-30'>
       <view class='bg-primary radius-30 org_block flex-row flex-center'>
         <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
-        <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
+        <view class='txt-white h5 margin-left-10 flex-1'>{{item.video_name}}</view>
       </view>
-      <view bindtap='tojgdetails' id='{{item.mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.mechanism_id_name}}</view>
+      <view bindtap='tojgdetails' id='{{item.video_mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.video_jigou}}</view>
       <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
-      <view class='h5'>{{item.count}}次</view>
+      <view class='h5'>{{item.video_count}}次</view>
       <view class='margin-left-20 flex-row flex-center'>
         <!-- <button  >未收藏</button> -->
 
-        <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
-        <view wx:if="{{item.isfav=='N'}}" class='h5 margin-left-10'>收藏</view>
-
-        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
-        <view wx:if="{{item.isfav!='N'}}" class='h5 margin-left-10'>取消</view>
+        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.video_id}}' ></image>
+        <view  class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'>取消</view>
         <!-- <button  >已收藏</button> -->
       </view>
     </view>
