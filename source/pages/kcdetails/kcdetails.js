@@ -18,19 +18,23 @@ class Content extends AppBase {
     this.Base.setMyData({
       show: "kcxq"
     })
-    
   }
+
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-    jigouapi.kechenlunbo({}, (kechenlunbo) => {
-      this.Base.setMyData({ kechenlunbo });
-    });
+
+
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
       //courseinfo.xx=parseInt();
+
+      jigouapi.kechenlunbo({ name: courseinfo.id}, (kechenlunbo) => {
+        this.Base.setMyData({ kechenlunbo });
+      });
+      
       this.Base.getAddress((address) => {
         console.log(address);
         var mylat = address.location.lat;
@@ -40,8 +44,10 @@ class Content extends AppBase {
 
         var miletxt = ApiUtil.GetMileTxt(mile);
         this.Base.setMyData({
-          miletxt
+          miletxt, scoring: parseInt(courseinfo.scoring)
         });
+        var scoring = this.Base.getMyData().scoring;
+        console.log("啊啊啊" + scoring)
       });
 
       this.Base.setMyData({ courseinfo,isfav:courseinfo.isfav });

@@ -542,3 +542,9 @@ button[disabled][type=primary] {
   height: 100%;
 }
 
+.chaochu {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

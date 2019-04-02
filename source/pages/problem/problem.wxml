@@ -1,36 +1,20 @@
 <!--pages/problem/problem.wxml-->
-<view class='flex-row bg-white  margin-top  shadow '>
+<view class='flex-row bg-white  margin-top  shadow ' wx:for='{{problemlist}}' wx:key='k'>
 
   <view class='flex-row column flex-1 '>
 
-    <view class='flex-row flex-center padding-30 ' style=''>
-      <image class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
-      <view class='txt-black flex-1 margin-left-20'>如何购课和上课？</view>
-    </view>
-    <view class='margin-left-20' style='height:2rpx;width:90%; background:#e5e5e5'></view>
-
-    <view class='h5 margin-left-20 margin-bottom-10 padding-40'>
-      <view class='icon-15 '></view>
-      <view class='flex-1'>施蒂利克骄傲了深刻的房间里肯定手动阀撒地方三房是福利卡机</view>
+    <view class='flex-row flex-center padding-30 ' style='' bindtap='bindshow' id='{{item.id}}'>
+      <image wx:if='{{show==item.id}}' class='icon radius-10' src='{{uploadpath}}resource/{{res.xiangxia}}'></image>
+      <image wx:if='{{show!=item.id}}' class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.to}}'></image> 
+      <view class='txt-black flex-1 margin-left-20'>{{item.title}}</view>
     </view>
 
+    <view class='' wx:if='{{show==item.id}}'>
+      <view class='margin-left-20' style='height:2rpx;width:90%; background:#e5e5e5'></view>
+      <view class='h5 margin-left-20 margin-bottom-10 padding-40'>
+        <view class='flex-1'>{{item.content}}</view>
+      </view>
+    </view>
 
   </view>
-</view>
-
-
-<view class='flex-row bg-white  margin-top-20  shadow '>
-    <view class='flex-row flex-center padding-30 ' style=''>
-      <image class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.to}}'></image>
-      <view class='txt-black flex-1 margin-left-20'>如何购课和上课？</view>
-    </view>
-</view>
-
-
-
-<view class='flex-row bg-white  margin-top-20  shadow '>
-    <view class='flex-row flex-center padding-30 ' style=''>
-      <image class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.to}}'></image>
-      <view class='txt-black flex-1 margin-left-20'>如何购课和上课？</view>
-    </view>
 </view>

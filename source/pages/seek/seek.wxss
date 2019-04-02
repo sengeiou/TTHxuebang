@@ -78,11 +78,7 @@ Page {
   margin-top: 20rpx;
 }
 
-.chaochu {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+
 
 .fixedtop {
   position: fixed;

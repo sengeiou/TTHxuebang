@@ -16,3 +16,7 @@
 .shadow{
   box-shadow: 1px 1px 10px #888888;
 }
+.kc_icon {
+  width: 228rpx;
+  height: 224rpx;
+}

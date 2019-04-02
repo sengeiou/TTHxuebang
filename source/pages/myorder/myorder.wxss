@@ -1,19 +1,31 @@
 /* pages/myorder/myorder.wxss */
-Page{
+
+Page {
   background: #f5f5f5;
 }
-.txt{
-  color: #FFC200;
+
+.txt {
+  color: #ffc200;
 }
-.block{
+
+.block {
   padding-left: 20rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
-.icon{
+
+.icon {
   height: 168rpx;
   width: 168rpx;
 }
-.bor_bot{
-  border-bottom:1px solid #e5e5e5
+
+.bor_bot {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.fbtn {
+  width: 140rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 40rpx;
 }
