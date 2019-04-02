@@ -94,7 +94,7 @@
 
           <view class='flex-row flex-center margin-top-10'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{jginfo.address}}">{{courseinfo.JG_showaddress}}</view>
+            <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
             <view class='h6 txt-black margin-right-20'>{{miletxt}}</view>
           </view>
 
