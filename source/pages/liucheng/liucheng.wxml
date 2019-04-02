@@ -30,7 +30,7 @@
 <view style='border-radius:50rpx;' class='bg flex-row flex-column padding-30 margin-30'>
   <view class='flex-row flex-center'>
     <image src='{{uploadpath}}resource/{{res.mechanism}}' class='icon'></image>
-    <view class='txt-black txt-bold margin-left-20'>客服电话</view>
+    <view class='txt-black txt-bold margin-left-20' id="{{instinfo.intotel}}" bindtap='phoneCall'>客服电话</view>
   </view>
 </view>
 

@@ -25,7 +25,7 @@
 
   <swiper bindchange="swiperChange" indicator-dots='{{false}}' current-item-id='{{currentItemId}}' next-margin="75rpx" previous-margin="75rpx" autoplay='false' interval='3000' duration='1000' circular='true' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" bindtap='clickChange'>
-      <view class='li'>
+      <view class='li' bindtap='bannerGo' id="{{item.id}}">
         <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </view>
     </swiper-item>
@@ -89,7 +89,7 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h6 margin-left-10 txt-black dizhi' >{{item.address}}</view>
+            <view class='flex-1 h6 margin-left-10 txt-black dizhi' >{{item.showaddress}}</view>
             <view class='h6 txt-gray'>{{item.miletxt}}</view>
 
           </view>

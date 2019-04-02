@@ -149,6 +149,32 @@ class Content extends AppBase {
       });
     });
   }
+
+  bannerGo(e){
+    var id=e.currentTarget.id;
+    var indexbanner = this.Base.getMyData().indexbanner;
+    for(var i=0;i<indexbanner.length;i++){
+      if(id==indexbanner[i].id){
+        if(indexbanner[i].type=='KC'){
+          wx.navigateTo({
+            url: '/pages/kcdetails/kcdetails?id='+indexbanner[i].course_id
+          })
+        }
+        if (indexbanner[i].type == 'JG') {
+          wx.navigateTo({
+            url: '/pages/jgdetails/jgdetails?id=' + indexbanner[i].jg_id
+          })
+        }
+        if (indexbanner[i].type == 'SF') {
+          wx.navigateTo({
+            url: indexbanner[i].url
+          })
+        }
+        return;
+      }
+    }
+  }
+
 }
 
 var content = new Content();
@@ -161,4 +187,5 @@ body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange; 
 body.tobaoma = content.tobaoma; 
 body.loadjg = content.loadjg;
+body.bannerGo = content.bannerGo;
 Page(body)
