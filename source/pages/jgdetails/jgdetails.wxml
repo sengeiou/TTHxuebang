@@ -1,4 +1,7 @@
 <!--pages/jgdetails/jgdetails.wxml-->
+
+<view class='' style='background:{{jginfo.bgcolor}}'>
+
 <view style='position: relative;height:864rpx ' class=''>
 
 
@@ -91,7 +94,7 @@
 
 </view>
 
-<image src='{{uploadpath}}resource/{{res.ceshi2}} ' class='margin-20 radius-10 ' style='height:2828rpx;width:712rpx '></image>
+<image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
 
 <view class='margin-20 margin-bottom-10 '>
   <view class='padding-20 flex-row radius-10 shadow ' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
@@ -117,8 +120,10 @@
 
 <view class='height-100 '></view>
 
-<view class='margin-40 flex-row flex-column '>
-  <image src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-75 '></image>
+
 </view>
 
-<view class='height-100 '></view>
+
+
+
+<!-- <view class='height-100 '></view> -->

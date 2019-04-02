@@ -27,6 +27,7 @@ class Content extends AppBase {
     });
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
+      courseinfo.xx=parseInt();
       this.Base.setMyData({ courseinfo,isfav:courseinfo.isfav });
     });
 
