@@ -114,45 +114,42 @@
   </view> -->
 
 
-
-  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx;' class=''>
-    <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
-    </view>
-
-    <view class='flex-row flex-column '>
-      <view class='radius-10 bg-white  mid margin-bottom-10'>
-
-        <view class='padding-20 '>
-
-          <view class='flex-row flex-center '>
-            <view class='flex-1 txt-bold txt-black '>{{item.jigou}}</view>
-            <view class='h6'>⭐⭐⭐⭐⭐</view>
-          </view>
-
-          <view class='flex-row flex-center margin-top-5'>
-            <view class='flex-row flex-1'>
-              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
-            </view>
-            <view class='h6'>已预约15人</view>
-          </view>
-
-          <view class='flex-row flex-center margin-top-5'>
-            <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
-            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.showaddress}}</view>
-            <view class='h6 txt-gray'>{{item.miletxt}}</view>
-
-          </view>
-        </view>
-
+    <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx;z-index:-1;' class=''>
+      <view class=' padding-20' style=''>
+        <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
       </view>
+
+      <view class='flex-row flex-column '>
+        <view class='radius-10 bg-white  mid margin-bottom-10'>
+
+          <view class='padding-20 '>
+
+            <view class='flex-row flex-center '>
+              <view class='flex-1 txt-bold txt-black '>{{item.jigou}}</view>
+              <view class='h6'>⭐⭐⭐⭐⭐</view>
+            </view>
+
+            <view class='flex-row flex-center margin-top-5'>
+              <view class='flex-row flex-1'>
+                <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+              </view>
+              <view class='h6'>已预约15人</view>
+            </view>
+
+            <view class='flex-row flex-center margin-top-5'>
+              <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
+              <view class='flex-1 h6 margin-left-10 txt-black'>{{item.showaddress}}</view>
+              <view class='h6 txt-gray'>{{item.miletxt}}</view>
+
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+
+
     </view>
-
-
-
-  </view>
-
-
 
 
 
