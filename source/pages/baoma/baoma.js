@@ -1,6 +1,9 @@
 // pages/baoma/baoma.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
+import {
+  ApiUtil
+} from "../../apis/apiutil";
 import { InstApi } from "../../apis/inst.api.js";
 import { BaomaApi } from "../../apis/baoma.api.js";
 
@@ -19,10 +22,10 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var baomaapi = new BaomaApi();
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
-    });
     baomaapi.baomalist({}, (baomalist) => {
+      for(var i=0;i<baomalist.length;i++){
+        baomalist[i].up_time_timespan_d = ApiUtil.TimeAgo(baomalist[i].up_time_timespan);
+      }
       this.Base.setMyData({ baomalist });
     });
   }

@@ -1,6 +1,9 @@
 // pages/kcdetails/kcdetails.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
+import {
+  ApiUtil
+} from "../../apis/apiutil";
 import { InstApi } from "../../apis/inst.api.js";
 import { JigouApi } from "../../apis/jigou.api.js";
 
@@ -27,7 +30,20 @@ class Content extends AppBase {
     });
     //this.Base.options.id
     jigouapi.courseinfo({ id: this.Base.options.id }, (courseinfo) => {
-      courseinfo.xx=parseInt();
+      //courseinfo.xx=parseInt();
+      this.Base.getAddress((address) => {
+        console.log(address);
+        var mylat = address.location.lat;
+        var mylng = address.location.lng;
+
+        var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
+
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        this.Base.setMyData({
+          miletxt
+        });
+      });
+
       this.Base.setMyData({ courseinfo,isfav:courseinfo.isfav });
     });
 
