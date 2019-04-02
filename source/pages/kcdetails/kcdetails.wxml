@@ -27,13 +27,31 @@
       <view class=' bg-white  margin-bottom-10'>
         <view class='padding-10 '>
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold ' style='font-size:52rpx;' bindtap='todetails'>{{courseinfo.JG_jigou}}</view>
-            <view class='txt-black  flex-1 padding-top-10 padding-left-20'>{{courseinfo.name}}</view>
-            <view class='txt-black h6'>
-              <view wx:for="{{2}}">
-                <image src='{{uploadpath}}resource/{{res.star}}' class='icon-15'></image>
-              </view>
+            <view class='txt-black txt-bold ' style='font-size:52rpx;'>{{courseinfo.name}}</view>
+            <view class='txt-black  flex-1 padding-top-10 padding-left-20' bindtap='todetails'>{{courseinfo.JG_jigou}}</view>
+
+            <view wx:if="{{scoring==5}}" class='flex-row flex-center margin-right-20'>
+              <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
+            <view wx:if="{{scoring==4}}" class='flex-row flex-center margin-right-20'>
+              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+              <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            </view>
+            <view wx:if="{{scoring==3}}" class='flex-row flex-center margin-right-20'>
+              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            </view>
+            <view wx:if="{{scoring==2}}" class='flex-row flex-center margin-right-20'>
+              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            </view>
+            <view wx:if="{{scoring==1}}" class='flex-row flex-center margin-right-20'>
+              <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            </view>
+
+
+
           </view>
 
 
@@ -76,7 +94,7 @@
 
           <view class='flex-row flex-center margin-top-10'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h5 margin-left-10 txt-blue'  bindtap='openMap' id="{{jginfo.address}}">{{courseinfo.JG_showaddress}}</view>
+            <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{jginfo.address}}">{{courseinfo.JG_showaddress}}</view>
             <view class='h6 txt-black margin-right-20'>{{miletxt}}</view>
           </view>
 
@@ -112,7 +130,7 @@
 
   <view class='fixedbottom'>
 
-    <view class='bg-white' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
+    <view class='txt-red text-center h5' style='background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
     <view style='' class='flex-row flex-1'>
 
       <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
@@ -137,9 +155,17 @@
         <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
         <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
       </view>
-      <navigator url='/pages/seek/seek?type=kc' class='flex-2 flex-row flex-column buy padding-15' wx:if="{{canbuy.code!='0'}}">
-        <view class='h6 txt-white'>查看其它课程</view>
-      </navigator>
+
+      <view class='flex-2 flex-row flex-column padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
+        <view class='txt-white txt-bold flex-1'>￥{{courseinfo.price}}</view>
+        <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">立即购买</view>
+      </view>
+
+
+      <!-- <navigator url='/pages/seek/seek?type=kc' class='flex-2 flex-row flex-column buy padding-15' wx:if="{{canbuy.code!='0'}}">
+        <view class='h6 txt-white'>立即购买</view>
+      </navigator> -->
+
     </view>
   </view>
 

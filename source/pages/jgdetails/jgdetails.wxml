@@ -27,14 +27,14 @@
 
 
         <view class='flex-row flex-center'>
-          <view class='txt-black txt-bold h4 flex-1'>{{jginfo.jigou}}</view>
+          <view class='txt-black txt-bold h4 flex-1 chaochu'>{{jginfo.jigou}}</view>
           <view class='flex-1 h5 txt-black text-right'>⭐⭐⭐⭐⭐</view>
         </view>
 
 
         <view class='flex-row flex-center margin-top-10'>
           <view class='flex-row flex-1'>
-            <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+            <view class=' padding-5 radius-10 txt-green h6 margin-5 '  style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
 
           <view>
@@ -67,7 +67,7 @@
 
         <view class='flex-row flex-center margin-top-10'>
           <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-          <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
+          <view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
           <view class='h6 txt-black'>{{miletxt}}</view>
         </view>
 

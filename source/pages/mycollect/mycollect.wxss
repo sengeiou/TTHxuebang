@@ -10,10 +10,32 @@ Page{
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
-.icon{
+/* .icon{
+  height: 168rpx;
+  width: 168rpx;
+} */
+.icon2{
   height: 168rpx;
   width: 168rpx;
 }
 .bor_bot{
   border-bottom:1px solid #e5e5e5
+}
+
+.org_block {
+  padding-left: 5rpx;
+  padding-right: 15rpx;
+  padding-top: 6rpx;
+  padding-bottom: 6rpx;
+}
+
+.title {
+  position: absolute;
+  width: 50%;
+  top: 24rpx;
+  left: 32rpx;
+  z-index: 10;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

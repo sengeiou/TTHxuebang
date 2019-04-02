@@ -227,24 +227,68 @@
       <view class='txt-bold txt-black flex-1'>{{item.type_typename}}</view>
 
       <view class='flex-row flex-center'>
-        <view class='h7 '>⭐⭐⭐⭐⭐</view>
-        <view class='h6 flex-1 margin-left-20 txt-primary'>368人购课</view>
+
+
+        <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
+          <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        </view>
+        
+        <view wx:if="{{item.scoring==4}}" class='flex-row flex-center '>
+          <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+          <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        </view>
+
+        <view wx:if="{{item.scoring==3}}" class='flex-row flex-center '>
+          <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+          <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        </view>
+
+        <view wx:if="{{item.scoring==2}}" class='flex-row flex-center '>
+          <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+          <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        </view>
+
+        <view wx:if="{{item.scoring==1}}" class='flex-row flex-center '>
+          <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+          <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        </view>
+
+
+        <view class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</view>
       </view>
 
       <view class='flex-row flex-center flex-1' style=''>
-        <view class='h6 txt-black flex-1'>{{item.age}}岁</view>
-        <view class='h6 txt-black flex-1'>{{item.class_hours}}节课</view>
-        <view class='h6 txt-black flex-1'>{{item.duration}}/节</view>
+
+
+        <view class='flex-row flex-center flex-1'>
+          <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+          <view class='h6 txt-black margin-left-5'>{{item.age}}岁</view>
+        </view>
+
+
+        <view class='flex-row flex-center flex-1'>
+          <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+          <view class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</view>
+        </view>
+
+
+        <view class='flex-row flex-center flex-1'>
+          <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+          <view class='h6 txt-black margin-left-5'>{{item.duration}}/节</view>
+        </view>
+
+
       </view>
 
 
       <view class='flex-row flex-center flex-1'>
-        <image class='icon-10 radius-10 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-        <view class='h6 flex-1 margin-left-10'>{{item.JG_jigou}}</view>
+        <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
+        <view class='h6 flex-1 margin-left-5'>{{item.JG_jigou}}</view>
+        <view class=' txt-red txt-bold'>￥{{item.price}}</view>
       </view>
 
       <view class='flex-row flex-center'>
-        <view class='h6 flex-1'>{{item.JG_showaddress}}</view>
+        <view class='h6 flex-1 chaochu'>{{item.JG_showaddress}}</view>
         <view class='h6   txt-primary'>{{item.miletxt}}</view>
       </view>
 

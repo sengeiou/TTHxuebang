@@ -14,6 +14,7 @@ import {
 import {
   MemberApi
 } from "../../apis/member.api.js";
+import { TeacherApi } from "../../apis/teacher.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -49,6 +50,10 @@ class Content extends AppBase {
         splist
       });
     });
+    var teacherapi = new TeacherApi();
+    teacherapi.teachlist({  }, (teachlist) => {
+      this.Base.setMyData({ teachlist });
+    });
   }
 
   bindshow(e) {
@@ -59,6 +64,25 @@ class Content extends AppBase {
     })
   }
 
+  fav(e) {
+    var id = e.currentTarget.id;
+    console.log(id);
+    id = id.split("_");
+    var status = id[1];
+    id = id[0];
+    var teachlist = this.Base.getMyData().teachlist;
+    for (var i = 0; i < teachlist.length; i++) {
+      if (teachlist[i].id == id) {
+        teachlist[i].isfav = status;
+      }
+    }
+    var jigouapi = new JigouApi();
+    jigouapi.videofav({ video_id: id, status }, (ret) => {
+      //this.Base.info(ret.result);
+      this.Base.setMyData({ teachlist });
+    });
+  }
+
 }
 
 var content = new Content();
@@ -67,4 +91,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindshow = content.bindshow;
+body.fav = content.fav;
+
 Page(body)
