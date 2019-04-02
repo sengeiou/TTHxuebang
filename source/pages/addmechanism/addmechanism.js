@@ -145,7 +145,21 @@ class Content extends AppBase {
       url: '/pages/content/content',
     })
   }
+  useaddress(){
+    wx.chooseAddress({
+      success:(res)=>{
+        console.log(res);
 
+        this.Base.setMyData({pca:res.provinceName+res.cityName+res.countyName,
+        detail:res.detailInfo,
+        contacttel:res.telNumber,
+        contactname:res.userName
+        });
+
+
+      }
+    })  
+  }
 }
 
 var content = new Content();
@@ -153,6 +167,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcheck = content.bindcheck;
-body.confirm = content.confirm;
+body.confirm = content.confirm; 
 body.tocontent = content.tocontent;
+body.useaddress = content.useaddress;
 Page(body)
