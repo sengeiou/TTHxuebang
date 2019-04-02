@@ -50,6 +50,7 @@ class Content extends AppBase {
         splist
       });
     });
+
     var teacherapi = new TeacherApi();
     teacherapi.teachlist({  }, (teachlist) => {
       this.Base.setMyData({ teachlist });

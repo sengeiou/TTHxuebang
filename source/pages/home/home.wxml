@@ -75,7 +75,31 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold'>{{item.jigou}}</view>
+            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+
+            <view class=''>
+              <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==4}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==3}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==2}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==1}}" class='flex-row flex-center margin-right-20'>
+                <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+            </view>
+
+
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
@@ -89,7 +113,7 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h6 margin-left-10 txt-black dizhi' >{{item.showaddress}}</view>
+            <view class='flex-1 h6 margin-left-10 txt-black dizhi'>{{item.showaddress}}</view>
             <view class='h6 txt-gray'>{{item.miletxt}}</view>
 
           </view>

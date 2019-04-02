@@ -220,7 +220,6 @@
   <view style='height:180rpx;'></view>
 
 
-
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{courselist}}' wx:key='k'>
     <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
@@ -232,7 +231,7 @@
         <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
           <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
         </view>
-        
+
         <view wx:if="{{item.scoring==4}}" class='flex-row flex-center '>
           <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
           <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
@@ -294,6 +293,8 @@
 
     </view>
   </view>
+
+
 
 
   <view class='SX flex-row flex-center' wx:if='{{options_show==true}}'>

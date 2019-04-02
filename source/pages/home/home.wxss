@@ -16,11 +16,17 @@
   height: 252rpx;
 }
 
+.dizhi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .mid {
   position: absolute;
   width: 85.5%;
   z-index: 10;
-  height: 186rpx;
+  height: 196rpx;
   bottom: 0%;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
@@ -43,8 +49,4 @@
   transform: scale(1);
 }
 
-.dizhi {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+

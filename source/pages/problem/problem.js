@@ -12,17 +12,38 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({show:""})
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
     var jigouapi = new JigouApi();
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+    
+    jigouapi.problemlist({}, (problemlist) => {
+      this.Base.setMyData({ problemlist });
     });
-    jigouapi.jglist({}, (jglist) => {
-      this.Base.setMyData({ jglist });
-    });
+  }
+  bindshow(e){
+    
+    var id=e.currentTarget.id;
+    var show =this.Base.getMyData().show;
+    if(show==""){
+      this.Base.setMyData({
+        show: id
+      })
+    }
+    if (show != id) {
+      this.Base.setMyData({
+        show: id
+      })
+    }
+    if(show==id){
+      this.Base.setMyData({
+        show: ""
+      })
+    }
+
+
+
   }
 
 }
@@ -32,4 +53,6 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
+body.bindshow = content.bindshow;
+
 Page(body)

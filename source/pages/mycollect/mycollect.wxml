@@ -92,7 +92,7 @@
   </view>
 
 
-  <navigator url='/pages/jgdetails/jgdetails?id={{item.jg_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' wx:for="{{jglist}}" wx:key='k'>
+  <!-- <navigator url='/pages/jgdetails/jgdetails?id={{item.jg_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' wx:for="{{jglist}}" wx:key='k'>
 
 
     <view class='flex-row  padding-20 bor_bot' style=''>
@@ -109,12 +109,74 @@
 
     </view>
 
-    <!-- <view class='flex-row flex-center padding-20' style=''>
-      <view class='flex-1'></view>
-      <view class='txt-black txt-bold margin-left-20'>实付金额：￥{{item.amount}}</view>
-    </view> -->
+  </navigator> -->
 
-  </navigator>
+
+
+  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+    <view class=' padding-20' style=''>
+      <image src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' class=' radius-10 ' style='width:100%;height:400rpx'></image>
+    </view>
+
+    <view class='flex-row flex-column '>
+      <view class='radius-10 bg-white  mid margin-bottom-10'>
+
+        <view class='padding-20 '>
+
+          <view class='flex-row flex-center'>
+            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+
+            <view class=''>
+              <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==4}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==3}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==2}}" class='flex-row flex-center margin-right-20'>
+                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+              <view wx:if="{{item.scoring==1}}" class='flex-row flex-center margin-right-20'>
+                <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+              </view>
+            </view>
+
+
+          </view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <view class='flex-row flex-1'>
+              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.jg_id_name}}</view>
+            </view>
+            <view class='h6'>已预约0人</view>
+          </view>
+
+          <view class='flex-row flex-center margin-top-5'>
+            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+            <view class='flex-1 h6 margin-left-10 txt-black dizhi'>{{item.showaddress}}</view>
+            <view class='h6 txt-gray'>{{item.miletxt}}</view>
+
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+
+
+  </view>
+
+
+
+
+
 </view>
 
 
@@ -140,7 +202,6 @@
       </view>
     </view>
   </view>
-
 
 
   <!-- <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' wx:for="{{splist}}" wx:key='k'>
