@@ -39,7 +39,7 @@ Page{
   position: absolute;
   width: 85.5%;
   z-index: 10;
-  height: 186rpx;
+  height: 190rpx;
   bottom:0%;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
@@ -60,4 +60,9 @@ Page{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.biaoqian {
+  width: 116rpx;
+  height: 38rpx;
+  line-height: 38rpx;
 }

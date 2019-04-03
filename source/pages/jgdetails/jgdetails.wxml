@@ -55,18 +55,15 @@
 
 
 
-
           <view class='flex-row flex-center margin-top-10'>
             <view class='flex-row flex-1'>
               <view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
 
-            <view>
-              <button bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary   h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</button>
-              <button bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</button>
-            </view>
 
-
+              <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
+              <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view>
+              
           </view>
 
           <view class='flex-row  margin-top-5 padding-10'>

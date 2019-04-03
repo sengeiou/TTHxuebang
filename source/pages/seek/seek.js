@@ -366,40 +366,41 @@ class Content extends AppBase {
   resetFilter() {
     var that = this;
     
-    var tdistrict_id = this.Base.getMyData().fdistrict_id;
-    var ttype_id = this.Base.getMyData().ftype_id;
-    var tage_id = this.Base.getMyData().fage_id;
-    that.Base.setMyData({
-      tdistrict_id: tdistrict_id,
-      ttype_id: ttype_id,
-      tage_id: tage_id
-          });
+   
   
     // var that=this;
-    // wx.showModal({
-    //   title: '确定',
-    //   content: '确认重置？',
-    //   showCancel: true,
-    //   cancelText: '取消',
-    //   cancelColor: '#EE2222',
-    //   confirmText: '确定',
-    //   confirmColor: '#2699EC',
-    //   success: function (res) {
-    //     if (res.confirm) {
-    //       that.Base.setMyData({
-    //         options_show: false,
-    //         fdistrict_id: "0",
-    //         ftype_id: "0",
-    //         fage_id: "0"
-    //       });
-    //       that.loadcourse();
-    //       // // wx.showToast({
-    //       // //   title: '保存成功',
-    //       // //   icon: '',
-    //       // // })
-    //     }
-    //   }
-    // });
+     wx.showModal({
+       title: '确定',
+       content: '确认重置？',
+       showCancel: true,
+       cancelText: '取消',
+       cancelColor: '#EE2222',
+       confirmText: '确定',
+       confirmColor: '#2699EC',
+       success: function (res) {
+         if (res.confirm) {
+           
+
+           var tdistrict_id = that.Base.getMyData().fdistrict_id;
+           var ttype_id = that.Base.getMyData().ftype_id;
+           var tage_id = that.Base.getMyData().fage_id;
+           that.Base.setMyData({
+             tdistrict_id: tdistrict_id,
+             ttype_id: ttype_id,
+             tage_id: tage_id
+           });
+
+
+
+
+
+           // // wx.showToast({
+           // //   title: '保存成功',
+           // //   icon: '',
+           // // })
+         }
+       }
+     });
 
 
 
