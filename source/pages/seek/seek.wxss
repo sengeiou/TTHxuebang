@@ -59,7 +59,14 @@ Page {
   margin-top: 20rpx;
   /* margin-bottom: 4rpx; */
 }
-
+.simg{
+  background-image: url('http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/tthxb/resource/b2a15e95ff44796c01cd55bc73a06629_19040220002.png');
+  background-size:100% 100%;
+}
+.ximg{
+    background-image: url('http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/tthxb/resource/37262d1d482d74704847ee62566616d8_19040221012.png');
+  background-size:100% 100%;
+}
 .kc_icon {
   width: 228rpx;
   height: 224rpx;
@@ -167,4 +174,9 @@ Page {
 .xb_bg{
   height: 32rpx;
   width: 154rpx;
+}
+.bt{
+  position: absolute;
+  bottom: 54rpx;
+  
 }

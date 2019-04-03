@@ -152,7 +152,7 @@ view,navigator,input,text,textarea{
   font-weight: 350;
 }
 .txt-red{
-  color:#E51C23;
+  color:#FF5733;
 } 
 .txt-green{
   color:darkgreen;

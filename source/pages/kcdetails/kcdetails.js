@@ -11,6 +11,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -24,7 +25,6 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
-
 
 
     //this.Base.options.id

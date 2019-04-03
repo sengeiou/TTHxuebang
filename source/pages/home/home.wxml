@@ -8,17 +8,16 @@
         <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       </navigator>
 
-      <navigator url='/pages/searchword/searchword' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
-        <view class='flex-1' style='width:20rpx;'></view>
-        <image class='icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
-        <view class='h5 txt-gray'>搜索你要找的机构、课程、老师</view>
+      <navigator url='/pages/searchword/searchword?kc' class='search flex-1 flex-row flex-center  padding-5 margin-left-20'>
+        <view class='flex-1' style='width:20rpx;margin-top:4rpx;'></view>
+        <image class='icon-25' style='' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+        <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>搜索你要找的机构、课程、老师</view>
         <view class='flex-1'></view>
       </navigator>
 
     </view>
   </view>
 </view>
-
 
 
 <view class='bnk  ' style=''>
@@ -66,7 +65,7 @@
 
   <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:400rpx'></image>
+      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
     <view class='flex-row flex-column '>
@@ -102,21 +101,22 @@
 
           </view>
 
+
           <view class='flex-row flex-center margin-top-5'>
             <view class='flex-row flex-1'>
               <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
-            <view class='h6'>已预约15人</view>
+            <view class='h6 txt-gray'>已预约15人</view>
           </view>
-
 
 
           <view class='flex-row flex-center margin-top-5'>
-            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+            <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
             <view class='flex-1 h6 margin-left-10 txt-black dizhi'>{{item.showaddress}}</view>
-            <view class='h6 txt-gray'>{{item.miletxt}}</view>
-
+            <view class='h6 '>{{item.miletxt}}</view>
           </view>
+
+
         </view>
 
       </view>

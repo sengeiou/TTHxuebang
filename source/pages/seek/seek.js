@@ -61,7 +61,11 @@ class Content extends AppBase {
     var show = this.Base.getMyData().show;
 
     var jigouapi = new JigouApi();
-
+    jigouapi.gongaolist({}, (gongaolist) => {
+      this.Base.setMyData({
+        gongaolist
+      });
+    });
     jigouapi.coursetype({}, (filtercoursetype) => {
       this.Base.setMyData({
         filtercoursetype

@@ -3,15 +3,18 @@
 <view>
 
 
-  <view class='' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
+  <view class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}});background-size:100% 100%;'>
 
     <view style='height:140rpx;'></view>
 
     <swiper indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' style='width:750rpx;height:400rpx;'>
       <swiper-item wx:for="{{kechenlunbo}}" wx:key="k">
         <view>
+
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+
           <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
+          
           <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}' style='width:750rpx;height:400rpx;'></video>
         </view>
       </swiper-item>
@@ -20,6 +23,8 @@
     <view style='height:116rpx;'></view>
 
   </view>
+
+
 
   <view style=' ' class=''>
 

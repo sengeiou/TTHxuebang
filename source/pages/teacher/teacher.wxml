@@ -12,14 +12,14 @@
     <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
     <view class='h5'>{{item.count}}次</view>
     <view class='margin-left-20 flex-row flex-center'>
-            <!-- <button  >未收藏</button> -->
+      <!-- <button  >未收藏</button> -->
+      
+      <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
 
-            <image src='{{uploadpath}}resource/{{res.video_coll}}'class='icon' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
-            <view wx:if="{{item.isfav=='N'}}" class='h5 margin-left-10'>收藏</view>
-
-            <image src='{{uploadpath}}resource/{{res.video_null}}'class='icon' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
-            <view wx:if="{{item.isfav!='N'}}" class='h5 margin-left-10'>取消</view>
-            <!-- <button  >已收藏</button> -->
-          </view>
+      <view wx:if="{{item.isfav=='N'}}" class='h5 margin-left-10'>收藏</view>
+      <!-- <view wx:if="{{item.isfav!='N'}}" class='h5 margin-left-10'>取消</view> -->
+      <!-- <button  >已收藏</button> -->
+    </view>
   </view>
 </view>

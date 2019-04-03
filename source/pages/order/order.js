@@ -52,6 +52,7 @@ class Content extends AppBase {
       reminderpay:0,
       timerid
     })
+    
   }
   onUnload(){
     var timerid = this.Base.getMyData().timerid;
@@ -113,6 +114,35 @@ class Content extends AppBase {
       wx.requestPayment(payret)
     });
   }
+  colseorder(e) {
+    var that = this;
+    var id = e.currentTarget.id;
+
+    wx.showModal({
+      title: '',
+      content: '确认取消订单？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          var batchapi = new BatchApi();
+          batchapi.closeorder({ id: id }, (colseorder) => {
+            that.Base.setMyData({ colseorder })
+            
+          })
+          wx.navigateBack({
+            
+          })
+
+        }
+      }
+    });
+
+
+  }
 
 }
 
@@ -123,5 +153,6 @@ body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindshow = content.bindshow; 
 body.bindback = content.bindback;
-body.bindpay = content.bindpay;
+body.bindpay = content.bindpay; 
+body.colseorder = content.colseorder;
 Page(body)

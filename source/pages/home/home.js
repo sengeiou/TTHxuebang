@@ -26,6 +26,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    
     this.Base.setMyData({
       currentItemId: 2,
       mylat: 0,
@@ -33,7 +34,7 @@ class Content extends AppBase {
     })
 
     var instapi = new InstApi();
-    instapi.indexbanner({}, (indexbanner) => {
+    instapi.indexbanner({orderby:'r_main.seq'}, (indexbanner) => {
       this.Base.setMyData({
         indexbanner
       });

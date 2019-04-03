@@ -15,3 +15,15 @@ Page{
   padding-bottom: 20rpx;
   padding-left:10rpx;
 }
+.fbtn {
+  width: 140rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 40rpx;
+}
+.btm{
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  z-index: 100;
+}
