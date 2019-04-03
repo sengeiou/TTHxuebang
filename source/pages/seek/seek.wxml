@@ -405,7 +405,16 @@
           <view class='line-height-0'>
             <image src='{{showitem.member_avatarUrl}}'></image>
           </view>
-          <view style='margin-left:10rpx;width:250rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}成功预约了{{showitem.course_name}}课程</view>
+
+          <view style='width:250rpx;' class='flex-row flex-center'>
+            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}</view>
+            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>预约了</view>
+            <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
+              {{showitem.course_name}}
+            </view>
+
+          </view>
+
         </view>
       </view>
     </view>
