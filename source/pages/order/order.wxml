@@ -129,7 +129,7 @@
       <view class='txt-black '>订单信息</view>
     </view>
 
-    <view class='flex-row flex-center padding-20 bor_bot ' style=' '>
+    <view class='flex-row flex-center padding-20 bor_bot ' bindtap='todetails' style=' '>
 
       <image class='icon-50 radius-10 ' src='{{uploadpath}}resource/{{res.ceshi}} '></image>
 
@@ -167,17 +167,15 @@
       <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
     </view>
 
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
+    <view class='flex-row flex-center pd  ' style=' '>
       <view class=' h5 flex-1 '>学员</view>
       <view class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</view>
       <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
     </view>
 
-    <view class='height-100 '></view>
-
-
-
   </view>
+
+  <view class=' text-center ' style='font-size:24rpx;height:100rpx;line-height:100rpx;color:#A1A1A1'>您购买的课程，购买后不支持退订、转让、退换。</view>
 </view>
 
 
