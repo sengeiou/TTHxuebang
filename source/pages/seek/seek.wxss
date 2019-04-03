@@ -157,12 +157,16 @@ Page {
   width: 220rpx;
   height: 252rpx;
 }
-.mid{
+.midt{
   position: absolute;
-  width: 85.5%;
   z-index: 10;
+  width: 100vw;
+  margin-top: -130rpx;
+}
+.mid{
+  width: 85.5%;
   height: 186rpx;
-  bottom:0%;
+  margin-top: 30rpx;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
 }
