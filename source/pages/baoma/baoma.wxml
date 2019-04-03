@@ -1,7 +1,7 @@
 <!--pages/baoma/baoma.wxml-->
 <view wx:for='{{baomalist}}' wx:key='k' class='bg-white block' id='{{item.id}}' bindtap='binddetails' style=''>
   <image src='{{uploadpath}}baoma/{{item.img}}' style='' class='img'></image>
-  <view class='title_font txt-black'>
+  <view class='title_font txt-bold ' style='color:#4C4C4C'>
     {{item.title}}
   </view>
 
@@ -9,10 +9,15 @@
     <view class='jiaoyu  text-center txt-red'>{{item.type}} </view>
     <view class='txt-gray h6 flex-1 margin-left-10'>{{item.faburen}} </view>
     <view class='txt-gray h6'>{{item.up_time_timespan_d}} </view>
+
+
+
     <view class='flex-row flex-center margin-left-20'>
-      <image src='{{uploadpath}}resource/{{res.shoucang}}' class='icon-15'></image>
-      <view class='txt-gray h6'>{{item.count}} </view>
+      <image src='{{uploadpath}}resource/{{res.eyes}}' class='icon'></image>
+      <view class='txt-gray h6 margin-left-5 margin-right-5'>{{item.count}} </view>
     </view>
+
+
   </view>
 
 </view>

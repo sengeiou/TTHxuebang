@@ -14,13 +14,14 @@ Page {
 
 .img {
   height: 300rpx;
-  width: 700rpx;
+  width: 710rpx;
 }
+
 title_font{
   font-size: 30rpx;
 }
 .jiaoyu{
-  border:1px solid red;
+  border:2rpx solid red;
   height: 26rpx;
   line-height: 26rpx;
   width: 56rpx;

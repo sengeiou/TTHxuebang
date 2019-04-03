@@ -37,13 +37,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "机构详情",
 					"pathName": "pages/jgdetails/jgdetails",
-					"query": "",
+					"query": "id=7",
 					"scene": null
 				},
 				{
@@ -197,6 +197,7 @@
 					"id": -1,
 					"name": "我的收藏",
 					"pathName": "pages/mycollect/mycollect",
+					"query": "",
 					"scene": null
 				}
 			]

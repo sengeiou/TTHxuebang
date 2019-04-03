@@ -8,3 +8,9 @@ Page{
 .bg{
   background: #ffc200;
 }
+.txt-hui{
+  color: #4C4C4C;
+}
+.txt{
+  font-size: 30rpx;
+}

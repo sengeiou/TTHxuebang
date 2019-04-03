@@ -35,36 +35,57 @@ class Content extends AppBase {
       id: this.options.id
     }, (jginfo) => {
 
+      this.Base.getAddress((address) => {
+        console.log(address);
+        var mylat = address.location.lat;
+        var mylng = address.location.lng;
+        console.log("hahah");
+        console.log(mylat);
+        var mile = ApiUtil.GetDistance(mylat, mylng, jginfo.lat, jginfo.lng);
+
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        this.Base.setMyData({
+          miletxt, mylat: mylat, mylng: mylng
+        });
+
+        jigouapi.courselist({
+          jg_id: jginfo.id
+        }, (courselist) => {
+          var mylat = this.Base.getMyData().mylat;
+          var mylng = this.Base.getMyData().mylng;
+          for (var i = 0; i < courselist.length; i++) {
+            console.log("牛逼");
+            console.log(mylat);
+            var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+            console.log("mile=" + mile);
+            var miletxt = ApiUtil.GetMileTxt(mile);
+            console.log("miletxt=" + miletxt);
+            courselist[i]["miletxt"] = miletxt;
+
+          }
+
+          this.Base.setMyData({
+            courselist: courselist
+          });
+        });
+
+
+      });
+
+
+
       jigouapi.jigouimg({ jigou: jginfo.id }, (jigouimg) => {
         this.Base.setMyData({
           jigouimg
         });
       });
-
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
-
-        var mile = ApiUtil.GetDistance(mylat, mylng, jginfo.lat, jginfo.lng);
-        
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        this.Base.setMyData({
-          miletxt
-        });
-      });
+      console.log("???????????");
 
       this.Base.setMyData({
-        jginfo,isfav:jginfo.isfav
+        jginfo, isfav: jginfo.isfav
       });
 
-      jigouapi.courselist({
-        jg_id: jginfo.id
-      }, (courselist) => {
-        this.Base.setMyData({
-          courselist: courselist
-        });
-      });
+    
 
     });
 
@@ -89,7 +110,7 @@ class Content extends AppBase {
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow; 
+body.onMyShow = content.onMyShow;
 body.tokcdetails = content.tokcdetails;
 body.fav = content.fav;
 
