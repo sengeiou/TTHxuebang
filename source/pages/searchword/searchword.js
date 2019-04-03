@@ -5,6 +5,7 @@ import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { JigouApi } from "../../apis/jigou.api.js";
 import { TeacherApi } from "../../apis/teacher.api.js";
+import { MemberApi } from "../../apis/member.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -17,12 +18,24 @@ class Content extends AppBase {
     var json = {
       searchrecomm: ""
     };
-    this.Base.setMyData({ show: 0 });
+    this.Base.setMyData({ show: 0, result:[] });
 
 
   }
+
+  
+
+  setPageTitle(instinfo) {
+    wx.setNavigationBarTitle({
+      title: "搜索",
+    })
+  }
   onMyShow() {
     var that = this;
+    var instapi = new MemberApi();
+    instapi.searchkeyword({}, (ret) => {
+      that.Base.setMyData({ history: ret.history, hotest: ret.hotest });
+    });
   }
   skey(e) {
     var keyword = e.detail.value;
@@ -59,6 +72,9 @@ class Content extends AppBase {
   tosearch(e) {
     var word = this.Base.getMyData().value;
 
+    var instapi = new MemberApi();
+    instapi.setsearch({keyword:word});
+
     if (word != null) {
       wx.navigateTo({
         url: '/pages/search/search?keyword=' + word,
@@ -68,6 +84,10 @@ class Content extends AppBase {
 
   todetails(e) {
     var name = e.currentTarget.id;
+
+    var instapi = new MemberApi();
+    instapi.setsearch({ keyword: name });
+
     wx.navigateTo({
       url: '/pages/search/search?keyword=' + name,
     })
