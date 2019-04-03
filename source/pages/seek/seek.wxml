@@ -48,17 +48,7 @@
 
 
 
-        <view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
 
-        </view>
-        <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
-
-
-          <scroll-view scroll-y>
-            <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
-          </scroll-view>
-
-        </view>
 
         <view class='flex-1 flex-row flex-center'>
 
@@ -165,7 +155,7 @@
             <view class='flex-1 h6 margin-left-10 txt-black'>{{item.showaddress}}</view>
             <view class='h6 '>{{item.miletxt}}</view>
           </view>
-          
+
         </view>
       </view>
     </view>
@@ -420,3 +410,15 @@
     </view>
   </swiper-item>
 </swiper>
+
+<view wx:if='{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
+
+</view>
+<view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
+
+
+  <scroll-view scroll-y>
+    <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
+  </scroll-view>
+
+</view>
