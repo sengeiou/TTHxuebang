@@ -17,4 +17,6 @@ font-size: 30rpx;
   min-height: 40rpx;
   text-align: center;
 }
-
+.bg_gray{
+  background: #F5F5F5;
+}

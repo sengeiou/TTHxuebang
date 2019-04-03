@@ -38,8 +38,8 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#bfbfbf",
-    "selectedColor": "#4C556E",
+    "color": "#4C4C4C",
+    "selectedColor": "#FFC30C",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
@@ -47,7 +47,7 @@
         "text": "首页",
         "pagePath": "pages/home/home",
         "iconPath": "images/icons/sy.png",
-        "color":"#4C556E",
+        
         "selectedIconPath": "images/icons/sy1.png"
       },
       {

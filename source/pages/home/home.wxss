@@ -32,7 +32,7 @@
   box-shadow: 1px 1px 5px #dfdfdf;
 }
 
-.biaoqian{
+.biaoqian {
   width: 116rpx;
   height: 38rpx;
   line-height: 38rpx;
@@ -55,4 +55,7 @@
   transform: scale(1);
 }
 
-
+.search_icon {
+  width: 35rpx;
+  height: 30rpx;
+}

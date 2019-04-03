@@ -10,7 +10,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     options.keycode = "aboutus";
-    options.title = "aaaas";
+    options.title = " ";
     super.onLoad(options);
   }
   onShow() {

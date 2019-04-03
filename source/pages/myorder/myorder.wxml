@@ -28,14 +28,14 @@
         {{item.pstatus=='W'?item.submit_time_formatting:''}} {{item.pstatus=='P'?item.pay_time_formatting:''}} {{item.pstatus=='C'?item.cancel_time_formatting:''}} {{item.pstatus=='U'?item.use_time_formatting:''}} {{item.pstatus=='R'?item.refund_time_formatting:''}}
         {{item.pstatus=='F'?item.finishrefund_time_formatting:''}} {{item.pstatus=='S'?item.success_time_formatting:''}}
       </view>
-      <view class=' {{item.pstatus=="W"?"txt-primary":""}} {{item.pstatus!="W"?"txt-gray":""}} '>{{item.pstatus_name}}</view>
+      <view class=' {{item.pstatus=="W"?"txt-primary":""}} {{item.pstatus!="W"?"txt-gray":""}} {{item.pstatus=="C"?"quxiao":""}} '>{{item.pstatus_name}}</view>
     </view>
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
       <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
-      <view class='flex-1 flex-row column margin-left-20'>
+      <view class='flex-1  column margin-left-20'>
 
         <view class='flex-row flex-center'>
           <view class='flex-1 txt-black'>{{item.course_name}}</view>
@@ -45,10 +45,34 @@
         <view class='flex-row flex-center margin-top-10'>
           <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
         </view>
+        <view class='flex-row flex-center flex-1 margin-top-10' style=''>
 
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_age}}岁</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
+          </view>
+
+
+        </view>
       </view>
 
     </view>
+
+
+
 
     <view class='flex-row flex-center padding-20' style=''>
       <view class='flex-1'></view>
@@ -73,7 +97,7 @@
 
       <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
-      <view class='flex-1 flex-row column margin-left-20'>
+      <view class='flex-1  column margin-left-20'>
 
         <view class='flex-row flex-center'>
           <view class='flex-1 txt-black'>{{item.course_name}}</view>
@@ -84,7 +108,28 @@
           <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
         </view>
 
+  <view class='flex-row flex-center flex-1 margin-top-10' style=''>
 
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_age}}岁</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
+          </view>
+
+
+        </view>
 
       </view>
 
@@ -122,7 +167,7 @@
 
         <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
-        <view class='flex-1 flex-row column margin-left-20'>
+        <view class='flex-1  column margin-left-20'>
 
           <view class='flex-row flex-center'>
             <view class='flex-1 txt-black'>{{item.course_name}}</view>
@@ -132,7 +177,28 @@
           <view class='flex-row flex-center margin-top-10'>
             <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
           </view>
+  <view class='flex-row flex-center flex-1 margin-top-10' style=''>
 
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_age}}岁</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
+          </view>
+
+
+          <view class='flex-row flex-center flex-1'>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
+          </view>
+
+
+        </view>
         </view>
 
 
@@ -154,5 +220,5 @@
     </view>
 
   </view>
-  
+
 </view>

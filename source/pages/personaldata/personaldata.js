@@ -111,8 +111,8 @@ class Content extends AppBase {
     var mineapi = new MineApi();
     var sex = this.Base.getMyData().sex;
     wx.showModal({
-      title: '提交',
-      content: '确认提交机构申请？',
+      title: '',
+      content: '确认提交修改资料？',
       showCancel: true,
       cancelText: '取消',
       cancelColor: '#EE2222',
