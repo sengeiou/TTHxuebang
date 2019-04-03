@@ -30,6 +30,6 @@
   padding-right: 15rpx;
   padding-top: 15rpx;
 }
-.txt-gray{
-  color: #AAAAAA;
+.mk{
+  background-color: white;
 }

@@ -74,33 +74,33 @@
           <view class='flex-row  margin-top-5 padding-10'>
 
             <view class='flex-row flex-column flex-1 '>
-              <view class='h5 txt-black'>适合年龄</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>4-12岁</view>
+              <view class='h5 ' style='color:#4C4C4C'>适合年龄</view>
+              <view class='h4-5   margin-top-5' style='color:#000000'>4-12岁</view>
             </view>
 
             <view class='' style='width:40rpx;'>
             </view>
 
             <view class='flex-row flex-column flex-1'>
-              <view class='h5 txt-black'>营业时间</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>{{courseinfo.JG_time}}</view>
+              <view class='h5 'style='color:#4C4C4C'>营业时间</view>
+              <view class='h4-5    margin-top-5' style='color:#000000'>{{courseinfo.JG_time}}</view>
             </view>
 
             <view class='' style='width:40rpx;'>
             </view>
 
             <view class='flex-row flex-column flex-1 '>
-              <view class='h5 txt-black'>预约</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>需要预约</view>
+              <view class='h5 ' style='color:#4C4C4C'>预约</view>
+              <view class='h4-5   margin-top-5' style='color:#000000'>需要预约</view>
               <view class='h7 txt-gray '>已预约1522人</view>
             </view>
 
           </view>
 
-          <view class='flex-row flex-center margin-top-10'>
+          <view class='flex-row flex-center margin-top-10 margin-bottom-10'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
-            <view class='h6 txt-black margin-right-20'>{{miletxt}}</view>
+            <view class='h6 txt-black margin-right-20'>距你{{miletxt}}</view>
           </view>
 
         </view>
@@ -135,7 +135,7 @@
 
   <view class='fixedbottom'>
 
-    <view class='txt-red text-center h5' style='background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
+    <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
     <view style='' class='flex-row flex-1'>
 
       <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>

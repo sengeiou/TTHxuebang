@@ -107,16 +107,16 @@
       <view class='margin-left-10'>机构简介</view>
     </view>
 
-    <view class='video'>
-       <video wx:if='{{jginfo.jg_video!=""}}' class='' style='width:100%;height:400rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}} '>
-      </video> 
+    <view class='padding-20'>
+      <video class='pos' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}} '>
+      </video>
 
-      <image wx:if='{{jginfo.jg_video==""}}' style='width:100%;height:400rpx;' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
+      <image wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
 
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>
 
-    <view class='padding-20 ' style='font-size:28rpx ;color:#4C4C4C'>
+    <view class='padding-20 '>
       {{jginfo.jieshao}}
     </view>
 
@@ -125,12 +125,12 @@
   <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
 
   <view class='margin-20 margin-bottom-10 '>
-    <view class='padding-20 flex-row radius-10  margin-top-20 ' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
+    <view class='padding-20 flex-row radius-10  margin-top-20  mk' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
 
 
       <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
       <view class='flex-row column   margin-left-20 flex-1'>
-        <view class='txt-bold txt-white flex-1'>{{item.name}}</view>
+        <view class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</view>
 
         <view class='flex-row flex-center'>
 
@@ -168,36 +168,42 @@
 
           <view class='flex-row flex-center flex-1'>
             <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
-            <view class='h6 txt-white margin-left-5'>{{item.age}}岁</view>
+            <view class='h6  margin-left-5' style='color:#000000'>{{item.age}}岁</view>
           </view>
 
 
           <view class='flex-row flex-center flex-1'>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-white margin-left-5'>{{item.class_hours}}节课</view>
+            <view class='h6  margin-left-5' style='color:#000000'>{{item.class_hours}}节课</view>
           </view>
 
 
           <view class='flex-row flex-center flex-1'>
             <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.duration}}/节</view>
+            <view class='h6  margin-left-5' style='color:#000000'>{{item.duration}}/节</view>
           </view>
 
+
         </view>
+
 
         <view class='flex-row flex-center flex-1'>
           <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
-          <view class='h6 flex-1 txt-gray margin-left-5'>{{item.JG_jigou}}</view>
+          <view class='h6 flex-1 txt-white margin-left-5' style='color:#AAAAAA'>{{item.JG_jigou}}</view>
           <view class=' txt-red txt-bold'>￥{{item.price}}</view>
         </view>
 
-
         <view class='flex-row flex-center'>
-          <view class='h6 txt-gray flex-1 chaochu'>{{item.JG_showaddress}}</view>
-          <view class='h6   txt-gray'>{{item.miletxt}}</view>
+          <view class='h6  flex-1 chaochu' style='color:#AAAAAA'>{{item.JG_showaddress}}</view>
+          <view class='h6   ' style='color:#AAAAAA'>{{item.miletxt}}</view>
         </view>
 
       </view>
+
+
+
+
+
 
 
     </view>
@@ -211,4 +217,6 @@
 
 
 
-<!-- <view class='height-100 '></view> -->
+ <view >
+ <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:250rpx'></image>
+ </view> 
