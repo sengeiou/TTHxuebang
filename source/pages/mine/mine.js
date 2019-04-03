@@ -67,32 +67,32 @@ class Content extends AppBase {
 
   todetails(e){
     var name=e.currentTarget.dataset.name;
-    if(name="dd"){
+    if(name=="dd"){
       wx.navigateTo({
         url: '/pages/myorder/myorder',
       })
     }
-    if (name = "xx") {
+    if (name == "xx") {
       wx.navigateTo({
         url: '/pages/mymessage/mymessage',
       })
     }
-    if (name = "wt") {
+    if (name == "wt") {
       wx.navigateTo({
         url: '/pages/problem/problem',
       })
     }
-    if (name = "sc") {
+    if (name == "sc") {
       wx.navigateTo({
         url: '/pages/mycollect/mycollect',
       })
     }
-    if (name = "wm") {
+    if (name == "wm") {
       wx.navigateTo({
         url: '/pages/aboutus/aboutus',
       })
     }
-    if (name = "jg") {
+    if (name == "jg") {
       wx.navigateTo({
         url: '/pages/addmechanism/addmechanism',
       })
