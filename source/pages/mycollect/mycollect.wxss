@@ -60,3 +60,8 @@ Page{
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
 }
+.biaoqian {
+  width: 116rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+}

@@ -124,7 +124,7 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+            <view class='txt-black txt-bold flex-1'>{{item.jg_id_name}}</view>
 
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
@@ -153,7 +153,7 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <view class='flex-row flex-1'>
-              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.jg_id_name}}</view>
+              <view class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.jg_id_name}}</view>
             </view>
             <view class='h6'>已预约0人</view>
           </view>

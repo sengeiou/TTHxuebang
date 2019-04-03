@@ -62,7 +62,7 @@
 
 
           <view class='flex-row margin-top-5'>
-            <view class='type  radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+            <view class='biaoqian  text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
 
 
@@ -177,3 +177,9 @@
 </view>
 
 <view style='height:110rpx;'></view>
+
+
+
+<view class=' to_top'>
+<image src='{{uploadpath}}resource/{{res.yigoumaiimg}}' class='icon-50' bindtap='backtotop'></image>
+</view>

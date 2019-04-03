@@ -2,12 +2,12 @@
 page{
   background: #132056;
 }
-.type {
+/* .type {
   padding-left: 17rpx;
   padding-right: 17rpx;
   padding-top: 4rpx;
   padding-bottom: 4rpx;
-}
+} */
 .txt{
   color: #FFC200;
 }
@@ -20,4 +20,15 @@ page{
   bottom: 0px;
   left: 0px;
   width:100vw;
+}
+.to_top{
+  position: fixed;
+  top: 60%;
+  right: 0;
+  z-index: 100;
+}
+.biaoqian {
+  width: 116rpx;
+  height: 38rpx;
+  line-height: 38rpx;
 }
