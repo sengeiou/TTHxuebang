@@ -920,5 +920,9 @@ export class AppBase {
     wx.setClipboardData({
       data: id,
     })
+    wx.showToast({
+      title: '复制成功',
+      
+    })
   }
 } 

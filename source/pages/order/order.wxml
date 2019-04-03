@@ -48,7 +48,7 @@
         <view style='width:50rpx;height:10rpx;'></view>
         <view class=' txt-bold txt-white   text-center'>{{courseinfo.teachername}}</view>
         <view style='width:36rpx;'></view>
-        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext '>点击复制</view>
+        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teachername}} ' bindtap='copytext'>点击复制</view>
         <view class='flex-1 '></view>
       </view>
 
@@ -91,7 +91,6 @@
 <!-- <view class='flex-row flex-column ' wx:if="{{info.pstatus=='C '}}">
   15分钟未支付已取消
 </view> -->
-
 
 
 
@@ -157,7 +156,7 @@
 
     <view class='flex-row flex-center pd bor_bot ' style=' '>
       <view class='h5 flex-1 '>订单号</view>
-      <view class='txt-black h5 flex-3 '>{{info.orderno}}</view>
+      <view class='txt-black h5 flex-4 '>{{info.orderno}}</view>
       <!-- <view class='radius-10 h7 text-center margin-right-40 ' style='border:2rpx solid black;height:48rpx;width:120rpx;line-height:48rpx; ' id='{{info.orderno}} ' bindtap='copytext '>点击复制</view> -->
     </view>
 
