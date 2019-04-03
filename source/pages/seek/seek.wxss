@@ -89,6 +89,7 @@ Page {
 
 .fixedtop {
   position: fixed;
+  z-index: 100;
   left: 0px;
   top: 0px;
   width: 100vw;
@@ -160,7 +161,7 @@ Page {
 }
 .midt{
   position: absolute;
-  z-index: 200;
+  
   width: 100vw;
   margin-top: -130rpx;
 }

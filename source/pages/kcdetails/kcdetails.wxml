@@ -14,7 +14,7 @@
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
 
           <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
-          
+
           <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}' style='width:750rpx;height:400rpx;'></video>
         </view>
       </swiper-item>
@@ -59,13 +59,9 @@
 
           </view>
 
-
-
           <view class='flex-row margin-top-5'>
             <view class='biaoqian  text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
-
-
 
           <!-- <view class='flex-row flex-center margin-top-10'>
           <view class='flex-1 h5 txt-black'>{{courseinfo.scoring}}</view>
@@ -82,7 +78,7 @@
             </view>
 
             <view class='flex-row flex-column flex-1'>
-              <view class='h5 'style='color:#4C4C4C'>营业时间</view>
+              <view class='h5 ' style='color:#4C4C4C'>营业时间</view>
               <view class='h4-5    margin-top-5' style='color:#000000'>{{courseinfo.JG_time}}</view>
             </view>
 
@@ -106,10 +102,10 @@
         </view>
       </view>
     </view>
+
   </view>
 
-  <view class='height-20 bg-gray' style=''></view>
-
+  <view class='height-20 bg-gray' style='margin-top:-10rpx'></view>
 
   <view class='flex-row bg-white' style=''>
     <view class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</view>
@@ -181,5 +177,5 @@
 
 
 <view class=' to_top'>
-<image src='{{uploadpath}}resource/{{res.yigoumaiimg}}' class='icon-50' bindtap='backtotop'></image>
+  <image src='{{uploadpath}}resource/{{res.yigoumaiimg}}' class='icon-50' bindtap='backtotop'></image>
 </view>

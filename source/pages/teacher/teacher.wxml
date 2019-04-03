@@ -17,8 +17,8 @@
       <image src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
       <image src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
 
-      <view wx:if="{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>收藏</view>
-      <view wx:if="{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>取消</view>
+      <view wx:if="{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>取消</view>
+      <view wx:if="{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>收藏</view>
       <!-- <button  >已收藏</button> -->
     </view>
   </view>

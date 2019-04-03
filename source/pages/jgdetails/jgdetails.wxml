@@ -62,8 +62,8 @@
             </view>
 
             <view>
-              <button bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='bg-primary txt-white h6' style='height:48rpx;width:152rpx;line-height:48rpx;border-radius:35rpx;'>取消收藏</button>
-              <button bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary txt-white h6' style='height:48rpx;width:132rpx;line-height:48rpx;border-radius:40rpx;'>已收藏</button>
+              <button bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary   h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</button>
+              <button bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</button>
             </view>
 
 
