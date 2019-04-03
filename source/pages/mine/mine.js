@@ -11,6 +11,9 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  PurchaseApi
+} from "../../apis/purchase.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -20,6 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ reminderpay});
   }
   onMyShow() {
     var that = this;
@@ -29,6 +33,18 @@ class Content extends AppBase {
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({
         indexbanner
+      });
+    });
+
+
+    var api = new PurchaseApi();
+
+
+    api.purchaselist({
+      pstatus: 'W'
+    }, (wclist) => {
+      this.Base.setMyData({
+        reminderpay: wclist.length
       });
     });
   }
@@ -47,6 +63,8 @@ class Content extends AppBase {
         })
       }
     })
+
+
   }
 }
 
