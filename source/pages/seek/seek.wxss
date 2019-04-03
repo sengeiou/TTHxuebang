@@ -139,7 +139,8 @@ Page {
 .xiala {
   position: fixed;
   z-index: 100;
-  width: 100%;
+  width: 100vw;
+  height: calc( 100vh - 238rpx );
   background: black;
   top: 238rpx;
   bottom: 0;

@@ -153,6 +153,13 @@ class Content extends AppBase {
 
   }
 
+
+  todetails(e){
+    wx.navigateTo({
+  url: '/pages/kcdetails/kcdetails?id='+this.Base.getMyData().courseinfo.id,
+    })
+   }
+
 }
 
 var content = new Content();
@@ -164,4 +171,8 @@ body.bindshow = content.bindshow;
 body.bindback = content.bindback;
 body.bindpay = content.bindpay; 
 body.colseorder = content.colseorder;
+
+body.todetails = content.todetails;
+
+
 Page(body)

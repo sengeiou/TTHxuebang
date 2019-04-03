@@ -25,6 +25,11 @@
   height: 48rpx;
   line-height: 48rpx;
 }
+.video{
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  padding-top: 15rpx;
+}
 .mk{
   background-color: white;
 }
