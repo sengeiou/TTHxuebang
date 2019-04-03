@@ -114,14 +114,14 @@
   </view> -->
 
 
-  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx;z-index:-1;' class=''>
+  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
 
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
-    <view class='flex-row flex-column '>
-      <view class='radius-10 bg-white  mid margin-bottom-10'>
+    <view class='flex-row flex-column midt {{xiala=="xs"?"midtm":""}}'>
+      <view class='radius-10 bg-white mid margin-bottom-10'>
 
         <view class='padding-20 '>
 
