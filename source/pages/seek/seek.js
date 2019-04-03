@@ -252,6 +252,7 @@ class Content extends AppBase {
     var opt = {
       mylat,
       mylng,
+      city_id:AppBase.CITYID,
       orderby: "distance"
     };
 

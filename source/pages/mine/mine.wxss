@@ -8,3 +8,13 @@ font-size: 30rpx;
    height: 25%;
   z-index: -1;
 }
+.waitpay{
+  background: #FD4963;
+  font-size: 24rpx;
+  color:white;
+  border-radius: 50%;
+  min-width: 40rpx;
+  min-height: 40rpx;
+  text-align: center;
+}
+
