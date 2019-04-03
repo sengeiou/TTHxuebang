@@ -9,16 +9,16 @@
       <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
     </view>
     <view bindtap='tojgdetails' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>{{item.mechanism_id_name}}</view>
-    <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
+    <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon margin-right-10'></image>
     <view class='h5'>{{item.count}}次</view>
     <view class='margin-left-20 flex-row flex-center'>
       <!-- <button  >未收藏</button> -->
 
-      <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
-      <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
 
-      <view wx:if="{{item.isfav=='N'}}" class='h5 margin-left-10'>收藏</view>
-      <view wx:if="{{item.isfav!='N'}}" class='h5 margin-left-10'>取消</view>
+      <view wx:if="{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>收藏</view>
+      <view wx:if="{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>取消</view>
       <!-- <button  >已收藏</button> -->
     </view>
   </view>

@@ -8,7 +8,7 @@
   <view style='' class='txt-bold txt-white h4'>等待支付</view>
 
   <view class='flex-row flex-center margin-top-10'>
-    <image src='{{uploadpath}}resource/{{res.time}}' class='icon'></image>
+    <image src='{{uploadpath}}resource/{{res.dindangtime}}' class='icon'></image>
     <view style='' class=' txt-white margin-left-20'>剩余支付时间{{mMinute}}:{{mSecond}}</view>
   </view>
 
@@ -25,7 +25,7 @@
 
   <view class='height-20'></view>
 
-  <image src='{{uploadpath}}resource/{{res.ok_order}}' class='icon-75'></image>
+  <image src='{{uploadpath}}resource/{{res.yigoumaiimg}}' class='icon-75'></image>
 
   <view class='height-20'></view>
 

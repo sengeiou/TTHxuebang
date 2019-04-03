@@ -47,8 +47,8 @@
   <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
 </navigator>
 
-<navigator class=' margin-30  border_bottom padding-bottom-20'>
-  <button class=' clear-button' open-type='contact' style='border-radius:0;border:0;'>
+<view class=' margin-30  border_bottom padding-bottom-20'>
+  <button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
     <view class='flex-row flex-center'>
       <image class='icon' src='{{uploadpath}}resource/{{res.customer}}'></image>
       <view class='margin-left-20  txt-black h '>联系客服</view>
@@ -56,7 +56,7 @@
       <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
     </view>
   </button>
-</navigator>
+</view>
 
 <navigator url='/pages/aboutus/aboutus' class='flex-row flex-center margin-30  border_bottom padding-bottom-20'>
   <image class='icon' src='{{uploadpath}}resource/{{res.aboutus}}'></image>
