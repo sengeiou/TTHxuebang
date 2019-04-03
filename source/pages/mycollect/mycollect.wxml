@@ -124,25 +124,25 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+            <view class='txt-black txt-bold flex-1'>{{item.jg_id_name}}</view>
 
             <view class=''>
-              <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
+              <view wx:if="{{item.jg_scoring==5}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
               </view>
-              <view wx:if="{{item.scoring==4}}" class='flex-row flex-center margin-right-20'>
+              <view wx:if="{{item.jg_scoring==4}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
                 <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
               </view>
-              <view wx:if="{{item.scoring==3}}" class='flex-row flex-center margin-right-20'>
+              <view wx:if="{{item.jg_scoring==3}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
                 <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
               </view>
-              <view wx:if="{{item.scoring==2}}" class='flex-row flex-center margin-right-20'>
+              <view wx:if="{{item.jg_scoring==2}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
                 <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
               </view>
-              <view wx:if="{{item.scoring==1}}" class='flex-row flex-center margin-right-20'>
+              <view wx:if="{{item.jg_scoring==1}}" class='flex-row flex-center margin-right-20'>
                 <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
                 <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
               </view>
@@ -153,17 +153,16 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <view class='flex-row flex-1'>
-              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.jg_id_name}}</view>
+              <view class='flex-row flex-center margin-top-5'>
+                <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+                <view class='flex-1 h6 margin-left-10 txt-black dizhi'>{{item.jg_showaddress}}</view>
+
+              </view>
             </view>
-            <view class='h6'>已预约0人</view>
+            <view class='h6'>已预约{{item.jg_people_num}}人</view>
           </view>
 
-          <view class='flex-row flex-center margin-top-5'>
-            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h6 margin-left-10 txt-black dizhi'>{{item.showaddress}}</view>
-            <view class='h6 txt-gray'>{{item.miletxt}}</view>
 
-          </view>
         </view>
 
       </view>
@@ -174,6 +173,7 @@
   </view>
 
 
+  <view class='height-50'></view>
 
 
 
@@ -243,7 +243,7 @@
     </view>
 
   </navigator> -->
-  
+
   <view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{splist}}' wx:key='k'>
     <view class='title txt-white  txt-bold'>{{item.video_title}}</view>
     <video class='pos' style='width:100%; height:400rpx;' title='{{item.video_title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}Teach/{{item.video_video}} '>
@@ -259,8 +259,8 @@
       <view class='margin-left-20 flex-row flex-center'>
         <!-- <button  >未收藏</button> -->
 
-        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.video_id}}' ></image>
-        <view  class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'>取消</view>
+        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
+        <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'>取消</view>
         <!-- <button  >已收藏</button> -->
       </view>
     </view>

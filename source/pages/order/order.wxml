@@ -131,7 +131,7 @@
 
     <view class='flex-row flex-center padding-20 bor_bot ' bindtap='todetails' style=' '>
 
-      <image class='icon-50 radius-10 ' src='{{uploadpath}}resource/{{res.ceshi}} '></image>
+      <image class='icon-50 radius-10 ' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}} '></image>
 
       <view class='flex-1 flex-row column margin-left-20 '>
         <view class='flex-row flex-center '>

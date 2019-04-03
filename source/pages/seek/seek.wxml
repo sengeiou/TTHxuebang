@@ -2,23 +2,18 @@
 
 <view wx:if='{{type=="jg"}}'>
   <view class='fixedtop'>
-
     <view class='bg-primary'>
-
       <view class='padding-left-20 padding-right-20 padding-top-20 '>
         <navigator url='/pages/searchword/searchword' class='search  flex-row flex-center  padding-10 '>
           <image class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
           <view class='h5 txt-gray margin-left'>搜索机构名字</view>
         </navigator>
       </view>
-
       <view class=' flex-row flex-center margin-top-10' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
-
         <view class='flex-1  flex-row flex-center '>
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
         </view>
-
         <view class='flex-2 flex-row flex-center '>
           <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
@@ -28,26 +23,13 @@
             </swiper-item>
           </swiper>
         </view>
-
-
       </view>
-
-
       <view class='flex-row flex-center margin-top-5' style=''>
-
-        <!-- <picker range='{{filterdistrict}}' range-key='name' bindchange='changeDistrict'> -->
-
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
-          <view class='txt-black h5' wx:if="{{'0'==fdistrict_id}}">区域</view>
-          <view class='txt-black h5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
-          <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">区域</view>
+          <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+          <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
         </view>
-
-        <!-- </picker> -->
-
-
-
-
 
 
         <view class='flex-1 flex-row flex-center'>
@@ -80,28 +62,6 @@
 
 
   <view style='height:240rpx;'></view>
-
-
-  <!-- <view wx:for='{{jglist}}' wx:key='k' class='margin-20 radius-10 shadow' id='{{item.id}}' bindtap='tojgdetails'>
-    <image src='{{uploadpath}}jigou/{{item.jg_img}}' style='width:100%;height:278rpx;'></image>
-
-    <view class='padding-20 flex-row column'>
-      <view class='flex-row flex-center '>
-        <view class='flex-1 txt-bold txt-black '>{{item.jigou}}</view>
-        <view class='h6'>⭐⭐⭐⭐⭐</view>
-      </view>
-
-      <view class='flex-row margin-top-5'>
-        <view class=' type radius-10 txt-green h6 margin-5' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
-      </view>
-
-      <view class='flex-row flex-center margin-top-5'>
-        <view class='flex-1 h6 txt-black '>{{item.address}}</view>
-        <view class='h6'>{{item.miletxt}}</view>
-      </view>
-
-    </view>
-  </view> -->
 
 
   <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
@@ -145,7 +105,7 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <view class='flex-row flex-1'>
-              <view class=' padding-5 radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+              <view class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
             <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
           </view>
@@ -159,6 +119,8 @@
         </view>
       </view>
     </view>
+
+    <view class='height-100'></view>
 
   </view>
 
@@ -189,19 +151,19 @@
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black'>新上</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black txt-bold'>新上</view>
           <view wx:if='{{options=="x_s"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black'>宝妈最爱</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black txt-bold'>宝妈最爱</view>
           <view wx:if='{{options=="bm_za"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black'>好评</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black txt-bold'>好评</view>
           <view wx:if='{{options=="h_p"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
@@ -212,7 +174,7 @@
 
           <view class='flex-row flex-center'>
             <image src='{{uploadpath}}resource/{{res.shaixuan}}' class='icon-15'></image>
-            <view class='  flex-1 h5 padding-10 margin-bottom-5  txt-black'>筛选</view>
+            <view class='  flex-1 h5 padding-10 margin-bottom-5  txt-black txt-bold'>筛选</view>
           </view>
 
           <view class='margin-top-5' style='width:80rpx;height:6rpx;'></view>

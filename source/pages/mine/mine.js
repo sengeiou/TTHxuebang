@@ -63,9 +63,45 @@ class Content extends AppBase {
         })
       }
     })
-
-
   }
+
+  todetails(e){
+    var name=e.currentTarget.dataset.name;
+    if(name="dd"){
+      wx.navigateTo({
+        url: '/pages/myorder/myorder',
+      })
+    }
+    if (name = "xx") {
+      wx.navigateTo({
+        url: '/pages/mymessage/mymessage',
+      })
+    }
+    if (name = "wt") {
+      wx.navigateTo({
+        url: '/pages/problem/problem',
+      })
+    }
+    if (name = "sc") {
+      wx.navigateTo({
+        url: '/pages/mycollect/mycollect',
+      })
+    }
+    if (name = "wm") {
+      wx.navigateTo({
+        url: '/pages/aboutus/aboutus',
+      })
+    }
+    if (name = "jg") {
+      wx.navigateTo({
+        url: '/pages/addmechanism/addmechanism',
+      })
+    }
+
+   
+  
+  }
+
 }
 
 var content = new Content();
@@ -73,4 +109,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.startscan = content.startscan;
+body.todetails = content.todetails;
 Page(body)
