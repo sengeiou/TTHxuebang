@@ -363,14 +363,35 @@ class Content extends AppBase {
     });
   }
   resetFilter() {
-
-    this.Base.setMyData({
-      options_show: false,
-      fdistrict_id: "0",
-      ftype_id: "0",
-      fage_id: "0"
+    var that=this;
+    wx.showModal({
+      title: '确定',
+      content: '确认重置？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          that.Base.setMyData({
+            options_show: false,
+            fdistrict_id: "0",
+            ftype_id: "0",
+            fage_id: "0"
+          });
+          that.loadcourse();
+          // // wx.showToast({
+          // //   title: '保存成功',
+          // //   icon: '',
+          // // })
+        }
+      }
     });
-    this.loadcourse();
+
+
+
+    
   }
 
 
@@ -383,6 +404,7 @@ class Content extends AppBase {
   yingcang(){
     this.Base.setMyData({ xiala: "yc" })
   }
+
   catchTouchMove(){
     return false;
   }

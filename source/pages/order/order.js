@@ -52,7 +52,7 @@ class Content extends AppBase {
       reminderpay:0,
       timerid
     })
-    
+
   }
   onUnload(){
     var timerid = this.Base.getMyData().timerid;
@@ -69,10 +69,15 @@ class Content extends AppBase {
       this.Base.setMyData({
         info
       });
+
       if(info.pstatus=='W'){
         var reminderpay=parseInt(info.reminderpay);
         this.Base.setMyData({ reminderpay });
       }
+
+
+
+
       jigouapi.courseinfo({
         id: info.course_id
       }, (courseinfo) => {
@@ -80,6 +85,10 @@ class Content extends AppBase {
           courseinfo
         });
       })
+
+
+
+
     });
   }
 

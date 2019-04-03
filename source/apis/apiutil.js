@@ -188,11 +188,11 @@ export class ApiUtil {
       return "";
     }
     if (mile > 1000) {
-      return "约" + (mile / 1000.0).toFixed(0) + "公里";
+      return  + (mile / 1000.0).toFixed(0) + "km";
     } else if (mile < 100) {
       return "100米内";
     } else {
-      return "" + (mile).toString() + "米";
+      return "" + (mile).toString() + "m";
     }
   }
 }

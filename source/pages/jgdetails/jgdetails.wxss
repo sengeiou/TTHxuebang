@@ -20,3 +20,8 @@
   width: 228rpx;
   height: 224rpx;
 }
+.biaoqian{
+  width: 122rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+}
