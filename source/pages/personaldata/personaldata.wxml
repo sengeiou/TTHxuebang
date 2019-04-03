@@ -90,7 +90,7 @@
   </view>
   <view class='height-80' style=''></view>
 
-  <button class='dis margin-40 txt-white' wx:if='{{show==1}}' hover-class='dis_hov'>保存</button>
-  <button class='btn_bg margin-40 txt-white' wx:if='{{show==2}}' form-type='submit' hover-class='bg_hov'>保存</button>
+  <!-- <button class='dis margin-40 txt-white' wx:if='{{show==1}}' hover-class='dis_hov'>保存</button> -->
+  <button class='btn_bg margin-40 txt-white'  form-type='submit' hover-class='bg_hov'>保存</button>
 
 </form>
