@@ -172,6 +172,14 @@
 
 </view>
 
+
+
+
+<image src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}}' mode='aspectFill' style='width:100%;margin-top:-10rpx;margin-bottom:-10rpx;'></image>
+
+
+
+
 <view style='height:110rpx;'></view>
 
 

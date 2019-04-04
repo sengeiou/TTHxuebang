@@ -74,7 +74,7 @@ class Content extends AppBase {
 
 
 
-      jigouapi.jigouimg({ jigou: jginfo.id }, (jigouimg) => {
+      jigouapi.jigouimg({ jigou: jginfo.id, orderby: 'r_main.seq' }, (jigouimg) => {
         this.Base.setMyData({
           jigouimg
         });

@@ -42,7 +42,7 @@ class Content extends AppBase {
       //courseinfo.xx=parseInt();
 
       jigouapi.kechenlunbo({
-        name: courseinfo.id
+        name: courseinfo.id, orderby: 'r_main.seq'
       }, (kechenlunbo) => {
         this.Base.setMyData({
           kechenlunbo
