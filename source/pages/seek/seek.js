@@ -48,14 +48,14 @@ class Content extends AppBase {
     //  console.log(this.options.type);
 
     
-
+    this.onMyLoad();
   }
 
   onUnload() {
     var timerStart = this.Base.getMyData().timerStart;
     clearInterval(timerStart);
   }
-  onMyShow() {
+  onMyLoad() {
     var that = this;
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
@@ -338,10 +338,17 @@ class Content extends AppBase {
   changeDistrict(e) {
     console.log(e);
     var seq = parseInt(e.currentTarget.id);
-    var filterdistrict = this.Base.getMyData().filterdistrict;
-    this.Base.setMyData({
-      fdistrict_id: filterdistrict[seq].id, xiala: "yc"
-    });
+    if(seq==-1){
+      this.Base.setMyData({
+        fdistrict_id: 0, xiala: "yc"
+      });
+    }else{
+
+      var filterdistrict = this.Base.getMyData().filterdistrict;
+      this.Base.setMyData({
+        fdistrict_id: filterdistrict[seq].id, xiala: "yc"
+      });
+    }
     this.loadjg();
     
   }
@@ -429,6 +436,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.onMyLoad = content.onMyLoad; 
 body.tojgdetails = content.tojgdetails;
 body.tokcdetails = content.tokcdetails;
 body.bindxuanxiang = content.bindxuanxiang; 
