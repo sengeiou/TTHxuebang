@@ -1,4 +1,7 @@
 /* pages/mine/mine.wxss */
+Page{
+  background: #ffffff;
+}
 .h{
 font-size: 30rpx;
 }
@@ -19,4 +22,8 @@ font-size: 30rpx;
 }
 .bg_gray{
   background: #F5F5F5;
+}
+.pd{
+  padding-bottom: 30rpx;
+  padding-top: 10rpx;
 }

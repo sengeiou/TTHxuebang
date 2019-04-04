@@ -61,7 +61,9 @@ Page{
   box-shadow: 1px 1px 5px #dfdfdf;
 }
 .biaoqian {
-  width: 116rpx;
+  min-width: 56rpx;
   height: 38rpx;
   line-height: 38rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }

@@ -23,7 +23,7 @@ Page {
 }
 
 .bor_bot {
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #f5f5f5;
 }
 
 .fbtn {

@@ -47,7 +47,7 @@
   <navigator url='/pages/kcdetails/kcdetails?id={{item.course_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' wx:for="{{kclist}}" wx:key='k'>
 
 
-    <view class='flex-row  padding-20 bor_bot' style=''>
+    <view class='flex-row  padding-20 ' style=''>
 
       <image class='icon2 radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 

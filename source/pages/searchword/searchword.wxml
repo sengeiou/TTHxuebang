@@ -7,7 +7,7 @@
 
     <view class='padding-left-20 padding-right-10' bindtap=''><image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image></view>
   </view>
-  <view class='padding-left-10 h5 txt-gray' bindtap='tosearch' id='{{item.name}}'>确定</view>
+  <view class='padding-left-10 h5 ' style='color:#000000' bindtap='tosearch' id='{{item.name}}'>确定</view>
 </view>
 
 <!-- <view class='flex-row flex-column' hidden='{{show==0}}' wx:if='{{result==null||result.length==0}}'>

@@ -161,6 +161,12 @@ class Content extends AppBase {
     } 
 
   }
+  tojgdetails(e) {
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/jgdetails/jgdetails?id=' + id,
+    })
+  }
 
 }
 var content = new Content();
@@ -170,7 +176,7 @@ body.onMyShow = content.onMyShow;
 body.skey = content.skey;
 body.search = content.search;
 body.tosearch = content.tosearch;
-body.todetails = content.todetails;
-
+body.todetails = content.todetails; 
+body.tojgdetails = content.tojgdetails; 
 body.bindshow = content.bindshow;
 Page(body)

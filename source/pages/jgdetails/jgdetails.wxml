@@ -2,14 +2,14 @@
 
 <view class='' style='background:{{jginfo.bgcolor}}'>
 
-  <view style='position: relative;height:864rpx ' class=''>
+  <view style=' ' class=''>
 
 
     <!-- <view class=' ' style=''>
     <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:444rpx'></image>
   </view> -->
 
-    <view>
+    <view style='position:relative;z-index:2'>
       <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
         <swiper-item wx:for="{{jigouimg}}" wx:key="k">
           <view>
@@ -20,11 +20,11 @@
       </swiper>
     </view>
 
+
+
     <view class='flex-row flex-column '>
       <view class='radius-10 bg-white padding-15 mid margin-bottom-10'>
         <view class='padding-10 '>
-
-
 
           <view class='flex-row flex-center'>
             <view class='txt-black txt-bold h4 flex-1 chaochu'>{{jginfo.jigou}}</view>
@@ -61,9 +61,9 @@
             </view>
 
 
-              <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
-              <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view>
-              
+            <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
+            <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view>
+
           </view>
 
           <view class='flex-row  margin-top-5 padding-10'>
@@ -97,15 +97,21 @@
     </view>
   </view>
 
+
+  <view style='height:340rpx;'></view>
+
+
+
   <view class='margin-20 bg-white radius-10 shadow'>
 
     <view class='flex-row flex-center  radius-10 padding-20'>
       <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view>
-      <view class='margin-left-10'>机构简介</view>
+      <view class='margin-left-10 txt-bold'>机构简介</view>
     </view>
 
     <view class='padding-20'>
-      <video class='pos' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}} '>
+
+      <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}} '>
       </video>
 
       <image wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
@@ -212,8 +218,4 @@
 </view>
 
 
-
-
- <view >
- <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:250rpx'></image>
- </view> 
+<image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;margin-bottom:-10rpx;'></image>

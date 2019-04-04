@@ -4,8 +4,8 @@
   <view class='flex-row column flex-1 '>
 
     <view class='flex-row flex-center padding-30 ' style='' bindtap='bindshow' id='{{item.id}}'>
-      <image wx:if='{{show==item.id}}' class='icon radius-10' src='{{uploadpath}}resource/{{res.xiangxia}}'></image>
-      <image wx:if='{{show!=item.id}}' class='icon-15 radius-10' src='{{uploadpath}}resource/{{res.to}}'></image>
+      <image wx:if='{{show==item.id}}' class='icon ' src='{{uploadpath}}resource/{{res.xiangxia}}'></image>
+      <image wx:if='{{show!=item.id}}' class='icon2 ' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
       <view class='txt-black flex-1 margin-left-20' style='font-size:30rpx'>{{item.title}}</view>
     </view>
 

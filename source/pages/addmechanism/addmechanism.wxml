@@ -11,7 +11,7 @@
   <view class='padding-30  bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black'>机构名称：</view>
-      <input class=' flex-2' name='jigou' style='' placeholder='请填写机构名称'></input>
+      <input class=' flex-2' placeholder-class='pc' name='jigou' style='' placeholder='请填写机构名称'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -21,7 +21,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black'>联系人姓名：</view>
-      <input class=' flex-2' style='' value='{{contactname}}' name='name' placeholder='请填写联系人姓名'></input>
+      <input class=' flex-2' style='' placeholder-class='pc' value='{{contactname}}' name='name' placeholder='请填写联系人姓名'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -32,7 +32,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black'>联系电话：</view>
-      <input class=' flex-2' style='' value='{{contacttel}}' name='mobile' placeholder='请填写联系电话'></input>
+      <input class=' flex-2' style='' placeholder-class='pc' value='{{contacttel}}' name='mobile' placeholder='请填写联系电话'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -42,7 +42,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black'>地址：</view>
-      <input class=' flex-2' value='{{pca}}' style='' name='address' placeholder='请填写地址'></input>
+      <input class=' flex-2' placeholder-class='pc' value='{{pca}}' style='' name='address' placeholder='请填写地址'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -52,7 +52,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black'>门牌号：</view>
-      <input class=' flex-2' style='' value='{{detail}}' name='housenum' placeholder='请填写门牌号'></input>
+      <input class=' flex-2' style='' placeholder-class='pc' value='{{detail}}' name='housenum' placeholder='请填写门牌号'></input>
     </view>
     <!--bor_bak -->
   </view>

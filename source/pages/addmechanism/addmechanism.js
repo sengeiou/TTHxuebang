@@ -57,27 +57,38 @@ class Content extends AppBase {
   // addjigou
 
   confirm(e) {
-
     console.log(e);
     var that = this;
     var data = e.detail.value;
     var name = data.name;
+    var phonetel = /^[1][3,4,5,7,8][0-9]{9}$/;
+    console.log(phonetel);
+    //return;
+    var ismobile = phonetel.exec(data.mobile);
     var show = this.Base.getMyData().show;
     var memberinfo = this.Base.getMyData().memberinfo;
     //console.log(memberinfo.id)
     console.log(data.name);
+
     if (data.jigou == "") {
       this.Base.info("请填写机构名");
       return;
     }
+
     if (data.name == "") {
       this.Base.info("请填写联系人姓名");
       return;
     }
+
     if (data.mobile == "") {
       this.Base.info("请填写联系电话");
       return;
     }
+
+    if (!ismobile) {
+      this.Base.info("请填写正确的联系电话");
+      return;
+    } 
     if (data.address == "") {
       this.Base.info("请填写地址");
       return;
@@ -125,12 +136,20 @@ class Content extends AppBase {
           });
 
           wx.hideLoading();
-          wx.navigateBack({
-            delta: 1
-          });
-          wx.showToast({
-            title: '提交成功',
-            icon: '',
+          
+          // wx.showToast({
+          //   title: '提交成功',
+          //   icon: '',
+          // })
+          wx.showModal({
+            title: '',
+            showCancel: false,
+            content: '信息已完成提交',
+            success: function (res) {
+              wx.navigateBack({
+                delta: 1
+              });
+            }
           })
         }
 
@@ -160,6 +179,7 @@ class Content extends AppBase {
       }
     })  
   }
+
 }
 
 var content = new Content();

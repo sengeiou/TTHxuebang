@@ -1,35 +1,45 @@
 /* pages/jgdetails/jgdetails.wxss */
+
 /* Page{
   background: #83403A;
 } */
-.img{
+
+.img {
   width: 230rpx;
   height: 240rpx;
 }
-.mid{
+
+.mid {
   position: absolute;
   width: 90%;
-  z-index: 10;
-  bottom:8%;
-  box-shadow: 1px 1px 5px #888888;
+  z-index: 100;
+  top:33%; 
+  box-shadow: 1px 1px 5px #888;
 }
-.shadow{
-  box-shadow: 1px 1px 10px #888888;
+
+.shadow {
+  box-shadow: 1px 1px 10px #888;
 }
+
 .kc_icon {
   width: 228rpx;
   height: 224rpx;
 }
-.biaoqian{
-  width: 122rpx;
-  height: 48rpx;
-  line-height: 48rpx;
+
+.biaoqian {
+  min-width: 56rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }
-.video{
+
+.video {
   padding-left: 15rpx;
   padding-right: 15rpx;
   padding-top: 15rpx;
 }
-.mk{
+
+.mk {
   background-color: white;
 }

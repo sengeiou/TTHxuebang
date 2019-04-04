@@ -155,7 +155,7 @@ Page {
 .list {
   position: fixed;
   width: 230rpx;
-  z-index: 110;
+  z-index: 200;
   top: 238rpx;
 }
 .img{
