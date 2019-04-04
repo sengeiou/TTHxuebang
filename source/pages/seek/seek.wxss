@@ -169,7 +169,6 @@ Page {
   margin-top: -130rpx;
 }
 .midtm{
-  z-index: -1;
 }
 .mid{
   width: 85.5%;
