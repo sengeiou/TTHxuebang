@@ -24,6 +24,9 @@ class Content extends AppBase {
       this.Base.setMyData({ teachlist });
     });
   }
+  
+
+
   tojgdetails(e) {
     var id = e.currentTarget.id;
     wx.navigateTo({

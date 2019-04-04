@@ -49,6 +49,7 @@ class Content extends AppBase {
         });
       });
 
+
       this.Base.getAddress((address) => {
         console.log(address);
         var mylat = address.location.lat;
