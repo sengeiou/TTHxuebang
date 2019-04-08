@@ -15,7 +15,7 @@
 
           <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
 
-          <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}' style='width:750rpx;height:400rpx;'></video>
+          <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></video>
         </view>
       </swiper-item>
     </swiper>

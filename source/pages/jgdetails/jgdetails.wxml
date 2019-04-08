@@ -108,7 +108,7 @@
 
 
 
-  <view class='margin-20 bg-white radius-10 shadow'>
+  <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
 
     <view class='flex-row flex-center  radius-10 padding-20'>
       <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view>
@@ -117,10 +117,10 @@
 
     <view class='padding-20'>
 
-      <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" src='{{uploadpath}}mechanism/{{jginfo.jg_video}} '>
+      <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}' poster='{{uploadpath}}mechanism/{{jginfo.waitimg}}'>
       </video>
 
-      <image wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
+      <image  style='width:100%;height:300rpx;' mode='widthFix'  wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
 
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>

@@ -12,3 +12,6 @@ color:unset;
 font-size:unset;
 word-break: normal;
 }
+.nostyle image{
+  width:100vw !important;
+}
