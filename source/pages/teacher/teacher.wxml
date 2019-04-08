@@ -1,5 +1,5 @@
 <!--pages/teacher/teacher.wxml-->
-<view class='bg-white margin-bottom-20 ' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
+<view class='bg-white margin-bottom-20 qqq' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
   <view class='title txt-white  txt-bold'>{{item.title}}</view>
 
   <video class='pos' style='width:100%; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}} '>
@@ -16,8 +16,8 @@
     <view class='margin-left-20 flex-row flex-center'>
       <!-- <button  >未收藏</button> -->
 
-      <image src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
-      <image src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_coll}}'  class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_null}}'  class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
 
       <view wx:if="{{item.isfav=='N'}}" class='h5  ' bindtap='fav' id='{{item.id}}_Y' style='color:#FF9393'>收藏</view>
       <view wx:if="{{item.isfav!='N'}}" class='h5 'bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'>收藏</view>
@@ -25,5 +25,15 @@
     </view>
   </view>
 </view>
+
+
+
+<!-- <view class='tishi' wx:if='{{show==1}}'>
+<image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
+</view>
+
+<view class='tishi' wx:if='{{show==2}}'>
+<image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
+</view> -->
 
 

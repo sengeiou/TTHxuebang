@@ -106,6 +106,18 @@ class Content extends AppBase {
 
   fav(e) {
     var status = e.currentTarget.id;
+
+
+
+    if (status == "Y") {
+      this.Base.setMyData({ tishi: 1 });
+    }
+    if (status == "N") {
+      this.Base.setMyData({ tishi: 2 });
+    }
+
+
+
     var jigouapi = new JigouApi();
     jigouapi.coursefav({
       course_id: this.Base.options.id,
@@ -116,6 +128,15 @@ class Content extends AppBase {
         isfav: status
       });
     });
+
+    setTimeout(() => {
+      this.Base.setMyData({ tishi: 0 })
+      // clearTimeout(timeoutId);
+    }, 1000);
+
+
+
+
   }
   todetails(e) {
     wx.navigateTo({

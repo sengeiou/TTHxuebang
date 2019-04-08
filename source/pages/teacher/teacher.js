@@ -35,6 +35,8 @@ class Content extends AppBase {
   }
 
   fav(e) {
+    var that = this;
+    
     var id = e.currentTarget.id;
     console.log(id);
     id=id.split("_");
@@ -45,12 +47,38 @@ class Content extends AppBase {
       if(teachlist[i].id==id){
         teachlist[i].isfav=status;
       }
+      
     }
+    
+    if (status == "N") {
+      this.Base.setMyData({ show: 1 });
+    }
+    if (status == "Y") {
+      this.Base.setMyData({ show: 2 });
+    }
+    var totop = this.Base.getMyData().res.totop;
+    console.log(totop);
+    //return;
+    // wx.showToast({
+    //   title: '收藏成功',
+    //   icon: 'none'
+    //   //image: "http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/tthxb/resource/766e8ff191a9ac7409e308f3c203e824_19040417026.png"
+    // })
     var jigouapi = new JigouApi();
     jigouapi.videofav({ video_id: id, status }, (ret) => {
       //this.Base.info(ret.result);
+      
       this.Base.setMyData({ teachlist });
+      
     });
+
+
+    setTimeout( ()=> {
+        this.Base.setMyData({ show: 0 })
+      // clearTimeout(timeoutId);
+    }, 1000);
+
+
   }
 }
 

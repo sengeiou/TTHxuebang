@@ -21,3 +21,19 @@ Page {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.tishi{
+  position: fixed;
+  z-index: 10;
+  top: 40%;
+  right: 37%; 
+}
+.qqq{
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+.ts_icon{
+  width: 240rpx;
+  height: 260rpx;
+}

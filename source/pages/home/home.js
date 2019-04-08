@@ -34,7 +34,8 @@ class Content extends AppBase {
     })
 
     var instapi = new InstApi();
-    instapi.indexbanner({orderby:'r_main.seq'}, (indexbanner) => {
+    // console.log()
+    instapi.indexbanner({ orderby: 'r_main.seq', city_id: AppBase.CITYID}, (indexbanner) => {
       this.Base.setMyData({
         indexbanner
       });

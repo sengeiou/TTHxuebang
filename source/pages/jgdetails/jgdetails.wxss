@@ -43,3 +43,14 @@
 .mk {
   background-color: white;
 }
+
+.tishi{
+  position: fixed;
+  z-index: 100;
+  top: 35%;
+  right: 35%; 
+}
+.ts_icon{
+  width: 240rpx;
+  height: 260rpx;
+}

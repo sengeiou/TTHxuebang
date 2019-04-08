@@ -100,10 +100,29 @@ class Content extends AppBase {
 
   fav(e) {
     var status = e.currentTarget.id;
+
+
+    if (status == "Y") {
+      this.Base.setMyData({ tishi: 1 });
+    }
+    if (status == "N") {
+      this.Base.setMyData({ tishi: 2 });
+    }
+
+
+
+
     var jigouapi = new JigouApi();
     jigouapi.jigoufav({ jg_id: this.Base.options.id, status }, (ret) => {
       this.Base.setMyData({ isfav: status });
     });
+    
+    setTimeout(() => {
+      this.Base.setMyData({ tishi: 0 })
+      // clearTimeout(timeoutId);
+    }, 1000);
+
+
   }
 }
 

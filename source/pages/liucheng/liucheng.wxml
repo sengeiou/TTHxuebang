@@ -8,21 +8,21 @@
 
   <view class=' flex-row flex-center padding-40'>
     <view class='txt-black  txt'>付款账户:</view>
-    <view class='  margin-left-20 txt-hui txt'>深圳市童天慧科技有限公司</view>
+    <view class='  margin-left-20 txt-hui txt'>{{liuchen.account}}</view>
   </view>
 
   <view style='width:93%;height:2rpx;background:#e5e5e5' class='margin-left-20'></view>
 
   <view class=' flex-row flex-center padding-40'>
     <view class='txt-black  txt'>开户行:</view>
-    <view class='  margin-left-20 txt-hui txt'>中国银行股份有限公司深圳支行</view>
+    <view class='  margin-left-20 txt-hui txt'>{{liuchen.bank}}</view>
   </view>
 
   <view style='width:93%;height:2rpx;background:#e5e5e5' class='margin-left-20'></view>
 
   <view class=' flex-row flex-center padding-40'>
     <view class='txt-black  txt'>账号:</view>
-    <view class='  margin-left-20 txt-hui txt'>775770734477</view>
+    <view class='  margin-left-20 txt-hui txt'>{{liuchen.accountnumber}}</view>
   </view>
 
 </view>

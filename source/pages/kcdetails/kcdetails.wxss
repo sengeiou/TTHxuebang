@@ -40,3 +40,13 @@ page{
   top: 0;
   z-index: 100;
 }
+.tishi{
+  position: fixed;
+  z-index: 100;
+  top: 35%;
+  right: 35%; 
+}
+.ts_icon{
+  width: 240rpx;
+  height: 260rpx;
+}

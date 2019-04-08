@@ -14,12 +14,10 @@
         <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>搜索你要找的机构、课程、老师</view>
         <view class='flex-1'></view>
       </navigator>
-
     </view>
-
   </view>
-  
 </view>
+
 
 
 <view class='bnk  ' style=''>

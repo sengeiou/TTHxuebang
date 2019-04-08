@@ -20,9 +20,8 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+    jigouapi.liuchen({}, (liuchen) => {
+      this.Base.setMyData({ liuchen });
     });
 
   }
