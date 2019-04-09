@@ -617,6 +617,38 @@ export class JigouApi{
         })
     }
 
+    liuchen(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/liuchen',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     problemlist(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -713,7 +745,7 @@ export class JigouApi{
         })
     }
 
-    liuchen(json, callback, showLoading = true) {
+    xieyi(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -722,7 +754,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/liuchen',
+            url: ApiConfig.GetApiUrl() + 'jigou/xieyi',
             data: json,
             method: 'POST',
             dataType: 'json',

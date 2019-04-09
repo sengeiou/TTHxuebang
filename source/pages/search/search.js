@@ -16,7 +16,20 @@ class Content extends AppBase {
     var json = {
       searchrecomm: ""
     };
-    this.Base.setMyData({ keyword: this.options.keyword, shows: "finished", });
+    this.Base.setMyData({ keyword: this.options.keyword, shows: "finished",tp:this.options.tp });
+
+
+    var tp=this.Base.getMyData().tp;
+    if(tp=="kc"){
+      this.Base.setMyData({
+        shows: "finished"
+      })
+    }
+    if(tp=="jg"){
+      this.Base.setMyData({
+        shows: "wait"
+      })
+    }
 
     // if (options.new != undefined) {
     //   json.newphone = "N";

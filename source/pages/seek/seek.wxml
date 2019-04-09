@@ -4,7 +4,7 @@
   <view class='fixedtop'>
     <view class='bg-primary'>
       <view class='padding-left-20 padding-right-20 padding-top-20 '>
-        <navigator url='/pages/searchword/searchword' class='search  flex-row flex-center  padding-10 '>
+        <navigator url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
           <image class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
           <view class='h5 txt-gray margin-left'>搜索机构名字</view>
         </navigator>
@@ -136,7 +136,7 @@
     <view class='bg-primary'>
 
       <view class='padding-left-20 padding-right-20 padding-top-20 '>
-        <navigator url='/pages/searchword/searchword' class='search  flex-row flex-center  padding-10 '>
+        <navigator url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 '>
           <image class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
           <view class='h6 txt-gray margin-left'>搜索课程</view>
         </navigator>
@@ -174,7 +174,7 @@
 
           <view class='flex-row flex-center'>
             <image src='{{uploadpath}}resource/{{res.shaixuan}}' class='icon-15'></image>
-            <view class='  flex-1 h5 padding-10 margin-bottom-5  txt-black txt-bold'>筛选</view>
+            <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="s_x"?"txt-white":""}}  txt-black txt-bold '>筛选</view>
           </view>
 
           <view class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
@@ -254,7 +254,7 @@
 
         <view class='flex-row flex-center flex-1'>
           <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
-          <view class='h6 txt-black margin-left-5'>{{item.age}}岁</view>
+          <view class='h6 txt-black margin-left-5'>{{item.age_name}}</view>
         </view>
 
 

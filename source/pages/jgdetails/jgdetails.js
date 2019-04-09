@@ -74,7 +74,7 @@ class Content extends AppBase {
 
 
 
-      jigouapi.jigouimg({ jigou: jginfo.id, orderby: 'r_main.seq' }, (jigouimg) => {
+      jigouapi.jigouimg({ jigou: jginfo.id, orderby: 'r_main.seq',status:"A" }, (jigouimg) => {
         this.Base.setMyData({
           jigouimg
         });
@@ -116,7 +116,7 @@ class Content extends AppBase {
     jigouapi.jigoufav({ jg_id: this.Base.options.id, status }, (ret) => {
       this.Base.setMyData({ isfav: status });
     });
-    
+
     setTimeout(() => {
       this.Base.setMyData({ tishi: 0 })
       // clearTimeout(timeoutId);

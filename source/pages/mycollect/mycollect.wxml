@@ -254,13 +254,13 @@
         <view class='txt-white h5 margin-left-10 flex-1'>{{item.video_name}}</view>
       </view>
       <view bindtap='tojgdetails' id='{{item.video_mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.video_jigou}}</view>
-      <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
+      <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon-15 margin-right-10'></image>
       <view class='h5'>{{item.video_count}}次</view>
       <view class='margin-left-20 flex-row flex-center'>
         <!-- <button  >未收藏</button> -->
 
-        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
-        <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'>取消</view>
+        <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
+        <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'></view>
         <!-- <button  >已收藏</button> -->
       </view>
     </view>

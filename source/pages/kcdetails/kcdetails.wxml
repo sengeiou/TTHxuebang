@@ -15,7 +15,7 @@
 
           <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
 
-          <video wx:if='{{item.video!=""}}' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></video>
+          <video wx:if='{{item.video!=""}}' objectFit='fill'  src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></video>
         </view>
       </swiper-item>
     </swiper>
@@ -32,7 +32,7 @@
       <view class=' bg-white  margin-bottom-10'>
         <view class='padding-10 '>
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold ' style='font-size:52rpx;'>{{courseinfo.name}}</view>
+            <view class='txt-black txt-bold padding-left-20' style='font-size:52rpx;'>{{courseinfo.name}}</view>
             <view class='txt-black  flex-1 padding-top-10 padding-left-20' bindtap='todetails'>{{courseinfo.JG_jigou}}</view>
 
             <view wx:if="{{scoring==5}}" class='flex-row flex-center margin-right-20'>
@@ -59,8 +59,8 @@
 
           </view>
 
-          <view class='flex-row margin-top-5'>
-            <view class='biaoqian  text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+          <view class='flex-row margin-top-5 padding-left-20'>
+            <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
           </view>
 
           <!-- <view class='flex-row flex-center margin-top-10'>
@@ -93,7 +93,7 @@
 
           </view>
 
-          <view class='flex-row flex-center margin-top-10 margin-bottom-10'>
+          <view class='flex-row flex-center margin-top-10 margin-bottom-10 padding-left-20'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h5 margin-left-10 txt-blue' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
             <view class='h6 txt-black margin-right-20'>距你{{miletxt}}</view>
@@ -113,13 +113,13 @@
   </view>
 
 
-  <view wx:if='{{show=="kcxq"}}' class=''>
-    <image src='{{uploadpath}}resource/{{res.ceshi2}} ' class=' ' mode='widthFix' style='width:100vw'></image>
+  <view  class=''>
+    <image src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}} ' class=' ' mode='widthFix' style='width:100vw'></image>
   </view>
 
-  <view wx:if='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
+  <!-- <view wx:if='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
     {{courseinfo.description}}
-  </view>
+  </view> -->
 
   <!-- <view class='height-50 '></view>
 

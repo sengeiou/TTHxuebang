@@ -23,3 +23,14 @@ Page{
 .pc{
 color: #C8C8C8;
 }
+.ft-color{
+  color: #8C8C8C;
+}
+.bt{
+  position: relative;
+  background: #54b576;
+  width: 136rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 20rpx;
+}

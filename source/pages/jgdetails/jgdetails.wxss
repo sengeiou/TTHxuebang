@@ -9,13 +9,19 @@
   height: 240rpx;
 }
 
-.mid {
+/* .on{
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  top:30%;
+} */
+ .mid {
   position: absolute;
   width: 90%;
   z-index: 100;
-  top:33%; 
+  top:33%;
   box-shadow: 1px 1px 5px #888;
-}
+} 
 
 .shadow {
   box-shadow: 1px 1px 10px #888;

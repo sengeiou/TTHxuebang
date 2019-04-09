@@ -1,25 +1,2 @@
 <!--pages/aboutus/aboutus.wxml-->
-<!-- <view class=''>
-  <view class='height-20 bg-gary'></view>
-
-  <view class='flex-row flex-column'>
-    <view class='height-30'></view>
-    <image src='{{uploadpath}}aboutus/{{aboutus.logo}}' class='icon-100'></image>
-    <view class='height-50'></view>
-    <view class='h3 txt-black '>{{aboutus.name}}</view>
-    <view class='height-50'></view>
-    <view>地址：{{aboutus.address}}</view>
-    <view class='height-50'></view>
-    <view>学榜官网：{{aboutus.website}}</view>
-    <view class='height-50'></view>
-    <view class='padding-40 txt-gray'>{{aboutus.content}}</view>
-
-  </view>
-
-</view> -->
-
-<import src="../../wxParse/wxParse.wxml" />
-
-<view  class='nostyle' >
-    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
-</view>
+<image src='{{uploadpath}}aboutus/{{aboutus.content}}'  mode='widthFix' style='width:100vw'></image>

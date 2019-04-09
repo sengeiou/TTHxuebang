@@ -26,6 +26,33 @@
         <view class='flex-1 txt-gray h5'>{{courseinfo.type_typename}}</view>
       </view>
 
+        <view class='flex-row flex-center flex-1 ' style=''>
+
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.age_name}}</view>
+          </view>
+
+          <view style='width:20rpx;'></view>
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.class_hours}}节课</view>
+          </view>
+
+          <view style='width:20rpx;'></view>
+
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.duration}}/节</view>
+          </view>
+
+
+        </view>
+
+
     </view>
 
   </view>
