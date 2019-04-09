@@ -17,8 +17,9 @@
 } */
  .mid {
   position: absolute;
-  width: 90%;
+  width: 91vw;
   z-index: 100;
+  left:2.5vw;
   top:33%;
   box-shadow: 1px 1px 5px #888;
 } 
