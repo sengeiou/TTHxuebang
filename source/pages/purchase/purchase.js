@@ -24,7 +24,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.course_id = 1;
+    options.course_id = 15;
     super.onLoad(options);
     this.Base.setMyData({
       usercomment: ""
@@ -43,7 +43,24 @@ class Content extends AppBase {
       });
     });
   }
+
+
+  changename(e) {
+    this.Base.setMyData({
+      name: e.detail.value
+    });
+  }
+  changephone(e) {
+    this.Base.setMyData({
+      phone: e.detail.value
+    });
+  }
+
+
   bindtoorder(e) {
+
+    var name = this.Base.getMyData().name;
+    var phone = this.Base.getMyData().phone;
     wx.showModal({
       title: '提示',
       content: '是否确认购买课程？',
@@ -51,7 +68,7 @@ class Content extends AppBase {
         if (e.confirm) {
           var api = new PurchaseApi();
           api.create({
-            course_id: this.Base.options.course_id
+            course_id: this.Base.options.course_id, phone: phone, name: name
           }, (ret) => {
             if (ret.code == '0') {
               if (ret.return.pstatus == 'P') {
@@ -83,11 +100,7 @@ class Content extends AppBase {
     // })
   }
 
-  changeUsercomment(e) {
-    this.Base.setMyData({
-      usercomment: e.detail.value
-    });
-  }
+
 
 }
 
@@ -97,6 +110,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindtoorder = content.bindtoorder;
-body.changeUsercomment = content.changeUsercomment;
-
+body.changephone = content.changephone;
+body.changename = content.changename;
 Page(body)

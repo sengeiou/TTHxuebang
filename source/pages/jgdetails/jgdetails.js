@@ -23,6 +23,28 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    var that=this;
+    wx.getSystemInfo({
+      success(res) {
+        console.log(res.model)
+
+
+        var str = res.model
+        var model = str.split("(")[0];
+        console.log(model+"机型")
+
+        that.Base.setMyData({ model: model})
+        console.log(res.pixelRatio)
+        console.log(res.windowWidth)
+        console.log(res.windowHeight)
+        console.log(res.language)
+        console.log(res.version)
+        console.log(res.platform)
+      }
+      
+    })
+
+   
   }
   onMyShow() {
     var that = this;

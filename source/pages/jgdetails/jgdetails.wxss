@@ -21,8 +21,19 @@
   z-index: 100;
   left:2.5vw;
   top:33%;
+  margin-top: -90rpx;
   box-shadow: 1px 1px 5px #888;
 } 
+
+ .mid2 {
+  position: absolute;
+  width: 91vw;
+  z-index: 100;
+  left:2.5vw;
+  top:33%;
+  margin-top: -60rpx;
+  box-shadow: 1px 1px 5px #888;
+}
 
 .shadow {
   box-shadow: 1px 1px 10px #888;

@@ -172,9 +172,15 @@
       <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
     </view>
 
+    <view class='flex-row flex-center pd bor_bot ' style=' '>
+      <view class=' h5 flex-1 '>联系人</view>
+      <view class='txt-black flex-4 h5 '>{{info.name}}</view>
+      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
+    </view>
+
     <view class='flex-row flex-center pd  ' style=' '>
-      <view class=' h5 flex-1 '>学员</view>
-      <view class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</view>
+      <view class=' h5 flex-1 '>电话</view>
+      <view class='txt-black flex-4 h5 '>{{info.phone}}</view>
       <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
     </view>
 
