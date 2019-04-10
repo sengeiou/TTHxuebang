@@ -19,6 +19,7 @@
     <view wx:if='{{show=="t3"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
     <view wx:if='{{show!="t3"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
+  
 </view>
 
 <!--课程收藏-->

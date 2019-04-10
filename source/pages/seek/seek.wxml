@@ -19,7 +19,7 @@
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
           <swiper vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='width:324rpx;height:30rpx;'>
             <swiper-item wx:for="{{gongaolist}}" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
-              {{item.content}}课程
+              {{item.content}}
             </swiper-item>
           </swiper>
         </view>

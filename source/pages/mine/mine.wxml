@@ -19,7 +19,7 @@
 
 </view>
 
-<view class='' style='height:30rpx'></view>
+<view class='' style='height:50rpx'></view>
 
 <view data-name='dd' bindtap='todetails' class='flex-row flex-center margin-30  border_bottom pd' style=''>
   <image class='icon' src='{{uploadpath}}resource/{{res.myorder}}'></image>

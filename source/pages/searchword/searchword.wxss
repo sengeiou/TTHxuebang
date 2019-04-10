@@ -1,6 +1,6 @@
 /* pages/searchword/searchword.wxss */
-/* pages/search/search.wxss */
 
+/* pages/search/search.wxss */
 
 .weui-search-bar {
   position: fixed;
@@ -86,13 +86,14 @@
   font-size: 24rpx;
   white-space: nowrap;
 }
-.keywordtitle{
+
+.keywordtitle {
   font-size: 28rpx;
-  color:black;
-  padding:20rpx;
+  color: black;
+  padding: 20rpx;
 }
 
-.keyword{
+.keyword {
   background: white;
   font-size: 24rpx;
   border-radius: 35rpx;
@@ -104,8 +105,6 @@
   margin-right: 14rpx;
 }
 
-
-
 .title {
   height: 86rpx;
   display: -webkit-box;
@@ -113,60 +112,68 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.cover{
+
+.cover {
   margin-right: 30rpx;
   width: 200rpx;
-  height:156rpx;
+  height: 156rpx;
   border-radius: 6rpx;
 }
 
-
-
-Page{
+Page {
   background: #f5f5f5;
 }
-.search{
-  width:620rpx;
+
+.search {
+  width: 620rpx;
   border-radius: 50rpx;
   background-color: rgb(240, 240, 240);
 }
-.search_icon{
-  height:40rpx;
-  width:40rpx;
+
+.search_icon {
+  width: 35rpx;
+  height: 30rpx;
 }
-.prohibit_icon{
-  height:30rpx;
-  width:30rpx;
+
+.prohibit_icon {
+  height: 30rpx;
+  width: 30rpx;
 }
+
 .shadow {
   box-shadow: 1px 1px 5px #d1d1d1;
 }
+
 .kc_icon {
   width: 228rpx;
   height: 224rpx;
 }
+
 .kecheng {
   margin-left: 20rpx;
   margin-right: 20rpx;
   margin-top: 20rpx;
   /* margin-bottom: 4rpx; */
 }
-.address{
 
+.address {
 }
-.img{
+
+.img {
   width: 220rpx;
   height: 252rpx;
 }
-.mid{
+
+.mid {
   position: absolute;
   width: 85.5%;
   z-index: 10;
   height: 186rpx;
-  bottom:0%;
+  bottom: 0%;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
 }
+
 .org_block {
   padding-left: 5rpx;
   padding-right: 15rpx;
@@ -184,5 +191,3 @@ Page{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-

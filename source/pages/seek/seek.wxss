@@ -183,7 +183,7 @@ Page {
   width: 100%;
 }
 .xb_bg{
-  height: 32rpx;
+  height: 42rpx;
   width: 154rpx;
 }
 .bt{
