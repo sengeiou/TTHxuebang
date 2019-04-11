@@ -32,3 +32,19 @@ Page {
   line-height: 48rpx;
   border-radius: 40rpx;
 }
+.waitpay{
+  background: #FD4963;
+  font-size: 32rpx;
+  color:white;
+  border-radius: 50%;
+  min-width: 40rpx;
+
+  min-height: 40rpx;line-height: 40rpx;
+  text-align: center;
+}
+.xiaoxi{
+  position: absolute;
+  top: 1.5vh;
+  right: 5.5vw;
+  
+}

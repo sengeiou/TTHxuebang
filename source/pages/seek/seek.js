@@ -326,7 +326,7 @@ class Content extends AppBase {
       var ttype_id = data.ftype_id;
       var tage_id = data.fage_id;
       this.Base.setMyData({
-        options: "s_x",
+        // options: "s_x",
         options_show: true,
         tdistrict_id,
         ttype_id,

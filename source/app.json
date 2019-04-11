@@ -4,6 +4,7 @@
     "pages/personaldata/personaldata",
     "pages/hexiao/hexiao",
     "pages/order/order",
+    "pages/messageinfo/messageinfo",
     "pages/mycollect/mycollect",
     "pages/liucheng/liucheng",
     "pages/baomainfo/baomainfo",

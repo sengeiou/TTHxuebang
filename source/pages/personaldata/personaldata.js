@@ -94,10 +94,10 @@ class Content extends AppBase {
     var memberinfo = this.Base.getMyData().memberinfo;
     //console.log(memberinfo.id)
     console.log(data.name);
-    if (data.name == "") {
-      this.Base.info("请填写昵称");
-      return;
-    }
+    // if (data.name == "") {
+    //   this.Base.info("请填写昵称");
+    //   return;
+    // }
     if (data.mobile == "") {
       this.Base.info("请填写手机号");
       return;

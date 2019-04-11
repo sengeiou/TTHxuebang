@@ -1,5 +1,5 @@
 <!--pages/mymessage/mymessage.wxml-->
-<view class='flex-row bg-white  margin-top padding-30 shadow '>
+<view class='flex-row bg-white  margin-top padding-30 shadow ' bindtap='bindtoinfo'>
   <image class='icon-75 radius-10' src='{{uploadpath}}resource/{{res.details_icon}}'></image>
   <view class='flex-row column flex-1 margin-left-10'>
     <view class='flex-row flex-center'>

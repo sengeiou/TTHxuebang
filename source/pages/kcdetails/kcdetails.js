@@ -42,7 +42,7 @@ class Content extends AppBase {
       //courseinfo.xx=parseInt();
 
       jigouapi.kechenlunbo({
-        name: courseinfo.id, orderby: 'r_main.seq'
+        name: courseinfo.id, orderby: 'r_main.seq', status: "A" 
       }, (kechenlunbo) => {
         this.Base.setMyData({
           kechenlunbo
@@ -82,22 +82,23 @@ class Content extends AppBase {
     });
 
   }
-  bindcut(e) {
-    var type = e.currentTarget.dataset.type;
-    console.log(type);
-
-    if (type == "kcxq") {
-      this.Base.setMyData({
-        show: "kcxq"
-      })
-    }
-    if (type == "gmxz") {
+  gotoBottom(e) {
       this.Base.setMyData({
         show: "gmxz"
       })
-    }
-
+    wx.pageScrollTo({
+      scrollTop: 100000,
+      duration: 300
+    })
   }
+
+  bindcut(e) {
+      this.Base.setMyData({
+        show: "kcxq"
+      })
+    
+  }
+
   bindtopurchase(e) {
     wx.navigateTo({
       url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
@@ -144,6 +145,8 @@ class Content extends AppBase {
     })
   }
 
+
+
   onPageScroll(e) {
     console.log(e)
     //this.Base.setMyData({ scrolltop: e.scrollTop})
@@ -179,7 +182,8 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcut = content.bindcut;
 body.bindtopurchase = content.bindtopurchase;
-body.fav = content.fav;
+body.fav = content.fav; 
+body.gotoBottom = content.gotoBottom;
 body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;
 Page(body)

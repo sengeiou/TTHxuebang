@@ -71,13 +71,13 @@ class Content extends AppBase {
 
   tosearch(e) {
     var word = this.Base.getMyData().value;
-
+    
     var instapi = new MemberApi();
     instapi.setsearch({keyword:word});
 
     if (word != null) {
       wx.navigateTo({
-        url: '/pages/search/search?keyword=' + word,
+        url: '/pages/search/search?keyword=' + word+'&tp='+this.Base.options.tp,
       })
     }
   }

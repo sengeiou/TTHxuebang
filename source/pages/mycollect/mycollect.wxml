@@ -19,6 +19,7 @@
     <view wx:if='{{show=="t3"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
     <view wx:if='{{show!="t3"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
+
 </view>
 
 <!--课程收藏-->
@@ -57,6 +58,46 @@
           <view class='flex-1 txt-black'>{{item.course_name}}</view>
           <view class='txt-black'>￥{{item.course_price}}</view>
         </view>
+
+
+
+
+
+
+
+        <view class='flex-row flex-center flex-1' style=''>
+
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_age}}岁</view>
+          </view>
+          <view style='width:20rpx;'></view>
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}节课</view>
+          </view>
+          <view style='width:20rpx;'></view>
+
+          <view class='flex-row flex-center '>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}分钟/节</view>
+          </view>
+
+
+        </view>
+
+
+
+
+
+
+
+
+
+
+
 
       </view>
 
@@ -113,10 +154,11 @@
 
 
 
-  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+  <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.jg_id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' class=' radius-10 ' style='width:100%;height:400rpx'></image>
     </view>
+
 
     <view class='flex-row flex-column '>
       <view class='radius-10 bg-white  mid margin-bottom-10'>
@@ -254,13 +296,13 @@
         <view class='txt-white h5 margin-left-10 flex-1'>{{item.video_name}}</view>
       </view>
       <view bindtap='tojgdetails' id='{{item.video_mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.video_jigou}}</view>
-      <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15 margin-right-10'></image>
+      <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon-15 margin-right-10'></image>
       <view class='h5'>{{item.video_count}}次</view>
       <view class='margin-left-20 flex-row flex-center'>
         <!-- <button  >未收藏</button> -->
 
-        <image src='{{uploadpath}}resource/{{res.video_null}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
-        <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'>取消</view>
+        <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
+        <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'></view>
         <!-- <button  >已收藏</button> -->
       </view>
     </view>

@@ -24,6 +24,11 @@ class Content extends AppBase {
       this.Base.setMyData({ jglist });
     });
   }
+  bindtoinfo(e){
+    wx.navigateTo({
+      url: '/pages/messageinfo/messageinfo'
+    })
+  }
 
 }
 
@@ -31,5 +36,6 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.tojgdetails = content.tojgdetails;
+body.tojgdetails = content.tojgdetails; 
+body.bindtoinfo = content.bindtoinfo; 
 Page(body)

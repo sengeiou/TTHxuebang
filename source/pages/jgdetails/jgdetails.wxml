@@ -2,14 +2,10 @@
 
 <view class='' style='background:{{jginfo.bgcolor}}'>
 
-  <view style=' ' class=''>
 
+  <view style='position:relative;'>
+    <view style=' ' class=''>
 
-    <!-- <view class=' ' style=''>
-    <image src='{{uploadpath}}jigou/{{jginfo.jg_img}}' class=' ' style='width:100%;height:444rpx'></image>
-  </view> -->
-
-    <view style='position:relative;z-index:2'>
       <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
         <swiper-item wx:for="{{jigouimg}}" wx:key="k">
           <view>
@@ -19,93 +15,89 @@
         </swiper-item>
       </swiper>
     </view>
-
-
-
-    <view class='flex-row flex-column '>
-      <view class='radius-10 bg-white padding-15 mid margin-bottom-10'>
-        <view class='padding-10 '>
-
-          <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold h4 flex-1 chaochu'>{{jginfo.jigou}}</view>
-
-            <view class=''>
-              <view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              </view>
-              <view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-                <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              </view>
-              <view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              </view>
-              <view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              </view>
-              <view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
-                <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              </view>
-            </view>
-
-          </view>
-
-
-
-          <view class='flex-row flex-center margin-top-10'>
-            <view class='flex-row flex-1'>
-              <view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
-            </view>
-
-
-            <!-- <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
-            <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view> -->
-            
-            <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-            <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
-
-
-
-
-          </view>
-
-          <view class='flex-row  margin-top-5 padding-10'>
-
-            <view class='flex-row flex-column flex-1'>
-              <view class='h5 txt-black'>适合年龄</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>4-12岁</view>
-            </view>
-
-            <view class='flex-row flex-column flex-1'>
-              <view class='h5 txt-black'>营业时间</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>{{jginfo.time}}</view>
-            </view>
-
-            <view class='flex-row flex-column flex-1'>
-              <view class='h5 txt-black'>预约</view>
-              <view class='h4-5 txt-black txt-bold margin-top-5'>需要预约</view>
-              <view class='h7 txt-gray '>已预约1522人</view>
-            </view>
-
-          </view>
-
-          <view class='flex-row flex-center margin-top-10'>
-            <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
-            <view class='h6 txt-black'>距你{{miletxt}}</view>
-          </view>
-
-        </view>
-      </view>
-    </view>
   </view>
 
 
-  <view style='height:340rpx;'></view>
 
+
+
+
+  <view class='radius-10 bg-white padding-15  {{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "?"mid2":"mid"}}   margin-bottom-10'>
+    <view class='padding-10 '>
+      <view class='flex-row flex-center'>
+        <view class='txt-black txt-bold h4 flex-1 chaochu'>{{jginfo.jigou}}</view>
+        <view class=''>
+          <view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
+            <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+          </view>
+          <view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
+            <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+          </view>
+          <view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
+            <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+          </view>
+          <view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
+            <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+          </view>
+          <view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
+            <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+          </view>
+        </view>
+      </view>
+
+      <view class='flex-row flex-center margin-top-10'>
+        <view class='flex-row flex-1'>
+          <view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+        </view>
+
+
+        <!-- <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
+            <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view> -->
+
+        <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
+        <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
+
+
+
+
+      </view>
+
+      <view class='flex-row  margin-top-5 padding-10'>
+
+        <view class='flex-row flex-column flex-1'>
+          <view class='h5 txt-black'>适合年龄</view>
+          <view class='h4-5 txt-black txt-bold margin-top-5'>{{jginfo.jg_age}}</view>
+        </view>
+
+        <view class='flex-row flex-column flex-1'>
+          <view class='h5 txt-black'>营业时间</view>
+          <view class='h4-5 txt-black txt-bold margin-top-5'>{{jginfo.time}}</view>
+        </view>
+
+        <view class='flex-row flex-column flex-1'>
+          <view class='h5 txt-black'>预约</view>
+          <view class='h4-5 txt-black txt-bold margin-top-5'>需要预约</view>
+          <view class='h7 txt-gray '>已预约{{jginfo.people_num}}人</view>
+        </view>
+
+      </view>
+
+      <view class='flex-row flex-center margin-top-10'>
+        <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+        <view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
+        <view class='h6 txt-black'>距你{{miletxt}}</view>
+      </view>
+
+    </view>
+  </view>
+
+  <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:330rpx;'></view>
+
+  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:330rpx;'></view>
 
 
   <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
@@ -120,7 +112,7 @@
       <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}' poster='{{uploadpath}}mechanism/{{jginfo.waitimg}}'>
       </video>
 
-      <image  style='width:100%;height:300rpx;' mode='widthFix'  wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
+      <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
 
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>
@@ -130,6 +122,10 @@
     </view>
 
   </view>
+
+
+
+
 
   <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
 
@@ -220,17 +216,15 @@
 
   <view class='height-100 '></view>
 
-
 </view>
-
 
 <image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;margin-bottom:-10rpx;'></image>
 
 
 <view class='tishi' wx:if='{{tishi==1}}'>
-<image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
+  <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
 </view>
 
 <view class='tishi' wx:if='{{tishi==2}}'>
-<image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
+  <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
 </view>
