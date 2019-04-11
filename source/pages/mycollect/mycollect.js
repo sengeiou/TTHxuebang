@@ -84,6 +84,18 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id='+id,
     })
   }
+
+  play(e) {
+    var id = e.currentTarget.id;
+    console.log(id);
+    var teachlist = this.Base.getMyData().splist;
+    for (var i = 0; i < teachlist.length; i++) {
+      if (id != "v_" + teachlist[i].id) {
+        var videoContext = wx.createVideoContext("v_" + teachlist[i].id);
+        videoContext.pause();
+      }
+    }
+  }
 }
 
 var content = new Content();
@@ -91,7 +103,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.bindshow = content.bindshow;
+body.bindshow = content.bindshow; 
 body.fav = content.fav;
+body.play = content.play;
 
 Page(body)
