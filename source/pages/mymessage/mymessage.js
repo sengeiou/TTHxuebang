@@ -42,8 +42,9 @@ class Content extends AppBase {
     
   }
   bindtoinfo(e){
+    var id=e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/messageinfo/messageinfo'
+      url: '/pages/messageinfo/messageinfo?id='+id
     })
   }
 

@@ -67,6 +67,8 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
     var purchaseapi = new PurchaseApi();
+
+    
     purchaseapi.purchaseinfo({
       id: this.Base.options.id
     }, (info) => {

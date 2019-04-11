@@ -18,6 +18,9 @@ import {
 import {
   TeacherApi
 } from "../../apis/teacher.api.js";
+import {
+  PurchaseApi
+} from "../../apis/purchase.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -34,10 +37,30 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new MemberApi();
+    var jigouapi = new JigouApi();
+    var purchaseapi = new PurchaseApi();
     api.favcourselist({}, (kclist) => {
       this.Base.setMyData({
         kclist
       });
+    });
+
+
+    purchaseapi.purchaseinfo({
+      id: this.Base.options.id
+    }, (info) => {
+      this.Base.setMyData({
+        info
+      });
+
+      jigouapi.courseinfo({
+        id: info.course_id
+      }, (courseinfo) => {
+        this.Base.setMyData({
+          courseinfo
+        });
+      })
+
     });
 
   }
