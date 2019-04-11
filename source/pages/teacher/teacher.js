@@ -80,12 +80,24 @@ class Content extends AppBase {
 
 
   }
+  play(e){
+    var id=e.currentTarget.id;
+    console.log(id);
+    var teachlist = this.Base.getMyData().teachlist;
+    for(var i=0;i<teachlist.length;i++){
+      if(id!="v_"+teachlist[i].id){
+        var videoContext = wx.createVideoContext("v_" + teachlist[i].id);
+        videoContext.pause();
+      }
+    }
+  }
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.tojgdetails = content.tojgdetails;
+body.tojgdetails = content.tojgdetails; 
 body.fav = content.fav;
+body.play = content.play;
 Page(body)
