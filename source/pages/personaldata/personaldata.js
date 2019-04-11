@@ -24,7 +24,8 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: 2
+      show: 2,
+      region: [],
     })
   }
   onMyShow() {
@@ -39,9 +40,29 @@ class Content extends AppBase {
     });
 
     mineapi.mydata({}, (mydata) => {
-      this.Base.setMyData({
-        mydata
-      });
+      var address = mydata.address;
+      var region=[];
+      if(address!=''){
+        region = address.split(" ");
+        this.Base.setMyData({
+          region,
+          mydata
+        });
+        
+      }else{
+
+        this.Base.setMyData({
+          mydata
+        });
+
+        this.Base.getAddress((address) => {
+          console.log(address);
+          var region = [address.address_component.province, address.address_component.city, address.address_component.district];
+          this.Base.setMyData({
+            region
+          });
+        });
+      }
     });
 
   }
@@ -69,6 +90,7 @@ class Content extends AppBase {
     var data = e.detail.value;
     var name = data.name;
     var show = this.Base.getMyData().show;
+    var region = this.Base.getMyData().region;
     var memberinfo = this.Base.getMyData().memberinfo;
     //console.log(memberinfo.id)
     console.log(data.name);
@@ -84,10 +106,11 @@ class Content extends AppBase {
     //   this.Base.info("请选择性别");
     //   return;
     // }
-    if (data.address == "") {
+    if (region.length==0) {
       this.Base.info("请填写地址");
       return;
     }
+    data.address = region[0] + " " + region[1] + " "+region[2];
     if (data.housenum == "") {
       this.Base.info("请填写门牌号");
       return;
@@ -125,9 +148,16 @@ class Content extends AppBase {
             title: '正在保存',
             mask: true
           })
-
+          console.log('正在保存');
+          console.log({
+            name: data.name,
+            mobile: data.mobile,
+            sex: sex,
+            address: data.address,
+            house_num: data.housenum,
+            status: "A"
+          });
           mineapi.updatemydata({
-            id: memberinfo.id,
             name: data.name,
             mobile: data.mobile,
             sex: sex,
@@ -160,7 +190,12 @@ class Content extends AppBase {
       delta: 2,
     })
   }
-
+  bindRegionChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  }
 }
 
 var content = new Content();
@@ -170,6 +205,7 @@ body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindshow = content.bindshow;
 body.bindback = content.bindback;
-body.bindcheck = content.bindcheck;
+body.bindcheck = content.bindcheck; 
 body.confirm = content.confirm;
+body.bindRegionChange = content.bindRegionChange;
 Page(body)

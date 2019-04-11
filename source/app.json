@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/personaldata/personaldata",
     "pages/hexiao/hexiao",
     "pages/order/order",
     "pages/mycollect/mycollect",
@@ -23,7 +24,6 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
-    "pages/personaldata/personaldata",
     "pages/auth/auth"
   ],
    "permission": {

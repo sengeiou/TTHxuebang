@@ -22,7 +22,7 @@
   <view class='padding-30  bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>昵称</view>
-      <input class=' flex-2' name='name' style=''  placeholder-style='color:#C8C8C8' maxlength='15' value='{{memberinfo.name}}' placeholder='请填写昵称'></input>
+      <input class=' flex-2' name='name' style='' placeholder-style='color:#C8C8C8' maxlength='15' value='{{memberinfo.name}}' placeholder='请填写昵称'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -33,7 +33,7 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>手机号：</view>
-      <input class=' flex-2' type='number'  placeholder-style='color:#C8C8C8' style='' name='mobile' value='{{memberinfo.mobile}}' placeholder='请填写联系电话'></input>
+      <input class=' flex-2' type='number' placeholder-style='color:#C8C8C8' style='' name='mobile' value='{{memberinfo.mobile}}' placeholder='请填写联系电话'></input>
     </view>
     <!--bor_bak -->
   </view>
@@ -73,7 +73,11 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>地址：</view>
-      <input class=' flex-2' placeholder-style='color:#C8C8C8' style='' name='address' placeholder='请填写地址'></input>
+      <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <view class="picker" style='color:#C8C8C8' wx:if="{{region.length==0}}" >请填写地址
+        </view>
+        <view class="picker"  wx:if="{{region.length>0}}" >{{region[0]}} {{region[1]}} {{region[2]}}</view>
+      </picker>
     </view>
     <!--bor_bak -->
   </view>
@@ -82,13 +86,13 @@
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='font-30 flex-1 txt-black txt-bold'>门牌号：</view>
-      <input class=' flex-2' style=''  placeholder-style='color:#C8C8C8' name='housenum' placeholder='请填写门牌号'></input>
+      <input class=' flex-2' style='' placeholder-style='color:#C8C8C8' name='housenum' value='{{mydata.house_num}}' placeholder='请填写门牌号'></input>
     </view>
     <!--bor_bak -->
   </view>
   <view class='height-80' style=''></view>
 
   <!-- <button class='dis margin-40 txt-white' wx:if='{{show==1}}' hover-class='dis_hov'>保存</button> -->
-  <button class='btn_bg margin-40 txt-white'  form-type='submit' hover-class='bg_hov'>保存</button>
+  <button class='btn_bg margin-40 txt-white' form-type='submit' hover-class='bg_hov'>保存</button>
 
 </form>
