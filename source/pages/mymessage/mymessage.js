@@ -3,6 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { JigouApi } from "../../apis/jigou.api.js";
+import { PurchaseApi } from "../../apis/purchase.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -17,12 +18,28 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+
+    var api = new PurchaseApi();
+
+
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
     jigouapi.jglist({}, (jglist) => {
       this.Base.setMyData({ jglist });
     });
+
+
+    api.purchaselist({
+      pstatus: 'P,U,R'
+    }, (wclist) => {
+      this.Base.setMyData({
+        wclist
+      });
+    });
+
+
+    
   }
   bindtoinfo(e){
     wx.navigateTo({

@@ -96,7 +96,10 @@ class Content extends AppBase {
       this.Base.setMyData({
         show: "kcxq"
       })
-    
+    wx.pageScrollTo({
+      scrollTop: 521,
+      duration: 300
+    })
   }
 
   bindtopurchase(e) {

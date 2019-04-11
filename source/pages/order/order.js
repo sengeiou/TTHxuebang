@@ -46,18 +46,22 @@ class Content extends AppBase {
         }
       }
     },1000);
-
+    var codeimg = '';
     this.Base.setMyData({
       show: "finished",
       reminderpay:0,
-      timerid
+      timerid,
+      code:codeimg 
     })
+    
+    
 
   }
   onUnload(){
     var timerid = this.Base.getMyData().timerid;
     clearInterval(timerid);
   }
+  
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -69,13 +73,15 @@ class Content extends AppBase {
       this.Base.setMyData({
         info
       });
+      var codeimg ='https://cmsdev.app-link.org/alucard263096/tthxb/api/jigou/qrcode?id='+info.id+'&a.jpg';
+      this.Base.setMyData({ codeimg: codeimg});
+      console.log(codeimg+"图片链接");
 
+      //return;
       if(info.pstatus=='W'){
         var reminderpay=parseInt(info.reminderpay);
         this.Base.setMyData({ reminderpay });
       }
-
-
 
 
       jigouapi.courseinfo({
@@ -160,6 +166,15 @@ class Content extends AppBase {
     })
    }
 
+
+  previewImage(e) {
+
+  wx.previewImage({
+    urls: this.Base.getMyData().codeimg.split(',')
+    // 需要预览的图片http链接  使用split把字符串转数组。不然会报错
+  })
+}
+
 }
 
 var content = new Content();
@@ -171,6 +186,8 @@ body.bindshow = content.bindshow;
 body.bindback = content.bindback;
 body.bindpay = content.bindpay; 
 body.colseorder = content.colseorder;
+
+body.previewImage = content.previewImage;
 
 body.todetails = content.todetails;
 

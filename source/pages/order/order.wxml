@@ -41,7 +41,7 @@
 
       <view class='height-20'></view>
 
-      <view class='txt-white ' style='font-size:30rpx;'>机构老师微信号</view>
+      <view class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</view>
       <view style='height:10'></view>
       <view class='flex-row flex-center ' style='width:100% '>
         <view class='flex-2 '></view>
@@ -54,7 +54,7 @@
 
       <view class='height-20 '></view>
       <view class='flex-row flex-center '>
-        <view class=' txt-white flex-1 h6 '>添加微信号 > 联系机构老师 > 确定上课时间</view>
+        <view class=' txt-white flex-1 h6 '>添加微信号 > 联系学榜客服 > 确定上课时间</view>
       </view>
 
 
@@ -67,7 +67,8 @@
     <view style='height:28rpx;'></view>
 
     <view class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</view>
-    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{info.usecode}} ' bindtap='copytext' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg '></image>
+    <!-- bindtap='copytext' -->
+    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{info.usecode}} '  src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg ' bindtap='previewImage'></image>
     <view class=' ' style='color:black;font-size:28rpx;'>添加老师微信出示二维码</view>
 
 

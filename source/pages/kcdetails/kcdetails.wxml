@@ -138,6 +138,7 @@
         <image class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
         <view class='h6'>收藏</view>
       </view>
+      
       <view class='flex-1 flex-row flex-column padding-15 bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
         <image class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
         <view class='h6'>已收藏</view>
@@ -175,13 +176,12 @@
 
 
 
-<image src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}}' mode='aspectFill' style='width:100%;margin-top:-10rpx;margin-bottom:-10rpx;'></image>
+<!-- <image src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}}' mode='aspectFill' style='width:100%;margin-top:-10rpx;margin-bottom:-10rpx;'></image> -->
 
 
 
 
-<view style='height:110rpx;'></view>
-
+<view style='height:105rpx;'></view>
 
 
 <view class=' to_top' hidden='{{!floorstatus}}'>

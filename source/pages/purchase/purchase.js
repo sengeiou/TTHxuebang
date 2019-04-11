@@ -24,7 +24,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    options.course_id = 15;
+    //options.course_id = 15;
     super.onLoad(options);
     this.Base.setMyData({
       usercomment: ""
@@ -55,12 +55,23 @@ class Content extends AppBase {
       phone: e.detail.value
     });
   }
-
+  phonenoCallback(mobile) {
+    this.Base.setMyData({ mobile: mobile });
+  }
 
   bindtoorder(e) {
 
     var name = this.Base.getMyData().name;
+    var mobile = this.Base.getMyData().mobile;
+    if(mobile==""||mobile==null){
+      this.Base.setMyData({ phone: this.Base.getMyData().phone });
+    }
+    else{
+      this.Base.setMyData({ phone: this.Base.getMyData().mobile });
+    }
     var phone = this.Base.getMyData().phone;
+
+
     wx.showModal({
       title: '提示',
       content: '是否确认购买课程？',

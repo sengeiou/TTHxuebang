@@ -12,17 +12,19 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    var teacherapi = new TeacherApi();
+    teacherapi.teachlist({ orderby: 'r_main.id' }, (teachlist) => {
+      this.Base.setMyData({ teachlist });
+    });
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-    var teacherapi = new TeacherApi();
+   
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
-    teacherapi.teachlist({orderby:'r_main.id'}, (teachlist) => {
-      this.Base.setMyData({ teachlist });
-    });
+    
   }
   
 

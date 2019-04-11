@@ -27,3 +27,9 @@ Page{
   left: 0px;
   width: 100vw;
 }
+.phone_btn{
+  width: 160rpx;
+  background: red;
+  height: 50rpx;
+  line-height: 50rpx;
+}
