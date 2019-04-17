@@ -40,15 +40,14 @@
     <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:600rpx;height:200rpx;'>
 
       <view class='height-20'></view>
-
       <view class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</view>
       <view style='height:10'></view>
       <view class='flex-row flex-center ' style='width:100% '>
         <view class='flex-2 '></view>
         <view style='width:50rpx;height:10rpx;'></view>
-        <view class=' txt-bold txt-white   text-center'>{{courseinfo.teachername}}</view>
+        <view class=' txt-bold txt-white   text-center'>{{courseinfo.teacherwechatid}}</view>
         <view style='width:36rpx;'></view>
-        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teachername}} ' bindtap='copytext'>点击复制</view>
+        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</view>
         <view class='flex-1 '></view>
       </view>
 

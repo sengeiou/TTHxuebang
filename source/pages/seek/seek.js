@@ -391,13 +391,12 @@ class Content extends AppBase {
            var tdistrict_id = that.Base.getMyData().fdistrict_id;
            var ttype_id = that.Base.getMyData().ftype_id;
            var tage_id = that.Base.getMyData().fage_id;
+
            that.Base.setMyData({
-             tdistrict_id: tdistrict_id,
-             ttype_id: ttype_id,
-             tage_id: tage_id
+             tdistrict_id: 0,
+             ttype_id: 0,
+             tage_id: 0
            });
-
-
 
 
 

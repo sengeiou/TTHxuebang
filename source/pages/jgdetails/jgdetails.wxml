@@ -173,7 +173,7 @@
 
           <view class='flex-row flex-center flex-1'>
             <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
-            <view class='h6  margin-left-5' style='color:#000000'>{{item.age}}岁</view>
+            <view class='h6  margin-left-5' style='color:#000000'>{{item.age_name}}</view>
           </view>
 
 
@@ -214,11 +214,11 @@
     </view>
   </view>
 
-  <view class='height-100 '></view>
+  <!-- <view class='height-100 '></view> -->
 
 </view>
 
-<image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;margin-bottom:-10rpx;'></image>
+<image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;height:300rpx;margin-bottom:-10rpx;'></image>
 
 
 <view class='tishi' wx:if='{{tishi==1}}'>
@@ -228,3 +228,5 @@
 <view class='tishi' wx:if='{{tishi==2}}'>
   <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
 </view>
+
+

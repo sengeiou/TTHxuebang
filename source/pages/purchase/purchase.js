@@ -44,6 +44,8 @@ class Content extends AppBase {
     });
   }
 
+  
+
 
   changename(e) {
     this.Base.setMyData({
@@ -71,6 +73,16 @@ class Content extends AppBase {
     }
     var phone = this.Base.getMyData().phone;
 
+    if (name == "" || name == null) {
+      this.Base.info("请填写姓名");
+      return;
+    }
+
+    if (phone==""||phone==null){
+      this.Base.info("请填写电话");
+      return;
+     }
+    
 
     wx.showModal({
       title: '提示',

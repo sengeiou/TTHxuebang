@@ -38,9 +38,10 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new PurchaseApi();
+
     api.purchaselist({
-      
     }, (alllist) => {
+      
       this.Base.setMyData({
         alllist
       });
@@ -61,6 +62,7 @@ class Content extends AppBase {
         dflist
       });
     });
+
   }
 
   bindshow(e) {

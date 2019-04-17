@@ -17,6 +17,7 @@ class Content extends AppBase {
       this.Base.setMyData({ teachlist });
     });
   }
+  
   onMyShow() {
     var that = this;
     var instapi = new InstApi();

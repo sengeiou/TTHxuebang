@@ -42,8 +42,19 @@
 
   <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
+    
       <view class='font-30 flex-1 txt-black'>地址：</view>
-      <input class=' flex-2' placeholder-class='pc' value='{{pca}}' style='' name='address' placeholder='请填写地址'></input>
+      <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+     
+        <view class="picker" style='color:#C8C8C8' wx:if="{{region.length==0}}" >请填写地址</view>
+
+         <!-- <input  class=' flex-2' placeholder-class='pc' disabled='{{true}}' value='{{region[0]}} {{region[1]}} {{region[2]}}' style='' name='address' placeholder='请填写地址'></input> -->
+        <view class="picker"  wx:if="{{region.length>0}}" >{{region[0]}} {{region[1]}} {{region[2]}}</view>
+      </picker>
+
+
+
+
     </view>
     <!--bor_bak -->
   </view>
@@ -101,7 +112,7 @@
 
   <view class='flex-row flex-center'>
     <view class='ft-color h5 '>如有疑问请咨询</view>
-    <view class='ft-color h5 txt-bold'>学榜客服热线：0755-8656713</view>
+    <view class='ft-color h5 txt-bold'>学榜客服热线：{{instinfo.kf}}</view>
   </view>
 
   <view class='flex-row flex-center'>

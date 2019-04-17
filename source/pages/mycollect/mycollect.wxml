@@ -60,24 +60,20 @@
         </view>
 
 
-
-
-
-
-
         <view class='flex-row flex-center flex-1' style=''>
-
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_age}}岁</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_age_name}}</view>
           </view>
+
           <view style='width:20rpx;'></view>
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
             <view class='h6 txt-black margin-left-5'>{{item.course_duration}}节课</view>
           </view>
+
           <view style='width:20rpx;'></view>
 
           <view class='flex-row flex-center '>

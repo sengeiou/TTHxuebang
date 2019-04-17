@@ -71,7 +71,7 @@
 
             <view class='flex-row flex-column flex-1 '>
               <view class='h5 ' style='color:#4C4C4C'>适合年龄</view>
-              <view class='h4-5   margin-top-5' style='color:#000000'>4-12岁</view>
+              <view class='h4-5   margin-top-5' style='color:#000000'>{{courseinfo.age_name}}</view>
             </view>
 
             <view class='' style='width:40rpx;'>
@@ -87,8 +87,9 @@
 
             <view class='flex-row flex-column flex-1 '>
               <view class='h5 ' style='color:#4C4C4C'>预约</view>
-              <view class='h4-5   margin-top-5' style='color:#000000'>需要预约</view>
-              <view class='h7 txt-gray '>已预约1522人</view>
+              <view class='h4-5   margin-top-5' style='color:#000000' wx:if='{{courseinfo.appointment_value=="Y"}}'>需要预约</view>
+              <view class='h4-5   margin-top-5' style='color:#000000' wx:if='{{courseinfo.appointment_value=="N"}}'>无需预约</view>
+              <view class='h7 txt-gray ' wx:if='{{courseinfo.appointment_value=="Y"}}'>已预约{{courseinfo.people_num}}人</view>
             </view>
 
           </view>

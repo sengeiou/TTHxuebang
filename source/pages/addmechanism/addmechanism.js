@@ -11,6 +11,9 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  MineApi
+} from "../../apis/mine.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -21,14 +24,15 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      currentItemId: 2,
-      show: 1
+      currentItemId: 2,  
+      show: 1, region: []
     })
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+    var mineapi = new MineApi();
 
     jigouapi.aboutus({
       id: 1
@@ -37,7 +41,31 @@ class Content extends AppBase {
         aboutus
       });
     });
+
+
+
+
+
+        this.Base.getAddress((address) => {
+          console.log(address);
+          var region = [address.address_component.province, address.address_component.city, address.address_component.district];
+          this.Base.setMyData({
+            region
+          });
+        });
+    
+
+
+
   }
+
+  bindRegionChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  }
+
   bindcheck(e) {
     var check = e.currentTarget.dataset.sf;
 
@@ -189,5 +217,6 @@ body.onMyShow = content.onMyShow;
 body.bindcheck = content.bindcheck;
 body.confirm = content.confirm; 
 body.tocontent = content.tocontent;
-body.useaddress = content.useaddress;
+body.useaddress = content.useaddress; 
+body.bindRegionChange = content.bindRegionChange; 
 Page(body)

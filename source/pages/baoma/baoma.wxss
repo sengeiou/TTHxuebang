@@ -24,7 +24,8 @@ title_font{
   border:2rpx solid red;
   height: 26rpx;
   line-height: 26rpx;
-  width: 56rpx;
+  min-width: 56rpx;
+  padding:4rpx;
   border-radius:10rpx;
   font-size: 21rpx;
 }

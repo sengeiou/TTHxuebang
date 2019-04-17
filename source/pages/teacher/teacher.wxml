@@ -1,9 +1,14 @@
 <!--pages/teacher/teacher.wxml-->
-<view class='bg-white margin-bottom-20 qqq' style='position:relative;width:100%' wx:for='{{teachlist}}' wx:key='k'>
-  <view class='title txt-white  txt-bold'>{{item.title}}</view>
+<view class='bg-white margin-bottom-20 qqq' style='' wx:for='{{teachlist}}' wx:key='k'>
+
 
   <video bindplay='play' class='pos' style='width:100%; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{false}}' id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}} '>
+
+    <cover-view class='title txt-white  txt-bold'>{{item.title}}</cover-view>
+
   </video>
+
+
 
   <view class='flex-row flex-center padding-30'>
     <view class='bg-primary radius-30 org_block flex-row flex-center'>
@@ -14,14 +19,14 @@
     <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon margin-right-10'></image>
     <view class='h5'>{{item.count}}次</view>
     <view class='margin-left-20 flex-row flex-center'>
-    
+
       <!-- <button  >未收藏</button> -->
-    
-      <image src='{{uploadpath}}resource/{{res.video_null}}'  class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
-      <image src='{{uploadpath}}resource/{{res.video_coll}}'  class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
+
+      <image src='{{uploadpath}}resource/{{res.video_null}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' wx:if="{{item.isfav=='N'}}"></image>
+      <image src='{{uploadpath}}resource/{{res.video_coll}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' wx:if="{{item.isfav!='N'}}"></image>
 
       <view wx:if="{{item.isfav=='N'}}" class='h5  ' bindtap='fav' id='{{item.id}}_Y' style='color:#FF9393'></view>
-      <view wx:if="{{item.isfav!='N'}}" class='h5 'bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'></view>
+      <view wx:if="{{item.isfav!='N'}}" class='h5 ' bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'></view>
       <!-- <button  >已收藏</button> -->
     </view>
   </view>
@@ -36,5 +41,3 @@
 <view class='tishi' wx:if='{{show==2}}'>
 <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
 </view> -->
-
-

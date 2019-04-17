@@ -12,11 +12,11 @@ Page {
 }
 
 .title {
-  position: absolute;
-  width: 50%;
-  top: 24rpx;
-  left: 32rpx;
-  z-index: 10;
+  /* position: absolute;
+  width: 50%; */
+  margin-top: 24rpx;
+  margin-left: 32rpx;
+  /* z-index: 100; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -30,7 +30,7 @@ Page {
 }
 .qqq{
   position: relative;
-  z-index: 5;
+  /* z-index: 5; */
   width: 100%;
 }
 .ts_icon{
