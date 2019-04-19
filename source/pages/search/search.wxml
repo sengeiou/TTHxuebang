@@ -192,35 +192,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </view>
 
 <view class='' wx:if='{{shows=="wait"}}'>
-
-
 
   <view wx:if="{{jglist.length==0}}">
     <view class='flex-row text-center'>
@@ -242,7 +216,6 @@
       </view>
     </view>
   </view>
-
 
 
   <!-- <view wx:for='{{jglist}}' wx:key='k' wx:if="{{jglist.length>0}}" id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>

@@ -180,6 +180,12 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
+  tokcdetails(e){
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + id,
+    })
+  }
 
 }
 var content = new Content();
@@ -190,6 +196,7 @@ body.skey = content.skey;
 body.search = content.search;
 body.tosearch = content.tosearch;
 body.todetails = content.todetails; 
+body.tokcdetails = content.tokcdetails; 
 body.tojgdetails = content.tojgdetails; 
 body.bindshow = content.bindshow;
 Page(body)

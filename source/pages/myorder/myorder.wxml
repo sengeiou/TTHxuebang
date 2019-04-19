@@ -19,9 +19,9 @@
     <view wx:if='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
 
-<view class='xiaoxi'>
-  <view wx:if="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</view>
-</view>
+  <view class='xiaoxi'>
+    <view wx:if="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</view>
+  </view>
 
 </view>
 
@@ -75,7 +75,7 @@
 
         </view>
 
-        
+
       </view>
 
     </view>
