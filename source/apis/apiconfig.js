@@ -1,13 +1,13 @@
 export class ApiConfig {
 
   static GetApiUrl() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
+    return "https://tthxb.artxb.cn/api/";
   }
   static GetUploadPath() {
     return "https://alioss.app-link.org/alucard263096/tthxb/";
   }
   static GetFileUploadAPI() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
+    return "https://tthxb.artxb.cn/fileupload";
   }
 
   static GetHeader() {
