@@ -27,16 +27,17 @@
 
   <image src='{{uploadpath}}resource/{{res.yigoumaiimg}}' class='icon-75'></image>
 
-  <view class='height-20'></view>
+  <view class='flex-row'>
+  <view class='flex-1'></view>
+  <view style='width:580rpx;color:#AAAAAA;font-size:24rpx;margin-top:20rpx;' class='text-center'>添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
+  <view class='flex-1'></view></view>
 
-  <view class='h6 txt-gray'>感谢您对学榜的信任，期待再次购买</view>
+  
 
   <view class='height-20'></view>
 
 
   <view style='' class=' bg-white flex-row flex-column padding-40 radius-10 '>
-
-
     <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:600rpx;height:200rpx;'>
 
       <view class='height-20'></view>
@@ -68,7 +69,7 @@
     <view class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</view>
     <!-- bindtap='copytext' -->
     <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{info.usecode}} '  src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg ' bindtap='previewImage'></image>
-    <view class=' ' style='color:black;font-size:28rpx;'>添加老师微信出示二维码</view>
+    <view class=' ' style='color:black;font-size:28rpx;'>如机构需要验证，请出示核销码</view>
 
 
   </view>
