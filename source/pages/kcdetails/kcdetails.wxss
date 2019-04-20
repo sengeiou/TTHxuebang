@@ -50,3 +50,8 @@ page{
   width: 240rpx;
   height: 260rpx;
 }
+.dizhi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

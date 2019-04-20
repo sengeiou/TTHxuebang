@@ -301,7 +301,7 @@
             <view class='flex-row flex-1'>
               <view class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
-            <view class='h6 txt-gray'>已预约15人</view>
+            <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
           </view>
 
 

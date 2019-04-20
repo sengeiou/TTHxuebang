@@ -61,7 +61,7 @@ class Content extends AppBase {
     var show = this.Base.getMyData().show;
 
     var jigouapi = new JigouApi();
-    jigouapi.gongaolist({}, (gongaolist) => {
+    jigouapi.gongaolist({ orderby: " rand() "}, (gongaolist) => {
       this.Base.setMyData({
         gongaolist
       });
