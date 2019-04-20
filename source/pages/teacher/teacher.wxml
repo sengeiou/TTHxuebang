@@ -21,7 +21,7 @@
   <view class='flex-row flex-center padding-30'>
     <view class='bg-primary radius-30 org_block flex-row flex-center'>
       <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
-      <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}{{item.play}}</view>
+      <view class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</view>
     </view>
     <view bindtap='tojgdetails' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>{{item.mechanism_id_name}}</view>
     <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon margin-right-10'></image>
