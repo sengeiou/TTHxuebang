@@ -283,9 +283,23 @@
   </navigator> -->
 
   <view class='bg-white margin-bottom-40 ' style='position:relative;width:100%' wx:for='{{splist}}' wx:key='k'>
-    <view class='title txt-white  txt-bold'>{{item.video_title}}</view>
-    <video bindplay='play' class='pos' style='width:100%; height:400rpx;' title='{{item.video_title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls="ture" id='v_{{item.id}}' src='{{uploadpath}}Teach/{{item.video_video}} '>
-    </video>
+
+    <block wx:if="{{item.play=='Y'}}">
+      <video bindplay='play' class='pos' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.video_fm_bg}}' title='{{item.video_title}}' object-fit="fill" autoplay='{{true}}' id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video_video}}'
+        play-btn-position="center">
+        <cover-view class='title txt-white  txt-bold'>{{item.video_title}}</cover-view>
+      </video>
+    </block>
+    <block wx:else>
+      <view bindtap="play" id='c_{{item.id}}'>
+        <image class='pos' style='width:100vw; height:400rpx;background:black;' src='{{uploadpath}}famousteacher/{{item.video_fm_bg}}'>
+        </image>
+        <view style='position:absolute;margin-top:-300rpx;height:200rpx;width:100vw;text-align:center;'>
+          <image style='width:200rpx;height:200rpx;' src='{{uploadpath}}resource/{{res.play}}'></image>
+        </view>
+      </view>
+    </block>
+
     <view class='flex-row flex-center padding-30'>
       <view class='bg-primary radius-30 org_block flex-row flex-center'>
         <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>

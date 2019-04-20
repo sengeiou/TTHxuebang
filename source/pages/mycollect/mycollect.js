@@ -85,17 +85,37 @@ class Content extends AppBase {
     })
   }
 
+
   play(e) {
     var id = e.currentTarget.id;
+    id = id.split("_");
+    id = id[1];
+    console.log("bindplay");
     console.log(id);
     var teachlist = this.Base.getMyData().splist;
     for (var i = 0; i < teachlist.length; i++) {
-      if (id != "v_" + teachlist[i].id) {
-        var videoContext = wx.createVideoContext("v_" + teachlist[i].id);
-        videoContext.pause();
+      if (id != teachlist[i].id) {
+        try {
+
+          var videoContext = wx.createVideoContext("v_" + teachlist[i].id);
+          videoContext.pause();
+        } catch (ex) {
+
+        }
+      } else {
+        teachlist[i].play = "Y";
+        this.Base.setMyData({ splist: teachlist });
+        setTimeout(() => {
+          console.log("play");
+          console.log(id);
+          var videoContext = wx.createVideoContext("v_" + id);
+          videoContext.play();
+          console.log("played");
+        }, 500);
       }
     }
   }
+
 }
 
 var content = new Content();
