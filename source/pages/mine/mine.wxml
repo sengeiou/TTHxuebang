@@ -54,7 +54,7 @@
     <view class='flex-row flex-center'>
       <image class='icon' src='{{uploadpath}}resource/{{res.customer}}'></image>
       <view class='margin-left-20  txt-black h '>联系客服</view>
-      <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 9:00-17:00</view>
+      <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{instinfo.openning}}</view>
       <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
     </view>
   </button>
@@ -66,11 +66,13 @@
   <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
 </view>
 
+
 <view data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
   <image class='icon' src='{{uploadpath}}resource/{{res.mechanism}}'></image>
   <view class='margin-left-20  txt-black  flex-1 h'>机构入驻</view>
   <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
 </view>
+
 
 <view class='margin-top padding' wx:if="{{memberinfo.canhexiao=='Y'}}">
   <button bindtap='startscan'>核销</button>
