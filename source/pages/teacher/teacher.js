@@ -42,24 +42,32 @@ class Content extends AppBase {
 
 
   onReachBottom() {
+    console.log("???kk");
     var vteach = this.Base.getMyData().vteach;
     var teachlist = this.Base.getMyData().teachlist;
     var count = 0;
     for (var i = vteach.length; i < teachlist.length; i++) {
       vteach.push(teachlist[i]);
-      this.Base.setMyData({
-        vteach
-      });
       count++;
       if (count >= 3) {
-        return;
+        break;
       }
-    }
+    } 
+    
     if (count == 0) {
 
       wx.showToast({
-        title: '已经没有了'
+        title: '已经没有了',
+        nomore:1,
+        icon:'none'
       })
+    }else{
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          vteach
+        });
+      }, 1000);
     }
   }
 

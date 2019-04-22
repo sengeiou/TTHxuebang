@@ -1,6 +1,6 @@
 <!--pages/baoma/baoma.wxml-->
 <view wx:for='{{baomalist}}' wx:key='k' class='bg-white block' id='{{item.id}}' bindtap='binddetails' style=''>
-  <image src='{{uploadpath}}baoma/{{item.img}}' style='' class='img'></image>
+  <image src='{{uploadpath}}baoma/{{item.img}}' lazy-load='{{true}}' style='' class='img'></image>
   <view class='title_font txt-bold ' style='color:#4C4C4C'>
     {{item.title}}
   </view>

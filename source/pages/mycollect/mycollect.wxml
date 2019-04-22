@@ -50,7 +50,7 @@
 
     <view class='flex-row  padding-20 ' style=''>
 
-      <image class='icon2 radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
+      <image class='icon2 radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
       <view class='flex-1 flex-row column margin-left-20'>
 
@@ -152,7 +152,7 @@
 
   <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.jg_id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' class=' radius-10 ' style='width:100%;height:400rpx'></image>
+      <image src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:400rpx'></image>
     </view>
 
 
@@ -230,7 +230,7 @@
       <view>
 
         <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;'  mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
           你还没有添加视频的收藏
@@ -292,7 +292,7 @@
     </block>
     <block wx:else>
       <view bindtap="play" id='c_{{item.id}}'>
-        <image class='pos' style='width:100vw; height:400rpx;background:black;' src='{{uploadpath}}famousteacher/{{item.video_fm_bg}}'>
+        <image class='pos' style='width:100vw; height:400rpx;background:black;' lazy-load='{{true}}' src='{{uploadpath}}famousteacher/{{item.video_fm_bg}}'>
         </image>
         <view style='position:absolute;margin-top:-300rpx;height:200rpx;width:100vw;text-align:center;'>
           <image style='width:200rpx;height:200rpx;' src='{{uploadpath}}resource/{{res.play}}'></image>
@@ -306,12 +306,12 @@
         <view class='txt-white h5 margin-left-10 flex-1'>{{item.video_name}}</view>
       </view>
       <view bindtap='tojgdetails' id='{{item.video_mechanism_id}}' class='flex-1 margin-left-20 txt-blue h5'>{{item.video_jigou}}</view>
-      <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon-15 margin-right-10'></image>
+      <image src='{{uploadpath}}resource/{{res.shipin}}' class='icon margin-right-10'></image>
       <view class='h5'>{{item.video_count}}次</view>
       <view class='margin-left-20 flex-row flex-center'>
         <!-- <button  >未收藏</button> -->
 
-        <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon' bindtap='fav' id='{{item.video_id}}'></image>
+        <image src='{{uploadpath}}resource/{{res.video_coll}}' class='icon-25' bindtap='fav' id='{{item.video_id}}'></image>
         <view class='h5 margin-left-10' bindtap='fav' id='{{item.video_id}}'></view>
         <!-- <button  >已收藏</button> -->
       </view>

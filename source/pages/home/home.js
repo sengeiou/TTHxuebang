@@ -177,6 +177,15 @@ class Content extends AppBase {
     }
   }
 
+  tocity(e){
+    wx.navigateTo({
+      url: '/pages/city/city',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
+
 }
 
 var content = new Content();
@@ -189,5 +198,6 @@ body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange; 
 body.tobaoma = content.tobaoma; 
 body.loadjg = content.loadjg;
-body.bannerGo = content.bannerGo;
+body.bannerGo = content.bannerGo; 
+body.tocity = content.tocity;
 Page(body)

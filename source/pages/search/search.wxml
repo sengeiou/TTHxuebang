@@ -115,7 +115,7 @@
 
 
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{courselist}}' wx:key='k'>
-    <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+    <image class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.name}}</view>
 
@@ -205,7 +205,7 @@
       <view>
 
         <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' lazy-load='{{true}}' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
           未找到您需要的机构
@@ -260,7 +260,7 @@
 
   <view hidden='{{jglist.length==0}}' wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
     <view class='flex-row flex-column '>
@@ -323,23 +323,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <view class='height-20'></view>
 
 
@@ -357,7 +340,7 @@
       <view>
 
         <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;'  mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
           未找到您需要的视频

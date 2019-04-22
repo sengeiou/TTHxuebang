@@ -59,7 +59,7 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
-
+    
     var jigouapi = new JigouApi();
     jigouapi.gongaolist({ orderby: " rand() "}, (gongaolist) => {
       this.Base.setMyData({
@@ -136,6 +136,7 @@ class Content extends AppBase {
 
   }
   tojgdetails(e) {
+    this.Base.setMyData({ xiala: "yc" })
     var id = e.currentTarget.id;
     
     wx.navigateTo({
@@ -151,6 +152,7 @@ class Content extends AppBase {
   }
 
   bindshow(e) {
+    this.Base.setMyData({ xiala: "yc" })
     var type = e.currentTarget.dataset.type;
     console.log(type);
     if (type == "jx") {
@@ -420,14 +422,14 @@ class Content extends AppBase {
     this.Base.setMyData({ xiala: xiala=="xs"?"yc":"xs"})
 
   }
-  yingcang(){
+  yingcang(e){
     this.Base.setMyData({ xiala: "yc" })
   }
 
   catchTouchMove(){
     return false;
   }
-
+ 
 
 }
 

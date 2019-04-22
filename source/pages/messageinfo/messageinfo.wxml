@@ -3,7 +3,7 @@
 
 </view>
 
-<view class='' style='border-bottom:2rpx solid #E5E5E5'>
+<view class='' style='border-bottom:2rpx solid #E5E5E5' bindtap='todetails'>
   <navigator class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
     <view class='padding-20 bor_bot' style=''>
 
@@ -27,12 +27,12 @@
       <view class='flex-1  column margin-left-20'>
 
         <view class='flex-row flex-center'>
-          <view class='flex-1 txt-black '>{{info.course_id_name}}</view>
+          <view class='flex-1 txt-black'>{{info.course_id_name}}</view>
           <view class='txt-black'>￥{{info.amount}}</view>
         </view>
 
         <view class='flex-row flex-center margin-top-5'>
-          <view class='flex-1 txt-gray h5'>{{info.course_id_name}}</view>
+          <view class='flex-1 txt-gray h5'>{{courseinfo.JG_jigou}}</view>
         </view>
 
         <view class='flex-row flex-center flex-1 margin-top-5' style=''>

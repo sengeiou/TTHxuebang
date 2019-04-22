@@ -8,7 +8,7 @@
   </block>
   <block wx:else>
     <view bindtap="play"  id='c_{{item.id}}'>
-    <image  class='pos' style='width:100vw; height:400rpx;background:black;'  src='{{uploadpath}}famousteacher/{{item.fm_bg}}'>
+    <image  class='pos' style='width:100vw; height:400rpx;background:black;' lazy-load='{{true}}'  src='{{uploadpath}}famousteacher/{{item.fm_bg}}'>
     </image>
     <view style='position:absolute;margin-top:-300rpx;height:200rpx;width:100vw;text-align:center;'>
     <image style='width:200rpx;height:200rpx;' src='{{uploadpath}}resource/{{res.play}}'></image>
@@ -40,7 +40,9 @@
   </view>
 </view>
 
-
+<view wx:if="{{nomore!=1}}" class='h1'>
+<image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
+</view>
 
 <!-- <view class='tishi' wx:if='{{show==1}}'>
 <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>

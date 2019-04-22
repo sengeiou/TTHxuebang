@@ -37,7 +37,7 @@
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
-      <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
+      <image class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
       <view class='flex-1  column margin-left-20'>
 
@@ -104,7 +104,7 @@
 
     <view class='flex-row  padding-20 bor_bot' style=''>
 
-      <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
+      <image class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
       <view class='flex-1  column margin-left-20'>
 
@@ -175,7 +175,7 @@
 
       <view class='flex-row  padding-20 bor_bot' style=''>
 
-        <image class='icon radius-10' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
+        <image class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 
         <view class='flex-1  column margin-left-20'>
 
