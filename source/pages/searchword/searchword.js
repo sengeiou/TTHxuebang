@@ -111,6 +111,32 @@ class Content extends AppBase {
       this.Base.setMyData({ teachlist });
     });
   }
+  clearrecord(e){
+    var that=this;
+    wx.showModal({
+      title: '删除',
+      content: '确认删除历史搜索记录？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          var memberapi = new MemberApi();
+          memberapi.clearkeyword({}, (clearkeyword) => {
+            that.Base.setMyData({ clearkeyword });
+            that.onMyShow();
+          });
+        }
+      }
+      
+    });
+    
+ 
+  }
+
+
 
 
 }
@@ -122,7 +148,7 @@ body.skey = content.skey;
 body.search = content.search;
 body.tosearch = content.tosearch;
 body.todetails = content.todetails;
-
+body.clearrecord = content.clearrecord;
 body.fav = content.fav;
 
 Page(body)

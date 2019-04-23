@@ -26,7 +26,7 @@
     <block wx:if="{{history.length>0}}">
       <view class='flex-row flex-center'>
       <view class='keywordtitle flex-1'>历史搜索</view>
-      <image src='{{uploadpath}}resource/{{res.clear}}' class='icon'></image>
+      <image src='{{uploadpath}}resource/{{res.clear}}' class='icon' bindtap='clearrecord'></image>
       <view style='width:40rpx;'></view>
 <!-- 
       <view class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'>清空</view> -->

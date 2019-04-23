@@ -44,12 +44,12 @@ class Content extends AppBase {
       courselist: [],
       jglist: [],
       buyshow: [],
-      vteach: [],
+      vteach: []
     });
-   
+
     //  console.log(this.options.type);
 
-    
+
     this.onMyLoad();
   }
 
@@ -58,15 +58,17 @@ class Content extends AppBase {
     clearInterval(timerStart);
   }
   onMyLoad() {
+    
     wx.showLoading({
       title: '加载中...'
     })
+
     var that = this;
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
-    
+
     var jigouapi = new JigouApi();
-    jigouapi.gongaolist({ orderby: " rand() "}, (gongaolist) => {
+    jigouapi.gongaolist({ orderby: " rand() " }, (gongaolist) => {
       this.Base.setMyData({
         gongaolist
       });
@@ -132,27 +134,24 @@ class Content extends AppBase {
 
 
       jigouapi.activedistrictlist({
-        city_id: AppBase.CITYID}, (filterdistrict) => {
+        city_id: AppBase.CITYID
+      }, (filterdistrict) => {
         this.Base.setMyData({
           filterdistrict
         });
       });
-     
     });
-
 
     setTimeout(() => {
       wx.hideLoading()
     }, 1000);
 
 
-    //wx.hideLoading();
-
   }
   tojgdetails(e) {
     this.Base.setMyData({ xiala: "yc" })
     var id = e.currentTarget.id;
-    
+
     wx.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
@@ -255,15 +254,13 @@ class Content extends AppBase {
         var miletxt = ApiUtil.GetMileTxt(mile);
         console.log("miletxt=" + miletxt);
         jglist[i]["miletxt"] = miletxt;
-
-
-        var jgvteach = [];
-        jgvteach.push(jglist[0]);
-        jgvteach.push(jglist[1]);
-        jgvteach.push(jglist[2]);
-        jgvteach.push(jglist[3]);
       }
 
+      var jgvteach = [];
+      for (var j = 0; j < jglist.length && j < 5; j++) {
+        jgvteach.push(jglist[j]);
+      }
+      
       this.Base.setMyData({
         jglist, jgvteach
       });
@@ -276,7 +273,7 @@ class Content extends AppBase {
     var opt = {
       mylat,
       mylng,
-      city_id:AppBase.CITYID,
+      city_id: AppBase.CITYID,
       orderby: "distance"
     };
 
@@ -302,7 +299,7 @@ class Content extends AppBase {
     if (data.options == "h_p") {
       opt.orderby = "scoring desc,distance";
     }
-    
+
 
     jigouapi.courselist(opt, (courselist) => {
       for (var i = 0; i < courselist.length; i++) {
@@ -312,14 +309,11 @@ class Content extends AppBase {
         console.log("miletxt=" + miletxt);
         courselist[i]["miletxt"] = miletxt;
 
-        var vteach = [];
-        vteach.push(courselist[0]);
-        vteach.push(courselist[1]);
-        vteach.push(courselist[2]);
-        vteach.push(courselist[3]);
-        vteach.push(courselist[4]);
-        vteach.push(courselist[5]);
-        vteach.push(courselist[6]);
+      }
+
+      var vteach = [];
+      for (var i = 0; i < courselist.length && i < 5; i++) {
+        vteach.push(courselist[i]);
       }
       this.Base.setMyData({
         courselist, vteach
@@ -329,25 +323,57 @@ class Content extends AppBase {
   }
 
 
+
+  // onReachBottom() {
+  //   console.log("???kk");
+  //   var vteach = this.Base.getMyData().vteach;
+  //   var courselist = this.Base.getMyData().courselist;
+
+  //   var count = 0;
+  //   for (var i = vteach.length; i < courselist.length; i++) {
+  //     vteach.push(courselist[i]);
+  //     count++;
+  //     if (count >= 3) {
+  //       break;
+  //     }
+  //   }
+
+  //   if (count == 0) {
+  //     wx.showToast({
+  //       title: '已经没有了',
+  //       nomore: 1,
+  //       icon: 'none'
+  //     })
+  //   }
+  //   else {
+  //     setTimeout(() => {
+  //       console.log("llll");
+  //       this.Base.setMyData({
+  //         vteach
+  //       });
+  //     }, 100);
+  //   }
+  // }
+
   onReachBottom() {
     console.log("???kk");
     wx.showLoading({
       title: '加载中...'
     })
     var jgvteach = this.Base.getMyData().jgvteach;
-    var vteach = this.Base.getMyData().vteach; 
+    var vteach = this.Base.getMyData().vteach;
     var courselist = this.Base.getMyData().courselist;
     var jglist = this.Base.getMyData().jglist;
     var count = 0;
-    var cs=0;
+    var cs = 0;
     for (var i = vteach.length; i < courselist.length; i++) {
       vteach.push(courselist[i]);
       count++;
-      
-      if (count >= 6) {
+
+      if (count >= 3) {
         break;
       }
-     
+
     }
     if (count == 0) {
       wx.showToast({
@@ -393,7 +419,7 @@ class Content extends AppBase {
         wx.hideLoading()
       }, 500);
     }
-    
+
 
   }
 
@@ -444,11 +470,11 @@ class Content extends AppBase {
   changeDistrict(e) {
     console.log(e);
     var seq = parseInt(e.currentTarget.id);
-    if(seq==-1){
+    if (seq == -1) {
       this.Base.setMyData({
         fdistrict_id: 0, xiala: "yc"
       });
-    }else{
+    } else {
 
       var filterdistrict = this.Base.getMyData().filterdistrict;
       this.Base.setMyData({
@@ -456,7 +482,7 @@ class Content extends AppBase {
       });
     }
     this.loadjg();
-    
+
   }
   setTDistrict(e) {
     var id = e.currentTarget.id;
@@ -478,63 +504,63 @@ class Content extends AppBase {
   }
   resetFilter() {
     var that = this;
-    
-   
-  
+
+
+
     // var that=this;
-     wx.showModal({
-       title: '确定',
-       content: '确认重置？',
-       showCancel: true,
-       cancelText: '取消',
-       cancelColor: '#EE2222',
-       confirmText: '确定',
-       confirmColor: '#2699EC',
-       success: function (res) {
-         if (res.confirm) {
-           
-
-           var tdistrict_id = that.Base.getMyData().fdistrict_id;
-           var ttype_id = that.Base.getMyData().ftype_id;
-           var tage_id = that.Base.getMyData().fage_id;
-
-           that.Base.setMyData({
-             tdistrict_id: 0,
-             ttype_id: 0,
-             tage_id: 0
-           });
+    wx.showModal({
+      title: '确定',
+      content: '确认重置？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
 
 
+          var tdistrict_id = that.Base.getMyData().fdistrict_id;
+          var ttype_id = that.Base.getMyData().ftype_id;
+          var tage_id = that.Base.getMyData().fage_id;
 
-           // // wx.showToast({
-           // //   title: '保存成功',
-           // //   icon: '',
-           // // })
-         }
-       }
-     });
+          that.Base.setMyData({
+            tdistrict_id: 0,
+            ttype_id: 0,
+            tage_id: 0
+          });
 
 
 
-    
+          // // wx.showToast({
+          // //   title: '保存成功',
+          // //   icon: '',
+          // // })
+        }
+      }
+    });
+
+
+
+
   }
 
 
-  bindxiala(e){
-    var xiala=this.Base.getMyData().xiala;
+  bindxiala(e) {
+    var xiala = this.Base.getMyData().xiala;
 
-    this.Base.setMyData({ xiala: xiala=="xs"?"yc":"xs"})
+    this.Base.setMyData({ xiala: xiala == "xs" ? "yc" : "xs" })
 
   }
 
-  yingcang(e){
+  yingcang(e) {
     this.Base.setMyData({ xiala: "yc" })
   }
 
-  catchTouchMove(){
+  catchTouchMove() {
     return false;
   }
- 
+
 
 }
 
@@ -542,10 +568,10 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.onMyLoad = content.onMyLoad; 
+body.onMyLoad = content.onMyLoad;
 body.tojgdetails = content.tojgdetails;
 body.tokcdetails = content.tokcdetails;
-body.bindxuanxiang = content.bindxuanxiang; 
+body.bindxuanxiang = content.bindxuanxiang;
 body.bindxiala = content.bindxiala;
 body.yingcang = content.yingcang;
 
