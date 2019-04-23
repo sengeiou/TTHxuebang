@@ -47,7 +47,7 @@
         </view>
 
         <view class='flex-row flex-center margin-top-5'>
-          <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
+          <view class='flex-1 txt-gray h5'>{{item.course_jigouname}}</view>
         </view>
 
         <view class='flex-row flex-center flex-1 margin-top-5' style=''>
@@ -114,7 +114,7 @@
         </view>
 
         <view class='flex-row flex-center margin-top-5'>
-          <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
+          <view class='flex-1 txt-gray h5'>{{item.course_jigouname}}</view>
         </view>
 
         <view class='flex-row flex-center flex-1 margin-top-5' style=''>
@@ -185,7 +185,7 @@
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
-            <view class='flex-1 txt-gray h5'>{{item.course_typename}}</view>
+            <view class='flex-1 txt-gray h5'>{{item.course_jigouname}}</view>
           </view>
           <view class='flex-row flex-center flex-1 margin-top-5' style=''>
 
