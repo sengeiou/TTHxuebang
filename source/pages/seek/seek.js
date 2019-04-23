@@ -23,6 +23,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     super.onLoad(options);
     //this.options.type="jg";
+    if (options.type == undefined) {
+      options.type = 'kc';
+    }
     this.Base.setMyData({
       type: this.options.type,
       xiala: "yc",
@@ -51,6 +54,7 @@ class Content extends AppBase {
 
 
     this.onMyLoad();
+    
   }
 
   onUnload() {
