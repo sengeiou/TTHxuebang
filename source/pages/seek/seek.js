@@ -23,6 +23,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     super.onLoad(options);
     //this.options.type="jg";
+    if (options.type == undefined) {
+      options.type = 'kc';
+    }
     this.Base.setMyData({
       type: this.options.type,
       xiala: "yc",
@@ -51,6 +54,7 @@ class Content extends AppBase {
 
 
     this.onMyLoad();
+
   }
 
   onUnload() {
@@ -58,7 +62,7 @@ class Content extends AppBase {
     clearInterval(timerStart);
   }
   onMyLoad() {
-    
+
     wx.showLoading({
       title: '加载中...'
     })
@@ -366,59 +370,61 @@ class Content extends AppBase {
     var jglist = this.Base.getMyData().jglist;
     var count = 0;
     var cs = 0;
-    for (var i = vteach.length; i < courselist.length; i++) {
-      vteach.push(courselist[i]);
-      count++;
 
-      if (count >= 3) {
-        break;
+    if (this.options.type == "kc"){
+      for (var i = vteach.length; i < courselist.length; i++) {
+        vteach.push(courselist[i]);
+        count++;
+        if (count >= 3) {
+          break;
+        }
+      }
+      console.log(count + "AAA")
+      if (count == 0) {
+        wx.showToast({
+          title: '已经没有了',
+          icon: 'none'
+        })
+      }
+      if (count != 0) {
+        setTimeout(() => {
+          console.log("llll");
+          this.Base.setMyData({
+            vteach
+          });
+          wx.hideLoading()
+        }, 500);
       }
 
     }
-    if (count == 0) {
-      wx.showToast({
-        title: '已经没有了',
-        icon: 'none'
-      })
-      this.Base.setMyData({
-        nomore: 1,
-      });
-    }
-    else {
-      setTimeout(() => {
-        console.log("llll");
-        this.Base.setMyData({
-          vteach
-        });
-        wx.hideLoading()
-      }, 500);
-    }
+    
 
-    for (var j = jgvteach.length; j < jglist.length; j++) {
-      jgvteach.push(jglist[j]);
-      cs++;
-      if (cs >= 4) {
-        break;
+
+    if (this.options.type=="jg"){
+      for (var j = jgvteach.length; j < jglist.length; j++) {
+        jgvteach.push(jglist[j]);
+        cs++;
+        if (cs >= 4) {
+          break;
+        }
       }
-    }
-    if (cs == 0) {
-      wx.showToast({
-        title: '已经没有了',
-        icon: 'none'
-      })
-      this.Base.setMyData({
-        jgnomore: 1,
-      });
-    }
-    else {
-      setTimeout(() => {
-        console.log("llll");
-        this.Base.setMyData({
-          jgvteach
-        });
-        wx.hideLoading()
-      }, 500);
-    }
+      if (cs == 0) {
+        wx.showToast({
+          title: '已经没有了',
+          icon: 'none'
+        })
+      }
+      if (cs != 0) {
+        setTimeout(() => {
+          console.log("llll");
+          this.Base.setMyData({
+            jgvteach
+          });
+          wx.hideLoading()
+        }, 500);
+      }
+     }
+   
 
 
   }
