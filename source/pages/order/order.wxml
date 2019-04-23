@@ -143,7 +143,7 @@
         <view class='flex-row flex-center '>
           <view class=' txt-black txt-bold '>{{courseinfo.name}}</view>
         </view>
-        <view class='margin-top-5 txt-gray h5 '>{{courseinfo.type_typename}}</view>
+        <view class='margin-top-5 txt-gray h5 '>{{courseinfo.JG_jigou}}</view>
       </view>
 
       <view class='txt-black '>￥{{info.amount}}</view>
