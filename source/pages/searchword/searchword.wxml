@@ -25,8 +25,12 @@
   <block wx:if="{{result.length==0}}">
     <block wx:if="{{history.length>0}}">
       <view class='flex-row flex-center'>
-      <view class='keywordtitle'>历史搜索</view>
-      <view class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'></view>
+      <view class='keywordtitle flex-1'>历史搜索</view>
+      <image src='{{uploadpath}}resource/{{res.clear}}' class='icon'></image>
+      <view style='width:40rpx;'></view>
+<!-- 
+      <view class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'>清空</view> -->
+
       </view>
       <view class='flex-row' style='flex-wrap: wrap;padding-left:30rpx;'>
         <view wx:for="{{history}}" wx:key="k" class='keyword' id="{{item.keyword}}" bindtap='todetails'>{{item.keyword}}</view>

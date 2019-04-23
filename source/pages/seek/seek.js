@@ -44,7 +44,7 @@ class Content extends AppBase {
       courselist: [],
       jglist: [],
       buyshow: [],
-      vteach: []
+      vteach: [],
     });
    
     //  console.log(this.options.type);
@@ -58,6 +58,9 @@ class Content extends AppBase {
     clearInterval(timerStart);
   }
   onMyLoad() {
+    wx.showLoading({
+      title: '加载中...'
+    })
     var that = this;
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
@@ -134,8 +137,16 @@ class Content extends AppBase {
           filterdistrict
         });
       });
+     
     });
 
+
+    setTimeout(() => {
+      wx.hideLoading()
+    }, 1000);
+
+
+    //wx.hideLoading();
 
   }
   tojgdetails(e) {
@@ -244,9 +255,17 @@ class Content extends AppBase {
         var miletxt = ApiUtil.GetMileTxt(mile);
         console.log("miletxt=" + miletxt);
         jglist[i]["miletxt"] = miletxt;
+
+
+        var jgvteach = [];
+        jgvteach.push(jglist[0]);
+        jgvteach.push(jglist[1]);
+        jgvteach.push(jglist[2]);
+        jgvteach.push(jglist[3]);
       }
+
       this.Base.setMyData({
-        jglist
+        jglist, jgvteach
       });
     });
   }
@@ -299,6 +318,8 @@ class Content extends AppBase {
         vteach.push(courselist[2]);
         vteach.push(courselist[3]);
         vteach.push(courselist[4]);
+        vteach.push(courselist[5]);
+        vteach.push(courselist[6]);
       }
       this.Base.setMyData({
         courselist, vteach
@@ -308,36 +329,72 @@ class Content extends AppBase {
   }
 
 
-
   onReachBottom() {
     console.log("???kk");
-    var vteach = this.Base.getMyData().vteach;
+    wx.showLoading({
+      title: '加载中...'
+    })
+    var jgvteach = this.Base.getMyData().jgvteach;
+    var vteach = this.Base.getMyData().vteach; 
     var courselist = this.Base.getMyData().courselist;
+    var jglist = this.Base.getMyData().jglist;
     var count = 0;
+    var cs=0;
     for (var i = vteach.length; i < courselist.length; i++) {
       vteach.push(courselist[i]);
       count++;
-      if (count >= 3) {
+      
+      if (count >= 6) {
         break;
       }
+     
     }
-
     if (count == 0) {
-
       wx.showToast({
         title: '已经没有了',
-        nomore: 1,
         icon: 'none'
       })
+      this.Base.setMyData({
+        nomore: 1,
+      });
     }
-     else {
+    else {
       setTimeout(() => {
         console.log("llll");
         this.Base.setMyData({
           vteach
         });
-      }, 100);
+        wx.hideLoading()
+      }, 500);
     }
+
+    for (var j = jgvteach.length; j < jglist.length; j++) {
+      jgvteach.push(jglist[j]);
+      cs++;
+      if (cs >= 4) {
+        break;
+      }
+    }
+    if (cs == 0) {
+      wx.showToast({
+        title: '已经没有了',
+        icon: 'none'
+      })
+      this.Base.setMyData({
+        jgnomore: 1,
+      });
+    }
+    else {
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          jgvteach
+        });
+        wx.hideLoading()
+      }, 500);
+    }
+    
+
   }
 
 
@@ -469,7 +526,7 @@ class Content extends AppBase {
     this.Base.setMyData({ xiala: xiala=="xs"?"yc":"xs"})
 
   }
-  
+
   yingcang(e){
     this.Base.setMyData({ xiala: "yc" })
   }

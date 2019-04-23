@@ -45,7 +45,9 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
-    
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.Base.getAddress((address) => {
       console.log(address);
       var mylat = address.location.lat;
@@ -86,7 +88,12 @@ class Content extends AppBase {
         city_id: AppBase.CITYID
       });
       this.loadjg();
+      
     });
+    
+    setTimeout(() => {
+      wx.hideLoading()
+    }, 1000);
   }
   tojgdetails(e) {
     var id = e.currentTarget.id;
@@ -146,11 +153,62 @@ class Content extends AppBase {
         console.log("miletxt=" + miletxt);
         jglist[i]["miletxt"] = miletxt;
       }
+
+      var jgvteach = [];
+      jgvteach.push(jglist[0]);
+      jgvteach.push(jglist[1]);
+      jgvteach.push(jglist[2]);
+      jgvteach.push(jglist[3]);
+
+
       this.Base.setMyData({
-        jglist
+        jglist, jgvteach
       });
     });
   }
+
+
+
+  onReachBottom() {
+    console.log("???kk");
+    wx.showLoading({
+      title: '加载中...'
+    })
+    var jgvteach = this.Base.getMyData().jgvteach;
+    var jglist = this.Base.getMyData().jglist;
+    var cs = 0;
+   
+
+    for (var j = jgvteach.length; j < jglist.length; j++) {
+      jgvteach.push(jglist[j]);
+      cs++;
+      if (cs >= 4) {
+        break;
+      }
+    }
+    if (cs == 0) {
+      wx.showToast({
+        title: '已经没有了',
+        icon: 'none'
+      })
+      this.Base.setMyData({
+        jgnomore: 1,
+      });
+    }
+    else {
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          jgvteach
+        });
+        wx.hideLoading()
+      }, 500);
+    }
+
+
+  }
+
+
 
   bannerGo(e){
     var id=e.currentTarget.id;
@@ -224,7 +282,7 @@ body.clickChange = content.clickChange;
 body.tobaoma = content.tobaoma; 
 body.loadjg = content.loadjg;
 body.bannerGo = content.bannerGo; 
-body.tocity = content.tocity;
-
+body.tocity = content.tocity; 
+body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
 Page(body)

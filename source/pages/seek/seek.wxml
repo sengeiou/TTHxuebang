@@ -33,7 +33,6 @@
           <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
         </view>
 
-
         <view class='flex-1 flex-row flex-center'>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
@@ -66,7 +65,7 @@
   <view style='height:240rpx;'></view>
 
 
-  <view wx:for='{{jglist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
+  <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
 
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
@@ -290,7 +289,12 @@
     </view>
 
   </view>
-  <view style='height:40rpx;'></view>
+
+<!-- <view wx:if="{{nomore!=1}}" class='h1'>
+<image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
+</view> -->
+
+<view style='height:40rpx;'></view>
 
 
 
