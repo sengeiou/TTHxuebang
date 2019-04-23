@@ -49,7 +49,7 @@ class Content extends AppBase {
     for (var i = vteach.length; i < teachlist.length; i++) {
       vteach.push(teachlist[i]);
       count++;
-      if (count >= 3) {
+      if (count >= 5) {
         break;
       }
     } 
@@ -58,9 +58,11 @@ class Content extends AppBase {
 
       wx.showToast({
         title: '已经没有了',
-        nomore:1,
         icon:'none'
-      })
+      });
+      this.Base.setMyData({
+        nomore: 1,
+      });
     }else{
       setTimeout(() => {
         console.log("llll");

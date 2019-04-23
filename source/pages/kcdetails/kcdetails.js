@@ -82,6 +82,30 @@ class Content extends AppBase {
     });
 
   }
+  onPageScroll(e) {
+    console.log(e)
+    //this.Base.setMyData({ scrolltop: e.scrollTop})
+    if (e.scrollTop > 100) {
+      this.setData({
+        floorstatus: true
+      });
+    }
+    if (e.scrollTop > 520) {
+      this.setData({
+        sco: 1
+      });
+    }
+    if (e.scrollTop <= 520) {
+      this.setData({
+        sco: 2
+      });
+    }
+    if (e.scrollTop <= 100) {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  }
   gotoBottom(e) {
       this.Base.setMyData({
         show: "gmxz"
@@ -150,30 +174,7 @@ class Content extends AppBase {
 
 
 
-  onPageScroll(e) {
-    console.log(e)
-    //this.Base.setMyData({ scrolltop: e.scrollTop})
-    if (e.scrollTop > 100) {
-      this.setData({
-        floorstatus: true
-      });
-    } 
-    if (e.scrollTop > 520){
-      this.setData({
-        sco: 1
-      });
-    }
-    if (e.scrollTop <= 520) {
-      this.setData({
-        sco: 2
-      });
-    }
-    if (e.scrollTop <= 100) {
-      this.setData({
-        floorstatus: false
-      });
-    }
-  }
+
 
 
 

@@ -1,7 +1,7 @@
 <!--pages/seek/seek.wxml  wx:if='{{type=="jg"}}'-->
 
 <view wx:if='{{type=="jg"}}'>
-  <view class='fixedtop' >
+  <view class='fixedtop'>
     <view class='bg-primary'>
       <view class='padding-left-20 padding-right-20 padding-top-20 '>
         <navigator url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
@@ -215,7 +215,7 @@
 
 
 
-  <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{courselist}}' wx:key='k'>
+  <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{vteach}}' wx:key='k'>
     <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}' lazy-load='{{true}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.name}}</view>
@@ -323,7 +323,7 @@
         </view>
       </view>
 
-      <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
+      <!-- <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
 
 
       <view class='flex-row column padding-bottom-20'>
@@ -332,22 +332,24 @@
           <view class='{{tage_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTAge'>全部</view>
           <view class='{{tage_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filtercourseage}}" wx:key="k" id="{{item.id}}" bindtap='setTAge'>{{item.name}}</view>
         </view>
-
-
-      </view>
+      </view> -->
 
 
 
-      <view class='flex-row flex-column ' style='height:350rpx;'>
+      <view class='btm'>
+        <view class='flex-row flex-column ' style='height:350rpx;'>
 
-        <view class='flex-1'></view>
+          <view class='flex-1'></view>
 
-        <view class='flex-row flex-center  '>
-          <view class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' bindtap='resetFilter'>重置</view>
-          <view class='' style='width:19rpx;'></view>
-          <view class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' data-qd='ok' bindtap='bindScreening'>确定</view>
+          <view class='flex-row flex-center  '>
+            <view class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' bindtap='resetFilter'>重置</view>
+            <view class='' style='width:19rpx;'></view>
+            <view class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' data-qd='ok' bindtap='bindScreening'>确定</view>
+          </view>
+
         </view>
       </view>
+
 
     </view>
 
@@ -392,7 +394,7 @@
 
 
   <scroll-view scroll-y>
-    <view bindtap='changeDistrict' class='padding-20 text-center'  id='-1'  wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全市</view>
+    <view bindtap='changeDistrict' class='padding-20 text-center' id='-1' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全市</view>
     <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
   </scroll-view>
 

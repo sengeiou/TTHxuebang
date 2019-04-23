@@ -43,8 +43,10 @@ class Content extends AppBase {
       options_show: false,
       courselist: [],
       jglist: [],
-      buyshow: []
+      buyshow: [],
+      vteach: []
     });
+   
     //  console.log(this.options.type);
 
     
@@ -66,6 +68,7 @@ class Content extends AppBase {
         gongaolist
       });
     });
+
     jigouapi.coursetype({}, (filtercoursetype) => {
       this.Base.setMyData({
         filtercoursetype
@@ -280,6 +283,8 @@ class Content extends AppBase {
     if (data.options == "h_p") {
       opt.orderby = "scoring desc,distance";
     }
+    
+
     jigouapi.courselist(opt, (courselist) => {
       for (var i = 0; i < courselist.length; i++) {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
@@ -288,12 +293,54 @@ class Content extends AppBase {
         console.log("miletxt=" + miletxt);
         courselist[i]["miletxt"] = miletxt;
 
+        var vteach = [];
+        vteach.push(courselist[0]);
+        vteach.push(courselist[1]);
+        vteach.push(courselist[2]);
+        vteach.push(courselist[3]);
+        vteach.push(courselist[4]);
       }
       this.Base.setMyData({
-        courselist
+        courselist, vteach
       });
+
     });
   }
+
+
+
+  onReachBottom() {
+    console.log("???kk");
+    var vteach = this.Base.getMyData().vteach;
+    var courselist = this.Base.getMyData().courselist;
+    var count = 0;
+    for (var i = vteach.length; i < courselist.length; i++) {
+      vteach.push(courselist[i]);
+      count++;
+      if (count >= 3) {
+        break;
+      }
+    }
+
+    if (count == 0) {
+
+      wx.showToast({
+        title: '已经没有了',
+        nomore: 1,
+        icon: 'none'
+      })
+    }
+     else {
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          vteach
+        });
+      }, 100);
+    }
+  }
+
+
   hideFilter() {
     var data = this.Base.getMyData();
     var tdistrict_id = data.fdistrict_id;
@@ -422,6 +469,7 @@ class Content extends AppBase {
     this.Base.setMyData({ xiala: xiala=="xs"?"yc":"xs"})
 
   }
+  
   yingcang(e){
     this.Base.setMyData({ xiala: "yc" })
   }

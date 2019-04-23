@@ -186,6 +186,31 @@ class Content extends AppBase {
     })
   }
 
+  onPageScroll(e) {
+    console.log(e)
+    //this.Base.setMyData({ scrolltop: e.scrollTop})
+    if (e.scrollTop > 100) {
+      this.setData({
+        floorstatus: true
+      });
+    }
+    if (e.scrollTop > 520) {
+      this.setData({
+        sco: 1
+      });
+    }
+    if (e.scrollTop <= 520) {
+      this.setData({
+        sco: 2
+      });
+    }
+    if (e.scrollTop <= 100) {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  }
+
 }
 
 var content = new Content();
@@ -200,4 +225,6 @@ body.tobaoma = content.tobaoma;
 body.loadjg = content.loadjg;
 body.bannerGo = content.bannerGo; 
 body.tocity = content.tocity;
+
+body.onPageScroll = content.onPageScroll;
 Page(body)

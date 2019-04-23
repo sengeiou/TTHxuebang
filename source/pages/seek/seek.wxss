@@ -200,3 +200,8 @@ Page {
   height: 38rpx;
   line-height: 38rpx;
 }
+.btm{
+  position: absolute;
+  right: 10vw;
+  bottom: 40rpx;
+}
