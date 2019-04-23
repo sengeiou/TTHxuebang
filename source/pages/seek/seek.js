@@ -54,7 +54,7 @@ class Content extends AppBase {
 
 
     this.onMyLoad();
-    
+
   }
 
   onUnload() {
@@ -378,7 +378,6 @@ class Content extends AppBase {
         if (count >= 3) {
           break;
         }
-
       }
       console.log(count + "AAA")
       if (count == 0) {
