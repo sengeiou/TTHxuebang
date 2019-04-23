@@ -293,12 +293,11 @@ class Content extends AppBase {
         console.log("miletxt=" + miletxt);
         courselist[i]["miletxt"] = miletxt;
 
-        var vteach = [];
-        vteach.push(courselist[0]);
-        vteach.push(courselist[1]);
-        vteach.push(courselist[2]);
-        vteach.push(courselist[3]);
-        vteach.push(courselist[4]);
+      }
+
+      var vteach = [];
+      for (var i = 0; i < courselist.length && i < 5; i++) {
+        vteach.push(courselist[i]);
       }
       this.Base.setMyData({
         courselist, vteach
