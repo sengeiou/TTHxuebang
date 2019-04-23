@@ -7,6 +7,7 @@ import { ApiUtil } from "apis/apiutil.js";
 import { InstApi } from "apis/inst.api.js";
 import { MemberApi } from "apis/member.api";
 import { WechatApi } from "apis/wechat.api";
+var mta = require('mta_wechat_sdk/mta_analysis.js')
 
 export class AppBase {
   static CITYID = 440300;
@@ -119,6 +120,8 @@ export class AppBase {
     console.log("yeah!");
   }
   onLoad(options) {
+    mta.Page.init()
+
     this.Base.options = options;
     console.log(options);
     console.log("onload");
