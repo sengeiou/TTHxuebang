@@ -155,10 +155,9 @@ class Content extends AppBase {
       }
 
       var jgvteach = [];
-      jgvteach.push(jglist[0]);
-      jgvteach.push(jglist[1]);
-      jgvteach.push(jglist[2]);
-      jgvteach.push(jglist[3]);
+      for(var i=0;i<4&&i<jglist.length;i++){
+        jgvteach.push(jglist[i]);
+      }
 
 
       this.Base.setMyData({
