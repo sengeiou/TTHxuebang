@@ -130,10 +130,11 @@ view,navigator,input,text,textarea{
 }
 .border_white_primary{
   border-bottom: 4rpx solid #2699EC;
-  
 }
+
 .txt-primary{
-  color:#FFC200;
+  /* color:#FFC200; */
+  color:#FF8400;
 }
 .txt-black{
   color: black;

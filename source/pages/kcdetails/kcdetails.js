@@ -97,7 +97,7 @@ class Content extends AppBase {
     }
     if (e.scrollTop <= 520) {
       this.setData({
-        sco: 2
+        sco: 2, show: "kcxq"
       });
     }
     if (e.scrollTop <= 100) {
@@ -172,6 +172,10 @@ class Content extends AppBase {
     })
   }
 
+  onReachBottom(e){
+    this.Base.setMyData({ show : "gmxz"})
+  }
+
 
 
 
@@ -190,4 +194,5 @@ body.fav = content.fav;
 body.gotoBottom = content.gotoBottom;
 body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;
+body.onReachBottom = content.onReachBottom;
 Page(body)

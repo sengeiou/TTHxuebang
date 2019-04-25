@@ -386,6 +386,7 @@ class Content extends AppBase {
           icon: 'none'
         })
       }
+      
       if (count != 0) {
         setTimeout(() => {
           console.log("llll");
