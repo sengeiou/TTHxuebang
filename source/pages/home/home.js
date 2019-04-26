@@ -30,7 +30,8 @@ class Content extends AppBase {
     this.Base.setMyData({
       currentItemId: 2,
       mylat: 0,
-      mylng: 0
+      mylng: 0,
+      currectcityid:0
     })
 
     var instapi = new InstApi();
@@ -77,7 +78,10 @@ class Content extends AppBase {
         mylng,
         cityname: AppBase.CITYNAME
       });
-      this.loadjg();
+      if (AppBase.CITYID!=this.Base.getMyData().currectcityid){
+        this.Base.setMyData({ currectcityid: AppBase.CITYID});
+        this.loadjg();
+      }
     }, () => {
       if (AppBase.CITYSET == false) {
         this.Base.setMyData({
@@ -87,7 +91,10 @@ class Content extends AppBase {
       memberapi.usecity({
         city_id: AppBase.CITYID
       });
-      this.loadjg();
+      if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
+        this.Base.setMyData({ currectcityid: AppBase.CITYID });
+        this.loadjg();
+      }
       
     });
     
