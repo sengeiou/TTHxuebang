@@ -122,7 +122,10 @@ class Content extends AppBase {
     }
 
   }
-  
+  onPullDownRefresh(){
+    this.onLoad({});
+    super.onPullDownRefresh();
+  }
   tobaoma(e){
     wx.navigateTo({
       url: '/pages/baoma/baoma',
