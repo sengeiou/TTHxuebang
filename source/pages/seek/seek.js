@@ -488,6 +488,8 @@ class Content extends AppBase {
         fdistrict_id: filterdistrict[seq].id, xiala: "yc"
       });
     }
+    
+    this.backtotop();
     this.loadjg();
 
   }

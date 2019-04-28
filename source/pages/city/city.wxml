@@ -14,14 +14,12 @@
 
   <view class='flex-row flex-center  flex-wrap'>
 
-    <view style='' class='block flex-row flex-column  radius-10' wx:for="{{usecitylist}}" wx:key="k" >
+    <view style='' class='block flex-row flex-column  radius-10' wx:for="{{usecitylist}}" wx:key="k" wx:for-index='idx'>
       <view class='flex-row  flex-center'  bindtap='setCity' id='{{item.city_id}}' >
-        <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' wx:if="{{item.city_id==locationCityCode}}"></image>
+        <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' wx:if="{{idx==0}}"></image>
         <view class='h5 txt-black margin-left-5'>{{item.city_name}}</view>
       </view>
     </view>
-
-
 
 
   </view>

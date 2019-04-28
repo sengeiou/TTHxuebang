@@ -43,6 +43,7 @@ class Content extends AppBase {
     });
     
   }
+  
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();

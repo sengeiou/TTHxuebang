@@ -16,6 +16,7 @@ import {
 } from "../../apis/jigou.api.js";
 
 class Content extends AppBase {
+
   constructor() {
     super();
   }
