@@ -1,5 +1,5 @@
 <!--pages/myorder/myorder.wxml-->
-<view class=' flex-row flex-center  bg-white bor_bot'>
+<view class=' flex-row flex-center  bg-white bor_bot top'>
 
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>
     <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</view>
@@ -24,6 +24,8 @@
   </view>
 
 </view>
+
+<view style='height:88rpx;'></view>
 
 <view class='' wx:if='{{show=="all"}}'>
   <navigator url='/pages/order/order?id={{item.id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' wx:for="{{alllist}}" wx:key='k'>
@@ -90,6 +92,7 @@
 
   </navigator>
 </view>
+
 
 
 <view class='' wx:if='{{show=="finished"}}'>
