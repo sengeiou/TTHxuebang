@@ -17,6 +17,9 @@ import {
 import {
   WechatApi
 } from "../../apis/wechat.api.js";
+import {
+  BatchApi
+} from "../../apis/batch.api.js";
 
 class Content extends AppBase {
   constructor() {
