@@ -89,6 +89,7 @@ class Content extends AppBase {
           cityname: AppBase.CITYNAME
         });
       }
+      var memberapi = new MemberApi();
       memberapi.usecity({
         city_id: AppBase.CITYID
       });

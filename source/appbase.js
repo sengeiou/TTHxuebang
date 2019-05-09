@@ -264,7 +264,14 @@ export class AppBase {
     var memberapi = new MemberApi();
     var that = this;
     memberapi.info({}, (info) => {
-
+      console.log({ tick: "member", info});
+      if(info==null||info.id==undefined){
+        AppBase.UserInfo={};
+        wx.redirectTo({
+          url: '/pages/auth/auth',
+        })
+        return;
+      }
       this.Base.setMyData({ memberinfo: info });
       that.onMyShow();
 
