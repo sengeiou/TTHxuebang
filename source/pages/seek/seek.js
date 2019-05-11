@@ -375,7 +375,7 @@ class Content extends AppBase {
       for (var i = vteach.length; i < courselist.length; i++) {
         vteach.push(courselist[i]);
         count++;
-        if (count >= 3) {
+        if (count >= 7) {
           break;
         }
       }

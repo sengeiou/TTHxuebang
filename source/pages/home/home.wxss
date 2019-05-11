@@ -28,14 +28,16 @@
   z-index: 100;
 }
 
-.mid {
+.midt {
   position: absolute;
-  width: 85.5%;
+  width: 100vw;
   z-index: 10;
-  height: 196rpx;
   bottom: 0%;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
+}
+.mid {
+  width: 85.5vw;
 }
 
 .biaoqian {

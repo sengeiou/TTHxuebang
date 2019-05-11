@@ -193,7 +193,7 @@ class Content extends AppBase {
     for (var j = jgvteach.length; j < jglist.length; j++) {
       jgvteach.push(jglist[j]);
       cs++;
-      if (cs >= 4) {
+      if (cs >= 7) {
         break;
       }
     }
