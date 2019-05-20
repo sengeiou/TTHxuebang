@@ -87,9 +87,11 @@
       </view>
 
       <view class='flex-row flex-center margin-top-10'>
+        <view>
         <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+        </view>
         <view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
-        <view class='h6 txt-black'>距你{{miletxt}}</view>
+        <view class='h6 txt-black txt-right' style='width:150rpx;'>距你{{miletxt}}</view>
       </view>
 
     </view>

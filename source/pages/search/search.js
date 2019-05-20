@@ -50,9 +50,9 @@ class Content extends AppBase {
       var teacherapi = new TeacherApi();
       var jigouapi = new JigouApi();
 
-      var json = {};
-      var kc = {};
-      var video = {};
+      var json = { city_id: AppBase.CITYID };
+      var kc = { city_id: AppBase.CITYID };
+      var video = { city_id: AppBase.CITYID };
       json.searchkeyword = this.Base.getMyData().keyword;
       kc.searchkeyword = this.Base.getMyData().keyword;
       video.searchkeyword = this.Base.getMyData().keyword;
