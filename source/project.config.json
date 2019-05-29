@@ -38,6 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
+			"current": 24,
 			"list": [
 				{
 					"id": 0,
@@ -206,6 +207,13 @@
 					"pathName": "pages/messageinfo/messageinfo",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 24,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "keyword=英语",
+					"scene": "1008"
 				}
 			]
 		}

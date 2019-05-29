@@ -16,6 +16,13 @@ class Content extends AppBase {
     var json = {
       searchrecomm: ""
     };
+
+    if(this.options.tp==undefined){
+      this.options.tp="kc";
+    }
+    //this.options.keyword="%E8%8B%B1%E8%AF%AD";
+    this.options.keyword = decodeURI(this.options.keyword);
+
     this.Base.setMyData({ keyword: this.options.keyword, shows: "finished",tp:this.options.tp });
 
 
