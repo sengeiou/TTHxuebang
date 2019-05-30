@@ -34,13 +34,7 @@ class Content extends AppBase {
       currectcityid:0
     })
 
-    var instapi = new InstApi();
-    // console.log()
-    instapi.indexbanner({ orderby: 'r_main.seq', city_id: AppBase.CITYID}, (indexbanner) => {
-      this.Base.setMyData({
-        indexbanner
-      });
-    });
+    
     
   }
   
@@ -68,6 +62,8 @@ class Content extends AppBase {
           }
         }
       }
+
+      this.loadBanner();
 
       var memberapi = new MemberApi();
       memberapi.usecity({
@@ -97,6 +93,9 @@ class Content extends AppBase {
         this.Base.setMyData({ currectcityid: AppBase.CITYID });
         this.loadjg();
       }
+
+      this.loadBanner();
+      
       
     });
     
@@ -109,6 +108,21 @@ class Content extends AppBase {
     wx.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
+  }
+  loadBanner(){
+    var instapi = new InstApi();
+    // console.log()
+    instapi.indexbanner({ orderby: 'r_main.seq' }, (indexbanner) => {
+      var bn=[];
+      for(var item of indexbanner){
+        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()){
+          bn.push(item);
+        }
+      }
+      this.Base.setMyData({
+        indexbanner: bn
+      });
+    });
   }
   totake(e) {
     var name = e.currentTarget.dataset.name;
@@ -296,4 +310,5 @@ body.bannerGo = content.bannerGo;
 body.tocity = content.tocity; 
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
+body.loadBanner = content.loadBanner;
 Page(body)

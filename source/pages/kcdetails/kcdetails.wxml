@@ -97,7 +97,7 @@
           <view class='flex-row flex-center margin-top-10 margin-bottom-10 padding-left-20'>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h5 margin-left-10 txt-blue dizhi' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
-            <view class='h6 txt-black margin-right-20 '>距你{{miletxt}}</view>
+            <view class='h6 txt-black margin-right-20 ' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</view>
           </view>
 
         </view>

@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    var that=this;
+    var that = this;
     wx.getSystemInfo({
       success(res) {
         console.log(res.model)
@@ -31,9 +31,11 @@ class Content extends AppBase {
 
         var str = res.model
         var model = str.split("(")[0];
-        console.log(model+"机型")
+        console.log(model + "机型")
 
-        that.Base.setMyData({ model: model})
+        that.Base.setMyData({
+          model: model
+        })
         console.log(res.pixelRatio)
         console.log(res.windowWidth)
         console.log(res.windowHeight)
@@ -41,10 +43,10 @@ class Content extends AppBase {
         console.log(res.version)
         console.log(res.platform)
       }
-      
+
     })
 
-   
+
   }
   onMyShow() {
     var that = this;
@@ -67,7 +69,9 @@ class Content extends AppBase {
 
         var miletxt = ApiUtil.GetMileTxt(mile);
         this.Base.setMyData({
-          miletxt, mylat: mylat, mylng: mylng
+          miletxt,
+          mylat: mylat,
+          mylng: mylng
         });
 
         jigouapi.courselist({
@@ -92,11 +96,23 @@ class Content extends AppBase {
         });
 
 
+      },()=>{
+        jigouapi.courselist({
+          jg_id: jginfo.id
+        }, (courselist) => {
+          this.Base.setMyData({
+            courselist: courselist
+          });
+        });
       });
 
 
 
-      jigouapi.jigouimg({ jigou: jginfo.id, orderby: 'r_main.seq',status:"A" }, (jigouimg) => {
+      jigouapi.jigouimg({
+        jigou: jginfo.id,
+        orderby: 'r_main.seq',
+        status: "A"
+      }, (jigouimg) => {
         this.Base.setMyData({
           jigouimg
         });
@@ -104,10 +120,11 @@ class Content extends AppBase {
       console.log("???????????");
 
       this.Base.setMyData({
-        jginfo, isfav: jginfo.isfav
+        jginfo,
+        isfav: jginfo.isfav
       });
 
-    
+
 
     });
 
@@ -125,22 +142,33 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
-      this.Base.setMyData({ tishi: 1 });
+      this.Base.setMyData({
+        tishi: 1
+      });
     }
     if (status == "N") {
-      this.Base.setMyData({ tishi: 2 });
+      this.Base.setMyData({
+        tishi: 2
+      });
     }
 
 
 
 
     var jigouapi = new JigouApi();
-    jigouapi.jigoufav({ jg_id: this.Base.options.id, status }, (ret) => {
-      this.Base.setMyData({ isfav: status });
+    jigouapi.jigoufav({
+      jg_id: this.Base.options.id,
+      status
+    }, (ret) => {
+      this.Base.setMyData({
+        isfav: status
+      });
     });
 
     setTimeout(() => {
-      this.Base.setMyData({ tishi: 0 })
+      this.Base.setMyData({
+        tishi: 0
+      })
       // clearTimeout(timeoutId);
     }, 1000);
 

@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -213,6 +213,13 @@
 					"name": "搜索",
 					"pathName": "pages/search/search",
 					"query": "keyword=英语",
+					"scene": "1008"
+				},
+				{
+					"id": 25,
+					"name": "机构",
+					"pathName": "pages/jgdetails/jgdetails",
+					"query": "id=185",
 					"scene": "1008"
 				}
 			]
