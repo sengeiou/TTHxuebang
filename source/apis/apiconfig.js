@@ -1,15 +1,15 @@
 export class ApiConfig {
 
   static GetApiUrl() {
-    return "https://tthxb.artxb.cn/api/";
+    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
   }
   static GetUploadPath() {
-    return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
+    return "https://alioss.app-link.org/alucard263096/tthxb/";
   }
   static GetFileUploadAPI() {
-    return "https://tthxb.artxb.cn/fileupload";
+    return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
   }
-
+  
   static GetHeader() {
     var headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
