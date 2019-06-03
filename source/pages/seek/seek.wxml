@@ -15,6 +15,7 @@
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
         </view>
+        
         <view class='flex-2 flex-row flex-center '>
           <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>

@@ -1,5 +1,4 @@
 <view class=' ' style='background:{{jginfo.bgcolor}}'>
-
   <view class='padding-15  bg-primary'>
     <view class=' flex-row '>
 
@@ -21,14 +20,24 @@
 
 
 
+<view class='bnk margin-20' style=''>
 
-
-<view class='bnk  ' style=''>
-
-  <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
+  <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
       <view class='li' bindtap='bannerGo' id="{{item.id}}">
         <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+      </view>
+    </swiper-item>
+  </swiper> -->
+
+
+
+
+  <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:320rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
       </view>
     </swiper-item>
   </swiper>
@@ -38,25 +47,257 @@
 
 
 <view class='flex-row flex-center margin-10 padding-top-10 '>
+
   <view class='flex-1 text-center' bindtap='totake' data-name='kc'>
     <image src='{{uploadpath}}resource/{{res.home_1}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view>
 
-  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
-    <image src='{{uploadpath}}resource/{{res.home_2}}' class='img radius-10' style=''></image>
+  <view class='flex-1 flex-row flex-column'>
+    <view class='text-center' bindtap='totake' data-name='jg'>
+      <image src='{{uploadpath}}resource/{{res.home_2}}' class='img2 radius-10' style=''></image>
+    </view>
+
+    <view class='height-5'></view>
+
+    <view class='text-center' bindtap='tobaoma'>
+      <image src='{{uploadpath}}resource/{{res.home_3}}' class='img2 radius-10' style=''></image>
+    </view>
   </view>
 
-  <view class='flex-1 text-center' bindtap='tobaoma'>
-    <image src='{{uploadpath}}resource/{{res.home_3}}' class='img radius-10' style=''></image>
+</view>
+
+<view class='margin-20'>
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold'>家长测试</view>
+    <view class='txt9 margin-left-20'>更多了解自己，快快测一测</view>
   </view>
+</view>
+
+
+<view class='scv'>
+  <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
+
+    <view class=" " class='ceshi flex-row column' style=''>
+      <view class='txt-white h5'>家长类型测评</view>
+      <view class=' ' style='height:34rpx;'></view>
+      <view class='flex-row flex-center'>
+        <view class='txt-white h6'>31710</view>
+        <view class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</view>
+      </view>
+    </view>
+
+    <view class=" " class='ceshi flex-row column' style='background-color:#7D79FF'>
+      <view class='txt-white h5'>家长类型测评</view>
+      <view class=' ' style='height:34rpx;'></view>
+      <view class='flex-row flex-center'>
+        <view class='txt-white h6'>31710</view>
+        <view class='h6 margin-left-12 txt-white opa' style=''>人参与测试</view>
+      </view>
+    </view>
+
+  </scroll-view>
+</view>
+
+<view class='height-30'></view>
+
+
+<view class='margin-20'>
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
+    <view class='txt9 margin-left-20'>已连续签到3天</view>
+    <view class='txt9 margin-left-20 flex-1' style='color:#589DE9'>规则说明</view>
+    <view class='txt9 margin-left-20 ' style='color:#FFC200'>去兑换</view>
+
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+
+  <view class='qiandao margin-top-30 flex-row flex-center'>
+    <view class='margin-left-29  flex-1'>
+
+      <view class='  flex-row flex-center '>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txthuang'>+5</view>
+          <view class='dakadian bgff flex-1'></view>
+          <view class=' f8 txthuang'>3/6</view>
+        </view>
+
+        <view class='dakaxian bgff margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txthuang  '>+5</view>
+          <view class='dakadian bgff flex-1'></view>
+          <view class=' f8 txthuang'>3/7</view>
+        </view>
+
+        <view class='dakaxian bgff margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txthuang  '>+5</view>
+          <view class='dakadian bgff flex-1'></view>
+          <view class=' f8 txthuang'>3/8</view>
+        </view>
+
+        <view class='dakaxian bg9 margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txt9  '>+5</view>
+          <view class='dakadian bg9 flex-1'></view>
+          <view class=' f8 txt9'>今天</view>
+        </view>
+
+        <view class='dakaxian bg9 margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txt9  '>+5</view>
+          <view class='dakadian bg9 flex-1'></view>
+          <view class=' f8 txt9'>3/10</view>
+        </view>
+
+        <view class='dakaxian bg9 margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txt9  '>+5</view>
+          <view class='dakadian bg9 flex-1'></view>
+          <view class=' f8 txt9'>3/11</view>
+        </view>
+
+        <view class='dakaxian2 bg9 margin-top-4'></view>
+
+        <view class='flex-row  flex-column '>
+          <view class='h6 txt9  '>+25</view>
+          <view class='dakadian bg9 flex-1'></view>
+          <view class=' f8 txt9'>3/12</view>
+        </view>
+
+      </view>
+
+
+    </view>
+    <view class='daka radius-50 text-center f15 txt-black txt-bold'>打卡</view>
+  </view>
+
+
+  <view class='flex-row flex-center margin-top-16'>
+    <view class='flex-row flex-center  '>
+      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang radius-50'></image>
+      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
+      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
+      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
+      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
+    </view>
+    <view class='margin-left-16 h6 txt9'>等696人已连续打卡</view>
+  </view>
+
+
 
 </view>
 
 
 
+<view class='height-30'></view>
+
+
+
+<view class='margin-20'>
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold flex-1'>精彩视频</view>
+    <view class='txt9 margin-left-20 ' style='color:#FFC200'>查看更多</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+</view>
+
+
+
+
+<view class='scv'>
+  <scroll-view scroll-x style=" " class='sp' bindscroll="scroll">
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+
+      <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+
+      <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+
+      <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+  </scroll-view>
+</view>
+
+
+
+
 
 <view class=''>
-  <view class='text-center h4 txt-bold txt-black'>附近机构</view>
+
+  <view class='flex-row flex-center'>
+    <view class='flex-1'></view>
+    <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon'></image>
+    <view class=' h4 txt-bold txt-black margin-left-16'>离我最近</view>
+    <view class='flex-1'></view>
+  </view>
+
 
   <view hidden='{{jglist.length>0}}'>
 
