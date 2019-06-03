@@ -170,6 +170,33 @@ export class ApiUtil {
   static Rad(d) {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
+  static masaike(name)
+  {
+  console.log(12132);
+    return name.substring(0,1)+'***';
+
+  }
+  static shijianjisuan(date) {
+    console.log(date);
+    var jisuandate=new Date(date);
+    var danqiandate=new Date();
+    var dateDiff = jisuandate.getTime() - danqiandate.getTime();
+    var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
+    var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))//计算出小时数
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))//计算相差分钟数
+    //计算相差秒数
+    var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+    var seconds = Math.round(leave3 / 1000)
+    console.log(" 相差 " + dayDiff + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
+    console.log(dateDiff + "时间差的毫秒数", dayDiff + "计算出相差天数", leave1 + "计算天数后剩余的毫秒数"
+      , hours + "计算出小时数", minutes + "计算相差分钟数", seconds + "计算相差秒数");
+ 
+    return dateDiff;
+
+  }
   static GetDistance(lat1, lng1, lat2, lng2) {
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);

@@ -14,7 +14,9 @@ page{
 .buy{
   background: #FE792E;
 }
-
+.hon{
+   background: #FF0000;
+}
 .fixedbottom{
   position: fixed;
   bottom: 0px;
@@ -54,4 +56,14 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.qpb{
+color: #FFFFFF;
+background-color: #FF6600;
+border-radius: 10rpx;
+padding-top:10rpx;
+padding-bottom:10rpx;
+padding-left:20rpx;
+padding-right:20rpx;
+
 }

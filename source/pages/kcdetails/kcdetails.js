@@ -29,6 +29,50 @@ class Content extends AppBase {
       show: "kcxq"
     })
   }
+  daojishi(){
+    var that=this;
+    
+    
+    var list = that.Base.getMyData().daojishilist;
+  console.log(list);
+  console.log(52);
+    setInterval(() => {
+
+      var sjlist = [];
+      for (var i = 0; i < list.length; i++) {
+        var listtt=[];
+        var danqiandate = new Date();
+        var jisuandate = new Date(list[i]);
+        var dateDiff = jisuandate.getTime() - danqiandate.getTime();
+        listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
+        var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+        listtt.push(Math.floor(leave1 / (3600 * 1000)));   //计算出小时数
+        //计算相差分钟数
+        var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
+        listtt.push(Math.floor(leave2 / (60 * 1000)));//计算相差分钟数
+        //计算相差秒数
+        var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+        listtt.push(Math.round(leave3 / 1000));
+        
+       
+        sjlist.push(listtt);
+
+      }
+      that.Base.setMyData({
+
+        sjlist: sjlist
+
+      })
+      console.log(sjlist);
+
+
+    },1000)
+
+   
+
+    
+
+  }
 
   onMyShow() {
     var that = this;
@@ -40,11 +84,32 @@ class Content extends AppBase {
     jigouapi.courseinfo({
       id: this.Base.options.id
     }, (courseinfo) => {
-      //courseinfo.xx=parseInt();
+      console.log("哈哈哈");
+      console.log(courseinfo);
+      if (courseinfo.isgroup != 0) {
+        jigouapi.pintuanlist({ group_course_id: courseinfo.id }, (pintuanlist) => {
+          console.log(pintuanlist);
+          var pintuanrenshu=0;
+          var daojishilist=[];
+             for(var i=0;i<pintuanlist.length;i++)
+             {
+               pintuanrenshu += pintuanlist[i].tuanlist.length;
+               pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
+               pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
+               daojishilist[i] =pintuanlist[i].jieshushijian;
+             }
+           
+          this.Base.setMyData({
+            pintuanlist: pintuanlist, pintuanrenshu: pintuanrenshu,daojishilist:daojishilist
+          })
+          this.daojishi();
+        })
+      }
 
       jigouapi.kechenlunbo({
-        name: courseinfo.id, orderby: 'r_main.seq', status: "A" 
+        name: courseinfo.id, orderby: 'r_main.seq', status: "A"
       }, (kechenlunbo) => {
+        
         this.Base.setMyData({
           kechenlunbo
         });
@@ -65,12 +130,14 @@ class Content extends AppBase {
         });
         var scoring = this.Base.getMyData().scoring;
         console.log("啊啊啊" + scoring)
+       
       });
 
       this.Base.setMyData({
         courseinfo,
         isfav: courseinfo.isfav
       });
+      
     });
 
     jigouapi.checkcanbuy({
@@ -81,7 +148,8 @@ class Content extends AppBase {
         canbuy
       });
     });
-
+    
+    
   }
   onPageScroll(e) {
     console.log(e)
@@ -108,9 +176,9 @@ class Content extends AppBase {
     }
   }
   gotoBottom(e) {
-      this.Base.setMyData({
-        show: "gmxz"
-      })
+    this.Base.setMyData({
+      show: "gmxz"
+    })
     wx.pageScrollTo({
       scrollTop: 100000,
       duration: 300
@@ -118,9 +186,9 @@ class Content extends AppBase {
   }
 
   bindcut(e) {
-      this.Base.setMyData({
-        show: "kcxq"
-      })
+    this.Base.setMyData({
+      show: "kcxq"
+    })
     wx.pageScrollTo({
       scrollTop: 521,
       duration: 300
@@ -134,6 +202,7 @@ class Content extends AppBase {
   }
 
   fav(e) {
+    
     var status = e.currentTarget.id;
 
 
@@ -173,8 +242,8 @@ class Content extends AppBase {
     })
   }
 
-  onReachBottom(e){
-    this.Base.setMyData({ show : "gmxz"})
+  onReachBottom(e) {
+    this.Base.setMyData({ show: "gmxz" })
   }
 
 
@@ -191,7 +260,8 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcut = content.bindcut;
 body.bindtopurchase = content.bindtopurchase;
-body.fav = content.fav; 
+body.fav = content.fav;
+body.daojishi = content.daojishi;
 body.gotoBottom = content.gotoBottom;
 body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;

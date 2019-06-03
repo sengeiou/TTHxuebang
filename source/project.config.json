@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -83,10 +83,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "课程详情",
 					"pathName": "pages/kcdetails/kcdetails",
-					"query": "",
+					"query": "id=1",
 					"scene": null
 				},
 				{
