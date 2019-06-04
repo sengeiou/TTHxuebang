@@ -649,6 +649,38 @@ export class JigouApi{
         })
     }
 
+    pintuanlist(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/pintuanlist',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     problemlist(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -777,7 +809,7 @@ export class JigouApi{
         })
     }
 
-    pintuanlist(json, callback, showLoading = true) {
+    pintuaninfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -786,7 +818,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/pintuanlist',
+            url: ApiConfig.GetApiUrl() + 'jigou/pintuaninfo',
             data: json,
             method: 'POST',
             dataType: 'json',
