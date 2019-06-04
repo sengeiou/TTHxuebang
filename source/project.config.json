@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 27,
 			"list": [
 				{
 					"id": 0,
@@ -221,6 +221,19 @@
 					"pathName": "pages/jgdetails/jgdetails",
 					"query": "id=185",
 					"scene": "1008"
+				},
+				{
+					"id": -1,
+					"name": "课程评价",
+					"pathName": "pages/pingjia/pingjia",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价完成",
+					"pathName": "pages/pingjiawanchen/pingjiawanchen",
+					"scene": null
 				}
 			]
 		}
