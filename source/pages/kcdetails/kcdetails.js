@@ -29,18 +29,18 @@ class Content extends AppBase {
       show: "kcxq"
     })
   }
-  daojishi(){
-    var that=this;
-    
-    
+  daojishi() {
+    var that = this;
+
+
     var list = that.Base.getMyData().daojishilist;
-  console.log(list);
-  console.log(52);
-    setInterval(() => {
+    console.log(list);
+    console.log(52);
+    this.timer=setInterval(() => {
 
       var sjlist = [];
       for (var i = 0; i < list.length; i++) {
-        var listtt=[];
+        var listtt = [];
         var danqiandate = new Date();
         var jisuandate = new Date(list[i]);
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
@@ -53,8 +53,8 @@ class Content extends AppBase {
         //计算相差秒数
         var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
         listtt.push(Math.round(leave3 / 1000));
-        
-       
+
+
         sjlist.push(listtt);
 
       }
@@ -63,17 +63,22 @@ class Content extends AppBase {
         sjlist: sjlist
 
       })
-      console.log(sjlist);
 
 
-    },1000)
 
-   
+    }, 1000)
 
-    
+
+
+
 
   }
+  onHide() {
+    console.error(66666);
+    clearInterval(this.timer);
+ 
 
+  }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -89,18 +94,17 @@ class Content extends AppBase {
       if (courseinfo.isgroup != 0) {
         jigouapi.pintuanlist({ group_course_id: courseinfo.id }, (pintuanlist) => {
           console.log(pintuanlist);
-          var pintuanrenshu=0;
-          var daojishilist=[];
-             for(var i=0;i<pintuanlist.length;i++)
-             {
-               pintuanrenshu += pintuanlist[i].tuanlist.length;
-               pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
-               pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
-               daojishilist[i] =pintuanlist[i].jieshushijian;
-             }
-           
+          var pintuanrenshu = 0;
+          var daojishilist = [];
+          for (var i = 0; i < pintuanlist.length; i++) {
+            pintuanrenshu += pintuanlist[i].tuanlist.length;
+            pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
+            pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
+            daojishilist[i] = pintuanlist[i].jieshushijian;
+          }
+
           this.Base.setMyData({
-            pintuanlist: pintuanlist, pintuanrenshu: pintuanrenshu,daojishilist:daojishilist
+            pintuanlist: pintuanlist, pintuanrenshu: pintuanrenshu, daojishilist: daojishilist
           })
           this.daojishi();
         })
@@ -109,7 +113,7 @@ class Content extends AppBase {
       jigouapi.kechenlunbo({
         name: courseinfo.id, orderby: 'r_main.seq', status: "A"
       }, (kechenlunbo) => {
-        
+
         this.Base.setMyData({
           kechenlunbo
         });
@@ -130,14 +134,14 @@ class Content extends AppBase {
         });
         var scoring = this.Base.getMyData().scoring;
         console.log("啊啊啊" + scoring)
-       
+
       });
 
       this.Base.setMyData({
         courseinfo,
         isfav: courseinfo.isfav
       });
-      
+
     });
 
     jigouapi.checkcanbuy({
@@ -148,8 +152,8 @@ class Content extends AppBase {
         canbuy
       });
     });
-    
-    
+
+
   }
   onPageScroll(e) {
     console.log(e)
@@ -202,7 +206,7 @@ class Content extends AppBase {
   }
 
   fav(e) {
-    
+
     var status = e.currentTarget.id;
 
 
@@ -246,14 +250,21 @@ class Content extends AppBase {
     this.Base.setMyData({ show: "gmxz" })
   }
 
+  qupinban(e)
+  {
+    
+    wx.navigateTo({
+      url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.id,
+    })
 
+  }
 
 
 
 
 
 }
-
+var timer=1;
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
@@ -266,4 +277,5 @@ body.gotoBottom = content.gotoBottom;
 body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;
 body.onReachBottom = content.onReachBottom;
+body.qupinban = content.qupinban;
 Page(body)

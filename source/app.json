@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/groupinfo/groupinfo",
     "pages/home/home",
     "pages/pingjia/pingjia",
     "pages/pingjiawanchen/pingjiawanchen",

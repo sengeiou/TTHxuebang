@@ -244,6 +244,10 @@ button[type=primary]{
   
   background-color: #2699EC;
 }
+button[type=tuan]{
+  
+  background-color: #FF5252;
+}
 button.button-hover[type=primary]{
   
   background-color: rgba(0, 162, 231, 0.856);
@@ -528,6 +532,10 @@ button[disabled][type=primary] {
 .icon-120{
   width: 240rpx;
   height: 240rpx;
+}
+.icon-150{
+  width: 300rpx;
+  height: 300rpx;
 }
 .border-raidus-50{
   border-radius: 50%;
