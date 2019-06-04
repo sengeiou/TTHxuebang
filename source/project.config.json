@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 28,
 			"list": [
 				{
 					"id": 0,
@@ -233,6 +233,13 @@
 					"id": -1,
 					"name": "评价完成",
 					"pathName": "pages/pingjiawanchen/pingjiawanchen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/pingjialist/pingjialist",
 					"scene": null
 				}
 			]

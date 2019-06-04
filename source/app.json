@@ -3,6 +3,7 @@
     "pages/groupinfo/groupinfo",
     "pages/home/home",
     "pages/pingjia/pingjia",
+    "pages/pingjialist/pingjialist",
     "pages/pingjiawanchen/pingjiawanchen",
     "pages/personaldata/personaldata",
     "pages/hexiao/hexiao",
