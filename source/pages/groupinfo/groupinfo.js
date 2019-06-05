@@ -18,6 +18,12 @@ class Content extends AppBase {
     console.error(66666);
     clearInterval(this.timer);
   }
+  onHide() {
+    console.error(66666);
+    clearInterval(this.timer);
+
+
+  }
   onMyShow() {
     var that = this;
     var api = new JigouApi();
@@ -77,6 +83,22 @@ class Content extends AppBase {
 
 
   }
+  addgroup(){
+   var api=new JigouApi();
+    api.addgroup({id:this.Base.options.id},(jieguo)=>{
+    
+  console.log(jieguo);
+      if (jieguo.code==0)
+      {
+        clearInterval(this.timer);
+this.onMyShow();
+
+      }
+
+
+    })
+
+  }
 }
 var timer = 1;
 var content = new Content();
@@ -84,4 +106,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.daojishi = content.daojishi;
+body.addgroup = content.addgroup;
 Page(body)

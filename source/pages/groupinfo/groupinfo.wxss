@@ -20,7 +20,7 @@ padding:20rpx;
 border-radius: 10rpx;
 }
 .tuan_btn{
-width: 90%;
+width: 85%;
 padding-top:20rpx;
 padding-bottom:20rpx;
 background-color: #FF5252;

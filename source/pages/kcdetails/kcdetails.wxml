@@ -111,7 +111,7 @@
 
           </view>
           <view wx:if="{{pintuanrenshu>0}}">
-            <view wx:for="{{pintuanlist}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
+            <view wx:for="{{daojishilist}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
               <image src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30'></image>
               <view class="margin-left-10 flex-1">{{item.commander_id_name}}</view>
               <view>
@@ -220,7 +220,7 @@
             <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
 
           </view>
-          <view class='flex-2 flex-row flex-column hon padding-15'  wx:if="{{canbuy.code=='0'}}">
+          <view class='flex-2 flex-row flex-column hon padding-15'  bindtap='opengroup'  wx:if="{{canbuy.code=='0'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">超低价拼班</view>
 
