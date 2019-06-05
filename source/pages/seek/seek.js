@@ -26,6 +26,22 @@ class Content extends AppBase {
     if (options.type == undefined) {
       options.type = 'kc';
     }
+
+
+    if (options.ftype_id == undefined) {
+      options.ftype_id = "0";
+    }
+
+    if (options.fage_id == undefined) {
+      options.fage_id = "0";
+    }
+
+    if (options.fdistrict_id == undefined) {
+      options.fdistrict_id = "0";
+    }
+
+
+
     this.Base.setMyData({
       type: this.options.type,
       xiala: "yc",
@@ -35,13 +51,13 @@ class Content extends AppBase {
       mylat: 0,
       mylng: 0,
       filtercoursetype: [],
-      ftype_id: "0",
+      ftype_id: options.ftype_id,
       ttype_id: "0",
       filtercourseage: [],
-      fage_id: "0",
+      fage_id: options.fage_id,
       tage_id: "0",
       filterdistrict: [],
-      fdistrict_id: "0",
+      fdistrict_id: options.fdistrict_id,
       tdistrict_id: "0",
       options_show: false,
       courselist: [],
@@ -570,6 +586,16 @@ class Content extends AppBase {
     return false;
   }
 
+
+  onShareAppMessage() {
+    var data = this.Base.getMyData();
+    return {
+      path: "/pages/seek/seek?type=" + data.type
+        + "&ftype_id=" + data.ftype_id
+        + "&fage_id=" + data.fage_id
+        + "&fdistrict_id=" + data.fdistrict_id
+    };
+  }
 
 }
 
