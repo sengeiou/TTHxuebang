@@ -1,0 +1,33 @@
+<!--pages/pingjialist/pingjialist.wxml-->
+
+<view class='h5 bg-gray height30'>精彩评论</view>
+
+<view class='pinglunqu flex-row flex-center'>
+
+  <image src='{{uploadpath}}resource/{{res.ceshi}}' class='tx radius-50'></image>
+
+  <view class=' flex-1 ' style='margin-left:16rpx;'>
+    <view class='h6 txt-black'>匿名评论</view>
+
+    <view class='flex-row flex-center margin-top-4'>
+      <view class='h7 txt9'>2018-08-17</view>
+      <view style='width:39rpx;'></view>
+      <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' wx:for='{{5}}'></image>
+    </view>
+
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='h6'>1187</view>
+    <image src='{{uploadpath}}resource/{{res.jg_icon}}' class=' icon24 margin-left-4'></image>
+  </view>
+
+</view>
+
+<view class='pinlun h5 txt-black'>
+  上了几节课，感觉好好，老师也特别的教学，我家小孩子在学习都不想走了。继续购买几节课，感谢学榜提供这么好的…
+</view>
+
+<view class='img flex-row flex-center flex-wrap'>
+  <image src='{{uploadpath}}resource/{{res.ceshi}}' class='pinlun-img  ' wx:for='{{6}}'></image>
+</view>

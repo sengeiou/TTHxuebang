@@ -11,7 +11,7 @@
 		"newFeature": true,
 		"autoAudits": false
 	},
-	"compileType": "童天慧",
+	"compileType": "miniprogram",
 	"appid": "wxb76c39adb7275c20",
 	"projectname": "%E7%AB%A5%E5%A4%A9%E6%85%A75",
 	"debugOptions": {
@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 25,
+			"current": 28,
 			"list": [
 				{
 					"id": 0,
@@ -83,10 +83,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "课程详情",
 					"pathName": "pages/kcdetails/kcdetails",
-					"query": "",
+					"query": "id=1",
 					"scene": null
 				},
 				{
@@ -221,6 +221,26 @@
 					"pathName": "pages/jgdetails/jgdetails",
 					"query": "id=185",
 					"scene": "1008"
+				},
+				{
+					"id": -1,
+					"name": "课程评价",
+					"pathName": "pages/pingjia/pingjia",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价完成",
+					"pathName": "pages/pingjiawanchen/pingjiawanchen",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/pingjialist/pingjialist",
+					"scene": null
 				}
 			]
 		}

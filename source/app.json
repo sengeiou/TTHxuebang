@@ -1,6 +1,10 @@
 {
   "pages": [
+    "pages/groupinfo/groupinfo",
     "pages/home/home",
+    "pages/pingjia/pingjia",
+    "pages/pingjialist/pingjialist",
+    "pages/pingjiawanchen/pingjiawanchen",
     "pages/personaldata/personaldata",
     "pages/hexiao/hexiao",
     "pages/order/order",
@@ -53,6 +57,12 @@
       {
         "text": "名师",
         "pagePath": "pages/teacher/teacher",
+        "iconPath": "images/icons/ms.png",
+        "selectedIconPath": "images/icons/ms1.png"
+      },
+      {
+        "text": "亲子周边",
+        "pagePath": "pages/home/home",
         "iconPath": "images/icons/ms.png",
         "selectedIconPath": "images/icons/ms1.png"
       },
