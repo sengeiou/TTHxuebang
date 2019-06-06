@@ -68,7 +68,7 @@
   <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
 
     <view class=' padding-20' style=''>
-      <image src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      <image src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
 
     <view class='flex-row flex-column midt {{xiala=="xs"?"midtm":""}}'>
@@ -215,7 +215,7 @@
 
 
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{vteach}}' wx:key='k'>
-    <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}' lazy-load='{{true}}'></image>
+    <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1'>{{item.name}}</view>
 

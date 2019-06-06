@@ -28,7 +28,7 @@
   <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
       <view class='li' bindtap='bannerGo' id="{{item.id}}">
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </view>
     </swiper-item>
   </swiper>
@@ -67,7 +67,7 @@
 
   <view hidden='{{jglist.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
-      <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
     <view class='midt flex-row'>
       <view class='flex-1'></view>

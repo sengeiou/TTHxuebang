@@ -10,7 +10,7 @@
         <swiper-item wx:for="{{jigouimg}}" wx:key="k">
           <view>
             <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-            <image src='{{uploadpath}}jigouimg/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}jigouimg/{{item.img}}' style='width:750rpx;height:444rpx;'></image>
+            <image src='{{uploadpath}}jigouimg/{{item.img}}?x-oss-process=style/test_img' bindtap='viewPhoto' id='{{uploadpath}}jigouimg/{{item.img}}' style='width:750rpx;height:444rpx;'></image>
           </view>
         </swiper-item>
       </swiper>
@@ -111,10 +111,10 @@
 
     <view class='padding-20'>
 
-      <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}' poster='{{uploadpath}}mechanism/{{jginfo.waitimg}}'>
+      <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}' poster='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img'>
       </video>
 
-      <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}'></image>
+      <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img'></image>
 
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>
@@ -129,13 +129,13 @@
 
 
 
-  <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
+  <image src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw'></image>
 
   <view class='margin-20 margin-bottom-10 '>
     <view class='padding-20 flex-row radius-10  margin-top-20  mk' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
 
 
-      <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
+      <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img'></image>
       <view class='flex-row column   margin-left-20 flex-1'>
         <view class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</view>
 
@@ -220,7 +220,7 @@
 
 </view>
 
-<image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;height:300rpx;margin-bottom:-10rpx;'></image>
+<image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}?x-oss-process=style/test_img' class=' ' mode='aspectFill' style='width:100%;height:300rpx;margin-bottom:-10rpx;'></image>
 
 
 <view class='tishi' wx:if='{{tishi==1}}'>
