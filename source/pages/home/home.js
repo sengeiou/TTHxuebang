@@ -41,9 +41,9 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
     this.Base.getAddress((address) => {
       console.log(address);
       var mylat = address.location.lat;
@@ -99,9 +99,9 @@ class Content extends AppBase {
       
     });
     
-    setTimeout(() => {
-      wx.hideLoading()
-    }, 1000);
+    // setTimeout(() => {
+    //   wx.hideLoading()
+    // }, 1000);
   }
   tojgdetails(e) {
     var id = e.currentTarget.id;
