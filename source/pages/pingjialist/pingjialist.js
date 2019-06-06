@@ -12,8 +12,8 @@ import {
   JigouApi
 } from "../../apis/jigou.api.js";
 import {
-  PurchaseApi
-} from "../../apis/purchase.api.js";
+  PingjiaApi
+} from "../../apis/pingjia.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -23,15 +23,17 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ check: true });
+    this.Base.setMyData({
+      check: true
+    });
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
+    var pingjiaapi = new PingjiaApi();
 
-    instapi.indexbanner({}, (indexbanner) => {
+    pingjiaapi.pingjialist({}, (pingjialist) => {
       this.Base.setMyData({
-        indexbanner
+        pingjialist
       });
     });
 
@@ -41,9 +43,13 @@ class Content extends AppBase {
     var ck = e.currentTarget.dataset.ck;
     console.log(ck);
     if (ck == "nm") {
-      this.Base.setMyData({ check: false })
+      this.Base.setMyData({
+        check: false
+      })
     } else {
-      this.Base.setMyData({ check: true })
+      this.Base.setMyData({
+        check: true
+      })
     }
   }
 

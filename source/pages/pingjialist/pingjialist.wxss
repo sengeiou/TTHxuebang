@@ -19,6 +19,11 @@ Page {
   padding-right: 32rpx;
   padding-top: 22rpx;
 }
+.pinglunqu-1 {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-top: 62rpx;
+}
 
 .tx {
   height: 64rpx;
