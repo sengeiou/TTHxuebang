@@ -272,23 +272,28 @@ class Content extends AppBase {
   }
   opengroup(){
    
-   var api=new JigouApi();
-
-    api.opengroup({group_course_id:this.Base.options.id},(jieguo)=>{
-     
-     if(jieguo.code==0)
-     {
-       wx.navigateTo({
-         url: '/pages/groupinfo/groupinfo?id=' + jieguo.return,
-       })
-
-     }
-
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id+'&&type=0'
     })
 
+
+  //  var api=new JigouApi();
+
+  //   api.opengroup({group_course_id:this.Base.options.id},(jieguo)=>{
+     
+  //    if(jieguo.code==0)
+  //    {
+  //      wx.navigateTo({
+  //        url: '/pages/groupinfo/groupinfo?id=' + jieguo.return,
+  //      })
+
+  //    }
+
+  //   })
+
+  // }
+
   }
-
-
 
 
 }

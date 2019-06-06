@@ -83,20 +83,49 @@ class Content extends AppBase {
 
 
   }
+  yuanjiagoumai(){
+
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id
+    })
+
+
+  }
+  chakankechen(){
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + this.Base.getMyData().pintuaninfo.group_course_id
+      })
+  }
+  kaigexintuan(){
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id + '&&type=0'
+    })
+
+  }
+  laren(){
+  
+    this.onShareAppMessage();
+
+  }
   addgroup(){
-   var api=new JigouApi();
-    api.addgroup({id:this.Base.options.id},(jieguo)=>{
-    
-  console.log(jieguo);
-      if (jieguo.code==0)
-      {
-        clearInterval(this.timer);
-this.onMyShow();
 
-      }
-
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id + '&&type=' + this.Base.options.id
 
     })
+//    var api=new JigouApi();
+//     api.addgroup({id:this.Base.options.id},(jieguo)=>{
+    
+//   console.log(jieguo);
+//       if (jieguo.code==0)
+//       {
+//         clearInterval(this.timer);
+// this.onMyShow();
+
+//       }
+
+
+//     })
 
   }
 }
@@ -104,7 +133,10 @@ var timer = 1;
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
+body.chakankechen = content.chakankechen;
+body.yuanjiagoumai = content.yuanjiagoumai;
 body.onMyShow = content.onMyShow;
 body.daojishi = content.daojishi;
 body.addgroup = content.addgroup;
+body.laren = content.laren;
 Page(body)

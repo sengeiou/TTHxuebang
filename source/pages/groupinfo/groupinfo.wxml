@@ -56,11 +56,13 @@
         </view>
 
 
-        <view wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+        <view bindtap='laren' wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center  ">
             邀请好友参团
+           
           </view>
+        <button data-name="shareBtn" class="clear-button" open-type="share">转发</button>
           <view class="flex-1"></view>
         </view>
 
@@ -68,9 +70,9 @@
           生成分享海报
         </view>
 
-        <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+        <view bindtap='chakankechen'  wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
           <view class="flex-1"></view>
-          <view class="tuan_btn  text-center  ">
+          <view class="tuan_btn  text-center   ">
             查看课程
           </view>
           <view class="flex-1"></view>
@@ -78,18 +80,18 @@
 
         <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
           <view class="flex-1"></view>
-          <view class="tuan_btn  text-center  ">
+          <view class="tuan_btn  text-center " bindtap='kaigexintuan'>
             开个新团： ￥{{pintuaninfo.group_course_group_price}}
           </view>
           <view class="flex-1"></view>
         </view>
 
-        <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+        <view bindtap='yuanjiagoumai' wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
           原价购买： ￥{{pintuaninfo.price}}
         </view>
 
 
-<view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+<view bindtap='yuanjiagoumai' wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center  ">
             原价购买： ￥{{pintuaninfo.price}}
@@ -97,19 +99,19 @@
           <view class="flex-1"></view>
         </view>
 
-        <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+        <view bindtap='chakankechen' wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
           查看课程
         </view>
 
 <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
           <view class="flex-1"></view>
-          <view class="tuan_btn  text-center  ">
+          <view class="tuan_btn  text-center" bindtap='kaigexintuan'>
             开个新团 ￥{{pintuaninfo.group_course_group_price}}
           </view>
           <view class="flex-1"></view>
         </view>
 
-        <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+        <view bindtap='chakankechen' wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
           查看课程
         </view>
 
@@ -121,7 +123,7 @@
           <view class="flex-1"></view>
         </view>
 
-        <view wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+        <view bindtap='yuanjiagoumai' wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
           原价购买：￥{{pintuaninfo.price}}
         </view>
 

@@ -130,8 +130,8 @@
 
             <view wx:if="{{pintuanrenshu==0}}" class="padding-20 flex-row flex-center">
 
-              <view class="flex-1 h5" style='color:#222222'>赶快发起拼班吧</view>
-              <view class="h6" style='color:#999999'>开始拼班</view>
+              <view   class="flex-1 h5" style='color:#222222'>赶快发起拼班吧</view>
+              <view bindtap='opengroup' class="h6" style='color:#999999'>开始拼班</view>
               <image src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10'></image>
 
             </view>
@@ -227,12 +227,12 @@
           </view>
 
           <view class='flex-2 flex-row flex-column padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
-            <view class='txt-white txt-bold flex-1'>￥{{courseinfo.price}}</view>
+            <view class='txt-white txt-bold h5  '>￥{{courseinfo.price}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">立即购买</view>
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">超低价拼班</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">超低价拼班</view>
 
           </view>
         </view>
