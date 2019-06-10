@@ -1,0 +1,140 @@
+<!--pages/ketangdetails/ketangdetails.wxml-->
+<image class='Top-img' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+
+<view class='padding-30 border-bottom-2'>
+
+  <view class='flex-row '>
+    <view class='flex-1'>是【世说新语】学榜大讲堂</view>
+    <view class='flex-row flex-column padding-right-30'>
+      <image src='{{uploadpath}}resource/{{res.shoucang}}' class='icon-15'></image>
+      <view class='h7 margin-top-4 txt-gray'>收藏</view>
+    </view>
+  </view>
+
+  <view class='jieshao'>
+    两行字介绍，介绍一下视频的内容，介绍一下视频的内容。两行字介绍，介绍一下视频的内容，介绍一下视频的内容。
+  </view>
+
+  <view class='flex-row flex-center  margin-top-12'>
+
+
+    <!-- <view class='flex-1 margin-bottom-10'>4654</view> -->
+
+    <view class='flex-row flex-center flex-1  margin-bottom-10'>
+      <view class='flex-row flex-center'>
+        <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-13 '></image>
+        <view class=' h6 margin-left-10'>6-12岁</view>
+      </view>
+
+      <view class='flex-row flex-center margin-left-26'>
+        <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-13 '></image>
+        <view class=' h6 margin-left-10'>共15章</view>
+      </view>
+    </view>
+
+    <view class='zhaunfa flex-row flex-center margin-bottom-10'>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.shoucang}}' class='zhuanfa-icon'></image>
+      <view class='h6 margin-left-10'>转发好友</view>
+      <view class='flex-1'></view>
+    </view>
+  </view>
+
+
+</view>
+
+<view class='flex-row flex-center margin-top-12 margin-left-32'>
+
+  <view class=' flex-1 flex-row flex-center'>
+    <view class='txt-red h5 margin-top-6'>￥</view>
+    <view class='txt-red f40'>9.90</view>
+    <view class='youhui txt-white f8 text-center margin-left-8 margin-top-6'>限时优惠</view>
+    <view class='margin-left-18 h6 txt-gray margin-top-6'>原价￥</view>
+    <view class='h6 txt-gray margin-top-6' style='text-decoration: line-through'>800</view>
+  </view>
+
+  <view class='flex-1 h5 ' hidden='{{true}}' style='color:#FF5252'>免费课程</view>
+
+  <view class='h6 margin-right-28'>128人学过</view>
+</view>
+
+<view class='height-28'></view>
+
+<view class='tishi-block flex-row flex-center'>
+  <view class='flex-1'></view>
+  <view class='txt-zong h6'>共15章，每章仅需6.6元</view>
+  <view class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</view>
+  <view class='flex-1'></view>
+</view>
+
+
+<view class='menu flex-row flex-center'>
+  <view class='flex-row flex-column flex-1 ' bindtap='bindcheck' id='1'>
+    <view class=' h5 {{check==1?"txt-huang":""}}'>介绍</view>
+    <view class=' margin-top-18 {{check==1?"dibutiao":"dibukontiao"}}'></view>
+  </view>
+
+  <view class='flex-row flex-column flex-1' bindtap='bindcheck' id='2'>
+    <view class=' h5 {{check==2?"txt-huang":""}}'>目录</view>
+    <view class=' margin-top-18 {{check==2?"dibutiao":"dibukontiao"}}'></view>
+  </view>
+
+  <view class='flex-row flex-column flex-1' bindtap='bindcheck' id='3'>
+    <view class=' h5 {{check==3?"txt-huang":""}}'>评论(28w)</view>
+    <view class=' margin-top-18 {{check==3?"dibutiao":"dibukontiao"}}'></view>
+  </view>
+</view>
+
+
+<view class='bottom_content'>
+  <view class='' wx:if='{{check==1}}'>
+    <image class='' style='width:100vw' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+  </view>
+
+  <view class='mulu' wx:if='{{check==2}}'>
+
+    <view class='flex-row flex-center'>
+      <image src='{{uploadpath}}resource/{{res.ceshi}}' class='mulu_img'></image>
+
+      <view class='flex-row column margin-left-20'>
+        <view class='h5'>1.掌握运用技能</view>
+        <view class='txt-gray f20 margin-top-4' style='width:460rpx;'>两行字介绍，介绍一下视频的内容，介绍一下视频的内容。两行字介绍，介绍一下视频的内容</view>
+        <view class='flex-row flex-center margin-top-18'>
+          <image class='' src='{{uploadpath}}resource/{{res.shiping}}' class='shiping_icon'></image>
+          <view class='h6 txt-gray margin-left-12'>12W</view>
+          <view class='keshikang margin-left-26 txt-huang f20 text-center'>可试看</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+
+  <view class='' wx:if='{{check==3}}'>
+    评论
+  </view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<view class='bottom-block flex-row flex-center'>
+  <view class='flex-1 text-center watch_block'>试看</view>
+  <view class='buy_block flex-row flex-center'>
+    <view class='flex-1'></view>
+    <view class='txt-white margin-top-6'>￥</view>
+    <view class='f40 txt-white txt-bold'>9.9</view>
+    <view class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</view>
+    <view class='flex-1'></view>
+  </view>
+</view>

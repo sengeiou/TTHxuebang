@@ -53,15 +53,17 @@
   </view>
 
   <view class='flex-1 flex-row flex-column'>
-    <view class='text-center' bindtap='totake' data-name='jg'>
-      <image src='{{uploadpath}}resource/{{res.home_2}}' class='img2 radius-10' style=''></image>
+    <view class='text-center' bindtap='toketang'>
+      <image src='{{uploadpath}}resource/{{res.home_3}}' class='img2 radius-10' style=''></image>
     </view>
 
     <view class='height-5'></view>
 
-    <view class='text-center' bindtap='tobaoma'>
-      <image src='{{uploadpath}}resource/{{res.home_3}}' class='img2 radius-10' style=''></image>
+    <view class='text-center' bindtap='totake' data-name='jg'>
+      <image src='{{uploadpath}}resource/{{res.home_2}}' class='img2 radius-10' style=''></image>
     </view>
+
+
   </view>
 
 </view>

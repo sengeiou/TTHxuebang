@@ -109,6 +109,11 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
+  toketang(e){
+    wx.navigateTo({
+      url: '/pages/zaixianketang/zaixianketang'
+    })
+  }
   loadBanner(){
     var instapi = new InstApi();
     // console.log()
@@ -300,7 +305,8 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.tojgdetails = content.tojgdetails;
+body.tojgdetails = content.tojgdetails; 
+body.toketang = content.toketang;
 body.totake = content.totake;
 body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange; 

@@ -2,6 +2,8 @@
   "pages": [
     "pages/groupinfo/groupinfo",
     "pages/home/home",
+    "pages/ketangdetails/ketangdetails",
+    "pages/zaixianketang/zaixianketang",
     "pages/pingjia/pingjia",
     "pages/pingjialist/pingjialist",
     "pages/pingjiawanchen/pingjiawanchen",

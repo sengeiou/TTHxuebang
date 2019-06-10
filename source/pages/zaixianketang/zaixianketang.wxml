@@ -1,0 +1,75 @@
+<!--pages/zaixianketang/zaixianketang.wxml-->
+<image style='width:100vw;height:200rpx;' src='{{uploadpath}}resource/{{res.ces}}'></image>
+<view class='menu-padding flex-row flex-center'>
+
+
+  <view class='flex-row flex-column flex-1'>
+    <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-50 radius-50'></image>
+    <view class='h6 margin-top-12'>热门</view>
+  </view>
+
+  <view class='flex-row flex-column flex-1'>
+    <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-50 radius-50'></image>
+    <view class='h6 margin-top-12'>免费</view>
+  </view>
+
+  <view class='flex-row flex-column flex-1'>
+    <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-50 radius-50'></image>
+    <view class='h6 margin-top-12'>音乐</view>
+  </view>
+
+  <view class='flex-row flex-column flex-1'>
+    <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-50 radius-50'></image>
+    <view class='h6 margin-top-12'>美术</view>
+  </view>
+
+  <view class='flex-row flex-column flex-1'>
+    <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-50 radius-50'></image>
+    <view class='h6 margin-top-12'>舞蹈</view>
+  </view>
+
+</view>
+
+<view class='text-center f18 txt-bold '>
+  热门课程
+</view>
+
+<view class='flex-row flex-center flex-wrap padding-bottom-40'>
+
+  <view class='kecheng-block ' wx:for='{{6}}'>
+
+    <view style='' class='kecheng-img'>
+
+    </view>
+
+    <view class='padding-12'>
+      <view class='h6'>【世说新语】学榜大讲堂</view>
+      <view class='f-16 margin-top-8'>
+        两行字介绍，介绍一下视频的内容，介绍一下视频的内容。
+      </view>
+
+
+      <view class='flex-row flex-center margin-top-14'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>跌倒跌倒</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-26'>
+          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>跌倒跌倒</view>
+        </view>
+      </view>
+
+      <view class='flex-row flex-center margin-top-12'>
+        <view class='margin-top-4 f20 txt-gray flex-1'>128人学过</view>
+        <view class='margin-top-4 f20 txt-gray'>￥800</view>
+        <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+        <view class=' txt-red' style=''>9.90</view>
+      </view>
+
+    </view>
+
+  </view>
+
+</view>
