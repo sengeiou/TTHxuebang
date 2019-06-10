@@ -110,7 +110,6 @@
   </view>
 
 
-
   <view class='' wx:if='{{check==3}}'>
     评论
   </view>

@@ -68,7 +68,7 @@
 
     <view class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</view>
     <!-- bindtap='copytext' -->
-    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{info.usecode}} '  src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg ' bindtap='previewImage'></image>
+    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg'  src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindtap='viewPhoto'></image>
     <view class=' ' style='color:black;font-size:28rpx;'>如机构需要验证，请出示核销码</view>
 
 

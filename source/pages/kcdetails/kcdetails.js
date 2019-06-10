@@ -42,7 +42,7 @@ class Content extends AppBase {
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
         var danqiandate = new Date();
-        var jisuandate = new Date(list[i]);
+        var jisuandate = new Date(list[i].jieshushijian);
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
         listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
         var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
@@ -79,6 +79,10 @@ class Content extends AppBase {
  
 
   }
+  onUnload() {
+    console.error(66666);
+    clearInterval(this.timer);
+  }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -100,7 +104,15 @@ class Content extends AppBase {
             pintuanrenshu += pintuanlist[i].tuanlist.length;
             pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
             pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
-            daojishilist[i] = pintuanlist[i].jieshushijian;
+           
+            if (daojishilist.length < 2)
+            {
+             
+              if (pintuanlist[i].status == 'A')
+              {
+                daojishilist.push(pintuanlist[i]);
+              }
+            }
           }
 
           this.Base.setMyData({
@@ -258,9 +270,30 @@ class Content extends AppBase {
     })
 
   }
+  opengroup(){
+   
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id+'&&type=0'
+    })
 
 
+  //  var api=new JigouApi();
 
+  //   api.opengroup({group_course_id:this.Base.options.id},(jieguo)=>{
+     
+  //    if(jieguo.code==0)
+  //    {
+  //      wx.navigateTo({
+  //        url: '/pages/groupinfo/groupinfo?id=' + jieguo.return,
+  //      })
+
+  //    }
+
+  //   })
+
+  // }
+
+  }
 
 
 }
@@ -278,4 +311,5 @@ body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;
 body.onReachBottom = content.onReachBottom;
 body.qupinban = content.qupinban;
+body.opengroup = content.opengroup;
 Page(body)

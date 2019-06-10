@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class PingjiaApi{
 
 
-    pingjialist(json, callback, showLoading = true) {
+    addpingjia(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class PingjiaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingjia/pingjialist',
+            url: ApiConfig.GetApiUrl() + 'pingjia/addpingjia',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class PingjiaApi{
         })
     }
 
-    addpingjia(json, callback, showLoading = true) {
+    pingjialist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class PingjiaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingjia/addpingjia',
+            url: ApiConfig.GetApiUrl() + 'pingjia/pingjialist',
             data: json,
             method: 'POST',
             dataType: 'json',
