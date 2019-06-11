@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/groupinfo/groupinfo",
+    "pages/groupinfo/groupinfo", 
+    "pages/pingceindex/pingceindex", 
+    "pages/pingcedati/pingcedati",
+    "pages/pingcejieguo/pingcejieguo",
     
     "pages/ketangdetails/ketangdetails",
     "pages/zaixianketang/zaixianketang",

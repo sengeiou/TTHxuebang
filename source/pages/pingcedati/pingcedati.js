@@ -1,4 +1,5 @@
-// pages/pingjialist/pingjialist.js 
+// pages/pingcedati/pingcedati.js
+// pages/pingceindex/pingceindex.js 
 import {
   AppBase
 } from "../../appbase";
@@ -31,10 +32,7 @@ class Content extends AppBase {
     var that = this;
     var pingjiaapi = new PingjiaApi();
 
-    var id=this.Base.options.id;
-    console.log(id+"懂得");
-
-    pingjiaapi.pingjialist({ kecheng_id: id}, (pingjialist) => {
+    pingjiaapi.pingjialist({}, (pingjialist) => {
       this.Base.setMyData({
         pingjialist
       });

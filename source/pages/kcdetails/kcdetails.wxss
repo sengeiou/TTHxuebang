@@ -1,34 +1,42 @@
 /* pages/kcdetails/kcdetails.wxss */
-page{
+
+page {
   background: #132056;
 }
+
 /* .type {
   padding-left: 17rpx;
   padding-right: 17rpx;
   padding-top: 4rpx;
   padding-bottom: 4rpx;
 } */
-.txt{
-  color: #FFC200;
+
+.txt {
+  color: #ffc200;
 }
-.buy{
-  background: #FE792E;
+
+.buy {
+  background: #fe792e;
 }
-.hon{
-   background: #FF0000;
+
+.hon {
+  background: #f00;
 }
-.fixedbottom{
+
+.fixedbottom {
   position: fixed;
   bottom: 0px;
   left: 0px;
-  width:100vw;
+  width: 100vw;
 }
-.to_top{
+
+.to_top {
   position: fixed;
   top: 60%;
   right: 0;
   z-index: 100;
 }
+
 .biaoqian {
   min-width: 56rpx;
   height: 38rpx;
@@ -36,34 +44,102 @@ page{
   padding-left: 10rpx;
   padding-right: 10rpx;
 }
-.top{
+
+.top {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 100;
 }
-.tishi{
+
+.tishi {
   position: fixed;
   z-index: 100;
   top: 35%;
-  right: 35%; 
+  right: 35%;
 }
-.ts_icon{
+
+.ts_icon {
   width: 240rpx;
   height: 260rpx;
 }
+
 .dizhi {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.qpb{
-color: #FFFFFF;
-background-color: #FF6600;
-border-radius: 10rpx;
-padding-top:10rpx;
-padding-bottom:10rpx;
-padding-left:20rpx;
-padding-right:20rpx;
 
+.qpb {
+  color: #fff;
+  background-color: #f60;
+  border-radius: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.pinglunqu {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-top: 22rpx;
+}
+
+.pinglunqu-1 {
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  padding-top: 62rpx;
+}
+
+.tx {
+  height: 64rpx;
+  width: 64rpx;
+}
+
+.txt9 {
+  color: #999;
+}
+
+.icon20 {
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.margin-5 {
+  margin: 5rpx;
+}
+
+.margin-top-4 {
+  margin-top: 4rpx;
+}
+
+.margin-left-4 {
+  margin-left: 4rpx;
+}
+
+.icon24 {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.pinlun {
+  /* padding-left: 20rpx; */
+  padding-right: 20rpx;
+  padding-top: 20rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  line-height: 40rpx;
+}
+
+.pinlun-img {
+  width: 190rpx;
+  height: 190rpx;
+  padding: 16rpx;  
+   
+}
+
+.img {
+  margin-left: 20rpx;
+  margin-right: 40rpx;
 }

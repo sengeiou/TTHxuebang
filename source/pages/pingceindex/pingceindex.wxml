@@ -1,0 +1,83 @@
+<!--pages/pingceindex/pingceindex.wxml-->
+
+<image src='{{uploadpath}}resource/{{res.ceshi}}' class='top-img '></image>
+
+<view class='mid-block bg-white padding-20 radius-8'>
+
+  <view class='flex-row flex-center'>
+    <view class='huangtiao'></view>
+    <view class='h5 txt-bold margin-left-16'>测试简介</view>
+  </view>
+
+  <view class='margin-top-24 h6 txt-6' style=''>
+    这个测试是通过对孩子性格兴趣分析，结合大数据ai智能计算，分析适合孩子的学习方式。这个测试是通过对孩子性格兴趣分析，结合大数据ai智能计算，分析适合孩子的学习方式。
+  </view>
+
+
+  <view class='flex-row flex-center margin-top-30'>
+    <view class='flex-1'></view>
+
+    <view class='flex-row flex-column'>
+      <view class='quan radius-50 flex-row flex-column '>
+        <view class='flex-1'></view>
+        <view class='h7' style='color:#B4B4B4'>平均</view>
+        <view style='color:#B71B93'>4.8</view>
+        <view class='flex-1'></view>
+      </view>
+      <view class='margin-top-24 h5'>测试准确度</view>
+    </view>
+
+    <view class='flex-1'></view>
+
+    <view class='flex-row flex-column'>
+      <view class='quan radius-50 flex-row flex-column '>
+        <view class='flex-1'></view>
+        <view class='h7' style='color:#B4B4B4'>平均</view>
+        <view style='color:#B71B93'>4.8</view>
+        <view class='flex-1'></view>
+      </view>
+      <view class='margin-top-24 h5'>建议实用性</view>
+    </view>
+
+    <view class='flex-1'></view>
+
+    <view class='flex-row flex-column'>
+      <view class='quan radius-50 flex-row flex-column '>
+        <view class='flex-1'></view>
+        <view class='h7' style='color:#B4B4B4'>平均</view>
+        <view style='color:#B71B93'>4.8</view>
+        <view class='flex-1'></view>
+      </view>
+      <view class='margin-top-24 h5'>题目易懂性</view>
+    </view>
+
+    <view class='flex-1'></view>
+  </view>
+
+</view>
+
+
+<view class='bottom-block bg-white padding-20 radius-8'>
+
+  <view class='flex-row flex-center'>
+    <view class='huangtiao'></view>
+    <view class='h5 txt-bold margin-left-16'>测评须知</view>
+  </view>
+
+  <view class='margin-top-14 h6 txt-6' style='' wx:for='{{3}}'   >
+    1、本测试共12题，测试时间约5分钟 
+  </view>
+  
+
+
+</view>
+
+<view class='height-126'></view>
+
+<view class='flex-row flex-center'>
+  <view class='flex-1'></view>
+  <view class='ceshi text-center txt-white'>立即测试</view>
+  <view class='flex-1'></view>
+</view>
+
+<view class='height-52'></view>

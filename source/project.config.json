@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 30,
+			"current": 32,
 			"list": [
 				{
 					"id": 0,
@@ -255,6 +255,19 @@
 					"name": "课堂详情",
 					"pathName": "pages/ketangdetails/ketangdetails",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评测首页",
+					"pathName": "pages/pingceindex/pingceindex",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评测答题",
+					"pathName": "pages/pingcedati/pingcedati",
 					"scene": null
 				}
 			]
