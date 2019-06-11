@@ -24,6 +24,13 @@ Page {
   line-height: 28rpx;
 }
 
+.jieshao1 {
+  
+  font-size: 24rpx;
+  color: rgba(153, 153, 153, 1);
+  
+}
+
 .zhaunfa {
   width: 168rpx;
   height: 52rpx;
@@ -35,6 +42,9 @@ Page {
 
 .padding-30 {
   padding: 30rpx 0rpx 20rpx 30rpx;
+}
+.padding-301 {
+  padding: 30rpx 30rpx  20rpx 30rpx;
 }
 
 .border-bottom-2 {
@@ -205,4 +215,30 @@ Page {
 .shiping_icon {
   width: 22rpx;
   height: 22rpx;
+}
+.ss {
+ 
+  white-space: nowrap;
+}
+.bk{
+  border-radius: 10rpx;
+  border:1px solid #ffc200;
+}
+.ceshi {
+  width: 30vw;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+  padding-right: 10rpx;
+  border-radius: 20rpx;
+  display: inline-block;
+
+}
+.mulu1{
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+}
+.kuan{
+ width: 200rpx; 
+ font-size: 24rpx;
 }

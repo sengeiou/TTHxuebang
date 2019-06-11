@@ -1,10 +1,10 @@
 <!--pages/ketangdetails/ketangdetails.wxml-->
-<image class='Top-img' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
+<video class='Top-img' src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'></video>
 
 <view class='padding-30 border-bottom-2'>
 
   <view class='flex-row '>
-    <view class='flex-1'>是【世说新语】学榜大讲堂</view>
+    <view class='flex-1'>{{danqianzhanjie.name}}</view>
     <view class='flex-row flex-column padding-right-30'>
       <image src='{{uploadpath}}resource/{{res.shoucang}}' class='icon-15'></image>
       <view class='h7 margin-top-4 txt-gray'>收藏</view>
@@ -12,7 +12,7 @@
   </view>
 
   <view class='jieshao'>
-    两行字介绍，介绍一下视频的内容，介绍一下视频的内容。两行字介绍，介绍一下视频的内容，介绍一下视频的内容。
+   {{item.mulu_introduce}}
   </view>
 
   <view class='flex-row flex-center  margin-top-12'>
@@ -23,14 +23,22 @@
     <view class='flex-row flex-center flex-1  margin-bottom-10'>
       <view class='flex-row flex-center'>
         <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-13 '></image>
-        <view class=' h6 margin-left-10'>6-12岁</view>
+        <view class=' h6 margin-left-10'>{{kecheninfo.age_name}}</view>
       </view>
 
       <view class='flex-row flex-center margin-left-26'>
         <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-13 '></image>
-        <view class=' h6 margin-left-10'>共15章</view>
+        <view class=' h6 margin-left-10'>共{{kecheninfo.chapter_num}}章</view>
       </view>
+
+      <view class='flex-row flex-center margin-left-26'>
+        <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-13 '></image>
+        <view class=' h6 margin-left-10'>{{kecheninfo.learning_num}}万人学过</view>
+      </view>
+
+
     </view>
+
 
     <view class='zhaunfa flex-row flex-center margin-bottom-10'>
       <view class='flex-1'></view>
@@ -43,7 +51,30 @@
 
 </view>
 
-<view class='flex-row flex-center margin-top-12 margin-left-32'>
+<view class="padding-301 flex-row flex-center">
+  <view class="flex-1">目录</view>
+  <view class="jieshao1 ">查看列表</view>
+</view>
+
+<view class='margin-left-20'>
+  <scroll-view  scroll-x style=" " class='ss' bindscroll="scroll">
+
+    <view wx:for="{{zhanjie}}" wx:key="k"  class='ceshi flex-row flex-column' >
+
+      <view   class="{{item.dq==true?'bk':''}}" >
+        <image   class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
+        <view  class="chaochu kuan" >{{item.name}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+
+
+
+
+
+<!-- <view class='flex-row flex-center margin-top-12 margin-left-32'>
 
   <view class=' flex-1 flex-row flex-center'>
     <view class='txt-red h5 margin-top-6'>￥</view>
@@ -56,19 +87,19 @@
   <view class='flex-1 h5 ' hidden='{{true}}' style='color:#FF5252'>免费课程</view>
 
   <view class='h6 margin-right-28'>128人学过</view>
-</view>
+</view> -->
 
-<view class='height-28'></view>
+<!-- <view class='height-28'></view>
 
 <view class='tishi-block flex-row flex-center'>
   <view class='flex-1'></view>
   <view class='txt-zong h6'>共15章，每章仅需6.6元</view>
   <view class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</view>
   <view class='flex-1'></view>
-</view>
+</view> -->
 
 
-<view class='menu flex-row flex-center'>
+<!-- <view class='menu flex-row flex-center'>
   <view class='flex-row flex-column flex-1 ' bindtap='bindcheck' id='1'>
     <view class=' h5 {{check==1?"txt-huang":""}}'>介绍</view>
     <view class=' margin-top-18 {{check==1?"dibutiao":"dibukontiao"}}'></view>
@@ -114,11 +145,14 @@
     评论
   </view>
 
+</view> -->
+
+
+
+<view class="padding-301 flex-row flex-center">
+  <view class="flex-1 h5" style='color:#222222'>留言 11890</view>
+  <view class="jieshao1 ">查看全部</view>
 </view>
-
-
-
-
 
 
 

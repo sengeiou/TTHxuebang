@@ -251,9 +251,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 30,
 					"name": "课堂详情",
 					"pathName": "pages/ketangdetails/ketangdetails",
+					"query": "id=1",
 					"scene": null
 				}
 			]

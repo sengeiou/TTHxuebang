@@ -23,36 +23,40 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({
-      check: true
-    });
+    var that = this;
+
+    var jigouapi = new JigouApi();
+
+
+    jigouapi.zaixiankechenfenlei({}, (fenleilist) => {
+
+      this.Base.setMyData({ fenleilist: fenleilist, xz: -2, name: "热门课程" });
+
+    })
+    jigouapi.zaixianketanlunbo({}, (zaixianlunbo) => {
+
+      this.Base.setMyData({ lunbolist: zaixianlunbo });
+    })
+    jigouapi.zaixiankechenlist({}, (zaixiankechen) => {
+      var remenkechen = zaixiankechen.filter(item => item.ishot_value == 'Y');
+      var mianfeikechen = zaixiankechen.filter(item => item.isfree_value == 'Y');
+      console.log(remenkechen);
+      this.Base.setMyData({ kechenlist: zaixiankechen, remenkechen, mianfeikechen });
+    })
   }
   onMyShow() {
-    var that = this;
-    var pingjiaapi = new PingjiaApi();
-
-    pingjiaapi.pingjialist({}, (pingjialist) => {
-      this.Base.setMyData({
-        pingjialist
-      });
-    });
+  
 
   }
-
-  check(e) {
-    var ck = e.currentTarget.dataset.ck;
-    console.log(ck);
-    if (ck == "nm") {
-      this.Base.setMyData({
-        check: false
-      })
-    } else {
-      this.Base.setMyData({
-        check: true
-      })
-    }
+  switchtype(e){
+    var kechenlist = this.Base.getMyData().kechenlist;
+   
+    var id = e.currentTarget.dataset.id;
+       
+    this.Base.setMyData({ xzlist: kechenlist.filter(item => item.onlineclassroomtype_id==id)})
+    
+    this.Base.setMyData({ xz:id, name:e.currentTarget.dataset.name})
   }
-
 }
 
 var content = new Content();
@@ -60,4 +64,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.check = content.check;
+body.switchtype = content.switchtype;
 Page(body)
