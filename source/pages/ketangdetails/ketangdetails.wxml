@@ -17,7 +17,6 @@
 
   <view class='flex-row flex-center  margin-top-12'>
 
-
     <!-- <view class='flex-1 margin-bottom-10'>4654</view> -->
 
     <view class='flex-row flex-center flex-1  margin-bottom-10'>
@@ -90,6 +89,7 @@
   <view class='' wx:if='{{check==1}}'>
     <image class='' style='width:100vw' src='{{uploadpath}}resource/{{res.ceshi}}'></image>
   </view>
+
 
   <view class='mulu' wx:if='{{check==2}}'>
 

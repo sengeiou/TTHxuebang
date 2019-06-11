@@ -14,6 +14,9 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  PingjiaApi
+} from "../../apis/pingjia.api.js";
 
 class Content extends AppBase {
 
@@ -88,11 +91,24 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
+    var pingjiaapi = new PingjiaApi();
+
+   
+
 
     //this.Base.options.id
     jigouapi.courseinfo({
       id: this.Base.options.id
     }, (courseinfo) => {
+
+
+      pingjiaapi.pingjialist({ kecheng_id: this.Base.options.id}, (pingjialist) => {
+        this.Base.setMyData({
+          pingjialist
+        });
+      });
+
+
       console.log("哈哈哈");
       console.log(courseinfo);
       if (courseinfo.isgroup != 0) {
@@ -295,6 +311,13 @@ class Content extends AppBase {
 
   }
 
+  bindtolist(e){
+    var id=e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/pingjialist/pingjialist?id='+id
+    })
+  }
+
 
 }
 var timer=1;
@@ -302,7 +325,10 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.bindcut = content.bindcut;
+body.bindcut = content.bindcut; 
+
+body.bindtolist = content.bindtolist;
+
 body.bindtopurchase = content.bindtopurchase;
 body.fav = content.fav;
 body.daojishi = content.daojishi;

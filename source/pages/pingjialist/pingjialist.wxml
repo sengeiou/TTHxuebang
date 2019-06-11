@@ -2,6 +2,11 @@
 
 <view class='h5 bg-gray height30'>精彩评论</view>
 
+<view wx:if='{{pingjialist.length==0}}' class='flex-row flex-center'>
+<view class='flex-1'></view>
+<view>暂无评论</view>
+<view class='flex-1'></view>
+</view>
 
 <view wx:for='{{pingjialist}}' wx:key='k' wx:for-index='idx'>
   <view class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>

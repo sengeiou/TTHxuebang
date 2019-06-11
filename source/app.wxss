@@ -476,6 +476,9 @@ button[disabled][type=primary] {
 .radius-5{
   border-radius: 5%;
 }
+.radius-8{
+  border-radius: 8rpx;
+}
 .radius-10{
   border-radius: 10rpx;
 }
