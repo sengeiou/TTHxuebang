@@ -61,14 +61,8 @@
         "selectedIconPath": "images/icons/sy1.png"
       },
       {
-        "text": "名师",
+        "text": "宝妈必看",
         "pagePath": "pages/teacher/teacher",
-        "iconPath": "images/icons/ms.png",
-        "selectedIconPath": "images/icons/ms1.png"
-      },
-      {
-        "text": "亲子周边",
-        "pagePath": "pages/home/home",
         "iconPath": "images/icons/ms.png",
         "selectedIconPath": "images/icons/ms1.png"
       },
