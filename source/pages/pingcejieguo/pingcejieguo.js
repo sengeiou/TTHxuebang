@@ -1,66 +1,63 @@
-// pages/pingcejieguo/pingcejieguo.js
-Page({
+// pages/pingcejieguo/pingcejieguo.js 
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  JigouApi
+} from "../../apis/jigou.api.js";
+import {
+  PingjiaApi
+} from "../../apis/pingjia.api.js";
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+class Content extends AppBase {
+  constructor() {
+    super();
+  }
+  onLoad(options) {
+    this.Base.Page = this;
+    //options.id=5;
+    super.onLoad(options);
+    this.Base.setMyData({
+      check: true
+    });
+  }
+  onMyShow() {
+    var that = this;
+    var pingjiaapi = new PingjiaApi();
 
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    pingjiaapi.pingjialist({}, (pingjialist) => {
+      this.Base.setMyData({
+        pingjialist
+      });
+    });
 
   }
-})
+
+  check(e) {
+    var ck = e.currentTarget.dataset.ck;
+    console.log(ck);
+    if (ck == "nm") {
+      this.Base.setMyData({
+        check: false
+      })
+    } else {
+      this.Base.setMyData({
+        check: true
+      })
+    }
+  }
+
+}
+
+var content = new Content();
+var body = content.generateBodyJson();
+body.onLoad = content.onLoad;
+body.onMyShow = content.onMyShow;
+body.check = content.check;
+Page(body)

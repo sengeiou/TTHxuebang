@@ -1,2 +1,9 @@
 <!--pages/pingcejieguo/pingcejieguo.wxml-->
-<text>pages/pingcejieguo/pingcejieguo.wxml</text>
+
+
+<view class='flex-row flex-center'>
+  <view class='flex-1'></view>
+  <view class=' again text-center txt-9'>重新测试</view>
+  <view class='flex-1'></view>
+</view>
+

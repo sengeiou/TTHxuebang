@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 32,
+			"current": 33,
 			"list": [
 				{
 					"id": 0,
@@ -268,6 +268,13 @@
 					"id": -1,
 					"name": "评测答题",
 					"pathName": "pages/pingcedati/pingcedati",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评测结果",
+					"pathName": "pages/pingcejieguo/pingcejieguo",
 					"scene": null
 				}
 			]

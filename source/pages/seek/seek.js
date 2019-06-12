@@ -124,7 +124,7 @@ class Content extends AppBase {
         mylng
       });
       this.loadcourse();
-
+ 
 
       jigouapi.activedistrictlist({
         city_id: AppBase.CITYID
@@ -137,7 +137,8 @@ class Content extends AppBase {
           var adcode = address.ad_info.adcode;
           for (var i = 0; i < filterdistrict.length; i++) {
             if (adcode == filterdistrict[i].id) {
-              var fdistrict_id = filterdistrict[i].id;
+              var fdistrict_id = 0; 
+              //filterdistrict[i].id
               this.Base.setMyData({
                 fdistrict_id
               });
