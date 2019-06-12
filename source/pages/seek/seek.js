@@ -19,6 +19,11 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  setPageTitle() {
+    wx.setNavigationBarTitle({
+      title: '找课程',
+    });
+  }
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
@@ -305,7 +310,7 @@ class Content extends AppBase {
       opt.type = data.ftype_id;
     }
     if (data.fage_id != "0") {
-      opt.age = data.fage_id;
+      opt.age_name = data.fage_id;
     }
     if (data.options == "j_x") {
       opt.orderby = "jxrate,distance";
@@ -322,6 +327,8 @@ class Content extends AppBase {
 
 
     jigouapi.courselist(opt, (courselist) => {
+      console.log("提交了哈哈啊");
+      console.log(opt);
       for (var i = 0; i < courselist.length; i++) {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
         console.log("mile=" + mile);
@@ -522,6 +529,7 @@ class Content extends AppBase {
     });
   }
   setTAge(e) {
+    console.log("555555555");
     var id = e.currentTarget.id;
     this.Base.setMyData({
       tage_id: id

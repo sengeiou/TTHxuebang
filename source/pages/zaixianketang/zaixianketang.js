@@ -57,6 +57,14 @@ class Content extends AppBase {
     
     this.Base.setMyData({ xz:id, name:e.currentTarget.dataset.name})
   }
+  kechenxianqin(e)
+  {
+  console.log(e);
+       wx.navigateTo({
+         url: '/pages/ketangdetails/ketangdetails?id='+e.currentTarget.dataset.id,
+       })
+
+  }
 }
 
 var content = new Content();
@@ -65,4 +73,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.check = content.check;
 body.switchtype = content.switchtype;
+body.kechenxianqin = content.kechenxianqin;
 Page(body)

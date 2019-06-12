@@ -27,6 +27,11 @@ class Content extends AppBase {
       check: true
     });
   }
+  setPageTitle() {
+    wx.setNavigationBarTitle({
+      title: '评论',
+    });
+  }
   onMyShow() {
     var that = this;
     var pingjiaapi = new PingjiaApi();
