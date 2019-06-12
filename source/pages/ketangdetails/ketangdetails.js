@@ -55,7 +55,7 @@ class Content extends AppBase {
 
       }
     }
-    this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id] });
+    this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id],liebiao:false });
     console.log(e);
   }
   fav(e) {
