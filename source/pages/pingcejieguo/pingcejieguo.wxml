@@ -1,9 +1,27 @@
 <!--pages/pingcejieguo/pingcejieguo.wxml-->
 
+<view class='top-block bg-white'>
 
-<view class='flex-row flex-center'>
-  <view class='flex-1'></view>
-  <view class=' again text-center txt-9'>重新测试</view>
-  <view class='flex-1'></view>
+
+  <view class='flex-row flex-column '>
+
+    <view class='flex-row flex-column yuan radius-50'>
+      <view class='flex-1 '></view>
+      <view class='txt-9 h6'>测试结果</view>
+
+      <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeA}}'>{{item.character}}</view>
+      <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeB}}'>{{item.character}}</view>
+      <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeC}}'>{{item.character}}</view>
+      <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeD}}'>{{item.character}}</view>
+
+      <view class='flex-1 '></view>
+    </view>
+
+    <view class='height-40'></view>
+
+    <view class=' again text-center txt-9 ' bindtap='again' >重新测试</view>
+
+  </view>
+
 </view>
 

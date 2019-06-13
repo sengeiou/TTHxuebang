@@ -12,8 +12,8 @@ import {
   JigouApi
 } from "../../apis/jigou.api.js";
 import {
-  PingjiaApi
-} from "../../apis/pingjia.api.js";
+  PingceApi
+} from "../../apis/pingce.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -26,14 +26,32 @@ class Content extends AppBase {
     this.Base.setMyData({
       check: true
     });
+    var typeA = this.options.typeA;
+    var typeB = this.options.typeB;
+    var typeC = this.options.typeC;
+    var typeD = this.options.typeD;
+    console.log(typeA, typeB, typeC, typeD)
+    if (typeA!="undefined"){
+      this.Base.setMyData({ typeA:"A"})
+    }
+    if (typeB != "undefined") {
+      this.Base.setMyData({ typeB: "B" })
+    }
+    if (typeC != "undefined") {
+      this.Base.setMyData({ typeC: "C" })
+    }
+    if (typeD != "undefined") {
+      this.Base.setMyData({ typeD: "D" })
+    }
   }
   onMyShow() {
+     
     var that = this;
-    var pingjiaapi = new PingjiaApi();
+    var pingceapi = new PingceApi();
 
-    pingjiaapi.pingjialist({}, (pingjialist) => {
+    pingceapi.pingcejieguo({}, (pingcejieguo) => {
       this.Base.setMyData({
-        pingjialist
+        pingcejieguo
       });
     });
 
@@ -51,6 +69,9 @@ class Content extends AppBase {
         check: true
       })
     }
+  }
+  again(e){
+    
   }
 
 }

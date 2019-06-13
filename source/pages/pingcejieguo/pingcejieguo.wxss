@@ -1,5 +1,4 @@
 /* pages/pingcejieguo/pingcejieguo.wxss */
-
 .again {
   width: 200rpx;
   height: 64rpx;
@@ -7,6 +6,18 @@
   border-radius: 42rpx;
   border: 2rpx solid rgba(153, 153, 153, 1);
 }
-.txt-9{
-  color: #999999;
+
+.txt-9 {
+  color: #999;
+}
+
+.top-block {
+  height: 408rpx;
+  padding: 40rpx;
+}
+
+.yuan {
+  width: 284rpx;
+  height: 284rpx;
+  border: 2rpx solid black;
 }

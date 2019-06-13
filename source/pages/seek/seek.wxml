@@ -397,7 +397,6 @@
 
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
-
   <scroll-view scroll-y>
     <view bindtap='changeDistrict' class='padding-20 text-center' id='-1' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全深圳</view>
     <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
