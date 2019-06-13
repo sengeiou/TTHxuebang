@@ -24,6 +24,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({ liebiao:false});
+   this.Base.shipin = wx.createVideoContext("v_1");
   }
   onMyShow() {
     var that = this;
@@ -94,18 +95,33 @@ class Content extends AppBase {
 
 
   }
+ shipin = null;
+ 
+
   jindu(e)
   {
-    console.log("监控");
-    console.log(e);
-    if (e.detail.currentTime >= this.Base.getMyData().danqianzhanjie.proved_date)
+   console.log("进来了1");
+  
+    // console.log(this.Base.getMyData().danqianzhanjie.proved_date);
+    var a = Number(this.Base.getMyData().danqianzhanjie.proved_date);
+    if (e.detail.currentTime >= a)
     {
+      console.log("进来了2")
       console.log(this.Base.getMyData().danqianzhanjie.proved_date);
-      var shipin = wx.createVideoContext("v_1");
-      
-      shipin.seek(this.Base.getMyData().danqianzhanjie.proved_date);
+    
+
+      this.Base.shipin.pause();
+      if (e.detail.currentTime >= a+1)
+      {
+        this.Base.shipin.seek(a);
+      }
+   
+      if (!this.Base.getMyData().chaoshi) {
+        
       this.Base.setMyData({chaoshi:true});
-      shipin.pause();
+
+       
+      }
     }
     else
     {
@@ -124,6 +140,15 @@ class Content extends AppBase {
   guanbiliebiao(){
     this.Base.setMyData({liebiao:false});
   }
+  shikan(){
+    this.Base.backtotop();
+    this.Base.shipin.play();
+
+  }
+  goumai(){
+  
+
+  }
 }
 
 
@@ -135,6 +160,8 @@ body.qiehuanzhanjie = content.qiehuanzhanjie;
 body.bindcheck = content.bindcheck;
 body.fav = content.fav;
 body.jindu = content.jindu;
+body.shikan = content.shikan;
 body.chakanliebiao = content.chakanliebiao;
 body.guanbiliebiao = content.guanbiliebiao;
+body.goumai = content.goumai;
 Page(body)

@@ -176,7 +176,14 @@ text-decoration:underline;
   margin-right: 28rpx;
 }
 
+.height-160{
+  height: 140rpx;
+}
 .tishi-block {
+    position: fixed;
+  bottom: 96rpx;
+  z-index: 100;
+  width: 100vw;
   height: 60rpx;
   background: rgba(249, 230, 199, 1);
 }
