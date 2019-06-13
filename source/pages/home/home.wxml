@@ -80,7 +80,7 @@
 <view class='scv'>
   <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
 
-    <view class=" " class='ceshi flex-row column' style=''>
+    <view class=" " bindtap='toceshi' class='ceshi flex-row column' style=''>
       <view class='txt-white h5'>家长类型测评</view>
       <view class=' ' style='height:34rpx;'></view>
       <view class='flex-row flex-center'>

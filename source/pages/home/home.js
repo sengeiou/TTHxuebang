@@ -298,13 +298,23 @@ class Content extends AppBase {
       });
     }
   }
+  toceshi(e){
+    wx.navigateTo({
+      url: '/pages/pingceindex/pingceindex',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
+body.toceshi = content.toceshi;
+
 body.tojgdetails = content.tojgdetails; 
 body.toketang = content.toketang;
 body.totake = content.totake;

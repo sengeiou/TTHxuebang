@@ -11,6 +11,18 @@ page {
   padding-bottom: 4rpx;
 } */
 
+.zhaunfa {
+  width: 168rpx;
+  height: 52rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.1);
+  border-radius: 200rpx 0rpx 0rpx 200rpx;
+  opacity: 0.7968000000000001;
+}
+.zhuanfa-icon {
+  width: 26rpx;
+  height: 22rpx;
+}
 .txt {
   color: #ffc200;
 }

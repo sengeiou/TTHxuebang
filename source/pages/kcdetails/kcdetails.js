@@ -23,7 +23,11 @@ class Content extends AppBase {
   constructor() {
     super();
   }
-
+  setPageTitle() {
+    wx.setNavigationBarTitle({
+      title: '课程详情',
+    });
+  }
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -262,7 +266,7 @@ class Content extends AppBase {
     setTimeout(() => {
       this.Base.setMyData({ tishi: 0 })
       // clearTimeout(timeoutId);
-    }, 1000);
+    }, 10000);
 
 
 

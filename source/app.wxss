@@ -58,6 +58,7 @@ view,navigator,input,text,textarea{
   align-content: center;
   align-items: center;
   flex-direction:column;
+  
 }
 .flex-bottom{
   align-content: baseline;
