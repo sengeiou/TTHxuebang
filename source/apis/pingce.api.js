@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class PingceApi{
 
 
-    pingcejieguo(json, callback, showLoading = true) {
+    indexinfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,39 +18,7 @@ export class PingceApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingce/pingcejieguo',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    pingcelist(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingce/pingcelist',
+            url: ApiConfig.GetApiUrl() + 'pingce/indexinfo',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -105,7 +73,7 @@ export class PingceApi{
         })
     }
 
-    indexinfo(json, callback, showLoading = true) {
+    pingcejieguo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -114,7 +82,39 @@ export class PingceApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingce/indexinfo',
+            url: ApiConfig.GetApiUrl() + 'pingce/pingcejieguo',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    pingcelist(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'pingce/pingcelist',
             data: json,
             method: 'POST',
             dataType: 'json',

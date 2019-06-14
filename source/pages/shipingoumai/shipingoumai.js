@@ -5,6 +5,13 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  PurchaseApi
+} from "../../apis/purchase.api.js";
+import {
+  WechatApi
+} from "../../apis/wechat.api.js";
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -29,9 +36,76 @@ class Content extends AppBase {
 
     })
   }
+  youhuijuan(){
+    this.Base.info("该功能暂未开放");
+  }
+  tijiao(){
+    
+    var json={
+      onlineclassroom_id: this.Base.options.id, type: "SP", kt: this.options.type
+
+    }
+
+
+    wx.showModal({
+      title: '提示',
+      content: '是否确认购买课程？',
+      success: (e) => {
+        if (e.confirm) {
+          var api = new PurchaseApi();
+          api.create(json, (ret) => {
+            if (ret.code == '0') {
+              if (ret.return.pstatus == 'P') {
+                // wx.navigateTo({
+                //   url: '/pages/order/order' + ret.return.id,
+                // })
+                return;
+              } else {
+               
+                var wechatapi = new WechatApi();
+                wechatapi.prepay3({ id: ret.return.id }, (payret) => {
+                  payret.complete = function (e) {
+
+
+                    if (e.errMsg == "requestPayment:ok") {
+
+
+                      api.purchaseinfo({ id: ret.return.id }, (res) => {
+
+                        wx.navigateTo({
+                          url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id,
+                        })
+
+                      })
+
+                    }
+                    else {
+
+                      // wx.navigateTo({
+                      //   url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                      // })
+                      console.log("支付失败");
+
+                    }
+
+                  }
+                  console.log(payret);
+                  wx.requestPayment(payret)
+                });
+              }
+            } else {
+              this.Base.info(ret.result);
+            }
+          })
+        }
+      }
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
+body.youhuijuan = content.youhuijuan;
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.tijiao = content.tijiao;
 Page(body)

@@ -1,9 +1,9 @@
-<video  bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}' src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'
+<video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}' src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'
   play-btn-position="center">
   <cover-view wx:if="{{chaoshi}}" class='title txt-red  txt-bold'>
     该充钱啦</cover-view>
 </video>
-<block wx:if="{{!liebiao}}">
+<block wx:if="{{!liebiao&&!quanbu}}">
   <view class='padding-30 border-bottom-2'>
 
     <view class='flex-row '>
@@ -74,71 +74,64 @@
         <view class="{{item.dq==true?'bk':''}}">
           <image class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
           <view class="chaochu kuan">{{item.name}}</view>
-          <view wx:if="{{item.isproved_value=='N'}}" class="h5 fufei">付费</view>
-          <view   wx:if="{{item.isproved_value=='Y'}}" class="h5 mianfei">试看</view>
+
+          <block wx:if="{{kecheninfo.isfree_value=='N'||kecheninfo.idd!=''}}">
+
+            <view wx:if="{{item.isproved_value=='N'&&kecheninfo.idd==''}}" class="h5 fufei">付费</view>
+            <view wx:if="{{item.isproved_value=='Y'&&kecheninfo.idd==''}}" class="h5 mianfei">试看</view>
+            <view wx:if="{{kecheninfo.idd!=''}}" class="h5 mianfei">已购</view>
+          </block>
+
+
         </view>
       </view>
     </scroll-view>
   </view>
   <view class="padding-301 flex-row flex-center">
-    <view class="flex-1 h5" style='color:#222222'>留言 11890</view>
-    <view class="jieshao1 ">查看全部</view>
+    <view class="flex-1 h5" style='color:#222222'>留言 {{ketanpinlunlist.length}}</view>
+    <view bindtap='chakanquanbu' class="jieshao1 ">查看全部</view>
   </view>
-  <view class="padding-20">
-    <view class="flex-row flex-center ">
-      <image src='{{memberinfo.avatarUrl}}' class='icon-40 radius-50'></image>
-      <view class="flex-1 margin-left-10">
-        <view class="h5">林**</view>
-        <view class="h5" style='color:#999999'>2018-08-17</view>
-      </view>
-      <view class="h5" style='color:#999999'>18万</view>
-      <image src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
+  <view wx:for="{{ketanpinlunlist}}" wx:for-index="idx" wx:if="{{idx<2}}"  wx:key="k"   class="padding-20">
+      <view class="flex-row flex-center ">
+        <image src='{{item.member_avatarUrl}}' class='icon-40 radius-50'></image>
+        <view class="flex-1 margin-left-10">
+          <view class="h5">{{item.member_id_name}}</view>
+          <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
+        </view>
+        <view class="h5" style='color:#999999'>18万</view>
+        <image src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
 
-    </view>
-   
-    <view class="h4-5">
-     上了几节课，感觉好好，老师也特别的教学，我家小孩子在学习都不想走了。继续购买几节课，感谢学榜提供这么好的…
-    </view>
-  </view>
- <view class="padding-20">
-    <view class="flex-row flex-center ">
-      <image src='{{memberinfo.avatarUrl}}' class='icon-40 radius-50'></image>
-      <view class="flex-1 margin-left-10">
-        <view class="h5">林**</view>
-        <view class="h5" style='color:#999999'>2018-08-17</view>
       </view>
-      <view class="h5" style='color:#999999'>18万</view>
-      <image src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
 
+      <view class="h5 margin-top-10">
+      {{item.neiron}}
+      </view>
     </view>
-   
-    <view class="h4-5 margin-top-10">
-     上了几节课，感觉好好，老师也特别的教学，我家小孩子在学习都不想走了。继续购买几节课，感谢学榜提供这么好的…
-    </view>
-  </view>
- <image mode='widthFix' style='width:100vw' src='{{uploadpath}}onlineclassroom/{{kecheninfo.haibao}}' ></image>
-  <view class="height-160"></view>
   
+  <image mode='widthFix' style='width:100vw' src='{{uploadpath}}onlineclassroom/{{kecheninfo.haibao}}'></image>
+  <view class="height-160"></view>
 
 
-<view class='tishi-block flex-row flex-center'>
-  <view class='flex-1'></view>
-  <view class='txt-zong h6'>共{{kecheninfo.chapter_num}}章，每章仅需{{kecheninfo.price/kecheninfo.chapter_num}}元</view>
-  <view class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</view>
-  <view class='flex-1'></view>
-</view>
+<block wx:if="{{kecheninfo.isfree_value=='N'}}">
+  <view wx:if="{{kecheninfo.idd==''}}" class='tishi-block flex-row flex-center'>
+    <view class='flex-1'></view>
+    <view class='txt-zong h6'>共{{kecheninfo.chapter_num}}章，每章仅需{{pinjunjia}}元</view>
+    <view class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</view>
+    <view class='flex-1'></view>
+  </view>
 
-  <view class='bottom-block flex-row flex-center'>
+
+  <view wx:if="{{kecheninfo.idd==''}}" class='bottom-block flex-row flex-center'>
     <view bindtap='shikan' class='flex-1 text-center watch_block'>试看</view>
-    <view class='buy_block flex-row flex-center'>
+    <view bindtap='goumai' class='buy_block flex-row flex-center'>
       <view class='flex-1'></view>
       <view class='txt-white margin-top-6'>￥</view>
-      <view class='f40 txt-white txt-bold'>9.9</view>
-      <view bindtap='goumai' class='h5 txt-white margin-top-6 margin-left-12 txt-bold' >立即抢购</view>
+      <view class='f40 txt-white txt-bold'>{{kecheninfo.price}}</view>
+      <view class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</view>
       <view class='flex-1'></view>
     </view>
   </view>
-
+</block>
 
   <view class='tishi' wx:if='{{tishi==1}}'>
     <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
@@ -164,10 +157,49 @@
         <view class="{{item.dq==true?'bk':''}}">
           <image class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
           <view class="chaochu kuan">{{item.name}}</view>
-          <view wx:if="{{item.isproved_value=='N'}}" class="h5 fufei">付费</view>
-          <view wx:if="{{item.isproved_value=='Y'}}" class="h5 mianfei">试看</view>
+          <block wx:if="{{kecheninfo.isfree_value=='N'||kecheninfo.idd!=''}}">
+
+            <view wx:if="{{item.isproved_value=='N'&&kecheninfo.idd==''}}" class="h5 fufei">付费</view>
+            <view wx:if="{{item.isproved_value=='Y'&&kecheninfo.idd==''}}" class="h5 mianfei">试看</view>
+            <view wx:if="{{kecheninfo.idd!=''}}" class="h5 mianfei">已购</view>
+          </block>
         </view>
       </view>
+    </view>
+  </scroll-view>
+</block>
+
+
+<block wx:if="{{quanbu}}">
+
+  <view class="padding-20 flex-row flex-center">
+    <view class="flex-1">精彩评论</view>
+    <view bindtap='guanbiquanbu'>X</view>
+  </view>
+  <scroll-view scroll-y class="gd">
+    <view wx:for="{{ketanpinlunlist}}" wx:key="k"   class="padding-20">
+      <view class="flex-row flex-center ">
+        <image src='{{item.member_avatarUrl}}' class='icon-40 radius-50'></image>
+        <view class="flex-1 margin-left-10">
+          <view class="h5">{{item.member_id_name}}</view>
+          <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
+        </view>
+        <view class="h5" style='color:#999999'>18万</view>
+        <image src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
+
+      </view>
+
+      <view class="h5 margin-top-10">
+      {{item.neiron}}
+      </view>
+    </view>
+    <view style='height:120rpx'></view>
+    <view class="padding-10 db flex-row flex-center">
+    
+<input value="{{pinlun}}" bindinput='shuru'  placeholder="发表一下你的评论吧！"  placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20">
+
+</input>
+    <view bindtap='fabiao' class="fabiao">发表</view>
     </view>
   </scroll-view>
 </block>

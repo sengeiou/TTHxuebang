@@ -17,6 +17,27 @@ width: 100vw;
 height:60vh;
 
 }
+.db{
+ width: 100vw;
+ height: 100rpx;
+ position: fixed;
+ background-color: white;
+
+ bottom: 0;
+ 
+}
+.fabiao{
+
+ padding:20rpx;
+ padding-left:50rpx;
+  padding-right:50rpx;
+ border-radius: 40rpx;
+ background-color: #FF6600;
+ color: white;
+ margin-right: 20rpx;
+ margin-left:20rpx;
+
+}
 .title {
    
   
