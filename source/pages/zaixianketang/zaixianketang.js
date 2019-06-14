@@ -37,15 +37,18 @@ class Content extends AppBase {
 
       this.Base.setMyData({ lunbolist: zaixianlunbo });
     })
+  
+  }
+  onMyShow() {
+    var jigouapi = new JigouApi();
     jigouapi.zaixiankechenlist({}, (zaixiankechen) => {
+      console.log(zaixiankechen);
+      console.log("adada");
       var remenkechen = zaixiankechen.filter(item => item.ishot_value == 'Y');
       var mianfeikechen = zaixiankechen.filter(item => item.isfree_value == 'Y');
       console.log(remenkechen);
       this.Base.setMyData({ kechenlist: zaixiankechen, remenkechen, mianfeikechen });
     })
-  }
-  onMyShow() {
-  
 
   }
   switchtype(e){

@@ -62,12 +62,12 @@
 
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>{{item.age_name}}</view>
         </view>
 
         <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
         </view>
       </view>
@@ -75,16 +75,20 @@
 
 
     </view>
-    <view wx:if="{{item.isfree_value!='Y'}}" class='margin-left-10 flex-row dd flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+     <view wx:if="{{item.isfree_value!='Y'&&item.idd==''}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
       <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
 
-    <view wx:if="{{item.isfree_value=='Y'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value=='Y'&&item.idd==''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
+    </view>
+     <view wx:if="{{item.idd!=''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="yigou">已购</view>
     </view>
   </view>
 
@@ -106,12 +110,12 @@
 
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>{{item.age_name}}</view>
         </view>
 
         <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
         </view>
       </view>
@@ -142,28 +146,32 @@
 
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>{{item.age_name}}</view>
         </view>
 
         <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.jg_icon}}' class='icon-16 '></image>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
           <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
         </view>
       </view>
 
 
     </view>
-    <view wx:if="{{item.isfree_value!='Y'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value!='Y'&&item.idd==''}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
       <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
 
-    <view wx:if="{{item.isfree_value=='Y'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value=='Y'&&item.idd==''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
+    </view>
+     <view wx:if="{{item.idd!=''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="yigou">已购</view>
     </view>
 
   </view>

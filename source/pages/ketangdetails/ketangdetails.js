@@ -23,16 +23,24 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao:false});
-   this.Base.shipin = wx.createVideoContext("v_1");
+    this.Base.setMyData({ liebiao: false, quanbu: false,pinlun:'' });
+    this.Base.shipin = wx.createVideoContext("v_1");
   }
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
     jigouapi.zaixiankecheninfo({ id: this.Base.options.id }, (kecheninfo) => {
+      var pinjunjia = kecheninfo.price / kecheninfo.chapter_num;
       this.Base.setMyData({
-        kecheninfo: kecheninfo, isfav: kecheninfo.isfav
+        kecheninfo: kecheninfo, isfav: kecheninfo.isfav, pinjunjia: pinjunjia.toFixed(2)
       })
+    })
+    jigouapi.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
+      this.Base.setMyData({
+
+        ketanpinlunlist: ketanpinlunlist
+      })
+
 
     })
 
@@ -56,7 +64,7 @@ class Content extends AppBase {
 
       }
     }
-    this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id],liebiao:false });
+    this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id], liebiao: false });
     console.log(e);
   }
   fav(e) {
@@ -95,64 +103,103 @@ class Content extends AppBase {
 
 
   }
- shipin = null;
- 
+  shipin = null;
 
-  jindu(e)
-  {
-   console.log("进来了1");
-  
+
+  jindu(e) {
+    var idd = this.Base.getMyData().kecheninfo.idd;
+    var mianfei = this.Base.getMyData().kecheninfo.isfree_value;
+    if (idd != '' || mianfei == 'Y') {
+      return;
+    }
+
+    console.log("进来了1");
+
     // console.log(this.Base.getMyData().danqianzhanjie.proved_date);
     var a = Number(this.Base.getMyData().danqianzhanjie.proved_date);
-    if (e.detail.currentTime >= a)
-    {
+    if (e.detail.currentTime >= a) {
       console.log("进来了2")
       console.log(this.Base.getMyData().danqianzhanjie.proved_date);
-    
+
 
       this.Base.shipin.pause();
-      if (e.detail.currentTime >= a+1)
-      {
+      if (e.detail.currentTime >= a + 1) {
         this.Base.shipin.seek(a);
       }
-   
-      if (!this.Base.getMyData().chaoshi) {
-        
-      this.Base.setMyData({chaoshi:true});
 
-       
+      if (!this.Base.getMyData().chaoshi) {
+
+        this.Base.setMyData({ chaoshi: true });
+
+
       }
     }
-    else
-    {
-      if (this.Base.getMyData().chaoshi)
-      {
+    else {
+      if (this.Base.getMyData().chaoshi) {
         this.Base.setMyData({ chaoshi: false });
       }
 
 
     }
   }
-  chakanliebiao()
-  {
-    this.Base.setMyData({liebiao:true});
+  chakanliebiao() {
+    this.Base.setMyData({ liebiao: true });
   }
-  guanbiliebiao(){
-    this.Base.setMyData({liebiao:false});
+  chakanquanbu() {
+    this.Base.setMyData({ quanbu: true });
   }
-  shikan(){
+  guanbiquanbu() {
+    this.Base.setMyData({ quanbu: false });
+  }
+  guanbiliebiao() {
+    this.Base.setMyData({ liebiao: false });
+  }
+  shikan() {
     this.Base.backtotop();
     this.Base.shipin.play();
 
   }
-  goumai(){
-  wx.navigateTo({
-    url: '/pages/shipingoumai/shipingoumai?id=' + this.Base.getMyData().kecheninfo.id,
-    success: function(res) {},
-    fail: function(res) {},
-    complete: function(res) {},
-  })
+  goumai() {
+    wx.navigateTo({
+      url: '/pages/shipingoumai/shipingoumai?id=' + this.Base.getMyData().kecheninfo.id,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
 
+  }
+  shuru(e)
+  {
+    this.Base.setMyData({ pinlun: e.detail.value})
+   
+  }
+  fabiao(){
+    var that=this;
+    var api=new JigouApi();
+    if (this.Base.getMyData().kecheninfo.idd != '' || this.Base.getMyData().kecheninfo.isfree_value=='Y')
+    {
+      var pinlun=this.Base.getMyData().pinlun;
+      if(pinlun=='')
+      {
+        this.Base.info("至少说点什么才可以发送哦");
+        return
+      }
+      api.ketanpinlun({ onlineclassroom_id: this.Base.options.id, neiron: pinlun},(res)=>{
+       
+        
+         
+        api.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
+          that.Base.setMyData({
+            ketanpinlunlist: ketanpinlunlist,pinlun:''
+          })
+        })    
+      })    
+       
+
+    }
+    else{
+      this.Base.info("购买此专栏后才能进行评论哦！");
+    }
   }
 }
 
@@ -168,5 +215,9 @@ body.jindu = content.jindu;
 body.shikan = content.shikan;
 body.chakanliebiao = content.chakanliebiao;
 body.guanbiliebiao = content.guanbiliebiao;
+body.chakanquanbu = content.chakanquanbu;
+body.guanbiquanbu = content.guanbiquanbu;
 body.goumai = content.goumai;
+body.fabiao = content.fabiao;
+body.shuru = content.shuru;
 Page(body)

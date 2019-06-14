@@ -81,7 +81,7 @@ class Content extends AppBase {
 
   bindtoorder(e) {
     var api = new JigouApi();
-    var that=this;
+    var that = this;
     var name = this.Base.getMyData().name;
     var mobile = this.Base.getMyData().mobile;
     if (mobile == "" || mobile == null) {
@@ -129,28 +129,28 @@ class Content extends AppBase {
                     var wechatapi = new WechatApi();
                     wechatapi.prepay2({ id: ret.return.id }, (payret) => {
                       payret.complete = function (e) {
-                       
-                            
-                          if (e.errMsg == "requestPayment:ok") {
-                                 
 
-                            api.purchaseinfo({ id: ret.return.id }, (res) => {
 
-                              wx.navigateTo({
-                                url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                              })
+                        if (e.errMsg == "requestPayment:ok") {
 
-                            })
 
-                          }
-                          else {
+                          api.purchaseinfo({ id: ret.return.id }, (res) => {
 
                             wx.navigateTo({
-                              url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                              url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
                             })
 
-                          }
-                      
+                          })
+
+                        }
+                        else {
+
+                          wx.navigateTo({
+                            url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                          })
+
+                        }
+
                       }
                       console.log(payret);
                       wx.requestPayment(payret)
@@ -184,25 +184,24 @@ class Content extends AppBase {
                       } else {
                         var wechatapi = new WechatApi();
                         wechatapi.prepay2({ id: ret.return.id }, (payret) => {
-                          
+
                           payret.complete = function (e) {
-                            if (e.errMsg =="requestPayment:ok")
-                            {
-                              api.purchaseinfo({ id: ret.return.id},(res)=>{
-                                
+                            if (e.errMsg == "requestPayment:ok") {
+                              api.purchaseinfo({ id: ret.return.id }, (res) => {
+
                                 wx.navigateTo({
                                   url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
                                 })
 
                               })
                             }
-                            else{
+                            else {
                               wx.navigateTo({
                                 url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
                               })
 
                             }
-                        
+
                           }
                           console.log(payret);
                           wx.requestPayment(payret)
@@ -241,31 +240,31 @@ class Content extends AppBase {
                   })
                   return;
                 } else {
-                   var wechatapi = new WechatApi();
-                     wechatapi.prepay({ id: ret.return.id }, (payret) => {
-                      payret.complete = function (e) {
-                    
- 
-                        if (e.errMsg == "requestPayment:ok") {
+                  var wechatapi = new WechatApi();
+                  wechatapi.prepay({ id: ret.return.id }, (payret) => {
+                    payret.complete = function (e) {
 
 
-                          api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
+                      if (e.errMsg == "requestPayment:ok") {
 
-                            wx.navigateTo({
-                              url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                            })
 
-                          })
-
-                        }
-                        else {
+                        api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
 
                           wx.navigateTo({
-                            url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                            url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
                           })
 
-                        }
-                      
+                        })
+
+                      }
+                      else {
+
+                        wx.navigateTo({
+                          url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                        })
+
+                      }
+
                     }
                     console.log(payret);
                     wx.requestPayment(payret)

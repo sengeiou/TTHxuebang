@@ -10,6 +10,12 @@ Page{
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
+.tijiao{
+  background-color: #FF6600;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+  padding:20rpx;
+}
 .icon{
   width:40vw;
   height: 30vw;

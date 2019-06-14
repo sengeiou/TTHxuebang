@@ -52,9 +52,9 @@
 
   </view>
 
-<view class='flex-row flex-center padding-20' style=''>
+<view bindtap='youhuijuan' class='flex-row flex-center padding-20' style=''>
     <view class='h5'>优惠卷</view>
-    <view class='flex-1 margin-left-10 h4-5' style='color:#FF6600'>11张可用</view>
+    <view class='flex-1 margin-left-10 h4-5' style='color:#FF6600'>0张可用</view>
     <!-- <view class='txt-black '>共1个课程</view> -->
     <view class='txt-black  margin-left-20 margin-right-10 h5' style='color:#CCCCCC'>课程 满50减20</view>
         <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon-15'></image>
@@ -75,9 +75,9 @@
 <view class='fixedbottom'>
 
   <view class='flex-row flex-center bg-white ' style='border-top:2rpx solid #e5e5e5'>
-    <view class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{kecheninfo.price}}</view>
+    <view class='flex-3 txt-red txt-bold padding-30'>总计 ￥ {{kecheninfo.price}}</view>
     <!-- <view class='txt-black '>共1个课程</view> -->
-    <view class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center' style='width:276rpx;' bindtap='bindtoorder'>提交订单</view>
+    <view class='flex-4 txt-black txt-bold  tijiao txt-white  text-center'  bindtap='tijiao'>提交订单</view>
   </view>
 
 </view>

@@ -119,3 +119,14 @@ border-radius: 5rpx;
    padding:15rpx;
    border-top-left-radius:30rpx;
 }
+.yigou
+{
+ font-size: 24rpx;
+   color:white;
+   background-color:#CCCCCC;
+  
+   padding:15rpx;
+    padding-left:20rpx;
+   padding-right: 20rpx;
+   border-top-left-radius:30rpx;
+}
