@@ -131,6 +131,8 @@
 
   <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
 
+
+
   <view class='margin-20 margin-bottom-10 '>
     <view class='padding-20 flex-row radius-10  margin-top-20  mk' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
 

@@ -128,6 +128,7 @@ class Content extends AppBase {
         mylat,
         mylng
       });
+      
       this.loadcourse();
  
 
@@ -142,7 +143,7 @@ class Content extends AppBase {
           var adcode = address.ad_info.adcode;
           for (var i = 0; i < filterdistrict.length; i++) {
             if (adcode == filterdistrict[i].id) {
-              var fdistrict_id = 0; 
+              var fdistrict_id = 0;
               //filterdistrict[i].id
               this.Base.setMyData({
                 fdistrict_id
@@ -245,6 +246,8 @@ class Content extends AppBase {
     }
     this.loadcourse();
   }
+
+
   loadjg() {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
@@ -292,6 +295,8 @@ class Content extends AppBase {
       });
     });
   }
+
+
   loadcourse() {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;

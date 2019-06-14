@@ -38,7 +38,7 @@ class Content extends AppBase {
 
     var pingceapi = new PingceApi();
 
-    pingceapi.pingcelist({}, (pingcelist) => {
+    pingceapi.pingcelist({ pingceindex_id:this.Base.options.id}, (pingcelist) => {
       this.Base.setMyData({
         pingcelist
       });

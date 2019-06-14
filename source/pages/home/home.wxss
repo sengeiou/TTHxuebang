@@ -98,7 +98,7 @@
   margin-right: 20rpx;
   border-radius: 8rpx;
   display: inline-block;
-  background: #5db982;
+  /* background: #5db982; */
 }
 
 .height-30 {

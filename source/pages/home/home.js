@@ -17,6 +17,9 @@ import {
 import {
   MemberApi
 } from "../../apis/member.api.js";
+import {
+  PingceApi
+} from "../../apis/pingce.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -44,6 +47,16 @@ class Content extends AppBase {
     wx.showLoading({
       title: '加载中...',
     })
+
+    var pingceapi = new PingceApi();
+
+    pingceapi.indexlist({}, (indexlist) => {
+      this.Base.setMyData({
+        indexlist
+      });
+    });
+
+
     this.Base.getAddress((address) => {
       console.log(address);
       var mylat = address.location.lat;
@@ -298,12 +311,11 @@ class Content extends AppBase {
       });
     }
   }
+  
   toceshi(e){
+    var id=e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/pingceindex/pingceindex',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '/pages/pingceindex/pingceindex?id='+id
     })
   }
 
@@ -312,17 +324,16 @@ class Content extends AppBase {
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow; 
+body.onMyShow = content.onMyShow;
 body.toceshi = content.toceshi;
-
-body.tojgdetails = content.tojgdetails; 
+body.tojgdetails = content.tojgdetails;
 body.toketang = content.toketang;
 body.totake = content.totake;
 body.swiperChange = content.swiperChange;
-body.clickChange = content.clickChange; 
-body.tobaoma = content.tobaoma; 
+body.clickChange = content.clickChange;
+body.tobaoma = content.tobaoma;
 body.loadjg = content.loadjg;
-body.bannerGo = content.bannerGo; 
+body.bannerGo = content.bannerGo;
 body.tocity = content.tocity; 
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;

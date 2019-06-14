@@ -6,6 +6,9 @@ import {
   ApiConfig
 } from "../../apis/apiconfig";
 import {
+  ApiUtil
+} from "../../apis/apiutil";
+import {
   InstApi
 } from "../../apis/inst.api.js";
 import {
@@ -15,47 +18,97 @@ import {
   PingceApi
 } from "../../apis/pingce.api.js";
 
+
+
 class Content extends AppBase {
   constructor() {
     super();
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    //options.typeA = "A";
     super.onLoad(options);
     this.Base.setMyData({
-      check: true
+      check: true,
+      xh: 0
+
     });
+
     var typeA = this.options.typeA;
     var typeB = this.options.typeB;
     var typeC = this.options.typeC;
     var typeD = this.options.typeD;
     console.log(typeA, typeB, typeC, typeD)
-    if (typeA!="undefined"){
-      this.Base.setMyData({ typeA:"A"})
+    if (typeA != "undefined") {
+      this.Base.setMyData({
+        typeA: "A"
+      })
     }
     if (typeB != "undefined") {
-      this.Base.setMyData({ typeB: "B" })
+      this.Base.setMyData({
+        typeB: "B"
+      })
     }
     if (typeC != "undefined") {
-      this.Base.setMyData({ typeC: "C" })
+      this.Base.setMyData({
+        typeC: "C"
+      })
     }
     if (typeD != "undefined") {
-      this.Base.setMyData({ typeD: "D" })
+      this.Base.setMyData({
+        typeD: "D"
+      })
     }
   }
   onMyShow() {
-     
+
     var that = this;
     var pingceapi = new PingceApi();
+    var jigouapi = new JigouApi();
+    var typeA = this.options.typeA;
+    var typeB = this.options.typeB;
+    var typeC = this.options.typeC;
+    var typeD = this.options.typeD;
 
-    pingceapi.pingcejieguo({}, (pingcejieguo) => {
+    pingceapi.pingcejieguo({
+      options: [typeA, typeB, typeC, typeD]
+    }, (pingcejieguo) => {
       this.Base.setMyData({
         pingcejieguo
       });
+      // console.log(pingcejieguo.coursetype_id+"看了房价高");
+
+      var type = [];
+
+      for (var a = 0; a < pingcejieguo.length; a++) {
+
+        console.log(pingcejieguo[a].coursetype_id + "看了房价高");
+
+        type.push(pingcejieguo[a].coursetype_id);
+
+      }
+      console.log(type);
+      console.log("的客家话")
+
+      jigouapi.courselist({
+        type: type
+      }, (courselist) => {
+        this.Base.setMyData({
+          courselist
+        });
+        console.log(88888888888888);
+        that.bindhuan();
+      });
+
+
+
+
     });
 
   }
+
+
+
 
   check(e) {
     var ck = e.currentTarget.dataset.ck;
@@ -70,8 +123,85 @@ class Content extends AppBase {
       })
     }
   }
-  again(e){
-    
+  again() {
+    wx.navigateBack({
+      delta: 1,
+    })
+    console.log(555555);
+  }
+  bindhuan() {
+    console.log(5555555555555);
+    var courselist = this.Base.getMyData().courselist;
+    var xianshilist = [];
+    var xh = this.Base.getMyData().xh;
+    console.log(xh);
+    console.log("序号");
+    for (var i = 0; i < courselist.length; i++) {
+      if (i == xh) {
+        console.log("进来了");
+        console.log(i);
+        if (i == courselist.length - 2) {
+          xianshilist.push(courselist[i]);
+          xianshilist.push(courselist[i + 1]);
+          xianshilist.push(courselist[0]);
+          xh = 1;
+          this.Base.setMyData({
+            xianshilist: xianshilist,
+            xh: xh
+          });
+          console.log(xianshilist);
+          console.log(66666666);
+          return
+        }
+        if (i == courselist.length - 1) {
+          xianshilist.push(courselist[i]);
+          xianshilist.push(courselist[0]);
+          xianshilist.push(courselist[1]);
+          xh = 2;
+          this.Base.setMyData({
+            xianshilist: xianshilist,
+            xh: xh
+          });
+          console.log(xianshilist);
+          console.log(66666666);
+          return
+        }
+        if (i == courselist.length) {
+          console.log(788888888);
+          xianshilist.push(courselist[0]);
+          xianshilist.push(courselist[1]);
+          xianshilist.push(courselist[2]);
+          xh = 3;
+          this.Base.setMyData({
+            xianshilist: xianshilist,
+            xh: xh
+          })
+          return
+        }
+
+
+
+
+
+        xianshilist.push(courselist[i]);
+        xianshilist.push(courselist[i + 1]);
+        xianshilist.push(courselist[i + 2]);
+        xh = xh + 3;
+        if (xh == courselist.length) {
+          xh = 0;
+        }
+        console.log(xh);
+        this.Base.setMyData({
+          xianshilist: xianshilist,
+          xh: xh
+        })
+        return
+      }
+
+    }
+
+
+
   }
 
 }
@@ -81,4 +211,6 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.check = content.check;
+body.again = content.again;
+body.bindhuan = content.bindhuan;
 Page(body)

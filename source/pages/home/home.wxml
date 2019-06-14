@@ -80,23 +80,15 @@
 <view class='scv'>
   <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
 
-    <view class=" " bindtap='toceshi' class='ceshi flex-row column' style=''>
-      <view class='txt-white h5'>家长类型测评</view>
+    <view  wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
+      <view class='txt-white h5'>{{item.pingce_name}}</view>
       <view class=' ' style='height:34rpx;'></view>
       <view class='flex-row flex-center'>
-        <view class='txt-white h6'>31710</view>
+        <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</view>
       </view>
     </view>
 
-    <view class=" " class='ceshi flex-row column' style='background-color:#7D79FF'>
-      <view class='txt-white h5'>家长类型测评</view>
-      <view class=' ' style='height:34rpx;'></view>
-      <view class='flex-row flex-center'>
-        <view class='txt-white h6'>31710</view>
-        <view class='h6 margin-left-12 txt-white opa' style=''>人参与测试</view>
-      </view>
-    </view>
 
   </scroll-view>
 </view>

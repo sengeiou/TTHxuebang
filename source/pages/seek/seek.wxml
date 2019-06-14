@@ -15,7 +15,7 @@
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
         </view>
-        
+
         <view class='flex-2 flex-row flex-center '>
           <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
@@ -291,11 +291,11 @@
 
   </view>
 
-<!-- <view wx:if="{{nomore!=1}}" class='h1'>
+  <!-- <view wx:if="{{nomore!=1}}" class='h1'>
 <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 </view> -->
 
-<view style='height:40rpx;'></view>
+  <view style='height:40rpx;'></view>
 
 
 
@@ -342,7 +342,7 @@
 
 
       <view class='btm'>
-        <view class='flex-row flex-column ' >
+        <view class='flex-row flex-column '>
 
           <view class='flex-1'></view>
 
