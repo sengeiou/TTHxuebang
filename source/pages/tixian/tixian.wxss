@@ -1,0 +1,13 @@
+.center{
+
+  text-align: center;
+  margin-top:20rpx;
+}
+.btn{
+  margin-top:80rpx;
+  padding:20rpx 180rpx 20rpx 180rpx;
+  background: rgba(34, 171, 57, 1);
+  color:rgba(255, 255, 255, 1);
+  font-size: 30rpx;
+  border-radius: 120rpx;
+}

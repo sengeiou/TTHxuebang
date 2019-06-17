@@ -393,6 +393,38 @@ export class JigouApi{
         })
     }
 
+    fenxiaoinfo(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/fenxiaoinfo',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     gongaolist(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -809,6 +841,38 @@ export class JigouApi{
         })
     }
 
+    pinlundianzan(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/pinlundianzan',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     pintuaninfo(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -1161,7 +1225,7 @@ export class JigouApi{
         })
     }
 
-    pinlundianzan(json, callback, showLoading = true) {
+    fenxiaoshenhe(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -1170,7 +1234,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/pinlundianzan',
+            url: ApiConfig.GetApiUrl() + 'jigou/fenxiaoshenhe',
             data: json,
             method: 'POST',
             dataType: 'json',
