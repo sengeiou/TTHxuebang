@@ -6,7 +6,7 @@
   <view style='position:relative;'>
     <view style=' ' class=''>
 
-      <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
+      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
         <swiper-item wx:for="{{jigouimg}}" wx:key="k">
           <view>
             <!-- mode="aspectFill"  bindtap='viewPhoto' -->

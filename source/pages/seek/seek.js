@@ -81,14 +81,19 @@ class Content extends AppBase {
 
     wx.showLoading({
       title: '加载中...'
-    })
+    });
+
+    var type = this.Base.getMyData().type;
 
     var that = this;
     var instapi = new InstApi();
     var show = this.Base.getMyData().show;
 
     var jigouapi = new JigouApi();
-    jigouapi.gongaolist({ orderby: " rand() " }, (gongaolist) => {
+    jigouapi.gongaolist({
+      orderby: " rand() "
+    }, (gongaolist) => {
+
       this.Base.setMyData({
         gongaolist
       });
@@ -169,7 +174,9 @@ class Content extends AppBase {
 
   }
   tojgdetails(e) {
-    this.Base.setMyData({ xiala: "yc" })
+    this.Base.setMyData({
+      xiala: "yc"
+    })
     var id = e.currentTarget.id;
 
     wx.navigateTo({
@@ -185,7 +192,9 @@ class Content extends AppBase {
   }
 
   bindshow(e) {
-    this.Base.setMyData({ xiala: "yc" })
+    this.Base.setMyData({
+      xiala: "yc"
+    })
     var type = e.currentTarget.dataset.type;
     console.log(type);
     if (type == "jx") {
@@ -280,9 +289,10 @@ class Content extends AppBase {
       for (var j = 0; j < jglist.length && j < 5; j++) {
         jgvteach.push(jglist[j]);
       }
-      
+
       this.Base.setMyData({
-        jglist, jgvteach
+        jglist,
+        jgvteach
       });
     });
   }
@@ -314,7 +324,7 @@ class Content extends AppBase {
       opt.orderby = "up_time desc,distance";
     }
     if (data.options == "bm_za") {
-      opt.orderby = "zarate,distance";
+      opt.orderby = "people_num desc,distance";
     }
     if (data.options == "h_p") {
       opt.orderby = "scoring desc,distance";
@@ -336,7 +346,8 @@ class Content extends AppBase {
         vteach.push(courselist[i]);
       }
       this.Base.setMyData({
-        courselist, vteach
+        courselist,
+        vteach
       });
 
     });
@@ -387,7 +398,7 @@ class Content extends AppBase {
     var count = 0;
     var cs = 0;
 
-    if (this.options.type == "kc"){
+    if (this.options.type == "kc") {
       for (var i = vteach.length; i < courselist.length; i++) {
         vteach.push(courselist[i]);
         count++;
@@ -402,7 +413,7 @@ class Content extends AppBase {
           icon: 'none'
         })
       }
-      
+
       if (count != 0) {
         setTimeout(() => {
           console.log("llll");
@@ -414,10 +425,10 @@ class Content extends AppBase {
       }
 
     }
-    
 
 
-    if (this.options.type=="jg"){
+
+    if (this.options.type == "jg") {
       for (var j = jgvteach.length; j < jglist.length; j++) {
         jgvteach.push(jglist[j]);
         cs++;
@@ -440,8 +451,8 @@ class Content extends AppBase {
           wx.hideLoading()
         }, 500);
       }
-     }
-   
+    }
+
 
 
   }
@@ -495,16 +506,18 @@ class Content extends AppBase {
     var seq = parseInt(e.currentTarget.id);
     if (seq == -1) {
       this.Base.setMyData({
-        fdistrict_id: 0, xiala: "yc"
+        fdistrict_id: 0,
+        xiala: "yc"
       });
     } else {
 
       var filterdistrict = this.Base.getMyData().filterdistrict;
       this.Base.setMyData({
-        fdistrict_id: filterdistrict[seq].id, xiala: "yc"
+        fdistrict_id: filterdistrict[seq].id,
+        xiala: "yc"
       });
     }
-    
+
     this.backtotop();
     this.loadjg();
 
@@ -541,7 +554,7 @@ class Content extends AppBase {
       cancelColor: '#EE2222',
       confirmText: '确定',
       confirmColor: '#2699EC',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
 
 
@@ -574,12 +587,16 @@ class Content extends AppBase {
   bindxiala(e) {
     var xiala = this.Base.getMyData().xiala;
 
-    this.Base.setMyData({ xiala: xiala == "xs" ? "yc" : "xs" })
+    this.Base.setMyData({
+      xiala: xiala == "xs" ? "yc" : "xs"
+    })
 
   }
 
   yingcang(e) {
-    this.Base.setMyData({ xiala: "yc" })
+    this.Base.setMyData({
+      xiala: "yc"
+    })
   }
 
   catchTouchMove() {
@@ -590,12 +607,16 @@ class Content extends AppBase {
   onShareAppMessage() {
     var data = this.Base.getMyData();
     return {
-      path: "/pages/seek/seek?type=" + data.type
-        + "&ftype_id=" + data.ftype_id
-        + "&fage_id=" + data.fage_id
-        + "&fdistrict_id=" + data.fdistrict_id
+      path: "/pages/seek/seek?type=" + data.type +
+        "&ftype_id=" + data.ftype_id +
+        "&fage_id=" + data.fage_id +
+        "&fdistrict_id=" + data.fdistrict_id
     };
   }
+
+
+
+
 
 }
 

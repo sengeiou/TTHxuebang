@@ -51,6 +51,12 @@ Page{
   padding-bottom: 6rpx;
 }
 
+.dizhi {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .title {
   position: absolute;
   width: 50%;

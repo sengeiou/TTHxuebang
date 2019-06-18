@@ -43,7 +43,7 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     // wx.showLoading({
     //   title: '加载中...',
-    // })
+    // });
     this.Base.getAddress((address) => {
       console.log(address);
       var mylat = address.location.lat;
@@ -75,7 +75,19 @@ class Content extends AppBase {
         mylng,
         cityname: AppBase.CITYNAME
       });
-      if (AppBase.CITYID!=this.Base.getMyData().currectcityid){
+
+      var lastlat = AppBase.lastlat;
+      var lastlng = AppBase.lastlng;
+
+      var lastdistance = ApiUtil.GetDistance(mylat, mylng, lastlat, lastlng);
+
+      AppBase.lastlat = mylat;
+      AppBase.lastlng = mylng;
+
+
+      if (AppBase.CITYID!=this.Base.getMyData().currectcityid
+      ||this.lastdistance>3000
+      ){
         this.Base.setMyData({ currectcityid: AppBase.CITYID});
         this.loadjg();
       }

@@ -7,8 +7,7 @@
         <view class='txt-black h5'>{{cityname}}</view>
         <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       </view>
-
-      <navigator url='/pages/searchword/searchword?kc' class='search flex-1 flex-row flex-center  padding-10 margin-left-20'>
+      <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 margin-left-20'>
         <view class='flex-1' style='width:20rpx;margin-top:4rpx;'></view>
         <image class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
         <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>搜索你要找的机构、课程、老师</view>

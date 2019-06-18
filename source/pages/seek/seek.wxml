@@ -18,7 +18,7 @@
         <view class='flex-2 flex-row flex-center '>
           <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
-          <swiper vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='width:324rpx;height:30rpx;'>
+          <swiper vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' style='width:324rpx;height:30rpx;'>
             <swiper-item wx:for="{{gongaolist}}" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
               {{item.content}}
             </swiper-item>

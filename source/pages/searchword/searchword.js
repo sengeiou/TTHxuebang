@@ -49,9 +49,9 @@ class Content extends AppBase {
   search(e) {
     //console.log(e.detail.value);
     this.Base.setMyData({ show: 1 });
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
 
 
       var json = {};

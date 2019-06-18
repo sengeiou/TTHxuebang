@@ -66,19 +66,44 @@ class Content extends AppBase {
       console.log(json.searchkeyword+"电风扇");
 
 
+      this.Base.getAddress((address) => {
+        console.log(address);
+        var mylat = address.location.lat;
+        var mylng = address.location.lng;
+        json.mylat = mylat;
+        json.mylng = mylng;
+        json.orderby = "distance";
+        jigouapi.jglist(json, (jglist) => {
+          this.Base.setMyData({
+            jglist
+          });
+        });
 
-      jigouapi.jglist(json, (jglist) => {
-        this.Base.setMyData({
-          jglist
+
+        kc.mylat = mylat;
+        kc.mylng = mylng;
+        kc.orderby = "distance";
+
+        jigouapi.courselist(kc, (courselist) => {
+          this.Base.setMyData({
+            courselist
+          });
+        });
+      },()=>{
+
+        jigouapi.jglist(json, (jglist) => {
+          this.Base.setMyData({
+            jglist
+          });
+        });
+        jigouapi.courselist(kc, (courselist) => {
+          this.Base.setMyData({
+            courselist
+          });
         });
       });
       
       
-      jigouapi.courselist(kc, (courselist) => {
-         this.Base.setMyData({
-           courselist
-       });
-      });
 
       
 
