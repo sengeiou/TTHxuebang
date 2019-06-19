@@ -5,6 +5,9 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  HaibaoApi
+} from "../../apis/haibao.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -22,7 +25,6 @@ class Content extends AppBase {
   }
   ycmobile(str) {
     return str.substr(0, 3) + "****" + str.substr(7);
-
   }
   onMyShow() {
     var api = new JigouApi();
@@ -108,9 +110,39 @@ class Content extends AppBase {
     })
 
   }
-  mykehu(){
+  mykehu() {
+    if (0 == 1) {
+      this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+    }
+    wx.navigateTo({
+      url: '/pages/mykehu/mykehu',
+    })
+  }
 
-    this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+  myinvite() {
+    wx.navigateTo({
+      url: '/pages/myinvite/myinvite',
+    })
+  }
+  tuiguandindan() {
+    wx.navigateTo({
+      url: '/pages/tuiguandindan/tuiguandindan',
+    })
+
+  }
+  yaoqin(){
+  var api=new HaibaoApi;
+    api.haibao({},(res)=>{
+   console.log(res);
+   if(res.code==0)
+   {
+  wx.navigateTo({
+    url: '/pages/yaoqinhaibao/yaoqinhaibao?name='+res.return,
+  })
+
+
+   }
+    })
 
   }
 }
@@ -128,4 +160,7 @@ body.dizhi = content.dizhi;
 body.queren = content.queren;
 body.lijitixian = content.lijitixian;
 body.mykehu = content.mykehu;
+body.myinvite = content.myinvite;
+body.tuiguandindan = content.tuiguandindan;
+body.yaoqin=content.yaoqin;
 Page(body)

@@ -221,6 +221,9 @@ overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内�
 .f-26{
   font-size: 26rpx !important;
 }
+.f-22{
+  font-size: 22rpx !important;
+}
 .text-underline{
   text-decoration: underline;
 }

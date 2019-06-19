@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 40,
+			"current": 44,
 			"list": [
 				{
 					"id": 0,
@@ -324,6 +324,34 @@
 					"id": -1,
 					"name": "收支明细",
 					"pathName": "pages/mingxi/mingxi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的客户",
+					"pathName": "pages/mykehu/mykehu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客户详情",
+					"pathName": "pages/kehuinfo/kehuinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的邀请",
+					"pathName": "pages/myinvite/myinvite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品推广订单",
+					"pathName": "pages/tuiguandindan/tuiguandindan",
 					"scene": null
 				}
 			]
