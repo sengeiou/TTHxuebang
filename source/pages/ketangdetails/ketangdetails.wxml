@@ -1,4 +1,4 @@
-<video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}' src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'
+<video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}' src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'
   play-btn-position="center">
   <cover-view wx:if="{{chaoshi}}" class='title txt-red  txt-bold'>
     该充钱啦</cover-view>

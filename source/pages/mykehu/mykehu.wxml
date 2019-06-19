@@ -30,23 +30,69 @@
   <view class="h6">自定义时间</view>
   <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
 </view>
-<view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
-  共1个客户
-</view>
-<view bindtap="kehuinfo" class="padding-20 flex-row flex-center">
-  <image class="icon-60 radius-50" src="{{memberinfo.avatarUrl}}"></image>
-  <view class="margin-left-20">
-    <view class="flex-row flex-center">
-      <view class="h6">王志新</view>
-      <view class="biaoqian margin-left-10">分销员</view>
-    </view>
-    <view class="flex-row flex-center margin-top-20">
-      <view class="h6">成交额:</view>
-      <view class="h6 margin-left-10">￥100.00</view>
-    </view>
-
+<block wx:if="{{show=='all'}}">
+  <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
+    共{{quanbu.length}}个客户
   </view>
-  <view class="flex-1"></view>
-  <view class="h6">关系15天后过期</view>
-  <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}"></image>
-</view>
+  <view wx:for="{{quanbu}}" wx:key='k' bindtap="kehuinfo" class="padding-20 flex-row flex-center">
+    <image class="icon-60 radius-50" src="{{item.avatarUrl}}"></image>
+    <view class="margin-left-20">
+      <view class="flex-row flex-center">
+        <view class="h6 chaochu taichan">{{item.nickName}}</view>
+        <view class="biaoqian margin-left-10">分销员</view>
+      </view>
+      <view class="flex-row flex-center margin-top-20">
+        <view class="h6">成交额:</view>
+        <view class="h6 margin-left-10">￥0.00</view>
+      </view>
+
+    </view>
+    <view class="flex-1"></view>
+    <view class="h6">关系{{item.jieshushijian}}天后过期</view>
+    <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}"></image>
+  </view>
+</block>
+<block wx:if="{{show=='wc'}}">
+  <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
+    共{{youxiao.length}}个客户
+  </view>
+  <view wx:for="{{youxiao}}" wx:key='k' bindtap="kehuinfo" class="padding-20 flex-row flex-center">
+    <image class="icon-60 radius-50" src="{{item.avatarUrl}}"></image>
+    <view class="margin-left-20">
+      <view class="flex-row flex-center">
+        <view class="h6 chaochu taichan">{{item.nickName}}</view>
+        <view class="biaoqian margin-left-10">分销员</view>
+      </view>
+      <view class="flex-row flex-center margin-top-20">
+        <view class="h6">成交额:</view>
+        <view class="h6 margin-left-10">￥0.00</view>
+      </view>
+
+    </view>
+    <view class="flex-1"></view>
+    <view class="h6">关系{{item.jieshushijian}}天后过期</view>
+    <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}"></image>
+  </view>
+</block>
+<block wx:if="{{show=='df'}}">
+  <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
+    共{{shixiao.length}}个客户
+  </view>
+  <view wx:for="{{shixiao}}" wx:key='k' bindtap="kehuinfo" class="padding-20 flex-row flex-center">
+    <image class="icon-60 radius-50" src="{{item.avatarUrl}}"></image>
+    <view class="margin-left-20">
+      <view class="flex-row flex-center">
+        <view class="h6 chaochu taichan">{{item.nickName}}</view>
+        <view class="biaoqian margin-left-10">分销员</view>
+      </view>
+      <view class="flex-row flex-center margin-top-20">
+        <view class="h6">成交额:</view>
+        <view class="h6 margin-left-10">￥0.00</view>
+      </view>
+
+    </view>
+    <view class="flex-1"></view>
+    <view class="h6">关系{{item.jieshushijian}}天后过期</view>
+    <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}"></image>
+  </view>
+</block>
