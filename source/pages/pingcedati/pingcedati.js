@@ -50,7 +50,9 @@ class Content extends AppBase {
 
     var id = e.currentTarget.id;
     var sx = e.currentTarget.dataset.sx;
+
     var pingcelist = this.Base.getMyData().pingcelist;
+    
     pingcelist[sx].check = id;
  
     this.Base.setMyData({

@@ -80,6 +80,7 @@
         <view class='addimg' bindtap='uploadimg'>
           <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon56'></image>
         </view>
+        
       </view>
 
     </view>
