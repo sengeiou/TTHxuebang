@@ -1,7 +1,7 @@
 <!--pages/pingceindex/pingceindex.wxml-->
 
 <view class='top-img' style='background-image:url({{uploadpath}}pingceindex/{{info.indeximg}});background-size:100% 100%;'>
- 
+
 </view>
 
 
@@ -22,37 +22,81 @@
     <view class='flex-1'></view>
 
     <view class='flex-row flex-column'>
-      <view class='quan radius-50 flex-row flex-column '>
+
+      <!-- <view class='quan radius-50 flex-row flex-column '>
         <view class='flex-1'></view>
         <view class='h7' style='color:#B4B4B4'>平均</view>
         <view style='color:#B71B93'>{{info.zhunque}}</view>
         <view class='flex-1'></view>
+      </view> -->
+
+      <view class="container">
+        <view class='progress_box '>
+          <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+          <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+          <view class='progress_text'>
+            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
+            <view style='color:#B71B93'>{{zq}}</view>
+          </view>
+        </view>
       </view>
-      <view class='margin-top-24 h5'>测试准确度</view>
+
+
+      <view class='  h5'>测试准确度</view>
+      
     </view>
 
     <view class='flex-1'></view>
 
     <view class='flex-row flex-column'>
-      <view class='quan radius-50 flex-row flex-column '>
+
+
+      <!-- <view class='quan radius-50 flex-row flex-column '>
         <view class='flex-1'></view>
         <view class='h7' style='color:#B4B4B4'>平均</view>
         <view style='color:#B71B93'>{{info.shiyon}}</view>
         <view class='flex-1'></view>
+      </view> -->
+
+      <view class="container">
+        <view class='progress_box '>
+          <canvas class="progress_bg" canvas-id="canvasProgressbg2"> </canvas>
+          <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
+          <view class='progress_text'>
+            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
+            <view style='color:#B71B93'>{{sy}}</view>
+          </view>
+        </view>
       </view>
-      <view class='margin-top-24 h5'>建议实用性</view>
+
+
+
+      <view class='  h5'>建议实用性</view>
     </view>
 
     <view class='flex-1'></view>
 
     <view class='flex-row flex-column'>
-      <view class='quan radius-50 flex-row flex-column '>
+      <!-- <view class='quan radius-50 flex-row flex-column '>
         <view class='flex-1'></view>
         <view class='h7' style='color:#B4B4B4'>平均</view>
         <view style='color:#B71B93'>{{info.yidong}}</view>
         <view class='flex-1'></view>
+      </view> -->
+
+      <view class="container">
+        <view class='progress_box '>
+          <canvas class="progress_bg" canvas-id="canvasProgressbg3"> </canvas>
+          <canvas class="progress_canvas" canvas-id="canvasProgress3"> </canvas>
+          <view class='progress_text'>
+            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
+            <view style='color:#B71B93'>{{yd}}</view>
+          </view>
+        </view>
       </view>
-      <view class='margin-top-24 h5'>题目易懂性</view>
+
+
+      <view class='  h5'>题目易懂性</view>
     </view>
 
     <view class='flex-1'></view>
@@ -71,7 +115,7 @@
   <text class='margin-top-14 h6 txt-6' style=''>
      {{info.xuzhi}}
   </text>
-  
+
 
 
 </view>
@@ -93,19 +137,19 @@
 
 
 <view class='UD' hidden='{{true}}'>
- 
 
 
- <view class="container">
-     <view class='progress_box'>
-        <canvas class="progress_bg"     canvas-id="canvasProgressbg">  </canvas> 
-        <canvas class="progress_canvas"     canvas-id="canvasProgress">  </canvas> 
-        <view class="progress_text">
-            <view class="progress_dot"></view> 
-            <text class='progress_info'> {{progress_txt}}</text>
-        </view>     
+
+  <view class="container">
+    <view class='progress_box '>
+      <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+      <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+      <view class='progress_text'>
+        <view class=''>455</view>
+        <view>455</view>
+      </view>
     </view>
-</view>
+  </view>
 
 
 

@@ -24,8 +24,14 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      currentItemId: 2,  
-      show: 1, region: []
+      currentItemId: 2,
+      show: 1,
+      region: [],
+      jgimages: [],
+      hjimages: [],
+      skimages: [],
+      list:[],
+      kclist:[]
     })
   }
   onMyShow() {
@@ -43,20 +49,155 @@ class Content extends AppBase {
     });
 
 
+    this.Base.getAddress((address) => {
+      console.log(address);
+      var region = [address.address_component.province, address.address_component.city, address.address_component.district];
+      this.Base.setMyData({
+        region
+      });
+    });
+
+  }
+
+  jguploadimg() {
+    var that = this;
+    this.Base.uploadImage("jgmentou", (ret) => {
+      var jgimages = that.Base.getMyData().jgimages;
+      jgimages.push(ret);
+      that.Base.setMyData({
+        jgimages
+      });
+    }, 9, undefined);
+  }
+
+  jgminusImg(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var jgimages = that.Base.getMyData().jgimages;
+    var jgimgs = [];
+    for (var i = 0; i < jgimages.length; i++) {
+      if (seq != i) {
+        jgimgs.push(jgimages[i]);
+      }
+    }
+    that.Base.setMyData({
+      jgimages: jgimgs
+    });
+  }
 
 
+  hjuploadimg() {
+    var that = this;
+    this.Base.uploadImage("huanjing", (ret) => {
+      var hjimages = that.Base.getMyData().hjimages;
+      hjimages.push(ret);
+      that.Base.setMyData({
+        hjimages
+      });
+    }, 9, undefined);
+  }
 
-        this.Base.getAddress((address) => {
-          console.log(address);
-          var region = [address.address_component.province, address.address_component.city, address.address_component.district];
-          this.Base.setMyData({
-            region
-          });
-        });
+  hjminusImg(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var hjimages = that.Base.getMyData().hjimages;
+    var hjimgs = [];
+    for (var i = 0; i < hjimages.length; i++) {
+      if (seq != i) {
+        hjimgs.push(hjimages[i]);
+      }
+    }
+    that.Base.setMyData({
+      hjimages: hjimgs
+    });
+  }
+
+  skuploadimg() {
+    var that = this;
+    this.Base.uploadImage("shangke", (ret) => {
+      var skimages = that.Base.getMyData().skimages;
+      skimages.push(ret);
+      that.Base.setMyData({
+        skimages
+      });
+    }, 9, undefined);
+  }
+
+  skminusImg(e) {
+    var that = this;
+    var seq = e.currentTarget.id;
+    var skimages = that.Base.getMyData().skimages;
+    var skimgs = [];
+    for (var i = 0; i < skimages.length; i++) {
+      if (seq != i) {
+        skimgs.push(skimages[i]);
+      }
+    }
+    that.Base.setMyData({
+      skimages: skimgs
+    });
+  }
+
+
+  bindchecksex(e) {
+    var id = e.currentTarget.id;
+
+    var dx = e.currentTarget.dataset.idx;
+
+    var kclist=this.Base.getMyData().kclist;
     
+    if (id == 'A') {
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
+    }
 
+    if (id == 'W') {
 
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
 
+    }
+
+    if (id == 'M') {
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
+
+    }
+
+  }
+
+  bindkaike(e) {
+    var kaike = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+
+    if (kaike == 'tiqian') {
+      kclist[idx].kaike = "A";
+      this.Base.setMyData({ kclist: kclist })
+    }
+    if (kaike == 'suishi') {
+      kclist[idx].kaike = "B";
+      this.Base.setMyData({ kclist: kclist })
+    }
+  }
+
+  bindqingjia(e) {
+    var qingjia = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+    
+    if (qingjia == 'tqgz') {
+      kclist[idx].qingjia = "A";
+      this.Base.setMyData({ kclist: kclist })
+    }
+    if (qingjia == 'buyunxu') {
+      kclist[idx].qingjia = "B";
+      this.Base.setMyData({ kclist: kclist })
+    }
+    if (qingjia == 'qita') {
+      kclist[idx].qingjia = "C";
+      this.Base.setMyData({ kclist: kclist })
+    }
   }
 
   bindRegionChange(e) {
@@ -84,27 +225,69 @@ class Content extends AppBase {
   }
   // addjigou
 
+
+
+  addkecheng(e){
+    var kclist = this.Base.getMyData().kclist;
+    var list=this.Base.getMyData().list;
+    var idx={name:'',nianlin:'',sex:'',kaike:'',qingjia:''};
+    kclist.push(
+      idx
+    );
+    this.Base.setMyData({ kclist})
+  }
+
+
+
   confirm(e) {
     console.log(e);
     var that = this;
     var data = e.detail.value;
+    var jigouapi = new JigouApi();
+
+    var jgimages = this.Base.getMyData().jgimages.slice(0, 19);
+    var hjimages = this.Base.getMyData().hjimages.slice(0, 19);
+    var skimages = this.Base.getMyData().skimages.slice(0, 19);
+    console.log(jgimages);
+    console.log(hjimages);
+    console.log(skimages);
+    console.log("弗兰克攻击力可")
+
+    var sex = this.Base.getMyData().sex;
+    var kaike = this.Base.getMyData().kk;
+    var qingjia = this.Base.getMyData().qj;
+    //return;
+
+
+    console.log(sex);
+    console.log(kaike);
+    console.log(qingjia);
+    console.log("双方各")
+    // return;
+
     var name = data.name;
+
     var phonetel = /^[1][3,4,5,7,8][0-9]{9}$/;
     console.log(phonetel);
     //return;
     var ismobile = phonetel.exec(data.mobile);
     var show = this.Base.getMyData().show;
-    var memberinfo = this.Base.getMyData().memberinfo;
-    //console.log(memberinfo.id)
-    console.log(data.name);
+    var region = this.Base.getMyData().region;
 
-    if (data.jigou == "") {
-      this.Base.info("请填写机构名");
+    console.log(this.Base.getMyData().memberinfo.id);
+    //return;
+
+
+
+    //return;
+
+    if (data.hangye == "") {
+      this.Base.info("请填写所属行业");
       return;
     }
 
-    if (data.name == "") {
-      this.Base.info("请填写联系人姓名");
+    if (data.jigou == "") {
+      this.Base.info("请填写机构名称");
       return;
     }
 
@@ -116,21 +299,23 @@ class Content extends AppBase {
     if (!ismobile) {
       this.Base.info("请填写正确的联系电话");
       return;
-    } 
+    }
+
     if (data.address == "") {
       this.Base.info("请填写地址");
       return;
     }
-    if (data.housenum == "") {
-      this.Base.info("请填写门牌号");
+    if (data.jianjie == "") {
+      this.Base.info("请填写机构简介");
       return;
     }
+
     if (show == 1) {
       this.Base.info("请点击同意用户协议");
       return;
     }
 
-    var jigouapi = new JigouApi();
+
 
     wx.showModal({
       title: '提交',
@@ -146,25 +331,51 @@ class Content extends AppBase {
             title: '正在提交',
             mask: true
           })
+
           //console.log(data.name);return;
+
           jigouapi.addjigou({
-            member_id: memberinfo.id,
+            member_id: that.Base.getMyData().memberinfo.id,
+            hangye: data.hangye,
             name: data.jigou,
-            peoplename: data.name,
             mobile: data.mobile,
-            address: data.address,
-            housenum: data.housenum,
+            address: region,
+            jianjie: data.jianjie,
+            mentou: jgimages,
+            huanjing: hjimages,
+            huojiang: skimages,
             appstatus: "I",
             status: "A",
             protocol: "Y"
           }, (addjigou) => {
-            that.Base.setMyData({
+
+            this.Base.setMyData({
               addjigou
             });
+            console.log(addjigou.return);
+            console.log("大幅度");
+
+            jigouapi.addshenqing({
+              application_id: addjigou.return,
+              name: data.kcname,
+              age: data.age,
+              date_time: data.time,
+              sex: sex,
+              duration: data.duration,
+              style: kaike,
+              claim: qingjia,
+              status: "A"
+            }, (addshenqing) => {
+              this.Base.setMyData({
+                addshenqing
+              })
+            })
+
+
           });
 
           wx.hideLoading();
-          
+
           // wx.showToast({
           //   title: '提交成功',
           //   icon: '',
@@ -173,7 +384,7 @@ class Content extends AppBase {
             title: '',
             showCancel: false,
             content: '信息已完成提交',
-            success: function (res) {
+            success: function(res) {
               wx.navigateBack({
                 delta: 1
               });
@@ -187,36 +398,68 @@ class Content extends AppBase {
 
   }
 
-  tocontent(e){
+  tocontent(e) {
     wx.navigateTo({
       url: '/pages/content/content',
     })
   }
-  useaddress(){
+
+  useaddress() {
     wx.chooseAddress({
-      success:(res)=>{
+      success: (res) => {
         console.log(res);
 
-        this.Base.setMyData({pca:res.provinceName+res.cityName+res.countyName,
-        detail:res.detailInfo,
-        contacttel:res.telNumber,
-        contactname:res.userName
+        this.Base.setMyData({
+          pca: res.provinceName + res.cityName + res.countyName,
+          detail: res.detailInfo,
+          contacttel: res.telNumber,
+          contactname: res.userName
         });
 
 
       }
-    })  
+    })
   }
 
+  tohuiyuan(e) {
+    wx.navigateTo({
+      url: '/pages/huiyuanfuwu/huiyuanfuwu'
+    })
+  }
+  xiename(e)
+  {
+    console.log(e.detail.value);
+    var kclist=this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].name = e.detail.value;
+    this.Base.setMyData({ kclist: kclist})
+  }
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.xiename=content.xiename;
 body.bindcheck = content.bindcheck;
-body.confirm = content.confirm; 
+body.confirm = content.confirm;
 body.tocontent = content.tocontent;
-body.useaddress = content.useaddress; 
-body.bindRegionChange = content.bindRegionChange; 
+body.useaddress = content.useaddress;
+body.bindRegionChange = content.bindRegionChange;
+
+body.bindchecksex = content.bindchecksex;
+body.bindkaike = content.bindkaike;
+body.bindqingjia = content.bindqingjia;
+body.tohuiyuan = content.tohuiyuan;
+
+body.jguploadimg = content.jguploadimg;
+body.jgminusImg = content.jgminusImg;
+
+body.hjuploadimg = content.hjuploadimg;
+body.hjminusImg = content.hjminusImg;
+
+body.skuploadimg = content.skuploadimg;
+body.skminusImg = content.skminusImg; 
+
+body.addkecheng = content.addkecheng;
+
 Page(body)

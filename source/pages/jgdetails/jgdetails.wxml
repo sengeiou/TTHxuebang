@@ -210,13 +210,60 @@
       </view>
 
 
+    </view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class='flex-1'></view>
+    <view style='width:140rpx;height:2rpx;' class='bg-white margin-right-20'></view>
+    <view class='txt-white'>猜你喜欢</view>
+    <view style='width:140rpx;height:2rpx;' class='bg-white margin-left-20'></view>
+    <view class='flex-1'></view>
+  </view>
 
 
 
+  <view class='flex-row flex-center flex-wrap'>
+    <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketanglist}}' wx:key='k'>
+
+      <view style=''>
+        <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
+      </view>
+
+      <view class='padding-12'>
+        <view class='h6'>{{item.name}}</view>
+        <view style=' height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
+          {{item.class_introduce}}
+        </view>
+
+
+        <view class='flex-row flex-center margin-top-14'>
+          <view class='flex-row flex-center'>
+            <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
+            <view class=' f20 margin-left-10'>{{item.age_name}}</view>
+          </view>
+
+          <view class='flex-row flex-center margin-left-26'>
+            <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
+            <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
+          </view>
+        </view>
+
+
+      </view>
+
+
+      <view class='margin-left-10 dd flex-row flex-center margin-top-12'>
+        <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
+        <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
+        <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+        <view class=' txt-red xg' style=''>{{item.price}}</view>
+      </view>
 
 
     </view>
   </view>
+
 
   <!-- <view class='height-100 '></view> -->
 
@@ -231,4 +278,79 @@
 
 <view class='tishi' wx:if='{{tishi==2}}'>
   <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
+</view>
+
+
+<view style='height:50rpx;' bindtap='bindshowtc'>打开</view>
+
+
+
+<view class='buy' wx:if='{{tanchuang==true}}'>
+  <view style='height:40vh;background:black;opacity:0.5'></view>
+
+  <view style='height:55.6vh;background:white' class='padding-block'>
+
+    <view class='flex-row '>
+      <image src='{{uploadpath}}curriculum/{{courseinfo.kc_img}}' style=' ' class='icon-img'></image>
+
+      <view class=' flex-1 margin-left-20'>
+        <view>{{courseinfo.name}}</view>
+
+        <view class='flex-row flex-center margin-top-10' style=''>
+
+          <view class='flex-row flex-center   '>
+            <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.age_name}}</view>
+          </view>
+
+          <view class='flex-row flex-center  margin-left-20'>
+            <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.class_hours}}节课</view>
+          </view>
+
+          <view class='flex-row flex-center  margin-left-20'>
+            <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
+            <view class='h6 txt-black margin-left-5'>{{courseinfo.duration}}/节</view>
+          </view>
+
+        </view>
+
+        <view class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+
+      </view>
+
+      <view bindtap='bindclose'>
+        <image src='{{uploadpath}}resource/{{res.close}}' class='icon-15'></image>
+      </view>
+
+    </view>
+
+    <view style='height:2rpx;width:720rpx;background:#F5F5F5;' class='margin-top-20'></view>
+
+    <view class='margin-top-10 h6' style='color:#666666'>课程</view>
+
+    <view class='flex-row flex-center flex-wrap margin-top-10'>
+      <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}'  wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' bindtap='check'>{{item.name}}</view>
+    </view>
+
+
+    <view style='height:52rpx;'></view>
+    
+    <!-- <view >购买数量</view> -->
+
+    <!-- <view bindtap='tobuy' id='{{newkcinfo.id}}'>购买数量</view> -->
+    
+
+    <view class='under'>
+    <view class='flex-row flex-column'>
+      
+      <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+     
+    </view>
+    </view>
+
+  </view>
+
+
+
 </view>

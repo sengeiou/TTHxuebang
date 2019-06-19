@@ -354,6 +354,12 @@
 					"pathName": "pages/tuiguandindan/tuiguandindan",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员服务",
+					"pathName": "pages/huiyuanfuwu/huiyuanfuwu",
+					"scene": null
 				}
 			]
 		}
