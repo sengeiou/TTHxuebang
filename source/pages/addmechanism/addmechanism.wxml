@@ -63,7 +63,7 @@
 
 
 
-  <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
+  <view wx:for='{{kclist}}'  wx:key='k' wx:for-index='idx'>
     <view class='height-72 txt-6'>
       课程一
     </view>
@@ -74,7 +74,7 @@
         <view class='flex-row flex-center '>
           <view class='' style='color:#FF5252'>*</view>
           <view class='font-30  txt-black margin-left-10 width-210'>课程名称：</view>
-          <input class='  ' style='' placeholder-class='pc' value='' name='kcname' placeholder='请填写联系人姓名'></input>
+          <input bindinput='xiename' data-idx="{{idx}}" class='  ' style='' placeholder-class='pc' value='' name='kcname' placeholder='请填写联系人姓名'></input>
         </view>
       </view>
       <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
@@ -103,21 +103,20 @@
           <view class='' style='color:#FF5252'>*</view>
           <view class='font-30   txt-black margin-left-10 '>性别：</view>
 
-
           <view class='flex-row flex-center  margin-left-40'>
 
-            <view class='flex-row flex-center  ' bindtap='bindchecksex' id='ALL' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[dx].sex=="A"?"bg-orange":""}}'></view>
+            <view class='flex-row flex-center  ' bindtap='bindchecksex' id='A' data-idx='{{idx}}'>
+              <view class='sex_check radius-50 {{kclist[idx].sex=="A"?"bg-orange":""}}'></view>
               <view class='margin-left-10 font-30 '>不限</view>
             </view>
 
             <view class='flex-row flex-center  margin-left-40' bindtap='bindchecksex' id='W' data-idx='{{idx}}'>
-              <view class='sex_check radius-50  {{kclist[dx].sex=="W"?"bg-orange":""}}'></view>
+              <view class='sex_check radius-50  {{kclist[idx].sex=="W"?"bg-orange":""}}'></view>
               <view class='margin-left-10 font-30'>限女生</view>
             </view>
 
             <view class='flex-row flex-center margin-left-40 ' bindtap='bindchecksex' id='M' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[dx].sex=="M"?"bg-orange":""}}'></view>
+              <view class='sex_check radius-50 {{kclist[idx].sex=="M"?"bg-orange":""}}'></view>
               <view class='margin-left-10 font-30 '>限男生</view>
             </view>
 
@@ -143,14 +142,16 @@
           <view class='' style='color:#FF5252'>*</view>
           <view class='font-30   txt-black margin-left-10 '>开课方式：</view>
           <view class='flex-row flex-center  margin-left-40'>
-            <view class='flex-row flex-center   ' bindtap='bindkaike' id='tiqian'>
-              <view class='sex_check radius-50  {{kk=="A"?"bg-orange":""}}'></view>
+            <view class='flex-row flex-center   ' bindtap='bindkaike' id='tiqian' data-idx='{{idx}}'>
+              <view class='sex_check radius-50  {{kclist[idx].kaike=="A"?"bg-orange":""}}'></view>
               <view class='margin-left-10 font-30'>提前预约</view>
             </view>
-            <view class='flex-row flex-center margin-left-40 ' bindtap='bindkaike' id='suishi'>
-              <view class='sex_check radius-50 {{kk=="B"?"bg-orange":""}}'></view>
+
+            <view class='flex-row flex-center margin-left-40 ' bindtap='bindkaike' id='suishi' data-idx='{{idx}}'>
+              <view class='sex_check radius-50 {{kclist[idx].kaike=="B"?"bg-orange":""}}'></view>
               <view class='margin-left-10 font-30 '>随时插班</view>
             </view>
+            
           </view>
         </view>
       </view>
@@ -167,18 +168,18 @@
 
           <view class='flex-1 flex-row   flex-wrap '>
 
-            <view class='flex-row flex-center   ' bindtap='bindqingjia' id='tqgz'>
-              <view class='sex_check radius-50  {{qj=="A"?"bg-orange":""}}'></view>
+            <view class='flex-row flex-center   ' bindtap='bindqingjia' id='tqgz' data-idx='{{idx}}'>
+              <view class='sex_check radius-50  {{kclist[idx].qingjia=="A"?"bg-orange":""}}'></view>
               <view class='margin-left-10  font-30'>提前1天告知</view>
             </view>
 
-            <view class='flex-row flex-center  margin-left-40 ' bindtap='bindqingjia' id='buyunxu'>
-              <view class='sex_check radius-50 {{qj=="B"?"bg-orange":""}}'></view>
+            <view class='flex-row flex-center  margin-left-40 ' bindtap='bindqingjia' id='buyunxu' data-idx='{{idx}}'>
+              <view class='sex_check radius-50 {{kclist[idx].qingjia=="B"?"bg-orange":""}}'></view>
               <view class='margin-left-10  font-30'>不允许请假</view>
             </view>
 
-            <view class='flex-row flex-center   margin-top-40 ' bindtap='bindqingjia' id='qita'>
-              <view class='sex_check radius-50 {{qj=="C"?"bg-orange":""}}'></view>
+            <view class='flex-row flex-center   margin-top-40 ' bindtap='bindqingjia' id='qita' data-idx='{{idx}}'>
+              <view class='sex_check radius-50 {{kclist[idx].qingjia=="C"?"bg-orange":""}}'></view>
               <view class='margin-left-10  font-30'>其他</view>
             </view>
 

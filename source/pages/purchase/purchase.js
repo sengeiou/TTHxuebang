@@ -42,7 +42,6 @@ class Content extends AppBase {
       }, (courseinfo) => {
         courseinfo.price = courseinfo.isgroup;
 
-
         this.Base.setMyData({
           courseinfo
         });

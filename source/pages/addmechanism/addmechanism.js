@@ -140,60 +140,63 @@ class Content extends AppBase {
 
 
   bindchecksex(e) {
-    var sex = e.currentTarget.id;
+    var id = e.currentTarget.id;
+
     var dx = e.currentTarget.dataset.idx;
+
     var kclist=this.Base.getMyData().kclist;
     
-    if (sex == 'ALL') {
-      this.Base.setMyData({
-        sex: "A", dx
-      })
+    if (id == 'A') {
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
     }
 
-    if (sex == 'W') {
-      this.Base.setMyData({
-        sex: "W", dx 
-      })
+    if (id == 'W') {
+
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
+
     }
 
-    if (sex == 'M') {
-      this.Base.setMyData({
-        sex: "M", dx
-      })
+    if (id == 'M') {
+      kclist[dx].sex = id;
+      this.Base.setMyData({ kclist: kclist })
+
     }
 
   }
 
   bindkaike(e) {
     var kaike = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+
     if (kaike == 'tiqian') {
-      this.Base.setMyData({
-        kk: "A"
-      })
+      kclist[idx].kaike = "A";
+      this.Base.setMyData({ kclist: kclist })
     }
     if (kaike == 'suishi') {
-      this.Base.setMyData({
-        kk: "B"
-      })
+      kclist[idx].kaike = "B";
+      this.Base.setMyData({ kclist: kclist })
     }
   }
 
   bindqingjia(e) {
     var qingjia = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+    
     if (qingjia == 'tqgz') {
-      this.Base.setMyData({
-        qj: "A"
-      })
+      kclist[idx].qingjia = "A";
+      this.Base.setMyData({ kclist: kclist })
     }
     if (qingjia == 'buyunxu') {
-      this.Base.setMyData({
-        qj: "B"
-      })
+      kclist[idx].qingjia = "B";
+      this.Base.setMyData({ kclist: kclist })
     }
     if (qingjia == 'qita') {
-      this.Base.setMyData({
-        qj: "C"
-      })
+      kclist[idx].qingjia = "C";
+      this.Base.setMyData({ kclist: kclist })
     }
   }
 
@@ -227,7 +230,7 @@ class Content extends AppBase {
   addkecheng(e){
     var kclist = this.Base.getMyData().kclist;
     var list=this.Base.getMyData().list;
-    var idx=0;
+    var idx={name:'',nianlin:'',sex:'',kaike:'',qingjia:''};
     kclist.push(
       idx
     );
@@ -423,13 +426,20 @@ class Content extends AppBase {
       url: '/pages/huiyuanfuwu/huiyuanfuwu'
     })
   }
-
+  xiename(e)
+  {
+    console.log(e.detail.value);
+    var kclist=this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].name = e.detail.value;
+    this.Base.setMyData({ kclist: kclist})
+  }
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.xiename=content.xiename;
 body.bindcheck = content.bindcheck;
 body.confirm = content.confirm;
 body.tocontent = content.tocontent;

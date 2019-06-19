@@ -33,6 +33,7 @@ class Content extends AppBase {
       this.Base.setMyData({ fenleilist: fenleilist, xz: -2, name: "热门课程" });
 
     })
+    
     jigouapi.zaixianketanlunbo({}, (zaixianlunbo) => {
 
       this.Base.setMyData({ lunbolist: zaixianlunbo });
