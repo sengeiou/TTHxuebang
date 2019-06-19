@@ -18,7 +18,7 @@ class Content extends AppBase {
     var that = this;
     var jigouapi = new JigouApi();
     
-    jigouapi.problemlist({}, (problemlist) => {
+    jigouapi.problemlist({chanjin:'wd'}, (problemlist) => {
       this.Base.setMyData({ problemlist });
     });
   }

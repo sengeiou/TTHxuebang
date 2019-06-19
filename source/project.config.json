@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 36,
+			"current": 44,
 			"list": [
 				{
 					"id": 0,
@@ -294,10 +294,72 @@
 				},
 				{
 					"id": -1,
+					"name": "分销中心",
+					"pathName": "pages/promotion/promotion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推广规则",
+					"pathName": "pages/tuiguanguize/tuiguanguize",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "招募审核",
+					"pathName": "pages/review/review",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "体现",
+					"pathName": "pages/tixian/tixian",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收支明细",
+					"pathName": "pages/mingxi/mingxi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的客户",
+					"pathName": "pages/mykehu/mykehu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客户详情",
+					"pathName": "pages/kehuinfo/kehuinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的邀请",
+					"pathName": "pages/myinvite/myinvite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品推广订单",
+					"pathName": "pages/tuiguandindan/tuiguandindan",
+					"scene": null
+				},
+                {
+					"id": -1,
 					"name": "会员服务",
 					"pathName": "pages/huiyuanfuwu/huiyuanfuwu",
 					"scene": null
-				}
+                }
 			]
 		}
 	}

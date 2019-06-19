@@ -1,0 +1,11 @@
+<view style="width:100vw;height:100vh;background:url({{lujin}});background-size: 100% 100%;">
+
+
+</view>
+<view class="flex-row fd">
+  <view class="flex-1"></view>
+  <view class="anniu " bindtap="baocun">保存海报</view>
+  <view class="flex-1"></view>
+  <view class="anniu  " bindtap="" >发给好友</view>
+  <view class="flex-1"></view>
+</view>

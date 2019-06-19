@@ -1,0 +1,38 @@
+<view class="padding-40 flex-row flex-center">
+  <image class="icon-60 radius-50" src="{{memberinfo.avatarUrl}}"></image>
+  <view class="margin-left-20">
+    <view class="flex-row flex-center">
+      <view class="h6">王志新</view>
+
+    </view>
+    <view class="flex-row flex-center margin-top-20">
+      <view class="h6">绑定时间</view>
+      <view class="h6 margin-left-10">2019.5.20 18:34:10</view>
+    </view>
+
+  </view>
+  <view class="flex-1"></view>
+
+</view>
+<view class="padding-40">
+  <view class="flex-row flex-center margin-top">
+
+    <view>订单数量</view>
+    <view class="flex-1"></view>
+    <view>0</view>
+  </view>
+   <view class="flex-row flex-center margin-top">
+
+    <view>成交金额</view>
+    <view class="flex-1"></view>
+    <view>￥ 100.00</view>
+  </view>
+   <view class="flex-row flex-center margin-top">
+
+    <view>有效期剩余</view>
+    <view class="flex-1"></view>
+    <view>15天</view>
+  </view>
+
+
+</view>

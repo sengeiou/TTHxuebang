@@ -1,0 +1,11 @@
+.lijishenqin{
+
+
+  font-size: 26rpx;
+  padding: 6rpx 20rpx 6rpx 20rpx;
+  color: rgba(255, 255, 255, 1);
+  background: -webkit-linear-gradient(left, rgba(254, 215, 164, 1), rgba(235, 186, 124, 1));
+  border-radius: 26rpx;
+
+
+}

@@ -97,6 +97,11 @@ class Content extends AppBase {
         url: '/pages/addmechanism/addmechanism',
       })
     }
+    if (name == "tg") {
+      wx.navigateTo({
+        url: '/pages/promotion/promotion',
+      })
+    }
 
    
   
