@@ -58,8 +58,7 @@
         <!-- <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
             <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view> -->
 
-        <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-        <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
+
 
 
 
@@ -271,6 +270,7 @@
 
 <image src='{{uploadpath}}mechanism/{{jginfo.jigou_ditu}}' class=' ' mode='aspectFill' style='width:100%;height:300rpx;margin-bottom:-10rpx;'></image>
 
+<view style='height:172rpx;'></view>
 
 <view class='tishi' wx:if='{{tishi==1}}'>
   <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
@@ -281,7 +281,58 @@
 </view>
 
 
-<view style='height:50rpx;' bindtap='bindshowtc'>打开</view>
+<view style='' class='buy-block'>
+
+
+  <view class='huang_block  flex-row flex-center'>
+    <view class='flex-1'></view>
+    <view class='txt_orange h6'>等待付款，</view>
+    <view class='txt_lan h6'>点击这里立即付款</view>
+    <view class='flex-1'></view>
+  </view>
+
+  <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+    <view class='flex-1'></view>
+    <view class='txt_orange h6'>此机构课程预约已满</view>
+    <view class='flex-1'></view>
+  </view>
+
+
+  <view class='flex-row flex-center'>
+    <view class='left flex-row flex-center'>
+
+      <view class='flex-1 flex-row flex-column' bindtap='toindex'>
+        <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image>
+        <view class='h7 margin-top-8'>首页</view>
+      </view>
+
+      <view class='flex-1 flex-row flex-column'>
+        <!-- <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image> -->
+        <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-20' src='{{uploadpath}}resource/{{res.jg_nofav}}'></image>
+        <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-20' src='{{uploadpath}}resource/{{res.jg_fav}}'></image>
+        <view class='h7 margin-top-8'>收藏</view>
+      </view>
+
+      <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+        <view class=' flex-row flex-column'>
+          <image src='{{uploadpath}}resource/{{res.jg_kefu}}' class='icon-20'></image>
+          <view class='h7 margin-top-8'>客服</view>
+        </view>
+      </button>
+
+    </view>
+
+    <view class='right txt-white h5 txt-bold text-center bg-cheng' hidden='{{true}}' bindtap='bindshowtc'>
+      立即购买
+    </view>
+
+    <view class=' flex-row flex-center'>
+      <view class='buybtn txt-white h5 text-center bg-cheng' bindtap='bindshowtc'>立即购买</view>
+      <view class='pingtuanbtn txt-white h5 text-center null_bghong' >超低价拼班</view>
+    </view>
+
+  </view>
+</view>
 
 
 
@@ -330,23 +381,23 @@
     <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
     <view class='flex-row flex-center flex-wrap margin-top-10'>
-      <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}'  wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' bindtap='check'>{{item.name}}</view>
+      <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' bindtap='check'>{{item.name}}</view>
     </view>
 
 
     <view style='height:52rpx;'></view>
-    
+
     <!-- <view >购买数量</view> -->
 
     <!-- <view bindtap='tobuy' id='{{newkcinfo.id}}'>购买数量</view> -->
-    
+
 
     <view class='under'>
-    <view class='flex-row flex-column'>
-      
-      <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
-     
-    </view>
+      <view class='flex-row flex-column'>
+
+        <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+
+      </view>
     </view>
 
   </view>

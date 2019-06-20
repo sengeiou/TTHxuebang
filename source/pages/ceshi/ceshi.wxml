@@ -1,0 +1,64 @@
+<!--pages/ceshi/ceshi.wxml-->
+
+  <view class='in'>
+
+    <view class='new-head'>
+      <view class='flex-row flex-center'>
+        <view class=''>已连续签到{{newSignNum}}天</view>
+        <view class=''>积分：{{newSignIntegral}}</view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view class='flex-1'></view>
+
+        <!-- 未签到 -->
+        <view wx:if='{{newSignBtnState==false}}' class='flex-row flex-center txt-white aaa radius-50' style="background:green" bindtap='signNewFn' data-num="{{newSignNum}}">
+          <view class='flex-1'></view>
+          <view class='txt-white'>签到</view>
+          <view class='flex-1'></view>
+        </view>
+
+        <!-- 已签到 -->
+        <view wx:if='{{newSignBtnState==true}}' class='flex-row flex-center txt-white aaa radius-50' style="background:red">
+          <view class='flex-1'></view>
+          <view class='txt-white'>已签到</view>
+          <view class='flex-1'></view>
+        </view>
+
+        <view class='flex-1'></view>
+      </view>
+
+    </view>
+
+
+
+
+    <view class='new-week'>
+      <view class='we-mod'>
+
+        <view class='mo-fen'>
+          <label class='f f1' wx:if='{{continuityDays7}}'>+7积分</label>
+          <label class='f f2'  wx:if='{{continuityDays3}}'>+3积分</label>  
+        </view>
+
+
+
+        <view class='mo-line'>
+          <block wx:for="{{isNewSignedArr}}" wx:for-item="v" wx:key="k">
+            <label class="q {{v.isSigned?'hover':''}}"></label>
+          </block>
+        </view>
+
+        <view class='mo-ri'>
+          <block wx:for="{{isNewSignedArr}}" wx:for-item="v" wx:key="k">
+            <label class="t">{{v.day}}</label>
+          </block>
+        </view>
+      </view>
+    </view>
+
+
+
+
+
+  </view>
