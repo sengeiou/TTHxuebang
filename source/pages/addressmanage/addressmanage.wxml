@@ -1,0 +1,35 @@
+<!--pages/addressmanage/addressmanage.wxml-->
+<view class='margin-20'>
+
+  <view class='flex-row'>
+    <view class='margin-left-14 h5' style='color:#999999'>填写详细地址方便直接送货上门</view>
+    <view class='flex-1'></view>
+    <view class='delete'>删除</view>
+  </view>
+  <view class='hezi'>
+    <view class='flex-row flex-center'>
+      <view class='f15' style='width:24vw'>收件人姓名：</view>
+      <input class='margin-left-20 f15' style='width:60vw' placeholder='请输入收件人姓名'></input>
+    </view>
+
+    <view class='flex-row flex-center margin-top-68'>
+      <view class='f15' style='width:24vw'>手机号：</view>
+      <input class='margin-left-20 f15' style='width:60vw' placeholder='请输入手机号'></input>
+    </view>
+
+    <view class='flex-row flex-center margin-top-68'>
+      <view class='f15' style='width:24vw'>地址：</view>
+      <picker mode="region" bindchange="bindRegionChange">
+        <input class='margin-left-20 f15' style='width:55vw' disabled='false' value='{{city}}' placeholder='请选择您的地址'></input>
+      </picker>
+      <image class='icon-25' src='{{uploadpath}}resource/{{res.address_right}}'></image>
+    </view>
+
+    <view class='flex-row  margin-top-68'>
+      <view class='f15' style='width:24vw'>门牌号：</view>
+      <textarea class='margin-left-20 f15' style='width:70%;height:180rpx;' placeholder='例:某街道5号楼203室'></textarea>
+    </view>
+  </view>
+
+  <button class='but txt-white margin-top-54 '>保存</button>
+</view>

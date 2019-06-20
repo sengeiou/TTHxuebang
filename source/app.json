@@ -12,7 +12,9 @@
     "pages/videopurcsucc/videopurcsucc",
     "pages/tuiguanguize/tuiguanguize",
     "pages/shipingoumai/shipingoumai",
-"pages/huiyuanfuwu/huiyuanfuwu","pages/promotion/promotion",    "pages/groupinfo/groupinfo",
+    "pages/huiyuanfuwu/huiyuanfuwu",
+    "pages/promotion/promotion",
+    "pages/groupinfo/groupinfo",
     "pages/pingceindex/pingceindex",
     "pages/pingcedati/pingcedati",
     "pages/pingcejieguo/pingcejieguo",
@@ -45,7 +47,10 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/address/address",
+    "pages/addressmanage/addressmanage",
+    "pages/shopmall/shopmall"
   ],
   "permission": {
     "scope.userLocation": {

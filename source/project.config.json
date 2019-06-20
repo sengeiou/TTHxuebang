@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 44,
+			"current": 48,
 			"list": [
 				{
 					"id": 0,
@@ -352,14 +352,36 @@
 					"id": -1,
 					"name": "商品推广订单",
 					"pathName": "pages/tuiguandindan/tuiguandindan",
+					"query": "",
 					"scene": null
 				},
-                {
+				{
 					"id": -1,
 					"name": "会员服务",
 					"pathName": "pages/huiyuanfuwu/huiyuanfuwu",
+					"query": "",
 					"scene": null
-                }
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改、添加地址",
+					"pathName": "pages/addressmanage/addressmanage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/shopmall/shopmall",
+					"scene": null
+				}
 			]
 		}
 	}

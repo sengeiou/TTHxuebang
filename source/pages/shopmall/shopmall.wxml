@@ -1,0 +1,50 @@
+<!--pages/shopmall/shopmall.wxml-->
+<view>
+  <view class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jfsc_bg}});background-size:100% 100%;'>
+
+    <view class='flex-row margin-top-80'>
+      <view class='flex-1'></view>
+      <view class='flex-row'>
+        <image class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}'></image>
+        <view class='f60 txt-bold margin-left-10' style='color:#222222'>2000</view>
+      </view>
+      <view class='flex-1'></view>
+    </view>
+
+    <view class='flex-row margin-left-66 margin-top-32'>
+      <view class='sz flex-row _center'>
+        <view class='flex-row'>
+          <view>
+            <image class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}'></image>
+          </view>
+          <view class='margin-left-10' style='color:#FFBA12'>收支明细</view>
+        </view>
+      </view>
+
+      <view class='sz flex-row _center margin-left-46'>
+        <view>
+          <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
+        </view>
+        <view>
+          <view class='margin-left-10' style='color:#FFBA12'>如何赚积分</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='flex-row flex-wrap'>
+    <view>
+      <view class='hezi'>
+        <image class='img' src='{{uploadpath}}resource/{{res.remen}}'></image>
+      </view>
+    </view>
+    
+  </view>
+
+
+
+
+
+
+</view>
