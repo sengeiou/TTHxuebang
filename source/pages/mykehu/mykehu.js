@@ -61,7 +61,7 @@ class Content extends AppBase {
       console.log(quanbu);
       console.log(youxiao);
       console.log(shixiao);
-      this.Base.setMyData({ quanbu: quanbu, youxiao: youxiao,shixiao:shixiao })
+      this.Base.setMyData({ quanbu: quanbu, youxiao: youxiao,shixiao:shixiao,xiaji:xiaji })
     })
   }
   bindshow(e) {
@@ -71,30 +71,49 @@ class Content extends AppBase {
   binddate(e) {
     var type = e.currentTarget.dataset.val;
     this.Base.setMyData({ date: type });
-    var quanbu=this.Base.getMyData().quanbu;
+    var xiaji = this.Base.getMyData().xiaji;
+    var quanbu=[];
+    var youxiao=[];
+    var shixiao=[];
     if (type =='all')
     {
+      quanbu = xiaji.filter(quanbu => quanbu);
       this.Base.setMyData({ quanbu: quanbu });
 
+      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > 0);
+      this.Base.setMyData({ youxiao: youxiao });
+      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0);
+      this.Base.setMyData({ shixiao: shixiao });
     }
     if (type =="7days")
     {
-      quanbu.filter(quanbu => quanbu.jieshushijian > 8);
+      quanbu = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian-7);
       this.Base.setMyData({ quanbu: quanbu });
+      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian - 7);
+      this.Base.setMyData({ youxiao: youxiao });
+      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0-7);
+      this.Base.setMyData({ shixiao: shixiao });
     }
     if (type =="yesterday")
     {
-      console.log(111111);
+
     
-      quanbu.filter(item => item.jieshushijian==14);
-      console.log(quanbu);
+      quanbu = xiaji.filter(item => item.jieshushijian == this.Base.getMyData().instinfo.xiajishijian-1);
+    
       this.Base.setMyData({ quanbu: quanbu });
+      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian == this.Base.getMyData().instinfo.xiajishijian - 1);
+      this.Base.setMyData({ youxiao: youxiao });
+      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian ==-1);
+      this.Base.setMyData({ shixiao: shixiao });
     }
 
   }
-  kehuinfo() {
+  kehuinfo(e) {
+    console.log(e);
+    console.log(e.currentTarget.dataset.id);
+    console.log("牛逼");
     wx.navigateTo({
-      url: '/pages/kehuinfo/kehuinfo',
+      url: '/pages/kehuinfo/kehuinfo?id='+e.currentTarget.dataset.id,
     })
   }
 }

@@ -6,27 +6,31 @@
   <view class="h6">自定义时间</view>
   <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
 </view>
+
+<block wx:for="{{quanbu}}" wx:key="k">
 <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
-  共1笔订单,获得商品佣金0.01元
+  共{{quanbu.length}}笔订单,获得商品佣金0.01元
 </view>
 <view class="padding-20 flex-row flex-center">
-  <view class="h5">买家：ljj志新</view>
+  <view class="h5">买家：{{item.membername}}</view>
   <view class="flex-1"></view>
   <view class="h5">待结算</view>
 </view>
 <view class="padding-20">
   <view class=" h6" style="color:rgba(161, 161, 161, 1)">
-    订单编号：E201905201837020807000011
+    订单编号：{{item.orderno}}
   </view>
   <view class=" h6 margin-top-10" style="color:rgba(161, 161, 161, 1)">
-    下单时间：2019-05-20 18:37:02
+    下单时间：{{item.submit_time}}
   </view>
 </view>
 <view class="padding-20 flex-row">
-  <image class="icon-100 dd" mode="widthFix" src="{{memberinfo.avatarUrl}}"></image>
+  <image  wx:if="{{item.course_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}curriculum/{{item.kcimg}}"  ></image>
+   <image  wx:if="{{item.onlineclassroom_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}onlineclassroom/{{item.zxkcimg}}"  ></image>
   <view class="margin-left-20">
     <view class="flex-row">
-      <view class="h5" style="width:400rpx">【这里是商品标题】深圳野生动物园家庭套票</view>
+      <view wx:if="{{item.course_id!=0}}"  class="h5" style="width:400rpx">【这里是商品标题】{{item.kcname}}</view>
+      <view wx:if="{{item.onlineclassroom_id!=0}}"  class="h5" style="width:400rpx">【这里是商品标题】{{item.zxkcname}}</view>
       <view class="margin-left-20 h5">x1</view>
     </view>
     <view class="flex-row  margin-top-10 flex-center">
@@ -35,8 +39,8 @@
     </view>
    <view class="h5 margin-top-10" style="color:rgba(255, 82, 82, 1)">1%</view>
      <view class="margin-top-60 margin-left-40 flex-row flex-center">
-     <view class="f-26" > 商品佣金 ：￥0.1</view>
-     <view class="f-22" style="color:rgba(153, 153, 153, 1)">（订单总价：￥1.00）</view>
+     <view class="f-26" > 商品佣金 ：￥{{item.amount*instinfo.fenxiaobili}}</view>
+     <view class="f-22" style="color:rgba(153, 153, 153, 1)">（订单总价：￥{{item.amount}}）</view>
     
     </view>
 
@@ -46,3 +50,4 @@
 
 
 </view>
+</block>

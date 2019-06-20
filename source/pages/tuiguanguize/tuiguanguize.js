@@ -20,18 +20,37 @@ class Content extends AppBase {
     super.onLoad(options);
   }
   onMyShow() {
+    var api = new JigouApi();
     var that = this;
-    var api=new JigouApi();
+  
     api.problemlist({ chanjin: 'tg' }, (problemlist)=>{
       this.Base.setMyData({ problemlist: problemlist})
 
     })
-  }
 
+ 
+
+  }
+  lijishenqin()
+  {
+    var api = new JigouApi();
+    api.fenxiaoinfo({}, (res) => {
+      console.log(res.length);
+      if (res.length == 0) {
+       wx.navigateBack({
+         
+       })
+      }
+      else{
+        this.Base.info("您已经是推广员了,无需申请");
+      }
+
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-
+body.lijishenqin = content.lijishenqin;
 Page(body)

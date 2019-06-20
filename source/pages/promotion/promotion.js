@@ -68,7 +68,7 @@ class Content extends AppBase {
       console.log("数据");
       console.log(leijikehu);
       console.log(xiajituiguan);
-      this.Base.setMyData({ leijikehu: leijikehu.length, xiajituiguan: xiajituiguan.length })
+      this.Base.setMyData({ leijikehu: leijikehu.length, xiajituiguan: xiajituiguan.length, tuiguandindan: this.zhuandindan(leijikehu) })
     })
 
 
@@ -172,6 +172,21 @@ class Content extends AppBase {
     })
 
   }
+  zhuandindan(quanbu) {
+    var dindan = [];
+
+    quanbu.map((item) => {
+
+      item.dindan.map((item1) => {
+        dindan.push(item1)
+      })
+
+    })
+    console.log("嚯嚯嚯");
+    console.log(dindan);
+    return dindan;
+
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -179,6 +194,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tuiguanguize = content.tuiguanguize;
 body.hideModal = content.hideModal;
+body.zhuandindan = content.zhuandindan;
 body.ycmobile = content.ycmobile;
 body.name = content.name;
 body.photo = content.photo;
