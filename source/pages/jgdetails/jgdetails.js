@@ -21,13 +21,12 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    options.id = 9;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
       success(res) {
         console.log(res.model)
-
 
         var str = res.model
         var model = str.split("(")[0];
@@ -45,6 +44,10 @@ class Content extends AppBase {
       }
 
     })
+    this.Base.setMyData({
+      tanchuang: false,
+      buy_id: 1
+    })
 
 
   }
@@ -53,10 +56,16 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-
+    jigouapi.courseinfo({
+      id: 1
+    }, (courseinfo) => {
+      this.Base.setMyData({
+        courseinfo
+      });
+    });
 
     jigouapi.jginfo({
-      id: this.options.id
+      id: 9
     }, (jginfo) => {
 
       this.Base.getAddress((address) => {
@@ -96,7 +105,7 @@ class Content extends AppBase {
         });
 
 
-      },()=>{
+      }, () => {
         jigouapi.courselist({
           jg_id: jginfo.id
         }, (courselist) => {
@@ -105,6 +114,16 @@ class Content extends AppBase {
           });
         });
       });
+
+      jigouapi.ketanglist({
+        onlineclassroomtype_id: jginfo.classtype_id
+      }, (ketanglist) => {
+
+        this.Base.setMyData({
+          ketanglist
+        });
+
+      })
 
 
 
@@ -128,6 +147,29 @@ class Content extends AppBase {
 
     });
 
+  }
+  check(e) {
+    var id = e.currentTarget.id;
+    var jigouapi = new JigouApi();
+    this.Base.setMyData({
+      buy_id: id
+    })
+
+    jigouapi.courseinfo({
+      id: id
+    }, (courseinfo) => {
+      this.Base.setMyData({
+        courseinfo
+      });
+    });
+  }
+  tobuy(e) {
+    var id = e.currentTarget.id;
+    console.log(id + "电费");
+    //return;
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + id,
+    })
   }
 
   tokcdetails(e) {
@@ -174,6 +216,21 @@ class Content extends AppBase {
 
 
   }
+  bindshowtc(e) {
+    this.Base.setMyData({
+      tanchuang: true
+    })
+  }
+  bindclose(e) {
+    this.Base.setMyData({
+      tanchuang: false
+    })
+  }
+  toindex(e) {
+    wx.reLaunch({
+      url: '/pages/home/home',
+    })
+  }
 }
 
 var content = new Content();
@@ -182,5 +239,9 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tokcdetails = content.tokcdetails;
 body.fav = content.fav;
-
+body.check = content.check;
+body.tobuy = content.tobuy; 
+body.toindex = content.toindex;
+body.bindshowtc = content.bindshowtc;
+body.bindclose = content.bindclose;
 Page(body)

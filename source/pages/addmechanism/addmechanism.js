@@ -30,8 +30,8 @@ class Content extends AppBase {
       jgimages: [],
       hjimages: [],
       skimages: [],
-      list:[],
-      kclist:[]
+      list: [],
+      kclist: []
     })
   }
   onMyShow() {
@@ -140,59 +140,78 @@ class Content extends AppBase {
 
 
   bindchecksex(e) {
-    var sex = e.currentTarget.id;
+    var id = e.currentTarget.id;
+
     var dx = e.currentTarget.dataset.idx;
-    var kclist=this.Base.getMyData().kclist;
-    
-    if (sex == 'ALL') {
+
+    var kclist = this.Base.getMyData().kclist;
+
+    if (id == 'A') {
+      kclist[dx].sex = id;
       this.Base.setMyData({
-        sex: "A", dx
+        kclist: kclist
       })
     }
 
-    if (sex == 'W') {
+    if (id == 'W') {
+
+      kclist[dx].sex = id;
       this.Base.setMyData({
-        sex: "W", dx 
+        kclist: kclist
       })
+
     }
 
-    if (sex == 'M') {
+    if (id == 'M') {
+      kclist[dx].sex = id;
       this.Base.setMyData({
-        sex: "M", dx
+        kclist: kclist
       })
+
     }
 
   }
 
   bindkaike(e) {
     var kaike = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+
     if (kaike == 'tiqian') {
+      kclist[idx].kaike = "A";
       this.Base.setMyData({
-        kk: "A"
+        kclist: kclist
       })
     }
     if (kaike == 'suishi') {
+      kclist[idx].kaike = "B";
       this.Base.setMyData({
-        kk: "B"
+        kclist: kclist
       })
     }
   }
 
   bindqingjia(e) {
     var qingjia = e.currentTarget.id;
+    var idx = e.currentTarget.dataset.idx;
+    var kclist = this.Base.getMyData().kclist;
+
     if (qingjia == 'tqgz') {
+      kclist[idx].qingjia = "A";
       this.Base.setMyData({
-        qj: "A"
+        kclist: kclist
       })
     }
     if (qingjia == 'buyunxu') {
+      kclist[idx].qingjia = "B";
       this.Base.setMyData({
-        qj: "B"
+        kclist: kclist
       })
     }
     if (qingjia == 'qita') {
+      kclist[idx].qingjia = "C";
       this.Base.setMyData({
-        qj: "C"
+        kclist: kclist
       })
     }
   }
@@ -224,15 +243,92 @@ class Content extends AppBase {
 
 
 
-  addkecheng(e){
+  addkecheng(e) {
     var kclist = this.Base.getMyData().kclist;
-    var list=this.Base.getMyData().list;
-    var idx=0;
+    var list = this.Base.getMyData().list;
+    var idx = {
+      name: '',
+      nianlin: '',
+      yuyue: '',
+      shichang: '',
+      sex: '',
+      kaike: '',
+      qingjia: ''
+    };
     kclist.push(
       idx
     );
-    this.Base.setMyData({ kclist})
+    this.Base.setMyData({
+      kclist
+    })
   }
+
+
+
+
+
+  tocontent(e) {
+    wx.navigateTo({
+      url: '/pages/content/content',
+    })
+  }
+
+  useaddress() {
+    wx.chooseAddress({
+      success: (res) => {
+        console.log(res);
+
+        this.Base.setMyData({
+          pca: res.provinceName + res.cityName + res.countyName,
+          detail: res.detailInfo,
+          contacttel: res.telNumber,
+          contactname: res.userName
+        });
+
+
+      }
+    })
+  }
+
+  tohuiyuan(e) {
+    wx.navigateTo({
+      url: '/pages/huiyuanfuwu/huiyuanfuwu'
+    })
+  }
+  xiename(e) {
+    console.log(e.detail.value);
+    var kclist = this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].name = e.detail.value;
+    this.Base.setMyData({
+      kclist: kclist
+    })
+  }
+  nianlin(e) {
+    console.log(e.detail.value);
+    var kclist = this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].nianlin = e.detail.value;
+    this.Base.setMyData({
+      kclist: kclist
+    })
+  }
+  yuyue(e) {
+    console.log(e.detail.value);
+    var kclist = this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].yuyue = e.detail.value;
+    this.Base.setMyData({
+      kclist: kclist
+    })
+  }
+  shichang(e) {
+    console.log(e.detail.value);
+    var kclist = this.Base.getMyData().kclist;
+    kclist[e.currentTarget.dataset.idx].shichang = e.detail.value;
+    this.Base.setMyData({
+      kclist: kclist
+    })
+  }
+
+
 
 
 
@@ -245,10 +341,10 @@ class Content extends AppBase {
     var jgimages = this.Base.getMyData().jgimages.slice(0, 19);
     var hjimages = this.Base.getMyData().hjimages.slice(0, 19);
     var skimages = this.Base.getMyData().skimages.slice(0, 19);
-    console.log(jgimages);
-    console.log(hjimages);
-    console.log(skimages);
-    console.log("弗兰克攻击力可")
+    //console.log(jgimages);
+   // console.log(hjimages);
+   // console.log(skimages);
+   // console.log("弗兰克攻击力可")
 
     var sex = this.Base.getMyData().sex;
     var kaike = this.Base.getMyData().kk;
@@ -256,25 +352,23 @@ class Content extends AppBase {
     //return;
 
 
-    console.log(sex);
-    console.log(kaike);
-    console.log(qingjia);
-    console.log("双方各")
+    //console.log(sex);
+    //console.log(kaike);
+    //console.log(qingjia);
+    //console.log("双方各")
     // return;
 
     var name = data.name;
 
     var phonetel = /^[1][3,4,5,7,8][0-9]{9}$/;
-    console.log(phonetel);
+    //console.log(phonetel);
     //return;
     var ismobile = phonetel.exec(data.mobile);
     var show = this.Base.getMyData().show;
     var region = this.Base.getMyData().region;
 
-    console.log(this.Base.getMyData().memberinfo.id);
+    //console.log(this.Base.getMyData().memberinfo.id);
     //return;
-
-
 
     //return;
 
@@ -346,28 +440,31 @@ class Content extends AppBase {
             protocol: "Y"
           }, (addjigou) => {
 
-            this.Base.setMyData({
+            that.Base.setMyData({
               addjigou
             });
-            console.log(addjigou.return);
-            console.log("大幅度");
+           // console.log(addjigou.return);
+           // console.log("大幅度");
+            var kclist = that.Base.getMyData().kclist;
+           // console.log("冷酷祭典");
+           // console.log(kclist);
+          //  console.log("冷酷祭典");
+            //return;
+            for (var i = 0; i < kclist.length; i++) {
 
-            jigouapi.addshenqing({
-              application_id: addjigou.return,
-              name: data.kcname,
-              age: data.age,
-              date_time: data.time,
-              sex: sex,
-              duration: data.duration,
-              style: kaike,
-              claim: qingjia,
-              status: "A"
-            }, (addshenqing) => {
-              this.Base.setMyData({
-                addshenqing
-              })
-            })
-
+              var k = {
+                application_id: addjigou.return,
+                name: kclist[i].name,
+                age: kclist[i].nianlin,
+                date_time: kclist[i].yuyue,
+                sex: kclist[i].sex,
+                duration: kclist[i].shichang,
+                style: kclist[i].kaike,
+                claim: kclist[i].qingjia,
+                status: "A"
+              };
+              that.addt(k, i);
+            }
 
           });
 
@@ -395,34 +492,22 @@ class Content extends AppBase {
 
   }
 
-  tocontent(e) {
-    wx.navigateTo({
-      url: '/pages/content/content',
-    })
-  }
 
-  useaddress() {
-    wx.chooseAddress({
-      success: (res) => {
-        console.log(res);
+  addt(json, i) {
+    var jigouapi = new JigouApi();
+    setTimeout(() => {
 
+      jigouapi.addshenqing(json, (addshenqing) => {
         this.Base.setMyData({
-          pca: res.provinceName + res.cityName + res.countyName,
-          detail: res.detailInfo,
-          contacttel: res.telNumber,
-          contactname: res.userName
-        });
-
-
-      }
-    })
+          addshenqing
+        })
+      })
+    }, i * 300);
   }
 
-  tohuiyuan(e) {
-    wx.navigateTo({
-      url: '/pages/huiyuanfuwu/huiyuanfuwu'
-    })
-  }
+
+
+
 
 }
 
@@ -430,6 +515,11 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.xiename = content.xiename;
+body.nianlin = content.nianlin;
+body.yuyue = content.yuyue;
+body.shichang = content.shichang;
+
 body.bindcheck = content.bindcheck;
 body.confirm = content.confirm;
 body.tocontent = content.tocontent;
@@ -448,8 +538,9 @@ body.hjuploadimg = content.hjuploadimg;
 body.hjminusImg = content.hjminusImg;
 
 body.skuploadimg = content.skuploadimg;
-body.skminusImg = content.skminusImg; 
+body.skminusImg = content.skminusImg;
 
 body.addkecheng = content.addkecheng;
+body.addt = content.addt;
 
 Page(body)

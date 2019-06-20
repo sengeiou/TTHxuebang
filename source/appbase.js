@@ -809,6 +809,8 @@ export class AppBase {
     wx.showModal({
       title: '提示',
       content: message,
+      confirmText:"知道了",
+      confirmColor: '#FF6600',
       showCancel: false
     })
   }

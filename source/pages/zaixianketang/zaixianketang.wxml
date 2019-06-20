@@ -95,6 +95,10 @@
 
 
 
+
+
+
+
   <view bindtap='kechenxianqin'  data-id='{{item.id}}' wx:if="{{xz==-1}}" class='kecheng-block ' wx:for='{{mianfeikechen}}' wx:key='k'>
 
     <view style=''>

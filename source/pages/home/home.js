@@ -34,20 +34,38 @@ class Content extends AppBase {
       currentItemId: 2,
       mylat: 0,
       mylng: 0,
-      currectcityid:0
+      currectcityid: 0
     })
 
-    
-    
+
+
   }
-  
+
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
     wx.showLoading({
       title: '加载中...',
     })
+    console.log(this.Base.options.id);
+    console.log("邀请人");
+    console.log(this.Base.getMyData().memberinfo.id);
+    console.log("我的用户id");
+    if(this.Base.options.id!=undefined&&this.Base.getMyData().memberinfo.id!=undefined)
+  {
+      if (this.Base.options.id != this.Base.getMyData().memberinfo.id)
+      {
+           
+        jigouapi.yaoqin({ yaoqinren: this.Base.options.id},(res)=>{
 
+           console.log(res);
+           console.log("嚯嚯嚯嚯 属实憨憨");
+
+        })
+      
+      }
+
+  }
     var pingceapi = new PingceApi();
 
     pingceapi.indexlist({}, (indexlist) => {
@@ -88,8 +106,8 @@ class Content extends AppBase {
         mylng,
         cityname: AppBase.CITYNAME
       });
-      if (AppBase.CITYID!=this.Base.getMyData().currectcityid){
-        this.Base.setMyData({ currectcityid: AppBase.CITYID});
+      if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
+        this.Base.setMyData({ currectcityid: AppBase.CITYID });
         this.loadjg();
       }
     }, () => {
@@ -108,10 +126,10 @@ class Content extends AppBase {
       }
 
       this.loadBanner();
-      
-      
+
+
     });
-    
+
     setTimeout(() => {
       wx.hideLoading()
     }, 1000);
@@ -122,18 +140,18 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-  toketang(e){
+  toketang(e) {
     wx.navigateTo({
       url: '/pages/zaixianketang/zaixianketang'
     })
   }
-  loadBanner(){
+  loadBanner() {
     var instapi = new InstApi();
     // console.log()
     instapi.indexbanner({ orderby: 'r_main.seq' }, (indexbanner) => {
-      var bn=[];
-      for(var item of indexbanner){
-        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()){
+      var bn = [];
+      for (var item of indexbanner) {
+        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()) {
           bn.push(item);
         }
       }
@@ -156,11 +174,11 @@ class Content extends AppBase {
     }
 
   }
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     this.onLoad({});
     super.onPullDownRefresh();
   }
-  tobaoma(e){
+  tobaoma(e) {
     wx.navigateTo({
       url: '/pages/baoma/baoma',
     })
@@ -199,7 +217,7 @@ class Content extends AppBase {
       }
 
       var jgvteach = [];
-      for(var i=0;i<4&&i<jglist.length;i++){
+      for (var i = 0; i < 4 && i < jglist.length; i++) {
         jgvteach.push(jglist[i]);
       }
 
@@ -220,7 +238,7 @@ class Content extends AppBase {
     var jgvteach = this.Base.getMyData().jgvteach;
     var jglist = this.Base.getMyData().jglist;
     var cs = 0;
-   
+
 
     for (var j = jgvteach.length; j < jglist.length; j++) {
       jgvteach.push(jglist[j]);
@@ -253,14 +271,14 @@ class Content extends AppBase {
 
 
 
-  bannerGo(e){
-    var id=e.currentTarget.id;
+  bannerGo(e) {
+    var id = e.currentTarget.id;
     var indexbanner = this.Base.getMyData().indexbanner;
-    for(var i=0;i<indexbanner.length;i++){
-      if(id==indexbanner[i].id){
-        if(indexbanner[i].type=='KC'){
+    for (var i = 0; i < indexbanner.length; i++) {
+      if (id == indexbanner[i].id) {
+        if (indexbanner[i].type == 'KC') {
           wx.navigateTo({
-            url: '/pages/kcdetails/kcdetails?id='+indexbanner[i].course_id
+            url: '/pages/kcdetails/kcdetails?id=' + indexbanner[i].course_id
           })
         }
         if (indexbanner[i].type == 'JG') {
@@ -278,12 +296,12 @@ class Content extends AppBase {
     }
   }
 
-  tocity(e){
+  tocity(e) {
     wx.navigateTo({
       url: '/pages/city/city',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 
@@ -311,11 +329,11 @@ class Content extends AppBase {
       });
     }
   }
-  
-  toceshi(e){
-    var id=e.currentTarget.id;
+
+  toceshi(e) {
+    var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/pingceindex/pingceindex?id='+id
+      url: '/pages/pingceindex/pingceindex?id=' + id
     })
   }
 
@@ -334,7 +352,7 @@ body.clickChange = content.clickChange;
 body.tobaoma = content.tobaoma;
 body.loadjg = content.loadjg;
 body.bannerGo = content.bannerGo;
-body.tocity = content.tocity; 
+body.tocity = content.tocity;
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
 body.loadBanner = content.loadBanner;

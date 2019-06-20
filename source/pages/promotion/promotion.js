@@ -8,6 +8,10 @@ import {
 import {
   HaibaoApi
 } from "../../apis/haibao.api.js";
+
+import {
+  MemberApi
+} from "../../apis/member.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -26,6 +30,15 @@ class Content extends AppBase {
   ycmobile(str) {
     return str.substr(0, 3) + "****" + str.substr(7);
   }
+  jisuanchaoshi(a, b) {
+    var date1 = new Date();
+    var date2 = new Date(a);
+    var date3 = date1.getTime() - date2.getTime();
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+
+    return days < b;
+
+  }
   onMyShow() {
     var api = new JigouApi();
     var that = this;
@@ -41,7 +54,22 @@ class Content extends AppBase {
       }
 
     })
-
+    var memberapi = new MemberApi();
+    var leijikehu = [];
+    var xiajituiguan = [];
+    var shijian = this.Base.getMyData().instinfo.xiajishijian;
+    memberapi.chakanxiaji({}, (xiaji) => {
+      for (var i = 0; i < xiaji.length; i++) {
+        if (this.jisuanchaoshi(xiaji[i].bandin_date, shijian)) {
+          xiajituiguan.push(xiaji[i]);
+        }
+        leijikehu.push(xiaji[i]);
+      }
+      console.log("数据");
+      console.log(leijikehu);
+      console.log(xiajituiguan);
+      this.Base.setMyData({ leijikehu: leijikehu.length, xiajituiguan: xiajituiguan.length, tuiguandindan: this.zhuandindan(leijikehu) })
+    })
 
 
   }
@@ -130,19 +158,33 @@ class Content extends AppBase {
     })
 
   }
-  yaoqin(){
-  var api=new HaibaoApi;
-    api.haibao({},(res)=>{
-   console.log(res);
-   if(res.code==0)
-   {
-  wx.navigateTo({
-    url: '/pages/yaoqinhaibao/yaoqinhaibao?name='+res.return,
-  })
+  yaoqin() {
+    var api = new HaibaoApi;
+    api.haibao({}, (res) => {
+      console.log(res);
+      if (res.code == 0) {
+        wx.navigateTo({
+          url: '/pages/yaoqinhaibao/yaoqinhaibao?name=' + res.return,
+        })
 
 
-   }
+      }
     })
+
+  }
+  zhuandindan(quanbu) {
+    var dindan = [];
+
+    quanbu.map((item) => {
+
+      item.dindan.map((item1) => {
+        dindan.push(item1)
+      })
+
+    })
+    console.log("嚯嚯嚯");
+    console.log(dindan);
+    return dindan;
 
   }
 }
@@ -152,6 +194,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tuiguanguize = content.tuiguanguize;
 body.hideModal = content.hideModal;
+body.zhuandindan = content.zhuandindan;
 body.ycmobile = content.ycmobile;
 body.name = content.name;
 body.photo = content.photo;
@@ -162,5 +205,6 @@ body.lijitixian = content.lijitixian;
 body.mykehu = content.mykehu;
 body.myinvite = content.myinvite;
 body.tuiguandindan = content.tuiguandindan;
-body.yaoqin=content.yaoqin;
+body.yaoqin = content.yaoqin;
+body.jisuanchaoshi = content.jisuanchaoshi;
 Page(body)

@@ -19,7 +19,7 @@
 .yuan {
   width: 284rpx;
   height: 284rpx;
-  border: 2rpx solid black;
+  /* border: 2rpx solid black; */
 }
 .bottom-block {
   margin: 12rpx 24rpx 0rpx 24rpx;

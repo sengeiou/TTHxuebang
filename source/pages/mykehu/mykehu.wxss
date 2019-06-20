@@ -14,6 +14,10 @@ border-radius: 30rpx;
 font-size: 24rpx;
 
 }
+.taichan{
+ width: 200rpx;
+
+}
 .opt{
   margin-left:20rpx;
 color: rgba(34, 34, 34, 1);

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/ceshi/ceshi",
     "pages/home/home",
     "pages/review/review",
     "pages/mingxi/mingxi",

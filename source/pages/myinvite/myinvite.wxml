@@ -7,18 +7,18 @@
   <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
 </view>
 <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
-  共1个邀请
+  共{{youxiao.length}}个邀请
 </view>
-<view bindtap="kehuinfo" class="padding-20 flex-row flex-center">
-  <image class="icon-60 radius-50" src="{{memberinfo.avatarUrl}}"></image>
+<view wx:for="{{youxiao}}" wx:key="k"  bindtap="kehuinfo" class="padding-20 flex-row flex-center">
+  <image class="icon-60 radius-50" src="{{item.avatarUrl}}"></image>
   <view class="margin-left-20">
     <view class="flex-row flex-center">
-      <view class="h5">王志新</view>
+      <view class="h5">{{item.nickName}}</view>
   
     </view>
   
   </view>
   <view class="flex-1"></view>
-  <view class="h6">我的收益: ￥100.00</view>
+  <view class="h6">我的收益: {{item.shouru}}</view>
 
 </view>

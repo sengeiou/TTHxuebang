@@ -26,7 +26,7 @@
             累计客户(人)
           </view>
           <view class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
-            0
+            {{leijikehu}}
           </view>
         </view>
         <view class="flex-1"></view>
@@ -39,7 +39,7 @@
             下级推广员(人)
           </view>
           <view class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
-            0
+            {{xiajituiguan}}
           </view>
         </view>
         <view class="flex-1"></view>
@@ -49,10 +49,10 @@
         <view class="flex-1"></view>
         <view>
           <view class="h5" style='color:rgba(161, 111, 47, 1)'>
-            推广订单(人)
+            推广订单(单)
           </view>
           <view class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
-            0
+            {{tuiguandindan.length}}
           </view>
         </view>
         <view class="flex-1"></view>
