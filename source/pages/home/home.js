@@ -41,6 +41,10 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
+
+
+
+
     // wx.showLoading({
     //   title: '加载中...',
     // });
@@ -134,6 +138,33 @@ class Content extends AppBase {
       this.Base.setMyData({
         indexbanner: bn
       });
+    });
+
+    var cacheid=wx.getStorageSync("homenoticecacheid");
+
+    instapi.lasthomenotice({ orderby: 'r_main.seq', cacheid: cacheid }, (noticebanner) => {
+      var bn = [];
+      cacheid = cacheid.split(",");
+      for (var item of noticebanner) {
+        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()) {
+          bn.push(item);
+          cacheid.push(item.id);
+        }
+      }
+      wx.setStorageSync("homenoticecacheid", cacheid.join(","));
+      if(bn.length>0){
+        this.Base.setMyData({
+          noticebanner: bn,showlastnotice:true
+          });
+      }
+    });
+
+
+  }
+
+  closenotice(){
+    this.Base.setMyData({
+      showlastnotice: false
     });
   }
   totake(e) {
@@ -272,6 +303,33 @@ class Content extends AppBase {
     }
   }
 
+
+
+  bannerGo(e) {
+    var id = e.currentTarget.id;
+    var indexbanner = this.Base.getMyData().noticebanner;
+    for (var i = 0; i < indexbanner.length; i++) {
+      if (id == indexbanner[i].id) {
+        if (indexbanner[i].type == 'KC') {
+          wx.navigateTo({
+            url: '/pages/kcdetails/kcdetails?id=' + indexbanner[i].course_id
+          })
+        }
+        if (indexbanner[i].type == 'JG') {
+          wx.navigateTo({
+            url: '/pages/jgdetails/jgdetails?id=' + indexbanner[i].jg_id
+          })
+        }
+        if (indexbanner[i].type == 'SF') {
+          wx.navigateTo({
+            url: indexbanner[i].url
+          })
+        }
+        return;
+      }
+    }
+  }
+
   tocity(e){
     wx.navigateTo({
       url: '/pages/city/city',
@@ -321,6 +379,7 @@ body.loadjg = content.loadjg;
 body.bannerGo = content.bannerGo; 
 body.tocity = content.tocity; 
 body.onReachBottom = content.onReachBottom;
-body.onPageScroll = content.onPageScroll;
+body.onPageScroll = content.onPageScroll; 
 body.loadBanner = content.loadBanner;
+body.closenotice = content.closenotice;
 Page(body)
