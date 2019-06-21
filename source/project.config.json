@@ -72,7 +72,7 @@
 					"id": 4,
 					"name": "首页",
 					"pathName": "pages/home/home",
-					"query": "id=13631",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -359,6 +359,21 @@
 					"id": -1,
 					"name": "会员服务",
 					"pathName": "pages/huiyuanfuwu/huiyuanfuwu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学员管理",
+					"pathName": "pages/studentmsg/studentmsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学员详情",
+					"pathName": "pages/studentinfo/studentinfo",
+					"query": "",
 					"scene": null
 				}
 			]
