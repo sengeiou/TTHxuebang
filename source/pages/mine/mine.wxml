@@ -35,7 +35,7 @@
 
       <view class='bianji flex-row flex-center margin-top-20'>
         <view class='flex-1'></view>
-        <view class='txt-orange h6'>孩子信息编辑</view>
+        <view bindtap="gotohaizi" class='txt-orange h6'>孩子信息编辑</view>
         <image src='{{uploadpath}}resource/{{res.youjiaobiao}}' class='icon-10 margin-left-4'></image>
         <view class='flex-1'></view>
       </view>

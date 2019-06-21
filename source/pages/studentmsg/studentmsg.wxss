@@ -1,0 +1,17 @@
+.nande{
+color:#FFFFFF;
+background-color: #4FB5E6;
+padding: 5rpx 20rpx 5rpx 20rpx;
+border-radius: 20rpx;
+margin-left: 20rpx;
+font-size: 20rpx;
+}
+.nvde{
+color:#FFFFFF;
+background-color: #FF8686;
+padding: 5rpx 20rpx 5rpx 20rpx;
+border-radius: 20rpx;
+margin-left: 20rpx;
+font-size: 20rpx;
+
+}

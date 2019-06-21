@@ -1,7 +1,10 @@
 {
   "pages": [
+    
     "pages/home/home",
+    "pages/studentinfo/studentinfo",
     "pages/ceshi/ceshi",
+    "pages/studentmsg/studentmsg",
     "pages/review/review",
     "pages/mingxi/mingxi",
     "pages/kehuinfo/kehuinfo",
