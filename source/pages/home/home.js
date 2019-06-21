@@ -34,7 +34,15 @@ class Content extends AppBase {
       currentItemId: 2,
       mylat: 0,
       mylng: 0,
-      currectcityid: 0
+      currectcityid: 0,
+      signNum: 0, //签到数
+      signState: false, //签到状态
+      min: 1, //默认值日期第一天1
+      max: 7, //默认值日期最后一天7
+      weeks: 0, //默认倍数
+      dakashow: false,
+      tangchuan: false,
+      guize:false
     })
 
 
@@ -337,6 +345,69 @@ class Content extends AppBase {
     })
   }
 
+
+
+  bindSignIn(e) {
+    var that = this,
+      days = e.currentTarget.dataset.days;
+    days++
+
+    console.log(days + "天数");
+    // wx.showToast({
+    //   icon: 'success',
+    //   title: '打卡成功',
+    // })
+
+    this.Base.setMyData({
+      signNum: days,
+      signState: true,
+      dakashow: true,
+      tangchuan: false
+    })
+
+    var min = e.currentTarget.dataset.min,
+      max = e.currentTarget.dataset.max,
+      weeks = e.currentTarget.dataset.weeks;
+
+    if (days % 7 == 0) {
+      weeks += 1;
+      this.Base.setMyData({
+        weeks: weeks
+      })
+    }
+
+    if (days == 7 * weeks + 1) {
+      this.Base.setMyData({
+        min: 7 * weeks + 1,
+        max: 7 * weeks + 7
+      })
+    }
+
+  }
+  showtc(e) {
+
+    this.Base.setMyData({ tangchuan: true })
+
+  }
+  chakanjilu(e) {
+    this.Base.setMyData({ tangchuan: true, dakashow: false })
+  }
+  closetanchuang(e) {
+    this.Base.setMyData({
+      dakashow: false,
+      tangchuan: false, guize:false
+    })
+  }
+  guize(e){
+    this.Base.setMyData({
+      guize: true
+    })
+  }
+
+
+
+
+
 }
 
 var content = new Content();
@@ -356,4 +427,13 @@ body.tocity = content.tocity;
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
 body.loadBanner = content.loadBanner;
+
+body.bindSignIn = content.bindSignIn;
+body.showtc = content.showtc;
+body.chakanjilu = content.chakanjilu;
+body.closetanchuang = content.closetanchuang; 
+body.guize = content.guize;
+
+
+
 Page(body)

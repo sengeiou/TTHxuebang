@@ -157,3 +157,11 @@ Page {
   margin: 10rpx;
   border: 2rpx dashed rgba(204, 204, 204, 1);
 }
+.clear{
+   margin-bottom: -15rpx;
+   margin-right: 10rpx;
+}
+.icon-clear{
+  height: 32rpx;
+  width: 32rpx;
+}

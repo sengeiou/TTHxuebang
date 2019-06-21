@@ -33,6 +33,26 @@ class Content extends AppBase {
       list: [],
       kclist: []
     })
+
+    var kclist = this.Base.getMyData().kclist;
+    var idx = {
+      name: '',
+      nianlin: '',
+      yuyue: '',
+      shichang: '',
+      sex: '',
+      kaike: '',
+      qingjia: ''
+    };
+
+    kclist.push(
+      idx
+    );
+    
+    this.Base.setMyData({
+      kclist
+    })
+    
   }
   onMyShow() {
     var that = this;
@@ -261,6 +281,13 @@ class Content extends AppBase {
     this.Base.setMyData({
       kclist
     })
+  }
+  shanchu(e){
+    var idx=e.currentTarget.id;
+    console.log(idx);
+    var kclist = this.Base.getMyData().kclist;
+    kclist.splice(idx,1)
+    this.Base.setMyData({ kclist})
   }
 
 
@@ -541,6 +568,7 @@ body.skuploadimg = content.skuploadimg;
 body.skminusImg = content.skminusImg;
 
 body.addkecheng = content.addkecheng;
-body.addt = content.addt;
+body.addt = content.addt; 
 
+body.shanchu = content.shanchu;
 Page(body)
