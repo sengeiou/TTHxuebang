@@ -128,7 +128,7 @@ class Content extends AppBase {
       });
       if (this.Base.options.type == 'jg') {
 
-        var adcode = address.ad_info.adcode;
+        var adcode = this.Base.getMyData().adcode;
         for (var i = 0; i < filterdistrict.length; i++) {
           if (adcode == filterdistrict[i].id) {
             var fdistrict_id = filterdistrict[i].id;

@@ -321,6 +321,7 @@ export class AppBase {
         var citylist = memberinfo.citylist;
 
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
+        this.Base.setMyData({ adcode: address.ad_info.adcode});
         console.log("citycode" + citycode);
         if (AppBase.CITYSET == false) {
           for (var i = 0; i < citylist.length; i++) {
