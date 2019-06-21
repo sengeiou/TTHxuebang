@@ -40,10 +40,8 @@ class Content extends AppBase {
       options.fdistrict_id = "0";
     }
 
-
-
     this.Base.setMyData({
-      type: this.options.type,
+      type: options.type,
       xiala: "yc",
       //type: "kc",
       show: "jx",
@@ -69,7 +67,6 @@ class Content extends AppBase {
     //  console.log(this.options.type);
 
 
-    this.onMyLoad();
 
   }
 
@@ -77,8 +74,13 @@ class Content extends AppBase {
     var timerStart = this.Base.getMyData().timerStart;
     clearInterval(timerStart);
   }
-  onMyLoad() {
+  onMyShow() {
 
+    var isload = this.Base.getMyData().isload;
+    if(isload==true){
+      return;
+    }
+    this.Base.setMyData({ isload:true});
     wx.showLoading({
       title: '加载中...'
     });
@@ -115,56 +117,29 @@ class Content extends AppBase {
       });
     });
 
-
     console.log(show);
+    this.loadcourse();
 
-
-    this.Base.getAddress((address) => {
-      console.log(address);
-      var mylat = address.location.lat;
-      var mylng = address.location.lng;
-      console.log("mylat");
+    jigouapi.activedistrictlist({
+      city_id: AppBase.CITYID
+    }, (filterdistrict) => {
       this.Base.setMyData({
-        mylat,
-        mylng
+        filterdistrict
       });
-      this.loadcourse();
+      if (this.Base.options.type == 'jg') {
 
-
-      jigouapi.activedistrictlist({
-        city_id: AppBase.CITYID
-      }, (filterdistrict) => {
-        this.Base.setMyData({
-          filterdistrict
-        });
-        if (this.Base.options.type == 'jg') {
-
-          var adcode = address.ad_info.adcode;
-          for (var i = 0; i < filterdistrict.length; i++) {
-            if (adcode == filterdistrict[i].id) {
-              var fdistrict_id = filterdistrict[i].id;
-              this.Base.setMyData({
-                fdistrict_id
-              });
-            }
+        var adcode = address.ad_info.adcode;
+        for (var i = 0; i < filterdistrict.length; i++) {
+          if (adcode == filterdistrict[i].id) {
+            var fdistrict_id = filterdistrict[i].id;
+            this.Base.setMyData({
+              fdistrict_id
+            });
           }
         }
+      }
 
-        this.loadjg();
-      });
-
-    }, () => {
       this.loadjg();
-      this.loadcourse();
-
-
-      jigouapi.activedistrictlist({
-        city_id: AppBase.CITYID
-      }, (filterdistrict) => {
-        this.Base.setMyData({
-          filterdistrict
-        });
-      });
     });
 
     setTimeout(() => {
@@ -398,7 +373,7 @@ class Content extends AppBase {
     var count = 0;
     var cs = 0;
 
-    if (this.options.type == "kc") {
+    if (this.Base.options.type == "kc") {
       for (var i = vteach.length; i < courselist.length; i++) {
         vteach.push(courselist[i]);
         count++;
@@ -408,6 +383,8 @@ class Content extends AppBase {
       }
       console.log(count + "AAA")
       if (count == 0) {
+        console.log("diaoni2");
+        wx.hideLoading();
         wx.showToast({
           title: '已经没有了',
           icon: 'none'
@@ -415,6 +392,7 @@ class Content extends AppBase {
       }
 
       if (count != 0) {
+        console.log("diaoni1");
         setTimeout(() => {
           console.log("llll");
           this.Base.setMyData({
@@ -428,7 +406,7 @@ class Content extends AppBase {
 
 
 
-    if (this.options.type == "jg") {
+    if (this.Base.options.type == "jg") {
       for (var j = jgvteach.length; j < jglist.length; j++) {
         jgvteach.push(jglist[j]);
         cs++;
@@ -437,14 +415,17 @@ class Content extends AppBase {
         }
       }
       if (cs == 0) {
+        console.log("diaoni2");
+        wx.hideLoading();
         wx.showToast({
           title: '已经没有了',
           icon: 'none'
-        })
+        });
       }
       if (cs != 0) {
         setTimeout(() => {
           console.log("llll");
+          console.log("diaoni1");
           this.Base.setMyData({
             jgvteach
           });
@@ -453,6 +434,7 @@ class Content extends AppBase {
       }
     }
 
+    console.log("diaoni3");
 
 
   }

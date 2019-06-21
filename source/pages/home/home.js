@@ -31,93 +31,33 @@ class Content extends AppBase {
       currentItemId: 2,
       mylat: 0,
       mylng: 0,
-      currectcityid:0
+      currectcityid: 0
     })
 
-    
-    
+
+
   }
-  
+
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
 
 
 
+    this.loadBanner();
 
-    // wx.showLoading({
-    //   title: '加载中...',
-    // });
-    this.Base.getAddress((address) => {
-      console.log(address);
-      var mylat = address.location.lat;
-      var mylng = address.location.lng;
-      var memberinfo = this.Base.getMyData().memberinfo;
-      var citylist = memberinfo.citylist;
 
-      var citycode = address.ad_info.adcode.substr(0, 4) + "00";
-      console.log("citycode" + citycode);
-      if (AppBase.CITYSET == false) {
-        for (var i = 0; i < citylist.length; i++) {
-          if (citylist[i].id == citycode) {
-            AppBase.CITYID = citylist[i].id;
-            AppBase.CITYNAME = citylist[i].name;
-            break;
-          }
-        }
-      }
+    var lastdistance = this.Base.getMyData().lastdistance;
 
-      this.loadBanner();
-
-      var memberapi = new MemberApi();
-      memberapi.usecity({
-        city_id: AppBase.CITYID
-      });
-
+    if (AppBase.CITYID != this.Base.getMyData().currectcityid ||
+      this.lastdistance > 3000
+    ) {
       this.Base.setMyData({
-        mylat,
-        mylng,
-        cityname: AppBase.CITYNAME
+        currectcityid: AppBase.CITYID
       });
+      this.loadjg();
+    }
 
-      var lastlat = AppBase.lastlat;
-      var lastlng = AppBase.lastlng;
-
-      var lastdistance = ApiUtil.GetDistance(mylat, mylng, lastlat, lastlng);
-
-      AppBase.lastlat = mylat;
-      AppBase.lastlng = mylng;
-
-
-      if (AppBase.CITYID!=this.Base.getMyData().currectcityid
-      ||this.lastdistance>3000
-      ){
-        this.Base.setMyData({ currectcityid: AppBase.CITYID});
-        this.loadjg();
-      }
-    }, () => {
-      if (AppBase.CITYSET == false) {
-        this.Base.setMyData({
-          cityname: AppBase.CITYNAME
-        });
-      }
-      var memberapi = new MemberApi();
-      memberapi.usecity({
-        city_id: AppBase.CITYID
-      });
-      if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
-        this.Base.setMyData({ currectcityid: AppBase.CITYID });
-        this.loadjg();
-      }
-
-      this.loadBanner();
-      
-      
-    });
-    
-    // setTimeout(() => {
-    //   wx.hideLoading()
-    // }, 1000);
   }
   tojgdetails(e) {
     var id = e.currentTarget.id;
@@ -125,13 +65,15 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-  loadBanner(){
+  loadBanner() {
     var instapi = new InstApi();
     // console.log()
-    instapi.indexbanner({ orderby: 'r_main.seq' }, (indexbanner) => {
-      var bn=[];
-      for(var item of indexbanner){
-        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()){
+    instapi.indexbanner({
+      orderby: 'r_main.seq'
+    }, (indexbanner) => {
+      var bn = [];
+      for (var item of indexbanner) {
+        if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()) {
           bn.push(item);
         }
       }
@@ -140,9 +82,12 @@ class Content extends AppBase {
       });
     });
 
-    var cacheid=wx.getStorageSync("homenoticecacheid");
+    var cacheid = wx.getStorageSync("homenoticecacheid");
 
-    instapi.lasthomenotice({ orderby: 'r_main.seq', cacheid: cacheid }, (noticebanner) => {
+    instapi.lasthomenotice({
+      orderby: 'r_main.seq',
+      cacheid: cacheid
+    }, (noticebanner) => {
       var bn = [];
       cacheid = cacheid.split(",");
       for (var item of noticebanner) {
@@ -152,17 +97,18 @@ class Content extends AppBase {
         }
       }
       wx.setStorageSync("homenoticecacheid", cacheid.join(","));
-      if(bn.length>0){
+      if (bn.length > 0) {
         this.Base.setMyData({
-          noticebanner: bn,showlastnotice:true
-          });
+          noticebanner: bn,
+          showlastnotice: true
+        });
       }
     });
 
 
   }
 
-  closenotice(){
+  closenotice() {
     this.Base.setMyData({
       showlastnotice: false
     });
@@ -181,11 +127,11 @@ class Content extends AppBase {
     }
 
   }
-  onPullDownRefresh(){
+  onPullDownRefresh() {
     this.onLoad({});
     super.onPullDownRefresh();
   }
-  tobaoma(e){
+  tobaoma(e) {
     wx.navigateTo({
       url: '/pages/baoma/baoma',
     })
@@ -224,13 +170,14 @@ class Content extends AppBase {
       }
 
       var jgvteach = [];
-      for(var i=0;i<4&&i<jglist.length;i++){
+      for (var i = 0; i < 4 && i < jglist.length; i++) {
         jgvteach.push(jglist[i]);
       }
 
 
       this.Base.setMyData({
-        jglist, jgvteach
+        jglist,
+        jgvteach
       });
     });
   }
@@ -245,7 +192,7 @@ class Content extends AppBase {
     var jgvteach = this.Base.getMyData().jgvteach;
     var jglist = this.Base.getMyData().jglist;
     var cs = 0;
-   
+
 
     for (var j = jgvteach.length; j < jglist.length; j++) {
       jgvteach.push(jglist[j]);
@@ -262,8 +209,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         jgnomore: 1,
       });
-    }
-    else {
+    } else {
       setTimeout(() => {
         console.log("llll");
         this.Base.setMyData({
@@ -278,14 +224,14 @@ class Content extends AppBase {
 
 
 
-  bannerGo(e){
-    var id=e.currentTarget.id;
+  bannerGo(e) {
+    var id = e.currentTarget.id;
     var indexbanner = this.Base.getMyData().indexbanner;
-    for(var i=0;i<indexbanner.length;i++){
-      if(id==indexbanner[i].id){
-        if(indexbanner[i].type=='KC'){
+    for (var i = 0; i < indexbanner.length; i++) {
+      if (id == indexbanner[i].id) {
+        if (indexbanner[i].type == 'KC') {
           wx.navigateTo({
-            url: '/pages/kcdetails/kcdetails?id='+indexbanner[i].course_id
+            url: '/pages/kcdetails/kcdetails?id=' + indexbanner[i].course_id
           })
         }
         if (indexbanner[i].type == 'JG') {
@@ -305,8 +251,14 @@ class Content extends AppBase {
 
 
 
-  bannerGo(e) {
+  bannerGo2(e) {
+
+    this.Base.setMyData({
+      showlastnotice: false
+    });
+
     var id = e.currentTarget.id;
+    console.log(id);
     var indexbanner = this.Base.getMyData().noticebanner;
     for (var i = 0; i < indexbanner.length; i++) {
       if (id == indexbanner[i].id) {
@@ -330,7 +282,7 @@ class Content extends AppBase {
     }
   }
 
-  tocity(e){
+  tocity(e) {
     wx.navigateTo({
       url: '/pages/city/city',
       success: function(res) {},
@@ -373,13 +325,14 @@ body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.totake = content.totake;
 body.swiperChange = content.swiperChange;
-body.clickChange = content.clickChange; 
-body.tobaoma = content.tobaoma; 
+body.clickChange = content.clickChange;
+body.tobaoma = content.tobaoma;
 body.loadjg = content.loadjg;
-body.bannerGo = content.bannerGo; 
-body.tocity = content.tocity; 
+body.bannerGo = content.bannerGo;
+body.bannerGo2 = content.bannerGo2;
+body.tocity = content.tocity;
 body.onReachBottom = content.onReachBottom;
-body.onPageScroll = content.onPageScroll; 
+body.onPageScroll = content.onPageScroll;
 body.loadBanner = content.loadBanner;
 body.closenotice = content.closenotice;
 Page(body)
