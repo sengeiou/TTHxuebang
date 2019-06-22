@@ -352,13 +352,22 @@ export class AppBase {
         AppBase.lastlng = mylng;
 
 
-        this.Base.setMyData({ lastdistance });
+        this.Base.setMyData({
+          lastdistance,
+          address
+        });
 
 
         console.log("citycode2" + AppBase.CITYID);
         that.onMyShow();
       }, () => {
 
+        this.Base.setMyData({
+          lastdistance: 0,
+          address: {},
+          mylat: 0,
+          mylng: 0
+        });
         that.onMyShow();
 
 

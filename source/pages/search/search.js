@@ -66,10 +66,8 @@ class Content extends AppBase {
       console.log(json.searchkeyword+"电风扇");
 
 
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
+        var mylat = this.getMyData().mylat;
+        var mylng = this.getMyData().mylng;
         json.mylat = mylat;
         json.mylng = mylng;
         json.orderby = "distance";
@@ -89,22 +87,6 @@ class Content extends AppBase {
             courselist
           });
         });
-      },()=>{
-
-        jigouapi.jglist(json, (jglist) => {
-          this.Base.setMyData({
-            jglist
-          });
-        });
-        jigouapi.courselist(kc, (courselist) => {
-          this.Base.setMyData({
-            courselist
-          });
-        });
-      });
-      
-      
-
       
 
       teacherapi.teachlist(video, (teachlist) => {
