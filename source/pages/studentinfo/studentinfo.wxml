@@ -2,7 +2,7 @@
 
   <view class="flex-row ">
     <view class="flex-1"></view>
-    <view class=" h15" style="color:#4FB5E6">删除</view>
+    <view  wx:if="{{niubi==1}}" bindtap="shanchu" class=" h15" style="color:#4FB5E6" >删除</view>
   </view>
   <view class="flex-row ">
     <view class="flex-1"></view>
@@ -20,7 +20,7 @@
       <view class="h15 " style="color:#FF5252;width:20rpx">*</view>
       <view class="h15 margin-left-10" style="color:#222222">孩子姓名</view>
       <view class="flex-1"></view>
-      <input class='' bindinput="name" placeholder-class='pc' value='' name='hangye' placeholder='点击输入'></input>
+      <input class='' bindinput="name" placeholder-class='pc' value='{{name}}' name='hangye' placeholder='点击输入'></input>
 
     </view>
 
@@ -45,7 +45,7 @@
 
 
       <view class="section__title">{{xssj}} </view>
-      <picker class="margin-left-5 margin-top-5" mode="date" value="{{date}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
+      <picker class="margin-left-5 margin-top-5" mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
 
         <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
 
@@ -58,7 +58,7 @@
       <view class="h15 " style="color:#FF5252;width:20rpx"></view>
       <view class="h15 margin-left-10" style="color:#222222">年级</view>
       <view class="flex-1"></view>
-      <input class='  ' bindinput="nianji"  placeholder-class='pc' value='' name='hangye' placeholder='学员在读年级'></input>
+      <input class='  ' bindinput="nianji"  placeholder-class='pc' value='{{nianji}}' name='hangye' placeholder='学员在读年级'></input>
 
     </view>
 
@@ -69,7 +69,7 @@
       <view class="h15 " style="color:#FF5252;width:20rpx">*</view>
       <view class="h15 margin-left-10" style="color:#222222">手机号码</view>
       <view class="flex-1"></view>
-      <input class='  ' maxlength="11"  bindinput="shouji" placeholder-class='pc' value='' name='hangye' placeholder='用于接受预约确认'></input>
+      <input class='  ' maxlength="11"  bindinput="shouji" placeholder-class='pc' value='{{shouji}}' name='hangye' placeholder='用于接受预约确认'></input>
 
     </view>
 
@@ -79,7 +79,7 @@
       <view class="h15 " style="color:#FF5252;width:20rpx"></view>
       <view class="h15 margin-left-10" style="color:#222222">微信号</view>
       <view class="flex-1"></view>
-      <input class='  ' bindinput="weixin" placeholder-class='pc' value='' name='hangye' placeholder='xiaobaobao'></input>
+      <input class='  ' bindinput="weixin" placeholder-class='pc' value='{{weixin}}' name='hangye' placeholder='xiaobaobao'></input>
 
     </view>
 
@@ -91,11 +91,10 @@
 
 
       <view class="section__title"> </view>
-      <picker class="margin-left-5 margin-top-5" mode="region " value="{{date}}"  bindchange="bindDateChange">
-
-        <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
-
-      </picker>
+       <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker" style='color:#C8C8C8' wx:if="{{region.length==0}}">请填写地址</view>
+          <view class="picker" wx:if="{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+        </picker>
 
 
     </view>
@@ -104,7 +103,7 @@
       <view class="h15 " style="color:#FF5252;width:20rpx"></view>
       <view class="h15 margin-left-10" style="color:#222222">门牌号</view>
       <view class="flex-1"></view>
-      <input class='' bindinput="menpai" placeholder-class='pc' value='' name='hangye' placeholder='科苑路紫光信息港1203'></input>
+      <input class='' bindinput="menpai" placeholder-class='pc' value='{{menpai}}' name='hangye' placeholder='科苑路紫光信息港1203'></input>
 
     </view>
 
@@ -112,3 +111,13 @@
 
 
 </view>
+
+<view bindtap="baocun"  class="flex-row">
+          <view class="flex-1"></view>
+          <view class="tuan_btn  text-center  ">
+           保存
+
+          </view>
+      
+          <view class="flex-1"></view>
+        </view>

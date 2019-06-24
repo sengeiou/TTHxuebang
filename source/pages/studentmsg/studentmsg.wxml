@@ -1,12 +1,18 @@
-<view class="margin-10" bindtap="studentinfo">
+<view wx:for="{{xueyuanlist}}" data-id="{{item.id}}"  wx:key="k" class="margin-10" bindtap="studentinfo">
   <view class="flex-row flex-center padding-40">
-    <image src="{{memberinfo.avatarUrl}}" class="radius-50 icon-60"></image>
+
+  
+    <image wx:if="{{item.sex=='nv'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}"></image>
+
+       <image  wx:if="{{item.sex=='nan'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}"></image>
+   
     <view class="margin-left-20">
       <view class="flex-row flex-center">
-        <view class="f15 txt-bold">小宝宝</view>
-        <view class="nande">6岁</view>
+        <view class="f15 txt-bold">{{item.name}}</view>
+        <view  wx:if="{{item.sex=='nan'}}" class="nande">{{item.sui}}岁</view>
+        <view wx:if="{{item.sex=='nv'}}" class="nvde">{{item.sui}}岁</view>
       </view>
-      <view class="h6 margin-top-20" style="color:#999999">18768870370</view>
+      <view class="h6 margin-top-20" style="color:#999999">{{item.shouji}}</view>
     </view>
     <view class="flex-1"></view>
     <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
@@ -15,20 +21,15 @@
   
 
 </view>
-<view class="margin-10">
-  <view class="flex-row flex-center padding-40">
-    <image src="{{memberinfo.avatarUrl}}" class="radius-50 icon-60"></image>
-    <view class="margin-left-20">
-      <view class="flex-row flex-center">
-        <view class="f15 txt-bold">小宝宝</view>
-        <view class="nvde">8岁</view>
-      </view>
-      <view class="h6 margin-top-20" style="color:#999999">18768870370</view>
-    </view>
-    <view class="flex-1"></view>
-    <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
 
-  </view>
-  
 
-</view>
+
+<view bindtap='tianjia'  class="flex-row">
+          <view class="flex-1"></view>
+          <view class="tuan_btn  text-center  ">
+           添加孩子
+
+          </view>
+      
+          <view class="flex-1"></view>
+        </view>
