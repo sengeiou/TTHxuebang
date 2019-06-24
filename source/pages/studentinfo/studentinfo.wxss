@@ -1,0 +1,9 @@
+
+.pc {
+  color: #c8c8c8;
+   text-align: right;
+}
+.nannv{
+  width: 150rpx;
+  height: 40rpx;
+}

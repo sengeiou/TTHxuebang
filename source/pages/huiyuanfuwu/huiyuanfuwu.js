@@ -50,6 +50,11 @@ class Content extends AppBase {
   
  
   }
+  tokaitong(e){
+    wx.navigateTo({
+      url: '/pages/liucheng/liucheng',
+    })
+  }
  
  
 
@@ -65,5 +70,6 @@ body.minusImg = content.minusImg;
 body.uploadimg = content.uploadimg;
 body.submit = content.submit;
 body.bindjgpingfen = content.bindjgpingfen;
-body.bindkcpingfen = content.bindkcpingfen;
+body.bindkcpingfen = content.bindkcpingfen; 
+body.tokaitong = content.tokaitong;
 Page(body)

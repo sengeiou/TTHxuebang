@@ -61,7 +61,7 @@
         </view>
 
 
-        <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center margin-top-20' bindtap='tokaitong'>
           <view class='flex-1'></view>
           <view class='lianxikefu text-center h6'>
             联系客服开通

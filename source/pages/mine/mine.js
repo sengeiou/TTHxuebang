@@ -126,6 +126,11 @@ class Content extends AppBase {
    
   
   }
+  gotohaizi(){
+    wx.navigateTo({
+      url: '/pages/studentmsg/studentmsg',
+    })
+  }
 
 }
 
@@ -135,4 +140,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.startscan = content.startscan;
 body.todetails = content.todetails;
+body.gotohaizi = content.gotohaizi;
 Page(body)

@@ -72,7 +72,7 @@
 					"id": 4,
 					"name": "首页",
 					"pathName": "pages/home/home",
-					"query": "id=13631",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -364,6 +364,20 @@
 				},
 				{
 					"id": -1,
+					"name": "学员管理",
+					"pathName": "pages/studentmsg/studentmsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "学员详情",
+					"pathName": "pages/studentinfo/studentinfo",
+					"query": "",
+					"scene": null
+},
+				{
+					"id": -1,
 					"name": "地址管理",
 					"pathName": "pages/address/address",
 					"query": "",
@@ -381,6 +395,7 @@
 					"name": "积分商城",
 					"pathName": "pages/shopmall/shopmall",
 					"scene": null
+				}
 				}
 			]
 		}

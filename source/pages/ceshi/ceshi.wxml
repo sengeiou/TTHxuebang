@@ -1,64 +1,81 @@
+
 <!--pages/ceshi/ceshi.wxml-->
+<!-- <view class='signIn'>
+  <view class='sign-com'>
 
-  <view class='in'>
+    <view class='thead'>
+      <view class='tt'>已连续签到</view>
+      <view class='mm'>
+        <label class='n'>{{signNum}}</label>天</view>
+      <view class='pp'>连续签到7日后每日得25分</view>
+    </view> -->
 
-    <view class='new-head'>
-      <view class='flex-row flex-center'>
-        <view class=''>已连续签到{{newSignNum}}天</view>
-        <view class=''>积分：{{newSignIntegral}}</view>
-      </view>
+    <!-- <view class='modle'> -->
+      <!-- <view class='mol'>
+        <view class='mol-line'></view>
+        <view class='mol-ites'>
+          <view class="ite {{signNum>=min?'hover':''}}" data-n='{{min}}'>
+            <label class='n'>+{{min
+              <7?5:25}}</label>
+          </view>
 
-      <view class='flex-row flex-center'>
-        <view class='flex-1'></view>
+          <view class="ite {{signNum>=min+1?'hover':''}}" data-n='{{min+1}}'>
+            <label class='n'>+{{min+1
+              <7?5:25}}</label>
+          </view>
 
-        <!-- 未签到 -->
-        <view wx:if='{{newSignBtnState==false}}' class='flex-row flex-center txt-white aaa radius-50' style="background:green" bindtap='signNewFn' data-num="{{newSignNum}}">
-          <view class='flex-1'></view>
-          <view class='txt-white'>签到</view>
-          <view class='flex-1'></view>
+          <view class="ite {{signNum>=min+2?'hover':''}}" data-n='{{min+2}}'>
+            <label class='n'>+{{min+2
+              <7?5:25}}</label>
+          </view>
+          <view class="ite {{signNum>=min+3?'hover':''}}" data-n='{{min+3}}'>
+            <label class='n'>+{{min+3
+              <7?5:25}}</label>
+          </view>
+          <view class="ite {{signNum>=min+4?'hover':''}}" data-n='{{min+4}}'>
+            <label class='n'>+{{min+4
+              <7?5:25}}</label>
+          </view>
+          <view class="ite {{signNum>=min+5?'hover':''}}" data-n='{{min+5}}'>
+            <label class='n'>+{{min+5
+              <7?5:25}}</label>
+          </view>
+          <view class="ite {{signNum>=min+6?'hover':''}}" data-n='{{max}}'>
+            <label class='n'>+{{min+6
+              <7?5:25}}</label>
+          </view>
         </view>
+      </view> -->
 
-        <!-- 已签到 -->
-        <view wx:if='{{newSignBtnState==true}}' class='flex-row flex-center txt-white aaa radius-50' style="background:red">
-          <view class='flex-1'></view>
-          <view class='txt-white'>已签到</view>
-          <view class='flex-1'></view>
-        </view>
+      <!-- <view class='moday'>
+        <label class='dd'>{{min}}天</label>
+        <label class='dd'>{{min+1}}天</label>
+        <label class='dd'>{{min+2}}天</label>
+        <label class='dd'>{{min+3}}天</label>
+        <label class='dd'>{{min+4}}天</label>
+        <label class='dd'>{{min+5}}天</label>
+        <label class='dd'>{{max}}天</label>
+      </view> -->
 
-        <view class='flex-1'></view>
-      </view>
+    <!-- </view> -->
 
-    </view>
-
-
-
-
-    <view class='new-week'>
-      <view class='we-mod'>
-
-        <view class='mo-fen'>
-          <label class='f f1' wx:if='{{continuityDays7}}'>+7积分</label>
-          <label class='f f2'  wx:if='{{continuityDays3}}'>+3积分</label>  
-        </view>
+    <!-- <button type='button' class='btn margin-top' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}">签到</button> -->
 
 
 
-        <view class='mo-line'>
-          <block wx:for="{{isNewSignedArr}}" wx:for-item="v" wx:key="k">
-            <label class="q {{v.isSigned?'hover':''}}"></label>
-          </block>
-        </view>
+  <!-- </view>
+</view> -->
 
-        <view class='mo-ri'>
-          <block wx:for="{{isNewSignedArr}}" wx:for-item="v" wx:key="k">
-            <label class="t">{{v.day}}</label>
-          </block>
-        </view>
-      </view>
-    </view>
+<!-- <view class='explax '>
+  <view class=' h5'>日期开始：{{min}} </view>
+  <view class='h5'>日期结束：{{max}} </view>
+  <view class='h5'>签到数：{{signNum}}天</view>
+  <view class='h5'>切换周期的倍数：{{weeks}}</view>
+</view> -->
 
+    <!-- <view class='flex-row flex-column'>
+      <view class=''>已连续签到</view>
+      <view class=''>{{signNum}}天</view>
+      <view class=''>连续签到7日后每日得25分</view>
+    </view> -->
 
-
-
-
-  </view>
