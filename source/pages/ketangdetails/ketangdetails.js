@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao: false, quanbu: false,pinlun:'' });
+    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '' });
     this.Base.shipin = wx.createVideoContext("v_1");
   }
   onMyShow() {
@@ -55,11 +55,10 @@ class Content extends AppBase {
   }
   qiehuanzhanjie(e) {
     var mulu = this.Base.getMyData().zhanjie;
-    var kecheninfo=this.Base.getMyData().kecheninfo;
-    if (mulu[e.currentTarget.dataset.id].isproved_value == 'N' && kecheninfo.idd == '')
-    {
-   this.Base.info("需要付费观看,如果想观看要购买观看全集");
-   return
+    var kecheninfo = this.Base.getMyData().kecheninfo;
+    if (mulu[e.currentTarget.dataset.id].isproved_value == 'N' && kecheninfo.idd == '') {
+      this.Base.info("需要付费观看,如果想观看要购买观看全集");
+      return
 
     }
     for (var i = 0; i < mulu.length; i++) {
@@ -174,38 +173,83 @@ class Content extends AppBase {
     })
 
   }
-  shuru(e)
-  {
-    this.Base.setMyData({ pinlun: e.detail.value})
-   
+  shuru(e) {
+    this.Base.setMyData({ pinlun: e.detail.value })
+
   }
-  fabiao(){
-    var that=this;
-    var api=new JigouApi();
-    if (this.Base.getMyData().kecheninfo.idd != '' || this.Base.getMyData().kecheninfo.isfree_value=='Y')
-    {
-      var pinlun=this.Base.getMyData().pinlun;
-      if(pinlun=='')
-      {
+  fabiao() {
+    var that = this;
+    var api = new JigouApi();
+    if (this.Base.getMyData().kecheninfo.idd != '' || this.Base.getMyData().kecheninfo.isfree_value == 'Y') {
+      var pinlun = this.Base.getMyData().pinlun;
+      if (pinlun == '') {
         this.Base.info("至少说点什么才可以发送哦");
         return
       }
-      api.ketanpinlun({ onlineclassroom_id: this.Base.options.id, neiron: pinlun},(res)=>{
-       
-        
-         
+      api.ketanpinlun({ onlineclassroom_id: this.Base.options.id, neiron: pinlun }, (res) => {
+
+
+
         api.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
           that.Base.setMyData({
-            ketanpinlunlist: ketanpinlunlist,pinlun:''
+            ketanpinlunlist: ketanpinlunlist, pinlun: ''
           })
-        })    
-      })    
-       
+        })
+      })
+
 
     }
-    else{
+    else {
       this.Base.info("购买此专栏后才能进行评论哦！");
     }
+  }
+  dianzan(e) {
+    var ketanpinlunlist = this.Base.getMyData().ketanpinlunlist;
+    var idx = e.currentTarget.dataset.idx;
+    var api = new JigouApi();
+
+    api.pinlundianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+      console.log(res);
+      if (res.return == "") {
+        console.log(123132132);
+        ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) - 1;
+        ketanpinlunlist[idx].isfav = 'N';
+      }
+      else {
+        console.log(45645646);
+        ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) + 1;
+        ketanpinlunlist[idx].isfav = 'Y';
+
+      }
+      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+
+    })
+    console.log(e);
+
+  }
+  huifudianzan(e) {
+    var ketanpinlunlist = this.Base.getMyData().ketanpinlunlist;
+    var idx = e.currentTarget.dataset.idx;
+    var api = new JigouApi();
+
+    api.pinlunhuifudianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+      console.log(res);
+      if (res.return == "") {
+        console.log(123132132);
+        ketanpinlunlist[idx].huifudianzanrenshu = Number(ketanpinlunlist[idx].huifudianzanrenshu) - 1;
+        ketanpinlunlist[idx].huifuisfav = 'N';
+      }
+      else {
+        console.log(45645646);
+        ketanpinlunlist[idx].huifudianzanrenshu = Number(ketanpinlunlist[idx].huifudianzanrenshu) + 1;
+        ketanpinlunlist[idx].huifuisfav = 'Y';
+
+      }
+      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+
+    })
+    console.log(e);
+
   }
 }
 
@@ -226,4 +270,6 @@ body.guanbiquanbu = content.guanbiquanbu;
 body.goumai = content.goumai;
 body.fabiao = content.fabiao;
 body.shuru = content.shuru;
+body.dianzan = content.dianzan;
+body.huifudianzan = content.huifudianzan;
 Page(body)

@@ -21,13 +21,13 @@
 
     <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top" style='color:#222222'>还差{{pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</view>
     <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团成功</view>
-      <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</view>
+    <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</view>
     <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团失败</view>
-      <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</view>
+    <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</view>
     <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{pintuaninfo.price-pintuaninfo.group_course_group_price}}
     </view>
     <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{pintuaninfo.price-pintuaninfo.group_course_group_price}}</view>
-     <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{pintuaninfo.price-pintuaninfo.group_course_group_price}}</view>
+    <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{pintuaninfo.price-pintuaninfo.group_course_group_price}}</view>
     <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h6" style='color:#999999'>支付退款将在1-15个工作日内 原路退还到您的账户</view>
   </view>
 </view>
@@ -60,9 +60,9 @@
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center  ">
             邀请好友参团
-           
+
           </view>
-        <button data-name="shareBtn" class="clear-button" open-type="share">转发</button>
+          <button data-name="shareBtn" class="clear-button" open-type="share">转发</button>
           <view class="flex-1"></view>
         </view>
 
@@ -70,7 +70,7 @@
           生成分享海报
         </view>
 
-        <view bindtap='chakankechen'  wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+        <view bindtap='chakankechen' wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center   ">
             查看课程
@@ -91,7 +91,7 @@
         </view>
 
 
-<view bindtap='yuanjiagoumai' wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+        <view bindtap='yuanjiagoumai' wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center  ">
             原价购买： ￥{{pintuaninfo.price}}
@@ -103,7 +103,7 @@
           查看课程
         </view>
 
-<view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+        <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center" bindtap='kaigexintuan'>
             开个新团 ￥{{pintuaninfo.group_course_group_price}}
@@ -118,7 +118,7 @@
         <view wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
           <view class="flex-1"></view>
           <view bindtap='addgroup' class="tuan_btn  text-center  ">
-            我要参团:  ￥{{pintuaninfo.group_course_group_price}}
+            我要参团: ￥{{pintuaninfo.group_course_group_price}}
           </view>
           <view class="flex-1"></view>
         </view>

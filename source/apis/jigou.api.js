@@ -745,6 +745,38 @@ export class JigouApi{
         })
     }
 
+    ketanglist(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/ketanglist',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     ketanpinlun(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -1449,7 +1481,7 @@ export class JigouApi{
         })
     }
 
-    ketanglist(json, callback, showLoading = true) {
+    pinlunhuifudianzan(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -1458,7 +1490,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/ketanglist',
+            url: ApiConfig.GetApiUrl() + 'jigou/pinlunhuifudianzan',
             data: json,
             method: 'POST',
             dataType: 'json',

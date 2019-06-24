@@ -10,7 +10,18 @@
 .margin-top-12 {
   margin-top: 12rpx;
 }
+chaochu2{
+  overflow:hidden; 
 
+text-overflow:ellipsis; 
+
+display:-webkit-box; 
+
+-webkit-box-orient:vertical; 
+
+-webkit-line-clamp:2; 
+
+}
 .kecheng-block {
   width: 330rpx;
   

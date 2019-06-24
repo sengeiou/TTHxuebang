@@ -55,7 +55,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
+      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
         {{item.class_introduce}}
       </view>
 
