@@ -1,4 +1,4 @@
-// pages/xuanzedizhi/xuanzedizhi.js
+// pages/jifenshouzhi/jifenshouzhi.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -9,45 +9,32 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '选择地址',
+      title: '收支明细'
     });
   }
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({show:false})
+    this.Base.setMyData({ show : 1})
   }
   onMyShow() {
     var that = this;
   }
-  addressmanage(e) {
-    wx.navigateTo({
-      url: '/pages/addressmanage/addressmanage',
-    })
-  }
-  queren(e){
-    this.Base.setMyData({
-      show:true
-    })
-  }
-  quedin(e){
-    this.Base.setMyData({
-      show: false
-    })
-  }
-  quxiao(e) {
-    this.Base.setMyData({
-      show: false
-    })
+  xuanze(e){
+    var type = e.currentTarget.id;
+    console.log(type);
+    if (type=="shouru"){
+      this.Base.setMyData({show:1})
+    }
+    if (type == "zhichu") {
+      this.Base.setMyData({ show: 2 })
+    }
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
-body.addressmanage = content.addressmanage; 
-body.queren = content.queren; 
-body.quxiao = content.quxiao; 
-body.quedin = content.quedin; 
+body.xuanze = content.xuanze;
 Page(body)

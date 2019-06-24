@@ -217,6 +217,9 @@ view, navigator, input, text, textarea {
 .txt-6 {
   color: #666;
 }
+.txt-9 {
+  color: #999999;
+}
 
 .nowrap {
   word-break: keep-all; /* 不换行 */

@@ -1,0 +1,67 @@
+<!--pages/jifenshouzhi/jifenshouzhi.wxml-->
+<view class="flex-row flex-center title bg-white" style="">
+
+  <view class="flex-row flex-column flex-1 margin-left-20" bindtap="xuanze" id="shouru">
+    <view class="h5 {{show==1?'txt-bold':''}}">收入</view>
+    <view class="tiao  {{show==1?'bg-orange':'bg-white'}}"></view>
+  </view>
+
+  <view class="flex-row flex-column flex-1 margin-right-20" bindtap="xuanze" id="zhichu">
+    <view class="h5 {{show==2?'txt-bold':''}}">支出</view>
+    <view class="tiao {{show==2?'bg-orange':'bg-white'}}"></view>
+  </view>
+
+</view>
+
+
+
+<view wx:if='{{show==1}}'>
+
+  <view style="height:52rpx" class="flex-row flex-center">
+    <view class="h6 txt9 margin-left-20 flex-1">3月</view>
+    <view class="h6 txt9">增加</view>
+    <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
+    <view class=" txt9 h6 margin-right-30">300</view>
+  </view>
+
+  <view class="bg-white flex-row flex-center shouru">
+
+    <view class="flex-row column flex-1">
+      <view class="h5">每日任务：签到</view>
+      <view class="txt9" style="font-size:20rpx;">2019年3月29日</view>
+    </view>
+
+    <view class="flex-row flex-center">
+      <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
+      <view class="txt-bold txt9  margin-right-30" style="color:#FFC22F">+10</view>
+    </view>
+
+  </view>
+
+</view>
+
+
+<view wx:if='{{show==2}}'>
+
+  <view style="height:52rpx" class="flex-row flex-center">
+    <view class="h6 txt9 margin-left-20 flex-1">3月</view>
+    <view class="h6 txt9">支出</view>
+    <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
+    <view class=" txt9 h6 margin-right-30">300</view>
+  </view>
+
+  <view class="bg-white flex-row flex-center shouru">
+
+    <view class="flex-row column flex-1">
+      <view class="h5">积分兑换商品1</view>
+      <view class="txt9" style="font-size:20rpx;">2019年3月29日</view>
+    </view>
+
+    <view class="flex-row flex-center">
+      <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
+      <view class=" txt-bold   margin-right-30" >-200</view>
+    </view>
+
+  </view>
+
+</view>

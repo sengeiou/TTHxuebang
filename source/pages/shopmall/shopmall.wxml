@@ -12,7 +12,8 @@
     </view>
 
     <view class='flex-row margin-left-66 margin-top-32'>
-      <view class='sz flex-row _center'>
+
+      <view class='sz flex-row _center' bindtap="toshouzhi">
         <view class='flex-row'>
           <view>
             <image class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}'></image>
@@ -35,12 +36,16 @@
 
   <view class='flex-row flex-wrap'>
     <view>
-      <view class='hezi'>
+      <view class='hezi' bindtap="todetails">
         <image class='img' src='{{uploadpath}}resource/{{res.remen}}'></image>
-        <view class='padding-left-20 padding-top-10'>积分兑换商品</view>
-        <view class='flex-row'>
-          <image class='icon-10' src='{{uploadpath}}resource/{{resjf_minicon}}'></image>
-          <view>88</view>
+
+        <view class="padding-20">
+          <view class=' padding-top-10 txt-bold f13'>积分兑换商品</view>
+          <view class='flex-row flex-center margin-top-10'>
+            <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image>
+            <view class=" txt9 h5 margin-left-10">300</view>
+            <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">200</view>
+          </view>
         </view>
       </view>
     </view>
