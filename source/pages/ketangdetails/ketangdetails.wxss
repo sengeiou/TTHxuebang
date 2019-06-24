@@ -11,6 +11,14 @@ Page {
   margin-left: 15rpx;
   margin-top: 20rpx;
 }
+.hs{
+  background-color: #FFC200;
+  width: 10rpx;
+  height: 25rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  
+}
 .gd
 {
 width: 100vw;
