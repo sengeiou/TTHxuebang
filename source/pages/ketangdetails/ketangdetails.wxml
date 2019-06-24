@@ -41,7 +41,7 @@
 
         <view class='flex-row flex-center margin-left-26'>
           <image src='{{uploadpath}}resource/{{res.bofan}}' class='icon-13 '></image>
-          <view class=' h6 margin-left-10'>{{kecheninfo.learning_num}}万人学过</view>
+          <view class=' h6 margin-left-10'>{{kecheninfo.learning_num}}人学过</view>
         </view>
 
 
@@ -145,7 +145,7 @@
 <block wx:if="{{liebiao}}">
 
   <view class="padding-20 flex-row flex-center">
-    <view class="flex-1">跟我一起学画画</view>
+    <view class="flex-1">{{danqianzhanjie.classroom_id_name}}</view>
     <view bindtap='guanbiliebiao'>X</view>
   </view>
   <scroll-view scroll-y class="gd">
