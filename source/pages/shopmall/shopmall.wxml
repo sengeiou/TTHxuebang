@@ -37,9 +37,14 @@
     <view>
       <view class='hezi'>
         <image class='img' src='{{uploadpath}}resource/{{res.remen}}'></image>
+        <view class='padding-left-20 padding-top-10'>积分兑换商品</view>
+        <view class='flex-row'>
+          <image class='icon-10' src='{{uploadpath}}resource/{{resjf_minicon}}'></image>
+          <view>88</view>
+        </view>
       </view>
     </view>
-    
+
   </view>
 
 

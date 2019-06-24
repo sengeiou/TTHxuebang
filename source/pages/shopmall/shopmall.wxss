@@ -52,6 +52,7 @@
   margin-top: 24rpx;
   margin-left: 24rpx;
   border-radius: 36rpx;
+  background-color: white;
 }
 
 .img {
