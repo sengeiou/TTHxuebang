@@ -30,14 +30,14 @@
 
 
         <view class='flex-row flex-center '>
-          <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10'></image>
           <view class='h6 txt-black margin-left-5'>{{kecheninfo.age_name}}</view>
         </view>
 
         <view style='width:40rpx;'></view>
 
         <view class='flex-row flex-center '>
-          <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
+          <image src='{{uploadpath}}resource/{{res.	zhanjie}}' class='icon-10'></image>
           <view class='h6 txt-black margin-left-5'>共{{kecheninfo.chapter_num}}章</view>
         </view>
 
