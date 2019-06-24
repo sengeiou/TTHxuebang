@@ -375,6 +375,27 @@
 					"pathName": "pages/studentinfo/studentinfo",
 					"query": "",
 					"scene": null
+},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "修改、添加地址",
+					"pathName": "pages/addressmanage/addressmanage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/shopmall/shopmall",
+					"scene": null
+				}
 				}
 			]
 		}

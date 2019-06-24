@@ -67,9 +67,29 @@ class Content extends AppBase {
 
   todetails(e){
     var name=e.currentTarget.dataset.name;
+    // if (name == "cj") {
+    //   wx.navigateTo({
+    //     url: '/pages/myorder/myorder',
+    //   })
+    // }
+    if (name == "jfsc") {
+      wx.navigateTo({
+        url: '/pages/shopmall/shopmall',
+      })
+    }
+    // if (name == "yhq") {
+    //   wx.navigateTo({
+    //     url: '/pages/myorder/myorder',
+    //   })
+    // }
     if(name=="dd"){
       wx.navigateTo({
         url: '/pages/myorder/myorder',
+      })
+    }
+    if (name == "dz") {
+      wx.navigateTo({
+        url: '/pages/address/address',
       })
     }
     if (name == "xx") {

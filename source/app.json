@@ -51,7 +51,10 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
-    "pages/auth/auth"
+    "pages/auth/auth",
+    "pages/address/address",
+    "pages/addressmanage/addressmanage",
+    "pages/shopmall/shopmall"
   ],
   "permission": {
     "scope.userLocation": {
