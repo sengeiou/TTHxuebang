@@ -63,7 +63,6 @@
       <image src='{{uploadpath}}resource/{{res.home_2}}' class='img2 radius-10' style=''></image>
     </view>
 
-
   </view>
 
 </view>

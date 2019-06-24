@@ -1,0 +1,68 @@
+<!--pages/xuanzedizhi/xuanzedizhi.wxml-->
+<view class='margin-20'>
+  <view class='margin-left-14 h5' style='color:#999999'>我的地址</view>
+  <view class='hezi' bindtap='addressmanage'>
+    <view class='flex-row flex-center'>
+
+      <image src="{{uploadpath}}resource/{{res.weixuan}}" class="icon-12"></image>
+
+      <image src="{{uploadpath}}resource/{{res.xuanzhong}}" wx:if='{{a==1}}' class="icon-12"></image>
+
+      <view class="margin-left-34">
+        <view class='flex-row'>
+          <view class='flex-row flex-center'>
+            <view class='txt-bold f15' style='color:#222222'>学榜均</view>
+            <view class='margin-left-20 f15' style='color:#222222'>17872898823</view>
+          </view>
+        </view>
+
+        <view class='margin-top-20 f13' style='color:#666666'>深圳市南山区紫光信息港B205..</view>
+      </view>
+
+      <view class='flex-1'></view>
+
+      <view>
+        <image class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}'></image>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="add margin-top-20 flex-row flex-center">
+    <view class="flex-1"></view>
+    <image src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15"></image>
+    <view class="h5 margin-left-10" style="color:#999999" bindtap="addressmanage">添加新地址</view>
+    <view class="flex-1"></view>
+  </view>
+
+  <button class='but txt-white' bindtap="queren">确认</button>
+
+</view>
+
+<view wx:if='{{show==true}}'>
+  <view class='block_black'></view>
+  
+  <view class="white_black">
+    <view class="flex-row flex-column">
+      <view style="height:100rpx;"></view>
+      <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-120"></image>
+
+      <view class="flex-row flex-center margin-top-34">
+        <view class="f30">使用</view>
+        <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-15 margin-left-20"></image>
+        <view class="margin-left-10" style="font-size:40rpx;color:#FF6600">88</view>
+        <view class="f30 margin-left-20">进行兑换</view>
+      </view>
+
+      <view class="" style="height:60rpx;"></view>
+
+      <view class="flex-row flex-center">
+        <view class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao">取消</view>
+        <view class="shu"></view>
+        <view class="f30 padding-30" bindtap="quedin" style="color:#FF6600">确认</view>
+      </view>
+
+    </view>
+  </view>
+  
+</view>

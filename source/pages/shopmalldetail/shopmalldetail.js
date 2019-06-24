@@ -1,4 +1,4 @@
-// pages/shopmall/shopmall.js
+// pages/shopmalldetail/shopmalldetail.js
 import {
   AppBase
 } from "../../appbase";
@@ -34,7 +34,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      usecode: options.usecode
+      show: 0
     });
   }
   onMyShow() {
@@ -42,22 +42,36 @@ class Content extends AppBase {
     var instapi = new InstApi();
 
   }
-  toshouzhi(e){
+  toshouzhi(e) {
     wx.navigateTo({
       url: '/pages/jifenshouzhi/jifenshouzhi'
     })
   }
-  todetails(e){
-    wx.navigateTo({
-      url: '/pages/shopmalldetail/shopmalldetail'
+  toduihuan(e) {
+    this.Base.setMyData({
+      show: 1
     })
   }
+  close(e) {
+    this.Base.setMyData({
+      show: 0
+    })
+  }
+  next(e){
+    wx.navigateTo({
+      url: '/pages/xuanzedizhi/xuanzedizhi'
+    })
+  }
+
+
 
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow; 
-body.toshouzhi = content.toshouzhi; 
-body.todetails = content.todetails;
+body.onMyShow = content.onMyShow;
+body.toshouzhi = content.toshouzhi;
+body.toduihuan = content.toduihuan;
+body.close = content.close; 
+body.next = content.next;
 Page(body)

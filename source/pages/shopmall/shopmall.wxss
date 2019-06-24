@@ -51,12 +51,12 @@
 .hezi {
   margin-top: 24rpx;
   margin-left: 24rpx;
-  border-radius: 36rpx;
+  border-radius: 8rpx;
   background-color: white;
 }
 
 .img {
   width: 340rpx;
   height: 340rpx;
-  border-radius: 8px;
+  border-radius: 8rpx;
 }

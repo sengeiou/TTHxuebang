@@ -1,9 +1,13 @@
 {
   "pages": [
-    
     "pages/home/home",
     "pages/studentinfo/studentinfo",
     "pages/ceshi/ceshi",
+    "pages/jifenshouzhi/jifenshouzhi",
+    "pages/shopmalldetail/shopmalldetail",
+    "pages/xuanzedizhi/xuanzedizhi",
+    "pages/yiduihuang/yiduihuang",
+    "pages/exchangesuccess/exchangesuccess",
     "pages/studentmsg/studentmsg",
     "pages/review/review",
     "pages/mingxi/mingxi",

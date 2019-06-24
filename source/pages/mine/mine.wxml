@@ -1,4 +1,5 @@
 <!--pages/mine/mine.wxml-->
+
 <!-- <view class=''>
 
   <image src='{{uploadpath}}resource/{{res.ming_bg}}' class='bg_img'></image>
@@ -18,6 +19,7 @@
   <view class='' style='height:20rpx'></view>
 
 </view> -->
+
 
 
 <view class='orangeblock'>
