@@ -339,11 +339,11 @@ class Content extends AppBase {
   }
   yaoqin() {
     var api = new HaibaoApi;
-    api.haiba1({}, (res) => {
+    api.haibao1({ kcid: this.Base.options.id}, (res) => {
       console.log(res);
       if (res.code == 0) {
         wx.navigateTo({
-          url: '/pages/yaoqinhaibao/yaoqinhaibao?name=' + res.return,
+          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return+'&&kcid='+this.Base.options.id,
         })
 
 
