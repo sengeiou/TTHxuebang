@@ -37,7 +37,7 @@
     <swiper-item wx:for="{{indexbanner}}" wx:key="k">
       <view>
         <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width: 710rpx;height:356px;" class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
       </view>
     </swiper-item>
   </swiper>
@@ -169,7 +169,7 @@
                   </view>
                 </view>
 
-                <view class='daka radius-50 text-center f15 txt-black txt-bold'  wx:if='{{signState==false}}' bindtap='showtc'>打卡</view>
+                <view class='daka radius-50 text-center f15 txt-black txt-bold' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}"  wx:if='{{signState==false}}' >打卡</view>
                 <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{signState==true}}' bindtap='showtc'>已打卡</view>  
 
 </view>
@@ -188,7 +188,7 @@
 3.活动最终解释权归学榜所有。
 </text>
 
-<view class='margin-top-20' style='color:#FF6600'>我知道了</view>
+<view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
 </view>
 
   <view class='flex-row flex-center'>
@@ -349,6 +349,7 @@
     <view class='flex-1'></view>
   </view>
 
+
 </view>
 
   <view class='flex-row flex-center margin-top-16'>
@@ -395,7 +396,9 @@
       <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
 
 
+
       <view class='flex-row flex-center margin-top-20'>
+      
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
           <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
@@ -408,6 +411,8 @@
       </view>
 
     </view>
+
+
 
     <view class='shipin flex-row column' style=''>
 

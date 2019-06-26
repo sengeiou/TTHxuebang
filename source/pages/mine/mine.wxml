@@ -60,18 +60,19 @@
   </view> -->
 
 <view class='flex-row flex-center margin-top '>
-  <view class='flex-row flex-column flex-1' bindtap='todetails' data-name='cj'>
-    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_fav}}'></image>
+
+  <view class='flex-row flex-column flex-1' bindtap='todetails' data-name='cj' bindtap="showtoast">
+    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_choujiang}}'></image>
     <view class='h6 margin-top-10'>抽奖</view>
   </view>
 
   <view class='flex-row flex-column flex-1' bindtap='todetails' data-name='jfsc'>
-    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_fav}}'></image>
+    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_shop}}'></image>
     <view class='h6 margin-top-10'>积分商城</view>
   </view>
 
-  <view class='flex-row flex-column flex-1' bindtap='todetails' data-name='yhq'>
-    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_fav}}'></image>
+  <view class='flex-row flex-column flex-1' bindtap='todetails' data-name='yhq' bindtap="showtoast">
+    <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_youhui}}'></image>
     <view class='h6 margin-top-10'>优惠券</view>
   </view>
 </view>

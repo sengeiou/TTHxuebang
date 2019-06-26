@@ -34,7 +34,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      usecode: options.usecode
+        kf:0
     });
   }
   onMyShow() {
@@ -42,7 +42,15 @@ class Content extends AppBase {
     var instapi = new InstApi();
 
   }
+  ss(e){
+   this.Base.setMyData({kf:1})
+  }
+  onUnload(){
+    console.log("1321")
+  }
   toshouzhi(e){
+    this.onUnload();
+    console.log("看来大家");
     wx.navigateTo({
       url: '/pages/jifenshouzhi/jifenshouzhi'
     })
@@ -58,6 +66,9 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
+body.onUnload = content.onUnload;
 body.toshouzhi = content.toshouzhi; 
-body.todetails = content.todetails;
+body.todetails = content.todetails; 
+
+body.ss = content.ss; 
 Page(body)

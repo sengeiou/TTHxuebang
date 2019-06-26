@@ -382,12 +382,31 @@
 					"pathName": "pages/studentinfo/studentinfo",
 					"query": "",
 					"scene": null
+<<<<<<< HEAD
+=======
+				},
+				{
+					"id": -1,
+					"name": "地址管理",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+>>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
 				},
 				{
 					"id": -1,
 					"name": "课程海报",
 					"pathName": "pages/kcyaoqin/kcyaoqin",
 					"scene": null
+<<<<<<< HEAD
+=======
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/shopmall/shopmall",
+					"scene": null
+>>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
 				}
 			]
 		}

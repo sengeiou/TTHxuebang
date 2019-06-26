@@ -23,7 +23,6 @@
 
 <view>
   <image src="{{uploadpath}}resource/{{res.bg_1}}" style="width:100vw;height:1000rpx;"></image>
-
 </view>
 
 <view class="bottom-btn">
