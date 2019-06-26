@@ -455,7 +455,7 @@ class Content extends AppBase {
           })
 
           //console.log(data.name);return;
-
+  
           jigouapi.addjigou({
             member_id: that.Base.getMyData().memberinfo.id,
             hangye: data.hangye,

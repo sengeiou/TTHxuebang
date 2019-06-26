@@ -169,7 +169,7 @@
                   </view>
                 </view>
 
-                <view class='daka radius-50 text-center f15 txt-black txt-bold'  wx:if='{{signState==false}}' bindtap='showtc'>打卡</view>
+                <view class='daka radius-50 text-center f15 txt-black txt-bold' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}"  wx:if='{{signState==false}}' >打卡</view>
                 <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{signState==true}}' bindtap='showtc'>已打卡</view>  
 
 </view>
@@ -188,7 +188,7 @@
 3.活动最终解释权归学榜所有。
 </text>
 
-<view class='margin-top-20' style='color:#FF6600'>我知道了</view>
+<view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
 </view>
 
   <view class='flex-row flex-center'>

@@ -60,12 +60,4 @@
 </view>
 
 
-<view class="padding-40 bg-red" bindtap="ss">
-点击
-</view>
-
-<view wx:if='{{kf==1}}'>
-
-<image src="{{uploadpath}}resource/{{res.ceshi}}"></image>
-
-</view>
+ 

@@ -53,18 +53,25 @@ class Content extends AppBase {
 
     var pingcelist = this.Base.getMyData().pingcelist;
     
+
+     
+    
     pingcelist[sx].check = id;
  
     this.Base.setMyData({
       pingcelist: pingcelist, ck: parseInt(sx)
     })
+    if ( sx < pingcelist.length-1  ){
+      this.next(sx);
+    }
+    
 
   }
 
 
 
-  next(e) {
-    var id = e.currentTarget.id; 
+  next(sx) {
+    var id = sx; 
     console.log(id+"谷歌");
 
     var ck = this.Base.getMyData().ck;
@@ -88,16 +95,16 @@ class Content extends AppBase {
     pingce.push([parseInt(id) + 1, check]);
 
     this.Base.setMyData({
-      sx: idx
+      sx: idx, qie: parseInt(id) + 1
     })
   }
 
 
   last(e) {
     var ck = this.Base.getMyData().ck;
-     
+    var qie = this.Base.getMyData().qie;
 
-    this.Base.setMyData({ ck: ck - 1 })
+    this.Base.setMyData({ ck: ck - 1, qie:qie-1 })
 
     console.log(this.Base.getMyData().ck + "随时");
 
@@ -108,6 +115,9 @@ class Content extends AppBase {
       sx: idx
     })
 
+  }
+  stoptouch(e){
+    console.log("禁止滑动")
   }
 
 
@@ -212,5 +222,6 @@ body.onMyShow = content.onMyShow;
 body.bindcheck = content.bindcheck;
 body.last = content.last;
 body.next = content.next;
-body.tijiao = content.tijiao;
+body.tijiao = content.tijiao; 
+body.stoptouch = content.stoptouch; 
 Page(body)

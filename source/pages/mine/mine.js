@@ -131,6 +131,12 @@ class Content extends AppBase {
       url: '/pages/studentmsg/studentmsg',
     })
   }
+  showtoast(e){
+    wx.showToast({
+      title: '暂未开放，敬请期待',
+      icon:'none'
+    })
+  }
 
 }
 
@@ -141,4 +147,5 @@ body.onMyShow = content.onMyShow;
 body.startscan = content.startscan;
 body.todetails = content.todetails;
 body.gotohaizi = content.gotohaizi;
+body.showtoast = content.showtoast;
 Page(body)
