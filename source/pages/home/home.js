@@ -50,7 +50,7 @@ class Content extends AppBase {
     var lastdistance = this.Base.getMyData().lastdistance;
 
     if (AppBase.CITYID != this.Base.getMyData().currectcityid ||
-      this.lastdistance > 3000
+      this.lastdistance > 500
     ) {
       this.Base.setMyData({
         currectcityid: AppBase.CITYID
