@@ -422,7 +422,11 @@ class Content extends AppBase {
     if (data.address == "") {
       this.Base.info("请填写地址");
       return;
-    }
+    } 
+    if (data.fulladdress == "") {
+      this.Base.info("请填写详细地址");
+      return;
+    } 
     if (data.jianjie == "") {
       this.Base.info("请填写机构简介");
       return;
@@ -458,6 +462,7 @@ class Content extends AppBase {
             name: data.jigou,
             mobile: data.mobile,
             address: region,
+            full_address: data.fulladdress,
             jianjie: data.jianjie,
             mentou: jgimages,
             huanjing: hjimages,

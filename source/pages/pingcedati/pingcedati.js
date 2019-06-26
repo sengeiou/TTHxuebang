@@ -22,7 +22,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    //options.id=1;
     super.onLoad(options);
     this.Base.setMyData({
       check: "",
@@ -66,23 +66,27 @@ class Content extends AppBase {
   next(e) {
     var id = e.currentTarget.id; 
     console.log(id+"谷歌");
+
     var ck = this.Base.getMyData().ck;
     console.log(ck + "苹果");
 
-    if (ck != id){ 
-      wx.showToast({
-        title: '请选择选项',
-        icon: 'none'
-      })
-      return;
-    }
- 
+    
 
+    // if (shunxu != id){
+    //   wx.showToast({
+    //     title: '请选择选项',
+    //     icon: 'none'
+    //   })
+    //   return;
+    // }
+ 
     var check = this.Base.getMyData().check;
  
     var idx = parseInt(id) + 1;
     var pingce = this.Base.getMyData().pingce;
+
     pingce.push([parseInt(id) + 1, check]);
+
     this.Base.setMyData({
       sx: idx
     })
@@ -91,20 +95,20 @@ class Content extends AppBase {
 
   last(e) {
     var ck = this.Base.getMyData().ck;
-    var aa = ck + 1;
+     
 
-    this.Base.setMyData({ ck: aa - 1 })
+    this.Base.setMyData({ ck: ck - 1 })
+
+    console.log(this.Base.getMyData().ck + "随时");
 
     var id = this.Base.getMyData().sx;
     var idx = parseInt(id) - 1;
+
     this.Base.setMyData({
       sx: idx
     })
+
   }
-
-
-
-
 
 
   tijiao() {
@@ -118,7 +122,6 @@ class Content extends AppBase {
       if (pingcelist[i].check == 'A') {
         a++;
       }
-
 
       if (pingcelist[i].check == 'B') {
         b++;
@@ -136,8 +139,23 @@ class Content extends AppBase {
 
     }
     console.log(a, b, c, d)
+
+
     var numbers = [a, b, c, d];
     // var max = arr[i];
+
+    var sum =  a+b+c+d;
+    console.log(sum + "巅峰时代" + pingcelist.length);
+
+
+    if (sum != pingcelist.length) {
+      wx.showToast({
+        title: '请认真填写所有问题',
+        icon: 'none'
+      })
+      return;
+    }
+
 
     var maxInNumbers = Math.max.apply(Math, numbers);
 
@@ -167,7 +185,14 @@ class Content extends AppBase {
     this.Base.setMyData({gif:true});
    
    setTimeout(()=>{
+     this.Base.setMyData({
+       check: "",
+       sx: 0,
+       pingce: []
+     });
 
+     this.onMyShow();
+ 
      wx.navigateTo({
        url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD
      })

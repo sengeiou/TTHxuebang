@@ -375,7 +375,7 @@
 					"pathName": "pages/studentinfo/studentinfo",
 					"query": "",
 					"scene": null
-},
+				},
 				{
 					"id": -1,
 					"name": "地址管理",
@@ -395,7 +395,6 @@
 					"name": "积分商城",
 					"pathName": "pages/shopmall/shopmall",
 					"scene": null
-				}
 				}
 			]
 		}

@@ -106,8 +106,7 @@
 }
 
 .lb {
-  width: 355px;
-  height: 178px;
+  
   border-radius: 8rpx;
 }
 

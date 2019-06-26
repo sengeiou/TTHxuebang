@@ -355,7 +355,7 @@ export class AppBase {
     console.log("onHide");
   }
   onUnload() {
-    console.log("onUnload");
+    console.log("onUnload犯得上");
   }
   onPullDownRefresh() {
     console.log("onPullDownRefresh");
