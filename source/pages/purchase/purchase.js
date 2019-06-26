@@ -27,7 +27,7 @@ class Content extends AppBase {
     //options.course_id = 15;
     super.onLoad(options);
     this.Base.setMyData({
-      usercomment: ""
+      usercomment: "", xuanzexueyuan:''
     })
   }
   onMyShow() {
@@ -59,6 +59,17 @@ class Content extends AppBase {
         });
       });
     }
+    var nian = new Date();
+    nian = nian.getFullYear();
+    jigouapi.xueyuanlist({}, (xueyuan) => {
+      xueyuan.map((item) => {
+        console.log(Number(item.shengri.substring(0, 4)));
+        console.log(Number(nian))
+        item.sui = Number(nian) - Number(item.shengri.substring(0, 4)) + 1;
+
+      })
+      this.Base.setMyData({ xueyuanlist: xueyuan })
+    })
   }
 
 
@@ -81,25 +92,18 @@ class Content extends AppBase {
   bindtoorder(e) {
     var api = new JigouApi();
     var that = this;
-    var name = this.Base.getMyData().name;
-    var mobile = this.Base.getMyData().mobile;
-    if (mobile == "" || mobile == null) {
-      this.Base.setMyData({ phone: this.Base.getMyData().phone });
-    }
-    else {
-      this.Base.setMyData({ phone: this.Base.getMyData().mobile });
-    }
-    var phone = this.Base.getMyData().phone;
+    var xueyuan = this.Base.getMyData().xuanzexueyuan;
+ 
 
-    if (name == "" || name == null) {
-      this.Base.info("请填写姓名");
+
+    if (xueyuan == "") {
+      this.Base.info("请选择学员");
       return;
     }
 
-    if (phone == "" || phone == null) {
-      this.Base.info("请填写电话");
-      return;
-    }
+    var name = xueyuan.name;
+    var phone = xueyuan.shouji;
+
     var json1 = {
       course_id: this.Base.options.course_id, phone: phone, name: name
     };
@@ -281,10 +285,31 @@ class Content extends AppBase {
 
 
   }
+  xueyuan() {
+    this.Base.setMyData({ isxueyuan: true })
+  }
+  hideModal(){
+    this.Base.setMyData({ isxueyuan: false })
+  }
+  xuanze(e){ 
+    var xueyuanlist=this.Base.getMyData().xueyuanlist;
 
+    this.Base.setMyData({ xuanzexueyuan: xueyuanlist[e.currentTarget.dataset.idx]})
+    console.log(xueyuanlist[e.currentTarget.dataset.idx]);
+    this.hideModal();
+  }
+  xianqin(e) {
 
+    wx.navigateTo({
+      url: '/pages/studentinfo/studentinfo?id=' + e.currentTarget.dataset.id,
+    })
+  }
+  tianjia() {
+    wx.navigateTo({
+      url: '/pages/studentinfo/studentinfo',
+    })
 
-
+  }
 
 }
 
@@ -296,4 +321,9 @@ body.tojgdetails = content.tojgdetails;
 body.bindtoorder = content.bindtoorder;
 body.changephone = content.changephone;
 body.changename = content.changename;
+body.xueyuan = content.xueyuan;
+body.hideModal = content.hideModal;
+body.xuanze = content.xuanze;
+body.tianjia=content.tianjia; 
+body.xianqin = content.xianqin;
 Page(body)

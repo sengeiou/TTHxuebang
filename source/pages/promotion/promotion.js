@@ -139,8 +139,9 @@ class Content extends AppBase {
 
   }
   mykehu() {
-    if (0 == 1) {
+    if (this.Base.getMyData().leijikehu.length==0) {
       this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+      return
     }
     wx.navigateTo({
       url: '/pages/mykehu/mykehu',
@@ -148,6 +149,10 @@ class Content extends AppBase {
   }
 
   myinvite() {
+    if (this.Base.getMyData().xiajituiguan.length == 0) {
+      this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+      return
+    }
     wx.navigateTo({
       url: '/pages/myinvite/myinvite',
     })
