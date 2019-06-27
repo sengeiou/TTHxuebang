@@ -20,25 +20,32 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=1;
+    //options.id=2;
     super.onLoad(options);
     this.Base.setMyData({
       check: "",
       sx: 0,
+      //ck:0,
+      qie: 0,
       pingce: []
     });
   }
   onMyShow() {
     var that = this;
+    //this.onLoad();
+
     this.Base.setMyData({
-      gif:false
+      gif: false
     });
 
     var pingceapi = new PingceApi();
 
-    pingceapi.pingcelist({ pingceindex_id:this.Base.options.id}, (pingcelist) => {
+    pingceapi.pingcelist({
+      pingceindex_id: this.Base.options.id
+    }, (pingcelist) => {
       this.Base.setMyData({
         pingcelist
       });
@@ -52,50 +59,42 @@ class Content extends AppBase {
     var sx = e.currentTarget.dataset.sx;
 
     var pingcelist = this.Base.getMyData().pingcelist;
-    
 
-     
-    
+
+
+
     pingcelist[sx].check = id;
- 
+
     this.Base.setMyData({
-      pingcelist: pingcelist, ck: parseInt(sx)
+      pingcelist: pingcelist,
+      ck: parseInt(sx)
     })
-    if ( sx < pingcelist.length-1  ){
+    if (sx < pingcelist.length - 1) {
       this.next(sx);
     }
-    
+
 
   }
 
 
 
   next(sx) {
-    var id = sx; 
-    console.log(id+"谷歌");
+    var id = sx;
+    console.log(id + "谷歌");
 
     var ck = this.Base.getMyData().ck;
     console.log(ck + "苹果");
 
-    
-
-    // if (shunxu != id){
-    //   wx.showToast({
-    //     title: '请选择选项',
-    //     icon: 'none'
-    //   })
-    //   return;
-    // }
- 
     var check = this.Base.getMyData().check;
- 
+
     var idx = parseInt(id) + 1;
     var pingce = this.Base.getMyData().pingce;
 
     pingce.push([parseInt(id) + 1, check]);
 
     this.Base.setMyData({
-      sx: idx, qie: parseInt(id) + 1
+      sx: idx,
+      qie: parseInt(id) + 1
     })
   }
 
@@ -104,7 +103,10 @@ class Content extends AppBase {
     var ck = this.Base.getMyData().ck;
     var qie = this.Base.getMyData().qie;
 
-    this.Base.setMyData({ ck: ck - 1, qie:qie-1 })
+    this.Base.setMyData({
+      ck: ck - 1,
+      qie: qie - 1
+    })
 
     console.log(this.Base.getMyData().ck + "随时");
 
@@ -116,7 +118,8 @@ class Content extends AppBase {
     })
 
   }
-  stoptouch(e){
+
+  stoptouch(e) {
     console.log("禁止滑动")
   }
 
@@ -154,7 +157,7 @@ class Content extends AppBase {
     var numbers = [a, b, c, d];
     // var max = arr[i];
 
-    var sum =  a+b+c+d;
+    var sum = a + b + c + d;
     console.log(sum + "巅峰时代" + pingcelist.length);
 
 
@@ -172,43 +175,62 @@ class Content extends AppBase {
     // for (var i = 1; i < arr.length; i++) {
     //  var max = arr[i]; 
     // }
-    var type=[];
+    var type = [];
     console.log(maxInNumbers);
     if (a == maxInNumbers) {
       console.log("乐观")
-      var typeA= "A" 
+      var typeA = "A"
     }
     if (b == maxInNumbers) {
-      console.log("悲观") 
+      console.log("悲观")
       var typeB = "B"
     }
     if (c == maxInNumbers) {
-      console.log("积极") 
+      console.log("积极")
       var typeC = "C"
     }
     if (d == maxInNumbers) {
-      console.log("消极") 
+      console.log("消极")
       var typeD = "D"
     }
     console.log(typeA, typeB, typeC, typeD)
 
-    this.Base.setMyData({gif:true});
-   
-   setTimeout(()=>{
-     this.Base.setMyData({
-       check: "",
-       sx: 0,
-       pingce: []
-     });
+    this.Base.setMyData({
+      gif: true
+    });
 
-     this.onMyShow();
- 
-     wx.navigateTo({
-       url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD
-     })
+    setTimeout(() => {
 
-   },800)
-  
+
+      this.Base.setMyData({
+        gif: false, check: "",qie: 0
+      })
+
+      wx.navigateTo({
+        url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD,
+        
+        success: function(res) {
+           
+          if (res.confirm) {
+            this.Base.setMyData({
+              
+              sx: 0,
+              pingce: [],
+              gif: false
+            });
+            
+            
+          }
+          
+        }
+
+      })
+
+      
+
+
+    }, 1100)
+
 
   }
 
@@ -222,6 +244,6 @@ body.onMyShow = content.onMyShow;
 body.bindcheck = content.bindcheck;
 body.last = content.last;
 body.next = content.next;
-body.tijiao = content.tijiao; 
-body.stoptouch = content.stoptouch; 
+body.tijiao = content.tijiao;
+body.stoptouch = content.stoptouch;
 Page(body)

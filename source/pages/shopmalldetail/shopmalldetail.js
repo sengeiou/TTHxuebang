@@ -17,6 +17,9 @@ import {
 import {
   WechatApi
 } from "../../apis/wechat.api.js";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 
 class Content extends AppBase {
@@ -39,7 +42,11 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
+    var jifenapi = new JifenApi();
+    var jifenapi = new JifenApi();
+    jifenapi.commodityinfo({id:this.Base.options.id}, (info) => {
+      this.Base.setMyData({ info })
+    })
 
   }
   toshouzhi(e) {

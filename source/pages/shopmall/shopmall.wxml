@@ -6,7 +6,7 @@
       <view class='flex-1'></view>
       <view class='flex-row'>
         <image class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}'></image>
-        <view class='f60 txt-bold margin-left-10' style='color:#222222'>2000</view>
+        <view class='f60 txt-bold margin-left-10' style='color:#222222'>{{memberinfo.integral}}</view>
       </view>
       <view class='flex-1'></view>
     </view>
@@ -35,16 +35,16 @@
 
 
   <view class='flex-row flex-wrap'>
-    <view>
-      <view class='hezi' bindtap="todetails">
-        <image class='img' src='{{uploadpath}}resource/{{res.remen}}'></image>
+    <view wx:for='{{list}}' wx:key='k'>
+      <view class='hezi' bindtap="todetails" id="{{item.id}}">
+        <image class='img' src='{{uploadpath}}shop/{{item.imgs}}'></image>
 
-        <view class="padding-20">
-          <view class=' padding-top-10 txt-bold f13'>积分兑换商品</view>
-          <view class='flex-row flex-center margin-top-10'>
+        <view class="padding">
+          <view class='  txt-bold f13 chaochu2' style="width:300rpx;height:85rpx;">{{item.name}}</view>
+          <view class='flex-row flex-center  '>
             <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image>
-            <view class=" txt9 h5 margin-left-10">300</view>
-            <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">200</view>
+            <view class=" txt9 h5 margin-left-10">{{item.interral}}</view>
+            <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}</view>
           </view>
         </view>
       </view>
@@ -53,11 +53,8 @@
   </view>
 
 
-
-
-
-
 </view>
 
+<view style="height:40rpx"></view>
 
  
