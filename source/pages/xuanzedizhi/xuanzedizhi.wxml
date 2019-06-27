@@ -50,7 +50,7 @@
       <view class="flex-row flex-center margin-top-34">
         <view class="f30">使用</view>
         <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-15 margin-left-20"></image>
-        <view class="margin-left-10" style="font-size:40rpx;color:#FF6600">88</view>
+        <view class="margin-left-10" style="font-size:40rpx;color:#FF6600">{{jifen}}</view>
         <view class="f30 margin-left-20">进行兑换</view>
       </view>
 
@@ -59,10 +59,20 @@
       <view class="flex-row flex-center">
         <view class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao">取消</view>
         <view class="shu"></view>
-        <view class="f30 padding-30" bindtap="quedin" style="color:#FF6600">确认</view>
+        <view class="f30 padding-30" bindtap="quedin" id="{{memberinfo.integral}}" style="color:#FF6600">确认</view>
       </view>
 
     </view>
   </view>
   
+</view>
+
+<view wx:if='{{tanchuan==1}}'>
+<view class='block_black'></view>
+<view class="padding-40 bg-white icon-50">提示</view>
+</view>
+
+<view wx:if='{{tanchuan==2}}'>
+<view class='block_black'></view>
+<view class="padding-40 bg-white icon-50">利口酒</view>
 </view>

@@ -34,7 +34,7 @@ class Content extends AppBase {
 
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    options.id=1;
     super.onLoad(options);
     this.Base.setMyData({
       show: 0
@@ -42,7 +42,6 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var jifenapi = new JifenApi();
     var jifenapi = new JifenApi();
     jifenapi.commodityinfo({id:this.Base.options.id}, (info) => {
       this.Base.setMyData({ info })
@@ -55,9 +54,13 @@ class Content extends AppBase {
     })
   }
   toduihuan(e) {
+    
     this.Base.setMyData({
       show: 1
     })
+    //return;
+    
+
   }
   close(e) {
     this.Base.setMyData({
@@ -65,13 +68,22 @@ class Content extends AppBase {
     })
   }
   next(e){
+    var inventory = e.currentTarget.id;
+    var interral = e.currentTarget.dataset.jifen;
+    console.log(inventory - 1 + "库存");
+    console.log(interral + "积分");
+    //return;
+    if (inventory<=0){
+      wx.showToast({
+        title: '库存不足，无法兑换',
+        title:'none'
+      })
+      return;
+    }
     wx.navigateTo({
-      url: '/pages/xuanzedizhi/xuanzedizhi'
+      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral+'&id='+this.Base.options.id
     })
   }
-
-
-
 
 
 

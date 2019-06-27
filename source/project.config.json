@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 48,
+			"current": 51,
 			"list": [
 				{
 					"id": 0,
@@ -382,8 +382,6 @@
 					"pathName": "pages/studentinfo/studentinfo",
 					"query": "",
 					"scene": null
-<<<<<<< HEAD
-=======
 				},
 				{
 					"id": -1,
@@ -391,22 +389,26 @@
 					"pathName": "pages/address/address",
 					"query": "",
 					"scene": null
->>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
 				},
 				{
 					"id": -1,
 					"name": "课程海报",
 					"pathName": "pages/kcyaoqin/kcyaoqin",
+					"query": "",
 					"scene": null
-<<<<<<< HEAD
-=======
 				},
 				{
 					"id": -1,
 					"name": "积分商城",
 					"pathName": "pages/shopmall/shopmall",
+					"query": "",
 					"scene": null
->>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
+				},
+				{
+					"id": -1,
+					"name": "积分商品详情",
+					"pathName": "pages/shopmalldetail/shopmalldetail",
+					"scene": null
 				}
 			]
 		}
