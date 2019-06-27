@@ -141,3 +141,7 @@ border-radius: 5rpx;
    padding-right: 20rpx;
    border-top-left-radius:30rpx;
 }
+
+.lb{
+width:100vw;height:200rpx;
+}
