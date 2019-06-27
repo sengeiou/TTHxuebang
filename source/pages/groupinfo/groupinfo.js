@@ -52,7 +52,7 @@ class Content extends AppBase {
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
         var danqiandate = new Date();
-        var jisuandate = new Date(list[i]);
+        var jisuandate = new Date(list[i].replace(/-/g, '/'));
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
         listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
         var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
@@ -68,6 +68,7 @@ class Content extends AppBase {
         sjlist.push(listtt);
 
       }
+      console.log("循环");
       that.Base.setMyData({
 
         sjlist: sjlist

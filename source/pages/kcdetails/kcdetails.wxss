@@ -3,7 +3,9 @@
 page {
   background: #132056;
 }
-
+.kd{
+  width: 100rpx;
+}
 /* .type {
   padding-left: 17rpx;
   padding-right: 17rpx;
@@ -26,11 +28,56 @@ page {
 .txt {
   color: #ffc200;
 }
-
+.padding-block {
+  padding: 32rpx 26rpx 32rpx 26rpx;
+}
 .buy {
   background: #fe792e;
 }
+.icon-img {
+  width: 160rpx;
+  height: 160rpx;
+}
+.kcname_block {
+  min-width: 188rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color:#CCCCCC;
+  background: rgba(245, 245, 245, 1);
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
 
+.kcname_block_check {
+  min-width: 188rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f60;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+.next {
+  width: 600rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: rgba(255, 102, 0, 1);
+  border-radius: 42rpx;
+}
+.under {
+  position: absolute;
+  
+  width: 94vw;
+  bottom: 52rpx;
+}
+.bui {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 500;
+  width: 100vw;
+}
 .hon {
   background: #f00;
 }

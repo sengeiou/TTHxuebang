@@ -56,15 +56,15 @@
         </view>
 
 
-        <view bindtap='laren' wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+        <button bindtap='laren' open-type="share" wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row clear-button">
           <view class="flex-1"></view>
           <view class="tuan_btn  text-center  ">
             邀请好友参团
 
           </view>
-          <button data-name="shareBtn" class="clear-button" open-type="share">转发</button>
+     
           <view class="flex-1"></view>
-        </view>
+        </button>
 
         <view wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="h5 text-center margin-top-20 " style='width:100%;color:#666666'>
           生成分享海报

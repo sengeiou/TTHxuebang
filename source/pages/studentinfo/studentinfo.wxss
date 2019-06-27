@@ -19,3 +19,7 @@ bottom:30rpx;
 left:8vw;
 
 }
+.ipt{
+
+  text-align: right
+}

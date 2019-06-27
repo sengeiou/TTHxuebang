@@ -9,17 +9,25 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
+	"libVersion": "2.7.1",
 	"appid": "wxb76c39adb7275c20",
 	"projectname": "%E7%AB%A5%E5%A4%A9%E6%85%A75",
+	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"scripts": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -34,11 +42,10 @@
 			"list": []
 		},
 		"game": {
-			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 48,
 			"list": [
 				{
 					"id": 0,
@@ -375,6 +382,8 @@
 					"pathName": "pages/studentinfo/studentinfo",
 					"query": "",
 					"scene": null
+<<<<<<< HEAD
+=======
 				},
 				{
 					"id": -1,
@@ -382,19 +391,22 @@
 					"pathName": "pages/address/address",
 					"query": "",
 					"scene": null
+>>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
 				},
 				{
 					"id": -1,
-					"name": "修改、添加地址",
-					"pathName": "pages/addressmanage/addressmanage",
-					"query": "",
+					"name": "课程海报",
+					"pathName": "pages/kcyaoqin/kcyaoqin",
 					"scene": null
+<<<<<<< HEAD
+=======
 				},
 				{
 					"id": -1,
 					"name": "积分商城",
 					"pathName": "pages/shopmall/shopmall",
 					"scene": null
+>>>>>>> dfbae0834c43bc0ec16c8cb9fa1226bd97aa636f
 				}
 			]
 		}

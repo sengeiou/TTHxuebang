@@ -17,6 +17,9 @@ import {
 import {
   PingjiaApi
 } from "../../apis/pingjia.api.js";
+import {
+  HaibaoApi
+} from "../../apis/haibao.api.js";
 
 class Content extends AppBase {
 
@@ -33,71 +36,14 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: "kcxq"
+      show: "kcxq", shulian: 0
     })
-  }
-  daojishi() {
-    var that = this;
-
-
-    var list = that.Base.getMyData().daojishilist;
-    console.log(list);
-    console.log(52);
-    this.timer=setInterval(() => {
-
-      var sjlist = [];
-      for (var i = 0; i < list.length; i++) {
-        var listtt = [];
-        var danqiandate = new Date();
-        var jisuandate = new Date(list[i].jieshushijian);
-        var dateDiff = jisuandate.getTime() - danqiandate.getTime();
-        listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
-        var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
-        listtt.push(Math.floor(leave1 / (3600 * 1000)));   //计算出小时数
-        //计算相差分钟数
-        var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
-        listtt.push(Math.floor(leave2 / (60 * 1000)));//计算相差分钟数
-        //计算相差秒数
-        var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
-        listtt.push(Math.round(leave3 / 1000));
-
-
-        sjlist.push(listtt);
-
-      }
-      that.Base.setMyData({
-
-        sjlist: sjlist
-
-      })
-
-
-
-    }, 1000)
-
-
-
-
-
-  }
-  onHide() {
-    console.error(66666);
-    clearInterval(this.timer);
- 
-
-  }
-  onUnload() {
-    console.error(66666);
-    clearInterval(this.timer);
-  }
-  onMyShow() {
-    var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
     var pingjiaapi = new PingjiaApi();
 
-   
+
 
 
     //this.Base.options.id
@@ -106,7 +52,7 @@ class Content extends AppBase {
     }, (courseinfo) => {
 
 
-      pingjiaapi.pingjialist({ kecheng_id: this.Base.options.id}, (pingjialist) => {
+      pingjiaapi.pingjialist({ kecheng_id: this.Base.options.id }, (pingjialist) => {
         this.Base.setMyData({
           pingjialist
         });
@@ -124,12 +70,10 @@ class Content extends AppBase {
             pintuanrenshu += pintuanlist[i].tuanlist.length;
             pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
             pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
-           
-            if (daojishilist.length < 2)
-            {
-             
-              if (pintuanlist[i].status == 'A')
-              {
+
+            if (daojishilist.length < 2) {
+
+              if (pintuanlist[i].status == 'A') {
                 daojishilist.push(pintuanlist[i]);
               }
             }
@@ -187,6 +131,68 @@ class Content extends AppBase {
 
 
   }
+  daojishi() {
+    var that = this;
+
+
+    var list = that.Base.getMyData().daojishilist;
+    console.log(list);
+    console.log(52);
+    this.timer = setInterval(() => {
+
+      var sjlist = [];
+      for (var i = 0; i < list.length; i++) {
+        var listtt = [];
+        var danqiandate = new Date();
+        console.log(danqiandate);
+        var jisuandate = new Date(list[i].jieshushijian.replace(/-/g, '/'));
+       
+        
+        var dateDiff = jisuandate.getTime() - danqiandate.getTime();
+        listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
+        var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
+        listtt.push(Math.floor(leave1 / (3600 * 1000)));   //计算出小时数
+        //计算相差分钟数
+        var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
+        listtt.push(Math.floor(leave2 / (60 * 1000)));//计算相差分钟数
+        //计算相差秒数
+        var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+        listtt.push(Math.round(leave3 / 1000));
+
+
+        sjlist.push(listtt);
+
+      }
+      console.log("循环");
+      that.Base.setMyData({
+
+        sjlist: sjlist
+
+      })
+
+
+
+    }, 1000)
+
+
+
+
+
+  }
+  onHide() {
+    console.error(66666);
+    clearInterval(this.timer);
+
+
+  }
+  onUnload() {
+    console.error(66666);
+    clearInterval(this.timer);
+  }
+  onMyShow() {
+    var that = this;
+
+  }
   onPageScroll(e) {
     console.log(e)
     //this.Base.setMyData({ scrolltop: e.scrollTop})
@@ -232,11 +238,28 @@ class Content extends AppBase {
   }
 
   bindtopurchase(e) {
+
+    this.Base.setMyData({
+      tanchuang: true
+    })
+    return
     wx.navigateTo({
       url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
     })
   }
 
+  opengroup() {
+
+    this.Base.setMyData({
+      tanchuang: true, ppp: 1
+    })
+
+    return
+
+    wx.navigateTo({
+      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id + '&&type=0'
+    })
+  }
   fav(e) {
 
     var status = e.currentTarget.id;
@@ -282,54 +305,76 @@ class Content extends AppBase {
     this.Base.setMyData({ show: "gmxz" })
   }
 
-  qupinban(e)
-  {
-    
+  qupinban(e) {
+
     wx.navigateTo({
       url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.id,
     })
 
   }
-  opengroup(){
-   
+
+
+  bindtolist(e) {
+    var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id+'&&type=0'
-    })
-
-
-  //  var api=new JigouApi();
-
-  //   api.opengroup({group_course_id:this.Base.options.id},(jieguo)=>{
-     
-  //    if(jieguo.code==0)
-  //    {
-  //      wx.navigateTo({
-  //        url: '/pages/groupinfo/groupinfo?id=' + jieguo.return,
-  //      })
-
-  //    }
-
-  //   })
-
-  // }
-
-  }
-
-  bindtolist(e){
-    var id=e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/pingjialist/pingjialist?id='+id
+      url: '/pages/pingjialist/pingjialist?id=' + id
     })
   }
+  jian() {
+    var shulian = this.Base.getMyData().shulian;
+    if (shulian == 0) {
+      return
+    }
+    this.Base.setMyData({ shulian: --shulian });
+  }
+  jia() {
+    var shulian = this.Base.getMyData().shulian;
 
 
+    this.Base.setMyData({ shulian: ++shulian });
+  }
+  bindclose() {
+    this.Base.setMyData({ tanchuang: false })
+
+  }
+  yaoqin() {
+    var api = new HaibaoApi;
+    api.haibao1({ kcid: this.Base.options.id}, (res) => {
+      console.log(res);
+      if (res.code == 0) {
+        wx.navigateTo({
+          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return+'&&kcid='+this.Base.options.id,
+        })
+
+
+      }
+    })
+
+  }
+  tobuy() {
+    this.Base.setMyData({ tanchuang:false});
+
+    var ppp = this.Base.getMyData().ppp;
+    if (ppp == 1) {
+      wx.navigateTo({
+        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id + '&&type=0'
+      })
+
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
+      })
+    }
+
+  }
 }
-var timer=1;
+var timer = 1;
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.bindcut = content.bindcut; 
+body.bindcut = content.bindcut;
 
 body.bindtolist = content.bindtolist;
 
@@ -341,5 +386,10 @@ body.todetails = content.todetails;
 body.onPageScroll = content.onPageScroll;
 body.onReachBottom = content.onReachBottom;
 body.qupinban = content.qupinban;
+body.jian = content.jian;
+body.jia = content.jia;
 body.opengroup = content.opengroup;
+body.bindclose = content.bindclose;
+body.tobuy = content.tobuy;
+body.yaoqin = content.yaoqin;
 Page(body)

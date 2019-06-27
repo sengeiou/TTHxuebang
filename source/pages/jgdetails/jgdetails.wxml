@@ -328,7 +328,7 @@
 
     <view class=' flex-row flex-center'>
       <view class='buybtn txt-white h5 text-center bg-cheng' bindtap='bindshowtc'>立即购买</view>
-      <view class='pingtuanbtn txt-white h5 text-center null_bghong' >超低价拼班</view>
+      <view class='pingtuanbtn txt-white h5 text-center null_bghong'>超低价拼班</view>
     </view>
 
   </view>
