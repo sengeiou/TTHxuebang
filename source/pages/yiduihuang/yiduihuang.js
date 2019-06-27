@@ -20,9 +20,24 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
   }
+  back(e){
+   wx.navigateBack({
+    delta:3
+   })
+  }
+  order(e){
+    wx.navigateTo({
+      url: '/pages/exchangesuccess/exchangesuccess',
+    })
+  }
+  
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+
+body.back = content.back; 
+body.order = content.order;
+
 Page(body)

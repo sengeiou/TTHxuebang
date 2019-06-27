@@ -73,7 +73,7 @@ export class JifenApi{
         })
     }
 
-    updatekucun(json, callback, showLoading = true) {
+    updatejifen(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class JifenApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jifen/updatekucun',
+            url: ApiConfig.GetApiUrl() + 'jifen/updatejifen',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -105,7 +105,7 @@ export class JifenApi{
         })
     }
 
-    updatejifen(json, callback, showLoading = true) {
+    updatekucun(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -114,7 +114,7 @@ export class JifenApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jifen/updatejifen',
+            url: ApiConfig.GetApiUrl() + 'jifen/updatekucun',
             data: json,
             method: 'POST',
             dataType: 'json',
