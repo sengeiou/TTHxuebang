@@ -5,10 +5,12 @@
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">
     <view>
       <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-      <image src='{{uploadpath}}kecheng/{{item.img}}' class='lb' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}'></image>
+      <image src='{{uploadpath}}kecheng/{{item.img}}' style='width:100vw;height:200rpx;' class='lb' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}'></image>
     </view>
   </swiper-item>
 </swiper>
+
+
 <view class='menu-padding flex-row flex-center flex-wrap'>
 
   <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>

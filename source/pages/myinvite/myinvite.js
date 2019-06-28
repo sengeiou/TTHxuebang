@@ -62,13 +62,29 @@ class Content extends AppBase {
 
 
   
-  binddate(e) {
-    var type = e.currentTarget.dataset.val;
+  binddate(e, b) {
+    if (b == undefined) {
+      var type = e.currentTarget.dataset.val;
+
+    }
+    else {
+      var type = 111;
+    }
+
+   
     this.Base.setMyData({ date: type });
     var xiaji = this.Base.getMyData().xiaji;
 
     var youxiao = [];
    
+    if (type == '111') {
+
+      youxiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ youxiao: youxiao });
+
+    }
+
+
     if (type == 'all') {
     
       youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > 0);
@@ -91,6 +107,19 @@ class Content extends AppBase {
     }
 
   }
+  bindDateChange(e) {
+    console.log(e);
+
+    console.log(e.detail.value);
+
+    var shijian = e.detail.value;
+    var shijians = shijian.split("-");
+    var xssj = (shijians[0] + '-' + shijians[1] + '-' + shijians[2]);
+    this.binddate(1, xssj)
+    this.Base.setMyData({
+      xssj: xssj
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -98,4 +127,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;0
 body.jisuanchaoshi = content.jisuanchaoshi;
 body.binddate = content.binddate;
+body.bindDateChange = content.bindDateChange;
 Page(body)

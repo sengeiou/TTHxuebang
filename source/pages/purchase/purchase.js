@@ -170,6 +170,8 @@ class Content extends AppBase {
       else {
 
         api.addgroup({ group_course_id: this.options.course_id, id: this.options.type }, (res) => {
+          console.log("哈哈哈");
+          console.log(res);
           if (res.code == "0") {
             wx.showModal({
               title: '提示',

@@ -92,7 +92,7 @@
             <view class="flex-row flex-1">
               <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
-            <view bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10" >
+            <view bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
               <view class='flex-1'></view>
               <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
@@ -305,9 +305,13 @@
 
     <view class='fixedbottom'>
 
-      <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code!='0'}}">{{canbuy.result}}</view>
+      <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-1'}}">等待付款,点击立即付款</view>
+     <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-2'}}">等待付款,点击立即付款</view>
+          <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-3'}}">等待付款,点击立即付款</view>
+
+
       <view style='' class='flex-row flex-1'>
-        <view class='flex-1  bg-white padding-15'>
+        <view bindtap="shouye" class='flex-1  bg-white padding-15'>
 
           <view class='flex-row flex-column'>
             <image class='icon-25' src='{{uploadpath}}resource/{{res.kc_shouye}}'></image>
@@ -334,8 +338,8 @@
         </view>
 
 
-        <view wx:if="{{courseinfo.isgroup==0}}">
-          <view class='flex-4 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
+        <view wx:if="{{courseinfo.isgroup==0}}" class="flex-4">
+          <view class=' flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
 
@@ -346,6 +350,9 @@
             <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">立即购买</view>
           </view>
         </view>
+
+
+
         <view wx:if="{{courseinfo.isgroup!=0}}" class="flex-row flex-4 ">
           <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
@@ -358,15 +365,40 @@
 
           </view>
 
-          <view class='flex-2 flex-row flex-column padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
+          <view class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-1'}}">
             <view class='txt-white txt-bold h5  '>￥{{courseinfo.price}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">立即购买</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">立即购买</view>
           </view>
-          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
+          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FFA2A4' wx:if="{{canbuy.code=='-1'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">超低价拼班</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">超低价拼班</view>
 
           </view>
+
+
+          <view class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-2'}}">
+            <view class='txt-white txt-bold h5  '>￥{{courseinfo.price}}</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='-2'}}">立即购买</view>
+          </view>
+          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' wx:if="{{canbuy.code=='-2'}}">
+            <!-- <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view> -->
+            <view class='h6 txt-white margin-top-30' wx:if="{{canbuy.code=='-2'}}">查看团详情</view>
+
+          </view>
+
+               <view class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-3'}}">
+            <view class='txt-white txt-bold h5  '>￥{{courseinfo.price}}</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='-3'}}">立即购买</view>
+          </view>
+          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444'  bindtap='opengroup' wx:if="{{canbuy.code=='-3'}}">
+             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
+            <view class='h6 txt-white ' wx:if="{{canbuy.code=='-3'}}">超低价拼班</view>
+
+          </view>
+
+
+
+
         </view>
 
         <!-- <navigator url='/pages/seek/seek?type=kc' class='flex-2 flex-row flex-column buy padding-15' wx:if="{{canbuy.code!='0'}}">
@@ -452,7 +484,7 @@
         <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' bindtap='check'>正价课1200元</view>
       </view>
 
-
+      <!-- 
       <view class='margin-top-10 h6' style='color:#666666'>购买数量</view>
       <view class="flex-row flex-center">
         <view class="h6" style="color:#999999">剩余5个</view>
@@ -461,7 +493,7 @@
         <view bindtap="jian" class="h4">-</view>
         <view class="h4 margin-left-40 margin-right-40">{{shulian}}</view>
         <view bindtap="jia" class="h4">+</view>
-      </view>
+      </view> -->
 
       <view style='height:52rpx;'></view>
 

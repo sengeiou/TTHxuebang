@@ -3,8 +3,12 @@
   <view data-val="7days" bindtap="binddate" class="{{date=='7days'?'opt':'noopt'}}">近7天</view>
   <view data-val="all" bindtap="binddate" class="{{date=='all'?'opt':'noopt'}}">全部</view>
   <view class="flex-1"></view>
-  <view class="h6">自定义时间</view>
-  <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
+  <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
+    <view class="flex-row flex-center">
+      <view class="h6">自定义时间</view>
+      <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
+    </view>
+  </picker>
 </view>
 <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
   共{{youxiao.length}}个邀请
