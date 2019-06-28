@@ -16,8 +16,10 @@ import {
 } from "../../apis/purchase.api.js";
 import {
   WechatApi
-} from "../../apis/wechat.api.js";
-
+} from "../../apis/wechat.api.js"; 
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -39,7 +41,10 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
+    var jifenapi = new JifenApi();
+    jifenapi.commoditylist({}, (list)=>{
+      this.Base.setMyData({ list })
+    })
 
   }
   ss(e){
@@ -56,10 +61,11 @@ class Content extends AppBase {
     })
   }
   todetails(e){
+    var id=e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/shopmalldetail/shopmalldetail'
+      url: '/pages/shopmalldetail/shopmalldetail?id='+id
     })
-  }
+  } 
 
 }
 var content = new Content();

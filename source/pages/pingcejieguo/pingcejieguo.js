@@ -88,7 +88,7 @@ class Content extends AppBase {
 
       }
       console.log(type);
-      console.log("的客家话")
+      console.log("的客话")
 
       jigouapi.courselist({
         type: type
@@ -124,9 +124,11 @@ class Content extends AppBase {
     }
   }
   again() {
+ 
     wx.navigateBack({
-      delta: 1,
+       delta:1    
     })
+     
     console.log(555555);
   }
   bindhuan() {
@@ -140,6 +142,35 @@ class Content extends AppBase {
       if (i == xh) {
         console.log("进来了");
         console.log(i);
+
+        if (courselist.length == 1) {
+          xianshilist.push(courselist[i]);
+          // xianshilist.push(courselist[0]);
+          //xianshilist.push(courselist[1]);
+          xh = 2;
+          this.Base.setMyData({
+            xianshilist: xianshilist,
+            xh: xh
+          });
+          console.log(xianshilist);
+          console.log(66666666);
+          return
+        }
+        if (courselist.length == 2) {
+          xianshilist.push(courselist[i]);
+          xianshilist.push(courselist[0]);
+          //xianshilist.push(courselist[1]);
+          xh = 2;
+          this.Base.setMyData({
+            xianshilist: xianshilist,
+            xh: xh
+          });
+          console.log(xianshilist);
+          console.log(66666666);
+          return
+        }
+
+
         if (i == courselist.length - 2) {
           xianshilist.push(courselist[i]);
           xianshilist.push(courselist[i + 1]);
@@ -166,6 +197,8 @@ class Content extends AppBase {
           console.log(66666666);
           return
         }
+
+
         if (i == courselist.length) {
           console.log(788888888);
           xianshilist.push(courselist[0]);
@@ -178,9 +211,6 @@ class Content extends AppBase {
           })
           return
         }
-
-
-
 
 
         xianshilist.push(courselist[i]);

@@ -1,22 +1,24 @@
 <!--pages/shopmalldetail/shopmalldetail.wxml-->
-<image src="{{uploadpath}}resource/{{res.ceshi}}" class="top-img"></image>
+<image src="{{uploadpath}}shop/{{info.top_img}}" class="top-img"></image>
 
 <view class="padding-20" style="border-bottom:2rpx solid #F5F5F5">
-  <view class="txt-bold">积分兑换商品一</view>
+  <view class="txt-bold">{{info.name}}</view>
   <view class="flex-row flex-bottom margin-top-20">
     <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
-    <view class=" txt-bold h5 margin-left-10 f18" style="color:#FFBA12">300</view>
-    <view class="h5 margin-left-10 flex-1" style="color:#999999;text-decoration:line-through;">200元</view>
+    <view class=" txt-bold h5 margin-left-10 f18" style="color:#FFBA12">{{info.interral}}</view>
+    <view class="h5 margin-left-10 flex-1" style="color:#999999;text-decoration:line-through;">{{info.old_price}}</view>
 
-    <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-15"></image>
-    <view class="h6 margin-left-10 txt-6">库存50</view>
+    <image src="{{uploadpath}}resource/{{res.kucun}}" class="icon-15"></image>
+    <view class="h6 margin-left-10 txt-6">库存 {{info.inventory}}</view>
 
   </view>
 </view>
 
 <view class="flex-row flex-center padding-L-R" style="height:92rpx;">
-  <view class="txt-9 h6 flex-1 ">运费：免运费</view>
-  <view class="txt-9 h6">配送方式：快递</view>
+  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight!=0}}'>运费：{{info.freight}}元</view>
+  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight==0}}'>运费：免运费</view>
+  <view class="txt-9 h6">配送方式：{{info.peison}}</view>
+  <view class="txt-9 h6" wx:if='{{info.peison==""}}'>配送方式：快递</view>
 </view>
 
 <view style="height:20rpx;"></view>
@@ -28,7 +30,7 @@
 <view class="bottom-btn">
   <view class="flex-row flex-center">
     <view class="flex-1"></view>
-    <view class="duihuan txt-bold txt-white text-center" bindtap="toduihuan">立即兑换</view>
+    <view class="duihuan txt-bold txt-white text-center" bindtap="toduihuan" >立即兑换</view>
     <view class="flex-1"></view>
   </view>
 </view>
@@ -39,13 +41,12 @@
 
     <view class="flex-row padding-T-B-28 " style="border-bottom:2rpx solid #f5f5f5">
       <view class="flex-row flex-center margin-left-28 flex-1">
-        <image src="{{uploadpath}}resource/{{res.bg_1}}" class="icon160"></image>
-
+        <image src="{{uploadpath}}shop/{{info.imgs}}" class="icon160"></image>
         <view class="margin-left-20">
-          <view class="txt-bold">积分兑换商品1</view>
+          <view class="txt-bold">{{info.name}}</view>
           <view class="flex-row flex-bottom margin-top-10">
             <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image>
-            <view class=" txt-bold h5 margin-left-10 f18" style="color:#FFBA12">300</view>
+            <view class=" txt-bold h5 margin-left-10 f18" style="color:#FFBA12">{{info.interral}}</view>
           </view>
         </view>
 
@@ -67,7 +68,8 @@
 
     <view class="flex-row flex-center margin-top">
       <view class="flex-1"></view>
-      <view class="duihuan txt-bold txt-white text-center" bindtap="next" >下一步</view>
+      <view class="duihuan txt-bold txt-white text-center"wx:if='{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}">下一步</view>
+      <view class="wukucun txt-bold txt-white text-center" wx:if='{{info.inventory<=0}}'>暂无库存</view>
       <view class="flex-1"></view>
     </view>
 
