@@ -15,9 +15,15 @@
 
 
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='t3'>
-    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t3"?"txt":""}} txt-black'>视频</view>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t3"?"txt":""}} txt-black'>在线课堂</view>
     <view wx:if='{{show=="t3"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
     <view wx:if='{{show!="t3"}}' class='' style='width:80rpx;height:6rpx;'></view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='t4'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t4"?"txt":""}} txt-black'>宝妈必看</view>
+    <view wx:if='{{show=="t4"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></view>
+    <view wx:if='{{show!="t4"}}' class='' style='width:80rpx;height:6rpx;'></view>
   </view>
 
 </view>
@@ -58,9 +64,9 @@
           <view class='flex-1 txt-black'>{{item.course_name}}</view>
           <view class='txt-black'>￥{{item.course_price}}</view>
         </view>
-          <view class='flex-row flex-center margin-top-5'>
-            <view class='flex-1 txt-gray h5'>{{item.course_jigouname}}</view>
-          </view>
+        <view class='flex-row flex-center margin-top-5'>
+          <view class='flex-1 txt-gray h5'>{{item.course_jigouname}}</view>
+        </view>
 
 
         <view class='flex-row flex-center flex-1' style=''>
@@ -233,10 +239,10 @@
       <view>
 
         <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;'  mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
-          你还没有添加视频的收藏
+          你还没有添加在线课堂的收藏
         </view>
       </view>
       <view class='flex-1'>
@@ -324,5 +330,28 @@
 
 
 
+
+</view>
+
+<!--宝妈必看-->
+<view class='' hidden='{{show!="t4"}}'>
+
+  <view class='flex-row text-center'>
+    <view class='flex-1'>
+
+    </view>
+
+    <view>
+
+      <view class='nofound-img'>
+        <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+      </view>
+      <view class='h5 txt-gray'>
+        暂未开放
+      </view>
+    </view>
+    <view class='flex-1'>
+    </view>
+  </view>
 
 </view>

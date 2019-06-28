@@ -52,7 +52,7 @@ class Content extends AppBase {
     this.drawProgressbg3();
     this.countInterval3();
 
-    var pingceapi = new PingceApi(); 
+    var pingceapi = new PingceApi();
     pingceapi.indexinfo({
       id: this.Base.options.id
     }, (info) => {
@@ -60,13 +60,22 @@ class Content extends AppBase {
       console.log(info.yidong + "啦啦啦")
 
       this.Base.setMyData({
-        info, yd: parseFloat(info.yidong), zq: parseFloat(info.zhunque), sy: parseFloat(info.shiyon)
+        info,
+        yd: parseFloat(info.yidong),
+        zq: parseFloat(info.zhunque),
+        sy: parseFloat(info.shiyon)
       });
 
 
     });
 
-    
+    pingceapi.mypingcelist({}, (mypingcelist) => {
+      this.Base.setMyData({
+        mypingcelist
+      })
+    })
+
+
 
   }
 
@@ -138,9 +147,6 @@ class Content extends AppBase {
     });
   }
 
-
-
-
   drawProgressbg2() {
     console.log("顶1");
     // 使用 wx.createContext 获取绘图上下文 context
@@ -210,8 +216,6 @@ class Content extends AppBase {
   }
 
 
-
-
   drawProgressbg3() {
     console.log("顶1");
     // 使用 wx.createContext 获取绘图上下文 context
@@ -261,7 +265,7 @@ class Content extends AppBase {
       var yd = parseFloat(info.yidong);
 
       console.log(yd + "昆仑决")
-      var jindu = (yd / 5)*60;
+      var jindu = (yd / 5) * 60;
       console.log(jindu + "法规");
 
       this.countTimer3 = setInterval(() => {
@@ -282,7 +286,7 @@ class Content extends AppBase {
 
 
     });
- 
+
   }
 
 
@@ -303,9 +307,56 @@ class Content extends AppBase {
 
 
   todati(e) {
-    wx.navigateTo({
-      url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id
-    })
+    var id = e.currentTarget.id;
+    //console.log(id+"所属");
+    var pcid = e.currentTarget.dataset.pc_id;
+    //console.log(pcid + "题目id");
+    var pingceapi = new PingceApi();
+    var mypingcelist = this.Base.getMyData().mypingcelist;
+
+
+    if (mypingcelist.length == 0) {
+      console.log("电风扇");
+    } else {
+
+     var a=  mypingcelist.filter((item,idx)=>{
+
+        return item.pingce_id == pcid
+      })  
+   console.log(a);
+   //return
+
+
+      if (a.length > 0) {
+        wx.navigateTo({
+          url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id
+        })
+      }
+
+     else {
+        console.log("先增再跳000000");
+        var pingceapi = new PingceApi();
+        pingceapi.addpingce({
+          member_id: id,
+          pingce_id: pcid,
+          status: "A",
+          dati_status: "N"
+        }, (addpingce) => {
+          this.Base.setMyData({
+            addpingce
+          })
+          wx.navigateTo({
+            url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id
+          })
+        })
+      }
+
+
+    }
+
+ 
+
+
   }
 
 }

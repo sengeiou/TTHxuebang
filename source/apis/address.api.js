@@ -9,7 +9,7 @@ import { ApiConfig } from 'apiconfig';
 export class AddressApi{
 
 
-    addresslist(json, callback, showLoading = true) {
+    addedaddress(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class AddressApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'address/addresslist',
+            url: ApiConfig.GetApiUrl() + 'address/addedaddress',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class AddressApi{
         })
     }
 
-    addedaddress(json, callback, showLoading = true) {
+    addresslist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class AddressApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'address/addedaddress',
+            url: ApiConfig.GetApiUrl() + 'address/addresslist',
             data: json,
             method: 'POST',
             dataType: 'json',
