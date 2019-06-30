@@ -49,7 +49,7 @@ export class VideopurcsuccPage  extends AppBase {
     })
 
   }
-  tohome(e) {
+  tohome() {
     this.backToUrl("/tabs/tab1");
   }
   lijixuexi(){
