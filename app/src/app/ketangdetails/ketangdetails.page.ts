@@ -41,7 +41,7 @@ export class KetangdetailsPage  extends AppBase {
   danqianzhanjie=null;
   zhanjie=null;
   onMyLoad() {
-    this.shipin=this.elementRef.nativeElement.querySelector("#id");
+    this.shipin=this.elementRef.nativeElement.querySelector("#playvideo");
   }
   onMyShow() {
     var that = this;
@@ -58,27 +58,28 @@ export class KetangdetailsPage  extends AppBase {
 
 
     jigouapi.kechenzhanjie({ classroom_id: this.params.id }).then((zhanjie) => {
-      zhanjie[0].dq = true;
       // 
       this.zhanjie=zhanjie;
-      if(this.danqianzhanjie.length>0){
+      if(this.zhanjie.length>0){
+        zhanjie[0].dq = true;
         this.danqianzhanjie=zhanjie[0];
+        //alert(this.danqianzhanjie.video);
       }
     })
 
 
   }
-  qiehuanzhanjie(id) {
+  qiehuanzhanjie(idx) {
     
     var mulu = this.zhanjie;
     var kecheninfo = this.kecheninfo;
-    if (mulu[id].isproved_value == 'N' && kecheninfo.idd == '') {
+    if (mulu[idx].isproved_value == 'N' && kecheninfo.idd == '') {
       this.showAlert("需要付费观看,如果想观看要购买观看全集");
       return
 
     }
     for (var i = 0; i < mulu.length; i++) {
-      if (i == id) {
+      if (i == idx) {
         mulu[i].dq = true;
       }
       else {
@@ -86,7 +87,7 @@ export class KetangdetailsPage  extends AppBase {
       }
     }
     this.zhanjie=mulu;
-    this.danqianzhanjie=mulu[id];
+    this.danqianzhanjie=mulu[idx];
     this.liebiao=false;
   }
   tishi=0;
@@ -121,106 +122,111 @@ export class KetangdetailsPage  extends AppBase {
 
 
   }
-  shipin = null;
 
-
+  chaoshi=false;
   jindu(e) {
-    var idd = this.Base.getMyData().kecheninfo.idd;
-    var mianfei = this.Base.getMyData().kecheninfo.isfree_value;
+    console.log("vkk",e);
+    var idd = this.kecheninfo.idd;
+    var mianfei = this.kecheninfo.isfree_value;
     if (idd != '' || mianfei == 'Y') {
       return;
     }
 
-    console.log("进来了1");
 
     // console.log(this.Base.getMyData().danqianzhanjie.proved_date);
-    var a = Number(this.Base.getMyData().danqianzhanjie.proved_date);
-    if (e.detail.currentTime >= a) {
+    var a = Number(this.danqianzhanjie.proved_date);
+    console.log("进来了1",a,e.target.currentTime);
+    if (e.target.currentTime >= a) {
       console.log("进来了2")
-      console.log(this.Base.getMyData().danqianzhanjie.proved_date);
+      console.log(this.danqianzhanjie.proved_date);
 
 
-      this.Base.shipin.pause();
-      if (e.detail.currentTime >= a + 1) {
-        this.Base.shipin.seek(a);
+      this.shipin.pause();
+      if (e.target.currentTime >= a + 1) {
+        this.shipin.seek(a);
       }
 
-      if (!this.Base.getMyData().chaoshi) {
-
-        this.Base.info("购买后观看完整版视频");
-
+      if (!this.chaoshi) {
+        this.showAlert("购买后观看完整版视频");
+        this.chaoshi=true;
       }
     }
     else {
-      if (this.Base.getMyData().chaoshi) {
-        this.Base.setMyData({ chaoshi: false });
+      if (this.chaoshi) {
+        this.chaoshi=false;
       }
 
 
     }
   }
   chakanliebiao() {
-    this.Base.setMyData({ liebiao: true });
+    this.liebiao=true;
   }
   chakanquanbu() {
-    this.Base.setMyData({ quanbu: true });
+    this.quanbu=true;
   }
   guanbiquanbu() {
-    this.Base.setMyData({ quanbu: false });
+    this.quanbu=false;
   }
   guanbiliebiao() {
-    this.Base.setMyData({ liebiao: false });
+    this.liebiao=false;
   }
   shikan() {
-    this.Base.backtotop();
-    this.Base.shipin.play();
+    
+    this.chaoshi=false;
+    this.shipin.scrollIntoView();
+    this.shipin.play();
 
   }
   goumai() {
-    wx.navigateTo({
-      url: '/pages/shipingoumai/shipingoumai?id=' + this.Base.getMyData().kecheninfo.id,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    // wx.navigateTo({
+    //   url: '/pages/shipingoumai/shipingoumai?id=' + this.Base.getMyData().kecheninfo.id,
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
+
+    this.navigate("shipingoumai",{id:this.kecheninfo.id});
 
   }
-  shuru(e) {
-    this.Base.setMyData({ pinlun: e.detail.value })
+  // shuru(comment) {
+  //   this.pinlun=comment;
 
-  }
+  // }
   fabiao() {
     var that = this;
-    var api = new JigouApi();
-    if (this.Base.getMyData().kecheninfo.idd != '' || this.Base.getMyData().kecheninfo.isfree_value == 'Y') {
-      var pinlun = this.Base.getMyData().pinlun;
+    var api = this.jigouApi;
+    if (this.kecheninfo.idd != '' || this.kecheninfo.isfree_value == 'Y') {
+      var pinlun = this.pinlun;
       if (pinlun == '') {
-        this.Base.info("至少说点什么才可以发送哦");
+        this.showAlert("至少说点什么才可以发送哦");
         return
       }
-      api.ketanpinlun({ onlineclassroom_id: this.Base.options.id, neiron: pinlun }, (res) => {
+      api.ketanpinlun({ onlineclassroom_id: this.params.id, neiron: pinlun }).then( (res) => {
 
 
 
-        api.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
-          that.Base.setMyData({
-            ketanpinlunlist: ketanpinlunlist, pinlun: ''
-          })
+        api.ketanpinlunlist({ onlineclassroom_id: this.params.id }).then((ketanpinlunlist) => {
+          // that.Base.setMyData({
+          //   ketanpinlunlist: ketanpinlunlist, pinlun: ''
+          // })
+          that.ketanpinlunlist=ketanpinlunlist;
+          this.pinlun="";
         })
       })
 
 
     }
     else {
-      this.Base.info("购买此专栏后才能进行评论哦！");
+      this.showAlert("购买此专栏后才能进行评论哦！");
     }
   }
-  dianzan(e) {
-    var ketanpinlunlist = this.Base.getMyData().ketanpinlunlist;
-    var idx = e.currentTarget.dataset.idx;
-    var api = new JigouApi();
+  dianzan(id,idx) {
+    var ketanpinlunlist = this.ketanpinlunlist;
+    var idx = idx;
+    var api = this.jigouApi;
 
-    api.pinlundianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+    api.pinlundianzan({ zaixianpinlun_id:id }).then((res) => {
       console.log(res);
       if (res.return == "") {
         console.log(123132132);
@@ -233,18 +239,17 @@ export class KetangdetailsPage  extends AppBase {
         ketanpinlunlist[idx].isfav = 'Y';
 
       }
-      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
-
+      //this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+      this.ketanpinlunlist=ketanpinlunlist;
     })
-    console.log(e);
 
   }
   huifudianzan(e) {
-    var ketanpinlunlist = this.Base.getMyData().ketanpinlunlist;
+    var ketanpinlunlist = this.ketanpinlunlist;
     var idx = e.currentTarget.dataset.idx;
-    var api = new JigouApi();
+    var api = this.jigouApi;
 
-    api.pinlunhuifudianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+    api.pinlunhuifudianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }).then( (res) => {
       console.log(res);
       if (res.return == "") {
         console.log(123132132);
@@ -257,7 +262,7 @@ export class KetangdetailsPage  extends AppBase {
         ketanpinlunlist[idx].huifuisfav = 'Y';
 
       }
-      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+      this.ketanpinlunlist=ketanpinlunlist;
 
     })
     console.log(e);
