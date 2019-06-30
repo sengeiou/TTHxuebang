@@ -122,7 +122,7 @@
 
 <view class='height-126'></view>
 
-<view class='flex-row flex-center' bindtap='todati'>
+<view class='flex-row flex-center' bindtap='todati' data-pc_id="{{info.id}}" id="{{memberinfo.id}}">
   <view class='flex-1'></view>
   <view class='ceshi text-center txt-white'>立即测试</view>
   <view class='flex-1'></view>

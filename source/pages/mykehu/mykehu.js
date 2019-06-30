@@ -22,9 +22,12 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    var myDate = new Date();
+    var jintian = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
     this.Base.setMyData({
       show: "all",
       date: "all",
+      jintian: jintian
 
     })
   }
@@ -33,17 +36,17 @@ class Content extends AppBase {
     var date2 = new Date(a);
     var date3 = date1.getTime() - date2.getTime();
     var days = Math.floor(date3 / (24 * 3600 * 1000));
- console.log(days);
-    return [days < b,b-days] ;
+    console.log(days);
+    return [days < b, b - days];
 
   }
-  
+
   onMyShow() {
     var that = this;
-    var quanbu=[];
+    var quanbu = [];
     var youxiao = [];
     var shixiao = [];
-    
+
     var shijian = this.Base.getMyData().instinfo.xiajishijian;
     var memberapi = new MemberApi();
     memberapi.chakanxiaji({}, (xiaji) => {
@@ -52,7 +55,7 @@ class Content extends AppBase {
         if (this.jisuanchaoshi(xiaji[i].bandin_date, shijian)[0]) {
           youxiao.push(xiaji[i]);
         }
-        else{
+        else {
           shixiao.push(xiaji[i]);
         }
         quanbu.push(xiaji[i]);
@@ -61,51 +64,68 @@ class Content extends AppBase {
       console.log(quanbu);
       console.log(youxiao);
       console.log(shixiao);
-      this.Base.setMyData({ quanbu: quanbu, youxiao: youxiao,shixiao:shixiao,xiaji:xiaji })
+      this.Base.setMyData({ quanbu: quanbu, youxiao: youxiao, shixiao: shixiao, xiaji: xiaji })
     })
   }
   bindshow(e) {
     var type = e.currentTarget.dataset.type;
     this.Base.setMyData({ show: type })
   }
-  binddate(e) {
-    var type = e.currentTarget.dataset.val;
+  binddate(e,b) {
+     
+      if(b==undefined)
+      {
+        var type = e.currentTarget.dataset.val;
+       
+      }
+      else{
+        var type = 111;
+      }
+
+
+  
     this.Base.setMyData({ date: type });
     var xiaji = this.Base.getMyData().xiaji;
-    var quanbu=[];
-    var youxiao=[];
-    var shixiao=[];
-    if (type =='all')
+    var quanbu = [];
+    var youxiao = [];
+    var shixiao = [];
+    if(type=='111')
     {
+      quanbu = xiaji.filter(quanbu => quanbu.bandin_date.substring(0,10) == b);
+      this.Base.setMyData({ quanbu: quanbu });
+      youxiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ youxiao: youxiao });
+      shixiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ shixiao: shixiao });
+    }
+    if (type == 'all') {
       quanbu = xiaji.filter(quanbu => quanbu);
       this.Base.setMyData({ quanbu: quanbu });
-
       youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > 0);
       this.Base.setMyData({ youxiao: youxiao });
       shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0);
       this.Base.setMyData({ shixiao: shixiao });
     }
-    if (type =="7days")
-    {
-      quanbu = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian-7);
+    if (type == "7days") {
+      quanbu = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian - 7);
       this.Base.setMyData({ quanbu: quanbu });
       youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian - 7);
       this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0-7);
+      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0 - 7);
       this.Base.setMyData({ shixiao: shixiao });
     }
-    if (type =="yesterday")
-    {
+    if (type == "yesterday") {
 
-    
-      quanbu = xiaji.filter(item => item.jieshushijian == this.Base.getMyData().instinfo.xiajishijian-1);
-    
+
+      quanbu = xiaji.filter(item => item.jieshushijian == this.Base.getMyData().instinfo.xiajishijian - 1);
+
       this.Base.setMyData({ quanbu: quanbu });
       youxiao = xiaji.filter(quanbu => quanbu.jieshushijian == this.Base.getMyData().instinfo.xiajishijian - 1);
       this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian ==-1);
+      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian == -1);
       this.Base.setMyData({ shixiao: shixiao });
     }
+
 
   }
   kehuinfo(e) {
@@ -113,7 +133,21 @@ class Content extends AppBase {
     console.log(e.currentTarget.dataset.id);
     console.log("牛逼");
     wx.navigateTo({
-      url: '/pages/kehuinfo/kehuinfo?id='+e.currentTarget.dataset.id,
+      url: '/pages/kehuinfo/kehuinfo?id=' + e.currentTarget.dataset.id,
+    })
+  }
+
+  bindDateChange(e) {
+    console.log(e);
+
+    console.log(e.detail.value);
+
+    var shijian = e.detail.value;
+    var shijians = shijian.split("-");
+    var xssj = (shijians[0] + '-' + shijians[1] + '-' + shijians[2] );
+    this.binddate(1, xssj)
+    this.Base.setMyData({
+      xssj: xssj
     })
   }
 }
@@ -125,4 +159,5 @@ body.bindshow = content.bindshow;
 body.binddate = content.binddate;
 body.kehuinfo = content.kehuinfo;
 body.jisuanchaoshi = content.jisuanchaoshi;
+body.bindDateChange = content.bindDateChange;
 Page(body)

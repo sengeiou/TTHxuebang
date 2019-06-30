@@ -82,6 +82,16 @@ class Content extends AppBase {
     //     url: '/pages/myorder/myorder',
     //   })
     // }
+    if (name=="dizhi"){
+      wx.navigateTo({
+        url: '/pages/xuanzedizhi/xuanzedizhi?type='+"Y",
+      })
+    } 
+    if (name == "pc") {
+      wx.navigateTo({
+        url: '/pages/mypingce/mypingce',
+      })
+    }
     if(name=="dd"){
       wx.navigateTo({
         url: '/pages/myorder/myorder',

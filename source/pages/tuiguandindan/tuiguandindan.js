@@ -78,13 +78,29 @@ class Content extends AppBase {
     var type = e.currentTarget.dataset.type;
     this.Base.setMyData({ show: type })
   }
-  binddate(e) {
-    var type = e.currentTarget.dataset.val;
+  binddate(e,b) {
+    if (b == undefined) {
+      var type = e.currentTarget.dataset.val;
+
+    }
+    else {
+      var type = 111;
+    }
     this.Base.setMyData({ date: type });
     var xiaji = this.Base.getMyData().xiaji;
     var quanbu = [];
     var youxiao = [];
     var shixiao = [];
+    if (type == '111') {
+      quanbu = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ quanbu: quanbu });
+      youxiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ youxiao: youxiao });
+      shixiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      this.Base.setMyData({ shixiao: shixiao });
+    }
+
+
     if (type == 'all') {
       quanbu = xiaji.filter(quanbu => quanbu);
       this.Base.setMyData({ quanbu:this.zhuandindan( quanbu) });
@@ -115,6 +131,19 @@ class Content extends AppBase {
     }
 
   }
+  bindDateChange(e) {
+    console.log(e);
+
+    console.log(e.detail.value);
+
+    var shijian = e.detail.value;
+    var shijians = shijian.split("-");
+    var xssj = (shijians[0] + '-' + shijians[1] + '-' + shijians[2]);
+    this.binddate(1, xssj)
+    this.Base.setMyData({
+      xssj: xssj
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -124,4 +153,5 @@ body.binddate = content.binddate;
 body.jisuanchaoshi = content.jisuanchaoshi;
 body.zhuandindan = content.zhuandindan;
 body.binddate = content.binddate;
+body.bindDateChange = content.bindDateChange;
 Page(body)

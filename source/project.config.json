@@ -45,7 +45,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 51,
+			"current": 53,
 			"list": [
 				{
 					"id": 0,
@@ -408,6 +408,20 @@
 					"id": -1,
 					"name": "积分商品详情",
 					"pathName": "pages/shopmalldetail/shopmalldetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系客服",
+					"pathName": "pages/lianxikefu/lianxikefu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的评测",
+					"pathName": "pages/mypingce/mypingce",
 					"scene": null
 				}
 			]

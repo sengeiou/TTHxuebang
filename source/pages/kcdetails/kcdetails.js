@@ -120,8 +120,8 @@ class Content extends AppBase {
 
     });
 
-    jigouapi.checkcanbuy({
-      course_id: this.Base.options.id
+    jigouapi.orderstatus({
+      id: this.Base.options.id
     }, (canbuy) => {
 
       this.Base.setMyData({
@@ -368,6 +368,13 @@ class Content extends AppBase {
     }
 
   }
+  shouye(){
+  
+    wx.switchTab({
+    url: '/pages/home/home',
+  })
+
+  }
 }
 var timer = 1;
 var content = new Content();
@@ -375,7 +382,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcut = content.bindcut;
-
+body.shouye=content.shouye;
 body.bindtolist = content.bindtolist;
 
 body.bindtopurchase = content.bindtopurchase;

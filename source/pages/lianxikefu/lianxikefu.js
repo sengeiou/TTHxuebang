@@ -1,15 +1,17 @@
-// pages/yiduihuang/yiduihuang.js
+// pages/lianxikefu/lianxikefu.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
-
+import {
+  JigouApi
+} from "../../apis/jigou.api.js";
 class Content extends AppBase {
   constructor() {
     super();
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '兑换成功',
+      title: '联系客服',
     });
   }
   onLoad(options) {
@@ -19,25 +21,14 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var api = new JigouApi();
+
   }
-  back(e){
-   wx.navigateBack({
-    delta:3
-   })
-  }
-  order(e){
-    wx.navigateTo({
-      url: '/pages/exchangesuccess/exchangesuccess',
-    })
-  }
-  
+
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-
-body.back = content.back; 
-body.order = content.order;
-
 Page(body)
