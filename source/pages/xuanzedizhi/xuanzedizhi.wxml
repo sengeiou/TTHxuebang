@@ -27,14 +27,13 @@
 
         <view class='flex-1'></view>
 
-        <view bindtap='addressmanage'>
+        <view bindtap='addressmanage' id="{{item.id}}">
           <image class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}'></image>
         </view>
       </view>
 
     </view>
   </view>
-
 
   <view class="add margin-top-20 flex-row flex-center" wx:if='{{type==""||type==undefined}}'>
     <view class="flex-1"></view>
@@ -46,9 +45,10 @@
   <view style="height:150rpx;"></view>
 
   <button class='but txt-white' wx:if='{{type==""||type==undefined}}' bindtap="queren">确认</button>
-  <button class='but txt-white' wx:if='{{type=="Y"}}' bindtap="addressmanage">添加新地址</button>
+  <button class='but txt-white' wx:if='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
 
 </view>
+
 
 <view wx:if='{{show==true}}'>
   <view class='block_black'></view>

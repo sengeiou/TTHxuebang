@@ -87,6 +87,8 @@ class Content extends AppBase {
         type.push(pingcejieguo[a].coursetype_id);
 
       }
+
+      
       console.log(type);
       console.log("的客话")
 
@@ -229,8 +231,6 @@ class Content extends AppBase {
       }
 
     }
-
-
 
   }
 

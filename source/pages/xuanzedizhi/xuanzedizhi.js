@@ -27,7 +27,8 @@ class Content extends AppBase {
   onMyShow() {
     var that = this; 
     var addressapi = new AddressApi();
-    addressapi.addresslist({   }, (addresslist) => {
+    
+    addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
       this.Base.setMyData({ addresslist })
     })
 
@@ -41,6 +42,13 @@ class Content extends AppBase {
   }
 
   addressmanage(e) {
+    var id=e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
+    })
+  }
+  addnew(e){
+    
     wx.navigateTo({
       url: '/pages/addressmanage/addressmanage',
     })
@@ -88,6 +96,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.addressmanage = content.addressmanage; 
+body.addnew = content.addnew; 
 body.queren = content.queren; 
 body.quxiao = content.quxiao; 
 body.quedin = content.quedin; 

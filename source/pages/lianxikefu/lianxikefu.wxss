@@ -10,9 +10,14 @@ Page{
   border-radius: 8rpx;
 }
 .icon-42{
-  width: 84rpx;
-  height: 84rpx;
+  width: 98rpx;
+  height: 88rpx;
 }
+ .icon-50{
+  width: 94rpx;
+  height: 94rpx;
+}
+ 
 .icon-right{
   width:12rpx;
 height:20rpx;

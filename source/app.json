@@ -88,7 +88,7 @@
       },
       {
         "text": "宝妈必看",
-        "pagePath": "pages/teacher/teacher",
+        "pagePath": "pages/baoma/baoma",
         "iconPath": "images/icons/ms.png",
         "selectedIconPath": "images/icons/ms1.png"
       },
