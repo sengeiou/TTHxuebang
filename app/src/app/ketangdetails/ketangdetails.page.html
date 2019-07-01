@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <ion-toolbar color='primary'>
     <ion-buttons slot="start">
       <ion-button (click)='back()'>
@@ -10,11 +10,16 @@
 </ion-header>
 
 <ion-content>
-    <video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}'
+  
+    <video id="playvideo" (timeupdate)="jindu($event)" class='Top-img h400' style='width:100vw; ' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' 
+    title='{{danqianzhanjie.title}}' 
+    controls='true' object-fit="fill" 
+    autoplay='{{false}}' loop='{{false}}'
     src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}' play-btn-position="center">
-    <cover-view *ngIf="chaoshi" class='title txt-red  txt-bold'>
-      该充钱啦</cover-view>
+    
   </video>
+  <!-- <cover-view *ngIf="chaoshi" class='title txt-red  txt-bold'>
+      该充钱啦</cover-view> -->
   <div *ngIf="!liebiao&&!quanbu">
     <div class='padding-30 border-bottom-2'>
   
@@ -75,15 +80,15 @@
   
     <div class="padding-301 flex-row flex-center">
       <div class="flex-1">目录</div>
-      <div class="jieshao1" bindtap='chakanliebiao'>查看列表</div>
+      <div class="jieshao1" (click)='chakanliebiao()'>查看列表</div>
     </div>
   
     <div class='margin-left-20'>
-      <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
+      <div scroll-x style=" " class='ss scroll-y' >
   
-        <div *ngFor='let item of zhanjie;let idx=index;'  bindtap='qiehuanzhanjie' data-id="{{idx}}" class='ceshi flex-row flex-column'>
+        <div *ngFor='let item of zhanjie;let idx=index;'  class='ceshi flex-row flex-column'>
   
-          <div class="{{item.dq==true?'bk':''}}">
+          <div class="{{item.dq==true?'bk':''}}"  (click)='qiehuanzhanjie(idx)' >
             <img class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}' />
             <div class="chaochu kuan">{{item.name}}</div>
   
@@ -97,11 +102,11 @@
   
           </div>
         </div>
-      </scroll-view>
+      </div>
     </div>
     <div class="padding-301 flex-row flex-center">
       <div class="flex-1 h5" style='color:#222222'>留言 {{ketanpinlunlist.length}}</div>
-      <div bindtap='chakanquanbu' class="jieshao1 ">查看全部</div>
+      <div (click)='chakanquanbu()' class="jieshao1 ">查看全部</div>
     </div>
     <div  *ngFor='let item of ketanpinlunlist;let idx=index;'   class="padding-20">
       <div class="flex-row flex-center "  >
@@ -111,8 +116,8 @@
           <div class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</div>
         </div>
         <div class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</div>
-        <img bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.isfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
-        <img bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.isfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
+        <img (click)="dianzan(item.id,idx)"  *ngIf="item.isfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
+        <img (click)="dianzan(item.id,idx)"  *ngIf="item.isfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
       </div>
   
       <div class="h5 margin-top-10">
@@ -128,14 +133,14 @@
       <div *ngIf="kecheninfo.idd==''" class='tishi-block flex-row flex-center'>
         <div class='flex-1'></div>
         <div class='txt-zong h6'>共{{kecheninfo.chapter_num}}章，每章仅需{{pinjunjia}}元</div>
-        <div class='txt-zong h6' [ngShow]='true'>您已购买此栏目</div>
+        <div class='txt-zong h6' *ngIf='false'>您已购买此栏目</div>
         <div class='flex-1'></div>
       </div>
   
   
       <div *ngIf="kecheninfo.idd==''" class='bottom-block flex-row flex-center'>
-        <div bindtap='shikan' class='flex-1 text-center watch_block'>试看</div>
-        <div bindtap='goumai' class='buy_block flex-row flex-center'>
+        <div (click)='shikan()' class='flex-1 text-center watch_block'>试看</div>
+        <div (click)='goumai()' class='buy_block flex-row flex-center'>
           <div class='flex-1'></div>
           <div class='txt-white margin-top-6'>￥</div>
           <div class='f40 txt-white txt-bold'>{{kecheninfo.price}}</div>
@@ -158,15 +163,15 @@
   
     <div class="padding-20 flex-row flex-center">
       <div class="flex-1">{{danqianzhanjie.classroom_id_name}}</div>
-      <div bindtap='guanbiliebiao'>X</div>
+      <div (click)='guanbiliebiao()'>X</div>
     </div>
-    <scroll-view scroll-y class="gd">
+    <div scroll-y class="gd scroll-y">
       <div class=" padding-10 flex-row flex-center flex-wrap">
   
-        <div *ngFor='let item of zhanjie;let idx=index;'  bindtap='qiehuanzhanjie' data-id="{{idx}}" class='kecheng-block flex-row flex-column'>
+        <div *ngFor='let item of zhanjie;let idx=index;'   class='kecheng-block flex-row flex-column'>
   
   
-          <div class="{{item.dq==true?'bk':''}}">
+          <div (click)='qiehuanzhanjie(idx)'  class="{{item.dq==true?'bk':''}}">
             <img class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}' />
             <div class="chaochu kuan">{{item.name}}</div>
             <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''">
@@ -178,7 +183,7 @@
           </div>
         </div>
       </div>
-    </scroll-view>
+    </div>
   </div>
   
   
@@ -186,9 +191,9 @@
   
     <div class="padding-20 flex-row flex-center">
       <div class="flex-1">精彩评论</div>
-      <div bindtap='guanbiquanbu'>X</div>
+      <div (click)='guanbiquanbu()'>X</div>
     </div>
-    <scroll-view scroll-y class="gd">
+    <div scroll-y class="gd scroll-y">
       <div *ngFor="let item of ketanpinlunlist;let idx=index;" class="padding-20">
         <div class="flex-row flex-center ">
           <img src='{{item.member_avatarUrl}}' class='icon-40 radius-50' />
@@ -197,8 +202,8 @@
             <div class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</div>
           </div>
           <div class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</div>
-          <img bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.isfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
-          <img bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.isfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
+          <img (click)="dianzan(item.id,idx)" *ngIf="item.isfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
+          <img (click)="dianzan(item.id,idx)" *ngIf="item.isfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
   
         </div>
   
@@ -212,22 +217,21 @@
           <div class="flex-1"></div>
           <div class="h5 margin-right-20" style='color:#999999'>{{item.huifudianzanrenshu}}</div>
   
-          <img bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.huifuisfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
-          <img bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" *ngIf="item.huifuisfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
+          <img (click)="huifudianzan(item.id,idx)" *ngIf="item.huifuisfav=='N'" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon' />
+          <img (click)="huifudianzan(item.id,idx)" *ngIf="item.huifuisfav=='Y'" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon' />
   
   
         </div>
         <div class="h5 margin-top-10">{{item.huifu}}</div>
       </div>
       </div>
-      <div style='height:120rpx'></div>
+      <div class="h120"></div>
       <div class="padding-10 db flex-row flex-center">
   
-        <input [(ngModel)]='pinlun' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20">
+        <input [(ngModel)]='pinlun' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20" />
   
-        </input>
-        <div bindtap='fabiao' class="fabiao">发表</div>
+        <div (click)='fabiao()' class="fabiao">发表</div>
       </div>
-    </scroll-view>
+    </div>
   </div>
 </ion-content>

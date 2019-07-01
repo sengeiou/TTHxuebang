@@ -6,15 +6,16 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { InstApi } from 'src/providers/inst.api';
 import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss'],
-  providers:[MemberApi,JigouApi]
+  selector: 'app-problem',
+  templateUrl: './problem.page.html',
+  styleUrls: ['./problem.page.scss'],
+  providers:[MemberApi,InstApi,JigouApi]
 })
-export class Tab3Page extends AppBase {
+export class ProblemPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -27,50 +28,17 @@ export class Tab3Page extends AppBase {
     public jigouApi:JigouApi
     ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    this.headerscroptshow = 480;
       
   }
+  aboutus=null;
   onMyShow() {
     var that = this;
+    var jigouapi = this.jigouApi;
 
+    jigouapi.aboutus({}).then( (aboutus) => {
+      this.aboutus=aboutus;
+    });
 
-  }
-
-  todetails(name){
-    var pagename="";
-    if (name == "jfsc") {
-      pagename="shopmall";
-    }
-    // if (name == "yhq") {
-    //   wx.navigateTo({
-    //     url: '/pages/myorder/myorder',
-    //   })
-    // }
-    if(name=="dd"){
-      pagename="myorder";
-    }
-    if (name == "dz") {
-      pagename="address";
-    }
-    if (name == "xx") {
-      pagename="mymessage";
-    }
-    if (name == "wt") {
-      pagename="problem";
-    }
-    if (name == "sc") {
-      pagename="mycollect";
-    }
-    if (name == "wm") {
-      pagename="aboutus";
-    }
-    if (name == "jg") {
-      pagename="addmechanism";
-    }
-    if (name == "tg") {
-      pagename="promotion";
-    }
-
-    this.navigate(pagename);
-  
   }
 }
