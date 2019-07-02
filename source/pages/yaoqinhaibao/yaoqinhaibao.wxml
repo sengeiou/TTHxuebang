@@ -29,7 +29,7 @@
     <view class="flex-1"></view>
 
       <button class="anniu clear-button flex-row flex-center" open-type='share' >
-     <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.fghy}}"></image>
+     <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}"></image>
     <view class="zi margin-left-10">发给好友</view>
     </button>
     <view class="flex-1"></view>

@@ -149,25 +149,25 @@
       <view class=' flex-row flex-center margin-top-20'>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-white":""}} txt-black txt-bold'>精选</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</view>
           <view wx:if='{{options=="j_x"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="j_x"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black txt-bold'>新上</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</view>
           <view wx:if='{{options=="x_s"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black txt-bold'>宝妈最爱</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-bold f13":""}} txt-black txt-bold'>宝妈最爱</view>
           <view wx:if='{{options=="bm_za"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black txt-bold'>好评</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</view>
           <view wx:if='{{options=="h_p"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
