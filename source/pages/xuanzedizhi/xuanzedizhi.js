@@ -39,6 +39,7 @@ class Content extends AppBase {
     var id=e.currentTarget.id;
 
     this.Base.setMyData({ check: id})
+
   }
 
   addressmanage(e) {
@@ -47,6 +48,7 @@ class Content extends AppBase {
       url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
     })
   }
+
   addnew(e){
     
     wx.navigateTo({
@@ -54,6 +56,12 @@ class Content extends AppBase {
     })
   }
   queren(e){
+    
+    if(this.Base.getMyData().check==null){
+      this.Base.toast("请选择地址");
+      return;
+    }
+
     this.Base.setMyData({
       show:true
     })
@@ -62,8 +70,15 @@ class Content extends AppBase {
     var inventory = this.Base.options.inventory;
     var jifen = this.Base.options.interral;
     var myjifen = e.currentTarget.id;
+    var img=this.Base.options.img;
+
+    console.log(img);
+    //return;
+
+    var shanpin=this.Base.options.name;
 
     var shengyu = myjifen - jifen;
+
     console.log(shengyu + "剩余");
     if (parseInt(jifen) > parseInt(myjifen)){
       this.Base.setMyData({ kong: true});
@@ -71,17 +86,65 @@ class Content extends AppBase {
     }
     //return;
     var jifenapi = new JifenApi();
-    jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - 1 }, (updatekucun) => {
-      this.Base.setMyData({ updatekucun })
-    })
 
-    jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
-      this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
-      this.onMyShow();
-      wx.navigateTo({
-        url: '/pages/yiduihuang/yiduihuang',
+    var addressapi = new AddressApi();
+
+    addressapi.addressinfo({
+      id: this.Base.getMyData().check
+    }, (info) => {
+
+
+      jifenapi.addjifenorder({ 
+        member_id:this.Base.getMyData().memberinfo.id,
+        jifen: jifen,
+        img:img,
+        name:shanpin,
+        orderstatus:"A",
+        consignee: info.name,
+        mobile: info.phonenumber,
+        address:info.region+info.address,
+        orderid:'1234567891011',
+        status:"A"
+       }, (addjifenorder) => {
+
+         
+
+
+         //console.log(addjifenorder.return+"阿");
+        // return;
+
+         jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - 1 }, (updatekucun) => {
+           this.Base.setMyData({ updatekucun })
+         })
+
+         jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
+           this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
+           this.onMyShow();
+           wx.navigateTo({
+             url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return,
+           })
+         })
+         this.Base.setMyData({ addjifenorder })
+
+        
+      })
+
+      this.Base.setMyData({
+        info
       })
     })
+
+
+
+
+    
+
+
+
+
+
+
+
      
    
   }

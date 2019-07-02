@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 53,
+			"current": 55,
 			"list": [
 				{
 					"id": 0,
@@ -424,6 +424,20 @@
 					"id": -1,
 					"name": "我的评测",
 					"pathName": "pages/mypingce/mypingce",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的兑换",
+					"pathName": "pages/jifenorder/jifenorder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的兑换详情",
+					"pathName": "pages/jifenorderinfo/jifenorderinfo",
 					"scene": null
 				}
 			]
