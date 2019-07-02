@@ -9,6 +9,9 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import {
+  ApiUtil
+} from "../../apis/apiutil";
+import {
   JigouApi
 } from "../../apis/jigou.api.js";
 import {
@@ -27,17 +30,28 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: "t1",
+      show: "t1", mylat: 0,
+      mylng: 0,
     })
+
+
+
   }
   onMyShow() {
     var that = this;
     var api = new MemberApi();
+    var jigouapi = new JigouApi();
+
+
     api.favcourselist({}, (kclist) => {
       this.Base.setMyData({
         kclist
       });
-    });
+    }); 
+
+
+
+
     api.favjigoulist({}, (jglist) => {
       this.Base.setMyData({
         jglist
@@ -48,9 +62,109 @@ class Content extends AppBase {
       this.Base.setMyData({
         splist
       });
+    }); 
+
+    jigouapi.ketangshoucanglist({}, (ketangshoucanglist) => {
+      this.Base.setMyData({
+        ketangshoucanglist
+      });
     });
 
 
+
+    this.Base.getAddress((address) => {
+      console.log(address);
+      var mylat = address.location.lat;
+      var mylng = address.location.lng;
+      console.log("mylat");
+      
+      this.Base.setMyData({
+        mylat, mylng
+      });
+
+      this.huoqukclist();
+      this.huoqujigoulist();
+    })
+
+  }
+
+  huoqukclist(){
+
+    var api = new MemberApi();
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
+    var opt = {
+      mylat,
+      mylng,
+      city_id: AppBase.CITYID
+    };
+
+    console.log("空空空")
+    console.log(mylat)
+    console.log(mylng)
+    console.log(opt)
+    console.log("空空空")
+
+    api.favcourselist({}, (kclist) => {
+
+      console.log("的风格和")
+      console.log(mylat)
+      console.log(mylng)
+      console.log(opt)
+      console.log("法国和")
+
+      for (var i = 0; i < kclist.length; i++) {
+
+        console.log("离开的时候考虑过");
+        var mile = ApiUtil.GetDistance(mylat, mylng, kclist[i].course_lat, kclist[i].course_lng);
+        console.log("距离=" + mile);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        console.log("千米=" + miletxt);
+        kclist[i]["miletxt"] = miletxt;
+        
+      }
+
+
+
+      this.Base.setMyData({
+        kclist
+      });
+
+    }); 
+
+  }
+
+  huoqujigoulist(){
+    var api = new MemberApi();
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
+    var opt = {
+      mylat,
+      mylng,
+      city_id: AppBase.CITYID
+    };
+
+
+
+    api.favjigoulist({}, (jglist) => {
+
+
+      for (var i = 0; i < jglist.length; i++) {
+
+        console.log("离开的时候考虑过");
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].jg_lat, jglist[i].jg_lng);
+        console.log("距离=" + mile);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        console.log("千米=" + miletxt);
+        jglist[i]["miletxt"] = miletxt;
+
+      }
+
+      this.Base.setMyData({
+        jglist
+      });
+
+    }); 
   }
 
   bindshow(e) {
@@ -58,6 +172,13 @@ class Content extends AppBase {
     console.log(type);
     this.Base.setMyData({
       show: type
+    })
+
+  }
+  bindtishi(e){
+    wx.showToast({
+      title: '暂未开放',
+      icon:'none'
     })
   }
 
@@ -82,6 +203,12 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
     wx.navigateTo({
       url: '/pages/jgdetails/jgdetails?id='+id,
+    })
+  }
+  todetails(e){
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/ketangdetails/ketangdetails?id=' + id,
     })
   }
 
@@ -124,7 +251,10 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
 body.bindshow = content.bindshow; 
+body.bindtishi = content.bindtishi;
 body.fav = content.fav;
-body.play = content.play;
-
+body.play = content.play; 
+body.huoqukclist = content.huoqukclist;
+body.huoqujigoulist = content.huoqujigoulist;
+body.todetails = content.todetails;
 Page(body)

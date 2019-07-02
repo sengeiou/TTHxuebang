@@ -206,6 +206,22 @@ class Content extends AppBase {
         gif: false, check: "",qie: 0
       })
 
+      
+
+      var pingceapi = new PingceApi();
+      pingceapi.updatepingce({
+        dati_status: "Y",
+        pingce_id: this.Base.options.id
+      }, (updatepingce) => {
+        this.Base.setMyData({
+          updatepingce
+        })
+ 
+      })
+
+
+
+
       wx.navigateTo({
         url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD,
         

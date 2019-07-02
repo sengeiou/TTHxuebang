@@ -50,7 +50,7 @@
 
         <view class='flex-1' wx:if='{{idx+1==pingcelist.length}}'></view>
         <!-- <view wx:if='{{idx+1 < pingcelist.length}}' class='next_one txt-white text-center' bindtap='next' id='{{idx}}'>下一题</view> -->
-        <view wx:if='{{idx+1 ==pingcelist.length}}' bindtap='tijiao' class='next_one txt-white text-center'>提交</view>
+        <view wx:if='{{idx+1 ==pingcelist.length}}'   bindtap='tijiao' class='next_one txt-white text-center'>提交</view>
         <view class='flex-1'></view>
       </view>
 

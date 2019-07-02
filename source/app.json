@@ -1,14 +1,16 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/yiduihuang/yiduihuang",
+    "pages/mypingce/mypingce",
+    "pages/lianxikefu/lianxikefu",
+    "pages/exchangesuccess/exchangesuccess",
     "pages/studentinfo/studentinfo",
     "pages/ceshi/ceshi",
     "pages/kcyaoqin/kcyaoqin",
     "pages/jifenshouzhi/jifenshouzhi",
     "pages/shopmalldetail/shopmalldetail",
     "pages/xuanzedizhi/xuanzedizhi",
-    "pages/yiduihuang/yiduihuang",
-    "pages/exchangesuccess/exchangesuccess",
     "pages/studentmsg/studentmsg",
     "pages/review/review",
     "pages/mingxi/mingxi",
@@ -86,7 +88,7 @@
       },
       {
         "text": "宝妈必看",
-        "pagePath": "pages/teacher/teacher",
+        "pagePath": "pages/baoma/baoma",
         "iconPath": "images/icons/ms.png",
         "selectedIconPath": "images/icons/ms1.png"
       },

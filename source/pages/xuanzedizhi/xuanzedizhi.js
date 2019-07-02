@@ -5,6 +5,9 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   JifenApi
 } from "../../apis/jifen.api.js";
+import {
+  AddressApi
+} from "../../apis/address.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -19,12 +22,33 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ show: false, jifen: this.Base.options.interral, tanchuan:0})
+    this.Base.setMyData({ show: false, jifen: this.Base.options.interral, kong: false, type:this.Base.options.type})
   }
   onMyShow() {
-    var that = this;
+    var that = this; 
+    var addressapi = new AddressApi();
+    
+    addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
+      this.Base.setMyData({ addresslist })
+    })
+
   }
+
+
+  bindcheck(e){
+    var id=e.currentTarget.id;
+
+    this.Base.setMyData({ check: id})
+  }
+
   addressmanage(e) {
+    var id=e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
+    })
+  }
+  addnew(e){
+    
     wx.navigateTo({
       url: '/pages/addressmanage/addressmanage',
     })
@@ -42,7 +66,7 @@ class Content extends AppBase {
     var shengyu = myjifen - jifen;
     console.log(shengyu + "剩余");
     if (parseInt(jifen) > parseInt(myjifen)){
-      this.Base.setMyData({ tanchuan: 1});
+      this.Base.setMyData({ kong: true});
       return;
     }
     //return;
@@ -52,14 +76,14 @@ class Content extends AppBase {
     })
 
     jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
-      this.Base.setMyData({ updatejifen, tanchuan: 2 })
+      this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
       this.onMyShow();
+      wx.navigateTo({
+        url: '/pages/yiduihuang/yiduihuang',
+      })
     })
-    this.Base.setMyData({
-      show: false
-    })
+     
    
-
   }
   quxiao(e) {
     this.Base.setMyData({
@@ -72,7 +96,10 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.addressmanage = content.addressmanage; 
+body.addnew = content.addnew; 
 body.queren = content.queren; 
 body.quxiao = content.quxiao; 
 body.quedin = content.quedin; 
+
+body.bindcheck = content.bindcheck; 
 Page(body)

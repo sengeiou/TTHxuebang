@@ -216,11 +216,17 @@
   height: 20rpx;
   width: 20rpx;
 }
-
+.icon-13 {
+  height: 26rpx;
+  width: 26rpx;
+}
 .margin-top-4 {
   margin-top: 20rpx;
 }
-
+.icon-rz{
+  width:104rpx;
+height:32rpx;
+}
 .next {
   width: 600rpx;
   height: 84rpx;
@@ -291,4 +297,7 @@ background: #FF6600;
 }
 .txt_lan{
   color: #2A82E4
+}
+.margin-left-52{
+  margin-left: 52rpx;
 }

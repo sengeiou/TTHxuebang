@@ -4,7 +4,7 @@
   <view class="margin-top-20">积分兑换商品1</view>
   <image src="{{uploadpath}}resource/{{res.yigoumaiimg}}" class="icon margin-top-54"></image>
   <view class="flex-row flex-center margin-top-54">
-    <view class="btn text-center f13 txt-white txt-bold">查看我的订单</view>
-    <view class="btn text-center f13 txt-white txt-bold">继续兑换</view>
+    <view class="btn text-center f13 txt-white txt-bold" bindtap="order">查看我的订单</view>
+    <view class="btn text-center f13 txt-white txt-bold" bindtap="back">继续兑换</view>
   </view>
 </view>

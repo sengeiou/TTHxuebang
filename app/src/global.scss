@@ -666,6 +666,10 @@ button[disabled][type=primary] {
     width: rpx(20);
     height: rpx(20);
 }
+.icon-20 {
+    width: rpx(40);
+    height: rpx(40);
+}
 
 .icon-15 {
     width: rpx(30);
@@ -801,4 +805,21 @@ button[disabled][type=primary] {
 
 .h40{
     height:rpx(40);
+}
+
+.scroll-y{
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+.h120{
+    height: rpx(120);
+}
+
+a{text-decoration:none}
+
+
+.header-ios ion-toolbar:last-child {
+    --border-width: 0px;
 }

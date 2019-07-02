@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    options.id = 9;
+    //options.id = 9;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -35,6 +35,7 @@ class Content extends AppBase {
         that.Base.setMyData({
           model: model
         })
+
         console.log(res.pixelRatio)
         console.log(res.windowWidth)
         console.log(res.windowHeight)
@@ -45,8 +46,8 @@ class Content extends AppBase {
 
     })
     this.Base.setMyData({
-      tanchuang: false,
-      buy_id: 1
+      tanchuang: false
+      
     })
 
 
@@ -56,16 +57,8 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
-    jigouapi.courseinfo({
-      id: 1
-    }, (courseinfo) => {
-      this.Base.setMyData({
-        courseinfo
-      });
-    });
-
     jigouapi.jginfo({
-      id: 9
+      id: this.Base.options.id
     }, (jginfo) => {
 
       this.Base.getAddress((address) => {
@@ -84,7 +77,8 @@ class Content extends AppBase {
         });
 
         jigouapi.courselist({
-          jg_id: jginfo.id
+          jg_id: jginfo.id,
+          orderby: 'r_main.id'
         }, (courselist) => {
           var mylat = this.Base.getMyData().mylat;
           var mylng = this.Base.getMyData().mylng;
@@ -98,6 +92,14 @@ class Content extends AppBase {
             courselist[i]["miletxt"] = miletxt;
 
           }
+
+          jigouapi.courseinfo({
+            id: courselist[0].id
+          }, (courseinfo) => {
+            this.Base.setMyData({
+              courseinfo, buy_id: courselist[0].id
+            });
+          });
 
           this.Base.setMyData({
             courselist: courselist
@@ -125,7 +127,14 @@ class Content extends AppBase {
 
       })
 
+      jigouapi.orderstatus({
+        id: this.Base.options.id
+      }, (canbuy) => {
 
+        this.Base.setMyData({
+          canbuy
+        });
+      });
 
       jigouapi.jigouimg({
         jigou: jginfo.id,
@@ -136,6 +145,7 @@ class Content extends AppBase {
           jigouimg
         });
       });
+
       console.log("???????????");
 
       this.Base.setMyData({
@@ -148,6 +158,8 @@ class Content extends AppBase {
     });
 
   }
+
+
   check(e) {
     var id = e.currentTarget.id;
     var jigouapi = new JigouApi();
@@ -163,13 +175,27 @@ class Content extends AppBase {
       });
     });
   }
+
+  bindpin(e) {
+    this.Base.setMyData({
+      pin: 1,
+      tanchuang: true
+    })
+  }
   tobuy(e) {
     var id = e.currentTarget.id;
     console.log(id + "电费");
     //return;
-    wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + id,
-    })
+
+    if (this.Base.getMyData().pin == "1") {
+      wx.navigateTo({
+        url: '/pages/purchase/purchase?course_id=' + id + '&type=0',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/purchase/purchase?course_id=' + id,
+      })
+    }
   }
 
   tokcdetails(e) {
@@ -216,6 +242,7 @@ class Content extends AppBase {
 
 
   }
+
   bindshowtc(e) {
     this.Base.setMyData({
       tanchuang: true
@@ -240,7 +267,8 @@ body.onMyShow = content.onMyShow;
 body.tokcdetails = content.tokcdetails;
 body.fav = content.fav;
 body.check = content.check;
-body.tobuy = content.tobuy; 
+body.bindpin = content.bindpin;
+body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
 body.bindclose = content.bindclose;

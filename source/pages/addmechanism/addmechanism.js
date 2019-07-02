@@ -432,8 +432,79 @@ class Content extends AppBase {
       return;
     }
 
-    if (show == 1) {
-      this.Base.info("请点击同意用户协议");
+    if (data.kcname == "") {
+      this.Base.info("请填写课程名称");
+      return;
+    }
+
+    if (data.age == "") {
+      this.Base.info("请填写年龄段");
+      return;
+    }
+
+    if (data.time == "") {
+      this.Base.info("请填写可预约的上课时间");
+      return;
+    }
+
+
+    var kclist = that.Base.getMyData().kclist;
+  
+    for (var i = 0; i < kclist.length; i++) {
+
+ 
+
+      if (kclist[i].sex == "") {
+        this.Base.info("请选择性别");
+        return;
+      }
+      if (kclist[i].kaike == "") {
+        this.Base.info("请选择开课方式");
+        return;
+      }
+
+      if (kclist[i].qingjia == "") {
+        this.Base.info("请选择请假要求");
+        return;
+      }
+
+    }
+
+
+    if (data.duration == "") {
+      this.Base.info("请填写课程时长");
+      return;
+    }
+
+    if (data.duration == "") {
+      this.Base.info("请填写课程时长");
+      return;
+    }
+
+    if (data.duration == "") {
+      this.Base.info("请填写课程时长");
+      return;
+    }
+
+    if (data.duration == "") {
+      this.Base.info("请填写课程时长");
+      return;
+    }
+
+
+
+    if (jgimages.length == null || jgimages.length<1) {
+      this.Base.info("请上传机构高清门头照");
+      return;
+    }
+
+    if (hjimages.length == null || hjimages.length < 3) {
+      this.Base.info("请上传至少三张机构内部环境照片");
+      return;
+    }
+
+    if (skimages.length == null || skimages.length < 4) {
+      this.Base.info("请上传至少四张小朋友上课或获奖照片");
       return;
     }
 
