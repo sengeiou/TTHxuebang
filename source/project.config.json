@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 55,
+			"current": 56,
 			"list": [
 				{
 					"id": 0,
@@ -438,6 +438,13 @@
 					"id": -1,
 					"name": "我的兑换详情",
 					"pathName": "pages/jifenorderinfo/jifenorderinfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "物流页面",
+					"pathName": "pages/wuliu/wuliu",
 					"scene": null
 				}
 			]

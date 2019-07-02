@@ -70,7 +70,7 @@
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
       <view class="flex-1"></view>
 
-      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}' class="lianxi text-center margin-right-24 txt-6" style="">物流详情</view>
+      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}' bindtap='wuliu' class="lianxi text-center margin-right-24 txt-6" style="">物流详情</view>
 
     </view>
 
@@ -158,7 +158,7 @@
 
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
       <view class="flex-1"></view>
-      <view class="lianxi text-center margin-right-24 txt-6" style="">物流详情</view>
+      <view class="lianxi text-center margin-right-24 txt-6" style="" bindtap='wuliu'>物流详情</view>
     </view>
 
   </view>
@@ -200,7 +200,7 @@
       <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
       <view class="flex-1"></view>
-      <view class="lianxi text-center margin-right-24 txt-6" style="">物流详情</view>
+      <view class="lianxi text-center margin-right-24 txt-6" style="" bindtap='wuliu'>物流详情</view>
     </view>
 
   </view>

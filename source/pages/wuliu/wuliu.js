@@ -2,6 +2,9 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -19,6 +22,10 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var jifenapi = new JifenApi();
+    jifenapi.wuliu({}, (wuliu) => {
+      this.Base.setMyData({ wuliu })
+    })
   }
 }
 var content = new Content();

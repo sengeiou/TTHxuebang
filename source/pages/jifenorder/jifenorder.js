@@ -72,11 +72,20 @@ class Content extends AppBase {
     })
 
   }
+  wuliu(e){
+    wx.navigateTo({
+      url: '/pages/wuliu/wuliu',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.bindshow = content.bindshow; 
-body.bindtodetails = content.bindtodetails;
+body.bindtodetails = content.bindtodetails; 
+body.wuliu = content.wuliu;
 Page(body)

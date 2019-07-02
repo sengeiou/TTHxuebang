@@ -1,2 +1,6 @@
 <!--pages/wuliu/wuliu.wxml-->
-<text>pages/wuliu/wuliu.wxml</text>
+
+<view class=" margin-20" wx:for='{{wuliu.result.list}}' wx:key='k'>
+  <view> {{item.status}}</view>
+  <view> {{item.time}}</view>
+</view>
