@@ -17,7 +17,6 @@
     <view class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</view> -->
   </view>
 
-
   <view wx:for='{{addresslist}}' wx:key='k'>
     <view class='hezi' bindtap="bindcheck" id="{{item.id}}">
       <view class='flex-row flex-center'>
@@ -49,7 +48,6 @@
     </view>
   </view>
 
-
   <view class="add margin-top-20 flex-row flex-center" wx:if='{{type==""||type==undefined}}'>
     <view class="flex-1"></view>
     <image src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15"></image>
@@ -57,15 +55,12 @@
     <view class="flex-1"></view>
   </view>
 
-
   <view style="height:150rpx;"></view>
-
 
   <button class='but txt-white' wx:if='{{type==""||type==undefined}}' bindtap="queren">确认</button>
   <button class='but txt-white' wx:if='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
 
 </view>
-
 
 
 <view wx:if='{{show==true}}'>
@@ -113,6 +108,5 @@
   </view>
 
 </view>
-
 
 </view>
