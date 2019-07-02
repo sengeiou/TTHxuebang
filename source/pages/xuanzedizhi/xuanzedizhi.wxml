@@ -1,7 +1,21 @@
 <!--pages/xuanzedizhi/xuanzedizhi.wxml-->
-<view class='margin-20'>
-  <view class='margin-left-14 h5' style='color:#999999'>我的地址</view>
 
+
+
+
+<view class="{{addresslist.length==0?'page':''}}">
+
+
+<view class='margin-20'>
+  <view wx:if='{{addresslist.length>0}}' class='margin-left-14 h5' style='color:#999999'>我的地址</view>
+
+
+  <view wx:if='{{addresslist.length==0}}' class="flex-row flex-column">
+    <view style="height:100rpx;"></view>
+    <image src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170 "></image>
+    <!-- <view class="txt-9 margin-top-10">您还没有添加地址哦</view>
+    <view class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</view> -->
+  </view>
 
 
   <view wx:for='{{addresslist}}' wx:key='k'>
@@ -35,6 +49,7 @@
     </view>
   </view>
 
+
   <view class="add margin-top-20 flex-row flex-center" wx:if='{{type==""||type==undefined}}'>
     <view class="flex-1"></view>
     <image src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15"></image>
@@ -42,12 +57,15 @@
     <view class="flex-1"></view>
   </view>
 
+
   <view style="height:150rpx;"></view>
+
 
   <button class='but txt-white' wx:if='{{type==""||type==undefined}}' bindtap="queren">确认</button>
   <button class='but txt-white' wx:if='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
 
 </view>
+
 
 
 <view wx:if='{{show==true}}'>
@@ -93,5 +111,8 @@
 
     </view>
   </view>
+
+</view>
+
 
 </view>

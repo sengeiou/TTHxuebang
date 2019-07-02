@@ -67,8 +67,33 @@ class Content extends AppBase {
       });
     });
 
+    this.aaa();
+
 
   }
+
+  aaa(e){
+  var that = this;
+  wx.getSystemInfo({
+    success: function (res) {
+      that.Base.setMyData({
+        systemInfo: res,
+      })
+      if (res.platform == "devtools") {
+        console.log("PC")
+        that.Base.setMyData({show:1})   
+      } 
+      else if (res.platform == "ios") {
+        console.log("ios")
+        that.Base.setMyData({ show: 2 }) 
+      } 
+      else if (res.platform == "android") {
+        console.log("android")
+        that.Base.setMyData({ show: 1 }) 
+      }
+    }
+  })
+}
 
   bindRegionChange(e) {
 
@@ -161,6 +186,8 @@ class Content extends AppBase {
 
   }
 
+
+
   binddeleted(e) {
     var that = this;
     var addressapi = new AddressApi();
@@ -207,7 +234,8 @@ body.onMyShow = content.onMyShow;
 body.addressmanage = content.addressmanage;
 body.bindRegionChange = content.bindRegionChange;
 
-body.confirm = content.confirm;
+body.confirm = content.confirm; 
+body.aaa = content.aaa; 
 
 body.binddeleted = content.binddeleted;
 

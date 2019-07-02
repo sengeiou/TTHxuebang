@@ -35,16 +35,19 @@
     </view>
 
     <view class='flex-row  margin-top-68'>
-      <view class='f15' style='width:24vw;margin-top:14rpx;'>门牌号：</view>
+      <view class='f15 {{show==2?"margin-top-8":""}}' style='width:24vw; '>门牌号：</view>
 
-      <textarea class='margin-left-20 f15 '  wx:if='{{xiugai==undefined||xiugai==""}}' name='address' style='width:70%;height:180rpx;padding-top:0' placeholder='例:某街道5号楼203室'></textarea>
+      
+      <textarea class='margin-left-20 f15 '  wx:if='{{xiugai==undefined||xiugai==""}}' name='address' style='width:70%;min-height:180rpx; ' placeholder='例:某街道5号楼203室'></textarea>
 
-      <textarea class='margin-left-20 f15' wx:if='{{xiugai==1}}'  value="{{info.address}}" name='address' style='width:70%;height:180rpx;' placeholder='例:某街道5号楼203室'></textarea>
+      <textarea class='margin-left-20 f15' wx:if='{{xiugai==1}}'  value="{{info.address}}" name='address' style='width:70%;min-height:180rpx; ' placeholder='例:某街道5号楼203室'></textarea>
+
 
     </view>
   </view>
 
   <button class='but txt-white margin-top-54 ' form-type='submit' >保存</button>
+
 </view>
 </form>
 

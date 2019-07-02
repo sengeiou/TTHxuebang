@@ -703,6 +703,10 @@ button[disabled][type=primary] {
   width: 300rpx;
   height: 300rpx;
 }
+.icon-170 {
+  width: 340rpx;
+  height: 340rpx;
+}
 
 .border-raidus-50 {
   border-radius: 50%;
