@@ -1,3 +1,6 @@
+Page{
+  background: white;
+}
 .nande{
 color:#FFFFFF;
 background-color: #4FB5E6;

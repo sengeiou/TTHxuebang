@@ -82,6 +82,11 @@ class Content extends AppBase {
     //     url: '/pages/myorder/myorder',
     //   })
     // }
+    if (name == "kf") {
+       wx.navigateTo({
+         url: '/pages/lianxikefu/lianxikefu',
+       })
+     }
     if (name=="dizhi"){
       wx.navigateTo({
         url: '/pages/xuanzedizhi/xuanzedizhi?type='+"Y",
@@ -147,7 +152,14 @@ class Content extends AppBase {
       icon:'none'
     })
   }
+  orderlist(e)
+  {
 
+ wx.navigateTo({
+   url: '/pages/myorder/myorder?type='+e.currentTarget.dataset.id,
+ })
+
+  }
 }
 
 var content = new Content();
@@ -158,4 +170,5 @@ body.startscan = content.startscan;
 body.todetails = content.todetails;
 body.gotohaizi = content.gotohaizi;
 body.showtoast = content.showtoast;
+body.orderlist = content.orderlist;
 Page(body)

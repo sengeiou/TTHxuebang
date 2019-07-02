@@ -1,5 +1,7 @@
 /* pages/xuanzedizhi/xuanzedizhi.wxss */
-
+.page{
+  /* background: white; */
+}
 .margin-left-14 {
   margin-left: 14rpx;
 }
@@ -73,7 +75,9 @@
 .margin-top-34 {
   margin-top: 34rpx;
 }
-
+.margin-top-8 {
+  margin-top: 8rpx;
+}
 .shu {
   width: 2rpx;
   height: 56rpx;

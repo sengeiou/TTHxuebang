@@ -1,7 +1,10 @@
-// pages/yiduihuang/yiduihuang.js
+// pages/wuliu/wuliu.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -9,7 +12,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '兑换成功',
+      title: '查看物流',
     });
   }
   onLoad(options) {
@@ -19,25 +22,14 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-  }
-  back(e){
-   wx.navigateBack({
-    delta:3
-   })
-  }
-  order(e){
-    wx.navigateTo({
-      url: '/pages/jifenorderinfo/jifenorderinfo?id='+this.Base.options.id,
+    var jifenapi = new JifenApi();
+    jifenapi.wuliu({}, (wuliu) => {
+      this.Base.setMyData({ wuliu })
     })
   }
-  
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-
-body.back = content.back; 
-body.order = content.order;
-
 Page(body)

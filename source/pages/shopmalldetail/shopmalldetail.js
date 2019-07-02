@@ -70,6 +70,8 @@ class Content extends AppBase {
   next(e){
     var inventory = e.currentTarget.id;
     var interral = e.currentTarget.dataset.jifen;
+    var img = e.currentTarget.dataset.img;
+    var name = e.currentTarget.dataset.name;
     console.log(inventory - 1 + "库存");
     console.log(interral + "积分");
     //return;
@@ -80,9 +82,11 @@ class Content extends AppBase {
       })
       return;
     }
+
     wx.navigateTo({
-      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral+'&id='+this.Base.options.id
+      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral+'&id='+this.Base.options.id+'&img='+img+'&name='+name
     })
+
   }
 
 

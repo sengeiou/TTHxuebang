@@ -146,8 +146,8 @@ class Content extends AppBase {
         var danqiandate = new Date();
         console.log(danqiandate);
         var jisuandate = new Date(list[i].jieshushijian.replace(/-/g, '/'));
-       
-        
+
+
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
         listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
         var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
@@ -240,7 +240,7 @@ class Content extends AppBase {
   bindtopurchase(e) {
 
     this.Base.setMyData({
-      tanchuang: true
+      tanchuang: true,ppp:0
     })
     return
     wx.navigateTo({
@@ -339,11 +339,11 @@ class Content extends AppBase {
   }
   yaoqin() {
     var api = new HaibaoApi;
-    api.haibao1({ kcid: this.Base.options.id}, (res) => {
+    api.haibao1({ kcid: this.Base.options.id }, (res) => {
       console.log(res);
       if (res.code == 0) {
         wx.navigateTo({
-          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return+'&&kcid='+this.Base.options.id,
+          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return + '&&kcid=' + this.Base.options.id,
         })
 
 
@@ -352,7 +352,7 @@ class Content extends AppBase {
 
   }
   tobuy() {
-    this.Base.setMyData({ tanchuang:false});
+    this.Base.setMyData({ tanchuang: false });
 
     var ppp = this.Base.getMyData().ppp;
     if (ppp == 1) {
@@ -368,12 +368,31 @@ class Content extends AppBase {
     }
 
   }
-  shouye(){
-  
-    wx.switchTab({
-    url: '/pages/home/home',
-  })
+  shouye() {
 
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
+
+  }
+  gotojigou() {
+
+    wx.navigateTo({
+      url: '/pages/jgdetails/jgdetails?id=' + this.Base.getMyData().courseinfo.jg_id,
+    })
+
+
+  }
+  lifk() {
+    wx.navigateTo({
+      url: '/pages/myorder/myorder',
+    })
+
+  }
+  check(e)
+  {
+
+    this.Base.setMyData({ppp:e.currentTarget.dataset.id})
   }
 }
 var timer = 1;
@@ -382,9 +401,9 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcut = content.bindcut;
-body.shouye=content.shouye;
+body.shouye = content.shouye;
 body.bindtolist = content.bindtolist;
-
+body.gotojigou = content.gotojigou
 body.bindtopurchase = content.bindtopurchase;
 body.fav = content.fav;
 body.daojishi = content.daojishi;
@@ -399,4 +418,7 @@ body.opengroup = content.opengroup;
 body.bindclose = content.bindclose;
 body.tobuy = content.tobuy;
 body.yaoqin = content.yaoqin;
+body.lifk = content.lifk;
+body.check = content.check;
+
 Page(body)

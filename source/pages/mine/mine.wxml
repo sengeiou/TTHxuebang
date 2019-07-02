@@ -33,7 +33,7 @@
 
     <view class='flex-row column flex-1'>
       <view class='f48 txt-bold txt-white'>{{memberinfo.nickName}}</view>
-      <view class='f26 txt-bold txt-white margin-top-10'>17608463082</view>
+      <view class='f26 txt-bold txt-white margin-top-10'>13465465445</view>
 
       <view class='bianji flex-row flex-center margin-top-20'>
         <view class='flex-1'></view>
@@ -80,7 +80,7 @@
 <view class='flex-row flex-center'>
   <view class='flex-1'></view>
   <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class='h7 txt-orange margin-left-4'>900</view>
+  <view class='h7 txt-orange margin-left-4'>{{memberinfo.integral}}</view>
   <view class='flex-1'></view>
 </view>
 
@@ -95,27 +95,27 @@
 
   <view class='padd-order-under flex-row flex-center'>
 
-    <view class='flex-row flex-column flex-1'>
+    <view bindtap="orderlist"   data-id='dfk'  class='flex-row flex-column flex-1'>
       <image class='icon-48 ' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>代付款</view>
     </view>
 
-    <view class='flex-row flex-column flex-1'>
+    <view  bindtap="orderlist" data-id='ygm' class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>已购买</view>
     </view>
 
-    <view class='flex-row flex-column flex-1'>
+    <view  bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>待评价</view>
     </view>
 
-    <view class='flex-row flex-column flex-1'>
+    <view  bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>待收货</view>
     </view>
 
-    <view class='flex-row flex-column flex-1'>
+    <view  class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>退款/售后</view>
     </view>
@@ -130,63 +130,63 @@
 <view class='bg-white margin-20 radius-8'>
 
   <view data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mymessage}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>我的消息</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
   <view data-name='dizhi' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mymessage}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.myaddress}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>地址管理</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
   <view data-name='pc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mymessage}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.mypingce}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>我的评测</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
   <view data-name='wt' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.problem}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.chanjian}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>常见问题</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
 
   <view data-name='sc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mine_fav}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.myfav}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>我的收藏</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
-  <view class=' margin-30   pd'>
-    <button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+  <view data-name='kf' bindtap='todetails' class=' margin-30   pd'>
+    
       <view class='flex-row flex-center'>
-        <image class='icon-24' src='{{uploadpath}}resource/{{res.customer}}'></image>
+        <image class='icon-24' src='{{uploadpath}}resource/{{res.lianxikefu}}'></image>
         <view class='margin-left-20  txt-black h '>联系客服</view>
         <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{instinfo.openning}}</view>
         <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
       </view>
-    </button>
+    
   </view>
 
 
   <view data-name='wm' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.aboutus}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.us}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>关于我们</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
 
   <view data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mechanism}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.ruzhu}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>机构入驻</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
   <view data-name='tg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.mechanism}}'></image>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.tuiguang}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>推广中心</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>

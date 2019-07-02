@@ -121,8 +121,6 @@ Page {
   padding: 16rpx;
 }
 
-
-
 .margin-L-R-40 {
   margin-left: 40rpx;
   margin-right: 40rpx;
@@ -151,17 +149,43 @@ Page {
   height: 200rpx;
   margin: 10rpx;
 }
+
 .addjigou {
   width: 200rpx;
   height: 200rpx;
   margin: 10rpx;
   border: 2rpx dashed rgba(204, 204, 204, 1);
 }
-.clear{
-   margin-bottom: -15rpx;
-   margin-right: 10rpx;
+
+.clear {
+  margin-bottom: -15rpx;
+  margin-right: 10rpx;
 }
-.icon-clear{
+
+.icon-clear {
   height: 32rpx;
   width: 32rpx;
+}
+
+.black_block {
+  position: fixed;
+  z-index: 100;
+  background: black;
+  opacity: 0.6;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+}
+
+.white_block {
+  position: fixed;
+  z-index: 101;
+  background: white;
+  width: 600rpx;
+  height: 400rpx;
+  border-radius: 8rpx;
+  top: 30%;
+  bottom: 20%;
+  left: 74rpx;
+  right: 74rpx;
 }

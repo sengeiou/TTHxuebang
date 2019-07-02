@@ -12,7 +12,14 @@ page {
   padding-top: 4rpx;
   padding-bottom: 4rpx;
 } */
+.icon-15{
+width: 28rpx;
+height: 28rpx;
 
+}
+.xian{
+  border-top:1px solid #F5F5F5;
+}
 .zhaunfa {
   width: 168rpx;
   height: 52rpx;
@@ -42,7 +49,7 @@ page {
   min-width: 188rpx;
   height: 60rpx;
   line-height: 60rpx;
-  color:#CCCCCC;
+  color:#222222;
   background: rgba(245, 245, 245, 1);
   border-radius: 8rpx;
   margin-right: 20rpx;
@@ -93,6 +100,12 @@ page {
   position: fixed;
   top: 60%;
   right: 0;
+  z-index: 100;
+}
+.to_top1 {
+  position: fixed;
+  top: 80%;
+  right: 4%;
   z-index: 100;
 }
 

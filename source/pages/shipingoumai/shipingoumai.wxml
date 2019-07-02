@@ -64,7 +64,7 @@
   <view class='flex-row flex-center padding-20 margin-top-20' style=''>
     <view class='flex-1 h5'>小计</view>
 
-    <view class='txt-black txt-bold margin-left-20 h5'>￥ {{kecheninfo.price}}</view>
+    <view class='txt-black txt-bold margin-left-20 '>￥ {{kecheninfo.price}}</view>
   </view>
 
 </view>
@@ -75,7 +75,7 @@
 <view class='fixedbottom'>
 
   <view class='flex-row flex-center bg-white ' style='border-top:2rpx solid #e5e5e5'>
-    <view class='flex-3 txt-red txt-bold padding-30'>总计 ￥ {{kecheninfo.price}}</view>
+    <view class='flex-3 txt-red txt-bold padding-30 text-center'>总计 ￥ {{kecheninfo.price}}</view>
     <!-- <view class='txt-black '>共1个课程</view> -->
     <view class='flex-4 txt-black txt-bold  tijiao txt-white  text-center' bindtap='tijiao'>提交订单</view>
   </view>

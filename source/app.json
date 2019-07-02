@@ -7,6 +7,9 @@
     "pages/exchangesuccess/exchangesuccess",
     "pages/studentinfo/studentinfo",
     "pages/ceshi/ceshi",
+    "pages/jifenorder/jifenorder",
+    "pages/jifenorderinfo/jifenorderinfo",
+    "pages/wuliu/wuliu",
     "pages/kcyaoqin/kcyaoqin",
     "pages/jifenshouzhi/jifenshouzhi",
     "pages/shopmalldetail/shopmalldetail",
@@ -88,7 +91,7 @@
       },
       {
         "text": "宝妈必看",
-        "pagePath": "pages/teacher/teacher",
+        "pagePath": "pages/baoma/baoma",
         "iconPath": "images/icons/ms.png",
         "selectedIconPath": "images/icons/ms1.png"
       },

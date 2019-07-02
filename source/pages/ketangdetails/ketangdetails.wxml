@@ -88,7 +88,7 @@
     </scroll-view>
   </view>
   <view class="padding-301 flex-row flex-center">
-    <view class="flex-1 h5" style='color:#222222'>留言 {{ketanpinlunlist.length}}</view>
+    <view class="flex-1 f13 txt-bold" style='color:#222222'>留言 {{ketanpinlunlist.length}}</view>
     <view bindtap='chakanquanbu' class="jieshao1 ">查看全部</view>
   </view>
   <view wx:for="{{ketanpinlunlist}}" wx:for-index="idx" wx:if="{{idx<2}}" wx:key="k" class="padding-20">
@@ -103,7 +103,7 @@
       <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon'></image>
     </view>
 
-    <view class="h5 margin-top-10">
+    <view class="h5 margin-top-10 margin-left-20">
       {{item.neiron}}
     </view>
   </view>
@@ -190,11 +190,11 @@
 
       </view>
 
-      <view class="h5 margin-top-10">
+      <view class="h5 margin-top-10 margin-left-20 ">
         {{item.neiron}}
       </view>
       <view wx:if="{{item.status=='H'}}">
-      <view class="margin-top-20 flex-row flex-center">
+      <view class="margin-top-20 margin-left-20 flex-row flex-center">
         <view class="hs"></view>
         <view class="h6" style="color:#999999">官方回复</view>
         <view class="flex-1"></view>
@@ -205,13 +205,13 @@
 
 
       </view>
-      <view class="h5 margin-top-10">{{item.huifu}}</view>
+      <view class="h5 margin-top-10  margin-left-30 ">{{item.huifu}}</view>
     </view>
     </view>
     <view style='height:120rpx'></view>
     <view class="padding-10 db flex-row flex-center">
 
-      <input value="{{pinlun}}" bindinput='shuru' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20">
+      <input value="{{pinlun}}" bindinput='shuru' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20 shuruk">
 
       </input>
       <view bindtap='fabiao' class="fabiao">发表</view>

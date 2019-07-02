@@ -66,6 +66,11 @@ class Content extends AppBase {
       url: '/pages/shopmalldetail/shopmalldetail?id='+id
     })
   } 
+  toorder(e){
+    wx.navigateTo({
+      url: '/pages/jifenorder/jifenorder'
+    })
+  }
 
 }
 var content = new Content();
@@ -75,6 +80,6 @@ body.onMyShow = content.onMyShow;
 body.onUnload = content.onUnload;
 body.toshouzhi = content.toshouzhi; 
 body.todetails = content.todetails; 
-
+body.toorder = content.toorder;
 body.ss = content.ss; 
 Page(body)

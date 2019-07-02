@@ -13,6 +13,13 @@ border-radius: 10rpx;
 left:60rpx;
 top:70rpx;
 }
+.margin-top-30{
+  margin-top: 30rpx;
+}
+.bg{
+ background:  #FFFFFF;
+ border-radius: 10rpx;
+}
 .djs{
 background-color: black;
 color: white;

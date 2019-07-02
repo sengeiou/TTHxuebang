@@ -69,7 +69,7 @@
 
     <view class="flex-row flex-center margin-top">
       <view class="flex-1"></view>
-      <view class="duihuan txt-bold txt-white text-center"wx:if='{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}">下一步</view>
+      <view class="duihuan txt-bold txt-white text-center"wx:if='{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</view>
       <view class="wukucun txt-bold txt-white text-center" wx:if='{{info.inventory<=0}}'>暂无库存</view>
       <view class="flex-1"></view>
     </view>

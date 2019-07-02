@@ -11,6 +11,7 @@
       </view>
 
       <view class=' flex-row flex-center margin-top-10' bindtap='yingcang' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
+
         <view class='flex-1  flex-row flex-center '>
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
@@ -25,32 +26,38 @@
             </swiper-item>
           </swiper>
         </view>
+
       </view>
 
       <view class='flex-row flex-center margin-top-5' style=''>
+
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
           <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全深圳</view>
+
+
           <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+
+
           <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
         </view>
 
         <view class='flex-1 flex-row flex-center'>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
-            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-white":""}} txt-black'>精选</view>
-            <view wx:if='{{show=="jx"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</view>
+            <view wx:if='{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
-            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-white":""}} txt-black'>新上</view>
-            <view wx:if='{{show=="xs"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</view>
+            <view wx:if='{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
-            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-white":""}} txt-black'>好评</view>
-            <view wx:if='{{show=="hp"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
+            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</view>
+            <view wx:if='{{show=="hp"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
@@ -106,9 +113,11 @@
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
+
             <view class='flex-row flex-1'>
               <view class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
+            
             <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
           </view>
 
@@ -147,25 +156,25 @@
       <view class=' flex-row flex-center margin-top-20'>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-white":""}} txt-black txt-bold'>精选</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</view>
           <view wx:if='{{options=="j_x"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="j_x"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black txt-bold'>新上</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</view>
           <view wx:if='{{options=="x_s"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black txt-bold'>宝妈最爱</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-bold f13":""}} txt-black txt-bold'>宝妈最爱</view>
           <view wx:if='{{options=="bm_za"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black txt-bold'>好评</view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</view>
           <view wx:if='{{options=="h_p"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
@@ -398,8 +407,8 @@
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
   <scroll-view scroll-y>
-    <view bindtap='changeDistrict' class='padding-20 text-center' id='-1' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全深圳</view>
-    <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
+    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全深圳</view>
+    <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
   </scroll-view>
 
 </view>

@@ -39,6 +39,7 @@ class Content extends AppBase {
     })
     
   }
+  
   toceshi(e) {
     var id = e.currentTarget.id;
     wx.navigateTo({

@@ -13,7 +13,12 @@
 .margin-left-14 {
   margin-left: 14rpx;
 }
-
+.margin-left-24 {
+  margin-left: 46rpx;
+}
+.margin-top-8 {
+  margin-top: 10rpx;
+}
 .margin-top-68 {
   margin-top: 68rpx;
 }

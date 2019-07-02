@@ -37,6 +37,9 @@
   </view>
 </view>
 
+
+
+
 <view class='bottom-block  radius-8 '    wx:for='{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails'>
 
   <view class=' margin-top-10 '>
@@ -112,7 +115,6 @@
   </view>
 
 </view>
-
 
 
 

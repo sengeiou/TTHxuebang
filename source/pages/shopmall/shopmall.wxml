@@ -22,12 +22,12 @@
         </view>
       </view>
 
-      <view class='sz flex-row _center margin-left-46'>
+      <view class='sz flex-row _center margin-left-46' bindtap="toorder">
         <view>
           <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
         </view>
         <view>
-          <view class='margin-left-10' style='color:#FFBA12'>如何赚积分</view>
+          <view class='margin-left-10' style='color:#FFBA12'>我的兑换</view>
         </view>
       </view>
     </view>
