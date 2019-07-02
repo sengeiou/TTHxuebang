@@ -1,6 +1,6 @@
 <!--pages/purchase/purchase.wxml-->
 <!--pages/myorder/myorder.wxml-->
-<view class='height-100 text-center h6 bor_bot' style='line-height:100rpx;color:#A1A1A1'>
+<view class=' margin-top-10 margin-bottom-10 text-center h6 ' style='color:#A1A1A1'>
   本次购买的课程请认真查看购买须知，合理安排学习时间。
 </view>
 
@@ -58,10 +58,10 @@
   </view>
 
   <view class='flex-row flex-center padding-20' style=''>
-    <view class='flex-1'></view>
+    <view class='flex-1 h6'>小计</view>
     <!-- <view class='txt-black '>共1个课程</view> -->
-    <view class='txt-black txt-bold margin-left-20'>小计：￥{{courseinfo.price}}</view>
-  </view>
+    <view class='txt-black txt-bold margin-left-20'>￥{{courseinfo.price}}</view>
+  </view> 
 
 </view>
 
