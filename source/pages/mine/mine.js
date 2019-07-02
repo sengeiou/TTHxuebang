@@ -152,7 +152,14 @@ class Content extends AppBase {
       icon:'none'
     })
   }
+  orderlist(e)
+  {
 
+ wx.navigateTo({
+   url: '/pages/myorder/myorder?type='+e.currentTarget.dataset.id,
+ })
+
+  }
 }
 
 var content = new Content();
@@ -163,4 +170,5 @@ body.startscan = content.startscan;
 body.todetails = content.todetails;
 body.gotohaizi = content.gotohaizi;
 body.showtoast = content.showtoast;
+body.orderlist = content.orderlist;
 Page(body)

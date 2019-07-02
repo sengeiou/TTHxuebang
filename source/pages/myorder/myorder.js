@@ -33,7 +33,31 @@ class Content extends AppBase {
       show: "all",
       wclist: [],
       dflist: []
-    })
+    }) 
+    var type = this.Base.options.type ;
+    console.log("那真的牛批"+type);
+    if(type!=undefined)
+    {
+      if(type=='ygm')
+      {
+        var show ='wc';
+      }
+      if (type == 'dfk') {
+        var show ='wait'
+      }
+      if (type == 'dsh') {
+        var show ='dsh';
+      }
+      if (type == 'dpj') {
+        var show ='dpj';
+      }
+      console.log("那真的牛批");
+      this.Base.setMyData({
+        show:show
+      })
+    } 
+
+
   }
   onMyShow() {
     var that = this;
@@ -75,12 +99,22 @@ class Content extends AppBase {
     }
     if (type == "wc") {
       this.Base.setMyData({
-        show: "finished"
+        show: "wc"
       })
     }
     if (type == "df") {
       this.Base.setMyData({
         show: "wait"
+      })
+    }
+    if (type == "dsh") {
+      this.Base.setMyData({
+        show: "dsh"
+      })
+    }
+    if (type == "dpj") {
+      this.Base.setMyData({
+        show: "dpj"
       })
     }
   }

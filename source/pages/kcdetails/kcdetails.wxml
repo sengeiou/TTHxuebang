@@ -317,7 +317,7 @@
         </view>
         <view class='flex-1  bg-white padding-15'>
 
-          <view class='flex-row flex-column'>
+          <view bindtap="gotojigou" class='flex-row flex-column'>
             <image class='icon-25' src='{{uploadpath}}resource/{{res.kc_jg}}'></image>
             <view class='h6 '>机构</view>
           </view>
@@ -479,8 +479,8 @@
       <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
       <view class='flex-row flex-center flex-wrap margin-top-10'>
-        <view class=' text-center h6 {{buy_id==item.id?"kcname_block txt-white":"kcname_block"}}' bindtap='check'>体验课9.9元</view>
-        <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' bindtap='check'>正价课1200元</view>
+        <view  class=' text-center h6    {{ppp==0?"kcname_block":"kcname_block_check"}}   txt-white  '  data-id='1' bindtap='check'>体验课{{courseinfo.isgroup}}元</view>
+        <view class=' text-center h6  {{ppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>正价课{{courseinfo.price}}元</view>
       </view>
 
       <!-- 
