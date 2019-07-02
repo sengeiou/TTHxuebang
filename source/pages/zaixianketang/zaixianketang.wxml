@@ -78,19 +78,19 @@
 
     </view>
 
-    <view wx:if="{{item.isfree_value!='Y'&&item.idd==''}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
       <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
 
-    <view wx:if="{{item.isfree_value=='Y'&&item.idd==''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
     </view>
     
-    <view wx:if="{{item.idd!=''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="yigou">已购</view>
     </view>
@@ -167,18 +167,18 @@
 
 
     </view>
-    <view wx:if="{{item.isfree_value!='Y'&&item.idd==''}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
       <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
 
-    <view wx:if="{{item.isfree_value=='Y'&&item.idd==''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left -10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
     </view>
-    <view wx:if="{{item.idd!=''}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="yigou">已购</view>
     </view>
