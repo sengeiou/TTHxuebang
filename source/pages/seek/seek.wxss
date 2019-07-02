@@ -45,6 +45,9 @@ Page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+.border_top{
+  border-top: 2rpx solid #e5e5e5; 
+}
 
 .type {
   padding-left: 17rpx;

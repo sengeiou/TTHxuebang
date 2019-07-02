@@ -11,6 +11,7 @@
       </view>
 
       <view class=' flex-row flex-center margin-top-10' bindtap='yingcang' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
+
         <view class='flex-1  flex-row flex-center '>
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
@@ -25,12 +26,18 @@
             </swiper-item>
           </swiper>
         </view>
+
       </view>
 
       <view class='flex-row flex-center margin-top-5' style=''>
+
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
           <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全深圳</view>
+
+
           <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+
+
           <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
         </view>
 
@@ -400,8 +407,8 @@
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
   <scroll-view scroll-y>
-    <view bindtap='changeDistrict' class='padding-20 text-center' id='-1' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全深圳</view>
-    <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
+    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全深圳</view>
+    <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
   </scroll-view>
 
 </view>
