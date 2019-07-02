@@ -305,9 +305,26 @@
 
     <view class='fixedbottom'>
 
-      <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-1'}}">等待付款,点击立即付款</view>
-     <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-2'}}">等待付款,点击立即付款</view>
-          <view class='txt-red txt-bold text-center h5' style='color:#FF0000;  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-3'}}">等待付款,点击立即付款</view>
+  <view class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-1'}}">
+        <view class="flex-1"></view>
+        <view class="h6" style="color:#FF976A">等待付款,</view>
+        <view bindtap="ljfk" class="h6" style="color:#2A82E4">点击立即付款</view>
+        <view class="flex-1"></view>
+      </view>
+
+     <!-- <view class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-2'}}">
+        <view class="flex-1"></view>
+        <view class="h6" style="color:#FF976A">等待付款,</view>
+        <view class="h6" style="color:#2A82E4">点击立即付款</view>
+        <view class="flex-1"></view>
+      </view> -->
+
+      <view class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-3'}}">
+        <view class="flex-1"></view>
+        <view class="h6" style="color:#FF976A">等待付款,</view>
+        <view bindtap="lifk" class="h6" style="color:#2A82E4">点击立即付款</view>
+        <view class="flex-1"></view>
+      </view>
 
 
       <view style='' class='flex-row flex-1'>
@@ -338,18 +355,15 @@
         </view>
 
 
-        <view wx:if="{{courseinfo.isgroup==0}}" class="flex-4">
-          <view class=' flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
-            <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
 
-          </view>
+        <view wx:if="{{courseinfo.isgroup==0}}" class=' flex-4 flex-row flex-column buy padding-15' bindtap='bindtopurchase'>
+          <view class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
+          <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
 
-          <view class='flex-4 flex-row flex-column padding-15' style='background:#BFBFBF' wx:if="{{canbuy.code!='0'}}">
-            <view class='txt-white txt-bold flex-1'>￥{{courseinfo.price}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code!='0'}}">立即购买</view>
-          </view>
         </view>
+
+
+
 
 
 
@@ -386,12 +400,12 @@
 
           </view>
 
-               <view class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-3'}}">
+          <view class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E'  wx:if="{{canbuy.code=='-3'}}">
             <view class='txt-white txt-bold h5  '>￥{{courseinfo.price}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='-3'}}">立即购买</view>
           </view>
-          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444'  bindtap='opengroup' wx:if="{{canbuy.code=='-3'}}">
-             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
+          <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' bindtap='opengroup' wx:if="{{canbuy.code=='-3'}}">
+            <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
             <view class='h6 txt-white ' wx:if="{{canbuy.code=='-3'}}">超低价拼班</view>
 
           </view>

@@ -375,6 +375,12 @@ class Content extends AppBase {
   })
 
   }
+  lifk(){
+  wx.navigateTo({
+    url: '/pages/myorder/myorder',
+  })
+
+  }
 }
 var timer = 1;
 var content = new Content();
@@ -399,4 +405,5 @@ body.opengroup = content.opengroup;
 body.bindclose = content.bindclose;
 body.tobuy = content.tobuy;
 body.yaoqin = content.yaoqin;
+body.lifk = content.lifk;
 Page(body)
