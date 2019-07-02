@@ -10,13 +10,15 @@ Page {
   border-radius: 8rpx;
   margin-left: 15rpx;
   margin-top: 20rpx;
+}.margin-left-30{
+  margin-left: 35rpx;
 }
 .hs{
   background-color: #FFC200;
   width: 10rpx;
   height: 25rpx;
   border-radius: 10rpx;
-  margin-right: 20rpx;
+  margin-right: 10rpx;
   
 }
 .gd
@@ -34,6 +36,14 @@ height:60vh;
  bottom: 0;
  
 }
+.shuruk{
+
+  background: #F5F5F5;
+  border-radius: 60rpx;
+  padding:20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+}
 .fabiao{
 
  padding:20rpx;
@@ -44,7 +54,7 @@ height:60vh;
  color: white;
  margin-right: 20rpx;
  margin-left:20rpx;
-
+ 
 }
 .title {
    

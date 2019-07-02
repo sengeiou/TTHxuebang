@@ -74,16 +74,17 @@
 
 
 
-<view class="height-40"></view>
+    <view class="height-20"></view>
     <!-- <textarea class='txt-black h5' maxlength='-1' placeholder='添加备注...' style='width:100%;max-height:160rpx;' value='{{usercomment}}' name='usercomment' bindinput='changeUsercomment'>
       </textarea> -->
 
-    <view  bindtap="xueyuan" class='flex-row flex-center   padding-20 bor_bot '>
+    <view bindtap="xueyuan" class='flex-row flex-center   padding-20  ' style="padding-bottom:30rpx;">
       <view class='h5 txt-black '>学员</view>
       <view wx:if="{{xuanzexueyuan==''}}" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</view>
-      <view wx:if="{{xuanzexueyuan!=''}}" class="margin-left-20 h5" >{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</view>
+      <view wx:if="{{xuanzexueyuan!=''}}" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</view>
       <view class="flex-1"></view>
       <image src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 '></image>
+
     </view>
 
 
@@ -101,7 +102,7 @@
 
   </view>
 
-
+  <view style="width:100%;color:#999999" class="text-center h6 margin-top">您将购买的课程，购买后不支持退订、转让、退换。</view>
   <view style='height:120rpx;'></view>
 </view>
 

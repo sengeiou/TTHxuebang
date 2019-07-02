@@ -6,7 +6,7 @@
   <view class="flex-1"></view>
     <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
     <view class='flex-row column margin-left-28'>
-      <view class=''>购买成功,获得50积分</view>
+      <view class='txt-bold'>购买成功,获得50积分</view>
      
     </view>
      <view class="flex-1"></view>
@@ -19,7 +19,7 @@
 
     <view class='flex-row flex-center btn ' bindtap='tohome'>
       <view class='flex-1'></view>
-      <image src='{{uploadpath}}resource/{{res.wanchen}}' class='icon-34'></image>
+      <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
       <view class='txt-white h5 margin-left-18'>返回首页</view>
       <view class='flex-1'></view>
     </view>
@@ -28,7 +28,7 @@
 
     <view class='flex-row flex-center btn '>
       <view class='flex-1'></view>
-      <image src='{{uploadpath}}resource/{{res.wanchen}}' class='icon-34'></image>
+      <image src='{{uploadpath}}resource/{{res.kc_lijixuexi}}' class='icon-34'></image>
       <view  bindtap='lijixuexi' class='txt-white h5 margin-left-18'>立即学习</view>
       <view class='flex-1'></view>
     </view>
