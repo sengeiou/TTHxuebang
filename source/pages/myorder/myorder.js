@@ -163,6 +163,13 @@ class Content extends AppBase {
 
 
   }
+  kantuan(e)
+  {
+    wx.navigateTo({
+      url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.pt,
+    })
+
+  }
 
 }
 
@@ -175,4 +182,5 @@ body.bindshow = content.bindshow;
 body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
+body.kantuan = content.kantuan;
 Page(body)

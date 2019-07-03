@@ -6,6 +6,22 @@ page {
 .kd{
   width: 100rpx;
 }
+.chengong{
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  top: 20%;
+}
+.dakawc{
+  width:85vw;
+  height: 400rpx;
+  border-radius: 10rpx;
+  background: white;
+}
+.close{
+ margin-top:54rpx;
+
+}
 /* .type {
   padding-left: 17rpx;
   padding-right: 17rpx;

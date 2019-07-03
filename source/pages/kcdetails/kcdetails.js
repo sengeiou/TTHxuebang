@@ -96,10 +96,9 @@ class Content extends AppBase {
       });
 
 
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
+
+        var mylat = this.Base.getMyData().mylat;
+      var mylng = this.Base.getMyData().mylng;
 
         var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
 
@@ -111,7 +110,6 @@ class Content extends AppBase {
         var scoring = this.Base.getMyData().scoring;
         console.log("啊啊啊" + scoring)
 
-      });
 
       this.Base.setMyData({
         courseinfo,
@@ -396,8 +394,12 @@ class Content extends AppBase {
 
   chakangenduo(){
   this.Base.setMyData({ispintuan:true})
-
-
+  }
+  closetanchuang() {
+    this.Base.setMyData({
+      ispintuan: false,
+     
+    })
   }
 }
 var timer = 1;
@@ -418,6 +420,7 @@ body.onPageScroll = content.onPageScroll;
 body.onReachBottom = content.onReachBottom;
 body.qupinban = content.qupinban;
 body.jian = content.jian;
+body.closetanchuang = content.closetanchuang;
 body.jia = content.jia;
 body.opengroup = content.opengroup;
 body.bindclose = content.bindclose;
