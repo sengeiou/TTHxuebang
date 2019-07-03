@@ -269,7 +269,7 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+            <view class='txt-black txt-bold flex-1'>{{item.jigou}} </view>
 
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>

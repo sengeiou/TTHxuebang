@@ -87,7 +87,9 @@ class Content extends AppBase {
       }
 
       jigouapi.kechenlunbo({
-        name: courseinfo.id, orderby: 'r_main.seq', status: "A"
+        name: courseinfo.id,
+        orderby: 'r_main.seq',
+        status: "A"
       }, (kechenlunbo) => {
 
         this.Base.setMyData({
@@ -96,32 +98,32 @@ class Content extends AppBase {
       });
 
 
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
+      var mylat = this.Base.getMyData().mylat;
+      var mylng = this.Base.getMyData().mylng;
 
-        var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
+      var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
 
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        this.Base.setMyData({
-          miletxt,
-          scoring: parseInt(courseinfo.scoring)
-        });
-        var scoring = this.Base.getMyData().scoring;
-        console.log("啊啊啊" + scoring)
+      var miletxt = ApiUtil.GetMileTxt(mile);
+      this.Base.setMyData({
+        miletxt,
+        scoring: parseInt(courseinfo.scoring)
 
       });
+      var scoring = this.Base.getMyData().scoring;
+      console.log("啊啊啊" + scoring)
+
 
       this.Base.setMyData({
         courseinfo,
         isfav: courseinfo.isfav
       });
 
+
     });
 
-    jigouapi.orderstatus({
-      id: this.Base.options.id
+
+    jigouapi.checkcanbuy({
+      course_id: this.Base.options.id
     }, (canbuy) => {
 
       this.Base.setMyData({
@@ -208,7 +210,8 @@ class Content extends AppBase {
     }
     if (e.scrollTop <= 520) {
       this.setData({
-        sco: 2, show: "kcxq"
+        sco: 2,
+        show: "kcxq"
       });
     }
     if (e.scrollTop <= 100) {
@@ -267,10 +270,14 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
-      this.Base.setMyData({ tishi: 1 });
+      this.Base.setMyData({
+        tishi: 1
+      });
     }
     if (status == "N") {
-      this.Base.setMyData({ tishi: 2 });
+      this.Base.setMyData({
+        tishi: 2
+      });
     }
 
 
@@ -287,7 +294,9 @@ class Content extends AppBase {
     });
 
     setTimeout(() => {
-      this.Base.setMyData({ tishi: 0 })
+      this.Base.setMyData({
+        tishi: 0
+      })
       // clearTimeout(timeoutId);
     }, 10000);
 
@@ -302,7 +311,9 @@ class Content extends AppBase {
   }
 
   onReachBottom(e) {
-    this.Base.setMyData({ show: "gmxz" })
+    this.Base.setMyData({
+      show: "gmxz"
+    })
   }
 
   qupinban(e) {

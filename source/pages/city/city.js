@@ -23,11 +23,9 @@ class Content extends AppBase {
     var memberapi = new MemberApi();
     
     this.Base.setMyData({CurrentName:AppBase.CITYNAME});
-    this.Base.getAddress((address) => {
-      console.log(address);
+	var address=this.Base.getMyData().address;
       var citycode = address.ad_info.adcode.substr(0, 4) + "00";
       this.Base.setMyData({ locationCityCode: citycode});
-    });
     memberapi.usecitylist({},(usecitylist)=>{
       this.Base.setMyData({ usecitylist: usecitylist });
     });
