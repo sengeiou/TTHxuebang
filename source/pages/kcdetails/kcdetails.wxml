@@ -515,10 +515,48 @@
   </view>
 
 
+  <view wx:if='{{ispintuan}}' class='chengong'>
 
-  <view  class='block_black' wx:if='{{ispintuan}}'>
-  </view>
-  <view class="ptlist "  wx:if='{{ispintuan}}'>
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <view class='dakawc  '>
+        <view wx:for="{{daojishilist}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
+          <image src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30'></image>
+          <view  class="margin-left-20">
+            <view class="h6 text-center">还差
+              <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</view>
+            <view class="h7 text-center">剩余{{sjlist[idx][1]
+              <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</view>
+            </view>
+            <view class="flex-1"></view>
+            <view class="margin-right-10 " style="color:#FF4444">￥{{item.group_course_group_price}}</view>
 
-  
+            <view bindtap='qupinban' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</view>
+          </view>
+
+
+
+
+        </view>
+        <view class='flex-1'></view>
+      </view>
+      <view class='flex-row flex-center'>
+        <view class='flex-1'></view>
+        <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
+        <view class='flex-1'></view>
+      </view>
+
+    </view>
+
+
+    <view class='block_black' wx:if='{{ispintuan}}'>
+    </view>
+    <!-- <view class="ptlist " wx:if='{{ispintuan}}'>
+
   </view>
+
+  <view class="close" class='flex-row flex-center' wx:if='{{ispintuan}}'>
+    <view class='flex-1'></view>
+    <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon ' bindtap='closetanchuang'></image>
+    <view class='flex-1'></view>
+  </view> -->

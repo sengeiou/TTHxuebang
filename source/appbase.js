@@ -338,7 +338,7 @@ export class AppBase {
       this.Base.setMyData({
         memberinfo: info
       });
-      that.onMyShow();
+      //that.onMyShow();
 
       this.Base.getAddress((address) => {
 
@@ -392,7 +392,7 @@ export class AppBase {
 
         this.Base.setMyData({
           lastdistance: 0,
-          address: {},
+          address: { ad_info:{}},
           mylat: 0,
           mylng: 0
         });

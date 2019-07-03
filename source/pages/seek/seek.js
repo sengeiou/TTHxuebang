@@ -132,6 +132,7 @@ class Content extends AppBase {
         filterdistrict
       });
       if (this.Base.options.type == 'jg') {
+        console.log(this.Base.getMyData());
 		    var address=this.Base.getMyData().address;
         var adcode = address.ad_info.adcode;
         for (var i = 0; i < filterdistrict.length; i++) {
