@@ -15,6 +15,11 @@ import {
   BaomaApi
 } from "../../apis/baoma.api.js";
 
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
+
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -38,6 +43,12 @@ class Content extends AppBase {
   onMyShow() {
 
     var that = this
+    this.btn();
+    
+    var jifenapi = new JifenApi();
+
+
+
 
   }
 
@@ -46,7 +57,7 @@ class Content extends AppBase {
       days = e.currentTarget.dataset.days;
     days++
 
-    console.log(days+"天数");
+    console.log(days + "天数");
     // wx.showToast({
     //   icon: 'success',
     //   title: '打卡成功',
@@ -55,8 +66,8 @@ class Content extends AppBase {
     this.Base.setMyData({
       signNum: days,
       signState: true,
-      dakashow:true,
-      tangchuan:false
+      dakashow: true,
+      tangchuan: false
     })
 
     var min = e.currentTarget.dataset.min,
@@ -78,18 +89,71 @@ class Content extends AppBase {
     }
 
   }
-  showtc(e){
-    
-      this.Base.setMyData({ tangchuan: true })
-    
+
+  showtc(e) {
+
+    this.Base.setMyData({
+      tangchuan: true
+    })
+
   }
+
   chakanjilu(e) {
-    this.Base.setMyData({ tangchuan: true, dakashow: false })
+    this.Base.setMyData({
+      tangchuan: true,
+      dakashow: false
+    })
   }
-  closetanchuang(e){
+  closetanchuang(e) {
     this.Base.setMyData({
       dakashow: false,
-      tangchuan: false })
+      tangchuan: false,
+      guize: false
+    })
+  }
+
+  btn(){
+
+    var jifenapi = new JifenApi();
+    var dakalist = this.Base.getMyData().dakalist;
+    
+    jifenapi.dakalist({}, (dakalist) => {
+      this.Base.setMyData({ dakalist })
+
+      for (var i = 0; i < dakalist.length; i++) {
+        var ss = new Date(dakalist[i].daka_date_dateformat).getTime();
+        console.log("数组时间戳"+ss)
+      }
+    })
+
+
+
+    var nowdate = ApiUtil.GetNowFormatDate();
+    
+    var timestamp = new Date(nowdate).getTime();
+
+    var cj = new Date('2019-07-03 15:35').getTime();
+
+    var time = ApiUtil.DateLater('2019-07-02',7);
+
+    var week = ApiUtil.GetDates(7, nowdate);
+
+    this.Base.setMyData({ seven_date: week});
+    
+    console.log(time)
+    console.log("地方" + nowdate)
+    console.log("时间戳" + timestamp)
+    console.log("创建时间戳" + cj)
+    console.log(week)
+  }
+
+  getDates(days, todate) {//todate默认参数是当前日期，可以传入对应时间
+    var dateArry = [];
+    for (var i = 0; i < days; i++) {
+      var dateObj = ApiUtil.DateLater(todate, i);
+      dateArry.push(dateObj)
+    }
+    return dateArry;
   }
 
 
@@ -99,7 +163,10 @@ class Content extends AppBase {
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
+
+body.btn = content.btn; 
+body.getDates = content.getDates;
 
 body.bindSignIn = content.bindSignIn;
 body.showtc = content.showtc; 

@@ -99,6 +99,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         currectcityid: AppBase.CITYID
       });
+
       if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
         this.Base.setMyData({
           currectcityid: AppBase.CITYID
@@ -111,17 +112,20 @@ class Content extends AppBase {
       wx.hideLoading()
     }, 1000);
   }
+
   tojgdetails(e) {
     var id = e.currentTarget.id;
     wx.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
+
   toketang(e) {
     wx.navigateTo({
       url: '/pages/zaixianketang/zaixianketang'
     })
   }
+
   loadBanner() {
     var instapi = new InstApi();
     // console.log()
@@ -419,6 +423,7 @@ class Content extends AppBase {
     }
 
   }
+
   showtc(e) {
 
     this.Base.setMyData({
@@ -439,6 +444,7 @@ class Content extends AppBase {
       guize: false
     })
   }
+  
   guize(e) {
     this.Base.setMyData({
       guize: true
