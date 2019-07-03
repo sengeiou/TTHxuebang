@@ -69,7 +69,7 @@
     <view class="white_black" wx:if="{{kong==false}}">
       <view class="flex-row flex-column">
         <view style="height:100rpx;"></view>
-        <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-120"></image>
+        <image src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120"></image>
 
         <view class="flex-row flex-center margin-top-34">
           <view class="f30">使用</view>
@@ -92,7 +92,7 @@
     <view class="white_black" wx:if="{{kong==true}}">
       <view class="flex-row flex-column">
         <view style="height:100rpx;"></view>
-        <image src="{{uploadpath}}resource/{{res.nantou}}" class="icon-120"></image>
+        <image src="{{uploadpath}}resource/{{res.jifenbugou}}" class="icon-120"></image>
 
         <view class="  margin-top-34">
           <view>您的积分数不足，无法兑换</view>

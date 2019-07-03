@@ -5,7 +5,7 @@
 
     <view class="flex-row flex-center">
       <view class="flex-1"></view>
-      <image class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}'></image>
+      <image class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset"></image>
     </view>
 
     <view class='flex-row '>
@@ -26,7 +26,7 @@
           <view>
             <image class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}'></image>
           </view>
-          <view class='margin-left-10' style=' '>收支明细</view>
+          <view class='margin-left-10 h5' style=' '>收支明细</view>
         </view>
       </view>
 
@@ -35,7 +35,7 @@
           <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
         </view>
         <view>
-          <view class='margin-left-10' style=' '>我的兑换</view>
+          <view class='margin-left-10 h5' style=' '>我的兑换</view>
         </view>
       </view>
     </view>

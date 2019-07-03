@@ -65,11 +65,18 @@ class Content extends AppBase {
     wx.navigateTo({
       url: '/pages/shopmalldetail/shopmalldetail?id='+id
     })
-  } 
+  }
+
   toorder(e){
     wx.navigateTo({
       url: '/pages/jifenorder/jifenorder'
     })
+  }
+  showtoset(e){
+   wx.showToast({
+     title: '暂未开放，敬请期待',
+     icon:'none'
+   })
   }
 
 }
@@ -82,4 +89,5 @@ body.toshouzhi = content.toshouzhi;
 body.todetails = content.todetails; 
 body.toorder = content.toorder;
 body.ss = content.ss; 
+body.showtoset = content.showtoset; 
 Page(body)
