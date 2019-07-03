@@ -137,6 +137,11 @@ class Content extends AppBase {
         url: '/pages/promotion/promotion',
       })
     }
+    if (name == "ketan") {
+      wx.navigateTo({
+        url: '/pages/ketan/ketan',
+      })
+    }
 
    
   
