@@ -74,7 +74,7 @@ class Content extends AppBase {
     console.log(e);
   }
   fav(e) {
-
+var that=this;
     var status = e.currentTarget.id;
 
 
@@ -93,8 +93,7 @@ class Content extends AppBase {
       onlineclassroom_id: this.Base.options.id,
       status
     }, (ret) => {
-      console.log(ret);
-      //this.Base.info(ret.result);
+    that.Base.zhendon();
       this.Base.setMyData({
         isfav: status
       });
@@ -124,28 +123,17 @@ class Content extends AppBase {
     // console.log(this.Base.getMyData().danqianzhanjie.proved_date);
     var a = Number(this.Base.getMyData().danqianzhanjie.proved_date);
     if (e.detail.currentTime >= a) {
-      console.log("进来了2")
-      console.log(this.Base.getMyData().danqianzhanjie.proved_date);
-
+     
+      this.Base.info("购买后观看完整版视频");
 
       this.Base.shipin.pause();
       if (e.detail.currentTime >= a + 1) {
         this.Base.shipin.seek(a);
       }
 
-      if (!this.Base.getMyData().chaoshi) {
-
-        this.Base.info("购买后观看完整版视频");
-
-      }
+     
     }
-    else {
-      if (this.Base.getMyData().chaoshi) {
-        this.Base.setMyData({ chaoshi: false });
-      }
-
-
-    }
+    
   }
   chakanliebiao() {
     this.Base.setMyData({ liebiao: true });

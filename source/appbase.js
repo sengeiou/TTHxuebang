@@ -805,6 +805,10 @@ export class AppBase {
       }
     })
   }
+  zhendon(){
+
+    wx.vibrateShort();
+  }
   info(message) {
     wx.showModal({
       title: '提示',

@@ -97,7 +97,7 @@
 
     <view bindtap="orderlist"   data-id='dfk'  class='flex-row flex-column flex-1'>
       <image class='icon-48 ' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
-      <view class='h6 margin-top-10'>代付款</view>
+      <view class='h6 margin-top-10'>待付款</view>
     </view>
 
     <view  bindtap="orderlist" data-id='ygm' class='flex-row flex-column flex-1'>
