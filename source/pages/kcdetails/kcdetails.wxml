@@ -3,7 +3,7 @@
 <view>
 
 
-  <view class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}});background-size:100% 100%;'>
+  <view class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
 
     <view style='height:140rpx;'></view>
 
@@ -13,7 +13,7 @@
 
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
 
-          <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
+          <image wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></image>
 
           <video wx:if='{{item.video!=""}}' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></video>
         </view>

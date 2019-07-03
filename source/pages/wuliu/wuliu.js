@@ -1,7 +1,13 @@
 // pages/wuliu/wuliu.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
 import {
   JifenApi
 } from "../../apis/jifen.api.js";
@@ -24,12 +30,25 @@ class Content extends AppBase {
     var that = this;
     var jifenapi = new JifenApi();
     jifenapi.wuliu({}, (wuliu) => {
-      this.Base.setMyData({ wuliu })
+      this.Base.setMyData({
+        wuliu
+      })
     })
   }
+
+  onclick() {
+    wx.request({
+      url: '',
+    })
+  }
+
+
+
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.onclick = content.onclick;
 Page(body)

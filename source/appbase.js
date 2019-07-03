@@ -338,7 +338,71 @@ export class AppBase {
       this.Base.setMyData({
         memberinfo: info
       });
-      that.onMyShow();
+      //that.onMyShow();
+
+      this.Base.getAddress((address) => {
+
+        var mylat = address.location.lat;
+        var mylng = address.location.lng;
+        var memberinfo = this.Base.getMyData().memberinfo;
+        var citylist = memberinfo.citylist;
+
+        var citycode = address.ad_info.adcode.substr(0, 4) + "00";
+        this.Base.setMyData({ adcode: address.ad_info.adcode});
+        console.log("citycode" + citycode);
+        if (AppBase.CITYSET == false) {
+          for (var i = 0; i < citylist.length; i++) {
+            if (citylist[i].id == citycode) {
+              AppBase.CITYID = citylist[i].id;
+              AppBase.CITYNAME = citylist[i].name;
+              break;
+            }
+          }
+        }
+
+        var memberapi = new MemberApi();
+        memberapi.usecity({
+          city_id: AppBase.CITYID
+        });
+
+        this.Base.setMyData({
+          mylat,
+          mylng,
+          cityname: AppBase.CITYNAME
+        });
+
+        var lastlat = AppBase.lastlat;
+        var lastlng = AppBase.lastlng;
+
+        var lastdistance = ApiUtil.GetDistance(mylat, mylng, lastlat, lastlng);
+
+        AppBase.lastlat = mylat;
+        AppBase.lastlng = mylng;
+
+
+        this.Base.setMyData({
+          lastdistance,
+          address
+        });
+
+
+        console.log("citycode2" + AppBase.CITYID);
+        that.onMyShow();
+      }, () => {
+
+        this.Base.setMyData({
+          lastdistance: 0,
+          address: { ad_info:{}},
+          mylat: 0,
+          mylng: 0
+        });
+        that.onMyShow();
+
+
+      });
+
+
+
 
     });
   }
