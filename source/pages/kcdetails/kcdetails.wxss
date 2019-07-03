@@ -17,6 +17,27 @@ width: 28rpx;
 height: 28rpx;
 
 }
+
+.ptlist {
+  position: fixed;
+  top: 30%;
+ background-color: white;
+  z-index: 100;
+   width: 650rpx;
+ height: 500rpx;
+ border-radius: 20rpx;
+ left:7%;
+}
+.block_black {
+  background: black;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  
+}
 .xian{
   border-top:1px solid #F5F5F5;
 }

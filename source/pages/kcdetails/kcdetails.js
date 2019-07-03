@@ -243,7 +243,7 @@ class Content extends AppBase {
   bindtopurchase(e) {
 
     this.Base.setMyData({
-      tanchuang: true,ppp:0
+      tanchuang: true, ppp: 0
     })
     return
     wx.navigateTo({
@@ -400,10 +400,15 @@ class Content extends AppBase {
     })
 
   }
-  check(e)
-  {
+  check(e) {
 
-    this.Base.setMyData({ppp:e.currentTarget.dataset.id})
+    this.Base.setMyData({ ppp: e.currentTarget.dataset.id })
+  }
+
+  chakangenduo(){
+  this.Base.setMyData({ispintuan:true})
+
+
   }
 }
 var timer = 1;
@@ -431,5 +436,5 @@ body.tobuy = content.tobuy;
 body.yaoqin = content.yaoqin;
 body.lifk = content.lifk;
 body.check = content.check;
-
+body.chakangenduo = content.chakangenduo;
 Page(body)
