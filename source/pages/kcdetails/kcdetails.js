@@ -39,116 +39,25 @@ class Content extends AppBase {
       show: "kcxq",
       shulian: 0
     })
-    var instapi = new InstApi();
-    var jigouapi = new JigouApi();
-
-    var pingjiaapi = new PingjiaApi();
 
 
-
-
-    //this.Base.options.id
-    jigouapi.courseinfo({
-      id: this.Base.options.id
-    }, (courseinfo) => {
-
-
-      pingjiaapi.pingjialist({
-        kecheng_id: this.Base.options.id
-      }, (pingjialist) => {
-        this.Base.setMyData({
-          pingjialist
-        });
-      });
-
-
-      console.log("哈哈哈");
-      console.log(courseinfo);
-      if (courseinfo.isgroup != 0) {
-        jigouapi.pintuanlist({
-          group_course_id: courseinfo.id
-        }, (pintuanlist) => {
-          console.log(pintuanlist);
-          var pintuanrenshu = 0;
-          var daojishilist = [];
-          for (var i = 0; i < pintuanlist.length; i++) {
-            pintuanrenshu += pintuanlist[i].tuanlist.length;
-            pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
-            pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
-
-            if (daojishilist.length < 2) {
-
-              if (pintuanlist[i].status == 'A') {
-                daojishilist.push(pintuanlist[i]);
-              }
-            }
-          }
-
-          this.Base.setMyData({
-            pintuanlist: pintuanlist,
-            pintuanrenshu: pintuanrenshu,
-            daojishilist: daojishilist
-          })
-          this.daojishi();
-        })
-      }
-
-      jigouapi.kechenlunbo({
-        name: courseinfo.id,
-        orderby: 'r_main.seq',
-        status: "A"
-      }, (kechenlunbo) => {
-
-        this.Base.setMyData({
-          kechenlunbo
-        });
-      });
+    this.daojishi();
+    
 
 
 
-      var mylat = this.Base.getMyData().mylat;
-      var mylng = this.Base.getMyData().mylng;
-
-      var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
-
-      var miletxt = ApiUtil.GetMileTxt(mile);
-      this.Base.setMyData({
-        miletxt,
-        scoring: parseInt(courseinfo.scoring)
-      })
-      var scoring = this.Base.getMyData().scoring;
-      console.log("啊啊啊" + scoring)
-
-
-      this.Base.setMyData({
-        courseinfo,
-        isfav: courseinfo.isfav
-      });
-
-
-    });
-
-
-    jigouapi.checkcanbuy({
-      course_id: this.Base.options.id
-    }, (canbuy) => {
-
-      this.Base.setMyData({
-        canbuy
-      });
-    });
-
+  
 
   }
   daojishi() {
     var that = this;
 
 
-    var list = that.Base.getMyData().daojishilist;
-    console.log(list);
-    console.log(52);
     this.timer = setInterval(() => {
 
+      var list = that.Base.getMyData().daojishilist;
+      console.log(list);
+      console.log(52);
       var sjlist = [];
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
@@ -199,7 +108,101 @@ class Content extends AppBase {
     clearInterval(this.timer);
   }
   onMyShow() {
+    var instapi = new InstApi();
+    var jigouapi = new JigouApi();
+
+    var pingjiaapi = new PingjiaApi();
+
     var that = this;
+    //this.Base.options.id
+    jigouapi.courseinfo({
+      id: this.Base.options.id
+    }, (courseinfo) => {
+
+
+      pingjiaapi.pingjialist({
+        kecheng_id: this.Base.options.id
+      }, (pingjialist) => {
+        this.Base.setMyData({
+          pingjialist
+        });
+      });
+
+
+      console.log("哈哈哈");
+      console.log(courseinfo);
+      if (courseinfo.isgroup != 0) {
+        jigouapi.pintuanlist({
+          group_course_id: courseinfo.id
+        }, (pintuanlist) => {
+          console.log(pintuanlist);
+          var pintuanrenshu = 0;
+          var daojishilist = [];
+          for (var i = 0; i < pintuanlist.length; i++) {
+            pintuanrenshu += pintuanlist[i].tuanlist.length;
+            pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
+            pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
+
+            if (daojishilist.length < 2) {
+
+              if (pintuanlist[i].status == 'A') {
+                daojishilist.push(pintuanlist[i]);
+              }
+            }
+          }
+
+          this.Base.setMyData({
+            pintuanlist: pintuanlist,
+            pintuanrenshu: pintuanrenshu,
+            daojishilist: daojishilist
+          })
+        })
+      }
+
+      jigouapi.kechenlunbo({
+        name: courseinfo.id,
+        orderby: 'r_main.seq',
+        status: "A"
+      }, (kechenlunbo) => {
+
+        this.Base.setMyData({
+          kechenlunbo
+        });
+      });
+
+
+
+      var mylat = this.Base.getMyData().mylat;
+      var mylng = this.Base.getMyData().mylng;
+
+      var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
+
+      var miletxt = ApiUtil.GetMileTxt(mile);
+      this.Base.setMyData({
+        miletxt,
+        scoring: parseInt(courseinfo.scoring)
+      })
+      var scoring = this.Base.getMyData().scoring;
+      console.log("啊啊啊" + scoring)
+
+
+      this.Base.setMyData({
+        courseinfo,
+        isfav: courseinfo.isfav
+      });
+
+
+    });
+
+
+    jigouapi.checkcanbuy({
+      course_id: this.Base.options.id
+    }, (canbuy) => {
+
+      this.Base.setMyData({
+        canbuy
+      });
+    });
 
   }
   onPageScroll(e) {

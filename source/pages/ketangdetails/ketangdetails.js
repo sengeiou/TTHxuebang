@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole:ture });
+    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole:true });
     this.Base.shipin = wx.createVideoContext("v_1");
   }
   onMyShow() {
