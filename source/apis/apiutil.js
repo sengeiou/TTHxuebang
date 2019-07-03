@@ -59,8 +59,21 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
+
+  static Replace(str, from, to) {
+    return str.split(from).join(to);
+  }
+
+  static ParseDate(dateStr) {
+    return new Date(ApiUtil.Replace(dateStr, "-", "/"));
+  }
+
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
+  }
+
+  static GetLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
   }
 
   static GetCurrentMonthFirst() {
@@ -218,12 +231,15 @@ export class ApiUtil {
   static Rad(d) {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
+
   static masaike(name)
   {
+  
   console.log(12132);
     return name.substring(0,1)+'***';
 
   }
+  
   static shijianjisuan(date) {
     console.log(date);
     var jisuandate=new Date(date);
@@ -245,6 +261,7 @@ export class ApiUtil {
     return dateDiff;
 
   }
+
   static GetDistance(lat1, lng1, lat2, lng2) {
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);
@@ -257,6 +274,7 @@ export class ApiUtil {
     //s=s.toFixed(4);
     return s;
   }
+
   static GetMileTxt(mile) {
     console.log(mile);
     if(mile>100000){
@@ -271,6 +289,5 @@ export class ApiUtil {
     }
   }
 
-  
   
 }

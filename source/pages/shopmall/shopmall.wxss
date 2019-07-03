@@ -13,6 +13,11 @@
   border-radius: 36rpx;
 }
 
+.lingjifen{
+    width: 184rpx;
+  height: 72rpx;
+}
+
 .margin-left-66 {
   margin-left: 66rpx;
 }
