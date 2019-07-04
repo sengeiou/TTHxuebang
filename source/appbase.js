@@ -244,6 +244,7 @@ export class AppBase {
               }, data => {
                 console.log("here");
                 console.log(data);
+                AppBase.UserInfo.unionid = data.unionid;
                 AppBase.UserInfo.openid = data.openid;
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
