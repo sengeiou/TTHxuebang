@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 56,
+			"current": 57,
 			"list": [
 				{
 					"id": 0,
@@ -445,6 +445,13 @@
 					"id": -1,
 					"name": "物流页面",
 					"pathName": "pages/wuliu/wuliu",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "打卡测试页",
+					"pathName": "pages/ceshi/ceshi",
 					"scene": null
 				}
 			]

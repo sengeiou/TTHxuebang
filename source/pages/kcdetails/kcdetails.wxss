@@ -6,6 +6,22 @@ page {
 .kd{
   width: 100rpx;
 }
+.chengong{
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  top: 20%;
+}
+.dakawc{
+  width:85vw;
+  height: 400rpx;
+  border-radius: 10rpx;
+  background: white;
+}
+.close{
+ margin-top:54rpx;
+
+}
 /* .type {
   padding-left: 17rpx;
   padding-right: 17rpx;
@@ -16,6 +32,27 @@ page {
 width: 28rpx;
 height: 28rpx;
 
+}
+
+.ptlist {
+  position: fixed;
+  top: 30%;
+ background-color: white;
+  z-index: 100;
+   width: 650rpx;
+ height: 500rpx;
+ border-radius: 20rpx;
+ left:7%;
+}
+.block_black {
+  background: black;
+  opacity: 0.6;
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
+  top: 0;
+  bottom: 0;
+  
 }
 .xian{
   border-top:1px solid #F5F5F5;

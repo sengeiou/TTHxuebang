@@ -78,7 +78,15 @@
   width: 35rpx;
   height: 30rpx;
 }
-
+.backmu{
+  background:rgba(0,0,0,0.5);
+  position: fixed;
+  z-index: 100;
+  left: 0px;
+  top:0px;
+  width:100vw;
+  height: 100vh;
+}
 .scv {
   margin-left: 20rpx;
 }

@@ -6,8 +6,7 @@
         <view class='txt-black h5'>{{cityname}}</view>
         <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       </view>
-
-      <navigator url='/pages/searchword/searchword?kc' class='search flex-1 flex-row flex-center  padding-10 margin-left-20'>
+      <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 margin-left-20'>
         <view class='flex-1' style='width:20rpx;margin-top:4rpx;'></view>
         <image class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
         <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>搜索你要找的机构、课程、老师</view>
@@ -25,7 +24,7 @@
   <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
       <view class='li' bindtap='bannerGo' id="{{item.id}}">
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </view>
     </swiper-item>
   </swiper> -->
@@ -484,7 +483,7 @@
 
   <view hidden='{{jglist.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <view class=' padding-20' style=''>
-      <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
     </view>
     <view class='midt flex-row'>
       <view class='flex-1'></view>
@@ -558,4 +557,31 @@
 
 <view class=' to_top' hidden='{{!floorstatus}}'>
   <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
+
+
+
+
+
+
+<view class='backmu' wx:if="{{showlastnotice==true&&noticebanner.length>0}}">
+  <view class='flex-row flex-center' style='height:100vh'>
+    <view class='flex-1'></view>
+    <view class='width:500rpx;height:766rpx;'>
+      <view wx:if="{{noticebanner.length==1}}" wx:for="{{noticebanner}}">
+        <view bindtap='bannerGo2' id="{{item.id}}">
+          <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
+        </view>
+      </view>
+      <swiper wx:if="{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+        <swiper-item wx:for="{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
+          <view bindtap='bannerGo2' id="{{item.id}}">
+            <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
+          </view>
+        </swiper-item>
+      </swiper>
+      <image bindtap='closenotice' src='{{uploadpath}}resource/{{res.close}}' style='width:30rpx;height:30rpx;position:absolute;margin-top:-746rpx;margin-left:450rpx;'></image>
+    </view>
+    <view class='flex-1'></view>
+  </view>
 </view>

@@ -59,8 +59,69 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
+
+  static Replace(str, from, to) {
+    return str.split(from).join(to);
+  }
+
+  static ParseDate(dateStr) {
+    return new Date(ApiUtil.Replace(dateStr, "-", "/"));
+  }
+
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
+  }
+
+  static GetLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+  }
+
+  static GetCurrentMonthFirst() {
+    var date = new Date();
+    var todate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1) + "-" + (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
+    return todate;
+  }
+
+  static GetDates(days, todate) {
+    //todate默认参数是当前日期，可以传入对应时间
+    var dateArry = [];
+    var dateLater = ApiUtil.DateLater;
+    for (var i = 0; i < days; i++) {
+      var dateObj = dateLater(todate, i);
+      dateArry.push(dateObj)
+    }
+    return dateArry;
+  }
+
+  static GetNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    var nowdate = year + seperator1 + month + seperator1 + strDate;
+     return nowdate;
+  }
+  
+  //param：传入时间：dates: "2018-04-02", later: 往后多少天
+  static DateLater(dates, later) {
+    let dateObj = {};
+    let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
+    let date = new Date(dates);
+    date.setDate(date.getDate() + later);
+    let day = date.getDay();
+    dateObj.year = date.getFullYear();
+    dateObj.month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
+    dateObj.day = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
+    dateObj.seven_date = dateObj.year + '.' + dateObj.month + '.' + dateObj.day;
+    dateObj.week = show_day[day];
+    return dateObj;
   }
 
   static ten2(i) {
@@ -170,12 +231,15 @@ export class ApiUtil {
   static Rad(d) {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
+
   static masaike(name)
   {
+  
   console.log(12132);
     return name.substring(0,1)+'***';
 
   }
+  
   static shijianjisuan(date) {
     console.log(date);
     var jisuandate=new Date(date);
@@ -197,6 +261,7 @@ export class ApiUtil {
     return dateDiff;
 
   }
+
   static GetDistance(lat1, lng1, lat2, lng2) {
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);
@@ -209,6 +274,7 @@ export class ApiUtil {
     //s=s.toFixed(4);
     return s;
   }
+
   static GetMileTxt(mile) {
     console.log(mile);
     if(mile>100000){
@@ -222,4 +288,6 @@ export class ApiUtil {
       return "" + (mile).toString() + "m";
     }
   }
+
+  
 }

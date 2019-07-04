@@ -36,110 +36,28 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: "kcxq", shulian: 0
+      show: "kcxq",
+      shulian: 0
     })
-    var instapi = new InstApi();
-    var jigouapi = new JigouApi();
-
-    var pingjiaapi = new PingjiaApi();
 
 
+    this.daojishi();
+    
 
 
-    //this.Base.options.id
-    jigouapi.courseinfo({
-      id: this.Base.options.id
-    }, (courseinfo) => {
 
-
-      pingjiaapi.pingjialist({ kecheng_id: this.Base.options.id }, (pingjialist) => {
-        this.Base.setMyData({
-          pingjialist
-        });
-      });
-
-
-      console.log("哈哈哈");
-      console.log(courseinfo);
-      if (courseinfo.isgroup != 0) {
-        jigouapi.pintuanlist({ group_course_id: courseinfo.id }, (pintuanlist) => {
-          console.log(pintuanlist);
-          var pintuanrenshu = 0;
-          var daojishilist = [];
-          for (var i = 0; i < pintuanlist.length; i++) {
-            pintuanrenshu += pintuanlist[i].tuanlist.length;
-            pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
-            pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
-
-            if (daojishilist.length < 2) {
-
-              if (pintuanlist[i].status == 'A') {
-                daojishilist.push(pintuanlist[i]);
-              }
-            }
-          }
-
-          this.Base.setMyData({
-            pintuanlist: pintuanlist, pintuanrenshu: pintuanrenshu, daojishilist: daojishilist
-          })
-          this.daojishi();
-        })
-      }
-
-      jigouapi.kechenlunbo({
-        name: courseinfo.id, orderby: 'r_main.seq', status: "A"
-      }, (kechenlunbo) => {
-
-        this.Base.setMyData({
-          kechenlunbo
-        });
-      });
-
-
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
-
-        var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
-
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        this.Base.setMyData({
-          miletxt,
-          scoring: parseInt(courseinfo.scoring)
-        });
-        var scoring = this.Base.getMyData().scoring;
-        console.log("啊啊啊" + scoring)
-
-      });
-
-      this.Base.setMyData({
-        courseinfo,
-        isfav: courseinfo.isfav
-      });
-
-    });
-
-    jigouapi.orderstatus({
-      id: this.Base.options.id
-    }, (canbuy) => {
-
-      this.Base.setMyData({
-        canbuy
-      });
-    });
-
+  
 
   }
   daojishi() {
     var that = this;
 
 
-    var list = that.Base.getMyData().daojishilist;
-    console.log(list);
-    console.log(52);
     this.timer = setInterval(() => {
 
+      var list = that.Base.getMyData().daojishilist;
+      console.log(list);
+      console.log(52);
       var sjlist = [];
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
@@ -149,14 +67,14 @@ class Content extends AppBase {
 
 
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
-        listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
-        var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
-        listtt.push(Math.floor(leave1 / (3600 * 1000)));   //计算出小时数
+        listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000))); //计算出相差天数
+        var leave1 = dateDiff % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+        listtt.push(Math.floor(leave1 / (3600 * 1000))); //计算出小时数
         //计算相差分钟数
-        var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
-        listtt.push(Math.floor(leave2 / (60 * 1000)));//计算相差分钟数
+        var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+        listtt.push(Math.floor(leave2 / (60 * 1000))); //计算相差分钟数
         //计算相差秒数
-        var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
+        var leave3 = leave2 % (60 * 1000) //计算分钟数后剩余的毫秒数
         listtt.push(Math.round(leave3 / 1000));
 
 
@@ -190,7 +108,101 @@ class Content extends AppBase {
     clearInterval(this.timer);
   }
   onMyShow() {
+    var instapi = new InstApi();
+    var jigouapi = new JigouApi();
+
+    var pingjiaapi = new PingjiaApi();
+
     var that = this;
+    //this.Base.options.id
+    jigouapi.courseinfo({
+      id: this.Base.options.id
+    }, (courseinfo) => {
+
+
+      pingjiaapi.pingjialist({
+        kecheng_id: this.Base.options.id
+      }, (pingjialist) => {
+        this.Base.setMyData({
+          pingjialist
+        });
+      });
+
+
+      console.log("哈哈哈");
+      console.log(courseinfo);
+      if (courseinfo.isgroup != 0) {
+        jigouapi.pintuanlist({
+          group_course_id: courseinfo.id
+        }, (pintuanlist) => {
+          console.log(pintuanlist);
+          var pintuanrenshu = 0;
+          var daojishilist = [];
+          for (var i = 0; i < pintuanlist.length; i++) {
+            pintuanrenshu += pintuanlist[i].tuanlist.length;
+            pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
+            pintuanlist[i].xunhuandate = ApiUtil.shijianjisuan(pintuanlist[i].jieshushijian);
+
+            if (daojishilist.length < 2) {
+
+              if (pintuanlist[i].status == 'A') {
+                daojishilist.push(pintuanlist[i]);
+              }
+            }
+          }
+
+          this.Base.setMyData({
+            pintuanlist: pintuanlist,
+            pintuanrenshu: pintuanrenshu,
+            daojishilist: daojishilist
+          })
+        })
+      }
+
+      jigouapi.kechenlunbo({
+        name: courseinfo.id,
+        orderby: 'r_main.seq',
+        status: "A"
+      }, (kechenlunbo) => {
+
+        this.Base.setMyData({
+          kechenlunbo
+        });
+      });
+
+
+
+      var mylat = this.Base.getMyData().mylat;
+      var mylng = this.Base.getMyData().mylng;
+
+      var mile = ApiUtil.GetDistance(mylat, mylng, courseinfo.JG_lat, courseinfo.JG_lng);
+
+      var miletxt = ApiUtil.GetMileTxt(mile);
+      this.Base.setMyData({
+        miletxt,
+        scoring: parseInt(courseinfo.scoring)
+      })
+      var scoring = this.Base.getMyData().scoring;
+      console.log("啊啊啊" + scoring)
+
+
+      this.Base.setMyData({
+        courseinfo,
+        isfav: courseinfo.isfav
+      });
+
+
+    });
+
+
+    jigouapi.checkcanbuy({
+      course_id: this.Base.options.id
+    }, (canbuy) => {
+
+      this.Base.setMyData({
+        canbuy
+      });
+    });
 
   }
   onPageScroll(e) {
@@ -208,7 +220,8 @@ class Content extends AppBase {
     }
     if (e.scrollTop <= 520) {
       this.setData({
-        sco: 2, show: "kcxq"
+        sco: 2,
+        show: "kcxq"
       });
     }
     if (e.scrollTop <= 100) {
@@ -240,7 +253,8 @@ class Content extends AppBase {
   bindtopurchase(e) {
 
     this.Base.setMyData({
-      tanchuang: true,ppp:0
+      tanchuang: true,
+      ppp: 0
     })
     return
     wx.navigateTo({
@@ -251,7 +265,8 @@ class Content extends AppBase {
   opengroup() {
 
     this.Base.setMyData({
-      tanchuang: true, ppp: 1
+      tanchuang: true,
+      ppp: 1
     })
 
     return
@@ -267,10 +282,14 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
-      this.Base.setMyData({ tishi: 1 });
+      this.Base.setMyData({
+        tishi: 1
+      });
     }
     if (status == "N") {
-      this.Base.setMyData({ tishi: 2 });
+      this.Base.setMyData({
+        tishi: 2
+      });
     }
 
 
@@ -287,7 +306,9 @@ class Content extends AppBase {
     });
 
     setTimeout(() => {
-      this.Base.setMyData({ tishi: 0 })
+      this.Base.setMyData({
+        tishi: 0
+      })
       // clearTimeout(timeoutId);
     }, 10000);
 
@@ -302,7 +323,9 @@ class Content extends AppBase {
   }
 
   onReachBottom(e) {
-    this.Base.setMyData({ show: "gmxz" })
+    this.Base.setMyData({
+      show: "gmxz"
+    })
   }
 
   qupinban(e) {
@@ -325,25 +348,33 @@ class Content extends AppBase {
     if (shulian == 0) {
       return
     }
-    this.Base.setMyData({ shulian: --shulian });
+    this.Base.setMyData({
+      shulian: --shulian
+    });
   }
   jia() {
     var shulian = this.Base.getMyData().shulian;
 
 
-    this.Base.setMyData({ shulian: ++shulian });
+    this.Base.setMyData({
+      shulian: ++shulian
+    });
   }
   bindclose() {
-    this.Base.setMyData({ tanchuang: false })
+    this.Base.setMyData({
+      tanchuang: false
+    })
 
   }
   yaoqin() {
     var api = new HaibaoApi;
-    api.haibao1({ kcid: this.Base.options.id }, (res) => {
+    api.haibao1({
+      kcid: this.Base.options.id
+    }, (res) => {
       console.log(res);
       if (res.code == 0) {
         wx.navigateTo({
-          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return + '&&kcid=' + this.Base.options.id,
+          url: '/pages/kcyaoqin/kcyaoqin?name=' + res.return+'&&kcid=' + this.Base.options.id,
         })
 
 
@@ -352,7 +383,9 @@ class Content extends AppBase {
 
   }
   tobuy() {
-    this.Base.setMyData({ tanchuang: false });
+    this.Base.setMyData({
+      tanchuang: false
+    });
 
     var ppp = this.Base.getMyData().ppp;
     if (ppp == 1) {
@@ -360,8 +393,7 @@ class Content extends AppBase {
         url: '/pages/purchase/purchase?course_id=' + this.Base.options.id + '&&type=0'
       })
 
-    }
-    else {
+    } else {
       wx.navigateTo({
         url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
       })
@@ -389,10 +421,23 @@ class Content extends AppBase {
     })
 
   }
-  check(e)
-  {
+  check(e) {
 
-    this.Base.setMyData({ppp:e.currentTarget.dataset.id})
+    this.Base.setMyData({
+      ppp: e.currentTarget.dataset.id
+    })
+  }
+
+  chakangenduo() {
+    this.Base.setMyData({
+      ispintuan: true
+    })
+  }
+  closetanchuang() {
+    this.Base.setMyData({
+      ispintuan: false,
+
+    })
   }
 }
 var timer = 1;
@@ -413,6 +458,7 @@ body.onPageScroll = content.onPageScroll;
 body.onReachBottom = content.onReachBottom;
 body.qupinban = content.qupinban;
 body.jian = content.jian;
+body.closetanchuang = content.closetanchuang;
 body.jia = content.jia;
 body.opengroup = content.opengroup;
 body.bindclose = content.bindclose;
@@ -420,5 +466,5 @@ body.tobuy = content.tobuy;
 body.yaoqin = content.yaoqin;
 body.lifk = content.lifk;
 body.check = content.check;
-
+body.chakangenduo = content.chakangenduo;
 Page(body)

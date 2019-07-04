@@ -1,13 +1,21 @@
 <!--pages/shopmall/shopmall.wxml-->
 <view>
-  <view class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jfsc_bg}});background-size:100% 100%;'>
+  <view class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jifen_bg}});background-size:100% 100%;'>
 
-    <view class='flex-row margin-top-80'>
+
+    <view class="flex-row flex-center">
+      <view class="flex-1"></view>
+      <image class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset"></image>
+    </view>
+
+    <view class='flex-row '>
       <view class='flex-1'></view>
+
       <view class='flex-row'>
         <image class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}'></image>
         <view class='f60 txt-bold margin-left-10' style='color:#222222'>{{memberinfo.integral}}</view>
       </view>
+
       <view class='flex-1'></view>
     </view>
 
@@ -18,7 +26,7 @@
           <view>
             <image class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}'></image>
           </view>
-          <view class='margin-left-10' style='color:#FFBA12'>收支明细</view>
+          <view class='margin-left-10 h5' style=' '>收支明细</view>
         </view>
       </view>
 
@@ -27,7 +35,7 @@
           <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
         </view>
         <view>
-          <view class='margin-left-10' style='color:#FFBA12'>我的兑换</view>
+          <view class='margin-left-10 h5' style=' '>我的兑换</view>
         </view>
       </view>
     </view>
@@ -56,5 +64,3 @@
 </view>
 
 <view style="height:40rpx"></view>
-
- 

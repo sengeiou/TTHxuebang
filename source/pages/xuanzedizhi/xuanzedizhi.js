@@ -120,8 +120,8 @@ class Content extends AppBase {
          jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
            this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
            this.onMyShow();
-           wx.navigateTo({
-             url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return,
+           wx.redirectTo({
+             url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return+'&shopid='+this.Base.options.id,
            })
          })
          this.Base.setMyData({ addjifenorder })
@@ -138,11 +138,6 @@ class Content extends AppBase {
 
 
     
-
-
-
-
-
 
 
      

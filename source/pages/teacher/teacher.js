@@ -27,6 +27,7 @@ class Content extends AppBase {
     });
     var teacherapi = new TeacherApi();
     teacherapi.teachlist({
+      status:"A",
       orderby: 'r_main.id'
     }, (teachlist) => {
       var vteach = [];

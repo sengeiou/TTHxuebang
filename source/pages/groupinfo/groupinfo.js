@@ -13,10 +13,14 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+   
+
   }
   onUnload() {
     console.error(66666);
     clearInterval(this.timer);
+
+ 
   }
   onHide() {
     console.error(66666);

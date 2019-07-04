@@ -61,20 +61,7 @@ class Content extends AppBase {
       id: this.Base.options.id
     }, (jginfo) => {
 
-      this.Base.getAddress((address) => {
-        console.log(address);
-        var mylat = address.location.lat;
-        var mylng = address.location.lng;
-        console.log("hahah");
-        console.log(mylat);
-        var mile = ApiUtil.GetDistance(mylat, mylng, jginfo.lat, jginfo.lng);
-
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        this.Base.setMyData({
-          miletxt,
-          mylat: mylat,
-          mylng: mylng
-        });
+      
 
         jigouapi.courselist({
           jg_id: jginfo.id,
@@ -107,15 +94,6 @@ class Content extends AppBase {
         });
 
 
-      }, () => {
-        jigouapi.courselist({
-          jg_id: jginfo.id
-        }, (courselist) => {
-          this.Base.setMyData({
-            courselist: courselist
-          });
-        });
-      });
 
       jigouapi.ketanglist({
         onlineclassroomtype_id: jginfo.classtype_id

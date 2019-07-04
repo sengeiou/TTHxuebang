@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '' });
+    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole:true });
     this.Base.shipin = wx.createVideoContext("v_1");
   }
   onMyShow() {
@@ -61,6 +61,15 @@ class Content extends AppBase {
       return
 
     }
+    if ((mulu[e.currentTarget.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '')&&this.Base.getMyData().tanguole) {
+      this.Base.setMyData({ tanguole:false})
+      this.Base.info("购买后观看完整版视频");
+      return
+
+    }
+
+   
+
     for (var i = 0; i < mulu.length; i++) {
       if (i == e.currentTarget.dataset.id) {
         mulu[i].dq = true;
@@ -74,7 +83,7 @@ class Content extends AppBase {
     console.log(e);
   }
   fav(e) {
-
+    var that = this;
     var status = e.currentTarget.id;
 
 
@@ -93,8 +102,7 @@ class Content extends AppBase {
       onlineclassroom_id: this.Base.options.id,
       status
     }, (ret) => {
-      console.log(ret);
-      //this.Base.info(ret.result);
+      that.Base.zhendon();
       this.Base.setMyData({
         isfav: status
       });
@@ -113,8 +121,14 @@ class Content extends AppBase {
 
 
   jindu(e) {
+
+
+    wx.setStorageSync(this.Base.options.id + 'sp', this.Base.getMyData().danqianzhanjie.id + ',' + e.detail.currentTime)
+
+
     var idd = this.Base.getMyData().kecheninfo.idd;
     var mianfei = this.Base.getMyData().kecheninfo.isfree_value;
+
     if (idd != '' || mianfei == 'Y') {
       return;
     }
@@ -124,28 +138,17 @@ class Content extends AppBase {
     // console.log(this.Base.getMyData().danqianzhanjie.proved_date);
     var a = Number(this.Base.getMyData().danqianzhanjie.proved_date);
     if (e.detail.currentTime >= a) {
-      console.log("进来了2")
-      console.log(this.Base.getMyData().danqianzhanjie.proved_date);
 
+      // this.Base.info("购买后观看完整版视频");
 
       this.Base.shipin.pause();
       if (e.detail.currentTime >= a + 1) {
         this.Base.shipin.seek(a);
       }
 
-      if (!this.Base.getMyData().chaoshi) {
-
-        this.Base.info("购买后观看完整版视频");
-
-      }
-    }
-    else {
-      if (this.Base.getMyData().chaoshi) {
-        this.Base.setMyData({ chaoshi: false });
-      }
-
 
     }
+
   }
   chakanliebiao() {
     this.Base.setMyData({ liebiao: true });
@@ -161,7 +164,25 @@ class Content extends AppBase {
   }
   shikan() {
     this.Base.backtotop();
+    //this.Base.shipin.play();
+
+   var canshu=wx.getStorageSync(this.Base.options.id+'sp'); 
+  console.log(canshu);
+  if(canshu=='')
+  {
+    this.Base.info("购买后观看完整版视频");
+    return
+  }
+  
+else{
+    var canshu = canshu.split(',');
+   var zhanjie=this.Base.getMyData().zhanjie;  
+    var danqianzhanjie = zhanjie.filter(item=>item.id==canshu[0])
+    this.Base.setMyData({ danqianzhanjie: danqianzhanjie[0]})
+    this.Base.shipin.seek(canshu[1]);
     this.Base.shipin.play();
+  }
+
 
   }
   goumai() {

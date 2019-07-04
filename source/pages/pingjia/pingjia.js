@@ -142,7 +142,7 @@ class Content extends AppBase {
 
           pingjiaapi.addpingjia({
             member_id:that.Base.getMyData().memberinfo.id,
-            kecheng_id:1,
+            kecheng_id:this.Base.options.id,
             pingfen: pingfen,
             content: text,
             img1: img1,

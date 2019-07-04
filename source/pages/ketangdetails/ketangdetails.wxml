@@ -1,20 +1,19 @@
 <video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}'
   src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}' play-btn-position="center">
-  <cover-view wx:if="{{chaoshi}}" class='title txt-red  txt-bold'>
-    该充钱啦</cover-view>
+
 </video>
 <block wx:if="{{!liebiao&&!quanbu}}">
   <view class='padding-30 border-bottom-2'>
 
-    <view class='flex-row '>
+    <view class='flex-row ' >
       <view class='flex-1'>{{danqianzhanjie.name}}</view>
-      <view class=' margin-right-20 flex-row flex-column  bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
-        <image class='icon' src='{{uploadpath}}resource/{{res.unfav}}'></image>
+      <view class='kd margin-right-20 flex-row flex-column  bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
+        <image mode='widthFix' class='icon'  src='{{uploadpath}}resource/{{res.unfav}}'></image>
         <view class='h6'>收藏</view>
       </view>
 
-      <view class=' margin-right-20 flex-row flex-column  bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
-        <image class='icon' src='{{uploadpath}}resource/{{res.fav}}'></image>
+      <view class='kd margin-right-20 flex-row flex-column  bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
+        <image mode='widthFix' class='icon' src='{{uploadpath}}resource/{{res.fav}}'></image>
         <view class='h6'>已收藏</view>
       </view>
     </view>

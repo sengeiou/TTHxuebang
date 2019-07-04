@@ -16,7 +16,7 @@ import {
 } from "../../apis/purchase.api.js";
 import {
   WechatApi
-} from "../../apis/wechat.api.js"; 
+} from "../../apis/wechat.api.js";
 import {
   BatchApi
 } from "../../apis/batch.api.js";
@@ -33,39 +33,46 @@ class Content extends AppBase {
       show: "all",
       wclist: [],
       dflist: []
-    }) 
-    var type = this.Base.options.type ;
-    console.log("那真的牛批"+type);
-    if(type!=undefined)
-    {
-      if(type=='ygm')
-      {
-        var show ='wc';
+    })
+    var type = this.Base.options.type;
+    console.log("那真的牛批" + type);
+    if (type != undefined) {
+      if (type == 'ygm') {
+        var show = 'wc';
       }
       if (type == 'dfk') {
-        var show ='wait'
+        var show = 'wait'
       }
       if (type == 'dsh') {
-        var show ='dsh';
+        var show = 'dsh';
       }
       if (type == 'dpj') {
-        var show ='dpj';
+        var show = 'dpj';
       }
       console.log("那真的牛批");
       this.Base.setMyData({
-        show:show
+        show: show
       })
-    } 
+    }
 
 
   }
+  kechenxianqin(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+    })
+
+  }
+
   onMyShow() {
     var that = this;
     var api = new PurchaseApi();
 
     api.purchaselist({
+      sppp:1
     }, (alllist) => {
-      
+
       this.Base.setMyData({
         alllist
       });
@@ -121,7 +128,7 @@ class Content extends AppBase {
 
   bindpay(e) {
     var that = this;
-    var id=e.currentTarget.id;
+    var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
     wechatapi.prepay({ id: id }, (payret) => {
       payret.complete = function (e) {
@@ -131,17 +138,17 @@ class Content extends AppBase {
       wx.requestPayment(payret)
     });
   }
-  toorder(e){
+  toorder(e) {
     var that = this;
     var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/order/order?id='+id,
+      url: '/pages/order/order?id=' + id,
     })
   }
   colseorder(e) {
     var that = this;
     var id = e.currentTarget.id;
-    
+
     wx.showModal({
       title: '',
       content: '确认取消订单？',
@@ -163,8 +170,7 @@ class Content extends AppBase {
 
 
   }
-  kantuan(e)
-  {
+  kantuan(e) {
     wx.navigateTo({
       url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.pt,
     })
@@ -183,4 +189,5 @@ body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
 body.kantuan = content.kantuan;
+body.kechenxianqin = content.kechenxianqin;
 Page(body)

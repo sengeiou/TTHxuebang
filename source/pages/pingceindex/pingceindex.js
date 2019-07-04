@@ -320,9 +320,9 @@ class Content extends AppBase {
     } else {
 
      var a=  mypingcelist.filter((item,idx)=>{
-
         return item.pingce_id == pcid
-      })  
+      })
+      
    console.log(a);
    //return
 
