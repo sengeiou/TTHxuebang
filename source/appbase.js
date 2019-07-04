@@ -372,8 +372,8 @@ export class AppBase {
           cityname: AppBase.CITYNAME
         });
 
-        var lastlat = AppBase.lastlat;
-        var lastlng = AppBase.lastlng;
+        var lastlat = Number(AppBase.lastlat == undefined ? 0 : AppBase.lastlat) ;
+        var lastlng = Number(AppBase.lastlng == undefined ? 0 : AppBase.lastlng);
 
         var lastdistance = ApiUtil.GetDistance(mylat, mylng, lastlat, lastlng);
 
@@ -383,7 +383,10 @@ export class AppBase {
 
         this.Base.setMyData({
           lastdistance,
-          address
+          address,
+          mia:"??",
+        
+          
         });
 
 

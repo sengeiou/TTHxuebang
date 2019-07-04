@@ -108,10 +108,10 @@ class Content extends AppBase {
     if (AppBase.CITYID != this.Base.getMyData().currectcityid ||
       this.lastdistance > 500
     ) {
-      this.Base.setMyData({
-        currectcityid: AppBase.CITYID
-      });
-
+    
+      console.log(AppBase.CITYID);
+      console.log("asldjhaskdhas");
+      console.log(this.Base.getMyData().currectcityid);
       if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
         this.Base.setMyData({
           currectcityid: AppBase.CITYID
@@ -119,6 +119,10 @@ class Content extends AppBase {
         this.loadjg();
       }
     }
+
+    this.Base.setMyData({
+      currectcityid: AppBase.CITYID
+    });
 
     setTimeout(() => {
       wx.hideLoading()
@@ -230,6 +234,9 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
     var mylng = this.Base.getMyData().mylng;
+    console.log(AppBase.CITYID);
+    console.log("那真的牛批");
+    
     jigouapi.jglist({
       mylat,
       mylng,
