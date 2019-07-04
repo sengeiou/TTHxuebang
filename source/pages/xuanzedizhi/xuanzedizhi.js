@@ -107,7 +107,12 @@ class Content extends AppBase {
         status:"A"
        }, (addjifenorder) => {
 
+
+         var jifenapi = new JifenApi();
          
+         jifenapi.deduction({ member_id: this.Base.getMyData().memberinfo.id, goods_id: this.Base.options.id }, (deduction)=>{
+           this.Base.setMyData({ deduction })
+         })
 
 
          //console.log(addjifenorder.return+"阿");
@@ -120,13 +125,13 @@ class Content extends AppBase {
          jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
            this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
            this.onMyShow();
-           wx.navigateTo({
-             url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return,
+           wx.redirectTo({
+             url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return+'&shopid='+this.Base.options.id,
            })
          })
+
          this.Base.setMyData({ addjifenorder })
 
-        
       })
 
       this.Base.setMyData({
@@ -138,11 +143,6 @@ class Content extends AppBase {
 
 
     
-
-
-
-
-
 
 
      

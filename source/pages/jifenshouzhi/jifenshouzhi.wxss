@@ -28,3 +28,6 @@
 .shouru{
   padding:24rpx 30rpx 28rpx 38rpx;
 }
+.border-top{
+  border-top:2rpx solid #E5E5E5
+}

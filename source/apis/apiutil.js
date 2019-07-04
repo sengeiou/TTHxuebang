@@ -59,8 +59,42 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
+
+  static Replace(str, from, to) {
+    return str.split(from).join(to);
+  }
+
+  static ParseDate(dateStr) {
+    return new Date(ApiUtil.Replace(dateStr, "-", "/"));
+  }
+
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
+  }
+
+  static Updatetime(str) {
+    var timestamp = Date.parse(str);
+
+    //返回当前时间毫秒数
+    timestamp = timestamp / 1000;
+    //获取当前时间
+    var n = timestamp *
+      1000;
+    var date = new Date(n);
+    //年
+    var Y =
+      date.getFullYear();
+    //月
+    var M = (date.getMonth()
+      + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+
+    return (Y + "年" + M + "月"+D+"日")
+  }
+
+  static GetLocalTime(nS) {
+    return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
   }
 
   static GetCurrentMonthFirst() {
@@ -106,7 +140,10 @@ export class ApiUtil {
     dateObj.year = date.getFullYear();
     dateObj.month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
     dateObj.day = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-    dateObj.seven_date = dateObj.year + '.' + dateObj.month + '.' + dateObj.day;
+
+    dateObj.seven_date = dateObj.year + '-' + dateObj.month + '-' + dateObj.day;
+    dateObj.daka_date = dateObj.month + '/' + dateObj.day;
+
     dateObj.week = show_day[day];
     return dateObj;
   }
@@ -218,12 +255,15 @@ export class ApiUtil {
   static Rad(d) {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
+
   static masaike(name)
   {
+  
   console.log(12132);
     return name.substring(0,1)+'***';
 
   }
+  
   static shijianjisuan(date) {
     console.log(date);
     var jisuandate=new Date(date);
@@ -245,6 +285,7 @@ export class ApiUtil {
     return dateDiff;
 
   }
+
   static GetDistance(lat1, lng1, lat2, lng2) {
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);
@@ -257,6 +298,7 @@ export class ApiUtil {
     //s=s.toFixed(4);
     return s;
   }
+
   static GetMileTxt(mile) {
     console.log(mile);
     if(mile>100000){
@@ -271,6 +313,5 @@ export class ApiUtil {
     }
   }
 
-  
   
 }

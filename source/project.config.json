@@ -454,6 +454,7 @@
 					"pathName": "pages/ceshi/ceshi",
 					"query": "",
 					"scene": null
+
 				},
 				{
 					"id": -1,
@@ -461,6 +462,15 @@
 					"pathName": "pages/pintuanhaibao/pintuanhaibao",
 					"query": "name=136313_ttxhbpt.png",
 					"scene": null
+
+				},
+				{
+					"id": -1,
+					"name": "积分收支",
+					"pathName": "pages/jifenshouzhi/jifenshouzhi",
+					"scene": null
+
+
 				}
 			]
 		}
