@@ -397,6 +397,11 @@
   height: 18rpx;
   background: rgba(161, 96, 0, 1);
 }
+.checkyuan {
+  width: 18rpx;
+  height: 18rpx;
+  background: rgba(248, 232, 3, 0.993);
+}
 
 .tuhuang {
   color: #a16000;

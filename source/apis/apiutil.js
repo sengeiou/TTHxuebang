@@ -72,6 +72,27 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
   }
 
+  static Updatetime(str) {
+    var timestamp = Date.parse(str);
+
+    //返回当前时间毫秒数
+    timestamp = timestamp / 1000;
+    //获取当前时间
+    var n = timestamp *
+      1000;
+    var date = new Date(n);
+    //年
+    var Y =
+      date.getFullYear();
+    //月
+    var M = (date.getMonth()
+      + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+    //日
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+
+    return (Y + "年" + M + "月"+D+"日")
+  }
+
   static GetLocalTime(nS) {
     return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
   }
@@ -119,7 +140,10 @@ export class ApiUtil {
     dateObj.year = date.getFullYear();
     dateObj.month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
     dateObj.day = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-    dateObj.seven_date = dateObj.year + '.' + dateObj.month + '.' + dateObj.day;
+
+    dateObj.seven_date = dateObj.year + '-' + dateObj.month + '-' + dateObj.day;
+    dateObj.daka_date = dateObj.month + '/' + dateObj.day;
+
     dateObj.week = show_day[day];
     return dateObj;
   }

@@ -2,6 +2,12 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
+import {
+  ApiUtil
+} from "../../apis/apiutil";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -20,6 +26,26 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var jifenapi = new JifenApi();
+    var shousum=0;
+    var zhisum=0
+    jifenapi.jilulist({ member_id: this.Base.getMyData().memberinfo.id }, (jilulist) => {
+      
+      for (var i = 0; i < jilulist.length;i++){
+        if (jilulist[i].jifen < 0){
+          jilulist[i].type='A';
+          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date)
+          zhisum += parseInt(jilulist[i].jifen);
+        }
+        if (jilulist[i].jifen > 0) {
+          jilulist[i].type = 'B';
+          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date)
+          shousum += parseInt(jilulist[i].jifen);
+        }
+      }
+
+      this.Base.setMyData({ jilulist, shousum, zhisum })
+    })
   }
   xuanze(e){
     var type = e.currentTarget.id;

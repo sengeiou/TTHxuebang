@@ -107,7 +107,12 @@ class Content extends AppBase {
         status:"A"
        }, (addjifenorder) => {
 
+
+         var jifenapi = new JifenApi();
          
+         jifenapi.deduction({ member_id: this.Base.getMyData().memberinfo.id, goods_id: this.Base.options.id }, (deduction)=>{
+           this.Base.setMyData({ deduction })
+         })
 
 
          //console.log(addjifenorder.return+"阿");
@@ -124,9 +129,9 @@ class Content extends AppBase {
              url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return+'&shopid='+this.Base.options.id,
            })
          })
+
          this.Base.setMyData({ addjifenorder })
 
-        
       })
 
       this.Base.setMyData({

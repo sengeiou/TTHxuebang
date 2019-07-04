@@ -1,46 +1,67 @@
 <!--pages/ceshi/ceshi.wxml-->
 
 
-<view bindtap="btn" class="icon-100 bg-red">
-
-</view>
-
-<view style="height:200rpx"></view>
-
-
 <view class='qiandao margin-top-30 flex-row flex-center'>
   <view class='margin-left-29  flex-1'>
 
 
     <view class=' flex-row flex-center '>
 
-      <view class="  flex-row flex-center {{idx>0?'marginleft-10':''}}" style=" x" wx:for='{{seven_date}}' wx:key='l' wx:for-index='idx'>
+      <view class="  flex-row flex-center {{idx>0?'marginleft-10':''}}" style=" x" wx:for='{{week}}' wx:key='l' wx:for-index='idx'>
 
-        <view wx:if='{{day==2}}' class='dakaxian margin-top-4 {{day==1&&idx<1?"bgff":"bg9"}}'></view>
-        <view wx:if='{{day==3}}' class='dakaxian margin-top-4 {{day==2&&idx<2?"bgff":"bg9"}}'></view>
-        <view wx:if='{{day==4}}' class='dakaxian margin-top-4 {{day==3&&idx<3?"bgff":"bg9"}}'></view>
-        <view wx:if='{{day==5}}' class='dakaxian margin-top-4 {{day==4&&idx<4?"bgff":"bg9"}}'></view>
-        <view wx:if='{{day==6}}' class='dakaxian margin-top-4 {{day==5&&idx<5?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day<0&&idx>0}}' class='dakaxian margin-top-4 bg9'></view>
+
+        <!-- <view wx:if='{{day==-2&&idx>0}}' class='dakaxian margin-top-4 {{idx<2?"bgff":"bg9"}}'></view> -->
+
+        <view wx:if='{{day==0&&idx>0}}' class='dakaxian margin-top-4 {{idx<1?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==1&&idx>0}}' class='dakaxian margin-top-4 {{idx<2?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==2&&idx>0}}' class='dakaxian margin-top-4 {{idx<3?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==3&&idx>0}}' class='dakaxian margin-top-4 {{idx<4?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==4&&idx>0}}' class='dakaxian margin-top-4 {{idx<5?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==5&&idx>0}}' class='dakaxian margin-top-4 {{idx<6?"bgff":"bg9"}}'></view>
+        
+        <view wx:if='{{day==6&&idx>0}}' class='dakaxian margin-top-4 {{idx<7?"bgff":"bg9"}}'></view>
+
+        <view wx:if='{{day==7&&idx>0}}' class='dakaxian margin-top-4 {{idx<8?"bgff":"bg9"}}'></view>
 
 
 
         <view class='flex-row  flex-column '>
 
-          <view class='h6 txthuang width-46'>+{{idx<6?5:25}}</view>
+          
+          <view wx:if='{{day<0}}'  class='h6  width-46 txt-9'>+{{idx<6?5:25}}</view>
 
-          <view wx:if='{{day==1}}' class='dakadian  flex-1  {{day==1&&idx<1?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==0}}'  class='h6  width-46  {{day==0&&idx<1?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
-          <view wx:if='{{day==2}}' class='dakadian  flex-1  {{day==2&&idx<2?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==1}}'  class='h6  width-46  {{day==1&&idx<2?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
-          <view wx:if='{{day==3 }}' class='dakadian  flex-1  {{day==3&&idx<3?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==2}}'  class='h6  width-46  {{day==2&&idx<3?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
-          <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<4?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==3}}'  class='h6  width-46  {{day==3&&idx<4?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
-          <view wx:if='{{day==5 }}' class='dakadian  flex-1  {{day==5&&idx<5?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==4}}'  class='h6  width-46  {{day==4&&idx<5?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
 
+          <view wx:if='{{day<0}}' class='dakadian  flex-1 bg9'></view>
 
-          <view class=' f8  {{signNum>=min?"txthuang":""}}'>{{item.month}}/{{item.day}}</view>
+          <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<1?"bgff":"bg9"}}'></view>
+
+          <view wx:if='{{day==1}}' class='dakadian  flex-1  {{day==1&&idx<2?"bgff":"bg9"}}'></view>
+
+          <view wx:if='{{day==2 }}' class='dakadian  flex-1  {{day==2&&idx<3?"bgff":"bg9"}}'></view>
+
+          <view wx:if='{{day==3 }}' class='dakadian  flex-1  {{day==3&&idx<4?"bgff":"bg9"}}'></view>
+
+          <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<5?"bgff":"bg9"}}'></view>
+
+          <view class=' f8  {{signNum>=min?"txthuang":""}}' >{{item.daka_date}}</view>
+          
 
           </view>
 
@@ -49,8 +70,9 @@
 
     </view>
 
-    <view class='daka radius-50 text-center f15 txt-black txt-bold' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" wx:if='{{signState==false}}'>打卡</view>
-    <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{signState==true}}' bindtap='showtc'>已打卡</view>
+    <view class='daka radius-50 text-center f15 txt-black txt-bold' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" wx:if='{{dian==0}}'>打卡</view>
+
+    <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{dian==1}}' bindtap='showtc'>已打卡</view>
 
   </view>
 
@@ -63,10 +85,10 @@
       <view class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</view>
 
       <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
-1.登录用户每天可签到1次，并自动领取相应积分；
-2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
-3.活动最终解释权归学榜所有。
-</text>
+       1.登录用户每天可签到1次，并自动领取相应积分；
+       2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
+       3.活动最终解释权归学榜所有。
+      </text>
 
       <view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
     </view>
@@ -84,10 +106,11 @@
       <view class='flex-1'></view>
       <view style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;' class='dakawc flex-row flex-column'>
         <view style='height:376rpx;'></view>
-        <view class='txt_jifen txt-bold txt-white'>+5积分</view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==25}}'>+25积分</view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==5}}'>+5积分</view>
         <view class='tuhuang margin-top-10'>签到成功</view>
         <view style='height:84rpx;'></view>
-        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{signNum}}天</view>
+        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{dakalist.length}}天</view>
         <view style='height:32rpx'></view>
         <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
 
@@ -115,16 +138,16 @@
           <view class='flex-1'></view>
           <view class='flex-row flex-column'>
             <view class='h6 txt-white'>总积分</view>
-            <view class='f36 txt-white margin-top-10'>1000</view>
+            <view class='f36 txt-white margin-top-10'>{{sum}}</view>
           </view>
           <view class='flex-1'></view>
         </view>
 
         <view class='flex-row column margin-left-26'>
           <view class='flex-1'></view>
-          <view class='h6'>累计签到20天</view>
+          <view class='h6'>累计签到{{dakalist.length}}天</view>
           <view class='flex-1'></view>
-          <view class='h6'>已连续签到{{signNum}}天</view>
+          <view class='h6'>已连续签到{{dakalist.length}}天</view>
           <view class='flex-1'></view>
           <view class='h6'>连续签到7天额外领取20积分</view>
           <view class='flex-1'></view>
@@ -134,21 +157,45 @@
 
 
       <view class="zhong margin-top-46">
-        <view class=' ' wx:for='{{seven_date}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
+        <view class=' ' wx:for='{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
 
-          <view class='bg-tuhuang gun' wx:if='{{idx>0}}' style=''></view>
+          <view class='bg-tuhuang gun'   wx:if='{{idx>0}}' style=''></view>
+
+
 
           <view class='flex-row flex-center'>
-            <view wx:if='{{signNum>=min}}' class='tuhuang h6'>已签</view>
-            <view wx:if='{{signNum<min}}' class='txt-white h6'>未签</view>
-            <view class=' yuan radius-50 margin-left-15'></view>
-            <view class='tuhuang h6 margin-left-15'>{{item.seven_date}}</view>
-            <view class='tuhuang h6 margin-left-10 flex-1 '>{{item.week}}</view>
-            <view class='h6 txt-white  '>+{{min
-              <7?5:25}}</view>
+
+            <view wx:if='{{day==0}}' class='{{day==0&&idx<1?"txt-white":"tuhuang"}} h6'>{{day==0&&idx<1?"已签":"未签"}}</view>
+            <view wx:if='{{day==1}}' class='{{day==1&&idx<2?"txt-white":"tuhuang"}} h6'>{{day==1&&idx<2?"已签":"未签"}}</view>
+            <view wx:if='{{day==2}}' class='{{day==2&&idx<3?"txt-white":"tuhuang"}} h6'>{{day==2&&idx<3?"已签":"未签"}}</view>
+            <view wx:if='{{day==3}}' class='{{day==3&&idx<4?"txt-white":"tuhuang"}} h6'>{{day==3&&idx<4?"已签":"未签"}}</view>
+            <view wx:if='{{day==4}}' class='{{day==4&&idx<5?"txt-white":"tuhuang"}} h6'>{{day==4&&idx<5?"已签":"未签"}}</view>
+           
+            <view wx:if='{{day==0}}' class='radius-50 margin-left-15  {{day==0&&idx<1?"checkyuan":"yuan"}}'></view>
+
+            <view wx:if='{{day==1}}' class='radius-50 margin-left-15  {{day==1&&idx<2?"checkyuan":"yuan"}}'></view>
+            <view wx:if='{{day==2}}' class='radius-50 margin-left-15  {{day==2&&idx<3?"checkyuan":"yuan"}}'></view>
+            <view wx:if='{{day==3}}' class='radius-50 margin-left-15  {{day==3&&idx<4?"checkyuan":"yuan"}}'></view>
+            <view wx:if='{{day==4}}' class='radius-50 margin-left-15  {{day==4&&idx<5?"checkyuan":"yuan"}}'></view>
+
+            <!-- <view class=' yuan radius-50 margin-left-15'></view> -->
+
+            <view wx:if='{{day==0}}' class=' h6 margin-left-15 flex-1 {{day==0&&idx<1?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+             <view wx:if='{{day==1}}' class=' h6 margin-left-15 flex-1 {{day==1&&idx<2?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+              <view wx:if='{{day==2}}' class=' h6 margin-left-15 flex-1 {{day==2&&idx<3?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+               <view wx:if='{{day==3}}' class=' h6 margin-left-15 flex-1 {{day==3&&idx<4?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+                <view wx:if='{{day==4}}' class=' h6 margin-left-15 flex-1 {{day==4&&idx<5?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+            
+
+          <view class='h6 txt-white'>+{{idx<6?5:25}}</view>
+
+
+
             </view>
-
-
 
             <!-- <view class='flex-row flex-center '>
         <view wx:if='{{signNum>=min+1}}' class='tuhuang h6'>已签</view>
@@ -166,8 +213,8 @@
 
         <view class='flex-row flex-center'>
           <view class='flex-1'></view>
-          <view class='daka-btn-wc text-center' wx:if='{{signState==false}}' style='color:#FFC200' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}">立即打卡 </view>
-          <view class='daka-btn text-center' wx:if='{{signState==true}}' style='color:#FFC200'>已签到</view>
+          <!-- <view class='daka-btn-wc text-center' wx:if='{{signState==false}}' style='color:#FFC200' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}">立即打卡 </view> -->
+          <view class='daka-btn text-center' wx:if='{{dian==1}}' style='color:#FFC200'>已签到</view>
           <view class='flex-1'></view>
         </view>
 
