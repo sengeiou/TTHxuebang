@@ -5,6 +5,9 @@ import { InstApi } from "../../apis/inst.api.js";
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  HaibaoApi
+} from "../../apis/haibao.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -12,6 +15,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
+    this.daojishi();
     super.onLoad(options);
    
 
@@ -39,19 +43,14 @@ class Content extends AppBase {
       this.Base.setMyData({
         pintuaninfo: pintuaninfo, daojishilist: daojishilist
       })
-   this.daojishi();
+   
     })
 
   }
   daojishi() {
     var that = this;
-
-
-    var list = that.Base.getMyData().daojishilist;
-    console.log(list);
-    console.log(52);
     this.timer = setInterval(() => {
-
+      var list = that.Base.getMyData().daojishilist;
       var sjlist = [];
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
@@ -67,10 +66,7 @@ class Content extends AppBase {
         //计算相差秒数
         var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
         listtt.push(Math.round(leave3 / 1000));
-
-
         sjlist.push(listtt);
-
       }
       console.log("循环");
       that.Base.setMyData({
@@ -118,19 +114,33 @@ class Content extends AppBase {
       url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id + '&&type=' + this.Base.options.id
 
     })
-//    var api=new JigouApi();
-//     api.addgroup({id:this.Base.options.id},(jieguo)=>{
-    
-//   console.log(jieguo);
-//       if (jieguo.code==0)
-//       {
-//         clearInterval(this.timer);
-// this.onMyShow();
-
-//       }
 
 
-//     })
+  }
+  fenxian(){
+    var tz = this.Base.getMyData().pintuaninfo.commander_id == this.Base.getMyData().memberinfo.id?'1':'0';
+    console.log(this.Base.getMyData().pintuaninfo.commander_id);
+    console.log(this.Base.getMyData().memberinfo.id);
+     console.log(tz);
+     
+
+    var api = new HaibaoApi;
+    api.haibao2({tz:tz,ptid:this.Base.options.id}, (res) => {
+      console.log(res);
+
+      
+      if (res.code == 0) {
+
+      
+         
+        wx.navigateTo({
+          url: '/pages/pintuanhaibao/pintuanhaibao?name=' + res.return+'&id='+this.Base.options.id,
+        })
+
+
+      }
+    })
+
 
   }
 }
@@ -144,4 +154,5 @@ body.onMyShow = content.onMyShow;
 body.daojishi = content.daojishi;
 body.addgroup = content.addgroup;
 body.laren = content.laren;
+body.fenxian = content.fenxian;
 Page(body)

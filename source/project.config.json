@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 57,
+			"current": 58,
 			"list": [
 				{
 					"id": 0,
@@ -452,6 +452,14 @@
 					"id": -1,
 					"name": "打卡测试页",
 					"pathName": "pages/ceshi/ceshi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "拼团海报",
+					"pathName": "pages/pintuanhaibao/pintuanhaibao",
+					"query": "name=136313_ttxhbpt.png",
 					"scene": null
 				}
 			]

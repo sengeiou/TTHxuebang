@@ -105,6 +105,70 @@ export class JifenApi{
         })
     }
 
+    daka(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jifen/daka',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
+    dakalist(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jifen/dakalist',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     jifenorderinfo(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -265,7 +329,7 @@ export class JifenApi{
         })
     }
 
-    dakalist(json, callback, showLoading = true) {
+    addjifen(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -274,7 +338,7 @@ export class JifenApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jifen/dakalist',
+            url: ApiConfig.GetApiUrl() + 'jifen/addjifen',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -297,7 +361,7 @@ export class JifenApi{
         })
     }
 
-    daka(json, callback, showLoading = true) {
+    deduction(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -306,7 +370,7 @@ export class JifenApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jifen/daka',
+            url: ApiConfig.GetApiUrl() + 'jifen/deduction',
             data: json,
             method: 'POST',
             dataType: 'json',

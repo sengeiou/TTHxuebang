@@ -100,9 +100,9 @@
       <view class='h6 margin-top-10'>待付款</view>
     </view>
 
-    <view  bindtap="orderlist" data-id='ygm' class='flex-row flex-column flex-1'>
+    <view  bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
-      <view class='h6 margin-top-10'>已购买</view>
+      <view class='h6 margin-top-10'>已拼班</view>
     </view>
 
     <view  bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
@@ -115,7 +115,7 @@
       <view class='h6 margin-top-10'>待收货</view>
     </view>
 
-    <view  class='flex-row flex-column flex-1'>
+    <view  bindtap="tuikuan"  class='flex-row flex-column flex-1'>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.fukuanzhanghu}}'></image>
       <view class='h6 margin-top-10'>退款/售后</view>
     </view>

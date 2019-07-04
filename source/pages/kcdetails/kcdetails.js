@@ -195,8 +195,8 @@ class Content extends AppBase {
     });
 
 
-    jigouapi.checkcanbuy({
-      course_id: this.Base.options.id
+    jigouapi.orderstatus({
+      id: this.Base.options.id
     }, (canbuy) => {
 
       this.Base.setMyData({

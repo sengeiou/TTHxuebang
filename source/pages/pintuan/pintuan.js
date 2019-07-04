@@ -25,6 +25,12 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+
+  setPageTitle() {
+    wx.setNavigationBarTitle({
+      title: '待拼班',
+    });
+  }
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
@@ -57,11 +63,20 @@ class Content extends AppBase {
 
 
   }
+  // kechenxianqin(e) {
+  //   console.log(e);
+  //   wx.navigateTo({
+  //     url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+  //   })
+
+  // }
+
   onMyShow() {
     var that = this;
     var api = new PurchaseApi();
 
     api.purchaselist({
+      sppp: 1
     }, (alllist) => {
 
       this.Base.setMyData({
@@ -70,7 +85,7 @@ class Content extends AppBase {
     });
 
     api.purchaselist({
-      pstatus: 'P,U,R'
+      pstatus: 'PT', sppp: 1
     }, (wclist) => {
       this.Base.setMyData({
         wclist
@@ -82,14 +97,6 @@ class Content extends AppBase {
     }, (dflist) => {
       this.Base.setMyData({
         dflist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'PJ'
-    }, (pjlist) => {
-      this.Base.setMyData({
-        pjlist
       });
     });
 
@@ -188,4 +195,5 @@ body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
 body.kantuan = content.kantuan;
+body.kechenxianqin = content.kechenxianqin;
 Page(body)

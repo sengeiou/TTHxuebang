@@ -57,39 +57,33 @@ class Content extends AppBase {
 
 
   }
+  // kechenxianqin(e) {
+  //   console.log(e);
+  //   wx.navigateTo({
+  //     url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+  //   })
+
+  // }
+
   onMyShow() {
     var that = this;
     var api = new PurchaseApi();
 
     api.purchaselist({
-    }, (alllist) => {
-
-      this.Base.setMyData({
-        alllist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'P,U,R'
+      sppp: 1, pstatus:'R,F'
     }, (wclist) => {
+
       this.Base.setMyData({
         wclist
       });
     });
 
+ 
     api.purchaselist({
       pstatus: 'W'
     }, (dflist) => {
       this.Base.setMyData({
         dflist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'PJ'
-    }, (pjlist) => {
-      this.Base.setMyData({
-        pjlist
       });
     });
 
@@ -188,4 +182,5 @@ body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
 body.kantuan = content.kantuan;
+body.kechenxianqin = content.kechenxianqin;
 Page(body)

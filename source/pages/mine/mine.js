@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ reminderpay});
+    // this.Base.setMyData({ reminderpay });
   }
   onMyShow() {
     var that = this;
@@ -49,24 +49,24 @@ class Content extends AppBase {
     });
   }
   startscan() {
-    var that=this;
+    var that = this;
     wx.scanCode({
       scanType: ['qrCode'],
       success(res) {
-        var result=res.result;
-        if(result==""||result.length!=8){
-          that.Base.info("扫码内容不正确~"+result);
+        var result = res.result;
+        if (result == "" || result.length != 8) {
+          that.Base.info("扫码内容不正确~" + result);
           return;
         }
         wx.navigateTo({
-          url: '/pages/hexiao/hexiao?usecode='+result,
+          url: '/pages/hexiao/hexiao?usecode=' + result,
         })
       }
     })
   }
 
-  todetails(e){
-    var name=e.currentTarget.dataset.name;
+  todetails(e) {
+    var name = e.currentTarget.dataset.name;
     // if (name == "cj") {
     //   wx.navigateTo({
     //     url: '/pages/myorder/myorder',
@@ -83,21 +83,21 @@ class Content extends AppBase {
     //   })
     // }
     if (name == "kf") {
-       wx.navigateTo({
-         url: '/pages/lianxikefu/lianxikefu',
-       })
-     }
-    if (name=="dizhi"){
       wx.navigateTo({
-        url: '/pages/xuanzedizhi/xuanzedizhi?type='+"Y",
+        url: '/pages/lianxikefu/lianxikefu',
       })
-    } 
+    }
+    if (name == "dizhi") {
+      wx.navigateTo({
+        url: '/pages/xuanzedizhi/xuanzedizhi?type=' + "Y",
+      })
+    }
     if (name == "pc") {
       wx.navigateTo({
         url: '/pages/mypingce/mypingce',
       })
     }
-    if(name=="dd"){
+    if (name == "dd") {
       wx.navigateTo({
         url: '/pages/myorder/myorder',
       })
@@ -143,26 +143,40 @@ class Content extends AppBase {
       })
     }
 
-   
-  
+
+
   }
-  gotohaizi(){
+  gotohaizi() {
     wx.navigateTo({
       url: '/pages/studentmsg/studentmsg',
     })
   }
-  showtoast(e){
+  showtoast(e) {
     wx.showToast({
       title: '暂未开放，敬请期待',
-      icon:'none'
+      icon: 'none'
     })
   }
-  orderlist(e)
-  {
+  orderlist(e) {
 
- wx.navigateTo({
-   url: '/pages/myorder/myorder?type='+e.currentTarget.dataset.id,
- })
+    wx.navigateTo({
+      url: '/pages/myorder/myorder?type=' + e.currentTarget.dataset.id,
+    })
+
+
+
+  }
+  pintuan(){
+    wx.navigateTo({
+      url: '/pages/pintuan/pintuan' ,
+    })
+
+
+  }
+  tuikuan(){
+  wx.navigateTo({
+    url: '/pages/tuikuan/tuikuan',
+  })
 
   }
 }
@@ -176,4 +190,6 @@ body.todetails = content.todetails;
 body.gotohaizi = content.gotohaizi;
 body.showtoast = content.showtoast;
 body.orderlist = content.orderlist;
+body.pintuan = content.pintuan;
+body.tuikuan = content.tuikuan;
 Page(body)

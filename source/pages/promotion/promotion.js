@@ -165,6 +165,8 @@ class Content extends AppBase {
   }
   yaoqin() {
     var api = new HaibaoApi;
+     
+     
     api.haibao({}, (res) => {
       console.log(res);
       if (res.code == 0) {
