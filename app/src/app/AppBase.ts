@@ -30,6 +30,7 @@ export class AppBase implements OnInit {
     public static Resources = null;
     public res = null;
     public static InstInfo = null;
+    public static MemberInfo=null;
     public InstInfo = { h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = { avatarUrl: "", nickName: "" };
     public static MYBABY = [];
@@ -79,18 +80,16 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = instinfo;
                 this.InstInfo = instinfo;
                 console.log(instinfo);
-                var redirecturl=encodeURIComponent(window.location.href);
-                var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
-                console.log({redurl});
-                //
+                
                 if(this.params.code!=undefined&&this.params.state=='123'){
 
-                    AppBase.memberapi.getuserinfo({h5:"Y",code:this.params.code,grant_type:"authorization_code"}).then((res)=>{
-                        console.log(res);
-                    });
-
                 }else{
-                    window.location.href=redurl;
+                    if(AppBase.MemberInfo==null){
+                        var redirecturl=encodeURIComponent(window.location.href);
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+                        console.log({redurl});
+                        window.location.href=redurl;
+                    }
                 }
             });
         } else {
@@ -98,6 +97,7 @@ export class AppBase implements OnInit {
         }
     }
     getMemberInfo() {
+
         AppBase.memberapi.info({}).then((memberinfo) => {
             if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
                 //alert("?");
@@ -118,9 +118,32 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
+        
+        if(AppBase.MemberInfo==null){
+            //
+            if(this.params.code!=undefined&&this.params.state=='123'){
+                AppBase.memberapi.getuserinfo({h5:"Y",code:this.params.code,grant_type:"authorization_code"}).then((memberinfo)=>{
+                    memberinfo.h5openid=memberinfo.openid;
+                    AppBase.MemberInfo=memberinfo;
+                    this.MemberInfo=memberinfo;
 
+                    ApiConfig.SetToken(memberinfo.h5openid);
+                    ApiConfig.SetTokenKey(memberinfo.unionid);
+                    AppBase.memberapi.updateh5(memberinfo).then((res)=>{
+                        this.onMyShow();
+                    });
+                    
+                });
+            }else{
+                //alert("看到这个就是逻辑出大问题了");
+            }
+        }else{
 
-        this.onMyShow();
+            this.MemberInfo=AppBase.MemberInfo;
+            this.onMyShow();
+        }
+        
+
     }
 
     onMyShow() {
