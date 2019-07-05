@@ -1,7 +1,7 @@
 <view class="h5 text-center margin-top" style='color:rgba(34, 34, 34, 1)'>
   可提现金额</view>
 <view class="h2 center txt-bold" style='color:rgba(34, 34, 34, 1);'>
-  <text style='color:rgba(34, 34, 34, 1)'>￥</text>0.00</view>
+  <text style='color:rgba(34, 34, 34, 1)'>￥</text>{{memberinfo.tuiguanshouyi}}</view>
 <view class="flex-row flex-center margin-top-10">
   <view class="flex-1"></view>
   <view bindtap='mingxi' class="h6" style='color:rgba(88, 157, 233, 1)'>收支明细</view>

@@ -8,10 +8,10 @@
 <view class="padding-30  padding-top-20">
   <view class="content_bg ">
     <view class="padding-40">
-      <view class="h5" style='color:rgba(161, 111, 47, 1)'>图层累计推广收益(元)</view>
+      <view class="h5" style='color:rgba(161, 111, 47, 1)'>累计推广收益(元)</view>
       <view class="flex-row flex-bottom margin-top-20">
         <view class="h4-5" style="color:rgba(255, 255, 255, 1)">￥</view>
-        <view class=" h2" style="color:rgba(255, 255, 255, 1)">0.00</view>
+        <view class=" h2" style="color:rgba(255, 255, 255, 1)">{{memberinfo.tuiguanshouyi}}</view>
         <view class="flex-1"></view>
         <view bindtap='lijitixian' class="tixian">立即提现</view>
       </view>

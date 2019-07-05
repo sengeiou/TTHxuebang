@@ -32,7 +32,7 @@ border-radius: 10rpx;
   color: #FF5733;
 }
 .hkg{
-height: 80rpx;
+height: 40rpx;
 
 }
 .xian{

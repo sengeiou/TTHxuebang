@@ -55,7 +55,7 @@ class Content extends AppBase {
 
     this.timer = setInterval(() => {
 
-      var list = that.Base.getMyData().daojishilist;
+      var list = that.Base.getMyData().daojishilistdd;
       console.log(list);
       console.log(52);
       var sjlist = [];
@@ -138,6 +138,7 @@ class Content extends AppBase {
           console.log(pintuanlist);
           var pintuanrenshu = 0;
           var daojishilist = [];
+          var daojishilistdd=[];
           for (var i = 0; i < pintuanlist.length; i++) {
             pintuanrenshu += pintuanlist[i].tuanlist.length;
             pintuanlist[i].commander_id_name = ApiUtil.masaike(pintuanlist[i].commander_id_name);
@@ -149,12 +150,16 @@ class Content extends AppBase {
                 daojishilist.push(pintuanlist[i]);
               }
             }
+            if (pintuanlist[i].status == 'A') {
+              daojishilistdd.push(pintuanlist[i]);
+            }
           }
-
+     
           this.Base.setMyData({
             pintuanlist: pintuanlist,
             pintuanrenshu: pintuanrenshu,
-            daojishilist: daojishilist
+            daojishilist: daojishilist,
+            daojishilistdd: daojishilistdd
           })
         })
       }
@@ -439,6 +444,11 @@ class Content extends AppBase {
 
     })
   }
+  chakantuan(){
+    wx.navigateTo({
+      url: '/pages/groupinfo/groupinfo?id='+this.Base.getMyData().canbuy.pt,
+    })
+  }
 }
 var timer = 1;
 var content = new Content();
@@ -467,4 +477,5 @@ body.yaoqin = content.yaoqin;
 body.lifk = content.lifk;
 body.check = content.check;
 body.chakangenduo = content.chakangenduo;
+body.chakantuan = content.chakantuan;
 Page(body)

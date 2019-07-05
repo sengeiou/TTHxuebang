@@ -33,7 +33,7 @@
         </view>
 
         <view wx:if="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</view>
-        <view wx:if="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</view>
+        <view wx:if="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5 chaochu2  height-60 '>{{item.onlineclassroom_class_introduce }}111111111111111111111111111111111111111111111111111111111111111111111111</view>
 
         <view wx:if="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
 
@@ -59,7 +59,7 @@
 
 
         </view>
-        <view wx:if="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <view wx:if="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-20' style=''>
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10'></image>

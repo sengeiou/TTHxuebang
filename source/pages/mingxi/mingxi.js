@@ -22,7 +22,26 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new JigouApi();
+    api.tgjilu({},(tgjilu)=>{
+        var shouru=0;
+       tgjilu.map((item)=>{
+      
+         if (item.caozuo=='TG')
+         {
+           shouru += Number(item.yuer);
+         }
+         else{
 
+           shouru -= Number(item.yuer);
+         }
+         
+          
+
+       })
+      
+      this.Base.setMyData({ tgjilu, shouru: shouru});
+
+    })
   }
  
 
