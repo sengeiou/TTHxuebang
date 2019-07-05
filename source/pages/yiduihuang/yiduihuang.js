@@ -29,7 +29,7 @@ class Content extends AppBase {
   }
   back(e){
    wx.navigateBack({
-    delta:3
+    delta:2
    })
   }
   order(e){

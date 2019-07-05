@@ -104,6 +104,9 @@ export class ApiUtil {
   }
 
   static GetDates(days, todate) {
+     
+    
+    
     //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     var dateLater = ApiUtil.DateLater;
@@ -134,7 +137,9 @@ export class ApiUtil {
   static DateLater(dates, later) {
     let dateObj = {};
     let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
-    let date = new Date(dates);
+    let date = new Date(dates.replace(/-/g, '/')); 
+     console.log("hahahah");
+    console.log(dates.replace(/-/g, '/'));
     date.setDate(date.getDate() + later);
     let day = date.getDay();
     dateObj.year = date.getFullYear();

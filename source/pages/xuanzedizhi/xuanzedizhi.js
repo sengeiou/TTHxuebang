@@ -68,7 +68,10 @@ class Content extends AppBase {
   }
   quedin(e){
     var inventory = this.Base.options.inventory;
+
     var jifen = this.Base.options.interral;
+    var shuliang=this.Base.options.shuliang;
+
     var myjifen = e.currentTarget.id;
     var img=this.Base.options.img;
 
@@ -77,7 +80,7 @@ class Content extends AppBase {
 
     var shanpin=this.Base.options.name;
 
-    var shengyu = myjifen - jifen;
+    var shengyu = myjifen - jifen * shuliang;
 
     console.log(shengyu + "剩余");
     if (parseInt(jifen) > parseInt(myjifen)){
@@ -98,6 +101,7 @@ class Content extends AppBase {
         member_id:this.Base.getMyData().memberinfo.id,
         jifen: jifen,
         img:img,
+        shuliang: shuliang,
         name:shanpin,
         orderstatus:"A",
         consignee: info.name,
@@ -122,7 +126,7 @@ class Content extends AppBase {
            this.Base.setMyData({ updatekucun })
          })
 
-         jifenapi.updatejifen({ id: 10, integral: shengyu }, (updatejifen) => {
+         jifenapi.updatejifen({ id: this.Base.getMyData().memberinfo.id, integral: shengyu }, (updatejifen) => {
            this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
            this.onMyShow();
            wx.redirectTo({

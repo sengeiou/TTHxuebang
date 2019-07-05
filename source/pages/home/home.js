@@ -441,20 +441,19 @@ class Content extends AppBase {
         dakalist
       })
 
-
       if (dakalist.length == 0) {
         var jintian = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '-' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '-' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
 
         var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
 
         var a = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
 
         var week = ApiUtil.GetDates(7, pd_time);
-
+     
         this.Base.setMyData({
           day: -1,
           dian: 0,
@@ -469,10 +468,10 @@ class Content extends AppBase {
 
       if (this.Base.getMyData().dk == -1) {
         var jintian = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '-' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '-' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
 
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) + 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
 
         var a = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
@@ -480,7 +479,7 @@ class Content extends AppBase {
 
         if (a.length == 0) {
           this.Base.setMyData({
-            xianzai: jintian, day: -1, no: 1
+            xianzai: jintian, day: -1, no: 1,dk:0,dian:0
           })
           console.log("考虑开始");
 
@@ -504,9 +503,9 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 0) {
 
         var jintian = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '-' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '-' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
         var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
 
         var a = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
@@ -531,7 +530,7 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 1) {
 
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 2 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
@@ -540,7 +539,7 @@ class Content extends AppBase {
         console.log("离开了")
 
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
 
         if (a2.length == 0) {
           this.Base.setMyData({
@@ -560,12 +559,12 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 2) {
 
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 3 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 2 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
         if (a2.length == 0) {
           this.Base.setMyData({
             xianzai: pd_time
@@ -586,12 +585,12 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 3) {
 
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 4 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 3 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
 
         if (a2.length == 0) {
           this.Base.setMyData({
@@ -612,12 +611,12 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 4) {
 
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 5 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 4 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
         if (a2.length == 0) {
           this.Base.setMyData({
             xianzai: pd_time
@@ -637,13 +636,13 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 5) {
         var jf = this.Base.getMyData().jf;
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 6 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
 
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 5 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
         if (a2.length == 0) {
           this.Base.setMyData({
             xianzai: pd_time
@@ -664,12 +663,12 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == 6) {
 
         var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 7 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '-' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '-' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
         var a2 = dakalist.filter((item, idx) => {
           return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
         })
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 6 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '-' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '-' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
         if (a2.length == 0) {
           this.Base.setMyData({
             xianzai: pd_time
@@ -726,6 +725,8 @@ class Content extends AppBase {
   //打卡
   bindSignIn(e) {
     var that = this;
+
+    this.Base.setMyData({dian:1})
     //   days = e.currentTarget.dataset.days;
     // days++
 

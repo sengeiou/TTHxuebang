@@ -7,6 +7,12 @@
     <view wx:if='{{show!="all"}}' class='' style='width:50rpx;height:6rpx;'></view>
   </view>
 
+  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='ok'>
+    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成</view>
+    <view wx:if='{{show=="wc"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></view>
+    <view wx:if='{{show!="wc"}}' class='' style='width:50rpx;height:6rpx;'></view>
+  </view>
+
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
     <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>待发货</view>
     <view wx:if='{{show=="finished"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></view>
@@ -19,11 +25,7 @@
     <view wx:if='{{show!="wait"}}' class='' style='width:50rpx;height:6rpx;'></view>
   </view>
 
-  <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='ok'>
-    <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成</view>
-    <view wx:if='{{show=="wc"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></view>
-    <view wx:if='{{show!="wc"}}' class='' style='width:50rpx;height:6rpx;'></view>
-  </view>
+
 
   <!-- <view class='xiaoxi'>
     <view wx:if="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</view>
@@ -36,7 +38,7 @@
 <!-- 全部订单-->
 <view class="" wx:if='{{show=="all"}}'>
 
-  <view class="block  " wx:for='{{alllist}}' wx:key='k' >
+  <view class="block  " wx:for='{{alllist}}' wx:key='k'>
 
     <view class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
       <image src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24"></image>
@@ -45,12 +47,14 @@
 
         <view class="flex-row flex-center">
           <view class="h5 flex-1">{{item.name}}</view>
-          <view class="txt-red h6 txt-bold  margin-right-24">
+          <view class="txt-red h6 txt-bold  margin-right-24" wx:if='{{item.orderstatus!="C"}}'>
             {{item.orderstatus_name}}
           </view>
+
+          <image wx:if='{{item.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
         </view>
 
-        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X 1</view>
+        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
 
         <view style="height:60rpx"></view>
 
@@ -68,9 +72,14 @@
       <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
 
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1"></view>
+      <view class="flex-1 margin-left-24">
+        <image src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" wx:if='{{item.orderstatus=="C"}}' class="icon_shan"></image>
+      </view>
 
-      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}' bindtap='wuliu' class="lianxi text-center margin-right-24 txt-6" style="">物流详情</view>
+
+      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}' bindtap='wuliu' class="lianxi text-center   txt-6" style="">物流详情</view>
+      <view wx:if='{{item.orderstatus=="B"}}' bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
+
 
     </view>
 
@@ -83,7 +92,7 @@
 
   <view class="block  " wx:for='{{daifalist}}' wx:key='k'>
 
-    <view class="flex-row"  bindtap='bindtodetails' id='{{item.id}}'>
+    <view class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
       <image src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24"></image>
 
       <view class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -95,7 +104,7 @@
           </view>
         </view>
 
-        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X 1</view>
+        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
 
         <view style="height:60rpx"></view>
 
@@ -127,7 +136,7 @@
 
   <view class="block  " wx:for='{{daishoulist}}' wx:key='k'>
 
-    <view class="flex-row"  bindtap='bindtodetails' id='{{item.id}}'>
+    <view class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
       <image src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24"></image>
 
       <view class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -139,7 +148,7 @@
           </view>
         </view>
 
-        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X 1</view>
+        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
 
         <view style="height:60rpx"></view>
 
@@ -158,7 +167,9 @@
 
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
       <view class="flex-1"></view>
-      <view class="lianxi text-center margin-right-24 txt-6" style="" bindtap='wuliu'>物流详情</view>
+      <view class="lianxi text-center  txt-6" style="" bindtap='wuliu'>物流详情</view>
+      <view bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
+
     </view>
 
   </view>
@@ -168,21 +179,25 @@
 <!-- 已完成订单-->
 <view class="" wx:if='{{show=="wc"}}'>
 
-  <view class="block  " wx:for='{{wanchenlist}}' wx:key='k' >
+  <view class="block  " wx:for='{{wanchenlist}}' wx:key='k'>
 
-    <view class="flex-row"  bindtap='bindtodetails' id='{{item.id}}'>
+    <view class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
       <image src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24"></image>
 
       <view class="flex-row column margin-top-24 flex-1 margin-left-20">
 
         <view class="flex-row flex-center">
-          <view class="h5 flex-1">{{item.name}}</view>
-          <view class="txt-red h6 txt-bold  margin-right-24">
-            {{item.orderstatus_name}}
+
+          <view class="flex-1">
+            <view class="h5 ">{{item.name}}</view>
+            <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
           </view>
+
+          <image src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
+
         </view>
 
-        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X 1</view>
+
 
         <view style="height:60rpx"></view>
 
@@ -196,11 +211,13 @@
 
     <view style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></view>
 
-    <view class="flex-row flex-center margin-top-8">
+    <view class="flex-row flex-center margin-top-6">
       <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1"></view>
-      <view class="lianxi text-center margin-right-24 txt-6" style="" bindtap='wuliu'>物流详情</view>
+      <view class="flex-1 margin-left-24 ">
+        <image src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" class="icon_shan"></image>
+      </view>
+      <view class="lianxi text-center margin-right-24  txt-6" style="" bindtap='wuliu'>物流详情</view>
     </view>
 
   </view>

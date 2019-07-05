@@ -156,15 +156,31 @@
 
           <view wx:if='{{day<0}}' class='dakadian  flex-1 bg9'></view>
 
+
+
+        <view wx:if="{{dian==1}}">
           <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<1?"bgff":"bg9"}}'></view>
-
           <view wx:if='{{day==1}}' class='dakadian  flex-1  {{day==1&&idx<2?"bgff":"bg9"}}'></view>
-
           <view wx:if='{{day==2 }}' class='dakadian  flex-1  {{day==2&&idx<3?"bgff":"bg9"}}'></view>
-
           <view wx:if='{{day==3 }}' class='dakadian  flex-1  {{day==3&&idx<4?"bgff":"bg9"}}'></view>
-
           <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<5?"bgff":"bg9"}}'></view>
+        </view>
+
+
+        <view wx:if="{{dian==0}}">
+          <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<0?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==1}}' class='dakadian  flex-1  {{day==1&&idx<1?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==2 }}' class='dakadian  flex-1  {{day==2&&idx<2?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==3 }}' class='dakadian  flex-1  {{day==3&&idx<3?"bgff":"bg9"}}'></view>
+          <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<4?"bgff":"bg9"}}'></view>
+        </view>
+
+
+
+
+
+
+
 
           <view class=' f8  {{signNum>=min?"txthuang":""}}' >{{item.daka_date}}</view>
           

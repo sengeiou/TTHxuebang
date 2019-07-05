@@ -48,6 +48,8 @@
           <view wx:if='{{day==4}}'  class='h6  width-46  {{day==4&&idx<5?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
 
 
+
+
           <view wx:if='{{day<0}}' class='dakadian  flex-1 bg9'></view>
 
           <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<1?"bgff":"bg9"}}'></view>
@@ -62,6 +64,8 @@
 
           <view class=' f8  {{signNum>=min?"txthuang":""}}' >{{item.daka_date}}</view>
           
+
+
 
           </view>
 

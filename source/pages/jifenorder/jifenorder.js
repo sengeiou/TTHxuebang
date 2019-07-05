@@ -80,12 +80,74 @@ class Content extends AppBase {
       complete: function(res) {},
     })
   }
+  shouhuo(e){
+    var that=this;
+    var id=e.currentTarget.id;
+    var jifenapi = new JifenApi();
+
+    wx.showModal({
+      title: '提交',
+      content: '确认收货？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          jifenapi.shouhuo({ id: id }, (shouhuo) => {
+            that.Base.setMyData({ shouhuo })
+
+            wx.showToast({
+              title: '确认收货成功',
+              icon:'none'
+            })
+            that.onMyShow();
+          })
+        }
+      }
+    });
+
+  }
+  shanchu(e){
+   
+    var that=this;
+    var id=e.currentTarget.id;
+    var jifenapi = new JifenApi();
+
+    wx.showModal({
+      title: '提交',
+      content: '确认删除该订单？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          jifenapi.shanchu({ id: id }, (shanchu) => {
+            that.Base.setMyData({ shanchu })
+
+            wx.showToast({
+              title: '删除订单成功',
+              icon:'none'
+            })
+            that.onMyShow();
+          })
+        }
+      }
+    });
+
+  
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.bindshow = content.bindshow; 
+body.shouhuo = content.shouhuo; 
+body.shanchu = content.shanchu;
 body.bindtodetails = content.bindtodetails; 
 body.wuliu = content.wuliu;
 Page(body)

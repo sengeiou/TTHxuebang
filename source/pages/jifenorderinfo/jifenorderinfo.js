@@ -27,9 +27,15 @@ class Content extends AppBase {
       this.Base.setMyData({ info })
     })
   }
+  towuliu(e){
+    wx.navigateTo({
+      url: '/pages/wuliu/wuliu'
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
+body.towuliu = content.towuliu;
 Page(body)

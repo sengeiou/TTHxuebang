@@ -6,7 +6,7 @@
 }
 
 .icon-huowu {
-  width: 52rpx;
+  width: 56rpx;
   height: 56rpx;
 }
 
@@ -15,8 +15,9 @@
   background: rgba(255, 255, 255, 1);
 }
 
+
 .icon-zuobiao {
-  width: 36rpx;
+  width: 48rpx;
   height: 48rpx;
 }
 

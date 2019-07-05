@@ -10,10 +10,12 @@
 
 .top {
   position: fixed;
+  z-index: 100;
   width: 100vw;
 }
 
 .block {
+  position: relative;
   width: 702rpx;
   height: 306rpx;
   background: rgba(255, 255, 255, 1);
@@ -24,7 +26,9 @@
 .margin-24 {
   margin: 24rpx;
 }
-
+.margin-left-14 {
+  margin-left: 14rpx;
+}
 .margin-left-24 {
   margin-left: 24rpx;
 }
@@ -32,7 +36,13 @@
 .margin-top-24 {
   margin-top: 24rpx;
 }
-
+.iconwc{
+  position: absolute;
+  width:140rpx;
+  height: 110rpx; 
+  top: 0;
+  right: 0;
+}
 .margin-right-24 {
   margin-right: 24rpx;
 }
@@ -41,10 +51,17 @@
   margin-top: 8rpx;
 }
 
+.margin-top-6{
+  margin-top:6rpx;
+}
 .icon-img {
   width: 168rpx;
   height: 168rpx;
   border-radius: 8rpx;
+}
+.icon_shan{
+  width:52rpx;
+height:52rpx;
 }
 
 .txt-red {

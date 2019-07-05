@@ -37,7 +37,7 @@ class Content extends AppBase {
     //options.id=1;
     super.onLoad(options);
     this.Base.setMyData({
-      show: 0
+      show: 0,shuliang:1,sl:1
     });
   }
   onMyShow() {
@@ -53,6 +53,26 @@ class Content extends AppBase {
       url: '/pages/jifenshouzhi/jifenshouzhi'
     })
   }
+
+jia(e){
+  var shuliang=this.Base.getMyData().shuliang;
+  shuliang++
+  this.Base.setMyData({ shuliang})
+}
+jian(e){
+  var shuliang = this.Base.getMyData().shuliang;
+  shuliang--
+  if (shuliang<=0){
+    wx.showToast({
+      title: '至少兑换一个',
+      icon: 'none',
+    })
+    return;
+
+  }
+  this.Base.setMyData({ shuliang })
+}
+
   toduihuan(e) {
     
     this.Base.setMyData({
@@ -70,6 +90,7 @@ class Content extends AppBase {
   next(e){
     var inventory = e.currentTarget.id;
     var interral = e.currentTarget.dataset.jifen;
+    var shuliang = this.Base.getMyData().shuliang;
     var img = e.currentTarget.dataset.img;
     var name = e.currentTarget.dataset.name;
     console.log(inventory - 1 + "库存");
@@ -84,7 +105,7 @@ class Content extends AppBase {
     }
 
     wx.navigateTo({
-      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral+'&id='+this.Base.options.id+'&img='+img+'&name='+name
+      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral + '&id=' + this.Base.options.id + '&img=' + img + '&name=' + name + '&shuliang=' + shuliang
     })
 
   }
@@ -100,4 +121,8 @@ body.toshouzhi = content.toshouzhi;
 body.toduihuan = content.toduihuan;
 body.close = content.close; 
 body.next = content.next;
+
+body.jia = content.jia;
+body.jian = content.jian;
+
 Page(body)
