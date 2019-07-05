@@ -14,7 +14,7 @@ page {
 }
 .dakawc{
   width:85vw;
-  height: 400rpx;
+  height: 350rpx;
   border-radius: 10rpx;
   background: white;
 }

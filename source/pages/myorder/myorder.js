@@ -93,6 +93,22 @@ class Content extends AppBase {
       });
     });
 
+    api.purchaselist({
+      pstatus: 'DSH'
+    }, (dshlist) => {
+      this.Base.setMyData({
+        dshlist
+      });
+    });
+
+  }
+  courseinfo(e)
+  {
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + e.currentTarget.dataset.id
+    })
+  
+   
   }
 
   bindshow(e) {
@@ -175,7 +191,43 @@ class Content extends AppBase {
     })
 
   }
+  pinjia(e)
+  {
+    wx.navigateTo({
+      url: '/pages/pingjia/pingjia?id='+e.currentTarget.dataset.id,
+    })
 
+  }
+  shanchu(e)
+  {
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+
+    wx.showModal({
+      title: '确认删除此订单？',
+      content: '删除后不能恢复',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#FF6600',
+      confirmText: '确定',
+      confirmColor: '#FF6600',
+      success: function (res) {
+        if (res.confirm) {
+          var batchapi = new BatchApi();
+          batchapi.deleteorder({ id: id }, (colseorder) => {
+            that.Base.setMyData({ colseorder })
+            that.onMyShow();
+          })
+        }
+      }
+    });
+  }
+  pinjialist(e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/pingjialist/pingjialist?id=' + id
+    })
+  }
 }
 
 var content = new Content();
@@ -188,4 +240,8 @@ body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
 body.kantuan = content.kantuan;
+body.pinjia = content.pinjia;
+body.shanchu = content.shanchu;
+body.courseinfo = content.courseinfo;
+body.pinjialist = content.pinjialist;
 Page(body)

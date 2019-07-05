@@ -377,7 +377,7 @@
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' wx:if="{{canbuy.code=='-2'}}">
             <!-- <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view> -->
-            <view class='h6 txt-white margin-top-30' wx:if="{{canbuy.code=='-2'}}">查看团详情</view>
+            <view bindtap="chakantuan" class='h6 txt-white margin-top-30' wx:if="{{canbuy.code=='-2'}}">查看团详情</view>
 
           </view>
 
@@ -520,9 +520,10 @@
     <view class='flex-row flex-center'>
       <view class='flex-1'></view>
       <view class='dakawc  '>
-        <view wx:for="{{daojishilist}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
+        <view class="height-40 "></view>
+        <view wx:for="{{daojishilistdd}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
           <image src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30'></image>
-          <view  class="margin-left-20">
+          <view class="margin-left-20">
             <view class="h6 text-center">还差
               <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</view>
             <view class="h7 text-center">剩余{{sjlist[idx][1]
@@ -536,7 +537,7 @@
 
 
 
-
+<view class="height-40 "></view>
         </view>
         <view class='flex-1'></view>
       </view>
