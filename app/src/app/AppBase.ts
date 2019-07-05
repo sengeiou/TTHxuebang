@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { OnInit } from '@angular/core';
 
+
 export class AppBase implements OnInit {
     public needlogin = false;
 
