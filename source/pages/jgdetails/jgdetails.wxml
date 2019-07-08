@@ -98,15 +98,16 @@
     </view>
   </view>
 
-  <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:330rpx;'></view>
+  <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></view>
 
-  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:330rpx;'></view>
+  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:280rpx;'></view>
 
 
   <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
 
     <view class='flex-row flex-center  radius-10 padding-20'>
-      <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view>
+      <!-- <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view> -->
+      <image src="{{uploadpath}}resource/{{res.jg_jianjie}}" class="icon_jianjie"></image>
       <view class='margin-left-10 txt-bold'>机构简介</view>
     </view>
 
@@ -203,7 +204,7 @@
 
         <view class='flex-row flex-center'>
           <view class='h6  flex-1 chaochu' style='color:#AAAAAA'>{{item.JG_showaddress}}</view>
-          <view class='h6   ' style='color:#AAAAAA'>{{item.miletxt}}</view>
+          <view class='h6  txt-bold ' style=' '>{{item.miletxt}}</view>
         </view>
 
       </view>
@@ -231,7 +232,7 @@
 
       <view class='padding-12'>
         <view class='h6'>{{item.name}}</view>
-        <view style=' height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
+        <view style=' max-height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
           {{item.class_introduce}}
         </view>
 
@@ -252,10 +253,10 @@
       </view>
 
 
-      <view class='margin-left-10 dd flex-row flex-center margin-top-12'>
-        <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-        <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
-        <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+      <view class='margin-left-10 margin-right-10 flex-row flex-bottom '>
+        <view class='  f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
+        <view class='  f20 txt-gray' style="text-decoration:line-through;">￥{{item.originalprice}}</view>
+        <view class='  h6 txt-red margin-left-6'>￥</view>
         <view class=' txt-red xg' style=''>{{item.price}}</view>
       </view>
 
@@ -284,7 +285,7 @@
 <view style='' class='buy-block'>
 
 
-  <view class='huang_block  flex-row flex-center'>
+  <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
     <view class='flex-1'></view>
     <view class='txt_orange h6'>等待付款，</view>
     <view class='txt_lan h6'>点击这里立即付款</view>
@@ -298,24 +299,25 @@
   </view>
 
 
+
   <view class='flex-row flex-center'>
     <view class='left flex-row flex-center'>
 
       <view class='flex-1 flex-row flex-column' bindtap='toindex'>
-        <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image>
+        <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-17'></image>
         <view class='h7 margin-top-8'>首页</view>
       </view>
 
       <view class='flex-1 flex-row flex-column'>
         <!-- <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image> -->
-        <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-20' src='{{uploadpath}}resource/{{res.jg_nofav}}'></image>
-        <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-20' src='{{uploadpath}}resource/{{res.jg_fav}}'></image>
+        <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-17' src='{{uploadpath}}resource/{{res.unfav}}'></image>
+        <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-17' src='{{uploadpath}}resource/{{res.fav}}'></image>
         <view class='h7 margin-top-8'>收藏</view>
       </view>
 
       <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
         <view class=' flex-row flex-column'>
-          <image src='{{uploadpath}}resource/{{res.jg_kefu}}' class='icon-20'></image>
+          <image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-17'></image>
           <view class='h7 margin-top-8'>客服</view>
         </view>
       </button>
@@ -389,6 +391,29 @@
     <!-- <view >购买数量</view> -->
 
     <!-- <view bindtap='tobuy' id='{{newkcinfo.id}}'>购买数量</view> -->
+
+
+
+    <view style=" border-bottom:2rpx solid #f5f5f5" class="flex-row flex-center padding-T-B-28">
+
+      <view class="flex-1  flex-row column">
+        <view class="h6  txt-6">购买数量</view>
+        <view class="flex-row flex-center margin-top-8">
+          <view class="txt-9 h6">剩余5个</view>
+          <view class="h6 margin-left-10" style="color:#FF4444">每人限购1个体验课程，课包不限</view>
+        </view>
+      </view>
+
+      <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian"></image>
+
+      <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
+
+      <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia"></image>
+    </view>
+
+
+
+
 
 
     <view class='under'>

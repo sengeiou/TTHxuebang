@@ -98,7 +98,7 @@
 }
 
 .margin-top-14 {
-  margin-top: 14rpx;
+  margin-top: 6rpx;
 }
 
 .icon-16 {
@@ -109,7 +109,14 @@
   width: 40rpx;
   height: 40rpx;
 }
-
+.icon-17 {
+  width: 44rpx;
+  height: 40rpx;
+}
+.icon_jianjie{
+  width:40rpx;
+height:40rpx;
+}
 .margin-left-6 {
   margin-left: 6rpx;
 }
@@ -121,11 +128,19 @@
 .margin-left-10 {
   margin-left: 10rpx;
 }
-
+.margin-right-10 {
+  margin-right: 10rpx;
+}
 .margin-top-8 {
   margin-top: 8rpx;
 }
-
+.padding-T-B-28{
+  padding-top: 28rpx;
+  padding-bottom: 28rpx;
+}
+.margin-left-28{
+  margin-left:28rpx; 
+}
 .f20 {
   font-size: 20rpx;
 }

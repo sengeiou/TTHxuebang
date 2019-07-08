@@ -25,7 +25,9 @@
 .margin-left-46 {
   margin-left: 46rpx;
 }
-
+.margin-top-6 {
+  margin-top: 6rpx;
+}
 .margin-top-32 {
   margin-top: 32rpx;
 }

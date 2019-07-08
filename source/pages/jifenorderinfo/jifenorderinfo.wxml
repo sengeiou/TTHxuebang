@@ -14,7 +14,7 @@
 
   <view class="mid_block flex-row flex-center">
     <image src="{{uploadpath}}resource/{{res.diz}}" class="icon-zuobiao" style="margin-left:40rpx"></image>
-    <view class="flex-row column" style="margin-left:30rpx">
+    <view class="flex-row column flex-1" style="margin-left:30rpx">
       <view class="h5">收货人：{{info.consignee}} {{info.mobile}}</view>
       <view class="h5 txt-6">{{info.address}}</view>
     </view>
@@ -47,7 +47,7 @@
 
     <view class="txt-bold flex-1" style="margin-left:36rpx;"> {{info.name}}</view>
     <view class="flex-row column">
-      <view class="h6">{{info.jifen}} 积分</view>
+      <view class="h6">{{info.danjia}} 积分</view>
       <view class="h6 text-right" style="color:#B0B0B0">x{{info.shuliang}}</view>
     </view>
   </view>

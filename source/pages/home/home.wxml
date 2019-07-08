@@ -101,7 +101,7 @@
     <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
     <view class='txt9 margin-left-20'>已连续签到{{dakalist.length}}天</view>
     <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
-    <view class='txt9 margin-left-20 ' style='color:#FFC200'>去兑换</view>
+    <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
     <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
   </view>
 
@@ -174,11 +174,6 @@
           <view wx:if='{{day==3 }}' class='dakadian  flex-1  {{day==3&&idx<3?"bgff":"bg9"}}'></view>
           <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<4?"bgff":"bg9"}}'></view>
         </view>
-
-
-
-
-
 
 
 

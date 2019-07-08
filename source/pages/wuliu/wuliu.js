@@ -29,10 +29,17 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jifenapi = new JifenApi();
-    jifenapi.wuliu({}, (wuliu) => {
+    jifenapi.wuliu({ }, (wuliu) => {
+      var wuliulist = wuliu.result.list;
+      var wllist=[];
+      for (var i = wuliulist.length - 1; i >= 0; i--){
+        wllist.push(wuliulist[i]);
+      }
+
       this.Base.setMyData({
-        wuliu
+        wuliu, wllist
       })
+
     })
   }
 
@@ -41,8 +48,6 @@ class Content extends AppBase {
       url: '',
     })
   }
-
-
 
 
 }
