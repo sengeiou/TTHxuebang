@@ -21,6 +21,7 @@ export class ApiConfig {
         return arr.join("&");
     }
     private static TOKEN=null;
+    private static TOKENKEY=null;
     private static RID = null;
     private static UNICODE = null;
     
@@ -33,6 +34,7 @@ export class ApiConfig {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Sign': sign,
             'Token': ApiConfig.TOKEN,
+            'TokenKey': ApiConfig.TOKENKEY,
             'UNICODE': ApiConfig.UNICODE
         });
         return headers;
@@ -40,6 +42,9 @@ export class ApiConfig {
 
     public static SetToken(token) {
         ApiConfig.TOKEN = token;
+    }
+    public static SetTokenKey(tokenkey) {
+        ApiConfig.TOKENKEY = tokenkey;
     }
 
     public static SetUnicode(Unicode){
