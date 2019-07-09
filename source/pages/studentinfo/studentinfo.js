@@ -11,6 +11,9 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
+import {
+  ApiUtil
+} from "../../apis/apiutil.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -45,7 +48,7 @@ class Content extends AppBase {
 
       var jintian = myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate();
       this.Base.setMyData({
-        jintian: jintian, name: '', sex: 'nan', nianji: '', sjpiko: '', weixin: '', menpai: '', shouji: '', niubi: 0
+        jintian: jintian, name: '', sex: 'nan', nianji: '', xssj:'', sjpiko: '', weixin: '', menpai: '', shouji: '', niubi: 0
       })
     }
   }
@@ -140,24 +143,32 @@ class Content extends AppBase {
     }
     if (shouji == '') {
       this.Base.info("请输入手机");
+      return
+
+    }
+    if (!ApiUtil.zhenze(shouji)) {
+      this.Base.info("手机号格式不正确");
+      return
+    }
+ 
+    if (shenri == '') {
+      this.Base.info("请选择生日");
 
       return
 
     }
-
     api.addxueyuan(json, (res) => {
-     if(res.code=='0')
-     {
-      wx.navigateBack({
-        
-      })
-     }
+      if (res.code == '0') {
+        wx.navigateBack({
+
+        })
+      }
 
     })
 
   }
-  shanchu(){
-   var that=this;
+  shanchu() {
+    var that = this;
     wx.showModal({
       title: '',
       content: '确认删除学员？',
@@ -175,7 +186,7 @@ class Content extends AppBase {
 
             })
           })
-       
+
 
         }
       }

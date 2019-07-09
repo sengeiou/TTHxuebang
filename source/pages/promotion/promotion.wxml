@@ -1,7 +1,7 @@
 <view class="padding-30 padding-bottom-20 flex-row flex-center">
   <image class='member_icon' src='{{memberinfo.avatarUrl}}'></image>
   <view class='margin-left-10'>{{memberinfo.nickName}}</view>
-  <view wx:if="{{!showModal}}" class="label">推广员</view>
+  <view wx:if="{{!showModal&&tuiguaninfo.status=='S'}}" class="label">推广员</view>
   <view class="flex-1"></view>
   <view class="h5" style='color:#666666' bindtap='tuiguanguize'>推广规则</view>
 </view>
@@ -18,8 +18,8 @@
     </view>
 
     <view class="xian"></view>
-    <view  class="content_bottom flex-row flex-center">
-      <view  bindtap='mykehu' class="flex-1 flex-row ">
+    <view class="content_bottom flex-row flex-center">
+      <view bindtap='mykehu' class="flex-1 flex-row ">
         <view class="flex-1"></view>
         <view>
           <view class="h5" style='color:rgba(161, 111, 47, 1)'>
@@ -32,7 +32,7 @@
         <view class="flex-1"></view>
       </view>
       <view class="fenge"></view>
-      <view bindtap='myinvite'  class="flex-1 flex-row ">
+      <view bindtap='myinvite' class="flex-1 flex-row ">
         <view class="flex-1"></view>
         <view>
           <view class="h5" style='color:rgba(161, 111, 47, 1)'>
@@ -45,7 +45,7 @@
         <view class="flex-1"></view>
       </view>
       <view class="fenge"></view>
-      <view  bindtap='tuiguandindan'  class="flex-1 flex-row ">
+      <view bindtap='tuiguandindan' class="flex-1 flex-row ">
         <view class="flex-1"></view>
         <view>
           <view class="h5" style='color:rgba(161, 111, 47, 1)'>

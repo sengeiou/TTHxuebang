@@ -48,9 +48,11 @@ class Content extends AppBase {
     }
 
     api.fenxiaoinfo({}, (res) => {
+      console.log(res);
+     
       console.log(res.length);
       if (res.length == 0) {
-        this.Base.setMyData({ showModal: true });
+        this.Base.setMyData({ showModal: true, tuiguaninfo: res });
       }
 
     })

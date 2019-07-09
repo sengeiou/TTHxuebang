@@ -1,4 +1,7 @@
 Page{
+  background: #F5F6F8;
+}
+.qqq{
   background: white;
 }
 .nande{

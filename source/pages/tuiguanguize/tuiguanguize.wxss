@@ -1,3 +1,22 @@
+page{
+background: #F5F6F8;
+
+}
+.bg{
+  background: white;
+  border-radius: 5rpx;
+}
+
+.xian{
+  border-bottom: 1px solid #F5F5F5;
+  
+}
+.xian1{
+padding-bottom:40rpx;
+}
+.sbb{
+  padding-bottom:0rpx;
+}
 .lijishenqin{
 
 
