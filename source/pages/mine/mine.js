@@ -199,19 +199,25 @@ class Content extends AppBase {
 
   phonenoCallback(phoneno, e) {
     console.log(phoneno);
+
+
+    var memberapi = new MemberApi();
+    memberapi.updatemobile({
+      mobile: phoneno,
+      member_id: this.Base.getMyData().memberinfo.id
+    }, () => {
+      
+    })
+
+
     this.Base.setMyData({
       mobile: phoneno
     });
+    this.onMyShow();
   }
   update() {
     var data = this.Base.getMyData();
-    var memberapi = new MemberApi();
-    memberapi.updatemobile({
-      mobile: this.Base.getMyData().mobile,
-      member_id: this.Base.getMyData().memberinfo.id
-    }, () => {
-      this.onMyShow();
-    })
+    
 
   }
 
