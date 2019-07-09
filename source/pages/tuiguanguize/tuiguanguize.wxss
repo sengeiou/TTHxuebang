@@ -9,7 +9,7 @@ background: #F5F6F8;
 
 .xian{
   border-bottom: 1px solid #F5F5F5;
-  
+  padding-bottom:40rpx;
 }
 .xian1{
 padding-bottom:40rpx;
