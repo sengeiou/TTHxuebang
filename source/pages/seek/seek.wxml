@@ -85,8 +85,11 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
 
+          <view class="flex-row flex-1 ">
+            <view class='txt-black txt-bold flex-1' style="width:400rpx;">{{item.jigou}}</view>
+            <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-top-10"></image>
+</view>
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>

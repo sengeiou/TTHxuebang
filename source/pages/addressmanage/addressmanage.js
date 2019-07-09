@@ -61,7 +61,10 @@ class Content extends AppBase {
 
     this.Base.getAddress((address) => {
       console.log(address);
-      var city = [address.address_component.province, address.address_component.city, address.address_component.district];
+      var city = [address.address_component.province + address.address_component.city+address.address_component.district];
+
+      console.log('试试' + address.address_component.province)
+      console.log(city)
       this.Base.setMyData({
         city
       });
@@ -96,9 +99,10 @@ class Content extends AppBase {
 }
 
   bindRegionChange(e) {
-
+    console.log(e.detail.value);
+    console.log(e.detail.value[0])
     this.Base.setMyData({
-      city: e.detail.value
+      city: e.detail.value[0] + e.detail.value[1] + e.detail.value[2]
     })
   }
 

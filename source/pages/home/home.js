@@ -135,6 +135,11 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
+  toduihuan(e){
+    wx.navigateTo({
+      url: '/pages/shopmall/shopmall',
+    })
+  }
 
   toketang(e) {
     wx.navigateTo({
@@ -853,6 +858,8 @@ body.loadBanner = content.loadBanner;
 body.btn = content.btn;
 body.getDates = content.getDates;
 body.jifen = content.jifen; 
+
+body.toduihuan = content.toduihuan;
 
 body.bindSignIn = content.bindSignIn;
 body.showtc = content.showtc;

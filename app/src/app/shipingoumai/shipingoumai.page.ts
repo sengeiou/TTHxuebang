@@ -10,6 +10,7 @@ import { JigouApi } from 'src/providers/jigou.api';
 import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
+declare let WeixinJSBridge: any;
 
 @Component({
   selector: 'app-shipingoumai',
@@ -72,34 +73,27 @@ export class ShipingoumaiPage extends AppBase {
               } else {
 
                 var wechatapi = this.wechatApi;
-                wechatapi.prepay3({ id: ret.return.id }).then((payret) => {
+                wechatapi.prepay3({ id: ret.return.id, h5: "Y" }).then((payret) => {
                   if (payret.code != 0) {
 
                     this.showAlert(payret.result);
                     return;
                   }
-                  payret.complete = function (e) {
 
-
-                    if (e.errMsg == "requestPayment:ok") {
-
-
-                      api.purchaseinfo({ id: ret.return.id }).then((res) => {
-
-                        that.navigate("videopurcsucc", { id: res.onlineclassroom_id })
-                      })
-
-                    }
-                    else {
-                      // wx.navigateTo({
-                      //   url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                      // })
-                      console.log("支付失败");
-                    }
-
-                  }
                   console.log(payret);
                   //wx.requestPayment(payret)
+
+                  WeixinJSBridge.invoke(
+                    'getBrandWCPayRequest', payret,
+                    (res) => {
+                      if (res.errMsg == "get_brand_wcpay_request:ok") {
+                        api.purchaseinfo({ id: ret.return.id }).then((res) => {
+                          that.navigate("videopurcsucc", { id: res.onlineclassroom_id })
+                        })
+                      } else {
+                        alert(res.errMsg);
+                      }
+                    });
                 });
               }
             } else {

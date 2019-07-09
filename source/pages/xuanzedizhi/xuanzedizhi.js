@@ -56,14 +56,15 @@ class Content extends AppBase {
     })
   }
   queren(e){
-    
+    var jifen = this.Base.options.interral;
+    var shuliang = this.Base.options.shuliang;
     if(this.Base.getMyData().check==null){
       this.Base.toast("请选择地址");
       return;
     }
 
     this.Base.setMyData({
-      show:true
+      show: true, xiaofei: jifen * shuliang
     })
   }
   quedin(e){
@@ -82,6 +83,10 @@ class Content extends AppBase {
 
     var shengyu = myjifen - jifen * shuliang;
 
+    var zonger = jifen * shuliang;
+
+    
+
     console.log(shengyu + "剩余");
     if (parseInt(jifen) > parseInt(myjifen)){
       this.Base.setMyData({ kong: true});
@@ -99,7 +104,8 @@ class Content extends AppBase {
 
       jifenapi.addjifenorder({ 
         member_id:this.Base.getMyData().memberinfo.id,
-        jifen: jifen,
+        jifen: zonger,
+        danjia:jifen,
         img:img,
         shuliang: shuliang,
         name:shanpin,

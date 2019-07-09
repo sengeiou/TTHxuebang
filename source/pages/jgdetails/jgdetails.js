@@ -46,7 +46,7 @@ class Content extends AppBase {
 
     })
     this.Base.setMyData({
-      tanchuang: false
+      tanchuang: false, shuliang: 1, sl: 1
       
     })
 
@@ -89,7 +89,7 @@ class Content extends AppBase {
           });
 
           this.Base.setMyData({
-            courselist: courselist
+            courselist: courselist, miletxt
           });
         });
 
@@ -137,6 +137,24 @@ class Content extends AppBase {
 
   }
 
+  jia(e) {
+    var shuliang = this.Base.getMyData().shuliang;
+    shuliang++
+    this.Base.setMyData({ shuliang })
+  }
+  jian(e) {
+    var shuliang = this.Base.getMyData().shuliang;
+    shuliang--
+    if (shuliang <= 0) {
+      wx.showToast({
+        title: '至少购买一个',
+        icon: 'none',
+      })
+      return;
+
+    }
+    this.Base.setMyData({ shuliang })
+  }
 
   check(e) {
     var id = e.currentTarget.id;
@@ -250,4 +268,8 @@ body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
 body.bindclose = content.bindclose;
+
+body.jia = content.jia;
+body.jian = content.jian;
+
 Page(body)
