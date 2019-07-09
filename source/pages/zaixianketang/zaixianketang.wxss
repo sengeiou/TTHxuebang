@@ -4,7 +4,7 @@
   padding-left: 32rpx;
   padding-top: 28rpx;
   padding-right: 32rpx;
-  padding-bottom: 36rpx;
+ 
 }
 
 .margin-top-12 {

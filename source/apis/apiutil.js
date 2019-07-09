@@ -60,6 +60,15 @@ export class ApiUtil {
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
 
+
+  static zhenze(str) {
+    var TEL_REGEXP = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+    if (TEL_REGEXP.test(str)) {
+      return true;
+    }
+    return false;
+  }
+
   static Replace(str, from, to) {
     return str.split(from).join(to);
   }
@@ -90,7 +99,7 @@ export class ApiUtil {
     //日
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
 
-    return (Y + "年" + M + "月"+D+"日")
+    return (Y + "年" + M + "月" + D + "日")
   }
 
   static GetLocalTime(nS) {
@@ -104,9 +113,9 @@ export class ApiUtil {
   }
 
   static GetDates(days, todate) {
-     
-    
-    
+
+
+
     //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     var dateLater = ApiUtil.DateLater;
@@ -130,15 +139,15 @@ export class ApiUtil {
       strDate = "0" + strDate;
     }
     var nowdate = year + seperator1 + month + seperator1 + strDate;
-     return nowdate;
+    return nowdate;
   }
-  
+
   //param：传入时间：dates: "2018-04-02", later: 往后多少天
   static DateLater(dates, later) {
     let dateObj = {};
     let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
-    let date = new Date(dates.replace(/-/g, '/')); 
-     console.log("hahahah");
+    let date = new Date(dates.replace(/-/g, '/'));
+    console.log("hahahah");
     console.log(dates.replace(/-/g, '/'));
     date.setDate(date.getDate() + later);
     let day = date.getDay();
@@ -261,18 +270,17 @@ export class ApiUtil {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
 
-  static masaike(name)
-  {
-  
-  console.log(12132);
-    return name.substring(0,1)+'***';
+  static masaike(name) {
+
+    console.log(12132);
+    return name.substring(0, 1) + '***';
 
   }
-  
+
   static shijianjisuan(date) {
     console.log(date);
-    var jisuandate=new Date(date);
-    var danqiandate=new Date();
+    var jisuandate = new Date(date);
+    var danqiandate = new Date();
     var dateDiff = jisuandate.getTime() - danqiandate.getTime();
     var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
     var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
@@ -286,7 +294,7 @@ export class ApiUtil {
     console.log(" 相差 " + dayDiff + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
     console.log(dateDiff + "时间差的毫秒数", dayDiff + "计算出相差天数", leave1 + "计算天数后剩余的毫秒数"
       , hours + "计算出小时数", minutes + "计算相差分钟数", seconds + "计算相差秒数");
- 
+
     return dateDiff;
 
   }
@@ -306,11 +314,11 @@ export class ApiUtil {
 
   static GetMileTxt(mile) {
     console.log(mile);
-    if(mile>100000){
+    if (mile > 100000) {
       return "";
     }
     if (mile > 1000) {
-      return  + (mile / 1000.0).toFixed(0) + "km";
+      return + (mile / 1000.0).toFixed(0) + "km";
     } else if (mile < 100) {
       return "100米内";
     } else {
@@ -318,5 +326,5 @@ export class ApiUtil {
     }
   }
 
-  
+
 }

@@ -25,6 +25,8 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole:true });
     this.Base.shipin = wx.createVideoContext("v_1");
+    console.log("牛逼");
+    console.log(this.Base.shipin);
   }
   onMyShow() {
     var that = this;
@@ -80,7 +82,7 @@ class Content extends AppBase {
       }
     }
     this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id], liebiao: false });
-    console.log(e);
+    this.Base.shipin.play();
   }
   fav(e) {
     var that = this;
