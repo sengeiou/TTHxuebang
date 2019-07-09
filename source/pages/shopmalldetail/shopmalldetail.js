@@ -96,13 +96,14 @@ jian(e){
     console.log(inventory - 1 + "库存");
     console.log(interral + "积分");
     //return;
-    if (inventory<=0){
+    if (inventory <= 0 || inventory < shuliang){
       wx.showToast({
         title: '库存不足，无法兑换',
-        title:'none'
+        icon:'none'
       })
       return;
     }
+
 
     wx.navigateTo({
       url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral + '&id=' + this.Base.options.id + '&img=' + img + '&name=' + name + '&shuliang=' + shuliang

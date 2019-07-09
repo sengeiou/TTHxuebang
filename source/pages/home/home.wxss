@@ -162,14 +162,14 @@
 .touxiang {
   width: 40rpx;
   height: 40rpx;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
 }
 
 .touxiang2 {
   width: 40rpx;
   height: 40rpx;
   margin-left: -20rpx;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 2rpx solid rgba(255, 255, 255, 1);
 }
 
 .margin-top-16 {

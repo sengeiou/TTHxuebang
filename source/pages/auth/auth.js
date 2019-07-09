@@ -24,9 +24,14 @@ class Content extends AppBase {
   checkPermission() {
 
   }
+  phonenoCallback(phoneno, e) {
+    console.log(phoneno);
+    this.Base.setMyData({ isgrantphonenumber: true, mobile: phoneno });
+  }
 
   getUserInfo(e) {
     console.log(666666666);
+
     wx.switchTab({
       url: '/pages/home/home',
     });

@@ -28,6 +28,7 @@
 </view>
 
 
+<view wx:if='{{xianshilist.length>0}}'>
 <view class='margin-top-32 margin-left-24 flex-row flex-center'>
   <view class='huangtiao'></view>
   <view class='h5 txt-bold margin-left-16 flex-1'>推荐课程</view>
@@ -36,9 +37,6 @@
     <view  class=' h6 margin-left-10 margin-right-24' style='color:#589DE9'>换一换</view>
   </view>
 </view>
-
-
-
 
 <view class='bottom-block  radius-8 '    wx:for='{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails'>
 
@@ -116,6 +114,7 @@
 
 </view>
 
+</view>
 
 
 <view class='bottom-block bg-white padding-20 radius-8'>

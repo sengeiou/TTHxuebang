@@ -124,6 +124,8 @@ class Content extends AppBase {
       currectcityid: AppBase.CITYID
     });
 
+    this.jisuanrenshu();
+
     setTimeout(() => {
       wx.hideLoading()
     }, 1000);
@@ -144,6 +146,12 @@ class Content extends AppBase {
   toketang(e) {
     wx.navigateTo({
       url: '/pages/zaixianketang/zaixianketang'
+    })
+  }
+
+  toceshilist(e){
+    wx.navigateTo({
+      url: '/pages/mypingce/mypingce?type=A'
     })
   }
 
@@ -800,6 +808,7 @@ class Content extends AppBase {
     // }
 
   }
+
    //打卡
   jifen() {
     var jifenapi = new JifenApi();
@@ -830,6 +839,34 @@ class Content extends AppBase {
     })
   }
 
+  jisuanrenshu(){
+    var jifenapi = new JifenApi();
+    jifenapi.dakalist({
+       
+    }, (dakalist) => {
+
+      //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
+      var resultArr = [];
+      for (var i = 0; i < dakalist.length; i++) {
+        for (var j = 0; j < resultArr.length; j++) {
+          if (resultArr[j].member_id == dakalist[i].member_id) {
+            break;
+          }
+        }
+        if (j == resultArr.length) {
+          resultArr[resultArr.length] = dakalist[i];
+        }
+      }
+
+      this.Base.setMyData({
+         resultArr
+      })
+    })
+
+
+
+  }
+
 
 
 
@@ -840,10 +877,12 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.toceshi = content.toceshi;
+body.toceshi = content.toceshi; 
 body.tojgdetails = content.tojgdetails;
 body.toketang = content.toketang;
-body.totake = content.totake;
+body.totake = content.totake; 
+body.toceshilist = content.toceshilist;
+body.jisuanrenshu = content.jisuanrenshu;
 body.swiperChange = content.swiperChange;
 body.clickChange = content.clickChange;
 body.tobaoma = content.tobaoma;

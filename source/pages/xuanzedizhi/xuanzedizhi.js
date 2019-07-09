@@ -128,7 +128,7 @@ class Content extends AppBase {
          //console.log(addjifenorder.return+"阿");
         // return;
 
-         jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - 1 }, (updatekucun) => {
+         jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - shuliang }, (updatekucun) => {
            this.Base.setMyData({ updatekucun })
          })
 

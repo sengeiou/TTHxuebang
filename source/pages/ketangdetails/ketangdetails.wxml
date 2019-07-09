@@ -207,7 +207,9 @@
       <view class="h5 margin-top-10  margin-left-30 ">{{item.huifu}}</view>
     </view>
     </view>
-    <view style='height:120rpx'></view>
+
+    <!-- <view style='height:120rpx'></view> -->
+
     <view class="padding-10 db flex-row flex-center">
 
       <input value="{{pinlun}}" bindinput='shuru' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20 shuruk">
@@ -215,5 +217,7 @@
       </input>
       <view bindtap='fabiao' class="fabiao">发表</view>
     </view>
+
   </scroll-view>
+  
 </block>

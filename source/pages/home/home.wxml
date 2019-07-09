@@ -70,9 +70,12 @@
   <view class='flex-row flex-center '>
     <view class='orange'></view>
     <view class='f18 margin-left-12 txt-black txt-bold'>家长测试</view>
-    <view class='txt9 margin-left-20'>更多了解自己，快快测一测</view>
+    <view class='txt9 margin-left-20 flex-1'>更多了解自己，快快测一测</view>
+    <view class='txt9 margin-left-20 ' bindtap="toceshilist" style='color:#FFC200'>更多测试</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
   </view>
 </view>
+
 
 
 <view class='scv'>
@@ -141,22 +144,26 @@
         <view class='flex-row  flex-column '>
 
           
-          <view wx:if='{{day<0}}'  class='h6  width-46 txt-9'>+{{idx<6?5:25}}</view>
+        <view wx:if='{{day<0}}'  class='h6  width-46 txt-9'>+{{idx<6?5:25}}</view>
 
+
+         <view wx:if='{{dian==1}}'>
           <view wx:if='{{day==0}}'  class='h6  width-46  {{day==0&&idx<1?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
-
           <view wx:if='{{day==1}}'  class='h6  width-46  {{day==1&&idx<2?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
-
           <view wx:if='{{day==2}}'  class='h6  width-46  {{day==2&&idx<3?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
-
           <view wx:if='{{day==3}}'  class='h6  width-46  {{day==3&&idx<4?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
-
           <view wx:if='{{day==4}}'  class='h6  width-46  {{day==4&&idx<5?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+         </view>
 
+         <view wx:if='{{dian==0}}'>
+          <view wx:if='{{day==0}}'  class='h6  width-46  {{day==0&&idx<0?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+          <view wx:if='{{day==1}}'  class='h6  width-46  {{day==1&&idx<1?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+          <view wx:if='{{day==2}}'  class='h6  width-46  {{day==2&&idx<2?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+          <view wx:if='{{day==3}}'  class='h6  width-46  {{day==3&&idx<3?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+          <view wx:if='{{day==4}}'  class='h6  width-46  {{day==4&&idx<4?"txthuang":"txt-9"}}'>+{{idx<6?5:25}}</view>
+         </view>
 
-          <view wx:if='{{day<0}}' class='dakadian  flex-1 bg9'></view>
-
-
+        <view wx:if='{{day<0}}' class='dakadian  flex-1 bg9'></view>
 
         <view wx:if="{{dian==1}}">
           <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<1?"bgff":"bg9"}}'></view>
@@ -166,7 +173,6 @@
           <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<5?"bgff":"bg9"}}'></view>
         </view>
 
-
         <view wx:if="{{dian==0}}">
           <view wx:if='{{day==0}}' class='dakadian  flex-1  {{day==0&&idx<0?"bgff":"bg9"}}'></view>
           <view wx:if='{{day==1}}' class='dakadian  flex-1  {{day==1&&idx<1?"bgff":"bg9"}}'></view>
@@ -175,9 +181,7 @@
           <view wx:if='{{day==4 }}' class='dakadian  flex-1  {{day==4&&idx<4?"bgff":"bg9"}}'></view>
         </view>
 
-
-
-          <view class=' f8  {{signNum>=min?"txthuang":""}}' >{{item.daka_date}}</view>
+        <view class=' f8  {{signNum>=min?"txthuang":""}}' >{{item.daka_date}}</view>
           
 
           </view>
@@ -353,35 +357,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <view class='flex-row flex-center margin-top-16'>
-    <view class='flex-row flex-center  '>
-      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang radius-50'></image>
-      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
-      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
-      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
-      <image src='{{uploadpath}}resource/{{res.mine_fav}}' class='touxiang2 radius-50'></image>
-    </view>
-    <view class='margin-left-16 h6 txt9'>等696人已连续打卡</view>
-  </view>
+  
+     <view class='flex-row flex-center '>
 
+      <image  wx:for='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' wx:if='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}'></image>
+
+     </view>
+
+     <view class='margin-left-16 h6 txt9'>等{{resultArr.length}}人已连续打卡</view>
+  </view>
 
 </view>
 

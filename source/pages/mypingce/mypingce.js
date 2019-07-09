@@ -18,19 +18,36 @@ class Content extends AppBase {
   constructor() {
     super();
   }
-  setPageTitle() {
-    wx.setNavigationBarTitle({
-      title: '我的评测',
-    });
-  }
+
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({ type: this.Base.options.type})
+  }
+  setPageTitle() {
+    // if (this.Base.getMyData().type == "A") {
+    //   wx.setNavigationBarTitle({
+    //     title: '评测列表',
+    //   });
+    // } else {
+    //   wx.setNavigationBarTitle({
+    //     title: '我的评测',
+    //   });
+    // }
+
   }
   onMyShow() {
     var that = this;
-    
+    if (this.Base.getMyData().type == "A") {
+      wx.setNavigationBarTitle({
+        title: '评测列表',
+      });
+    } else {
+      wx.setNavigationBarTitle({
+        title: '我的评测',
+      });
+    }
     var pingceapi = new PingceApi();
     pingceapi.mypingcelist({}, (mypingcelist) => {
       this.Base.setMyData({

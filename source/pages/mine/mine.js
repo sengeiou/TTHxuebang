@@ -14,6 +14,10 @@ import {
 import {
   PurchaseApi
 } from "../../apis/purchase.api.js";
+import {
+  MemberApi
+} from '../../apis/member.api';
+
 
 class Content extends AppBase {
   constructor() {
@@ -23,6 +27,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({
+      mobile: ""
+    });
     // this.Base.setMyData({ reminderpay });
   }
   onMyShow() {
@@ -35,6 +42,14 @@ class Content extends AppBase {
         indexbanner
       });
     });
+
+    var mobile=this.Base.getMyData().memberinfo.mobile;
+    
+    var phone1=  mobile.substr(0, [3]);
+    var phone2 = mobile.substr(3, [4]);
+    var phone3 = mobile.substr(7, [4]);
+    this.Base.setMyData({ mobile: phone1 + ' ' + phone2 + ' ' + phone3 })
+    console.log(phone1 + phone2 + phone3)
 
 
     var api = new PurchaseApi();
@@ -157,6 +172,7 @@ class Content extends AppBase {
       icon: 'none'
     })
   }
+
   orderlist(e) {
 
     wx.navigateTo({
@@ -166,25 +182,46 @@ class Content extends AppBase {
 
 
   }
-  pintuan(){
+  pintuan() {
     wx.navigateTo({
-      url: '/pages/pintuan/pintuan' ,
+      url: '/pages/pintuan/pintuan',
     })
 
 
   }
-  tuikuan(){
-  wx.navigateTo({
-    url: '/pages/tuikuan/tuikuan',
-  })
+
+  tuikuan() {
+    wx.navigateTo({
+      url: '/pages/tuikuan/tuikuan',
+    })
 
   }
+
+  phonenoCallback(phoneno, e) {
+    console.log(phoneno);
+    this.Base.setMyData({
+      mobile: phoneno
+    });
+  }
+  update() {
+    var data = this.Base.getMyData();
+    var memberapi = new MemberApi();
+    memberapi.updatemobile({
+      mobile: this.Base.getMyData().mobile,
+      member_id: this.Base.getMyData().memberinfo.id
+    }, () => {
+      this.onMyShow();
+    })
+
+  }
+
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.update = content.update;
 body.startscan = content.startscan;
 body.todetails = content.todetails;
 body.gotohaizi = content.gotohaizi;

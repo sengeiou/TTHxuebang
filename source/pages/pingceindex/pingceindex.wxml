@@ -12,11 +12,11 @@
     <view class='h5 txt-bold margin-left-16'>测试简介</view>
   </view>
 
-  <text class='margin-top-24 h6 txt-6' style=''>
+<view style="margin-top:-40rpx">
+  <text class='  h6 txt-6' style=''>
     {{info.jianjie}}
   </text>
-
-
+</view>
 
   <view class='flex-row flex-center margin-top-30'>
     <view class='flex-1'></view>
@@ -36,7 +36,7 @@
           <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
           <view class='progress_text'>
             <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93'>{{zq}}</view>
+            <view style='color:#B71B93' class="text-center">{{zq}}</view>
           </view>
         </view>
       </view>
@@ -64,7 +64,7 @@
           <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
           <view class='progress_text'>
             <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93'>{{sy}}</view>
+            <view style='color:#B71B93' class="text-center">{{sy}}</view>
           </view>
         </view>
       </view>
@@ -90,7 +90,7 @@
           <canvas class="progress_canvas" canvas-id="canvasProgress3"> </canvas>
           <view class='progress_text'>
             <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93'>{{yd}}</view>
+            <view style='color:#B71B93' class="text-center">{{yd}}</view>
           </view>
         </view>
       </view>
@@ -112,10 +112,11 @@
     <view class='h5 txt-bold margin-left-16'>测评须知</view>
   </view>
 
+<view style="margin-top:-40rpx">
   <text class='margin-top-14 h6 txt-6' style=''>
      {{info.xuzhi}}
   </text>
-
+</view>
 
 
 </view>

@@ -406,6 +406,8 @@
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian"></image>
 
+
+
       <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia"></image>

@@ -128,7 +128,7 @@ class Content extends AppBase {
   again() {
  
     wx.navigateBack({
-       delta:1    
+       delta:2    
     })
      
     console.log(555555);

@@ -92,10 +92,13 @@ class Content extends AppBase {
 
     pingce.push([parseInt(id) + 1, check]);
 
-    this.Base.setMyData({
-      sx: idx,
-      qie: parseInt(id) + 1
-    })
+    setTimeout(() => {
+      this.Base.setMyData({
+        sx: idx,
+        qie: parseInt(id) + 1
+      })
+    }, 300)
+
   }
 
 
@@ -203,10 +206,12 @@ class Content extends AppBase {
 
 
       this.Base.setMyData({
-        gif: false, check: "",qie: 0
+        gif: false,
+        check: "",
+        qie: 0
       })
 
-      
+
 
       var pingceapi = new PingceApi();
       pingceapi.updatepingce({
@@ -216,33 +221,33 @@ class Content extends AppBase {
         this.Base.setMyData({
           updatepingce
         })
- 
+
       })
 
 
 
 
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD,
-        
+
         success: function(res) {
-           
+
           if (res.confirm) {
             this.Base.setMyData({
-              
+
               sx: 0,
               pingce: [],
               gif: false
             });
-            
-            
+
+
           }
-          
+
         }
 
       })
 
-      
+
 
 
     }, 1100)

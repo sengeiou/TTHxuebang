@@ -71,6 +71,9 @@ Page {
   background: linear-gradient(156deg, rgba(255, 190, 49, 1) 0%, rgba(255, 190, 49, 1) 100%);
   border-radius: 200rpx 0rpx 0rpx 200rpx;
 }
+.hover{
+  background: #FFA823
+}
 
 .margin-left-4 {
   margin-left: 4rpx;

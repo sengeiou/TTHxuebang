@@ -69,13 +69,13 @@ class Content extends AppBase {
     });
 
 
-    this.Base.getAddress((address) => {
-      console.log(address);
-      var region = [address.address_component.province, address.address_component.city, address.address_component.district];
-      this.Base.setMyData({
-        region
-      });
-    });
+    // this.Base.getAddress((address) => {
+    //   console.log(address);
+    //   var region = [address.address_component.province, address.address_component.city, address.address_component.district];
+    //   this.Base.setMyData({
+    //     region
+    //   });
+    // });
 
   }
 
