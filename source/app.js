@@ -1,5 +1,9 @@
 //app.js
 var mta = require('mta_wechat_sdk/mta_analysis.js')
+import {
+  AppBase
+} from "appbase.js";
+
 App({
   onLaunch: function (options) {
     // 展示本地存储能力
@@ -11,5 +15,13 @@ App({
       "statShareApp": true,
       "statReachBottom": true
     });
+   
+    var ss = options;
+    console.log("ddd")
+    console.log(options.scene)
+    console.log("ddd")
+    if (options.scene!=undefined){
+      AppBase.scenes = options.scene
+    }
   }
 })

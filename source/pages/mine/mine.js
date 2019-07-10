@@ -43,6 +43,12 @@ class Content extends AppBase {
       });
     });
 
+    var memberapi = new MemberApi();
+    memberapi.info({
+    }, (memberinfo) => {
+this.Base.setMyData({memberinfo})
+    })
+
     var mobile=this.Base.getMyData().memberinfo.mobile;
     
     var phone1=  mobile.substr(0, [3]);
@@ -209,11 +215,11 @@ class Content extends AppBase {
       
     })
 
-
     this.Base.setMyData({
       mobile: phoneno
     });
     this.onMyShow();
+
   }
   update() {
     var data = this.Base.getMyData();

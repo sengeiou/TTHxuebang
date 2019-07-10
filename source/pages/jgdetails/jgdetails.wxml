@@ -100,7 +100,7 @@
 
   <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></view>
 
-  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:280rpx;'></view>
+  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:300rpx;'></view>
 
 
   <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
@@ -121,15 +121,19 @@
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>
 
-    <view class='padding-20 '>
+<view class="flex-row flex-column" style="margin-top:-60rpx;">
+    <text decode="{{true}}" space="ensp" class='padding-20  h5  {{more==false?"chaochu5 height-210":""}}' style="">
       {{jginfo.jieshao}}
-    </view>
+    </text>
+
+    <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
+    <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
+</view>
+
 
   </view>
 
-
   <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image>
-
 
 
   <image src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw'></image>
@@ -337,7 +341,8 @@
 </view>
 
 
-<view class='buy' wx:if='{{tanchuang==true}}'>
+
+<view class='buy' catchtouchmove="{{true}}" wx:if='{{tanchuang==true}}' >
   <view style='height:40vh;background:black;opacity:0.5'></view>
 
   <view style='height:55.6vh;background:white' class='padding-block'>
@@ -399,7 +404,7 @@
       <view class="flex-1  flex-row column">
         <view class="h6  txt-6">购买数量</view>
         <view class="flex-row flex-center margin-top-8">
-          <view class="txt-9 h6">剩余5个</view>
+          <view class="txt-9 h6">剩余{{courseinfo.kucun}}个</view>
           <view class="h6 margin-left-10" style="color:#FF4444">每人限购1个体验课程，课包不限</view>
         </view>
       </view>
@@ -410,7 +415,7 @@
 
       <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
 
-      <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia"></image>
+      <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" id="{{courseinfo.kucun}}"></image>
     </view>
 
 

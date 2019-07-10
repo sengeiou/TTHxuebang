@@ -26,6 +26,7 @@ export class AppBase {
   static BRANDAPPLE = 12;
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
+  static Scene=1001;
   static InstInfo = null;
   static Resource = null;
   unicode = "tthxb";
@@ -137,9 +138,13 @@ export class AppBase {
     mta.Page.init()
 
     this.Base.options = options;
-    console.log(options);
+
+    
+    //console.log(mta.Page.init().options.scene);
     console.log("onload");
+    
     this.Base.setBasicInfo();
+
     this.Base.setMyData({
       options: options
     });
@@ -347,16 +352,35 @@ export class AppBase {
         var memberinfo = this.Base.getMyData().memberinfo;
         var citylist = memberinfo.citylist;
 
+
+
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
+
         this.Base.setMyData({ adcode: address.ad_info.adcode});
         console.log("citycode" + citycode);
+        console.log(citylist );
         if (AppBase.CITYSET == false) {
           for (var i = 0; i < citylist.length; i++) {
+
             if (citylist[i].id == citycode) {
               AppBase.CITYID = citylist[i].id;
               AppBase.CITYNAME = citylist[i].name;
+              
               break;
             }
+            if (citylist[i].id == citycode && AppBase.CITYID != citycode){
+              this.Base.setMyData({
+                nocity: 2
+              });
+            }
+            
+            if (citylist[i].id != citycode && AppBase.CITYID != citycode){
+              this.Base.setMyData({
+               nocity:1
+              });
+            }
+
+
           }
         }
 

@@ -34,6 +34,10 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
+    
+    this.Base.setMyData({ scenes:AppBase.scenes})
+    //console.log(aa)
+
     this.Base.setMyData({
       currentItemId: 2,
       mylat: 0,
@@ -99,7 +103,6 @@ class Content extends AppBase {
     var citylist = memberinfo.citylist;
 
 
-
     this.loadBanner();
 
 
@@ -112,6 +115,7 @@ class Content extends AppBase {
       console.log(AppBase.CITYID);
       console.log("asldjhaskdhas");
       console.log(this.Base.getMyData().currectcityid);
+
       if (AppBase.CITYID != this.Base.getMyData().currectcityid) {
         this.Base.setMyData({
           currectcityid: AppBase.CITYID
@@ -129,6 +133,16 @@ class Content extends AppBase {
     setTimeout(() => {
       wx.hideLoading()
     }, 1000);
+  }
+
+  closetop(e){
+    this.Base.setMyData({ nocity:0})
+  }
+  
+  setcity(e) {
+    var id=e.currentTarget.id;
+    this.Base.setMyData({ currectcityid: id });
+    this.loadjg();
   }
 
   tojgdetails(e) {
@@ -892,13 +906,16 @@ body.bannerGo2 = content.bannerGo2;
 body.tocity = content.tocity;
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
-body.loadBanner = content.loadBanner;
+body.loadBanner = content.loadBanner; 
+
+body.closetop = content.closetop; 
 
 body.btn = content.btn;
 body.getDates = content.getDates;
 body.jifen = content.jifen; 
 
-body.toduihuan = content.toduihuan;
+body.toduihuan = content.toduihuan; 
+body.setcity = content.setcity;
 
 body.bindSignIn = content.bindSignIn;
 body.showtc = content.showtc;

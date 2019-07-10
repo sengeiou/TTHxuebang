@@ -46,7 +46,7 @@ class Content extends AppBase {
 
     })
     this.Base.setMyData({
-      tanchuang: false, shuliang: 1, sl: 1
+      tanchuang: false, shuliang: 1, sl: 1,more:false
       
     })
 
@@ -137,9 +137,25 @@ class Content extends AppBase {
 
   }
 
+  showmore(e){
+    this.Base.setMyData({more:true})
+  }
+  shouqi(e){
+    this.Base.setMyData({ more: false })
+  }
+
   jia(e) {
+    var kucun=e.currentTarget.id;
     var shuliang = this.Base.getMyData().shuliang;
     shuliang++
+    if (shuliang > kucun) {
+      wx.showToast({
+        title: '购买数量请勿超过库存',
+        icon: 'none',
+      })
+      return;
+    }
+
     this.Base.setMyData({ shuliang })
   }
   jian(e) {
@@ -267,8 +283,10 @@ body.bindpin = content.bindpin;
 body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
-body.bindclose = content.bindclose;
+body.bindclose = content.bindclose; 
 
+body.showmore = content.showmore; 
+body.shouqi = content.shouqi; 
 body.jia = content.jia;
 body.jian = content.jian;
 
