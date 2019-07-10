@@ -49,8 +49,8 @@ class Content extends AppBase {
     var phone2 = mobile.substr(3, [4]);
     var phone3 = mobile.substr(7, [4]);
     this.Base.setMyData({ mobile: phone1 + ' ' + phone2 + ' ' + phone3 })
-    console.log(phone1 + phone2 + phone3)
-
+    console.log(phone1 + phone2 + phone3);
+    
 
     var api = new PurchaseApi();
 

@@ -2,6 +2,7 @@
 .pc {
   color: #c8c8c8;
    text-align: right;
+ 
 }
 .qq{
   background: #FFFFFF;
@@ -25,4 +26,10 @@ left:8vw;
 .ipt{
 
   text-align: right
+}
+.ipt1
+{
+  text-align: right;
+  width:350rpx;
+
 }

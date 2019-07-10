@@ -39,15 +39,7 @@ class Content extends AppBase {
       show: "kcxq",
       shulian: 0
     })
-
-
     this.daojishi();
-    
-
-
-
-  
-
   }
   daojishi() {
     var that = this;
@@ -57,6 +49,7 @@ class Content extends AppBase {
 
       var list = that.Base.getMyData().daojishilistdd;
       console.log(list);
+     
       console.log(52);
       var sjlist = [];
       for (var i = 0; i < list.length; i++) {
@@ -119,6 +112,10 @@ class Content extends AppBase {
       id: this.Base.options.id
     }, (courseinfo) => {
 
+      jigouapi.fenxiaoinfo({}, (fenxiaoinfo)=>{
+
+        this.Base.setMyData({ fenxiaoinfo: fenxiaoinfo})
+      })
 
       pingjiaapi.pingjialist({
         kecheng_id: this.Base.options.id
@@ -133,7 +130,7 @@ class Content extends AppBase {
       console.log(courseinfo);
       if (courseinfo.isgroup != 0) {
         jigouapi.pintuanlist({
-          group_course_id: courseinfo.id
+          group_course_course_id: courseinfo.id
         }, (pintuanlist) => {
           console.log(pintuanlist);
           var pintuanrenshu = 0;

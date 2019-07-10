@@ -70,7 +70,7 @@ class Content extends AppBase {
     });
 
     api.purchaselist({
-      pstatus: 'P,U,R'
+      pstatus: 'P,U,R,PJ'
     }, (wclist) => {
       this.Base.setMyData({
         wclist

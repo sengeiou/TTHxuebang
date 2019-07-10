@@ -273,7 +273,8 @@ export class ApiUtil {
   static masaike(name) {
 
     console.log(12132);
-    return name.substring(0, 1) + '***';
+    // return name.substring(0, 1) + '***';
+    return name;
 
   }
 

@@ -24,7 +24,7 @@
 
     <view style='width:24rpx'></view>
 
-    <view class='flex-row flex-center btn '>
+    <view  bindtap="pinjiagenduo"  class='flex-row flex-center btn '>
       <view class='flex-1'></view>
       <image src='{{uploadpath}}resource/{{res.wanchen}}' class='icon-34'></image>
       <view class='txt-white h5 margin-left-18'>评价更多订单</view>
