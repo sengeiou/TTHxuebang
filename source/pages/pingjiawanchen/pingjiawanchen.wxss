@@ -1,11 +1,11 @@
 /* pages/pingjiawanchen/pingjiawanchen.wxss */
 
 .height-50 {
-  height: 100rpx;
+  height: 80rpx;
 }
 
 .bg-top {
-  background: linear-gradient(110deg, rgba(255, 190, 49, 1) 0%, rgba(255, 139, 15, 1) 100%);
+  background: white;
 }
 
 .txt-f {
@@ -37,7 +37,8 @@
   width: 312rpx;
   height: 84rpx;
   border-radius: 56rpx;
-  border: 2rpx solid rgba(255, 255, 255, 1);
+  border: 2rpx solid #FF6600;
+  background-color: #FF6600;
 }
 
 .icon-34 {

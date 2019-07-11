@@ -5,6 +5,10 @@ page {
 }
 .kd{
   width: 100rpx;
+  height: 100rpx;
+  margin-top:40rpx;
+  position: absolute;
+  margin-left:620rpx;
 }
 .chengong{
   position: fixed;

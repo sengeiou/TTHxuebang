@@ -39,8 +39,10 @@ class Content extends AppBase {
       show: "kcxq",
       shulian: 0
     })
-    this.daojishi();
+    
   }
+
+
   daojishi() {
     var that = this;
 
@@ -215,12 +217,12 @@ class Content extends AppBase {
         floorstatus: true
       });
     }
-    if (e.scrollTop > 520) {
+    if (e.scrollTop > 820) {
       this.setData({
         sco: 1
       });
     }
-    if (e.scrollTop <= 520) {
+    if (e.scrollTop <= 820) {
       this.setData({
         sco: 2,
         show: "kcxq"
@@ -475,4 +477,5 @@ body.lifk = content.lifk;
 body.check = content.check;
 body.chakangenduo = content.chakangenduo;
 body.chakantuan = content.chakantuan;
+body.ceshiceshi = content.ceshiceshi;
 Page(body)
