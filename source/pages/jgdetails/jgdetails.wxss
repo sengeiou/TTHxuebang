@@ -210,6 +210,8 @@ height:40rpx;
 .kcname_block {
   min-width: 188rpx;
   height: 60rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
   line-height: 60rpx;
   background: rgba(245, 245, 245, 1);
   border-radius: 8rpx;
@@ -220,13 +222,18 @@ height:40rpx;
 .kcname_block_check {
   min-width: 188rpx;
   height: 60rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
   line-height: 60rpx;
   background: #f60;
   border-radius: 8rpx;
   margin-right: 20rpx;
   margin-top: 20rpx;
 }
-
+.height-210{
+  height:220rpx;
+  
+}
 .icon-10 {
   height: 20rpx;
   width: 20rpx;

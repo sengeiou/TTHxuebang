@@ -73,7 +73,7 @@
   <view style='height:240rpx;'></view>
 
 
-  <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
+  <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
 
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
@@ -86,10 +86,11 @@
 
           <view class='flex-row flex-center'>
 
-          <view class="flex-row flex-1 ">
-            <view class='txt-black txt-bold flex-1' style="width:400rpx;">{{item.jigou}}</view>
-            <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-top-10"></image>
-</view>
+            <view class="flex-row flex-center flex-1 ">
+              <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
+              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"></image>
+            </view>
+            
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
@@ -120,7 +121,7 @@
             <view class='flex-row flex-1'>
               <view class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
-            
+
             <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
           </view>
 
@@ -139,7 +140,7 @@
   </view>
 
 
-  <view style='height:40rpx;'></view>
+  <view style='height:70rpx;'></view>
 </view>
 
 

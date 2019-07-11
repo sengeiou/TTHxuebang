@@ -52,7 +52,7 @@
           <view class='flex-row flex-center  margin-top-6'>
             <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image>
             <view class=" txt9 h5 margin-left-10">{{item.interral}}</view>
-            <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}</view>
+            <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}元</view>
           </view>
         </view>
       </view>

@@ -27,7 +27,7 @@
 
 
 
-  <view class='gengxin  ' bindtap="update">
+  <view class='gengxin  '>
     <button class='clear-button' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
       <view class="flex-row flex-center">
         <image src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10'></image>
@@ -41,9 +41,9 @@
   <view class='flex-row flex-center'>
 
     <view class='flex-row column flex-1'>
-      <view class='f48 txt-bold txt-white'>Hi,{{memberinfo.nickName}}</view>
-      <view wx:if='{{memberinfo.mobile!=""}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</view>
-      <view wx:if='{{memberinfo.mobile==""}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</view>
+      <view class='f48 txt-bold txt-white chaochu'>Hi,{{memberinfo.nickName}}</view>
+      <view wx:if='{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</view>
+      <view wx:if='{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</view>
 
       <view class='bianji flex-row flex-center margin-top-20'>
         <view class='flex-1'></view>

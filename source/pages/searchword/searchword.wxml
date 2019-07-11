@@ -1,13 +1,15 @@
 <!--pages/searchword/searchword.wxml-->
-<view class='Top padding-20 flex-row flex-center bg-white'>
+<view class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
   <view class='search flex-row flex-center padding-5 '>
     <view style='width:20rpx;'></view>
     <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
-    <input class='h6 flex-1 txt-black padding-left-5'  focus='true' placeholder='搜索您要找的机构、课程、老师' bindinput='search'></input>
+    <input class='h6 flex-1 txt-black padding-left-5' focus='true' placeholder='搜索您要找的机构、课程、老师' bindinput='search'></input>
 
-    <view class='padding-left-20 padding-right-10' bindtap=''><image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image></view>
+    <view class='padding-left-20 padding-right-10' bindtap=''>
+      <image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image>
+    </view>
   </view>
-  <view class='padding-left-10 h5 ' style='color:#000000' bindtap='tosearch' id='{{item.name}}'>搜索</view>
+  <view class='padding-left-10 h5 txt-white' style='' bindtap='tosearch' id='{{item.name}}'>搜索</view>
 </view>
 
 <!-- <view class='flex-row flex-column' hidden='{{show==0}}' wx:if='{{result==null||result.length==0}}'>
@@ -16,30 +18,50 @@
 </view> -->
 
 
-<view  bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
-  <view >{{item.name}}</view>
+<view bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
+  <view>{{item.name}}</view>
   <view class='h6 txt-red margin-left-20'></view>
 </view>
 
-  <view style='height:95rpx;'></view>
-  <block wx:if="{{result.length==0}}">
-    <block wx:if="{{history.length>0}}">
-      <view class='flex-row flex-center'>
-      <view class='keywordtitle flex-1'>历史搜索</view>
-      <image src='{{uploadpath}}resource/{{res.clear}}' class='icon' bindtap='clearrecord'></image>
-      <view style='width:40rpx;'></view>
-<!-- 
-      <view class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'>清空</view> -->
+<!-- <view style='height:95rpx;'></view> -->
+<block wx:if="{{result.length==0}}">
 
-      </view>
-      <view class='flex-row' style='flex-wrap: wrap;padding-left:30rpx;'>
-        <view wx:for="{{history}}" wx:key="k" class='keyword' id="{{item.keyword}}" bindtap='todetails'>{{item.keyword}}</view>
-      </view>
-    </block>
-    <block wx:if="{{hotest.length>0}}">
-      <view class='keywordtitle' style='margin-top:40rpx;'>热门搜索</view>
+
+  <block wx:if="{{hotest.length>0}}">
+    <view class="bg-white">
+      <view class='keywordtitle txt-9'>热门搜索</view>
       <view class='flex-row' style='flex-wrap: wrap;padding-left:30rpx;'>
         <view wx:for="{{hotest}}" wx:key="k" class='keyword' id="{{item.keyword}}" bindtap='todetails'>{{item.keyword}}</view>
       </view>
-    </block>
+      <view style="height:40rpx"></view>
+    </view>
   </block>
+
+
+  <block wx:if="{{history.length>0}}"  >
+
+  <view class="bg-white" style='margin-top:12rpx;' >
+    <view class='flex-row flex-center'>
+      <view class='keywordtitle flex-1 txt-9'>历史搜索</view>
+      <image src='{{uploadpath}}resource/{{res.clear}}' class='icon' bindtap='clearrecord'></image>
+      <view style='width:40rpx;'></view>
+      <!-- <view class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'>清空</view> -->
+    </view>
+
+    <view class=' ' style='padding-left:30rpx;padding-right:30rpx;'>
+      <view wx:for="{{history}}" wx:key="k" class='' id="{{item.keyword}}" bindtap='todetails'>
+      <view style="height:4rpx;background:#F5F5F5"></view>
+
+      <view class="h6" style="margin-top:24rpx;margin-bottom:24rpx">{{item.keyword}}</view>
+      
+      </view>
+    </view>
+
+    <view style="height:40rpx"></view>
+</view>
+
+  </block>
+
+
+
+</block>

@@ -1,5 +1,9 @@
 /* pages/ceshi/ceshi.wxss */
 
+Page {
+  background: white;
+}
+
 .Top {
   position: fixed;
   z-index: 100;
@@ -7,10 +11,40 @@
   width: 750rpx;
 }
 
+.tsimg {
+  width: 452rpx;
+  height: 150rpx;
+  z-index: 100;
+  position: absolute;
+  right: 34rpx;
+}
+
 .search {
   width: 100%;
   border-radius: 30rpx;
   background-color: white;
+}
+
+.h40 {
+  font-size: 40rpx;
+}
+
+.topblock {
+  position: absolute;
+  z-index: 100;
+  top: 72rpx;
+  left: 24rpx;
+  width: 700rpx;
+  height: 86rpx;
+  background: rgba(34, 34, 34, 0.8);
+}
+
+.btn {
+  width: 160rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  background: rgba(56, 135, 222, 1);
+  border-radius: 28rpx;
 }
 
 .img2 {
@@ -199,6 +233,11 @@
   font-size: 20rpx;
 }
 
+.icon8 {
+  width: 16rpx;
+  height: 16rpx;
+}
+
 .txthuang {
   color: #ffc200;
 }
@@ -230,9 +269,11 @@
   height: 4rpx;
   width: 84rpx;
 }
-.marginleft-10{
+
+.marginleft-10 {
   margin-left: -16rpx;
 }
+
 .dakaxian2 {
   margin-left: -18rpx;
   margin-right: -18rpx;
@@ -397,6 +438,7 @@
   height: 18rpx;
   background: rgba(161, 96, 0, 1);
 }
+
 .checkyuan {
   width: 18rpx;
   height: 18rpx;
@@ -429,4 +471,15 @@
   margin-top: -8rpx;
   margin-bottom: -14rpx;
   margin-left: 86rpx;
+}
+
+.tishikuang {
+  width: 100vw;
+  height: 58rpx;
+  background: rgba(255, 250, 207, 1);
+}
+
+.icon20 {
+  height: 20rpx;
+  width: 20rpx;
 }

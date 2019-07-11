@@ -31,6 +31,14 @@ Page{
 .address{
 
 }
+
+.icon13{
+  height: 26rpx;
+  width: 26rpx;
+}
+.f20{
+  font-size: 20rpx;
+}
 .img{
   width: 220rpx;
   height: 252rpx;
