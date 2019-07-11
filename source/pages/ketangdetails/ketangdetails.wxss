@@ -47,13 +47,17 @@ background-color: #F5F6F8;
   width: 100vw;
   height: 60vh;
 }
+.margin-top-3{
 
+ margin-top:3rpx;
+
+}
 
 .zt1{
 
   
+margin-top:-170rpx;
 
-top: 80rpx;
   width: 30rpx;
   height: 30rpx;
  margin-left:85rpx;
@@ -123,24 +127,31 @@ top: 80rpx;
 
 .fufei1 {
 
+ display: flex;
   border-radius: 0 10rpx 0 10rpx;
+  margin-top: -235rpx;
  
-  
    color: #fff;
    margin-left: 150rpx;
   background-color: #f44;
   width: 50rpx;
-
+align-items: center;
+  justify-content: center;
   position: absolute;
 }
 
 .mianfei1 {
+ display: flex;
   border-radius: 0 10rpx 0 10rpx;
+  margin-top: -235rpx;
    color: #fff;
    margin-left: 150rpx;
   background-color: #ccc;
   width: 50rpx;
-  position: absolute; 
+align-items: center;
+  justify-content: center;
+  position: absolute;
+  
 }
 .tishi {
   position: fixed;
@@ -396,7 +407,7 @@ top: 80rpx;
   width: 200rpx;
   font-size: 24rpx;
   height: 80rpx;
-  background: red;
+
    white-space:normal;
 }
 .kuan {
