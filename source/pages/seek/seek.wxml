@@ -90,7 +90,7 @@
               <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
               <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"></image>
             </view>
-            
+
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
                 <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
@@ -290,7 +290,7 @@
 
       <view class='flex-row flex-center flex-1'>
         <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
-        <view class='h6 flex-1 margin-left-5 txt-gray'>{{item.JG_jigou}}</view>
+        <view class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</view>
         <view class=' txt-red h6 padding-top-10'>￥</view>
         <view class=' txt-red txt-bold'>{{item.price}}</view>
       </view>
@@ -378,8 +378,8 @@
 
 
 <swiper wx:if="{{type=='kc'&&options_show==false}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
-  <swiper-item style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
-    <view class='flex-row'>
+  <swiper-item wx:for-index="idx" style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
+    <view wx:if="{{idx/2==0}}" class='flex-row'>
       <view class='flex-1'></view>
       <view class='tipsshow'>
         <view class='flex-row flex-center'>
@@ -388,17 +388,40 @@
           </view>
 
           <view style='width:250rpx;' class='flex-row flex-center'>
-            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;width:50rpx;'>{{showitem.member_nickName}}</view>
-            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>预约了</view>
-            <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
+           
+            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}预约了</view>
+
+            <!-- <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
               {{showitem.course_name}}
-            </view>
+            </view> -->
 
           </view>
 
         </view>
       </view>
+
     </view>
+    <view  wx:if="{{idx/2!=0}}" class='flex-row'>
+     
+       <view  class='tipsshow'>
+      <view class='flex-row flex-center'>
+
+
+        <view class='flex-row flex-center'>
+
+          <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;margin-top:5rpx'>
+            {{showitem.course_name}}
+          </view>
+
+        </view>
+
+      </view>
+    </view>
+
+    </view>
+
+
+   
   </swiper-item>
 </swiper>
 

@@ -67,9 +67,9 @@
   </view>
 
   <view class='margin-left-20'>
-    <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
-
-      <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='ceshi flex-row flex-column'>
+    <scroll-view scroll-x style=" " class='ss1' bindscroll="scroll">
+     <view class="flex-row flex-center " style="width:{{zhanjie.length*250}}rpx">
+      <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='ceshi '>
 
         <view class="{{item.dq==true?'bk':''}}">
 
@@ -87,6 +87,9 @@
           <image wx:if="{{danqianzhanjie.id!=item.id}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
         </view>
       </view>
+      </view>
+
+      
     </scroll-view>
   </view>
   <view class="cuxian"></view>
