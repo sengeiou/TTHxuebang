@@ -67,9 +67,9 @@
   </view>
 
   <view class='margin-left-20'>
-    <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
-
-      <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='ceshi flex-row flex-column'>
+    <scroll-view scroll-x style=" " class='ss1' bindscroll="scroll">
+     <view class="flex-row flex-center " style="width:{{zhanjie.length*250}}rpx">
+      <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='ceshi '>
 
         <view class="{{item.dq==true?'bk':''}}">
 
@@ -87,13 +87,16 @@
           <image wx:if="{{danqianzhanjie.id!=item.id}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
         </view>
       </view>
+      </view>
+
+      
     </scroll-view>
   </view>
   <view class="cuxian"></view>
   <view class="padding-302 flex-row flex-center">
     <view class="flex-1 f13 txt-bold" style='color:#222222'>留言 {{ketanpinlunlist.length}}</view>
     <view bindtap='chakanquanbu' class="jieshao1 ">查看全部</view>
-    <image src='{{uploadpath}}resource/{{res.sppinlun}}' class='icon-15 margin-left-10'></image>
+    <image src='{{uploadpath}}resource/{{res.sppinlun}}' class='icon-15 margin-top-3 margin-left-10'></image>
   </view>
   <view wx:for="{{ketanpinlunlist}}" wx:for-index="idx" wx:if="{{idx<2}}" wx:key="k" class="margin-20">
 
@@ -153,7 +156,7 @@
   <view class="padding-20 flex-row flex-center">
     <view class="flex-1">{{danqianzhanjie.classroom_id_name}}</view>
 
-    <image bindtap="guanbiliebiao" src='{{uploadpath}}resource/{{res.shipinguanbi}}' class='icon-15'></image>
+    <image bindtap="guanbiliebiao" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
   </view>
   <scroll-view scroll-y class="gd">
     <view class=" padding-10 flex-row flex-center flex-wrap">
@@ -184,7 +187,7 @@
 
   <view class="padding-20 flex-row flex-center">
     <view class="flex-1">精彩评论</view>
-    <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.shipinguanbi}}' class='icon-15'></image>
+    <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
 
   </view>
   <scroll-view scroll-y class="gd">
@@ -196,8 +199,8 @@
           <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
         </view>
         <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon'></image>
+        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
 
       </view>
 
@@ -211,17 +214,15 @@
           <view class="flex-1"></view>
           <view class="h5 margin-right-20" style='color:#999999'>{{item.huifudianzanrenshu}}</view>
 
-          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
-          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon'></image>
+          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
 
 
         </view>
         <view class="h5 margin-top-10  margin-left-30 ">{{item.huifu}}</view>
       </view>
     </view>
-
-    <!-- <view style='height:120rpx'></view> -->
-
+    <view style='height:120rpx'></view>
 
 
   
@@ -233,5 +234,4 @@
       </input>
       <view bindtap='fabiao' class="fabiao">发表</view>
     </view>
-  
 </block>

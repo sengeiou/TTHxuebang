@@ -50,22 +50,22 @@
 
             </view>
 
-            <view wx:if="{{scoring==5}}" style='margin-top:0' class='flex-row flex-center margin-20 '>
+            <view wx:if="{{scoring==5}}" style='margin-top:20rpx' class='flex-row flex-center margin-20 '>
               <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
-            <view wx:if="{{scoring==4}}" style='margin-top:0' class='flex-row flex-center margin-20'>
+            <view wx:if="{{scoring==4}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
               <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
               <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
-            <view wx:if="{{scoring==3}}" style='margin-top:0' class='flex-row flex-center margin-20'>
+            <view wx:if="{{scoring==3}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
               <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
               <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
-            <view wx:if="{{scoring==2}}" style='margin-top:0' class='flex-row flex-center margin-20'>
+            <view wx:if="{{scoring==2}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
               <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
               <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
-            <view wx:if="{{scoring==1}}" style='margin-top:0' class='flex-row flex-center margin-20'>
+            <view wx:if="{{scoring==1}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
               <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
               <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
             </view>
@@ -73,11 +73,11 @@
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
               </view>
-              <view bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+              <view wx:if="{{fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                 <view class='flex-1'></view>
                 <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
-                <view class='h6 margin-left-10'>转发好友</view>
+                <view  class='h6 margin-left-10'>转发好友</view>
                 <view class='flex-1'></view>
 
               </view>
@@ -158,9 +158,9 @@
 
           </view>
 
-          <view class='height-20 bg-gray' style='margin-top:-10rpx'></view>
+          <view wx:if="{{pingjialist.length>0}}" class='height-20 bg-gray' style='margin-top:-10rpx'></view>
 
-          <view class="padding-30 flex-row flex-center" style='border-bottom:2rpx solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+          <view wx:if="{{pingjialist.length>0}}" class="padding-30 flex-row flex-center" style='border-bottom:2rpx solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
             <view class="flex-1 h5" style='color:#222222'>课程评价({{pingjialist.length}})</view>
             <view class="h6" style='color:#999999'>查看更多</view>
             <image src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10'></image>
@@ -217,17 +217,17 @@
 
             <view class='img flex-row flex-center flex-wrap'>
 
-              <image wx:if='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}'></image>
+              <image wx:if='{{item.img1!=""&&item.img1!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}'></image>
 
-              <image wx:if='{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}'></image>
+              <image wx:if='{{item.img2!=""&&item.img2!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}'></image>
 
-              <image wx:if='{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}'></image>
+              <image wx:if='{{item.img3!=""&&item.img3!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}'></image>
 
-              <image wx:if='{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}'></image>
+              <image wx:if='{{item.img4!=""&&item.img4!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}'></image>
 
-              <image wx:if='{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}'></image>
+              <image wx:if='{{item.img5!=""&&item.img5!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}'></image>
 
-              <image wx:if='{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}'></image>
+              <image wx:if='{{item.img6!=""&&item.img6!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}'></image>
 
 
             </view>
@@ -420,9 +420,9 @@
     <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
   </view>
 
-  <view class=' to_top1'>
+  <!-- <view class=' to_top1'>
     <image src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' bindtap='shouye'></image>
-  </view>
+  </view> -->
 
 
 
@@ -465,8 +465,8 @@
 
           </view>
 
-          <view class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-
+          <view wx:if="{{ppp==0}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+<view wx:if="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
         </view>
 
         <view bindtap='bindclose'>

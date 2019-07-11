@@ -256,7 +256,7 @@ class Content extends AppBase {
                         api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
 
                           wx.navigateTo({
-                            url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
+                            url: '/pages/myorder/myorder?id=' + res.spellgroup_id,
                           })
 
                         })
@@ -265,7 +265,7 @@ class Content extends AppBase {
                       else {
 
                         wx.navigateTo({
-                          url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                          url: '/pages/myorder/myorder?id=' + that.options.course_id,
                         })
 
                       }

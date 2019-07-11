@@ -40,8 +40,15 @@ class Content extends AppBase {
        wx.navigateBack({
          
        })
+       return
+
       }
-      else{
+      if(res[0].status=='A')
+      {
+      this.Base.info("正在审核中哦");
+      return
+      }
+      if (res[0].status == 'S') {
         this.Base.info("您已经是推广员了,无需申请");
       }
 

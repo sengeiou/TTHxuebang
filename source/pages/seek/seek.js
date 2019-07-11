@@ -117,8 +117,17 @@ class Content extends AppBase {
       });
     });
     jigouapi.buyshow({}, (buyshow) => {
+      console.log(buyshow);
+      console.log(5555555555555);
+        var lunbolist=[];
+        buyshow.map((item)=>{
+
+           lunbolist.push(item);
+          lunbolist.push(item);
+        })
+
       this.Base.setMyData({
-        buyshow
+        buyshow: lunbolist
       });
     });
 

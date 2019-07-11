@@ -41,7 +41,14 @@ class Content extends AppBase {
       url: '/pages/home/home'
     })
   }
+  pinjiagenduo()
+  {
  
+  wx.navigateTo({
+    url: '/pages/myorder/myorder?type=dpj',
+  })
+
+  }
 
 
 }
@@ -51,4 +58,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tohome = content.tohome;
+body.pinjiagenduo = content.pinjiagenduo;
 Page(body)
