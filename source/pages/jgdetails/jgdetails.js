@@ -98,11 +98,11 @@ class Content extends AppBase {
       jigouapi.ketanglist({
         onlineclassroomtype_id: jginfo.classtype_id
       }, (ketanglist) => {
-
+        
         this.Base.setMyData({
           ketanglist
         });
-
+        
       })
 
       jigouapi.orderstatus({

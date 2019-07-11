@@ -92,7 +92,7 @@ class Content extends AppBase {
     }
     var pingceapi = new PingceApi();
 
-    pingceapi.indexlist({}, (indexlist) => {
+    pingceapi.indexlist({orderby:'r_main.seq'}, (indexlist) => {
       this.Base.setMyData({
         indexlist
       });

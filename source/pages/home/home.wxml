@@ -113,7 +113,7 @@
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
       <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view>
-      <view class=' ' style='height:34rpx;'></view>
+      <view class=' ' style='height:28rpx;'></view>
       <view class='flex-row flex-center'>
         <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</view>
@@ -310,7 +310,7 @@
                                           <view class='flex-1'></view>
                                           <view class='h6'>累计签到{{dakalist.length}}天</view>
                                           <view class='flex-1'></view>
-                                          <view class='h6'>已连续签到{{dakalist.length}}天</view>
+                                          <view class='h6'>已连续签到{{day+1}}天</view>
                                           <view class='flex-1'></view>
                                           <view class='h6'>连续签到7天额外领取20积分</view>
                                           <view class='flex-1'></view>
