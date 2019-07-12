@@ -218,7 +218,7 @@ align-items: center;
 }
 
 .margin-top-12 {
-  margin-top: 12rpx;
+  margin-top: 20rpx;
 }
 
 .icon-13 {

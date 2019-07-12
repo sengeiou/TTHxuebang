@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({});
+    this.Base.setMyData({ jifen: Math.round(this.Base.options.jifen)});
   }
   onMyShow() {
     var that = this;
@@ -67,4 +67,5 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tohome = content.tohome;
 body.lijixuexi = content.lijixuexi;
+body.kechenxianqin = content.kechenxianqin;
 Page(body)

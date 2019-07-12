@@ -6,7 +6,7 @@
   <view class="flex-1"></view>
     <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
     <view class='flex-row column margin-left-28'>
-      <view class='txt-bold'>购买成功,获得50积分</view>
+      <view class='txt-bold'>购买成功,获得{{jifen}}积分</view>
      
     </view>
      <view class="flex-1"></view>
@@ -26,10 +26,10 @@
 
     <view style='width:24rpx'></view>
 
-    <view class='flex-row flex-center btn '>
+    <view   bindtap='lijixuexi' class='flex-row flex-center btn '>
       <view class='flex-1'></view>
       <image src='{{uploadpath}}resource/{{res.kc_lijixuexi}}' class='icon-34'></image>
-      <view  bindtap='lijixuexi' class='txt-white h5 margin-left-18'>立即学习</view>
+      <view class='txt-white h5 margin-left-18'>立即学习</view>
       <view class='flex-1'></view>
     </view>
 
@@ -56,7 +56,7 @@
 
     <view class='padding-12'>
       <view class='h5'>{{item.name}}</view>
-      <view style=' height: 30rpx;' class='f-16 chaochu2 margin-top-8'>
+      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
         {{item.class_introduce}}
       </view>
 
