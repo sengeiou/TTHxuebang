@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/maintain/maintain",
     "pages/personaldata/personaldata",
     "pages/hexiao/hexiao",
     "pages/order/order",

@@ -32,6 +32,7 @@ export class AppBase {
   pagetitle = null;
   app = null;
   options = null;
+  inmaintain=false;
   data = {
     apiurl: ApiConfig.GetApiUrl(),
     uploadpath: ApiConfig.GetUploadPath(),
@@ -185,6 +186,13 @@ export class AppBase {
     instapi.info({}, (instinfo) => {
       if (instinfo == null || instinfo == false) {
 
+        return;
+      } 
+
+      if (this.Base.inmaintain==false&&instinfo.instswitch == '否') {
+        wx.reLaunch({
+          url: '/pages/maintain/maintain',
+        })
         return;
       }
       AppBase.InstInfo = instinfo;
