@@ -11,7 +11,7 @@
 </swiper>
 
 
-<view class='menu-padding flex-row flex-center flex-wrap'>
+<view class='menu-padding flex-row flex-center flex-wrap bg-white'>
 
   <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>
     <image wx:if="{{-2==xz}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
@@ -39,7 +39,7 @@
 
 </view>
 
-<view class='text-center f18 txt-bold '>
+<view class='text-center f18 txt-bold margin-top'>
   {{name}}
 </view>
 
