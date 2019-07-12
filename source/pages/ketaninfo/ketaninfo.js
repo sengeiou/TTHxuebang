@@ -34,7 +34,7 @@ class Content extends AppBase {
   shipininfo()
   {
 wx.navigateTo({
-  url: '/pages/ketangdetails/ketangdetails?id='+this.Base.options.id,
+  url: '/pages/ketangdetails/ketangdetails?id=' + this.Base.getMyData().kecheninfo.onlineclassroom_id,
 })
 
   }

@@ -14,7 +14,7 @@
 
 <view class="height-20"></view>
 
-<view bindtap="shipininfo" class=' padding-left-20 bg-white bor_bot' style=''>
+<view bindtap="shipininfo"  class=' padding-left-20 bg-white bor_bot' style=''>
   <!-- <view class='flex-row flex-center padding-20 bor_bot' style=''>
     <view class='flex-1 txt-gray'>2019-02-03 12:00</view>
     <view class='txt-gray'>已完成</view>

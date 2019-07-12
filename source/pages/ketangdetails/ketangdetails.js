@@ -23,23 +23,42 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole: true, spbf:false });
+    this.Base.setMyData({
+      liebiao: false,
+      quanbu: false,
+      pinlun: '',
+      tanguole: true,
+      spbf: false,
+      animationData: {}
+    });
     this.Base.shipin = wx.createVideoContext("v_1");
     console.log("牛逼");
     console.log(this.Base.shipin);
   }
+
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
-    jigouapi.zaixiankecheninfo({ id: this.Base.options.id }, (kecheninfo) => {
+
+    jigouapi.fenxiaoinfo({}, (fenxiaoinfo) => {
+      this.Base.setMyData({ fenxiaoinfo: fenxiaoinfo })
+    })
+    
+
+    jigouapi.zaixiankecheninfo({
+      id: this.Base.options.id
+    }, (kecheninfo) => {
       var pinjunjia = kecheninfo.price / kecheninfo.chapter_num;
       this.Base.setMyData({
-        kecheninfo: kecheninfo, isfav: kecheninfo.isfav, pinjunjia: pinjunjia.toFixed(2)
+        kecheninfo: kecheninfo,
+        isfav: kecheninfo.isfav,
+        pinjunjia: pinjunjia.toFixed(2)
       })
     })
-    jigouapi.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
+    jigouapi.ketanpinlunlist({
+      onlineclassroom_id: this.Base.options.id
+    }, (ketanpinlunlist) => {
       this.Base.setMyData({
-
         ketanpinlunlist: ketanpinlunlist
       })
 
@@ -47,10 +66,21 @@ class Content extends AppBase {
     })
 
 
-    jigouapi.kechenzhanjie({ classroom_id: this.Base.options.id }, (zhanjie) => {
+    jigouapi.kechenzhanjie({
+      classroom_id: this.Base.options.id
+    }, (zhanjie) => {
       zhanjie[0].dq = true;
-      this.Base.setMyData({ danqianzhanjie: zhanjie[0] });
-      this.Base.setMyData({ zhanjie: zhanjie });
+      this.Base.setMyData({
+        danqianzhanjie: zhanjie[0]
+      });
+
+      setTimeout(() => {
+        this.Base.shipin.play();
+
+      }, 500)
+      this.Base.setMyData({
+        zhanjie: zhanjie
+      });
     })
 
 
@@ -63,31 +93,48 @@ class Content extends AppBase {
       return
 
     }
-    if ((mulu[e.currentTarget.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '')&&this.Base.getMyData().tanguole) {
-      this.Base.setMyData({ tanguole:false})
-      this.Base.info("购买后观看完整版视频");
-      return
+    // if ((mulu[e.currentTarget.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '') && this.Base.getMyData().tanguole) {
+    //   this.Base.setMyData({
+    //     tanguole: false
+    //   })
+    //   this.Base.info("购买后观看完整版视频");
+    //   return
 
-    }
+    // }
 
-   
+
 
     for (var i = 0; i < mulu.length; i++) {
       if (i == e.currentTarget.dataset.id) {
         mulu[i].dq = true;
-      }
-      else {
+      } else {
         mulu[i].dq = false;
 
       }
     }
-    this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id], liebiao: false });
+    if (mulu[e.currentTarget.dataset.id].id == this.Base.getMyData().danqianzhanjie.id) {
+      console.log("相同的哈哈");
+      if (this.Base.getMyData().spbf) {
+        console.log("暂停");
+        this.Base.shipin.pause();
+      }
+      else {
+        console.log("播放");
+        this.Base.shipin.play();
+      }
+      return
+    }
+    this.Base.setMyData({
+      zhanjie: mulu,
+      danqianzhanjie: mulu[e.currentTarget.dataset.id],
+      liebiao: false
+    });
     setTimeout(() => {
       this.Base.shipin.play();
 
     }, 500)
 
-  
+
   }
   fav(e) {
     var that = this;
@@ -96,10 +143,14 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
-      this.Base.setMyData({ tishi: 1 });
+      this.Base.setMyData({
+        tishi: 1
+      });
     }
     if (status == "N") {
-      this.Base.setMyData({ tishi: 2 });
+      // this.Base.setMyData({
+      //   tishi: 2
+      // });
     }
 
 
@@ -116,7 +167,9 @@ class Content extends AppBase {
     });
 
     setTimeout(() => {
-      this.Base.setMyData({ tishi: 0 })
+      this.Base.setMyData({
+        tishi: 0
+      })
       // clearTimeout(timeoutId);
     }, 1000);
 
@@ -158,37 +211,74 @@ class Content extends AppBase {
 
   }
   chakanliebiao() {
-    this.Base.setMyData({ liebiao: true });
+
+    
+    var that = this;
+    // 创建一个动画实例
+    var animation = wx.createAnimation({
+      // 动画持续时间
+      duration: 500,
+      // 定义动画效果，当前是匀速
+      timingFunction: 'linear'
+    })
+    // 将该变量赋值给当前动画
+    that.animation = animation
+    // 先在y轴偏移，然后用step()完成一个动画
+    animation.translateY(200).step()
+    // 用setData改变当前动画
+    that.Base.setMyData({
+      // 通过export()方法导出数据
+      animationData: animation.export(),
+      // 改变view里面的Wx：if
+      liebiao: true
+    })
+    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
+    setTimeout(function () {
+      animation.translateY(0).step()
+      that.Base.setMyData({
+        animationData: animation.export()
+      })
+    }, 200)
+
+
+    // this.Base.setMyData({
+    //   liebiao: true
+    // });
   }
   chakanquanbu() {
-    this.Base.setMyData({ quanbu: true });
+    this.Base.setMyData({
+      quanbu: true
+    });
   }
   guanbiquanbu() {
-    this.Base.setMyData({ quanbu: false });
+    this.Base.setMyData({
+      quanbu: false
+    });
   }
   guanbiliebiao() {
-    this.Base.setMyData({ liebiao: false });
+    this.Base.setMyData({
+      liebiao: false
+    });
   }
   shikan() {
     this.Base.backtotop();
     //this.Base.shipin.play();
 
-   var canshu=wx.getStorageSync(this.Base.options.id+'sp'); 
-  console.log(canshu);
-  if(canshu=='')
-  {
-    this.Base.info("购买后观看完整版视频");
-    return
-  }
-  
-else{
-    var canshu = canshu.split(',');
-   var zhanjie=this.Base.getMyData().zhanjie;  
-    var danqianzhanjie = zhanjie.filter(item=>item.id==canshu[0])
-    this.Base.setMyData({ danqianzhanjie: danqianzhanjie[0]})
-    this.Base.shipin.seek(canshu[1]);
-    this.Base.shipin.play();
-  }
+    var canshu = wx.getStorageSync(this.Base.options.id + 'sp');
+    console.log(canshu);
+    if (canshu == '') {
+      this.Base.info("购买后观看完整版视频");
+      return
+    } else {
+      var canshu = canshu.split(',');
+      var zhanjie = this.Base.getMyData().zhanjie;
+      var danqianzhanjie = zhanjie.filter(item => item.id == canshu[0])
+      this.Base.setMyData({
+        danqianzhanjie: danqianzhanjie[0]
+      })
+      this.Base.shipin.seek(canshu[1]);
+      this.Base.shipin.play();
+    }
 
 
   }
@@ -202,7 +292,9 @@ else{
 
   }
   shuru(e) {
-    this.Base.setMyData({ pinlun: e.detail.value })
+    this.Base.setMyData({
+      pinlun: e.detail.value
+    })
 
   }
   fabiao() {
@@ -214,20 +306,25 @@ else{
         this.Base.info("至少说点什么才可以发送哦");
         return
       }
-      api.ketanpinlun({ onlineclassroom_id: this.Base.options.id, neiron: pinlun }, (res) => {
+      api.ketanpinlun({
+        onlineclassroom_id: this.Base.options.id,
+        neiron: pinlun
+      }, (res) => {
 
 
 
-        api.ketanpinlunlist({ onlineclassroom_id: this.Base.options.id }, (ketanpinlunlist) => {
+        api.ketanpinlunlist({
+          onlineclassroom_id: this.Base.options.id
+        }, (ketanpinlunlist) => {
           that.Base.setMyData({
-            ketanpinlunlist: ketanpinlunlist, pinlun: ''
+            ketanpinlunlist: ketanpinlunlist,
+            pinlun: ''
           })
         })
       })
 
 
-    }
-    else {
+    } else {
       this.Base.info("购买此专栏后才能进行评论哦！");
     }
   }
@@ -236,20 +333,23 @@ else{
     var idx = e.currentTarget.dataset.idx;
     var api = new JigouApi();
 
-    api.pinlundianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+    api.pinlundianzan({
+      zaixianpinlun_id: e.currentTarget.dataset.id
+    }, (res) => {
       console.log(res);
       if (res.return == "") {
         console.log(123132132);
         ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) - 1;
         ketanpinlunlist[idx].isfav = 'N';
-      }
-      else {
+      } else {
         console.log(45645646);
         ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) + 1;
         ketanpinlunlist[idx].isfav = 'Y';
 
       }
-      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+      this.Base.setMyData({
+        ketanpinlunlist: ketanpinlunlist
+      })
 
     })
     console.log(e);
@@ -260,37 +360,79 @@ else{
     var idx = e.currentTarget.dataset.idx;
     var api = new JigouApi();
 
-    api.pinlunhuifudianzan({ zaixianpinlun_id: e.currentTarget.dataset.id }, (res) => {
+    api.pinlunhuifudianzan({
+      zaixianpinlun_id: e.currentTarget.dataset.id
+    }, (res) => {
       console.log(res);
       if (res.return == "") {
         console.log(123132132);
         ketanpinlunlist[idx].huifudianzanrenshu = Number(ketanpinlunlist[idx].huifudianzanrenshu) - 1;
         ketanpinlunlist[idx].huifuisfav = 'N';
-      }
-      else {
+      } else {
         console.log(45645646);
         ketanpinlunlist[idx].huifudianzanrenshu = Number(ketanpinlunlist[idx].huifudianzanrenshu) + 1;
         ketanpinlunlist[idx].huifuisfav = 'Y';
 
       }
-      this.Base.setMyData({ ketanpinlunlist: ketanpinlunlist })
+      this.Base.setMyData({
+        ketanpinlunlist: ketanpinlunlist
+      })
 
     })
     console.log(e);
 
   }
-  ksbf(e)
-  {
+  ksbf(e) {
     console.log("开始播放了");
-    this.Base.setMyData({spbf:true})
+    this.Base.setMyData({
+      spbf: true
+    })
     console.log(e);
   }
-  jsbf(e)
-  {
+  jsbf(e) {
     console.log("结束播放了");
-    this.Base.setMyData({ spbf: false })
+    this.Base.setMyData({
+      spbf: false
+    })
     console.log(e);
   }
+  bfjs() {
+    var danqian = this.Base.getMyData().danqianzhanjie;
+    var zhanjie = this.Base.getMyData().zhanjie;
+    console.log(zhanjie);
+    var idx = 0;
+
+    for (var i = 0; i < zhanjie.length; i++) {
+      if (danqian.id == zhanjie[i].id) {
+        idx = i;
+      }
+    }
+    if (idx == zhanjie.length) {
+      return
+    }
+
+    if (zhanjie[idx + 1].isproved_value == 'N') {
+      this.Base.info("购买后观看完整版视频");
+
+      return
+
+    }
+
+
+    this.Base.setMyData({
+      danqianzhanjie: zhanjie[idx + 1]
+
+    })
+
+    setTimeout(() => {
+      this.Base.shipin.play();
+
+    }, 500)
+
+
+
+  }
+
 }
 
 
@@ -312,6 +454,7 @@ body.fabiao = content.fabiao;
 body.shuru = content.shuru;
 body.dianzan = content.dianzan;
 body.huifudianzan = content.huifudianzan;
-body.ksbf=content.ksbf;
-body.jsbf=content.jsbf;
+body.ksbf = content.ksbf;
+body.jsbf = content.jsbf;
+body.bfjs = content.bfjs;
 Page(body)

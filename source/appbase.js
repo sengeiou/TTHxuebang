@@ -1077,11 +1077,22 @@ export class AppBase {
       }
     })
   }
-  toast(msg) {
+  toast(msg,i=0) {
+    if(i==0)
+    {
     wx.showToast({
       title: msg,
       icon: "none"
     })
+    }
+    else(i==1)
+    {
+      wx.showToast({
+        title: msg,
+        icon: "success"
+      })
+
+    }
   }
   backtotop() {
     console.log("backtotop");

@@ -16,14 +16,14 @@
   <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>
     <image wx:if="{{-2==xz}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
     <image wx:if="{{-2!=xz}}" src='{{uploadpath}}resource/{{res.remenwx}}' class='icon-50 radius-50'></image>
-    <view class='h6 margin-top-12'>热门</view>
+    <view class='h6 margin-top-12 {{-2==xz?"txt-bold":""}}'>热门</view>
     <view wx:if="{{-2==xz}}" class="henxian"></view>
     <view wx:if="{{-2!=xz}}" class="nohenxian"></view>
   </view>
   <view bindtap='switchtype' data-id="-1" data-name="免费课程" style='width:18vw' class='flex-row  flex-column  '>
     <image wx:if="{{-1==xz}}" src='{{uploadpath}}resource/{{res.mianfei}}' class='icon-50 radius-50'></image>
     <image wx:if="{{-1!=xz}}" src='{{uploadpath}}resource/{{res.mianfeiwx}}' class='icon-50 radius-50'></image>
-    <view class='h6 margin-top-12'>免费</view>
+    <view class='h6 margin-top-12 {{-1==xz?"txt-bold":""}}'>免费</view>
     <view wx:if="{{-1==xz}}" class="henxian"></view>
     <view wx:if="{{-1!=xz}}" class="nohenxian"></view>
   </view>
@@ -31,7 +31,7 @@
   <view bindtap='switchtype' data-id="{{item.id}}" data-name="{{item.name}}" wx:for='{{fenleilist}}' wx:key="k" wx:for-index='idx' style='width:18vw' class='flex-row  flex-column  '>
     <image wx:if="{{item.id==xz}}" src='{{uploadpath}}onlineclassroomtype/{{item.img}}' class='icon-50 radius-50'></image>
     <image wx:if="{{item.id!=xz}}" src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50'></image>
-    <view class='h6 margin-top-12'>{{item.name}}</view>
+    <view class='h6 margin-top-12 {{item.id==xz?"txt-bold":""}}'>{{item.name}}</view>
     <view wx:if="{{item.id==xz}}" class="henxian"></view>
     <view wx:if="{{item.id!=xz}}" class="nohenxian"></view>
   </view>
@@ -80,7 +80,7 @@
 
     <view wx:if="{{item.isfree_value!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-      <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
+      <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
@@ -169,7 +169,7 @@
     </view>
     <view wx:if="{{item.isfree_value!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-      <view class='margin-top-4 f20 txt-gray'>￥{{item.originalprice}}</view>
+      <view class='margin-top-4 f20 txt-gray  xhx'>￥{{item.originalprice}}</view>
       <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
       <view class=' txt-red xg' style=''>{{item.price}}</view>
     </view>
