@@ -17,7 +17,8 @@
 </view>
 
 <view class="flex-row flex-center padding-L-R" style="height:92rpx;">
-  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight!=0}}'>运费：{{info.freight}}元</view>
+  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight!=0}}'>运费：免运费</view>
+  <!-- {{info.freight}}元 -->
   <view class="txt-9 h6 flex-1 " wx:if='{{info.freight==0}}'>运费：免运费</view>
   <view class="txt-9 h6">配送方式：{{info.peison}}</view>
   <view class="txt-9 h6" wx:if='{{info.peison==""}}'>配送方式：快递</view>
@@ -62,7 +63,7 @@
 
     </view>
 
-    <view style=" border-bottom:2rpx solid #f5f5f5" class="flex-row flex-center padding-T-B-28">
+    <view style=" border-bottom:2rpx solid #f5f5f5" class="flex-row flex-center padding-T-B-28 padding-top-28">
       <view class="h6 flex-1 margin-left-28 txt-6">购买数量</view>
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian"></image>

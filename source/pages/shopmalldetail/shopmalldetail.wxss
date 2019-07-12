@@ -61,6 +61,9 @@ Page {
   
   padding-bottom: 28rpx;
 }
+.padding-top-28{
+  padding-top: 28rpx;
+}
 .icon160{
   height: 160rpx;
   width: 160rpx;

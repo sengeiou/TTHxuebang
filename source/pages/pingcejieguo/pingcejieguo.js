@@ -111,7 +111,15 @@ class Content extends AppBase {
   }
 
 
-
+  tokcdetails(e){
+    var id=e.currentTarget.id
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 
   check(e) {
     var ck = e.currentTarget.dataset.ck;
@@ -243,5 +251,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.check = content.check;
 body.again = content.again;
-body.bindhuan = content.bindhuan;
+body.bindhuan = content.bindhuan; 
+body.tokcdetails = content.tokcdetails; 
 Page(body)

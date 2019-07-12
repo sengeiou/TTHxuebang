@@ -127,8 +127,8 @@
 
           <view class='flex-row flex-center margin-top-5'>
             <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
-            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.showaddress}}</view>
-            <view class='h6 '>{{item.miletxt}}</view>
+            <view class='flex-1 h6 margin-left-10 txt-black chaochu'>{{item.showaddress}}</view>
+            <view class='h6 margin-left-10'>{{item.miletxt}}</view>
           </view>
 
         </view>

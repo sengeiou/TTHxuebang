@@ -100,8 +100,9 @@
 
   <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></view>
 
-  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:300rpx;'></view>
+  <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:340rpx;'></view>
 
+     <!-- <view class="margin-top-20">a{{model}}b</view> -->
 
   <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
 
@@ -122,9 +123,7 @@
     </view>
 
 <view class="flex-row flex-column" style="margin-top:-60rpx;">
-    <text decode="{{true}}" space="ensp" class='padding-20  h5  {{more==false?"chaochu5 height-210":""}}' style="">
-      {{jginfo.jieshao}}
-    </text>
+    <text decode="{{true}}" space="ensp" class='padding-20  h5 margin-top-20 {{more==false?"chaochu5 height-210":""}}' style="">  {{jginfo.jieshao}}</text>
 
     <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
     <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
@@ -196,9 +195,7 @@
             <view class='h6  margin-left-5' style='color:#000000'>{{item.duration}}/节</view>
           </view>
 
-
         </view>
-
 
         <view class='flex-row flex-center flex-1'>
           <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>

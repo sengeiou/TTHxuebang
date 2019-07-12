@@ -54,7 +54,8 @@ Page {
 }
 
 .img {
-  width: 175px;
+   width: 175px; 
+  /* width: 100vw; */
   height: 177px;
   border-radius: 4px;
 }
