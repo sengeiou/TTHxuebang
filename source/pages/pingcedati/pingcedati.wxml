@@ -43,7 +43,6 @@
 
       <view style='height:180rpx;'></view>
 
-
       <view class='flex-row flex-center'>
         <view class='flex-1'></view>
         <view wx:if='{{idx>0}}' class='next_one txt-white text-center' bindtap='last' id='{{idx}}'>上一题</view>
