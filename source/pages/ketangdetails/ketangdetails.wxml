@@ -48,7 +48,7 @@
       </view>
 
 
-      <button class="clear-button zhaunfa flex-row flex-center margin-bottom-10" open-type='share'>
+      <button wx:if="{{fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" class="clear-button zhaunfa flex-row flex-center margin-bottom-10" open-type='share'>
 
         <view class='flex-1'></view>
         <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
@@ -156,7 +156,9 @@
 
   <view class="padding-20 flex-row flex-center">
     <view class="flex-1">{{danqianzhanjie.classroom_id_name}}</view>
-
+ <view bindtap="guanbiliebiao"  class="cs" style="width:120rpx;height:120rpx;">
+   
+</view>
     <image bindtap="guanbiliebiao" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
   </view>
   <scroll-view scroll-y class="gd">
@@ -188,8 +190,10 @@
 
   <view class="padding-20 flex-row flex-center">
     <view class="flex-1">精彩评论</view>
-    <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
-
+    <view bindtap="guanbiquanbu"  class="cs" style="width:120rpx;height:120rpx;">
+   
+</view>
+ <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
   </view>
   <scroll-view scroll-y class="gd">
     <view wx:for="{{ketanpinlunlist}}" wx:key="k" wx:for-index='idx' class="padding-20">
