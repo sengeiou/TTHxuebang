@@ -2,7 +2,16 @@
 Page{
   background: #f5f5f5;
 }
-
+.bg_top{
+  background: white;
+}
+.icon-80 {
+  width: 80rpx;
+  height: 80rpx;
+}
+.nr{
+  
+}
 .bor_bot{
   border-bottom:1px solid #f5f5f5
 }

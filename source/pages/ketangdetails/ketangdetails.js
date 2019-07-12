@@ -23,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole:true });
+    this.Base.setMyData({ liebiao: false, quanbu: false, pinlun: '', tanguole: true, spbf:false });
     this.Base.shipin = wx.createVideoContext("v_1");
     console.log("牛逼");
     console.log(this.Base.shipin);
@@ -82,7 +82,12 @@ class Content extends AppBase {
       }
     }
     this.Base.setMyData({ zhanjie: mulu, danqianzhanjie: mulu[e.currentTarget.dataset.id], liebiao: false });
-    this.Base.shipin.play();
+    setTimeout(() => {
+      this.Base.shipin.play();
+
+    }, 500)
+
+  
   }
   fav(e) {
     var that = this;
@@ -274,6 +279,18 @@ else{
     console.log(e);
 
   }
+  ksbf(e)
+  {
+    console.log("开始播放了");
+    this.Base.setMyData({spbf:true})
+    console.log(e);
+  }
+  jsbf(e)
+  {
+    console.log("结束播放了");
+    this.Base.setMyData({ spbf: false })
+    console.log(e);
+  }
 }
 
 
@@ -295,4 +312,6 @@ body.fabiao = content.fabiao;
 body.shuru = content.shuru;
 body.dianzan = content.dianzan;
 body.huifudianzan = content.huifudianzan;
+body.ksbf=content.ksbf;
+body.jsbf=content.jsbf;
 Page(body)

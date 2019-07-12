@@ -60,7 +60,7 @@ class Content extends AppBase {
   kechenxianqin(e) {
     console.log(e);
     wx.navigateTo({
-      url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+      url: '/pages/ketaninfo/ketaninfo?id=' + e.currentTarget.dataset.id,
     })
 
   }
@@ -70,27 +70,11 @@ class Content extends AppBase {
     var api = new PurchaseApi();
 
     api.purchaselist({
-      sppp:1
+      type: 'SP', sppp:1
     }, (alllist) => {
 
       this.Base.setMyData({
         alllist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'P,U,R'
-    }, (wclist) => {
-      this.Base.setMyData({
-        wclist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'W'
-    }, (dflist) => {
-      this.Base.setMyData({
-        dflist
       });
     });
 

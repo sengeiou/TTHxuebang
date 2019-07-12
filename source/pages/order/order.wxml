@@ -1,5 +1,17 @@
 <!--pages/order/order.wxml-->
+<view class="flex-row flex-center bg_top">
 
+  <view class="flex-1"></view>
+
+  <view class="flex-row flex-center nr">
+
+    <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
+    <view class='txt-bold margin-left-20'>交易成功</view>
+  </view>
+
+  <view class="flex-1"></view>
+
+</view>
 
 
 <view class='flex-row flex-column ' style='background-color:#FFC200' wx:if="{{info.pstatus=='W'}}">

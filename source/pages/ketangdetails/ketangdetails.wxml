@@ -1,4 +1,4 @@
-<video bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}'
+<video bindplay="ksbf" bindpause='jsbf' bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill" autoplay='{{false}}' id='v_1' loop='{{false}}'
   src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}' play-btn-position="center">
 
 </video>
@@ -83,8 +83,8 @@
             <view wx:if="{{kecheninfo.idd!=''}}" class="h7 mianfei1">已购</view>
 
           </block>
-          <image wx:if="{{danqianzhanjie.id==item.id}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
-          <image wx:if="{{danqianzhanjie.id!=item.id}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
+          <image wx:if="{{danqianzhanjie.id==item.id&&spbf}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
+          <image wx:if="{{!(danqianzhanjie.id==item.id&&spbf)}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
         </view>
       </view>
       </view>
@@ -95,7 +95,7 @@
   <view class="cuxian"></view>
   <view class="padding-302 flex-row flex-center">
     <view class="flex-1 f13 txt-bold" style='color:#222222'>留言 {{ketanpinlunlist.length}}</view>
-    <view bindtap='chakanquanbu' class="jieshao1 ">查看全部</view>
+    <view bindtap='chakanquanbu' class="jieshao1 ">去评论</view>
     <image src='{{uploadpath}}resource/{{res.sppinlun}}' class='icon-15 margin-top-3 margin-left-10'></image>
   </view>
   <view wx:for="{{ketanpinlunlist}}" wx:for-index="idx" wx:if="{{idx<2}}" wx:key="k" class="margin-20">
@@ -174,8 +174,8 @@
             <view wx:if="{{kecheninfo.idd!=''}}" class="h7 mianfei1">已购</view>
 
           </block>
-          <image wx:if="{{danqianzhanjie.id==item.id}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
-          <image wx:if="{{danqianzhanjie.id!=item.id}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
+          <image wx:if="{{danqianzhanjie.id==item.id&&spbf}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
+          <image wx:if="{{!(danqianzhanjie.id==item.id&&spbf)}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
         </view>
       </view>
     </view>

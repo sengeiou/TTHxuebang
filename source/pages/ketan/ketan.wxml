@@ -1,17 +1,12 @@
 
-<!--pages/myorder/myorder.wxml-->
-<view class=' flex-row flex-center  bg-white bor_bot top'>
 
- 
-  <view class='xiaoxi'>
-    <view wx:if="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</view>
+
+
+<view wx:if='{{alllist.length==0}}' class="flex-row flex-column">
+    <view style="height:100rpx;"></view>
+    <image src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 "></image>
+
   </view>
-
-</view>
-
-
-
-
 
 
 

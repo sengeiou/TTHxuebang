@@ -23,7 +23,7 @@
       </view>
 
       <view class='flex-row flex-center margin-top-5'>
-        <view class='flex-1 txt-gray chaochu3 h6'>{{kecheninfo.class_introduce}}</view>
+        <view class='flex-1 txt-gray chaochu2 h6'>{{kecheninfo.class_introduce}}</view>
       </view>
 
       <view class='flex-row flex-center flex-1 ' style=''>
@@ -51,7 +51,7 @@
     </view>
 
   </view>
-<!-- 
+  <!-- 
   <view bindtap='youhuijuan' class='flex-row flex-center padding-20' style=''>
     <view class='h5'>优惠卷</view>
     <view class='flex-1 margin-left-10 h4-5' style='color:#FF6600'>0张可用</view>
