@@ -58,7 +58,7 @@ Page {
   margin-left:28rpx; 
 }
 .padding-T-B-28{
-  padding-top: 28rpx;
+  
   padding-bottom: 28rpx;
 }
 .icon160{

@@ -12,7 +12,9 @@
 .margin-24 {
   margin: 24rpx;
 }
-
+.margin-left-12{
+  margin-left: 6rpx;
+}
 .mid-block {
   margin: 12rpx 24rpx 24rpx 24rpx;
 }

@@ -154,10 +154,11 @@
   </view>
 
   <view class='submit flex-row bg-white'>
-    <view class='flex-row flex-center flex-1 margin-left-28'>
+    <view class='flex-row flex-center flex-1 margin-left-28' >
       <image src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon' bindtap='check' data-ck='nm' wx:if='{{check==true}}'></image>
       <image src='{{uploadpath}}resource/{{res.weixuan}}' class='icon' bindtap='check' data-ck='bnm' wx:if='{{check==false}}'></image>
-      <view    class='txt-black h6 margin-left-10'>匿名评价</view>
+      <view    class='txt-black h6 margin-left-10' bindtap='check' data-ck='nm' wx:if='{{check==true}}'>匿名评价</view>
+       <view    class='txt-black h6 margin-left-10' bindtap='check'  data-ck='bnm' wx:if='{{check==false}}'>匿名评价</view>
     </view>
 
     <button style=' ' form-type='submit' class='subbtn txt-white text-center' style='border-radius:0;border:0'>提交评价</button>

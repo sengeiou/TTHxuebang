@@ -65,11 +65,11 @@
 
 
     <view class='padding-mid  ' style=''>
-      <view class='flex-row  '>
+      <view class='flex-row '>
         <view class='' style='color:#FF5252'>*</view>
         <view class='font-30  txt-black margin-left-10  width-210'>机构简介：</view>
-        <textarea class=' ' style='width:398rpx;height:100rpx;' placeholder-class='pc' name='jianjie' placeholder='250字左右简介'></textarea>
       </view>
+      <textarea class='margin-top-20 h5' style='width:600rpx;height:230rpx;' placeholder-class='pc' name='jianjie' placeholder='250字左右简介'></textarea>
     </view>
 
   </view>
@@ -93,7 +93,7 @@
 
       <view class='padding-left-20 padding-bottom-30  ' style=''>
         <view class='flex-row flex-center '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30  txt-black margin-left-10 width-210'>课程名称：</view>
           <input bindinput='xiename' data-idx="{{idx}}" class='  ' style='' placeholder-class='pc' value='' name='kcname' placeholder='如：美术、机器人编程'></input>
         </view>
@@ -103,7 +103,7 @@
 
       <view class='padding-mid' style=''>
         <view class='flex-row flex-center '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30   txt-black margin-left-10 width-210'>年龄段：</view>
           <input bindinput='nianlin' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='age' style='' placeholder='3-10岁'></input>
         </view>
@@ -112,7 +112,7 @@
 
       <view class='padding-mid' style=''>
         <view class='flex-row flex-center '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30   txt-black margin-left-10  '>每周固定可预约的上课时间：</view>
           <input bindinput='yuyue' data-idx="{{idx}}" class='  ' style='width:200rpx' placeholder-class='pc' value='{{contacttel}}' name='time' placeholder='周二上午'></input>
         </view>
@@ -122,7 +122,7 @@
 
       <view class='padding-mid  ' style=''>
         <view class='flex-row flex-center '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30   txt-black margin-left-10 '>性别：</view>
 
           <view class='flex-row flex-center  margin-left-40'>
@@ -150,7 +150,7 @@
 
       <view class='padding-mid  ' style=''>
         <view class='flex-row  '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30  txt-black margin-left-10  width-210'>课程时长：</view>
           <input bindinput='shichang' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='duration' style='' placeholder='4节90分钟每节两次上完'></input>
         </view>
@@ -161,7 +161,7 @@
 
       <view class='padding-mid  ' style=''>
         <view class='flex-row flex-center '>
-          <view class='' style='color:#FF5252'>*</view>
+          <!-- <view class='' style='color:#FF5252'>*</view> -->
           <view class='font-30   txt-black margin-left-10 '>开课方式：</view>
           <view class='flex-row flex-center  margin-left-40'>
             <view class='flex-row flex-center   ' bindtap='bindkaike' id='tiqian' data-idx='{{idx}}'>
@@ -184,7 +184,7 @@
         <view class='flex-row    '>
 
           <view class='flex-row  '>
-            <view class='' style='color:#FF5252'>*</view>
+            <!-- <view class='' style='color:#FF5252'>*</view> -->
             <view class='font-30   txt-black margin-left-10 '>请假要求：</view>
           </view>
 
@@ -228,7 +228,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <view class='' style='color:#FF5252'>*</view>
+      <!-- <view class='' style='color:#FF5252'>*</view> -->
       <view class='h5  txt-black margin-left-10 '>机构高清门头照 （1-2张）</view>
     </view>
 
@@ -255,7 +255,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <view class='' style='color:#FF5252'>*</view>
+      <!-- <view class='' style='color:#FF5252'>*</view> -->
       <view class='h5  txt-black margin-left-10 '>机构内部环境照片（3张以上）</view>
     </view>
 
@@ -279,7 +279,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <view class='' style='color:#FF5252'>*</view>
+      <!-- <view class='' style='color:#FF5252'>*</view> -->
       <view class='h5  txt-black margin-left-10 '>小朋友上课或获奖照片（4张以上）</view>
     </view>
 
@@ -307,7 +307,9 @@
       <image wx:if='{{show==1}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sf='N' class='icon-15'></image>
       <image wx:if='{{show==2}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sf='Y' class='icon-15'></image>
 
-      <view class='font-30 txt-black margin-left-10'>我已详细阅读并同意</view>
+      <view class='font-30 txt-black margin-left-10' wx:if='{{show==1}}' bindtap='bindcheck' data-sf='N'>我已详细阅读并同意</view>
+      <view class='font-30 txt-black margin-left-10' wx:if='{{show==2}}' bindtap='bindcheck' data-sf='Y'>我已详细阅读并同意</view>
+
       <view class='font-30 txt-blue margin-left-5' bindtap='tocontent'>《学榜用户协议》</view>
       <view class='flex-1'></view>
     </view>

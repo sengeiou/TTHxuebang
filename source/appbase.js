@@ -149,6 +149,10 @@ export class AppBase {
       options: options
     });
 
+    
+    
+   
+
     ApiConfig.SetUnicode(this.Base.unicode);
 
 

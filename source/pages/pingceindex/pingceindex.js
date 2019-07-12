@@ -61,20 +61,19 @@ class Content extends AppBase {
 
       this.Base.setMyData({
         info,
-        yd: parseFloat(info.yidong),
-        zq: parseFloat(info.zhunque),
-        sy: parseFloat(info.shiyon)
+        yd: parseFloat(info.yidong).toFixed(1),
+        zq: parseFloat(info.zhunque).toFixed(1),
+        sy: parseFloat(info.shiyon).toFixed(1)
       });
 
-
     });
+
 
     pingceapi.mypingcelist({}, (mypingcelist) => {
       this.Base.setMyData({
         mypingcelist
       })
     })
-
 
 
   }

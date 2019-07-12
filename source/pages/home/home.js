@@ -37,6 +37,36 @@ class Content extends AppBase {
     
     this.Base.setMyData({ scenes:AppBase.scenes})
     //console.log(aa)
+    // var qeqe = wx.getStorageSync(jintian);
+    
+   
+
+    var jintian = ApiUtil.FormatDate(new Date);
+    console.log(jintian, "滴滴")
+    var aaa = wx.getStorageSync(jintian);
+    console.log(aaa + "电饭锅");
+
+    //return
+    if (aaa == "") {
+      wx.setStorage({
+        key: jintian,
+        data: 1
+      })
+      console.log("空空空")
+      this.Base.setMyData({ pd: 1 })
+      
+    }
+
+
+    
+    
+
+    // console.log(wx.getStorageSync(jintian), "刚刚")
+
+    // console.log(this.Base.getMyData().pd, "靠靠靠")
+
+
+        
 
     this.Base.setMyData({
       currentItemId: 2,
@@ -54,6 +84,8 @@ class Content extends AppBase {
       dk: -1,
       jf: 5,
       dian: 0,
+      
+      
     })
 
   }
@@ -64,6 +96,8 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     this.btn();
+
+    
 
     this.jifen();
 
@@ -96,6 +130,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         indexlist
       });
+
     });
 
 
@@ -133,6 +168,12 @@ class Content extends AppBase {
     setTimeout(() => {
       wx.hideLoading()
     }, 1000);
+
+
+    setTimeout(() => {
+      this.Base.setMyData({ pd: 2 })
+    }, 6000)
+
   }
 
   closetop(e){
@@ -496,6 +537,8 @@ class Content extends AppBase {
       if (this.Base.getMyData().dk == -1) {
         var jintian = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
         var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+
+
 
         var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) + 86400000);
         var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
