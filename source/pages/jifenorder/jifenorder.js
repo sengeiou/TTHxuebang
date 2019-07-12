@@ -86,7 +86,7 @@ class Content extends AppBase {
     var jifenapi = new JifenApi();
 
     wx.showModal({
-      title: '提交',
+      title: '提示',
       content: '确认收货？',
       showCancel: true,
       cancelText: '取消',
@@ -116,7 +116,7 @@ class Content extends AppBase {
     var jifenapi = new JifenApi();
 
     wx.showModal({
-      title: '提交',
+      title: '提示',
       content: '确认删除该订单？',
       showCancel: true,
       cancelText: '取消',
