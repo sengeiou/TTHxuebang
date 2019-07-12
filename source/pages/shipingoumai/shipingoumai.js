@@ -31,7 +31,7 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     jigouapi.zaixiankecheninfo({ id: this.Base.options.id }, (kecheninfo) => {
       this.Base.setMyData({
-        kecheninfo: kecheninfo
+        kecheninfo: kecheninfo,
       })
 
     })
@@ -43,7 +43,6 @@ class Content extends AppBase {
     
     var json={
       onlineclassroom_id: this.Base.options.id, type: "SP", kt: this.options.type
-
     }
 
 
@@ -73,7 +72,7 @@ class Content extends AppBase {
                       api.purchaseinfo({ id: ret.return.id }, (res) => {
 
                         wx.navigateTo({
-                          url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id,
+                          url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id + '&&jifen=' + res.amount,
                         })
 
                       })

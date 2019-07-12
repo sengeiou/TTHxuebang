@@ -290,11 +290,11 @@ class Content extends AppBase {
         tishi: 1
       });
     }
-    if (status == "N") {
-      this.Base.setMyData({
-        tishi: 2
-      });
-    }
+    // if (status == "N") {
+    //   this.Base.setMyData({
+    //     tishi: 2
+    //   });
+    // }
 
 
 
@@ -314,7 +314,7 @@ class Content extends AppBase {
         tishi: 0
       })
       // clearTimeout(timeoutId);
-    }, 10000);
+    }, 3000);
 
 
 

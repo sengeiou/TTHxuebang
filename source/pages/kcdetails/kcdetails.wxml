@@ -37,12 +37,12 @@
 
               <view class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
                 <image class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-                <view class='h6'>收藏</view>
+                <!-- <view class='h6'>收藏</view> -->
               </view>
 
               <view class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
                 <image class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}'></image>
-                <view class='h6'>已收藏</view>
+                <!-- <view class='h6'>已收藏</view> -->
               </view>
 
 
@@ -77,7 +77,7 @@
 
                 <view class='flex-1'></view>
                 <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
-                <view  class='h6 margin-left-10'>转发好友</view>
+                <view class='h6 margin-left-10'>转发好友</view>
                 <view class='flex-1'></view>
 
               </view>
@@ -219,15 +219,15 @@
 
               <image wx:if='{{item.img1!=""&&item.img1!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}'></image>
 
-              <image wx:if='{{item.img2!=""&&item.img2!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}'></image>
+              <image wx:if='{{item.img2!=""&&item.img2!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}'></image>
 
-              <image wx:if='{{item.img3!=""&&item.img3!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}'></image>
+              <image wx:if='{{item.img3!=""&&item.img3!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}'></image>
 
-              <image wx:if='{{item.img4!=""&&item.img4!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}'></image>
+              <image wx:if='{{item.img4!=""&&item.img4!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}'></image>
 
-              <image wx:if='{{item.img5!=""&&item.img5!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}'></image>
+              <image wx:if='{{item.img5!=""&&item.img5!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}'></image>
 
-              <image wx:if='{{item.img6!=""&&item.img6!="undefined"}}' mode="aspectFill"  src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}'></image>
+              <image wx:if='{{item.img6!=""&&item.img6!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}'></image>
 
 
             </view>
@@ -255,7 +255,7 @@
 
     </view>
 
-    <view class='height-20 bg-gray'></view>
+    <view  wx:if="{{pingjialist.length>0}}" class='height-20 bg-gray'></view>
 
 
 
@@ -466,7 +466,7 @@
           </view>
 
           <view wx:if="{{ppp==0}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-<view wx:if="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
+          <view wx:if="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
         </view>
 
         <view bindtap='bindclose'>
@@ -537,7 +537,7 @@
 
 
 
-<view class="height-40 "></view>
+          <view class="height-40 "></view>
         </view>
         <view class='flex-1'></view>
       </view>

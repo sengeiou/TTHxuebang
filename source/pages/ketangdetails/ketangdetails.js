@@ -171,7 +171,7 @@ class Content extends AppBase {
         tishi: 0
       })
       // clearTimeout(timeoutId);
-    }, 1000);
+    }, 3000);
 
 
 
