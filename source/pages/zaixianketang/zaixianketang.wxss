@@ -31,7 +31,10 @@ display:-webkit-box;
   margin-left: 30rpx;
   margin-top: 30rpx;
 }
+.xhx{
+text-decoration: line-through
 
+}
 .padding-bottom-40 {
   padding-bottom: 40rpx;
 }

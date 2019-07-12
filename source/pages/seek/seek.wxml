@@ -379,7 +379,7 @@
 
 <swiper wx:if="{{type=='kc'&&options_show==false}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
   <swiper-item wx:for-index="idx" style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
-    <view wx:if="{{idx/2==0}}" class='flex-row'>
+    <view wx:if="{{idx%2==0}}" class='flex-row'>
       <view class='flex-1'></view>
       <view class='tipsshow'>
         <view class='flex-row flex-center'>
@@ -401,7 +401,7 @@
       </view>
 
     </view>
-    <view  wx:if="{{idx/2!=0}}" class='flex-row'>
+    <view  wx:if="{{idx%2!=0}}" class='flex-row'>
      
        <view  class='tipsshow'>
       <view class='flex-row flex-center'>

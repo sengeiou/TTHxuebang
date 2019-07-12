@@ -1,21 +1,16 @@
 
-<!--pages/myorder/myorder.wxml-->
-<view class=' flex-row flex-center  bg-white bor_bot top'>
 
- 
-  <view class='xiaoxi'>
-    <view wx:if="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</view>
+
+
+<view wx:if='{{alllist.length==0}}' class="flex-row flex-column">
+    <view style="height:100rpx;"></view>
+    <image src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 "></image>
+
   </view>
 
-</view>
 
 
-
-
-
-
-
-  <view bindtap="kechenxianqin" data-id="{{item.onlineclassroom_id}}"  class="margin-24 order" wx:for="{{alllist}}" wx:if="{{item.type=='SP'}}" wx:key='k'>
+  <view bindtap="kechenxianqin" data-id="{{item.id}}"  class="margin-24 order" wx:for="{{alllist}}" wx:if="{{item.type=='SP'}}" wx:key='k'>
     <view class="padding-20 flex-row ">
 
       <image wx:if="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>

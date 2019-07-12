@@ -2,6 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/ketan/ketan",
+"pages/ketaninfo/ketaninfo",
+    
     "pages/tuikuan/tuikuan",
     "pages/yiduihuang/yiduihuang",
     "pages/mypingce/mypingce",

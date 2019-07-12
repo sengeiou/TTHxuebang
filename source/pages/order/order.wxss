@@ -1,30 +1,102 @@
 /* pages/order/order.wxss */
-Page{
+
+Page {
   background: #f5f5f5;
 }
 
-.bor_bot{
-  border-bottom:1px solid #f5f5f5
+.bg_top {
+  background: white;
 }
-.borbot{
-  border-bottom:1px solid #f5f5f5;
+
+.icon-80 {
+  width: 80rpx;
+  height: 80rpx;
 }
-.bor_top{
-  border-top:1px solid #e5e5e5;
+.saoma{
+ padding: 10rpx;
+ border-radius: 10rpx;
+font-size: 16rpx;
+color:#999999;
+background:white;
+
 }
-.pd{
+.erweimaban{
+  width:60rpx;
+  height: 60rpx;
+}
+/* .height-66{
+  height: 66rpx;
+} */
+.fz {
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  border: 1px solid white;
+  border-radius: 10rpx;
+  font-size: 20rpx;
+  color: white;
+}
+
+.xxxx {
+  position: absolute;
+  margin-top: -18rpx;
+  margin-left: -50rpx;
+}
+
+margin-top-10 {
+  margin-top: 20rpx;
+}
+
+.xian1 {
+  width: 450rpx;
+  height: 1rpx;
+  background-color: #2f9a55;
+}
+
+.xian {
+  height: 1prx;
+  width: 100%;
+  background: #2f9a55;
+}
+
+.quan {
+  background: #2f9a55;
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  z-index: 9999;
+}
+
+.nr {
+  padding-top: 60rpx;
+  padding-bottom: 60rpx;
+}
+
+.bor_bot {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.borbot {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.bor_top {
+  border-top: 1px solid #e5e5e5;
+}
+
+.pd {
   padding-top: 20rpx;
   padding-right: 20rxp;
   padding-bottom: 20rpx;
-  padding-left:10rpx;
+  padding-left: 10rpx;
 }
+
 .fbtn {
   width: 140rpx;
   height: 48rpx;
   line-height: 48rpx;
   border-radius: 40rpx;
 }
-.btm{
+
+.btm {
   position: fixed;
   bottom: 0;
   width: 95%;
