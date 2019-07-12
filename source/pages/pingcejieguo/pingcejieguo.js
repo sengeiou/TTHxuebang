@@ -59,6 +59,7 @@ class Content extends AppBase {
         typeD: "D"
       })
     }
+    console.log(this.Base.options.pingce_id,"是是是");
   }
   onMyShow() {
 
@@ -71,7 +72,7 @@ class Content extends AppBase {
     var typeD = this.options.typeD;
 
     pingceapi.pingcejieguo({
-      options: [typeA, typeB, typeC, typeD]
+      pingceindex_id: this.Base.options.id,options: [typeA, typeB, typeC, typeD]
     }, (pingcejieguo) => {
       this.Base.setMyData({
         pingcejieguo
@@ -128,7 +129,7 @@ class Content extends AppBase {
   again() {
  
     wx.navigateBack({
-       delta:2    
+       delta:1    
     })
      
     console.log(555555);

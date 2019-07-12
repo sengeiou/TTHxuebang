@@ -228,7 +228,7 @@ class Content extends AppBase {
 
 
       wx.redirectTo({
-        url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD,
+        url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD + '&id=' + this.Base.options.id,
 
         success: function(res) {
 

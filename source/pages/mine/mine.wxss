@@ -105,7 +105,7 @@ Page {
 }
 .icon-24{
   width: 30rpx;
-  height: 26rpx;
+  height: 30rpx;
 }
 .f22{
   font-size: 22rpx;

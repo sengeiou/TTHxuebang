@@ -8,7 +8,7 @@
 
 
 <view wx:if='{{scenes==1006||scenes==1005}}'>
-<image src="{{uploadpath}}resource/{{res.shoucangtishi}}"   class="tsimg"></image>
+  <image src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg"></image>
 </view>
 
 
@@ -24,7 +24,7 @@
       <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
         <view class='flex-1' style='width:20rpx;margin-top:4rpx;'></view>
         <image class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
-        <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>搜索你要找的机构、课程、老师</view>
+        <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</view>
         <view class='flex-1'></view>
       </navigator>
 
@@ -33,7 +33,7 @@
 </view>
 
 
-<view class="topblock"  wx:if='{{nocity==2}}'>
+<view class="topblock" wx:if='{{nocity==2}}'>
 
   <view class="flex-row flex-center " style="margin-top:30rpx;">
 
@@ -49,8 +49,8 @@
 
 
 <view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
-  <view class='bnk margin-20'>
-
+  <view class='margin-20  '>
+    
     <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
       <view class='li' bindtap='bannerGo' id="{{item.id}}">
@@ -60,17 +60,18 @@
   </swiper> -->
 
 
-
-
-    <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:750rpx;height:320rpx;'>
+    <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:710rpx;height:320rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
         <view>
+   
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-          <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width: 710rpx;height:320rpx;" class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
+          <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:320rpx; " class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
+ 
         </view>
       </swiper-item>
     </swiper>
 
+ 
   </view>
 </view>
 
@@ -113,7 +114,7 @@
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
       <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view>
-      <view class=' ' style='height:34rpx;'></view>
+      <view class=' ' style='height:28rpx;'></view>
       <view class='flex-row flex-center'>
         <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</view>
@@ -255,11 +256,11 @@
                                       <view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
                                     </view>
 
-                                    <view class='flex-row flex-center'>
+                                    <!-- <view class='flex-row flex-center'>
                                       <view class='flex-1'></view>
                                       <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
                                       <view class='flex-1'></view>
-                                    </view>
+                                    </view> -->
                                   </view>
 
                                   <view wx:if='{{dakashow==true}}' class='chengong'>
@@ -301,7 +302,7 @@
                                           <view class='flex-1'></view>
                                           <view class='flex-row flex-column'>
                                             <view class='h6 txt-white'>总积分</view>
-                                            <view class='f36 txt-white margin-top-10'>{{sum}}</view>
+                                            <view class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</view>
                                           </view>
                                           <view class='flex-1'></view>
                                         </view>
@@ -310,7 +311,7 @@
                                           <view class='flex-1'></view>
                                           <view class='h6'>累计签到{{dakalist.length}}天</view>
                                           <view class='flex-1'></view>
-                                          <view class='h6'>已连续签到{{dakalist.length}}天</view>
+                                          <view class='h6'>已连续签到{{day+1}}天</view>
                                           <view class='flex-1'></view>
                                           <view class='h6'>连续签到7天额外领取20积分</view>
                                           <view class='flex-1'></view>
@@ -520,7 +521,7 @@
 
                                               <view class='flex-row flex-center'>
                                                 <view class='flex-1'></view>
-                                                <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon'></image>
+                                                <image src='{{uploadpath}}resource/{{res.diz}}' class='icon'></image>
                                                 <view class=' h4 txt-bold txt-black margin-left-16'>离我最近</view>
                                                 <view class='flex-1'></view>
                                               </view>
@@ -533,20 +534,20 @@
                                               </view>
 
 
-                                              <view hidden='{{jglist.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+                                              <view hidden='{{jglist.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
                                                 <view class=' padding-20' style=''>
                                                   <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
                                                 </view>
                                                 <view class='midt flex-row'>
                                                   <view class='flex-1'></view>
-                                                  <view class='mid'>
+                                                  <view class='mid radius-10'>
                                                     <view class=''>
-                                                      <view class='radius-10 bg-white   margin-bottom-10'>
+                                                      <view class=' bg-white   margin-bottom-10'>
 
                                                         <view class='padding-20 '>
 
                                                           <view class='flex-row flex-center'>
-                                                            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
+                                                            <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view>
 
                                                             <view class=''>
                                                               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>

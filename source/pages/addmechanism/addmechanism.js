@@ -318,8 +318,12 @@ class Content extends AppBase {
   }
 
   tohuiyuan(e) {
-    wx.navigateTo({
-      url: '/pages/huiyuanfuwu/huiyuanfuwu'
+    // wx.navigateTo({
+    //   url: '/pages/huiyuanfuwu/huiyuanfuwu'
+    // })
+    wx.showToast({
+      title: '暂未开放，敬请期待',
+      icon:'none'
     })
   }
   xiename(e) {
