@@ -10,6 +10,10 @@ Page {
   position: absolute;
   margin-left:620rpx;
 }
+.cs{
+  position: absolute;
+  margin-left:640rpx;
+}
 .kecheng-block {
   width: 30vw;
   border-radius: 8rpx;

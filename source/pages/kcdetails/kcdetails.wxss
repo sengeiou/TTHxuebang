@@ -22,6 +22,10 @@ page {
   border-radius: 10rpx;
   background: white;
 }
+.cs{
+  position: absolute;
+  margin-left:20rpx;
+}
 .close{
  margin-top:54rpx;
 
