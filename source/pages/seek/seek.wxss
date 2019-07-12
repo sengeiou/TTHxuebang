@@ -180,7 +180,7 @@ Page {
 }
 .mid{
   width: 85.5%;
-  height: 236rpx;
+  height: 196rpx;
   margin-top: 30rpx;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;

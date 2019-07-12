@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/maintain/maintain",
     "pages/ketan/ketan",
 "pages/ketaninfo/ketaninfo",
     
