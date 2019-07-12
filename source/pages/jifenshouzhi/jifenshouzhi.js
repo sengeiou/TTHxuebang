@@ -14,7 +14,7 @@ class Content extends AppBase {
     super();
   }
   setPageTitle() {
-    wx.setNavigationBarTitle({
+    wx.setNavigationBarTitle({ 
       title: '收支明细'
     });
   }

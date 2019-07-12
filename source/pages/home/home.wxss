@@ -78,11 +78,14 @@ Page {
   z-index: 10;
   bottom: 0%;
   /* opacity: 0.8; */
-  box-shadow: 1px 1px 5px #dfdfdf;
+  /* box-shadow: 1px 1px 5px #dfdfdf; */
+  
 }
 
 .mid {
   width: 85.5vw;
+  margin-bottom:30rpx;
+  box-shadow:0px 2px 8px 0px rgba(0,0,0,0.06);
 }
 
 .biaoqian {
@@ -345,6 +348,8 @@ Page {
   z-index: 50;
   width: 100vw;
   top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
 }
 
@@ -359,8 +364,8 @@ Page {
 .gz {
   position: fixed;
   z-index: 100;
-  left: 110rpx;
-  right: 110rpx;
+  left: 100rpx;
+  right: 100rpx;
   bottom: 20%;
   border-radius: 8rpx;
 }
