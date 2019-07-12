@@ -20,6 +20,10 @@ import {
 var mta = require('mta_wechat_sdk/mta_analysis.js')
 
 export class AppBase {
+  static lastlat = 0;
+  static lastlng = 0;
+  static lastaddress = {
+    address: { ad_info: { adcode: "" } }};
   static CITYID = 440300;
   static CITYNAME = "深圳市";
   static CITYSET = false;
@@ -313,8 +317,19 @@ export class AppBase {
         memberinfo: info
       });
 
-      this.Base.getAddress((address) => {
+      if (AppBase.lastlat!=0){
+        this.Base.setMyData({
+          address: AppBase.lastaddress,
+          lastdistance: 0,
+          mylat: 0,
+          mylng: 0
+        });
+        console.log("vvckc","0");
+        that.onMyShow();
+      }
 
+      this.Base.getAddress((address) => {
+        AppBase.lastaddress=address;
         var mylat = address.location.lat;
         var mylng = address.location.lng;
         var memberinfo = this.Base.getMyData().memberinfo;
@@ -352,23 +367,25 @@ export class AppBase {
         AppBase.lastlat = mylat;
         AppBase.lastlng = mylng;
 
-
         this.Base.setMyData({
           lastdistance,
           address
         });
-
-
-        console.log("citycode2" + AppBase.CITYID);
-        that.onMyShow();
+        console.log("lastdistance", Number(lastdistance), Number(lastdistance) == "NaN");
+        if (lastdistance > 500 || lastdistance==NaN){
+          console.log("citycode2" + AppBase.CITYID);
+          console.log("vvckc", "1");
+          that.onMyShow();
+        }
       }, () => {
 
         this.Base.setMyData({
+          address: AppBase.lastaddress,
           lastdistance: 0,
-          address: {},
           mylat: 0,
           mylng: 0
         });
+        console.log("vvckc", "2");
         that.onMyShow();
 
 
