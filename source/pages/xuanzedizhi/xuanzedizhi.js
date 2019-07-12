@@ -26,6 +26,9 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this; 
+
+
+
     var addressapi = new AddressApi();
     
     addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
@@ -57,17 +60,46 @@ class Content extends AppBase {
   }
   queren(e){
     var jifen = this.Base.options.interral;
+
+
+    var jifenapi = new JifenApi();
+    jifenapi.commodityinfo({ id: this.Base.options.id }, (info) => {
+
+      this.Base.setMyData({ info })
+
+    })
+    
+
+  
+
     var shuliang = this.Base.options.shuliang;
     if(this.Base.getMyData().check==null){
       this.Base.toast("请选择地址");
       return;
     }
-
+    
     this.Base.setMyData({
       show: true, xiaofei: jifen * shuliang
     })
+
   }
   quedin(e){
+    
+    console.log(this.Base.getMyData().info.inventory);
+    //return;
+
+    if (this.Base.getMyData().info.inventory == 0) {
+      wx.showToast({
+        title: '库存不足，无法兑换',
+        icon: 'none'
+      })
+      this.Base.setMyData({ show: false})
+      return;
+    }
+
+    console.log("成功");
+
+//return;
     var inventory = this.Base.options.inventory;
 
     var jifen = this.Base.options.interral;

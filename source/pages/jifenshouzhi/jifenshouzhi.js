@@ -34,12 +34,12 @@ class Content extends AppBase {
       for (var i = 0; i < jilulist.length;i++){
         if (jilulist[i].jifen < 0){
           jilulist[i].type='A';
-          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date)
+          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date.replace(/-/g, '/'))
           zhisum += parseInt(jilulist[i].jifen);
         }
         if (jilulist[i].jifen > 0) {
           jilulist[i].type = 'B';
-          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date)
+          jilulist[i].created_date = ApiUtil.Updatetime(jilulist[i].created_date.replace(/-/g, '/'))
           shousum += parseInt(jilulist[i].jifen);
         }
       }

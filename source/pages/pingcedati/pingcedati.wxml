@@ -35,7 +35,7 @@
         <view class='h5  margin-left-20  width-650'>{{item.optionsC}}</view>
       </view>
 
-      <view class='flex-row  mid-padding ' style='' bindtap='bindcheck' id='D' data-sx='{{idx}}'>
+      <view class='flex-row  mid-padding ' wx:if='{{item.optionsD!=""}}' style='' bindtap='bindcheck' id='D' data-sx='{{idx}}'>
         <view wx:if='{{pingcelist[idx].check!="D"}}' class='kon radius-50 margin-top-6'></view>
         <view wx:if='{{pingcelist[idx].check=="D"}}' class='mang radius-50 margin-top-6'></view>
         <view class='h5  margin-left-20  width-650'>{{item.optionsD}}</view>

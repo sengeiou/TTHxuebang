@@ -7,7 +7,7 @@
 
 
 
-<view wx:if='{{scenes==1006||scenes==1005}}'>
+<view wx:if='{{pd==1}}'>
   <image src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg"></image>
 </view>
 
@@ -59,19 +59,15 @@
     </swiper-item>
   </swiper> -->
 
-
     <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:710rpx;height:320rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
         <view>
-   
           <!-- mode="aspectFill"  bindtap='viewPhoto' -->
           <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:320rpx; " class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
- 
         </view>
       </swiper-item>
     </swiper>
 
- 
   </view>
 </view>
 
@@ -113,8 +109,8 @@
   <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
-      <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view>
-      <view class=' ' style='height:28rpx;'></view>
+      <!-- <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view> -->
+      <view class=' ' style='height:58rpx;'></view>
       <view class='flex-row flex-center'>
         <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</view>
@@ -125,7 +121,7 @@
   </scroll-view>
 </view>
 
-<view class='height-30'></view>
+<!-- <view class='height-30'></view> -->
 
 
 <view class='margin-20'>
@@ -421,7 +417,7 @@
 
 
 
-                                            <view class='height-30'></view>
+                                            <!-- <view class='height-30'></view> -->
 
 
 

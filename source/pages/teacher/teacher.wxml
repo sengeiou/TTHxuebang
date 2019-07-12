@@ -1,5 +1,5 @@
 <!--pages/teacher/teacher.wxml-->
-<view class='bg-white margin-bottom-20 qqq' style='' wx:for='{{vteach}}' wx:key='k'>
+<view class='bg-white margin-bottom-20 qqq' style='' wx:for='{{vteach}}' wx:key='k' wx:if='{{teachlist.length>0}}'>
 
   <block wx:if="{{item.play=='Y'}}">
     <video bindplay='play'  class='pos' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{true}}' id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
@@ -41,7 +41,7 @@
   </view>
 </view>
 
-<view wx:if="{{nomore!=1}}" class='h1'>
+<view wx:if="{{nomore!=1&&teachlist.length>0}}" class='h1'>
 <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 </view>
 

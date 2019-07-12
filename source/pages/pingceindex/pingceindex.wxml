@@ -1,7 +1,12 @@
 <!--pages/pingceindex/pingceindex.wxml-->
 
 <view class='top-img' style='background-image:url({{uploadpath}}pingceindex/{{info.indeximg}});background-size:100% 100%;'>
-
+  <view class=' ' style='height:158rpx;'></view>
+  <view class='flex-row flex-center'>
+    <view class='h6  ' style='color:#B4B4B4;margin-left:62rpx '>已有</view>
+    <view class=' h6 margin-left-12 txt-bold'>{{info.peoplenum}}</view>
+    <view class='h6 margin-left-12 ' style='color:#B4B4B4 '>人参与测试</view>
+  </view>
 </view>
 
 
@@ -12,11 +17,11 @@
     <view class='h5 txt-bold margin-left-16'>测试简介</view>
   </view>
 
-<view style="margin-top:-40rpx">
-  <text class='  h6 txt-6' style=''>
+  <view style="margin-top:-40rpx">
+    <text class='  h6 txt-6' style=''>
     {{info.jianjie}}
   </text>
-</view>
+  </view>
 
   <view class='flex-row flex-center margin-top-30'>
     <view class='flex-1'></view>
@@ -43,7 +48,7 @@
 
 
       <view class='  h5'>测试准确度</view>
-      
+
     </view>
 
     <view class='flex-1'></view>
@@ -112,11 +117,11 @@
     <view class='h5 txt-bold margin-left-16'>测评须知</view>
   </view>
 
-<view style="margin-top:-40rpx">
-  <text class='margin-top-14 h6 txt-6' style=''>
+  <view style="margin-top:-40rpx">
+    <text class='margin-top-14 h6 txt-6' style=''>
      {{info.xuzhi}}
   </text>
-</view>
+  </view>
 
 
 </view>
