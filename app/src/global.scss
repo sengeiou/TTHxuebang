@@ -812,6 +812,10 @@ button[disabled][type=primary] {
     overflow-y: scroll;
 }
 
+.scroll-x{
+    overflow: hidden;
+    overflow-x: scroll;
+  }
 
 .h120{
     height: rpx(120);

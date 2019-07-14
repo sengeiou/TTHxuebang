@@ -13,7 +13,7 @@ page {
   position: absolute;
   opacity: 0;
 }
-
+ 
 .clear-contact-debug {
   opacity: 1;
   background: orange;

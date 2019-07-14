@@ -61,6 +61,10 @@ export class AppBase implements OnInit {
         });
         this.res = [];
 
+        var memberinfo=window.sessionStorage.getItem("memberinfo");
+        if(memberinfo!=null){
+            AppBase.MemberInfo=JSON.parse(memberinfo);
+        }
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -127,6 +131,8 @@ export class AppBase implements OnInit {
                     memberinfo.h5openid=memberinfo.openid;
                     AppBase.MemberInfo=memberinfo;
                     this.MemberInfo=memberinfo;
+
+                    window.sessionStorage.setItem("memberinfo",JSON.stringify(this.MemberInfo));
 
                     ApiConfig.SetToken(memberinfo.h5openid);
                     ApiConfig.SetTokenKey(memberinfo.unionid);
