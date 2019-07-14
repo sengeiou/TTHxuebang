@@ -181,7 +181,7 @@ export class KetangdetailsPage extends AppBase {
 
   jindu(e) {
 
-    alert(e.detail.currentTime);
+    //alert(e.detail.currentTime);
 
     //wx.setStorageSync(this.options.id + 'sp', this.danqianzhanjie.id + ',' + e.detail.currentTime)
     window.localStorage.setItem(this.params.id + 'sp', this.danqianzhanjie.id + ',' + e.detail.currentTime);
