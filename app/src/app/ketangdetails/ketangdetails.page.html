@@ -12,7 +12,7 @@
 <ion-content>
 
     <video [class.hide]="danqianzhanjie==null" (ended)="bfjs($event)" (play)="ksbf($event)" (pause)='jsbf($event)'
-      (timeupdate)="jindu($e)" class='Top-img w400' style='width:100vw; '
+      (timeupdate)="jindu($event)" class='Top-img w400' style='width:100vw; '
       poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' controls='true'
       object-fit="fill" id='v_1' loop='{{false}}'
       src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}' play-btn-position="center">

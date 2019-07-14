@@ -48,7 +48,7 @@ export class KetangdetailsPage extends AppBase {
   isfav = "";
   pinjunjia = "";
   ketanpinlunlist = [];
-  danqianzhanjie = {id:0,proved_date:""};
+  danqianzhanjie = {id:0,proved_date:"",cover:"",video:"",};
   zhanjie = [];
   rad=1;
   onMyShow() {
@@ -365,7 +365,7 @@ export class KetangdetailsPage extends AppBase {
     this.spbf = false;
     console.log(e);
   }
-  bfjs() {
+  bfjs(e) {
     var danqian = this.danqianzhanjie;
     var zhanjie = this.zhanjie;
     console.log(zhanjie);
