@@ -86,12 +86,12 @@ export class ShipingoumaiPage extends AppBase {
                   WeixinJSBridge.invoke(
                     'getBrandWCPayRequest', payret,
                     (res) => {
-                      if (res.errMsg == "get_brand_wcpay_request:ok") {
+                      if(res.err_msg == "get_brand_wcpay_request:ok" ){
                         api.purchaseinfo({ id: ret.return.id }).then((res) => {
                           that.navigate("videopurcsucc", { id: res.onlineclassroom_id })
                         })
                       } else {
-                        alert(res.errMsg);
+                        this.showAlert(res.errMsg);
                       }
                     });
                 });

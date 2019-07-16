@@ -39,9 +39,8 @@ export class Tab1Page  extends AppBase {
     var jigouapi = this.jigouApi;
     jigouapi.zaixiankechenfenlei({}).then((fenleilist) => {
       this.fenleilist=fenleilist;
-
-  this.xz=-2;
-  this.name="热门课程";
+      this.xz=-2;
+      this.name="热门课程";
     });
     
     jigouapi.zaixianketanlunbo({}).then((zaixianlunbo) => {

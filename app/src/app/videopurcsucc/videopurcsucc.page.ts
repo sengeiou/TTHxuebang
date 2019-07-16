@@ -47,7 +47,6 @@ export class VideopurcsuccPage  extends AppBase {
       this.remenkechen=remenkechen;
       this.mianfeikechen=mianfeikechen;
     })
-
   }
   tohome() {
     this.backToUrl("/tabs/tab1");

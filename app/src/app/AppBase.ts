@@ -32,7 +32,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo=null;
-    public InstInfo = { h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public InstInfo = {tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = { avatarUrl: "", nickName: "" };
     public static MYBABY = [];
     public mybaby = [];
@@ -61,6 +61,10 @@ export class AppBase implements OnInit {
         });
         this.res = [];
 
+        var memberinfo=window.sessionStorage.getItem("memberinfo");
+        if(memberinfo!=null){
+            AppBase.MemberInfo=JSON.parse(memberinfo);
+        }
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -127,6 +131,8 @@ export class AppBase implements OnInit {
                     memberinfo.h5openid=memberinfo.openid;
                     AppBase.MemberInfo=memberinfo;
                     this.MemberInfo=memberinfo;
+
+                    window.sessionStorage.setItem("memberinfo",JSON.stringify(this.MemberInfo));
 
                     ApiConfig.SetToken(memberinfo.h5openid);
                     ApiConfig.SetTokenKey(memberinfo.unionid);

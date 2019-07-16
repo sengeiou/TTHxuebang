@@ -2,6 +2,10 @@
 Page{
   background: #f5f5f5;
 }
-/* .shadow{
-  box-shadow: 1px 1px 2px #dbdada;
-} */
+.xiaoxi{
+margin:35rpx 30rpx 35rpx 30rpx;
+}
+.wux-swipe__text{
+color:white
+
+}
