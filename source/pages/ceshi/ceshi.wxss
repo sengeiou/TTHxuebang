@@ -430,3 +430,10 @@
   margin-bottom: -14rpx;
   margin-left: 86rpx;
 }
+
+
+view {
+  font-size: 40rpx !important;
+  font-weight: 350 !important;
+  
+}

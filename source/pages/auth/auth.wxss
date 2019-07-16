@@ -1,10 +1,30 @@
 /**index.wxss**/
-page{
-  background: white;
+
+.bg {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  top: 0;
 }
-.dot{
-  width:10rpx;
+
+.dot {
+  width: 10rpx;
   height: 10rpx;
-  background-color:#bbbbbb;
+  background-color: #bbb;
   border-radius: 50%;
+}
+
+.btn {
+  width: 480rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 54rpx;
+  color: #f60;
+  font-size: 36rpx;
+}
+.bottom{
+  position: absolute;
+  width: 100vw;
+  bottom: 75rpx;
 }

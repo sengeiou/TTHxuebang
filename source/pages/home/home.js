@@ -97,9 +97,14 @@ class Content extends AppBase {
 
     this.btn();
 
-    
-
     this.jifen();
+
+    var instapi = new InstApi();
+
+
+
+
+
 
     wx.showLoading({
       title: '加载中...',
@@ -235,13 +240,15 @@ class Content extends AppBase {
     }, (noticebanner) => {
       var bn = [];
       cacheid = cacheid.split(",");
+
+      console.log(cacheid,"解决");
       for (var item of noticebanner) {
         if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()) {
           bn.push(item);
           cacheid.push(item.id);
         }
       }
-      wx.setStorageSync("homenoticecacheid", cacheid.join(","));
+     wx.setStorageSync("homenoticecacheid", cacheid.join(","));
       if (bn.length > 0) {
         this.Base.setMyData({
           noticebanner: bn,
@@ -390,10 +397,23 @@ class Content extends AppBase {
             url: '/pages/jgdetails/jgdetails?id=' + indexbanner[i].jg_id
           })
         }
+
+        console.log(indexbanner[i].url,"当电灯")
+        
         if (indexbanner[i].type == 'SF') {
-          wx.navigateTo({
-            url: indexbanner[i].url
-          })
+          
+          if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine'){
+            console.log("试试")
+            wx.reLaunch({
+              url: indexbanner[i].url
+            })
+          }
+          else{
+            console.log("不杀死hi")
+            wx.navigateTo({
+             url: indexbanner[i].url
+            })
+          }
         }
         return;
       }

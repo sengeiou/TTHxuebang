@@ -73,11 +73,9 @@ class Content extends AppBase {
 
   }
   wuliu(e){
+    var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/wuliu/wuliu',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      url: '/pages/wuliu/wuliu?id=' + id
     })
   }
   shouhuo(e){

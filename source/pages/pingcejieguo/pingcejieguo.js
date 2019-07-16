@@ -92,20 +92,19 @@ class Content extends AppBase {
       
       console.log(type);
       console.log("的客话")
-
-      jigouapi.courselist({
-        type: type
-      }, (courselist) => {
-        this.Base.setMyData({
-          courselist
+      
+      if(type[0]!=undefined){
+        jigouapi.courselist({
+          type: type
+        }, (courselist) => {
+          this.Base.setMyData({
+            courselist
+          });
+          console.log(88888888888888);
+          that.bindhuan();
         });
-        console.log(88888888888888);
-        that.bindhuan();
-      });
-
-
-
-
+      }
+      
     });
 
   }
