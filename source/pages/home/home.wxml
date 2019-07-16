@@ -51,7 +51,7 @@
 
 <view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
   <view class='margin-20  '>
-    
+
     <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
       <image  bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
@@ -60,8 +60,8 @@
 
     <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:710rpx;height:320rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
-          <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-          <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:320rpx; " class='lb' bindtap='viewPhoto' id='{{uploadpath}}indexbanner/{{item.img}}'></image>
+        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:320rpx; "bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </swiper-item>
     </swiper>
 
@@ -609,24 +609,32 @@
 
 
 
-
-                                            <view class='backmu' wx:if="{{showlastnotice==true&&noticebanner.length>0}}">
+<!-- wx:if="{{showlastnotice==true&&noticebanner.length>0}}" -->
+                                            <view class='backmu'     wx:if="{{showlastnotice==true&&noticebanner.length>0}}"  >
                                               <view class='flex-row flex-center' style='height:100vh'>
                                                 <view class='flex-1'></view>
                                                 <view class='width:500rpx;height:766rpx;'>
-                                                  <view wx:if="{{noticebanner.length==1}}" wx:for="{{noticebanner}}">
+
+<!-- wx:if="{{noticebanner.length==1}}" -->
+                                                  <view     wx:for="{{noticebanner}}">
                                                     <view bindtap='bannerGo2' id="{{item.id}}">
                                                       <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
                                                     </view>
                                                   </view>
-                                                  <swiper wx:if="{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+
+<!-- wx:if="{{noticebanner.length>1}}" -->
+                                                  <swiper      indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
                                                     <swiper-item wx:for="{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
                                                       <view bindtap='bannerGo2' id="{{item.id}}">
                                                         <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
                                                       </view>
                                                     </swiper-item>
                                                   </swiper>
+
+
+
                                                   <image bindtap='closenotice' src='{{uploadpath}}resource/{{res.close}}' style='width:30rpx;height:30rpx;position:absolute;margin-top:-746rpx;margin-left:450rpx;'></image>
+
                                                 </view>
                                                 <view class='flex-1'></view>
                                               </view>

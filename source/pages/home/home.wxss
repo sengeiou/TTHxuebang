@@ -102,13 +102,13 @@ Page {
   height: 312rpx;
 }
 
-.li1 {
+/* .li1 {
   width: 600rpx;
   margin: 0 auto;
   border-radius: 10rpx;
   height: 300rpx;
   transform: scale(0.9);
-}
+} */
 
 .selected {
   transform: scale(1);

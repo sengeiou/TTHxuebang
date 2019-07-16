@@ -75,7 +75,7 @@
       </view>
 
 
-      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}' bindtap='wuliu' class="lianxi text-center   txt-6" style="">物流详情</view>
+      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}'  bindtap='wuliu' id="{{item.id}}" class="lianxi text-center   txt-6" style="">物流详情</view>
       <view wx:if='{{item.orderstatus=="B"}}' bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
 
 
@@ -165,7 +165,7 @@
 
       <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
       <view class="flex-1"></view>
-      <view class="lianxi text-center  txt-6" style="" bindtap='wuliu'>物流详情</view>
+      <view class="lianxi text-center  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</view>
       <view bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
 
     </view>
@@ -215,7 +215,7 @@
       <view class="flex-1 margin-left-24 ">
         <image src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" class="icon_shan"></image>
       </view>
-      <view class="lianxi text-center margin-right-24  txt-6" style="" bindtap='wuliu'>物流详情</view>
+      <view class="lianxi text-center margin-right-24  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</view>
     </view>
 
   </view>
