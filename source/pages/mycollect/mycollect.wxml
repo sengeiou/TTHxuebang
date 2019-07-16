@@ -272,7 +272,7 @@
 
   <view class="kt_block flex-row flex-center" wx:for='{{ketangshoucanglist}}' wx:key='k' id="{{item.onlineclassroom_id}}" bindtap="todetails">
 
-    <image src="{{uploadpath}}resource/{{res.ceshi}}" class="kt_img"></image>
+    <image src="{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}" class="kt_img"></image>
 
     <view class="flex-row column margin-left-28  margin-right-12">
       <view class="h6">{{item.onlineclassroom_name}}</view>

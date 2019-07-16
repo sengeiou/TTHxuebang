@@ -3,8 +3,7 @@
     "pages/home/home",
     "pages/maintain/maintain",
     "pages/ketan/ketan",
-"pages/ketaninfo/ketaninfo",
-    
+    "pages/ketaninfo/ketaninfo",
     "pages/tuikuan/tuikuan",
     "pages/yiduihuang/yiduihuang",
     "pages/mypingce/mypingce",
@@ -71,7 +70,8 @@
     "pages/auth/auth",
     "pages/address/address",
     "pages/addressmanage/addressmanage",
-    "pages/shopmall/shopmall"
+    "pages/shopmall/shopmall",
+    "components/back"
   ],
   "permission": {
     "scope.userLocation": {
@@ -79,7 +79,7 @@
     }
   },
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "#FFC200",
     "navigationBarTextStyle": "black"

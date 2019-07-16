@@ -46,7 +46,7 @@
 
       <view class="section__title">{{xssj}} </view>
   
-
+<view wx:if="{{xssj==''}}" class="margin-right-10" style="color:#CCCCCC">请输入</view>
         <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
 
 
@@ -92,13 +92,13 @@
 
 
     </view>
-    <view class="padding-20 flex-row flex-center">
+    <!-- <view class="padding-20 flex-row flex-center">
       <view class="h15 " style="color:#FF5252;width:20rpx"></view>
       <view class="h15 margin-left-10" style="color:#222222">详细地址</view>
       <view class="flex-1"></view>
       <input style="width:500rpx;" class="ipt" bindinput="menpai" placeholder-class='pc' value='{{menpai}}' name='hangye' placeholder='如道路,门牌号,小区,楼栋号.单元室'></input>
 
-    </view>
+    </view> -->
 
   </view>
 

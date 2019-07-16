@@ -88,7 +88,9 @@ class Content extends AppBase {
   qiehuanzhanjie(e) {
     var mulu = this.Base.getMyData().zhanjie;
     var kecheninfo = this.Base.getMyData().kecheninfo;
-    if (mulu[e.currentTarget.dataset.id].isproved_value == 'N' && kecheninfo.idd == '') {
+
+
+    if (mulu[e.currentTarget.dataset.id].isproved_value == 'N' && kecheninfo.idd == '' && kecheninfo.isfree_value=='N') {
       this.Base.info("需要付费观看,如果想观看要购买观看全集");
       return
 
