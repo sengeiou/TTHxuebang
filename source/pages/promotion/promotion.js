@@ -51,8 +51,9 @@ class Content extends AppBase {
       console.log(res);
      
       console.log(res.length);
+      this.Base.setMyData({ tuiguaninfo: res})
       if (res.length == 0) {
-        this.Base.setMyData({ showModal: true, tuiguaninfo: res });
+        this.Base.setMyData({ showModal: true, });
       }
 
     })

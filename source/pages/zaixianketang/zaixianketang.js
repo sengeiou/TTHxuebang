@@ -38,6 +38,11 @@ class Content extends AppBase {
 
       this.Base.setMyData({ lunbolist: zaixianlunbo });
     })
+    jigouapi.zuixinzaixiankechen({},(zuixin)=>{
+      console.log("最新的熬");
+      console.log("那是真的牛批");
+      this.Base.setMyData({ zuixin: zuixin});
+    })
   
   }
   onMyShow() {

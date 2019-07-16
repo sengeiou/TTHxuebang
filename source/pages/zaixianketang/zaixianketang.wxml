@@ -1,11 +1,11 @@
 <!--pages/zaixianketang/zaixianketang.wxml-->
 
 
-<swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:100vw;height:200rpx;'>
+<swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:100vw;height:350rpx;'>
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">
     <view>
       <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-      <image src='{{uploadpath}}kecheng/{{item.img}}' style='width:100vw;height:200rpx;' class='lb' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}'></image>
+      <image src='{{uploadpath}}kecheng/{{item.img}}' style='width:100vw;height:350rpx;' class='lb' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}'></image>
     </view>
   </swiper-item>
 </swiper>
@@ -16,7 +16,7 @@
   <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>
     <image wx:if="{{-2==xz}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
     <image wx:if="{{-2!=xz}}" src='{{uploadpath}}resource/{{res.remenwx}}' class='icon-50 radius-50'></image>
-    <view class='h6 margin-top-12 {{-2==xz?"txt-bold":""}}'>热门</view>
+    <view class='h6 margin-top-12 {{-2==xz?"txt-bold":""}}'>精选</view>
     <view wx:if="{{-2==xz}}" class="henxian"></view>
     <view wx:if="{{-2!=xz}}" class="nohenxian"></view>
   </view>
@@ -39,12 +39,64 @@
 
 </view>
 
-<view class='text-center f18 txt-bold margin-top'>
+<view wx:if="{{xz==-2}}" class='text-center f18 txt-bold margin-top'>
+  最新上架
+</view>
+<view wx:if="{{xz==-2}}" class='flex-row flex-center flex-wrap padding-bottom-40'>
+  <view bindtap='kechenxianqin' data-id='{{item.onlineclassroom_id}}' class='kecheng-block ' wx:for='{{zuixin}}' wx:key='k'>
+
+    <view style=''>
+      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}'></image>
+    </view>
+
+    <view class='padding-12'>
+      <view class='h6'>{{item.onlineclassroom_name}}</view>
+      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
+        {{item.onlineclassroom_class_introduce}}
+      </view>
+
+
+      <view class='flex-row flex-center margin-top-14'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>{{item.onlineclassroom_age_name}}</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-26'>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>共{{item.onlineclassroom_chapter_num}}章</view>
+        </view>
+      </view>
+
+
+    </view>
+    <view wx:if="{{item.onlineclassroom_isfree!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.onlineclassroom_learning_num}}人学过</view>
+      <view class='margin-top-4 f20 txt-gray  xhx'>￥{{item.onlineclassroom_originalprice}}</view>
+      <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+      <view class=' txt-red xg' style=''>{{item.onlineclassroom_price}}</view>
+    </view>
+
+    <view wx:if="{{item.onlineclassroom_isfree=='Y'&&item.idd=='N'}}" class='margin-left -10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.onlineclassroom_learning_num}}人学过</view>
+      <view class="mianfei">免费课程</view>
+    </view>
+    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.onlineclassroom_learning_num}}人学过</view>
+      <view class="yigou">已购</view>
+    </view>
+
+  </view>
+   </view>
+  <view class='text-center f18 txt-bold margin-top'>
+ 
+
   {{name}}
 </view>
 
-
 <view class='flex-row flex-center flex-wrap padding-bottom-40'>
+
+
 
 
 
@@ -89,7 +141,7 @@
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
     </view>
-    
+
     <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="yigou">已购</view>
@@ -112,7 +164,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
+      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
         {{item.class_introduce}}
       </view>
 
@@ -148,7 +200,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
+      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
         {{item.class_introduce}}
       </view>
 

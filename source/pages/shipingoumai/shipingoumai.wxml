@@ -68,9 +68,15 @@
   </view>
 
 </view>
+ 
+ <view class="padding-20">
+ 
+  <image  src='{{uploadpath}}resource/{{res.remen}}' mode='widthFix' class='tstp'></image>
+
+ </view>
 
 
-
+<view class="height-100"></view>
 
 <view class='fixedbottom'>
 
