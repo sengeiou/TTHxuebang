@@ -407,7 +407,8 @@ class Content extends AppBase {
             wx.reLaunch({
               url: indexbanner[i].url
             })
-          }else{
+          }
+          else{
             console.log("不杀死hi")
             wx.navigateTo({
              url: indexbanner[i].url

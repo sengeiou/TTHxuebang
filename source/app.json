@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/auth/auth",
     "pages/maintain/maintain",
     "pages/ketan/ketan",
     "pages/ketaninfo/ketaninfo",
@@ -67,7 +68,6 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
-    "pages/auth/auth",
     "pages/address/address",
     "pages/addressmanage/addressmanage",
     "pages/shopmall/shopmall",
@@ -75,7 +75,7 @@
   ],
   "permission": {
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "学榜获取您的位置信息,为您推荐附近优质的机构"
     }
   },
   "window": {

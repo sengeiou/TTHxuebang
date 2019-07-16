@@ -40,18 +40,29 @@ class Content extends AppBase {
       dakashow: false,
       tangchuan: false,
       dian:0,
-       
+      items: [{
+        id: '001',
+        text: 'Face',
+        value: 1,
+      },
+      {
+        id: '002',
+        text: 'Eye',
+        value: 2,
+      },
+      ],
+      slider: 0,
     })
   }
 
   onMyShow() {
 
     var that = this
-    this.btn();
+    // this.btn();
 
-    this.jifen();
+    // this.jifen();
 
-    var jifenapi = new JifenApi();
+    // var jifenapi = new JifenApi();
 
 
   }
@@ -72,6 +83,7 @@ class Content extends AppBase {
       dakashow: false
     })
   }
+  
   closetanchuang(e) {
     this.Base.setMyData({
       dakashow: false,
@@ -132,7 +144,7 @@ class Content extends AppBase {
           })
           console.log("考虑开始");
 
-        // return
+    
 
         }
 
