@@ -1,7 +1,7 @@
 /* pages/kcdetails/kcdetails.wxss */
 
 page {
-  background: #132056;
+  background: white;
 }
 .kd{
   width: 100rpx;

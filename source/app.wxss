@@ -13,7 +13,7 @@ page {
   position: absolute;
   opacity: 0;
 }
-
+ 
 /* .clear-contact-debug {
   opacity: 1;
   background: orange;
@@ -31,6 +31,7 @@ page {
 
 .clear-button::after {
   border: 0;
+  background-color: transparent;
 }
 
 .column {

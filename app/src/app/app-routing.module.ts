@@ -7,7 +7,9 @@ const routes: Routes = [
   { path: 'shipingoumai', loadChildren: './shipingoumai/shipingoumai.module#ShipingoumaiPageModule' },
   { path: 'videopurcsucc', loadChildren: './videopurcsucc/videopurcsucc.module#VideopurcsuccPageModule' },
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
-  { path: 'problem', loadChildren: './problem/problem.module#ProblemPageModule' }
+  { path: 'problem', loadChildren: './problem/problem.module#ProblemPageModule' },
+  { path: 'ketan', loadChildren: './ketan/ketan.module#KetanPageModule' },
+  { path: 'ketaninfo', loadChildren: './ketaninfo/ketaninfo.module#KetaninfoPageModule' }
 ];
 @NgModule({
   imports: [
