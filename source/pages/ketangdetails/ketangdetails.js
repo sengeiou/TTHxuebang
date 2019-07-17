@@ -150,9 +150,9 @@ class Content extends AppBase {
       });
     }
     if (status == "N") {
-      // this.Base.setMyData({
-      //   tishi: 2
-      // });
+       this.Base.setMyData({
+         tishi: 2
+       });
     }
 
 
@@ -172,7 +172,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         tishi: 0
       })
-      // clearTimeout(timeoutId);
+     //  clearTimeout(timeoutId);
     }, 3000);
 
 

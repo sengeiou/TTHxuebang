@@ -14,23 +14,23 @@
 <view class='menu-padding flex-row flex-center flex-wrap bg-white'>
 
   <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>
-    <image wx:if="{{-2==xz}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
-    <image wx:if="{{-2!=xz}}" src='{{uploadpath}}resource/{{res.remenwx}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(-2==xz)}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(-2!=xz)}}" src='{{uploadpath}}resource/{{res.remenwx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{-2==xz?"txt-bold":""}}'>精选</view>
     <view wx:if="{{-2==xz}}" class="henxian"></view>
     <view wx:if="{{-2!=xz}}" class="nohenxian"></view>
   </view>
   <view bindtap='switchtype' data-id="-1" data-name="免费课程" style='width:18vw' class='flex-row  flex-column  '>
-    <image wx:if="{{-1==xz}}" src='{{uploadpath}}resource/{{res.mianfei}}' class='icon-50 radius-50'></image>
-    <image wx:if="{{-1!=xz}}" src='{{uploadpath}}resource/{{res.mianfeiwx}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(-1==xz)}}" src='{{uploadpath}}resource/{{res.mianfei}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(-1!=xz)}}" src='{{uploadpath}}resource/{{res.mianfeiwx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{-1==xz?"txt-bold":""}}'>免费</view>
     <view wx:if="{{-1==xz}}" class="henxian"></view>
     <view wx:if="{{-1!=xz}}" class="nohenxian"></view>
   </view>
 
   <view bindtap='switchtype' data-id="{{item.id}}" data-name="{{item.name}}" wx:for='{{fenleilist}}' wx:key="k" wx:for-index='idx' style='width:18vw' class='flex-row  flex-column  '>
-    <image wx:if="{{item.id==xz}}" src='{{uploadpath}}onlineclassroomtype/{{item.img}}' class='icon-50 radius-50'></image>
-    <image wx:if="{{item.id!=xz}}" src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(item.id==xz)}}" src='{{uploadpath}}onlineclassroomtype/{{item.img}}' class='icon-50 radius-50'></image>
+    <image hidden="{{!(item.id!=xz)}}" src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{item.id==xz?"txt-bold":""}}'>{{item.name}}</view>
     <view wx:if="{{item.id==xz}}" class="henxian"></view>
     <view wx:if="{{item.id!=xz}}" class="nohenxian"></view>
@@ -51,9 +51,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.onlineclassroom_name}}</view>
-      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
-        {{item.onlineclassroom_class_introduce}}
-      </view>
+
 
 
       <view class='flex-row flex-center margin-top-14'>
@@ -87,9 +85,9 @@
     </view>
 
   </view>
-   </view>
-  <view class='text-center f18 txt-bold margin-top'>
- 
+</view>
+<view class='text-center f18 txt-bold margin-top'>
+
 
   {{name}}
 </view>
@@ -109,11 +107,6 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
-        {{item.class_introduce}}
-      </view>
-
-
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
@@ -156,6 +149,7 @@
 
 
 
+
   <view bindtap='kechenxianqin' data-id='{{item.id}}' wx:if="{{xz==-1}}" class='kecheng-block ' wx:for='{{mianfeikechen}}' wx:key='k'>
 
     <view style=''>
@@ -164,9 +158,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
-        {{item.class_introduce}}
-      </view>
+
 
 
       <view class='flex-row flex-center margin-top-14'>
@@ -200,9 +192,7 @@
 
     <view class='padding-12'>
       <view class='h6'>{{item.name}}</view>
-      <view style=' height: 40rpx;' class='f-16 chaochu2 margin-top-8'>
-        {{item.class_introduce}}
-      </view>
+
 
 
       <view class='flex-row flex-center margin-top-14'>
@@ -238,4 +228,14 @@
   </view>
 
 
+</view>
+
+<view wx:if="{{(remenkechen.length>0&&xz=='-2')||(mianfeikechen.length>0&&xz=='-1')||xzlist.length>0}}" class="dibude flex-row flex-center ">
+  <view class="flex-1"></view>
+  
+   <image src='{{uploadpath}}resource/{{res.daodile}}' mode='widthFix' class="daodile" ></image>
+  <!-- <view class="xian"></view>
+  <view class="daodile">已经到底啦</view>
+  <view class="xian"></view> -->
+  <view class="flex-1"></view>
 </view>

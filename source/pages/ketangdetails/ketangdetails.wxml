@@ -104,6 +104,9 @@
       <view class="jieshao1 ">去评论</view>
       <image src='{{uploadpath}}resource/{{res.sppinlun}}' class='icon-15 margin-top-3 margin-left-10'></image>
     </view>
+
+
+
     <view wx:for="{{ketanpinlunlist}}" wx:for-index="idx" wx:if="{{idx<2}}" wx:key="k" class="margin-20">
 
       <view class="flex-row flex-center ">
@@ -122,6 +125,12 @@
       </view>
 
     </view>
+    <view class="flex-row flex-center" style="height:150rpx" wx:if="{{ketanpinlunlist.length==0}}">
+      <view class="flex-1"></view>
+      <view class="zanwupl h5">暂无发现评论,赶紧来评论吧~</view>
+      <view class="flex-1"></view>
+    </view>
+
   </view>
   <view class="cuxian"></view>
   <image mode='widthFix' style='width:100vw' src='{{uploadpath}}onlineclassroom/{{kecheninfo.haibao}}'></image>
@@ -150,11 +159,11 @@
   </block>
 
   <view class='tishi' wx:if='{{tishi==1}}'>
-    <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
+    <image src='{{uploadpath}}resource/{{res.favsucceed}}' class='ts_icon'></image>
   </view>
 
   <view class='tishi' wx:if='{{tishi==2}}'>
-    <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
+    <image src='{{uploadpath}}resource/{{res.favcancel}}' class='ts_icon'></image>
   </view>
 
 </block>
@@ -168,92 +177,97 @@
 
 
 <block wx:if="{{liebiao}}" animation='{{animationData}}'>
-<view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
-  <view class="padding-20 flex-row flex-center">
-    <view class="flex-1 txt-bold" >{{danqianzhanjie.classroom_id_name}}</view>
-    <view bindtap="guanbiliebiao" class="cs" style="width:120rpx;height:120rpx;">
+  <view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
+    <view class="padding-20 flex-row flex-center">
+      <view class="flex-1 txt-bold">{{danqianzhanjie.classroom_id_name}}</view>
+      <view bindtap="guanbiliebiao" class="cs" style="width:120rpx;height:120rpx;">
 
+      </view>
+      <image bindtap="guanbiliebiao" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
     </view>
-    <image bindtap="guanbiliebiao" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
-  </view>
-  <scroll-view scroll-y class="gd">
-    <view class=" padding-10 flex-row flex-center flex-wrap">
+    <scroll-view scroll-y class="gd">
+      <view class=" padding-10 flex-row flex-center flex-wrap">
 
-      <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='kecheng-block flex-row flex-column'>
+        <view wx:for="{{zhanjie}}" wx:key="k" wx:for-index="idx" bindtap='qiehuanzhanjie' data-id="{{idx}}" class='kecheng-block flex-row flex-column'>
 
 
-        <view class="{{item.dq==true?'bk':''}}">
-          <image class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
-          <view class="chaochu2 {{danqianzhanjie.id==item.id&&spbf?'bianse':''}} kuan1">{{item.name}}</view>
-          <block wx:if="{{kecheninfo.isfree_value=='N'||kecheninfo.idd!=''}}">
+          <view class="{{item.dq==true?'bk':''}}">
+            <image class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
+            <view class="chaochu2 {{danqianzhanjie.id==item.id&&spbf?'bianse':''}} kuan1">{{item.name}}</view>
+            <block wx:if="{{kecheninfo.isfree_value=='N'||kecheninfo.idd!=''}}">
 
-            <view wx:if="{{item.isproved_value=='N'&&kecheninfo.idd==''}}" class="h7 fufei1">付费</view>
-            <view wx:if="{{item.isproved_value=='Y'&&kecheninfo.idd==''}}" class="h7 mianfei1">试看</view>
-            <view wx:if="{{kecheninfo.idd!=''}}" class="h7 mianfei1">已购</view>
+              <view wx:if="{{item.isproved_value=='N'&&kecheninfo.idd==''}}" class="h7 fufei1">付费</view>
+              <view wx:if="{{item.isproved_value=='Y'&&kecheninfo.idd==''}}" class="h7 mianfei1">试看</view>
+              <view wx:if="{{kecheninfo.idd!=''}}" class="h7 mianfei1">已购</view>
 
-          </block>
-          <image wx:if="{{danqianzhanjie.id==item.id&&spbf}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
-          <image wx:if="{{!(danqianzhanjie.id==item.id&&spbf)}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
+            </block>
+            <image wx:if="{{danqianzhanjie.id==item.id&&spbf}}" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1'></image>
+            <image wx:if="{{!(danqianzhanjie.id==item.id&&spbf)}}" src='{{uploadpath}}resource/{{res.spbofan}}' class='zt1'></image>
+          </view>
         </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
   </view>
 </block>
 
 
 <block wx:if="{{quanbu}}">
-<view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
-  <view class="padding-20 flex-row flex-center">
-    <view class="flex-1 txt-bold">评论({{ketanpinlunlist.length}})</view>
-    <view bindtap="guanbiquanbu" class="cs" style="width:120rpx;height:120rpx;">
+  <view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
+    <view class="padding-20 flex-row flex-center">
+      <view class="flex-1 txt-bold">评论({{ketanpinlunlist.length}})</view>
+      <view bindtap="guanbiquanbu" class="cs" style="width:120rpx;height:120rpx;">
 
+      </view>
+      <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
     </view>
-    <image bindtap="guanbiquanbu" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15'></image>
-  </view>
-  <scroll-view scroll-y class="gd">
-    <view wx:for="{{ketanpinlunlist}}" wx:key="k" wx:for-index='idx' class="padding-20">
-      <view class="flex-row flex-center ">
-        <image src='{{item.member_avatarUrl}}' class='icon-40 radius-50'></image>
-        <view class="flex-1 margin-left-10">
-          <view class="h5">{{item.member_id_name}}</view>
-          <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
-        </view>
-        <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
-
-      </view>
-
-      <view class="h5 margin-top-10 margin-left-20 ">
-        {{item.neiron}}
-      </view>
-      <view wx:if="{{item.status=='H'}}">
-        <view class="margin-top-20 margin-left-20 flex-row flex-center">
-          <view class="hs"></view>
-          <view class="h6" style="color:#999999">官方回复</view>
-          <view class="flex-1"></view>
-          <view class="h5 margin-right-20" style='color:#999999'>{{item.huifudianzanrenshu}}</view>
-
-          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
-          <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
-
+    <scroll-view scroll-y class="gd">
+      <view wx:for="{{ketanpinlunlist}}" wx:key="k" wx:for-index='idx' class="padding-20">
+        <view class="flex-row flex-center ">
+          <image src='{{item.member_avatarUrl}}' class='icon-40 radius-50'></image>
+          <view class="flex-1 margin-left-10">
+            <view class="h5">{{item.member_id_name}}</view>
+            <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
+          </view>
+          <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
+          <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+          <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
 
         </view>
-        <view class="h5 margin-top-10  margin-left-30 ">{{item.huifu}}</view>
+
+        <view class="h5 margin-top-10 margin-left-20 ">
+          {{item.neiron}}
+        </view>
+        <view wx:if="{{item.status=='H'}}">
+          <view class="margin-top-20 margin-left-20 flex-row flex-center">
+            <view class="hs"></view>
+            <view class="h6" style="color:#999999">官方回复</view>
+            <view class="flex-1"></view>
+            <view class="h5 margin-right-20" style='color:#999999'>{{item.huifudianzanrenshu}}</view>
+
+            <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+            <image bindtap="huifudianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.huifuisfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
+
+
+          </view>
+          <view class="h5 margin-top-10  margin-left-30 ">{{item.huifu}}</view>
+        </view>
       </view>
+        <view class="flex-row flex-center" style="height:150rpx" wx:if="{{ketanpinlunlist.length==0}}">
+      <view class="flex-1"></view>
+      <view class="zanwupl h5">暂无发现评论,赶紧来评论吧~</view>
+      <view class="flex-1"></view>
     </view>
-    <view style='height:120rpx'></view>
+      <view style='height:120rpx'></view>
 
 
 
-  </scroll-view>
-  <view class="padding-10 db flex-row flex-center">
+    </scroll-view>
+    <view class="padding-10 db flex-row flex-center">
 
-    <input value="{{pinlun}}" bindinput='shuru' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20 shuruk">
+      <input value="{{pinlun}}" bindinput='shuru' placeholder="发表一下你的评论吧！" placeholder-style="color:#C8C8C8" class="flex-1 margin-left-20 shuruk">
 
-    </input>
-    <view bindtap='fabiao' class="fabiao">发表</view>
-  </view>
+      </input>
+      <view bindtap='fabiao' class="fabiao">发表</view>
+    </view>
   </view>
 </block>

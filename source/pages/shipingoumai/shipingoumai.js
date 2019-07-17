@@ -46,11 +46,8 @@ class Content extends AppBase {
     }
 
 
-    wx.showModal({
-      title: '提示',
-      content: '是否确认购买课程？',
-      success: (e) => {
-        if (e.confirm) {
+  
+       
           var api = new PurchaseApi();
           api.create(json, (ret) => {
             if (ret.code == '0') {
@@ -96,9 +93,8 @@ class Content extends AppBase {
               this.Base.info(ret.result);
             }
           })
-        }
-      }
-    })
+       
+    
   }
 }
 var content = new Content();

@@ -10,6 +10,9 @@ Page {
 .bianse{
   color:#FF6600;
 }
+.zanwupl{
+  color:#6c6c6c;
+}
 .kd {
   width: 100rpx;
   height: 50rpx;
@@ -127,8 +130,8 @@ Page {
 }
 
 .ts_icon {
-  width: 240rpx;
-  height: 260rpx;
+  width: 290rpx;
+  height: 240rpx;
 }
 
 .fufei {
@@ -174,7 +177,7 @@ Page {
   position: fixed;
   z-index: 100;
   top: 35%;
-  right: 35%;
+  right: 30%;
 }
 
 .padding-right-30 {

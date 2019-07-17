@@ -42,7 +42,7 @@ text-decoration: line-through
   height: 30rpx;
 }
 .kecheng-img {
-  height: 246rpx;
+  height: 330rpx;
   width: 100%;
   /* border: 1rpx solid black; */
   /* background: rgba(216, 216, 216, 1); */
@@ -50,6 +50,7 @@ text-decoration: line-through
 
 .padding-12 {
   padding: 12rpx;
+  padding-bottom:5rpx;
 }
 
 .f-16 {
@@ -65,7 +66,7 @@ text-decoration: line-through
 }
 
 .margin-top-12 {
-  margin-top: 12rpx;
+  margin-top: 0rpx;
 }
 
 .f20 {
@@ -78,6 +79,7 @@ padding-right:15rpx;
 }
 .dd{
   margin:15rpx;
+  margin-top:5rpx;
 }
 
 .txt-gray {
@@ -147,4 +149,21 @@ border-radius: 5rpx;
 
 .lb{
 width:100vw;height:200rpx;
+}
+.dibude{
+
+height: 150rpx;
+
+width: 100vw;
+
+}
+.xian{
+  width: 100rpx;
+  height: 1rpx;
+  background: white;
+}
+.daodile{
+width:60vw;
+height: 80rpx;
+
 }

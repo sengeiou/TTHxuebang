@@ -396,12 +396,12 @@ class Content extends AppBase {
     var ppp = this.Base.getMyData().ppp;
     if (ppp == 1) {
       wx.navigateTo({
-        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id + '&&type=0'
+        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id + '&&type=0&&leixin='+this.Base.getMyData().pppp
       })
 
     } else {
       wx.navigateTo({
-        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
+        url: '/pages/purchase/purchase?course_id=' + this.Base.options.id+'&&leixin='+this.Base.getMyData().pppp
       })
     }
 
