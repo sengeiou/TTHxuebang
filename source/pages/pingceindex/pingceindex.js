@@ -313,22 +313,20 @@ class Content extends AppBase {
     var pingceapi = new PingceApi();
     var mypingcelist = this.Base.getMyData().mypingcelist;
 
-
     if (mypingcelist.length == 0) {
       console.log("电风扇");
     } else {
 
      var a=  mypingcelist.filter((item,idx)=>{
-        return item.pingce_id == pcid
+       return item.pingce_id == pcid & item.member_id==id
       })
       
-   console.log(a);
+   console.log(a,"嗷嗷");
    //return
-
 
       if (a.length > 0) {
         wx.navigateTo({
-          url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id
+          url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id + '&upid=' + this.Base.options.pcid
         })
       }
 
@@ -341,11 +339,14 @@ class Content extends AppBase {
           status: "A",
           dati_status: "N"
         }, (addpingce) => {
+          
+          console.log(addpingce.return,"滴滴");
+          
+          wx.navigateTo({
+            url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id + '&upid=' + addpingce.return
+          })
           this.Base.setMyData({
             addpingce
-          })
-          wx.navigateTo({
-            url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id
           })
         })
       }

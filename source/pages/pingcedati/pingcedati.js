@@ -60,9 +60,6 @@ class Content extends AppBase {
 
     var pingcelist = this.Base.getMyData().pingcelist;
 
-
-
-
     pingcelist[sx].check = id;
 
     this.Base.setMyData({
@@ -73,10 +70,7 @@ class Content extends AppBase {
       this.next(sx);
     }
 
-
   }
-
-
 
   next(sx) {
     var id = sx;
@@ -196,14 +190,14 @@ class Content extends AppBase {
       console.log("消极")
       var typeD = "D"
     }
-    console.log(typeA, typeB, typeC, typeD)
+
+    console.log(typeA, typeB, typeC, typeD,"力量")
 
     this.Base.setMyData({
       gif: true
     });
 
-    setTimeout(() => {
-
+   setTimeout(() => {
 
       this.Base.setMyData({
         gif: false,
@@ -211,12 +205,17 @@ class Content extends AppBase {
         qie: 0
       })
 
-
-
       var pingceapi = new PingceApi();
+
+      console.log(this.Base.options.upid,"啦啦啦")
+     console.log(typeA, typeB, typeC, typeD, "智力")
       pingceapi.updatepingce({
         dati_status: "Y",
-        pingce_id: this.Base.options.id
+        typeA: typeA,
+        typeB: typeB,
+        typeC: typeC,
+        typeD: typeD,
+        id: this.Base.options.upid
       }, (updatepingce) => {
         this.Base.setMyData({
           updatepingce
@@ -225,21 +224,18 @@ class Content extends AppBase {
       })
 
 
-
-
       wx.redirectTo({
         url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD + '&id=' + this.Base.options.id,
 
         success: function(res) {
 
           if (res.confirm) {
-            this.Base.setMyData({
 
+            this.Base.setMyData({
               sx: 0,
               pingce: [],
               gif: false
             });
-
 
           }
 
@@ -249,8 +245,7 @@ class Content extends AppBase {
 
 
 
-
-    }, 1100)
+ }, 1100)
 
 
   }

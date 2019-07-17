@@ -60,8 +60,6 @@
 
 
 
-
-
 <!-- wx:if='{{gif==true}}' -->
 <view class='gif bg-white text-center' wx:if='{{gif==true}}'>
   <image src='{{uploadpath}}resource/{{res.shengchen}}' class='gifimg'></image>

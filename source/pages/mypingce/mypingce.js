@@ -23,7 +23,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ type: this.Base.options.type})
+    this.Base.setMyData({
+      type: this.Base.options.type
+    })
   }
   setPageTitle() {
     // if (this.Base.getMyData().type == "A") {
@@ -49,19 +51,42 @@ class Content extends AppBase {
       });
     }
     var pingceapi = new PingceApi();
-    pingceapi.mypingcelist({}, (mypingcelist) => {
+    pingceapi.mypingcelist({
+      member_id: this.Base.getMyData().memberinfo.id
+    }, (mypingcelist) => {
       this.Base.setMyData({
         mypingcelist
       })
     })
-    
+
   }
-  
+
   toceshi(e) {
+
+    console.log(e);
+    //return;
     var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/pingceindex/pingceindex?id=' + id
-    })
+    var pcid = e.currentTarget.dataset.pcid;
+    var tA = e.currentTarget.dataset.typea;
+    var tB = e.currentTarget.dataset.typeb;
+    var tC = e.currentTarget.dataset.typec;
+    var tD = e.currentTarget.dataset.typed;
+    console.log(tA, tB, tC, tD,"事随时")
+   // return;
+    if (tA == "" && tB == "" && tC == "" && tD == "") {
+      console.log("空");
+      wx.navigateTo({
+        url: '/pages/pingceindex/pingceindex?id=' + id + '&pcid=' + pcid
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + tA + '&typeB=' + tB + '&typeC=' + tC + '&typeD=' + tD
+      })
+      
+      
+      console.log("有");
+    }
+
   }
 
 
@@ -69,6 +94,6 @@ class Content extends AppBase {
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
-body.onMyShow = content.onMyShow; 
+body.onMyShow = content.onMyShow;
 body.toceshi = content.toceshi;
 Page(body)
