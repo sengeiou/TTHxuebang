@@ -27,7 +27,7 @@ class Content extends AppBase {
     //options.course_id = 15;
     super.onLoad(options);
     this.Base.setMyData({
-      usercomment: "", xuanzexueyuan:''
+      usercomment: "", xuanzexueyuan: ''
     })
   }
   onMyShow() {
@@ -40,7 +40,13 @@ class Content extends AppBase {
       jigouapi.courseinfo({
         id: this.Base.options.course_id
       }, (courseinfo) => {
+        if(this.Base.options.leixin==0)
+        {
         courseinfo.price = courseinfo.isgroup;
+        }
+        else{
+          courseinfo.price = courseinfo.isgroup_tiyan;
+        }
 
         this.Base.setMyData({
           courseinfo
@@ -54,6 +60,12 @@ class Content extends AppBase {
       jigouapi.courseinfo({
         id: this.Base.options.course_id
       }, (courseinfo) => {
+        if (this.Base.options.leixin == 0) {
+         
+        }
+        else {
+          courseinfo.price = courseinfo.expeprice;
+        }
         this.Base.setMyData({
           courseinfo
         });
@@ -93,7 +105,7 @@ class Content extends AppBase {
     var api = new JigouApi();
     var that = this;
     var xueyuan = this.Base.getMyData().xuanzexueyuan;
- 
+
 
 
     if (xueyuan == "") {
@@ -115,157 +127,89 @@ class Content extends AppBase {
 
       if (this.Base.options.type == 0) {
 
-        wx.showModal({
-          title: '提示',
-          content: '是否确认购买课程？',
-          success: (e) => {
-            if (e.confirm) {
-              var api = new PurchaseApi();
-              api.create(json2, (ret) => {
-                if (ret.code == '0') {
-                  if (ret.return.pstatus == 'P') {
-                    wx.navigateTo({
-                      url: '/pages/order/order' + ret.return.id,
-                    })
-                    return;
-                  } else {
-                    var wechatapi = new WechatApi();
-                    wechatapi.prepay2({ id: ret.return.id }, (payret) => {
-                      payret.complete = function (e) {
 
 
-                        if (e.errMsg == "requestPayment:ok") {
-
-
-                          api.purchaseinfo({ id: ret.return.id }, (res) => {
-
-                            wx.navigateTo({
-                              url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                            })
-
-                          })
-
-                        }
-                        else {
-
-                          wx.navigateTo({
-                            url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                          })
-
-                        }
-
-                      }
-                      console.log(payret);
-                      wx.requestPayment(payret)
-                    });
-                  }
-                } else {
-                  this.Base.info(ret.result);
-                }
+        var api = new PurchaseApi();
+        api.create(json2, (ret) => {
+          if (ret.code == '0') {
+            if (ret.return.pstatus == 'P') {
+              wx.navigateTo({
+                url: '/pages/order/order' + ret.return.id,
               })
+              return;
+            } else {
+              var wechatapi = new WechatApi();
+              wechatapi.prepay2({ id: ret.return.id }, (payret) => {
+                payret.complete = function (e) {
+
+
+                  if (e.errMsg == "requestPayment:ok") {
+
+
+                    api.purchaseinfo({ id: ret.return.id }, (res) => {
+
+                      wx.navigateTo({
+                        url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
+                      })
+
+                    })
+
+                  }
+                  else {
+
+                    wx.navigateTo({
+                      url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                    })
+
+                  }
+
+                }
+                console.log(payret);
+                wx.requestPayment(payret)
+              });
             }
+          } else {
+            this.Base.info(ret.result);
           }
         })
       }
+
+
+
       else {
 
         api.addgroup({ group_course_id: this.options.course_id, id: this.options.type }, (res) => {
           console.log("哈哈哈");
           console.log(res);
           if (res.code == "0") {
-            wx.showModal({
-              title: '提示',
-              content: '是否确认购买课程？',
-              success: (e) => {
-                if (e.confirm) {
-                  var api = new PurchaseApi();
-                  api.create(json2, (ret) => {
-                    if (ret.code == '0') {
-                      if (ret.return.pstatus == 'P') {
-                        wx.navigateTo({
-                          url: '/pages/order/order' + ret.return.id,
-                        })
-                        return;
-                      } else {
-                        var wechatapi = new WechatApi();
-                        wechatapi.prepay2({ id: ret.return.id }, (payret) => {
-
-                          payret.complete = function (e) {
-                            if (e.errMsg == "requestPayment:ok") {
-                              api.purchaseinfo({ id: ret.return.id }, (res) => {
-
-                                wx.navigateTo({
-                                  url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                                })
-
-                              })
-                            }
-                            else {
-                              wx.navigateTo({
-                                url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                              })
-
-                            }
-
-                          }
-                          console.log(payret);
-                          wx.requestPayment(payret)
-                        });
-                      }
-                    } else {
-                      console.log(ret.result);
-                      this.Base.info(ret.result);
-                    }
-                  })
-                }
-              }
-            })
-
-          }
-        })
-
-      }
 
 
-    }
 
-    else {
-      wx.showModal({
-        title: '提示',
-        content: '是否确认购买课程？',
-        success: (e) => {
-          if (e.confirm) {
             var api = new PurchaseApi();
-            api.create(json1, (ret) => {
+            api.create(json2, (ret) => {
               if (ret.code == '0') {
                 if (ret.return.pstatus == 'P') {
-
                   wx.navigateTo({
                     url: '/pages/order/order' + ret.return.id,
                   })
                   return;
                 } else {
                   var wechatapi = new WechatApi();
-                  wechatapi.prepay({ id: ret.return.id }, (payret) => {
+                  wechatapi.prepay2({ id: ret.return.id }, (payret) => {
+
                     payret.complete = function (e) {
-
-
                       if (e.errMsg == "requestPayment:ok") {
-
-
-                        api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
+                        api.purchaseinfo({ id: ret.return.id }, (res) => {
 
                           wx.navigateTo({
-                            url: '/pages/myorder/myorder?id=' + res.spellgroup_id,
+                            url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
                           })
 
                         })
-
                       }
                       else {
-
                         wx.navigateTo({
-                          url: '/pages/myorder/myorder?id=' + that.options.course_id,
+                          url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
                         })
 
                       }
@@ -276,12 +220,72 @@ class Content extends AppBase {
                   });
                 }
               } else {
+                console.log(ret.result);
                 this.Base.info(ret.result);
               }
             })
+
+
+
+
           }
+        })
+
+      }
+
+
+    }
+
+    else {
+
+
+
+      var api = new PurchaseApi();
+      api.create(json1, (ret) => {
+        if (ret.code == '0') {
+          if (ret.return.pstatus == 'P') {
+
+            wx.navigateTo({
+              url: '/pages/order/order' + ret.return.id,
+            })
+            return;
+          } else {
+            var wechatapi = new WechatApi();
+            wechatapi.prepay({ id: ret.return.id }, (payret) => {
+              payret.complete = function (e) {
+
+
+                if (e.errMsg == "requestPayment:ok") {
+
+
+                  api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
+
+                    wx.navigateTo({
+                      url: '/pages/myorder/myorder?id=' + res.spellgroup_id,
+                    })
+
+                  })
+
+                }
+                else {
+
+                  wx.navigateTo({
+                    url: '/pages/myorder/myorder?id=' + that.options.course_id,
+                  })
+
+                }
+
+              }
+              console.log(payret);
+              wx.requestPayment(payret)
+            });
+          }
+        } else {
+          this.Base.info(ret.result);
         }
       })
+
+
     }
 
 
@@ -290,13 +294,13 @@ class Content extends AppBase {
   xueyuan() {
     this.Base.setMyData({ isxueyuan: true })
   }
-  hideModal(){
+  hideModal() {
     this.Base.setMyData({ isxueyuan: false })
   }
-  xuanze(e){ 
-    var xueyuanlist=this.Base.getMyData().xueyuanlist;
+  xuanze(e) {
+    var xueyuanlist = this.Base.getMyData().xueyuanlist;
 
-    this.Base.setMyData({ xuanzexueyuan: xueyuanlist[e.currentTarget.dataset.idx]})
+    this.Base.setMyData({ xuanzexueyuan: xueyuanlist[e.currentTarget.dataset.idx] })
     console.log(xueyuanlist[e.currentTarget.dataset.idx]);
     this.hideModal();
   }
@@ -326,6 +330,6 @@ body.changename = content.changename;
 body.xueyuan = content.xueyuan;
 body.hideModal = content.hideModal;
 body.xuanze = content.xuanze;
-body.tianjia=content.tianjia; 
+body.tianjia = content.tianjia;
 body.xianqin = content.xianqin;
 Page(body)

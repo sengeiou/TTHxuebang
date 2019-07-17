@@ -71,7 +71,7 @@
  
  <view class="padding-20">
  
-  <image  src='{{uploadpath}}resource/{{res.remen}}' mode='widthFix' class='tstp'></image>
+  <image  src='{{uploadpath}}resource/{{res.goumailiuchen}}' mode='widthFix' class='tstp'></image>
 
  </view>
 
