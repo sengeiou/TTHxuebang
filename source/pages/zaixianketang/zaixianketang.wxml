@@ -230,10 +230,12 @@
 
 </view>
 
-<view wx:if="{{remenkechen.length>=0}}" class="dibude flex-row flex-center ">
+<view wx:if="{{(remenkechen.length>0&&xz=='-2')||(mianfeikechen.length>0&&xz=='-1')||xzlist.length>0}}" class="dibude flex-row flex-center ">
   <view class="flex-1"></view>
-  <view class="xian"></view>
+  
+   <image src='{{uploadpath}}resource/{{res.daodile}}' mode='widthFix' class="daodile" ></image>
+  <!-- <view class="xian"></view>
   <view class="daodile">已经到底啦</view>
-  <view class="xian"></view>
+  <view class="xian"></view> -->
   <view class="flex-1"></view>
 </view>

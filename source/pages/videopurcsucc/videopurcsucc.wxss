@@ -285,8 +285,5 @@ chaochu2 {
 }
 
 .daodile {
-  margin-left: 20rpx;
-  margin-right: 20rpx;
-  color: white;
-  font: 24rpx;
+ width:60vw;
 }
