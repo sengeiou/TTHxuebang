@@ -184,7 +184,7 @@
 
         <view class="{{item.dq==true?'bk':''}}">
           <image class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'></image>
-          <view class="chaochu2 kuan1">{{item.name}}</view>
+          <view class="chaochu2 {{danqianzhanjie.id==item.id&&spbf?'bianse':''}} kuan1">{{item.name}}</view>
           <block wx:if="{{kecheninfo.isfree_value=='N'||kecheninfo.idd!=''}}">
 
             <view wx:if="{{item.isproved_value=='N'&&kecheninfo.idd==''}}" class="h7 fufei1">付费</view>

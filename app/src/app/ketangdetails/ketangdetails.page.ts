@@ -180,11 +180,11 @@ export class KetangdetailsPage extends AppBase {
   }
 
   jindu(e) {
-
+  console.log(e);
     //alert(e.detail.currentTime);
 
     //wx.setStorageSync(this.options.id + 'sp', this.danqianzhanjie.id + ',' + e.detail.currentTime)
-    window.localStorage.setItem(this.params.id + 'sp', this.danqianzhanjie.id + ',' + e.detail.currentTime);
+    window.localStorage.setItem(this.params.id + 'sp', this.danqianzhanjie.id + ',' + e.target.currentTime);
     var idd = this.kecheninfo.idd;
     var mianfei = this.kecheninfo.isfree_value;
 

@@ -258,7 +258,8 @@ class Content extends AppBase {
 
     this.Base.setMyData({
       tanchuang: true,
-      ppp: 0
+      ppp: 0,
+      pppp:0,
     })
     return
     wx.navigateTo({
@@ -270,7 +271,8 @@ class Content extends AppBase {
 
     this.Base.setMyData({
       tanchuang: true,
-      ppp: 1
+      ppp: 1,
+      pppp:0,
     })
 
     return
@@ -428,7 +430,7 @@ class Content extends AppBase {
   check(e) {
 
     this.Base.setMyData({
-      ppp: e.currentTarget.dataset.id
+      pppp: e.currentTarget.dataset.id
     })
   }
 

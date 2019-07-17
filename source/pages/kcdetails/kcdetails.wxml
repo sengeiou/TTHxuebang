@@ -465,8 +465,8 @@
 
           </view>
 
-          <view wx:if="{{ppp==0}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-          <view wx:if="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
+          <view wx:if="{{ppp==0}}" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.price:courseinfo.expeprice}}</view>
+          <view wx:if="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.isgroup:courseinfo.isgroup_tiyan}}</view>
         </view>
 
         <view bindtap='bindclose'>
@@ -480,8 +480,10 @@
       <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
       <view class='flex-row flex-center flex-wrap margin-top-10'>
-        <view class=' text-center h6    {{ppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' bindtap='check'>体验课{{courseinfo.isgroup}}元</view>
-        <view class=' text-center h6  {{ppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>正价课{{courseinfo.price}}元</view>
+        <view class=' text-center h6    {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' bindtap='check'>体验课
+        {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</view>
+        <view class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>正价课
+        {{ppp==0?courseinfo.price:courseinfo.isgroup   }}元</view>
       </view>
 
       <!-- 
