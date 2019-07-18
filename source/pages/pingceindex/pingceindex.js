@@ -30,6 +30,9 @@ class Content extends AppBase {
     this.Base.setMyData({
       check: true
     });
+
+
+
   }
 
 
