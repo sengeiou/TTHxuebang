@@ -105,7 +105,7 @@ class Content extends AppBase {
   courseinfo(e)
   {
     wx.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + e.currentTarget.dataset.id
+      url: '/pages/order/order?id=' + e.currentTarget.dataset.id
     })
   
    

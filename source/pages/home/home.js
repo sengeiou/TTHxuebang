@@ -36,6 +36,8 @@ class Content extends AppBase {
 
     
     this.Base.setMyData({ scenes:AppBase.scenes})
+    // var str = "(1+8+9)*5/4";
+    // console.log(eval(str));
     //console.log(aa)
     // var qeqe = wx.getStorageSync(jintian);
     
