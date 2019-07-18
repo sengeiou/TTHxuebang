@@ -50,7 +50,7 @@
 
   </view>
   <view class="margin-24 order" wx:for="{{alllist}}" wx:key='k'>
-    <view bindtap="courseinfo" data-id="{{item.course_id}}" class="padding-20 flex-row ">
+    <view bindtap="courseinfo" data-id="{{item.id}}" class="padding-20 flex-row ">
 
       <image wx:if="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>
 

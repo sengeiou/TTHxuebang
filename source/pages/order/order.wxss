@@ -7,10 +7,24 @@ Page {
 .bg_top {
   background: white;
 }
-
+.icon-34 {
+  width: 34rpx;
+  height: 34rpx;
+}
 .icon-80 {
   width: 80rpx;
   height: 80rpx;
+}
+.ddd{
+  width: 200rpx;
+}
+.hexiaoma{
+
+color:white;
+background: #50B674;
+padding: 10rpx 20rpx 10rpx 20rpx;
+border-radius: 10rpx;
+
 }
 .saoma{
  padding: 10rpx;
@@ -23,6 +37,10 @@ background:white;
 .erweimaban{
   width:60rpx;
   height: 60rpx;
+}
+.erweimade{
+  width: 440rpx;
+  height: 440rpx;
 }
 /* .height-66{
   height: 66rpx;
@@ -88,7 +106,16 @@ margin-top-10 {
   padding-bottom: 20rpx;
   padding-left: 10rpx;
 }
-
+.margin-left-18 {
+  margin-left: 18rpx;
+}
+.btn {
+  width: 312rpx;
+  height: 84rpx;
+  border-radius: 56rpx;
+  border: 2rpx solid #FF6600;
+  background-color: #FF6600;
+}
 .fbtn {
   width: 140rpx;
   height: 48rpx;
@@ -102,4 +129,57 @@ margin-top-10 {
   width: 95%;
   z-index: 100;
   border-top: 2rpx solid #e5e5e5;
+}
+
+
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.modal-dialog {
+  width: 680rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: 50rpx 35rpx;
+  border-radius: 10rpx;
+}
+.baocunhexiao{
+
+width: 30vw;
+  overflow: hidden;
+  position: fixed;
+  top: 10%;
+  left: 25vw;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin-top: 850rpx ;
+  border-radius: 100rpx;
+padding:20rpx 60rpx 20rpx 60rpx;
+background: rgba(255, 255, 255, 1);
+
+
+}
+.modal-title {
+  padding: 40rpx;
+ 
+  font-size: 32rpx;
+  color: #030303;
+  text-align: center;
+}
+
+.modal-content {
+  padding: 50rpx 32rpx;
 }

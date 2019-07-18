@@ -40,11 +40,10 @@ class Content extends AppBase {
       jigouapi.courseinfo({
         id: this.Base.options.course_id
       }, (courseinfo) => {
-        if(this.Base.options.leixin==0)
-        {
-        courseinfo.price = courseinfo.isgroup;
+        if (this.Base.options.leixin == 0) {
+          courseinfo.price = courseinfo.isgroup;
         }
-        else{
+        else {
           courseinfo.price = courseinfo.isgroup_tiyan;
         }
 
@@ -61,7 +60,7 @@ class Content extends AppBase {
         id: this.Base.options.course_id
       }, (courseinfo) => {
         if (this.Base.options.leixin == 0) {
-         
+
         }
         else {
           courseinfo.price = courseinfo.expeprice;
@@ -117,14 +116,15 @@ class Content extends AppBase {
     var phone = xueyuan.shouji;
 
     var json1 = {
-      course_id: this.Base.options.course_id, phone: phone, name: name
+      course_id: this.Base.options.course_id, phone: phone, name: name, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N'
     };
     var json2 = {
-      course_id: this.Base.options.course_id, phone: phone, name: name, type: "PT", kt: this.options.type
+      course_id: this.Base.options.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N'
     }
 
     if (this.Base.options.type != undefined) {
-
+   console.log(123123);
+ 
       if (this.Base.options.type == 0) {
 
 
@@ -238,7 +238,8 @@ class Content extends AppBase {
 
     else {
 
-
+      console.log(456456);
+     
 
       var api = new PurchaseApi();
       api.create(json1, (ret) => {
@@ -261,7 +262,7 @@ class Content extends AppBase {
                   api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
 
                     wx.navigateTo({
-                      url: '/pages/myorder/myorder?id=' + res.spellgroup_id,
+                      url: '/pages/order/order?id=' + ret.return.id,
                     })
 
                   })
@@ -270,7 +271,7 @@ class Content extends AppBase {
                 else {
 
                   wx.navigateTo({
-                    url: '/pages/myorder/myorder?id=' + that.options.course_id,
+                    url: '/pages/order/order?id=' + ret.return.id,
                   })
 
                 }

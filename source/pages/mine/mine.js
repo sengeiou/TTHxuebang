@@ -23,6 +23,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+   
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;

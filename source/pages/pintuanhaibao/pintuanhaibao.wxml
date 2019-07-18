@@ -14,7 +14,7 @@
     </view>
     <view class="flex-1"></view>
 
-   <view class="anniu  flex-row flex-center"  data-id="haibao" bindtap="baocun">
+    <view class="anniu  flex-row flex-center" data-id="haibao" bindtap="baocun">
       <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
       <view class="zi margin-left-10">保存海报</view>
     </view>
