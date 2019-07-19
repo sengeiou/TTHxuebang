@@ -39,24 +39,27 @@ class Content extends AppBase {
     var youxiao = [];
     var shixiao = [];
 
-    var shijian = this.Base.getMyData().instinfo.xiajishijian;
+  
     var memberapi = new MemberApi();
     memberapi.chakanxiaji({}, (xiaji) => {
       for (var i = 0; i < xiaji.length; i++) {
-        xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, shijian)[1];
-        if (this.jisuanchaoshi(xiaji[i].bandin_date, shijian)[0]) {
-          youxiao.push(xiaji[i]);
-        }
-        else {
-          shixiao.push(xiaji[i]);
-        }
+        // xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, 0)[1];
+      
+      
         quanbu.push(xiaji[i]);
       }
-      console.log("数据");
+      quanbu = this.zhuandindan(quanbu);
+      console.log("那真的牛批");
       console.log(quanbu);
-      console.log(youxiao);
-      console.log(shixiao);
-      this.Base.setMyData({ quanbu: this.zhuandindan(quanbu), youxiao: youxiao, shixiao: shixiao, xiaji: xiaji })
+      for(let i=0;i<quanbu.length;i++)
+      {
+        quanbu[i].jieshushijian = this.jisuanchaoshi(quanbu[i].pay_time, 0)[1]
+
+      }
+    
+      console.log("数据");
+      
+      this.Base.setMyData({ quanbu: quanbu,  xiaji: quanbu })
     })
   }
   zhuandindan(quanbu){
@@ -65,6 +68,9 @@ class Content extends AppBase {
      quanbu.map((item)=>{
 
      item.dindan.map((item1)=>{
+       console.log(46546546);
+       console.log(item1);
+       item1.yonjin = parseInt(item1.amount * this.Base.getMyData().instinfo.fenxiaobili);
        dindan.push(item1)
        })  
 
@@ -92,42 +98,34 @@ class Content extends AppBase {
     var youxiao = [];
     var shixiao = [];
     if (type == '111') {
-      quanbu = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
+      quanbu = xiaji.filter(quanbu => quanbu.pay_time.substring(0, 10) == b);
       this.Base.setMyData({ quanbu: quanbu });
-      youxiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
-      this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.bandin_date.substring(0, 10) == b);
-      this.Base.setMyData({ shixiao: shixiao });
+ 
     }
 
 
     if (type == 'all') {
+      console.log(quanbu);
       quanbu = xiaji.filter(quanbu => quanbu);
-      this.Base.setMyData({ quanbu:this.zhuandindan( quanbu) });
+      this.Base.setMyData({ quanbu:quanbu });
 
-      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > 0);
-      this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0);
-      this.Base.setMyData({ shixiao: shixiao });
+     
     }
     if (type == "7days") {
-      quanbu = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian - 7);
-      this.Base.setMyData({ quanbu: this.zhuandindan(quanbu) });
-      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian > this.Base.getMyData().instinfo.xiajishijian - 7);
-      this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian < 0 - 7);
-      this.Base.setMyData({ shixiao: shixiao });
+      console.log(xiaji);
+      quanbu = xiaji.filter(quanbu => quanbu.jieshushijian >-6);
+      console.log('哈哈哈');
+      console.log(quanbu);
+      this.Base.setMyData({ quanbu: quanbu });
+     
     }
     if (type == "yesterday") {
 
 
-      quanbu = xiaji.filter(item => item.jieshushijian == this.Base.getMyData().instinfo.xiajishijian - 1);
+      quanbu = xiaji.filter(item => item.jieshushijian ==1);
 
-      this.Base.setMyData({ quanbu: this.zhuandindan(quanbu) });
-      youxiao = xiaji.filter(quanbu => quanbu.jieshushijian == this.Base.getMyData().instinfo.xiajishijian - 1);
-      this.Base.setMyData({ youxiao: youxiao });
-      shixiao = xiaji.filter(quanbu => quanbu.jieshushijian == -1);
-      this.Base.setMyData({ shixiao: shixiao });
+      this.Base.setMyData({ quanbu: quanbu });
+     
     }
 
   }

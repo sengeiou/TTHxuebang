@@ -38,8 +38,13 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     var api = new PurchaseApi();
+   
+    jigouapi.myxiaoxi({},(xiaoxilist)=>{
 
-
+      this.Base.setMyData({ xiaoxilist: xiaoxilist})
+  console.log(12132);
+    })
+  
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({ indexbanner });
     });
@@ -48,23 +53,12 @@ class Content extends AppBase {
     });
 
 
-    api.purchaselist({
-      pstatus: 'P,U,R'
-    }, (wclist) => {
-      this.Base.setMyData({
-        wclist
-      });
-    });
+
 
 
     
   }
-  bindtoinfo(e){
-    var id=e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/messageinfo/messageinfo?id='+id
-    })
-  }
+
 
   onClick(e) {
     console.log('onClick', e.detail)
@@ -79,7 +73,6 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails; 
-body.bindtoinfo = content.bindtoinfo; 
 body.onShare = content.onShare;
 body.onClick = content.onClick;
 Page(body)

@@ -67,11 +67,12 @@ class Content extends AppBase {
 
 
                       api.purchaseinfo({ id: ret.return.id }, (res) => {
-
-                        wx.navigateTo({
+                           
+                        wx.reLaunch({
                           url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id + '&&jifen=' + res.amount,
                         })
 
+                     
                       })
 
                     }

@@ -3,7 +3,12 @@
   height: 65rpx;
   border-radius: 50%;
 }
+.aaa{
 
+  line-height: 56rpx;
+  overflow: hidden;
+  
+}
 .label {
   padding-top: 5rpx;
   padding-bottom: 5rpx;
@@ -15,6 +20,11 @@
   font-size: 20rpx;
   margin-left: 20rpx;
   margin-top: 5rpx;
+}
+.jinbi{
+
+  width:60rpx;
+  height: 60rpx;
 }
 
 .content_bg {

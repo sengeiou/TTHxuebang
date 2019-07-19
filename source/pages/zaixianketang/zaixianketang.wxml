@@ -5,11 +5,12 @@
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">
     <view>
       <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-      <image src='{{uploadpath}}kecheng/{{item.img}}' style='width:100vw;height:350rpx;' class='lb' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}'></image>
+      <image src='{{uploadpath}}kecheng/{{item.img}}' style='width:100vw;height:350rpx;' class='lb' bindtap='bannerGo' id="{{item.id}}"></image>
     </view>
   </swiper-item>
 </swiper>
 
+  
 
 <view class='menu-padding flex-row flex-center flex-wrap bg-white'>
 
@@ -50,7 +51,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6'>{{item.onlineclassroom_name}}</view>
+      <view class='h6 txt-bold'>{{item.onlineclassroom_name}}</view>
 
 
 
@@ -106,7 +107,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6'>{{item.name}}</view>
+      <view class='h6 txt-bold'>{{item.name}}</view>
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
@@ -157,7 +158,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6'>{{item.name}}</view>
+      <view class='h6 txt-bold'>{{item.name}}</view>
 
 
 
@@ -191,7 +192,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6'>{{item.name}}</view>
+      <view class='h6 txt-bold'>{{item.name}}</view>
 
 
 

@@ -1,4 +1,4 @@
-<view class="padding-40 flex-row flex-center">
+<view  class="padding-40 bg-white flex-row flex-center">
   <image class="icon-60 radius-50" src="{{member.avatarUrl}}"></image>
   <view class="margin-left-20">
     <view class="flex-row flex-center">
@@ -14,8 +14,9 @@
   <view class="flex-1"></view>
 
 </view>
-<view class="padding-40">
-  <view class="flex-row flex-center margin-top">
+<view class="height-20"></view>
+<view class="padding-40 bg-white" style="padding-top:0rpx">
+  <view class="flex-row flex-center margin-top xian">
 
     <view>订单数量</view>
     <view class="flex-1"></view>
@@ -27,12 +28,7 @@
     <view class="flex-1"></view>
     <view>{{member.jiner}}</view>
   </view>
-   <view class="flex-row flex-center margin-top">
-
-    <view>有效期剩余</view>
-    <view class="flex-1"></view>
-    <view>{{member.jieshushijian}}天</view>
-  </view>
+  
 
 
 </view>

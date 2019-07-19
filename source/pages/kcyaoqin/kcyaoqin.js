@@ -47,12 +47,8 @@ class Content extends AppBase {
 
       var kcid = this.Base.options.kcid;
       api.courseinfo({ id: kcid }, (kcinfo) => {
-
         this.Base.setMyData({ kcinfo })
-
       })
-
-
     }
   baocun() {
    

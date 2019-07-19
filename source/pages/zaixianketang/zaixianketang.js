@@ -74,6 +74,44 @@ class Content extends AppBase {
        })
 
   }
+
+  bannerGo(e) {
+    var id = e.currentTarget.id;
+    var indexbanner = this.Base.getMyData().lunbolist;
+    for (var i = 0; i < indexbanner.length; i++) {
+      if (id == indexbanner[i].id) {
+        if (indexbanner[i].type == 'KC') {
+          wx.navigateTo({
+            url: '/pages/kcdetails/kcdetails?id=' + indexbanner[i].course_id
+          })
+        }
+        if (indexbanner[i].type == 'JG') {
+          wx.navigateTo({
+            url: '/pages/jgdetails/jgdetails?id=' + indexbanner[i].jg_id
+          })
+        }
+
+        console.log(indexbanner[i].url, "当电灯")
+
+        if (indexbanner[i].type == 'SF') {
+
+          if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine') {
+            console.log("试试")
+            wx.reLaunch({
+              url: indexbanner[i].url
+            })
+          }
+          else {
+            console.log("不杀死hi")
+            wx.navigateTo({
+              url: indexbanner[i].url
+            })
+          }
+        }
+        return;
+      }
+    }
+  }
 }
 
 var content = new Content();
@@ -83,4 +121,5 @@ body.onMyShow = content.onMyShow;
 body.check = content.check;
 body.switchtype = content.switchtype;
 body.kechenxianqin = content.kechenxianqin;
+body.bannerGo = content.bannerGo;
 Page(body)
