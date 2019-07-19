@@ -22,4 +22,27 @@
       </wux-swipe-action>
     </wux-cell-group>
   </view>
+
+  <view class="page__bd padding-20">
+
+
+    <wux-cell-group>
+      <wux-swipe-action bind:click="onClick" autoClose right="{{ right }}">
+        <view class="bg padding-20">
+          <view class="bg-white " style="border-radius:4rpx">
+            <view class="xiaoxi flex-row flex-center">
+              <image class='icon-25' mode='widthFix' src='{{uploadpath}}resource/{{res.wuliuxiaoxi}}'></image>
+              <view class="margin-left-20">
+
+                <view class="" style="color:#222222">物流消息</view>
+                <view class="h6 margin-top-20" style="color:#999999">您的包裹已发货,立即查看详情>></view>
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+      </wux-swipe-action>
+    </wux-cell-group>
+  </view>
 </view>

@@ -26,3 +26,10 @@ border-radius: 10rpx;
 .dd{
   border-radius: 10rpx;
 }
+.heiht-120{
+  height: 120rpx;
+}
+.bg{
+  border-bottom: 1rpx  solid #f4f4f4;
+  padding-bottom: 20rpx;
+}

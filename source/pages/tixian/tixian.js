@@ -59,7 +59,7 @@ class Content extends AppBase {
       this.Base.setMyData({ tishi2: true });
       return
     }
-    if (jiner < 10 || jiner > 5000) {
+    if (jiner < 5 || jiner > 5000) {
       this.Base.setMyData({ tishi1: true });
       return
     }
@@ -68,9 +68,19 @@ class Content extends AppBase {
       return
     }
     api.withdraw({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{
+      console.log(res);
+      console.log("哈哈哈");
+      console.log(res.code);
      if(res.code=='-1')
      {
-     this.Base.info(res.retrun);
+     this.Base.info(res.return);
+     }
+     if(res.code=='0')
+     { 
+       this.Base.toast("提现成功");
+     wx.navigateBack({
+       
+     })
      }
  
     })

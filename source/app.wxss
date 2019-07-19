@@ -234,6 +234,8 @@ view, navigator, input, text, textarea {
 
 .h2 {
   font-size: 56rpx !important;
+  line-height: 56rpx;
+  overflow: hidden;
 }
 
 .h3 {

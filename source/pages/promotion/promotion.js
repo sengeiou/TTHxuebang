@@ -63,15 +63,13 @@ class Content extends AppBase {
     var shijian = this.Base.getMyData().instinfo.xiajishijian;
     memberapi.chakanxiaji({}, (xiaji) => {
       for (var i = 0; i < xiaji.length; i++) {
-        if (this.jisuanchaoshi(xiaji[i].bandin_date, shijian)) {
-          xiajituiguan.push(xiaji[i]);
-        }
+        
         leijikehu.push(xiaji[i]);
       }
       console.log("数据");
       console.log(leijikehu);
       console.log(xiajituiguan);
-      this.Base.setMyData({ leijikehu: leijikehu.length, xiajituiguan: xiajituiguan.length, tuiguandindan: this.zhuandindan(leijikehu) })
+      this.Base.setMyData({ leijikehu: leijikehu.length, xiajituiguan: leijikehu.length, tuiguandindan: this.zhuandindan(leijikehu) })
     })
 
 
@@ -168,7 +166,12 @@ class Content extends AppBase {
   }
   yaoqin() {
     var api = new HaibaoApi;
-     
+      
+    if (this.Base.getMyData().tuiguaninfo[0].status != 'S')
+    {
+        this.Base.info("您现在还不是推广员");
+
+    }
      
     api.haibao({}, (res) => {
       console.log(res);

@@ -124,7 +124,7 @@ class Content extends AppBase {
         }, (res) => {
 
           console.log(res);
-          console.log("嚯嚯嚯嚯 属实憨憨");
+          console.log("asdasdasdasdasdas");
 
         })
 
