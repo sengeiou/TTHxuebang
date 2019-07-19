@@ -59,16 +59,9 @@ class Content extends AppBase {
       
     }
 
-
-    
-    
-
     // console.log(wx.getStorageSync(jintian), "刚刚")
 
     // console.log(this.Base.getMyData().pd, "靠靠靠")
-
-
-        
 
     this.Base.setMyData({
       currentItemId: 2,
@@ -86,7 +79,6 @@ class Content extends AppBase {
       dk: -1,
       jf: 5,
       dian: 0,
-      
       
     })
 
@@ -132,6 +124,18 @@ class Content extends AppBase {
 
     }
     var pingceapi = new PingceApi();
+
+
+
+    var pingceapi = new PingceApi();
+    pingceapi.mypingcelist({
+      member_id: this.Base.getMyData().memberinfo.id
+    }, (mypingcelist) => {
+      this.Base.setMyData({
+        mypingcelist
+      })
+    })
+
 
     pingceapi.indexlist({orderby:'r_main.seq'}, (indexlist) => {
       this.Base.setMyData({
@@ -491,9 +495,32 @@ class Content extends AppBase {
 
   toceshi(e) {
     var id = e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/pingceindex/pingceindex?id=' + id
+
+    var pingceapi = new PingceApi();
+    pingceapi.mypingcelist({}, (mypingcelist) => {
+
+      var a = mypingcelist.filter((item, idx) => {
+        return item.pingce_id == id & item.member_id == this.Base.getMyData().memberinfo.id
+      })
+
+      console.log(a,"刚刚")
+
+      if(a.length>0){
+        wx.navigateTo({
+          url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
+        })
+      }
+      else{
+        wx.navigateTo({
+          url: '/pages/pingceindex/pingceindex?id=' + id
+        })
+      }
+
     })
+
+    //return;
+
+    
   }
 
 

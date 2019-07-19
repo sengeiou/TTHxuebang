@@ -38,7 +38,7 @@ class Content extends AppBase {
     var typeB = this.options.typeB;
     var typeC = this.options.typeC;
     var typeD = this.options.typeD;
-    console.log(typeA, typeB, typeC, typeD)
+    console.log(typeA, typeB, typeC, typeD,"看看")
     if (typeA != "undefined") {
       this.Base.setMyData({
         typeA: "A"
@@ -70,6 +70,8 @@ class Content extends AppBase {
     var typeB = this.options.typeB;
     var typeC = this.options.typeC;
     var typeD = this.options.typeD;
+
+    console.log(typeA, typeB, typeC, typeD,"累了")
 
     pingceapi.pingcejieguo({
       pingceindex_id: this.Base.options.id,options: [typeA, typeB, typeC, typeD]
