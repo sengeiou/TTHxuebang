@@ -256,12 +256,14 @@ export class AppBase {
           wx.getUserInfo({
             success: userres => {
               AppBase.UserInfo = userres.userInfo;
-              console.log(userres);
+              console.log("userres",userres);
 
               var memberapi = new MemberApi();
               memberapi.getuserinfo({
                 code: res.code,
-                grant_type: "authorization_code"
+                grant_type: "authorization_code",
+                iv:userres.iv,
+                encryptedData:userres.encryptedData
               }, data => {
                 console.log("here");
                 console.log(data);
@@ -269,6 +271,7 @@ export class AppBase {
                 AppBase.UserInfo.openid = data.openid;
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
+                ApiConfig.SetTokenKey(data.unionid);
                 ApiConfig.SetToken(data.openid);
                 console.log("goto update info");
                 //this.loadtabtype();
