@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/auth/auth",
+    "pages/jiaoyixinxi/jiaoyixinxi",
     "pages/maintain/maintain",
     "pages/ketan/ketan",
     "pages/ketaninfo/ketaninfo",
@@ -28,6 +29,7 @@
     "pages/mykehu/mykehu",
     "pages/yaoqinhaibao/yaoqinhaibao",
     "pages/tuiguandindan/tuiguandindan",
+    "pages/tuiguanxiaoxi/tuiguanxiaoxi",
     "pages/myinvite/myinvite",
     "pages/tixian/tixian",
     "pages/videopurcsucc/videopurcsucc",

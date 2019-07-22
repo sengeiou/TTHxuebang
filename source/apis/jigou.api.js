@@ -1417,6 +1417,38 @@ export class JigouApi{
         })
     }
 
+    shanchuxiaoxi(json, callback, showLoading = true) {
+
+        if (showLoading)
+            ApiConfig.ShowLoading();
+
+        var header = ApiConfig.GetHeader();
+        console.log(header);
+        console.log(json);
+        wx.request({
+            url: ApiConfig.GetApiUrl() + 'jigou/shanchuxiaoxi',
+            data: json,
+            method: 'POST',
+            dataType: 'json',
+            header: header,
+            success: function (res) {
+                if (callback != null) {
+                    callback(res.data);
+                }
+            },
+            fail: function (res) {
+                console.log(res);
+                callback(false);
+            },
+            complete: function (res) {
+                console.log(res);
+            
+                if (showLoading)
+                    ApiConfig.CloseLoading();
+            }
+        })
+    }
+
     shanchuxueyuan(json, callback, showLoading = true) {
 
         if (showLoading)
@@ -1833,7 +1865,7 @@ export class JigouApi{
         })
     }
 
-    shanchuxiaoxi(json, callback, showLoading = true) {
+    xiaoxiinfo(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -1842,7 +1874,7 @@ export class JigouApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jigou/shanchuxiaoxi',
+            url: ApiConfig.GetApiUrl() + 'jigou/xiaoxiinfo',
             data: json,
             method: 'POST',
             dataType: 'json',
