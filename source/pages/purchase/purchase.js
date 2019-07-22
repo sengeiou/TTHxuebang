@@ -60,9 +60,11 @@ class Content extends AppBase {
         id: this.Base.options.course_id
       }, (courseinfo) => {
         if (this.Base.options.leixin == 0) {
-
+          console.log("里")
+          
         }
         else {
+          console.log("发")
           courseinfo.price = courseinfo.expeprice;
         }
         this.Base.setMyData({

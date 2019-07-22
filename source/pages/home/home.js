@@ -96,10 +96,6 @@ class Content extends AppBase {
     var instapi = new InstApi();
 
 
-
-
-
-
     wx.showLoading({
       title: '加载中...',
     })

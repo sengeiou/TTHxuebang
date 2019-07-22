@@ -107,7 +107,7 @@
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
       <!-- <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view> -->
-      <view class=' ' style='height:58rpx;'></view>
+      <view class=' ' style='height:68rpx;'></view>
       <view class='flex-row flex-center'>
         <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=''>人参与测试</view>
