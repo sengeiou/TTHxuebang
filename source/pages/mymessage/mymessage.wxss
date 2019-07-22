@@ -9,3 +9,14 @@ margin:35rpx 30rpx 35rpx 30rpx;
 color:white
 
 }
+.page__bd{
+
+padding-bottom:0rpx;
+
+}
+.icon-30{
+
+width: 80rpx;
+height: 80rpx;
+margin-right:20rpx;
+}
