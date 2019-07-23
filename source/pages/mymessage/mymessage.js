@@ -13,7 +13,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-
+  
 
   }
   onMyShow() {
@@ -82,9 +82,10 @@ class Content extends AppBase {
     var xiaoxilist=this.Base.getMyData().xiaoxilist;
        xiaoxilist=xiaoxilist.filter((item)=>{
        
-         return item.id = e.currentTarget.dataset.id;
+         return item.id ==e.currentTarget.dataset.id;
 
        })
+        console.log(xiaoxilist);
        if(xiaoxilist[0].type=='A')
        {
 
@@ -96,6 +97,20 @@ class Content extends AppBase {
 
       wx.navigateTo({
         url: '/pages/tuiguanxiaoxi/tuiguanxiaoxi?id=' + e.currentTarget.dataset.id,
+      })
+    }
+    if (xiaoxilist[0].type == 'B') {
+  
+
+    var api=new JigouApi();
+      api.xiaoxiinfo({ id: e.currentTarget.dataset.id }, (xiaoxi) => {
+
+      })
+   
+  
+
+      wx.navigateTo({
+        url: '/pages/wuliu/wuliu?id=' + e.currentTarget.dataset.id,
       })
     }
   }

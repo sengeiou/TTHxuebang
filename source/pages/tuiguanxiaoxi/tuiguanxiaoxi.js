@@ -20,6 +20,13 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new JigouApi();
+
+    api.xiaoxiinfo({ id: this.Base.options.id }, (xiaoxi) => {
+
+      
+
+    })
+
     api.myxiaoxi({ type: 'C' }, (myxiaoxi) => {
       for (var i = 0; i < myxiaoxi.length; i++) {
         if (myxiaoxi[i].content.substr(0, 2) == '恭喜') {
@@ -50,7 +57,6 @@ class Content extends AppBase {
   })
 
   }
-
 }
 var content = new Content();
 var body = content.generateBodyJson();
