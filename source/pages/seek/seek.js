@@ -116,7 +116,7 @@ class Content extends AppBase {
         filtercourseage
       });
     });
-    jigouapi.buyshow({}, (buyshow) => {
+    jigouapi.buyshow({limit:'20'}, (buyshow) => {
       console.log(buyshow);
       console.log(5555555555555);
         var lunbolist=[];
