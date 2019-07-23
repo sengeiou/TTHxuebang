@@ -39,7 +39,7 @@ class Content extends AppBase {
       show: "kcxq",
       shulian: 0
     })
-    
+    this.daojishi();
   }
 
 
