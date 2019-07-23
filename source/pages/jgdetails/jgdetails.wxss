@@ -256,6 +256,13 @@ height:32rpx;
   background: rgba(255, 102, 0, 1);
   border-radius: 42rpx;
 }
+.next2 {
+  width: 600rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: #cfcfcf;
+  border-radius: 42rpx;
+}
 
 .under {
   position: absolute;

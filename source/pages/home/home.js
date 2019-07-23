@@ -536,6 +536,7 @@ class Content extends AppBase {
     })
   }
   closetanchuang(e) {
+    this.onMyShow();
     this.Base.setMyData({
       dakashow: false,
       tangchuan: false,

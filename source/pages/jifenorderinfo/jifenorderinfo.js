@@ -28,8 +28,9 @@ class Content extends AppBase {
     })
   }
   towuliu(e){
+    var id=e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/wuliu/wuliu'
+      url: '/pages/wuliu/wuliu?id='+id
     })
   }
 }

@@ -477,7 +477,7 @@
           <view class=' text-center  margin-left-20 h6 fbtn  ljzf' bindtap='bindpay' id='{{item.id}}'>立即支付</view>
         </block>
         <block wx:if="{{item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'}}">
-          <view wx:if="{{item.pstatus=='PJ'&&item.type!='SP'}}" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' data-id="{{item.course_id}}" bindtap='pinjia'>评价晒图得50积分</view>
+          <view wx:if="{{item.pstatus=='PJ'&&item.type!='SP'}}" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' data-id="{{item.course_id}}" bindtap='pinjia'>评价晒图得10积分</view>
           <view wx:if="{{item.type=='PT'}}" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' bindtap='kantuan' id='{{item.id}}'>查看团详情</view>
         </block>
       </view>

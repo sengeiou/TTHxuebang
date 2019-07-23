@@ -14,6 +14,9 @@ import {
 import {
   PingjiaApi
 } from "../../apis/pingjia.api.js";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -153,8 +156,14 @@ class Content extends AppBase {
             img6: img6,
             niming: niming,
             status:"A"
-
           }, (addpingjia) => {
+
+            var jifenapi = new JifenApi();
+            jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "pingjia" }, (addjifen) => {
+              this.Base.setMyData({ addjifen })
+            })
+
+
             that.Base.setMyData({
               addpingjia
             });

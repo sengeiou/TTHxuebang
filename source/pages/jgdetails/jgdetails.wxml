@@ -326,8 +326,8 @@
     </view>
 
     <view class=' flex-row flex-center'>
-      <view class='buybtn txt-white h5 text-center bg-cheng' bindtap='bindshowtc'>立即购买</view>
-      <view class='pingtuanbtn txt-white h5 text-center bg-hong' bindtap="bindpin">超低价拼班</view>
+      <view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
+      <view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</view>
     </view>
 
   </view>
@@ -365,8 +365,9 @@
 
         </view>
 
-        <view class='margin-top-20' wx:if='{{ck=="Y"}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-        <view class='margin-top-20' wx:if='{{ck=="N"}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
 
       </view>
 
@@ -381,14 +382,31 @@
     <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
     <view class="flex-row ">
-      <view class='flex-row column flex-wrap margin-top-10'>
-        <view class=' text-center h6 chaochu {{buy_id==item.id&&ck=="Y"?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}正价课{{item.price}}元</view>
+      <view class='flex-row flex-center flex-wrap margin-top-10'>
+
+        
+          <view class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{clist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</view>
+     
+
+        <!-- <view wx:if='{{pin==1}}'>
+          <view wx:if='{{isgroup>0}}' class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</view>
+        </view> -->
 
       </view>
 
-      <view class='flex-row column flex-wrap margin-top-10'>
+      <!-- <view class='flex-row column flex-wrap margin-top-10'>
+
         <view class=' text-center h6 chaochu {{buy_id==item.id&&ck=="N"?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="N" bindtap='check'>{{item.name}}体验课{{item.expeprice}}元</view>
-      </view>
+
+      </view> -->
+    </view>
+
+
+    <view class='margin-top-10 h6' style='color:#666666'>课程规格</view>
+
+    <view class="flex-row flex-center">
+      <view class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>正价课</view>
+      <view class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
     </view>
 
 
@@ -411,21 +429,27 @@
         </view>
       </view>
 
-
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian"></image>
-
-
 
       <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" id="{{courseinfo.kucun}}"></image>
+
+
+
     </view>
+
+
+    <view style="height:150rpx;"></view>
+
 
     <view class='under'>
       <view class='flex-row flex-column'>
-        <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+        <view wx:if='{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+        <view wx:if='{{xuanzhong==0}}' class='next2 text-center txt-white'>下一步</view>
       </view>
     </view>
+
 
   </view>
 

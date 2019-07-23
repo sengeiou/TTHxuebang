@@ -15,13 +15,13 @@ import {
   JigouApi
 } from "../../apis/jigou.api.js";
 
-class Content extends AppBase {courselist
+class Content extends AppBase {
   constructor() {
     super();
   }
   onLoad(options) {
     this.Base.Page = this;
-    options.id = 3;
+   // options.id = 3;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -49,7 +49,8 @@ class Content extends AppBase {courselist
       tanchuang: false,
       shuliang: 1,
       sl: 1,
-      more: false
+      more: false,
+      xuanzhong:0
 
     })
 
@@ -86,13 +87,19 @@ class Content extends AppBase {courselist
 
         }
 
+
         jigouapi.courseinfo({
           id: courselist[0].id
         }, (courseinfo) => {
-          this.Base.setMyData({
-            courseinfo,
-            buy_id: courselist[0].id
-          });
+
+
+            this.Base.setMyData({
+              courseinfo,
+              gou:1,
+              buy_id: courselist[0].id
+            });
+       
+
         });
 
         this.Base.setMyData({
@@ -202,6 +209,8 @@ class Content extends AppBase {courselist
     jigouapi.courseinfo({
       id: id
     }, (courseinfo) => {
+
+
       this.Base.setMyData({
         courseinfo
       });
@@ -209,20 +218,54 @@ class Content extends AppBase {courselist
   }
 
   bindpin(e) {
-    this.Base.setMyData({
-      pin: 1,
-      tanchuang: true
-    })
+    var id = this.Base.options.id;
+    var jigouapi = new JigouApi();
+
+    jigouapi.courselist({
+      jg_id: id
+    }, (clist) => {
+
+      var clist  = clist.filter((item, idx) => {
+        return item.isgroup >0
+      })
+
+      console.log(clist,"gg")
+
+      this.Base.setMyData({
+        clist, pin: 1,
+        tanchuang: true
+      });
+
+    });
+ 
   }
   bindshowtc(e) {
-    this.Base.setMyData({
-      pin:0,
-      tanchuang: true
-    })
+    var id = this.Base.options.id;
+    var jigouapi = new JigouApi();
+    jigouapi.courselist({
+      jg_id: id
+    }, (clist) => {
+      this.Base.setMyData({
+        clist, pin: 0,
+        tanchuang: true
+      });
+    });
+
   }
+
+  xuan(e){
+    var id=e.currentTarget.id;
+    if(id=="A"){
+      this.Base.setMyData({ xuanzhong: 1 })
+    }
+    if (id == "B") {
+      this.Base.setMyData({ xuanzhong: 2 })
+    }
+  }
+
   tobuy(e) {
     var id = e.currentTarget.id;
-    var ck = this.Base.getMyData().ck;
+    var ck = this.Base.getMyData().xuanzhong;
     console.log(id + "电费");
     //return;
     //this.Base.getMyData().pin == "1"  
@@ -231,12 +274,12 @@ class Content extends AppBase {courselist
       console.log(id);
       console.log("aaa");
      // return;
-      if (ck == 'Y') {
+      if (ck == 1) {
         wx.navigateTo({
           url: '/pages/purchase/purchase?course_id=' + id + '&type=0'  + '&leixin=0',
         })
       }
-      if (ck == 'N') {
+      if (ck == 2) {
         wx.navigateTo({
           url: '/pages/purchase/purchase?course_id=' + id + '&type=0'  + '&leixin=1',
         })
@@ -246,12 +289,12 @@ class Content extends AppBase {courselist
       console.log(id);
       console.log("ggg");
     //  return
-      if (ck == 'Y') {
+      if (ck == 1) {
         wx.navigateTo({
           url: '/pages/purchase/purchase?course_id=' + id + '&leixin=0',
         })
       }
-      if (ck == 'N') {
+      if (ck == 2) {
         wx.navigateTo({
           url: '/pages/purchase/purchase?course_id=' + id + '&leixin=1',
         })
@@ -332,6 +375,7 @@ body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
 body.bindclose = content.bindclose;
+body.xuan = content.xuan;
 
 body.showmore = content.showmore;
 body.shouqi = content.shouqi;
