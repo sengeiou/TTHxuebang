@@ -18,7 +18,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '分销中心',
+      title: '大使中心',
     });
   }
   onLoad(options) {

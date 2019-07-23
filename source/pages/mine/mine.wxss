@@ -7,7 +7,14 @@ Page {
 .h {
   font-size: 30rpx;
 }
+.hondian{
 
+width:12rpx;
+height: 12rpx;
+border-radius: 50%;
+background: red;
+
+}
 .bg_img {
   position: absolute;
   width: 100%;
