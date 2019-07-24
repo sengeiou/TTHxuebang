@@ -67,7 +67,7 @@ class Content extends AppBase {
       this.Base.setMyData({ tishi3: true });
       return
     }
-    api.withdraw({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{
+    api.tixianjilu({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{
       console.log(res);
       console.log("哈哈哈");
       console.log(res.code);

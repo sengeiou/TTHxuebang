@@ -39,7 +39,11 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
-   
+     
+    jigouapi.addguankancishu({id:this.Base.options.id},()=>{
+
+      
+    })
 
 
     jigouapi.fenxiaoinfo({}, (fenxiaoinfo) => {
