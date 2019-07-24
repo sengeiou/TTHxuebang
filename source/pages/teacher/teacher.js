@@ -25,9 +25,12 @@ class Content extends AppBase {
     this.Base.setMyData({
       vteach: []
     });
+    
+  }
+  onMyShow(){
     var teacherapi = new TeacherApi();
     teacherapi.teachlist({
-      status:"A",
+      status: "A",
       orderby: 'r_main.id'
     }, (teachlist) => {
       var vteach = [];

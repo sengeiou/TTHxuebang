@@ -27,7 +27,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      images: [], pingfen: 0, jgpingfen: 0, check:false
+      images: [], pingfen: 0, jgpingfen: 0, check: false, focus:false
     });
   }
   onMyShow() {
@@ -90,6 +90,9 @@ class Content extends AppBase {
   bindjgpingfen(e) {           
     var jgfen = e.currentTarget.id;
     this.Base.setMyData({ jgpingfen: jgfen })
+  }
+  show(e){
+    this.Base.setMyData({focus:true})
   }
 
   submit(e) {
@@ -196,5 +199,6 @@ body.minusImg = content.minusImg;
 body.uploadimg = content.uploadimg;
 body.submit = content.submit; 
 body.bindjgpingfen = content.bindjgpingfen;
-body.bindkcpingfen = content.bindkcpingfen;
+body.bindkcpingfen = content.bindkcpingfen; 
+body.show = content.show; 
 Page(body)

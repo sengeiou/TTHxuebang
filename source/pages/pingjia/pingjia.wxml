@@ -65,9 +65,13 @@
     </view>
 
     <view class='mid  '>
-      <textarea class='write h5 txt-black' name='text' contenteditable="{{true}}" auto-height="{{true}}" placeholder='分享您的上课心得，让其他宝妈更好了解哟' style='width:92vw' placeholder-style='color:#CCCCCC' maxlength='-1'></textarea>
 
-      <view class='height-150'></view>
+      <view class="" bindtap="show">
+        <textarea class='write h5 txt-black' focus='{{focus}}' name='text' contenteditable="{{true}}" auto-height="{{true}}" placeholder='分享您的上课心得，让其他宝妈更好了解哟' style='width:92vw' placeholder-style='color:#CCCCCC' maxlength='-1'></textarea>
+
+        <view class='height-150'></view>
+
+      </view>
 
       <view class='flex-row flex-center flex-wrap img'>
 
@@ -78,7 +82,7 @@
         <view class='addimg' bindtap='uploadimg'>
           <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon56'></image>
         </view>
-        
+
       </view>
 
     </view>
@@ -152,12 +156,22 @@
   </view>
 
   <view class='submit flex-row bg-white'>
-    <view class='flex-row flex-center flex-1 margin-left-28' >
-      <image src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon' bindtap='check' data-ck='nm' wx:if='{{check==true}}'></image>
-      <image src='{{uploadpath}}resource/{{res.weixuan}}' class='icon' bindtap='check' data-ck='bnm' wx:if='{{check==false}}'></image>
-      <view    class='txt-black h6 margin-left-10' bindtap='check' data-ck='nm' wx:if='{{check==true}}'>匿名评价</view>
-       <view    class='txt-black h6 margin-left-10' bindtap='check'  data-ck='bnm' wx:if='{{check==false}}'>匿名评价</view>
+
+    <view class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check' data-ck='nm' wx:if='{{check==true}}'>
+      <image src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon'></image>
+
+      <view class='txt-black h6 margin-left-10'>匿名评价</view>
     </view>
+
+    <view class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check' data-ck='bnm' wx:if='{{check==false}}'>
+
+      <image src='{{uploadpath}}resource/{{res.weixuan}}' class='icon'></image>
+
+      <view class='txt-black h6 margin-left-10'>匿名评价</view>
+    </view>
+
+
+    <view class="flex-1"></view>
 
     <button style=' ' form-type='submit' class='subbtn txt-white text-center' style='border-radius:0;border:0'>提交评价</button>
   </view>

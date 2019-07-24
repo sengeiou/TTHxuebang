@@ -71,6 +71,16 @@ class Content extends AppBase {
     var typeC = this.options.typeC;
     var typeD = this.options.typeD;
 
+
+    pingceapi.indexinfo({
+      id: this.Base.options.id
+    }, (info) => {
+      this.Base.setMyData({
+        info
+      });
+
+    });
+
     console.log(typeA, typeB, typeC, typeD,"累了")
 
     pingceapi.pingcejieguo({
