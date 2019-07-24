@@ -14,6 +14,9 @@ import {
 import {
   PingjiaApi
 } from "../../apis/pingjia.api.js";
+import {
+  JifenApi
+} from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -24,7 +27,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      images: [], pingfen: 0, jgpingfen: 0, check:false
+      images: [], pingfen: 0, jgpingfen: 0, check: false, focus:false
     });
   }
   onMyShow() {
@@ -87,6 +90,9 @@ class Content extends AppBase {
   bindjgpingfen(e) {           
     var jgfen = e.currentTarget.id;
     this.Base.setMyData({ jgpingfen: jgfen })
+  }
+  show(e){
+    this.Base.setMyData({focus:true})
   }
 
   submit(e) {
@@ -153,8 +159,14 @@ class Content extends AppBase {
             img6: img6,
             niming: niming,
             status:"A"
-
           }, (addpingjia) => {
+
+            var jifenapi = new JifenApi();
+            jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "pingjia" }, (addjifen) => {
+              this.Base.setMyData({ addjifen })
+            })
+
+
             that.Base.setMyData({
               addpingjia
             });
@@ -187,5 +199,6 @@ body.minusImg = content.minusImg;
 body.uploadimg = content.uploadimg;
 body.submit = content.submit; 
 body.bindjgpingfen = content.bindjgpingfen;
-body.bindkcpingfen = content.bindkcpingfen;
+body.bindkcpingfen = content.bindkcpingfen; 
+body.show = content.show; 
 Page(body)

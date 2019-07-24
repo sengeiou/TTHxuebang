@@ -1,13 +1,13 @@
 <!--pages/pingcejieguo/pingcejieguo.wxml-->
 
-<view class='top-block bg-white'>
+<view class='top-block  '  style='background-image:url({{uploadpath}}pingceindex/{{info.jieguotu}});background-size:100% 100%;'>
 
 
   <view class='flex-row flex-column '>
 
     <view class='flex-row flex-column yuan radius-50' style='background-image:url({{uploadpath}}resource/{{res.wanchen_gif}});background-size:100% 100%;'>
       <view class='flex-1 '></view>
-      <view class='txt-9 h6'>测试结果</view>
+      <view class='  h6'>测试结果</view>
 
       <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeA}}'>{{item.character}}</view>
       <view class=' text-center ' wx:for='{{pingcejieguo}}' wx:key='k' wx:if='{{item.options==typeB}}'>{{item.character}}</view>
@@ -21,7 +21,7 @@
  
     <view class='height-40'></view>
 
-    <view class=' again text-center txt-9 ' bindtap='again'>重新测试</view>
+    <view class=' again text-center  ' bindtap='again'>重新测试</view>
 
   </view>
 

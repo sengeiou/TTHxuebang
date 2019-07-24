@@ -107,7 +107,7 @@
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
       <!-- <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view> -->
-      <view class=' ' style='height:58rpx;'></view>
+      <view class=' ' style='height:68rpx;'></view>
       <view class='flex-row flex-center'>
         <view class='txt-white h6'>{{item.peoplenum}}</view>
         <view class='h6 margin-left-12 txt-white opa' style=''>人参与测试</view>
@@ -126,12 +126,11 @@
   <view class='flex-row flex-center '>
     <view class='orange'></view>
     <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
-    <view class='txt9 margin-left-20'>已连续签到{{day+1}}天</view>
+    <view class='txt9 margin-left-20'>已累计签到{{day+1}}天</view>
     <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
     <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
     <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
   </view>
-
 
 
   <view class='qiandao margin-top-30 flex-row flex-center'>

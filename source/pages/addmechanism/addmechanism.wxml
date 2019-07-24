@@ -239,8 +239,6 @@
         <image src='{{uploadpath}}jgmentou/{{item}}' wx:if='{{idx<20}}' id="{{idx}}" bindtap='jgminusImg' class='icon-img'></image>
       </view>
 
-
-
       <view class='addjigou flex-row flex-center ' bindtap='jguploadimg' wx:if='{{jgimages.length<20}}'>
         <view class='flex-1'></view>
         <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon-50'></image>

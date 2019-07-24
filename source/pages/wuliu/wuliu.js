@@ -35,6 +35,7 @@ class Content extends AppBase {
       jifenapi.wuliu({ type: info.wuliu_company_type,no:info.airwaybill}, (wuliu) => {
         var wuliulist = wuliu.result.list;
         var wllist = [];
+        
         for (var i = wuliulist.length - 1; i >= 0; i--) {
           wllist.push(wuliulist[i]);
         }
