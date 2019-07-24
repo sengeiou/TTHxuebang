@@ -126,12 +126,11 @@
   <view class='flex-row flex-center '>
     <view class='orange'></view>
     <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
-    <view class='txt9 margin-left-20'>已连续签到{{day+1}}天</view>
+    <view class='txt9 margin-left-20'>已累计签到{{day+1}}天</view>
     <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
     <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
     <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
   </view>
-
 
 
   <view class='qiandao margin-top-30 flex-row flex-center'>

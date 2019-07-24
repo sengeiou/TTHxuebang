@@ -493,27 +493,29 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
 
     var pingceapi = new PingceApi();
-    pingceapi.mypingcelist({}, (mypingcelist) => {
+    // pingceapi.mypingcelist({}, (mypingcelist) => {
 
-      var a = mypingcelist.filter((item, idx) => {
-        return item.pingce_id == id & item.member_id == this.Base.getMyData().memberinfo.id
-      })
+    //   var a = mypingcelist.filter((item, idx) => {
+    //     return item.pingce_id == id & item.member_id == this.Base.getMyData().memberinfo.id
+    //   })
 
-      console.log(a,"刚刚")
+    //   console.log(a,"刚刚")
 
-      if(a.length>0){
-        wx.navigateTo({
-          url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
-        })
-      }
-      else{
-        wx.navigateTo({
-          url: '/pages/pingceindex/pingceindex?id=' + id
-        })
-      }
+    //   if(a.length>0){
+    //     wx.navigateTo({
+    //       url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
+    //     })
+    //   }
+    //   else{
+    //     wx.navigateTo({
+    //       url: '/pages/pingceindex/pingceindex?id=' + id
+    //     })
+    //   }
 
+    // })
+    wx.navigateTo({
+      url: '/pages/pingceindex/pingceindex?id=' + id + '&member_id=' + this.Base.getMyData().memberinfo.id
     })
-
     //return;
 
     

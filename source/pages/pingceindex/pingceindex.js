@@ -31,6 +31,28 @@ class Content extends AppBase {
       check: true
     });
 
+    var pingceapi = new PingceApi();
+    pingceapi.mypingcelist({}, (mypingcelist) => {
+
+      var a = mypingcelist.filter((item, idx) => {
+        return item.pingce_id == this.Base.options.id & item.member_id == this.Base.options.member_id
+      })
+
+      console.log(a, "刚刚")
+
+      if (a.length > 0) {
+        wx.navigateTo({
+          url: '/pages/pingcejieguo/pingcejieguo?id=' + this.Base.options.id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
+        })
+      }
+      // else {
+      //   wx.navigateTo({
+      //     url: '/pages/pingceindex/pingceindex?id=' + id
+      //   })
+      // }
+
+    })
+
 
 
   }
@@ -324,12 +346,12 @@ class Content extends AppBase {
        return item.pingce_id == pcid & item.member_id==id
       })
       
-   console.log(a,"嗷嗷");
+   console.log(a[0].id,"六六六");
    //return
 
       if (a.length > 0) {
         wx.navigateTo({
-          url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id + '&upid=' + this.Base.options.pcid
+          url: '/pages/pingcedati/pingcedati?id=' + this.Base.options.id + '&upid=' + a[0].id
         })
       }
 
