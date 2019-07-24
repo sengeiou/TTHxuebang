@@ -309,7 +309,7 @@ class Content extends AppBase {
       opt.type = data.ftype_id;
     }
     if (data.fage_id != "0") {
-      opt.age_name = data.fage_id;
+      opt.age = data.fage_id;
     }
     if (data.options == "j_x") {
       opt.orderby = "jxrate,distance";

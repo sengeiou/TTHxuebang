@@ -349,7 +349,7 @@
         <view class='margin_L_T txt-black h5'>年龄</view>
         <view class='flex-row flex-center  flex-wrap'>
           <view class='{{tage_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTAge'>全部</view>
-          <view class='{{tage_id==item.name?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filtercourseage}}" wx:key="k" id="{{item.name}}" bindtap='setTAge'>{{item.name}}</view>
+          <view class='{{tage_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filtercourseage}}" wx:key="k" id="{{item.id}}" bindtap='setTAge'>{{item.name}}</view>
         </view>
       </view>
 
