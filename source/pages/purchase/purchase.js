@@ -133,9 +133,12 @@ class Content extends AppBase {
         api.create(json2, (ret) => {
           if (ret.code == '0') {
             if (ret.return.pstatus == 'P') {
-              wx.navigateTo({
-                url: '/pages/order/order' + ret.return.id,
-              })
+       
+       wx.reLaunch({
+         url: '/pages/order/order' + ret.return.id,
+       })
+
+             
               return;
             } else {
               var wechatapi = new WechatApi();
@@ -189,7 +192,7 @@ class Content extends AppBase {
             api.create(json2, (ret) => {
               if (ret.code == '0') {
                 if (ret.return.pstatus == 'P') {
-                  wx.navigateTo({
+                  wx.reLaunch({
                     url: '/pages/order/order' + ret.return.id,
                   })
                   return;
@@ -246,7 +249,7 @@ class Content extends AppBase {
         if (ret.code == '0') {
           if (ret.return.pstatus == 'P') {
 
-            wx.navigateTo({
+            wx.reLaunch({
               url: '/pages/order/order' + ret.return.id,
             })
             return;
@@ -260,8 +263,8 @@ class Content extends AppBase {
 
 
                   api.purchaseinfo({ id: that.Base.getMyData().id }, (res) => {
-
-                    wx.navigateTo({
+     
+                    wx.reLaunch({
                       url: '/pages/order/order?id=' + ret.return.id,
                     })
 
@@ -270,7 +273,7 @@ class Content extends AppBase {
                 }
                 else {
 
-                  wx.navigateTo({
+                  wx.reLaunch({
                     url: '/pages/order/order?id=' + ret.return.id,
                   })
 

@@ -384,7 +384,7 @@
       <view class='flex-1'></view>
       <view class='tipsshow'>
         <view class='flex-row flex-center'>
-          <view class='line-height-0'>tipsshowfull
+          <view class='line-height-0'>
             <image src='{{showitem.member_avatarUrl}}'></image>
           </view>
 

@@ -356,7 +356,7 @@
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' bindtap='opengroup' wx:if="{{canbuy.code=='0'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">超低价拼班</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">发起拼班</view>
 
           </view>
 
@@ -366,7 +366,7 @@
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FFA2A4' wx:if="{{canbuy.code=='-1'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">超低价拼班</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">发起拼班</view>
 
           </view>
 
@@ -387,7 +387,7 @@
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' bindtap='opengroup' wx:if="{{canbuy.code=='-3'}}">
             <view class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</view>
-            <view class='h6 txt-white ' wx:if="{{canbuy.code=='-3'}}">超低价拼班</view>
+            <view class='h6 txt-white ' wx:if="{{canbuy.code=='-3'}}">发起拼班</view>
 
           </view>
 
