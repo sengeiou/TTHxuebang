@@ -1,5 +1,5 @@
 <!--pages/zaixianketang/zaixianketang.wxml-->
-
+<back-component></back-component>
 
 <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:100vw;height:350rpx;'>
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">

@@ -160,7 +160,7 @@ class Content extends AppBase {
             });
           });
 
-          wx.navigateTo({
+          wx.reLaunch({
               url: '/pages/pingjiawanchen/pingjiawanchen',
           }),
 

@@ -36,66 +36,67 @@ class Content extends AppBase {
 
     })
   }
-  youhuijuan(){
+  youhuijuan() {
     this.Base.info("该功能暂未开放");
   }
-  tijiao(){
-    
-    var json={
+  tijiao() {
+
+    var json = {
       onlineclassroom_id: this.Base.options.id, type: "SP", kt: this.options.type
     }
 
 
-  
-       
-          var api = new PurchaseApi();
-          api.create(json, (ret) => {
-            if (ret.code == '0') {
-              if (ret.return.pstatus == 'P') {
-                // wx.navigateTo({
-                //   url: '/pages/order/order' + ret.return.id,
-                // })
-                return;
-              } else {
-               
-                var wechatapi = new WechatApi();
-                wechatapi.prepay3({ id: ret.return.id }, (payret) => {
-                  payret.complete = function (e) {
 
 
-                    if (e.errMsg == "requestPayment:ok") {
+    var api = new PurchaseApi();
+    api.create(json, (ret) => {
+      if (ret.code == '0') {
+        if (ret.return.pstatus == 'P') {
+          // wx.navigateTo({
+          //   url: '/pages/order/order' + ret.return.id,
+          // })
+          return;
+        } else {
+
+          var wechatapi = new WechatApi();
+          wechatapi.prepay3({ id: ret.return.id }, (payret) => {
+            payret.complete = function (e) {
+              console.log(e);
+              console.log("嚯嚯嚯嚯嚯嚯");
+
+              if (e.errMsg == "requestPayment:ok") {
 
 
-                      api.purchaseinfo({ id: ret.return.id }, (res) => {
-                           
-                        wx.reLaunch({
-                          url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id + '&&jifen=' + res.amount,
-                        })
+                api.purchaseinfo({ id: ret.return.id }, (res) => {
 
-                     
-                      })
+                  wx.reLaunch({
+                    url: '/pages/videopurcsucc/videopurcsucc?id=' + res.onlineclassroom_id + '&&jifen=' + res.amount,
+                  })
 
-                    }
-                    else {
 
-                      // wx.navigateTo({
-                      //   url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                      // })
-                      console.log("支付失败");
+                })
 
-                    }
-
-                  }
-                  console.log(payret);
-                  wx.requestPayment(payret)
-                });
               }
-            } else {
-              this.Base.info(ret.result);
+              else {
+
+                // wx.navigateTo({
+                //   url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
+                // })
+                console.log("支付失败");
+
+              }
+
             }
-          })
-       
-    
+            console.log(payret);
+            wx.requestPayment(payret)
+          });
+        }
+      } else {
+        this.Base.info(ret.result);
+      }
+    })
+
+
   }
 }
 var content = new Content();

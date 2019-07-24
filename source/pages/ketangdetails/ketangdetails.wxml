@@ -1,3 +1,5 @@
+<back-component></back-component>
+
 <view style='background-image:url({{uploadpath}}onlineclassroom/{{kecheninfo.jieshaoimg}});background-size:100% 100%;width:750rpx;height:700rpx;'>
   <view style="height:175rpx"></view>
   <video bindended="bfjs" bindplay="ksbf" bindpause='jsbf' bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill"
@@ -8,7 +10,7 @@
 
 <block wx:if="{{!liebiao&&!quanbu}}">
   <view class="4564das" style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
-    <image class="guanggao" mode='widthFix' src='{{uploadpath}}onlineclassroom/{{kecheninfo.guanggaoimg}}'></image>
+    <image  wx:if="{{kecheninfo.guanggaoimg!=''}}" class="guanggao" mode='widthFix' src='{{uploadpath}}onlineclassroom/{{kecheninfo.guanggaoimg}}'></image>
     <view class='margin-30 border-bottom-2'>
 
       <view class='flex-row '>
@@ -115,9 +117,12 @@
           <view class="h5">{{item.member_id_name}}</view>
           <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
         </view>
+          <view bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}"  class="flex-row flex-center">
         <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon'></image>
-        <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon'></image>
+
+        <image wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+        <image  wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
+    </view>
       </view>
 
       <view class="h5 margin-top-10 margin-left-20  {{idx==0?'cxk':''}}">
@@ -228,9 +233,12 @@
             <view class="h5">{{item.member_id_name}}</view>
             <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
           </view>
+          <view bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" class="flex-row flex-center">
           <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
-          <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
-          <image bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
+          <image  wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
+          <image  wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
+
+</view>
 
         </view>
 
