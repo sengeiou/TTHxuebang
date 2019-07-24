@@ -39,6 +39,8 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jigouapi = new JigouApi();
+   
+
 
     jigouapi.fenxiaoinfo({}, (fenxiaoinfo) => {
       this.Base.setMyData({ fenxiaoinfo: fenxiaoinfo })
