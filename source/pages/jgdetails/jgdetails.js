@@ -389,11 +389,18 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
+      wx.showToast({
+        title: '收藏成功',
+      })
       this.Base.setMyData({
         tishi: 1
       });
     }
     if (status == "N") {
+      wx.showToast({
+        title: '取消收藏',
+        icon:''
+      })
       this.Base.setMyData({
         tishi: 2
       });

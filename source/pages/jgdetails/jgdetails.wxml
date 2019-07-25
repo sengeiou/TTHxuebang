@@ -227,36 +227,36 @@
   <view class='flex-row flex-center flex-wrap'>
     <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketang}}' wx:key='k'>
 
-       <view style=''>
-      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-    </view>
-
-    <view class='padding-12'>
-      <view class=' txt-bold chaochu'>{{item.name}}</view>
-      <view class='flex-row flex-center margin-top-14'>
-        <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-        </view>
-
-        <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
-        </view>
+      <view style=''>
+        <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
       </view>
 
+      <view class='padding-12'>
+        <view class=' txt-bold chaochu'>{{item.name}}</view>
+        <view class='flex-row flex-center margin-top-14'>
+          <view class='flex-row flex-center'>
+            <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
+            <view class=' f20 margin-left-10'>{{item.age_name}}</view>
+          </view>
+
+          <view class='flex-row flex-center margin-left-26'>
+            <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
+            <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
+          </view>
+        </view>
 
 
-    </view>
 
-    <view  class='margin-left-10 dd flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-      <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
-      <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
-      <view class=' txt-red xg' style=''>{{item.price}}</view>
-    </view>
+      </view>
 
-    <!-- <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-left-10 dd flex-row flex-center margin-top-12'>
+        <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
+        <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
+        <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+        <view class=' txt-red xg' style=''>{{item.price}}</view>
+      </view>
+
+      <!-- <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
       <view class="mianfei">免费课程</view>
     </view>
@@ -286,13 +286,13 @@
 
 <view style='height:96rpx;'></view>
 
-<view class='tishi' wx:if='{{tishi==1}}'>
+<!-- <view class='tishi' wx:if='{{tishi==1}}'>
   <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>
 </view>
 
 <view class='tishi' wx:if='{{tishi==2}}'>
   <image src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon'></image>
-</view>
+</view> -->
 
 
 <view style='' class='buy-block'>
@@ -314,7 +314,7 @@
 
 
   <view class='flex-row flex-center'>
-    <view class='left flex-row flex-center'>
+    <view class='left flex-row flex-center' style="width:310/750rpx;">
 
       <view class='flex-1 flex-row flex-column' bindtap='toindex'>
         <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-17'></image>
@@ -337,18 +337,19 @@
 
     </view>
 
-    <view class='right txt-white h5 txt-bold text-center bg-cheng' hidden='{{true}}' bindtap='bindshowtc'>
+    <!-- <view class='right txt-white h5 txt-bold text-center bg-cheng' hidden='{{true}}' bindtap='bindshowtc'>
       立即购买
-    </view>
+    </view> -->
 
     <view class=' flex-row flex-center' wx:if='{{nogroup=="Y"}}'>
       <view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
       <view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</view>
     </view>
 
-    <view class=' flex-row flex-center' wx:if='{{nogroup!="Y"}}'>
-      <view class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
-    </view>
+
+    <view wx:if='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
+
+
 
 
 

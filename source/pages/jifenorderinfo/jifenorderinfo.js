@@ -33,10 +33,39 @@ class Content extends AppBase {
       url: '/pages/wuliu/wuliu?id='+id
     })
   }
+  shouhuo(e){
+    var that = this;
+    var id = e.currentTarget.id;
+    var jifenapi = new JifenApi();
+
+    wx.showModal({
+      title: '提示',
+      content: '确认收货？',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#EE2222',
+      confirmText: '确定',
+      confirmColor: '#2699EC',
+      success: function (res) {
+        if (res.confirm) {
+          jifenapi.shouhuo({ id: id }, (shouhuo) => {
+            that.Base.setMyData({ shouhuo })
+
+            wx.showToast({
+              title: '确认收货成功',
+              icon: 'none'
+            })
+            that.onMyShow();
+          })
+        }
+      }
+    });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
-body.towuliu = content.towuliu;
+body.towuliu = content.towuliu; 
+body.shouhuo = content.shouhuo;
 Page(body)

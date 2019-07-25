@@ -30,8 +30,8 @@ page {
 }
 .to_top {
   position: fixed;
-  top: 60%;
-  right: 0;
+  bottom: 18%;
+  right: 4rpx;
   z-index: 100;
 }
 .clear-button::after {
@@ -684,10 +684,13 @@ button[disabled][type=primary] {
 }
 
 .icon-50 {
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
-
+.icon-55{
+  width: 130rpx;
+  height: 130rpx;
+}
 .icon-60 {
   width: 120rpx;
   height: 120rpx;

@@ -96,10 +96,24 @@
 <view style="height:140rpx"></view>
 
 
-<view class="bottom" id="{{info.id}}"  bindtap="towuliu"  wx:if='{{info.orderstatus=="B"||info.orderstatus=="C"}}'>
+<!-- <view class="bottom" id="{{info.id}}"  bindtap="towuliu"  wx:if='{{info.orderstatus=="B"||info.orderstatus=="C"}}'>
   <view class="flex-row flex-center">
     <view class="flex-1"></view>
     <view class="btn text-center margin-top-10 margin-right-28">
+      查看物流
+    </view>
+  </view>
+</view> -->
+
+<view class="bottom" wx:if='{{info.orderstatus=="B"}}' >
+  <view class="flex-row flex-center">
+    <view class="flex-1"></view>
+    
+    <view wx:if='{{info.orderstatus!="C"}}' id="{{info.id}}"  bindtap="shouhuo" class="btn text-center margin-top-10 margin-right-28">
+      确认收货
+    </view>
+
+    <view  wx:if='{{info.orderstatus=="C"}}' id="{{info.id}}"  bindtap="towuliu" class="btn text-center margin-top-10 margin-right-28">
       查看物流
     </view>
   </view>

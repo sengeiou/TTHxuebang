@@ -285,11 +285,16 @@ height:32rpx;
   top: 35%;
 }
 
+.left {
+  background: white;
+   width: 41.3%; 
+  height: 96rpx;
+}
+
 .right {
   width: 440rpx;
   height: 96rpx;
   line-height: 96rpx;
-  
 }
 .buybtn {
   width: 220rpx;
@@ -298,7 +303,7 @@ height:32rpx;
    
 }
 .onlybuy{
-   width: 440rpx;
+ width: 58.7%; 
   height: 96rpx;
   line-height: 96rpx;
 }
@@ -328,11 +333,7 @@ background: #FF6600;
   width: 100vw;
 }
 
-.left {
-  background: white;
-  width: 310rpx;
-  height: 96rpx;
-}
+
 
 .huang_block {
   width: 100vw;
