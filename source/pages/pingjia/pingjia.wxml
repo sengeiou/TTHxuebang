@@ -5,7 +5,7 @@
   <view class='bg-white'>
     <view class='kecheng flex-row  bor_bot  '>
 
-      <image src='{{uploadpath}}resource/{{res.chengong}}' class='icon-img'></image>
+      <image src='{{uploadpath}}curriculum/{{kcinfo.kc_img}}' class='icon-img'></image>
 
       <view class='flex-row column  '>
         <view class='margin-left-40 txt-black h5'>课程评分</view>
