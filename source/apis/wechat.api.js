@@ -297,7 +297,7 @@ export class WechatApi{
         })
     }
 
-    withdraw(json, callback, showLoading = true) {
+    tixianjilu(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -306,7 +306,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/withdraw',
+            url: ApiConfig.GetApiUrl() + 'wechat/tixianjilu',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -329,7 +329,7 @@ export class WechatApi{
         })
     }
 
-    tixianjilu(json, callback, showLoading = true) {
+    withdraw(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -338,7 +338,7 @@ export class WechatApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'wechat/tixianjilu',
+            url: ApiConfig.GetApiUrl() + 'wechat/withdraw',
             data: json,
             method: 'POST',
             dataType: 'json',
