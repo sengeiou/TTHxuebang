@@ -69,13 +69,13 @@ class Content extends AppBase {
     });
 
 
-    // this.Base.getAddress((address) => {
-    //   console.log(address);
-    //   var region = [address.address_component.province, address.address_component.city, address.address_component.district];
-    //   this.Base.setMyData({
-    //     region
-    //   });
-    // });
+    this.Base.getAddress((address) => {
+      console.log(address);
+      var region = [address.address_component.province, address.address_component.city, address.address_component.district];
+      this.Base.setMyData({
+        region
+      });
+    });
 
   }
 
@@ -403,10 +403,10 @@ class Content extends AppBase {
 
     //return;
 
-    if (data.hangye == "") {
-      this.Base.info("请填写所属行业");
-      return;
-    }
+    // if (data.hangye == "") {
+    //   this.Base.info("请填写所属行业");
+    //   return;
+    // }
 
     if (data.jigou == "") {
       this.Base.info("请填写机构名称");
@@ -431,10 +431,10 @@ class Content extends AppBase {
       this.Base.info("请填写详细地址");
       return;
     } 
-    if (data.jianjie == "") {
-      this.Base.info("请填写机构简介");
-      return;
-    }
+    // if (data.jianjie == "") {
+    //   this.Base.info("请填写机构简介");
+    //   return;
+    // }
 
 
     // if (data.kcname == "") {

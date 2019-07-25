@@ -1,5 +1,5 @@
 
-
+<back-component></back-component>
 
 
 <view wx:if='{{alllist.length==0}}' class="flex-row flex-column">

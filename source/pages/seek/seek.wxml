@@ -1,5 +1,8 @@
 <!--pages/seek/seek.wxml  wx:if='{{type=="jg"}}'-->
 <back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 
 <view wx:if='{{type=="jg"}}'>
   <view class='fixedtop'>

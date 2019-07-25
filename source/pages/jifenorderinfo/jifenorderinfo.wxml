@@ -1,5 +1,5 @@
 <!--pages/shopinfo/shopinfo.wxml-->
-
+<back-component></back-component>
 <view class="top_block flex-row flex-center ">
 
   <image wx:if='{{info.orderstatus=="A"}}' src="{{uploadpath}}resource/{{res.huowu}}" class="icon-huowu" style="margin-left:104rpx"></image>

@@ -1,4 +1,8 @@
 <!--pages/jifenshouzhi/jifenshouzhi.wxml-->
+<back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view class="flex-row flex-center title bg-white" style="">
 
   <view class="flex-row flex-column flex-1 margin-left-20" bindtap="xuanze" id="shouru">

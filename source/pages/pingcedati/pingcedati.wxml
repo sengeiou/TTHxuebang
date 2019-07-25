@@ -1,6 +1,6 @@
 <!--pages/pingcedati/pingcedati.wxml-->
 
-
+<back-component></back-component>
 
 <view hidden="{{gif==true}}">
 <swiper indicator-dots='{{false}}' disable='{{false}}' current='{{qie}}' autoplay='{{false}}' duration='200' circular='{{false}}' style='width:750rpx;height:1150rpx;'>

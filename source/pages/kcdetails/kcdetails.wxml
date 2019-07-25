@@ -1,5 +1,5 @@
 <!--pages/kcdetails/kcdetails.wxml-->
-
+<back-component></back-component>
 <view>
 
 

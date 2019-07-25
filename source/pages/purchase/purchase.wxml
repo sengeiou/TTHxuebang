@@ -1,5 +1,8 @@
 <!--pages/purchase/purchase.wxml-->
 <!--pages/myorder/myorder.wxml-->
+
+<back-component></back-component>
+
 <view class=' margin-top-10 margin-bottom-10 text-center h6 ' style='color:#A1A1A1'>
   本次购买的课程请认真查看购买须知，合理安排学习时间。
 </view>

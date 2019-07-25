@@ -1,4 +1,5 @@
 <!--pages/shopmalldetail/shopmalldetail.wxml-->
+<back-component></back-component>
 <image src="{{uploadpath}}shop/{{info.top_img}}" bindtap="viewPhoto" id="{{uploadpath}}shop/{{info.top_img}}" class="top-img"></image>
 
 <view class="padding-20" style="border-bottom:2rpx solid #F5F5F5">

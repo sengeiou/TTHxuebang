@@ -1,4 +1,4 @@
-
+<back-component></back-component>
   <view wx:if='{{xueyuanlist.length==0}}' class="flex-row flex-column">
     <view style="height:100rpx;"></view>
     <image src="{{uploadpath}}resource/{{res.xueyuannull}}" class="icon-170 "></image>

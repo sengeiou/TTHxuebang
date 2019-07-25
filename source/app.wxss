@@ -28,7 +28,12 @@ page {
   border: 0rpx red solid;
   border-color: red;
 }
-
+.to_top {
+  position: fixed;
+  top: 60%;
+  right: 0;
+  z-index: 100;
+}
 .clear-button::after {
   border: 0;
   background-color: transparent;

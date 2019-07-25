@@ -1,4 +1,5 @@
 <!--pages/liucheng/liucheng.wxml-->
+<back-component></back-component>
 <view class='flex-row column margin-30 bg-white radius-10 shadow'>
 
   <view class='bg flex-row flex-center padding-40'>

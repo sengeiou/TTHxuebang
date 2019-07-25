@@ -1,3 +1,5 @@
+
+<back-component></back-component>
 <view class="1" style="background-image: url({{bg}}); width:100vw;height:100vh;background-size:100vw 100vh; ">
 
   <view class="flex-row flex-center margin-top-60">

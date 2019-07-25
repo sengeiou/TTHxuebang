@@ -1,4 +1,8 @@
 <!--pages/shopmall/shopmall.wxml-->
+<back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view>
   <view class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jifen_bg}});background-size:100% 100%;'>
 

@@ -1,4 +1,5 @@
 <!--pages/yiduihuang/yiduihuang.wxml-->
+<back-component></back-component>
 <view class="flex-row flex-column margin-top-74">
   <view style="color:#FFC200;font-size:40rpx" class="txt-bold">兑换已完成</view>
   <view class="margin-top-20">{{info.name}}</view>

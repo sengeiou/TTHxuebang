@@ -1,5 +1,5 @@
 <!--pages/addressmanage/addressmanage.wxml-->
-
+<back-component></back-component>
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 <view class='margin-20'>
