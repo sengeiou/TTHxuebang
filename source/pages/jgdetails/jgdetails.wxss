@@ -76,8 +76,11 @@
 }
 
 .kecheng-img {
-  height: 246rpx;
+  height: 330rpx;
   width: 100%;
+  border-radius:8rpx;
+  /* border: 1rpx solid black; */
+  /* background: rgba(216, 216, 216, 1); */
 }
 
 .kecheng-block {
@@ -91,6 +94,7 @@
 
 .padding-12 {
   padding: 12rpx;
+  padding-bottom:5rpx;
 }
 
 .f-16 {
@@ -98,7 +102,7 @@
 }
 
 .margin-top-14 {
-  margin-top: 6rpx;
+  margin-top: 14rpx;
 }
 
 .icon-16 {
@@ -141,18 +145,24 @@ height:40rpx;
 .margin-left-28{
   margin-left:28rpx; 
 }
+.margin-top-12 {
+  margin-top: 12rpx;
+}
 .f20 {
   font-size: 20rpx;
 }
 
-.dd {
-  margin: 15rpx;
+.dd{
+  margin:15rpx;
+  margin-top:5rpx;
 }
-
 .txt-red {
   color: #ff5252;
 }
+.xhx{
+text-decoration: line-through
 
+}
 .xg {
   padding-right: 15rpx;
 }
@@ -242,9 +252,7 @@ height:40rpx;
   height: 26rpx;
   width: 26rpx;
 }
-.margin-top-4 {
-  margin-top: 20rpx;
-}
+
 .icon-rz{
   width:104rpx;
 height:32rpx;

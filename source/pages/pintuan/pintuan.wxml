@@ -19,7 +19,7 @@
 
 
 
-  <view bindtap="kechenxianqin" data-id="{{item.onlineclassroom_id}}"  class="margin-24 order" wx:for="{{wclist}}" wx:if="{{item.pstatus=='PT'}}" wx:key='k'>
+  <view bindtap="kechenxianqin" data-id="{{item.spellgroup_id}}"  class="margin-24 order" wx:for="{{wclist}}" wx:if="{{item.pstatus=='PT'}}" wx:key='k'>
     <view class="padding-20 flex-row ">
 
       <image wx:if="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}'></image>

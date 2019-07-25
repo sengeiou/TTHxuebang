@@ -220,39 +220,44 @@
   <view class='flex-row flex-center flex-wrap'>
     <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketang}}' wx:key='k'>
 
-      <view style=''>
-        <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-      </view>
+       <view style=''>
+      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
+    </view>
 
-      <view class='padding-12'>
-        <view class='h6'>{{item.name}}</view>
-        <view style=' max-height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
-          {{item.class_introduce}}
+    <view class='padding-12'>
+      <view class=' txt-bold chaochu'>{{item.name}}</view>
+      <view class='flex-row flex-center margin-top-14'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>{{item.age_name}}</view>
         </view>
 
-
-        <view class='flex-row flex-center margin-top-14'>
-          <view class='flex-row flex-center'>
-            <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-            <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-          </view>
-
-          <view class='flex-row flex-center margin-left-26'>
-            <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-            <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
-          </view>
+        <view class='flex-row flex-center margin-left-26'>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
         </view>
-
-
       </view>
 
 
-      <view class='margin-left-10 margin-right-10 flex-row flex-bottom '>
-        <view class='  f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-        <view class='  f20 txt-gray' style="text-decoration:line-through;">￥{{item.originalprice}}</view>
-        <view class='  h6 txt-red margin-left-6'>￥</view>
-        <view class=' txt-red xg' style=''>{{item.price}}</view>
-      </view>
+
+    </view>
+
+    <view  class='margin-left-10 dd flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
+      <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
+      <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+      <view class=' txt-red xg' style=''>{{item.price}}</view>
+    </view>
+
+    <!-- <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="mianfei">免费课程</view>
+    </view>
+
+    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="yigou">已购</view>
+    </view> -->
 
 
     </view>
