@@ -25,7 +25,7 @@
 
   <view class='flex-row flex-center margin-top-10'>
     <image src='{{uploadpath}}resource/{{res.heishijian}}' class='icon'></image>
-    <view style='' class='  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
+    <view style='' class='h6  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
   </view>
   <view class="flex-row flex-center margin-top-20">
 

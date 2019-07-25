@@ -89,7 +89,7 @@
 
   </view>
 </view>
-<view class='text-center f18 txt-bold '>
+<view class='text-center f18 txt-bold  {{xz==-2?"":"margin-top"}} '>
 
 
   {{name}}

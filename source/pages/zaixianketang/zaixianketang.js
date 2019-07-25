@@ -26,11 +26,17 @@ class Content extends AppBase {
     var that = this;
 
     var jigouapi = new JigouApi();
+  
+   
+     this.Base.setMyData({
+       xz: -2, name: "热门课程"
 
+     })
 
     jigouapi.zaixiankechenfenlei({}, (fenleilist) => {
 
-      this.Base.setMyData({ fenleilist: fenleilist, xz: -2, name: "热门课程" });
+      this.Base.setMyData({ fenleilist: fenleilist, });
+
 
     })
     

@@ -19,17 +19,30 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var api=new JigouApi();
-    api.xiaoxiinfo({id:this.Base.options.id},(xiaoxi)=>{
-   
- this.Base.setMyData({xiaoxi:xiaoxi})
+    var api = new JigouApi();
+    api.xiaoxiinfo({ id: this.Base.options.id }, (xiaoxi) => {
+
+      this.Base.setMyData({ xiaoxi: xiaoxi })
 
     })
-  
+
+  }
+  kecheninfo(){
+  var xioaoxi=this.Base.getMyData().xiaoxi;
+   
+   console.log(xioaoxi);
+   
+
+    wx.navigateTo({
+      url: '/pages/kcdetails/kcdetails?id=' + xioaoxi.dindan.course_id,
+    })
+
+
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.kecheninfo = content.kecheninfo;
 Page(body)

@@ -151,12 +151,18 @@ class Content extends AppBase {
           var batchapi = new BatchApi();
           batchapi.closeorder({ id: id }, (colseorder) => {
             that.Base.setMyData({ colseorder })
+             
+
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+
+       
+
 
           })
-          wx.navigateBack({
 
-          })
-
+        
         }
       }
     });
@@ -210,11 +216,11 @@ class Content extends AppBase {
 
 
   }
-  pinjiagenduo(){
-   
-   wx.navigateTo({
-     url: '/pages/myorder/myorder?type=dpj',
-   })
+  pinjiagenduo() {
+
+    wx.navigateTo({
+      url: '/pages/myorder/myorder?type=dpj',
+    })
 
   }
 }

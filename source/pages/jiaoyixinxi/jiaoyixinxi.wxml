@@ -11,7 +11,7 @@
     <view class="margin-top-20 h5   xian" style="color:#AAAAAA">
       {{xiaoxi.content}}
     </view>
-    <view class="flex-row margin-top-20 xian">
+    <view bindtap="kecheninfo" class="flex-row margin-top-20 xian">
 
       <image class='icon-120' mode='widthFix' src='{{uploadpath}}curriculum/{{xiaoxi.dindan.course_kc_img}}'></image>
 
