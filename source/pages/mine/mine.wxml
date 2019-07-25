@@ -155,7 +155,7 @@
   <view data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>我的消息</view>
-    <view wx:if="{{xiaoxi!=0}}" class="hondian margin-right-20"></view>
+    <view wx:if="{{xiaoxi>0}}" class="hondian margin-right-20"></view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 

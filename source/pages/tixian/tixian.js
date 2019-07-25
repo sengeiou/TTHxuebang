@@ -22,7 +22,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ jiner: '',name:'' });
+    this.Base.setMyData({ jiner: '', name: '' });
   }
   onMyShow() {
     var that = this;
@@ -31,7 +31,7 @@ class Content extends AppBase {
       this.Base.setMyData({ problemlist: problemlist })
 
     })
-    api.fenxiaoinfo({},(fenixaoinfo)=>{
+    api.fenxiaoinfo({}, (fenixaoinfo) => {
 
       this.Base.setMyData({ fenixaoinfo: fenixaoinfo })
 
@@ -49,12 +49,12 @@ class Content extends AppBase {
     this.Base.setMyData({ jiner: this.Base.getMyData().memberinfo.tuiguanshouyi })
   }
   tixian() {
-  var api=new WechatApi();
- this.Base.setMyData({tishi1:false,tishi2:false,tishi3:false});
- 
+    var api = new WechatApi();
+    this.Base.setMyData({ tishi1: false, tishi2: false, tishi3: false });
+
 
     var jiner = Number(this.Base.getMyData().jiner);
-    var name=this.Base.getMyData().name;
+    var name = this.Base.getMyData().name;
     if (jiner == 0) {
       this.Base.setMyData({ tishi2: true });
       return
@@ -67,12 +67,26 @@ class Content extends AppBase {
       this.Base.setMyData({ tishi3: true });
       return
     }
-    api.tixianjilu({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{ 
-      this.Base.toast("提现申请已发送");
-      
-     wx.navigateBack({
-      
+    api.tixianjilu({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount: jiner }, (res) => {
+      // this.Base.info("提现申请已发送");
+
+      wx.showModal({
+        title: '提示',
+        content: '提现申请已发送',
+        confirmText: "我知道了",
+        confirmColor: '#FF6600',
+        showCancel: false,
+        success: (() => {
+        
+        wx.navigateBack({
+          
+        })
+
+
+        })
       })
+
+
     })
 
   }

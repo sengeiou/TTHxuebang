@@ -12,6 +12,10 @@ Page {
 .txt {
   color: #ffc200;
 }
+.pj{
+  border:1px solid #FF5252;
+  color:#FF5252;
+}
 
 .block {
   padding-left: 20rpx;
@@ -32,7 +36,7 @@ border-radius: 10rpx;
   color: #FF5733;
 }
 .hkg{
-height: 40rpx;
+height: 80rpx;
 
 }
 .xian{

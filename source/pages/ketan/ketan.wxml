@@ -28,7 +28,7 @@
         </view>
 
         <view wx:if="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</view>
-        <view wx:if="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5 chaochu2  height-60 '>{{item.onlineclassroom_class_introduce }}111111111111111111111111111111111111111111111111111111111111111111111111</view>
+        <!-- <view wx:if="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5 chaochu2  height-60 '>{{item.onlineclassroom_class_introduce }}111111111111111111111111111111111111111111111111111111111111111111111111</view> -->
 
         <view wx:if="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
 
@@ -65,7 +65,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</view>
+            <view class='h6 txt-black margin-left-5'>全集{{item.onlineclassroom_chapter_num}}集</view>
           </view>
 
           <view style='width:20rpx;'></view>
@@ -80,6 +80,7 @@
             <view class="flex-1"></view>
           </view>
         </view>
+        
         <view class="flex-row flex-center ">
           <view class="flex-1"></view>
           <view class="f-22">共1个课程 实付款:</view>
@@ -90,7 +91,22 @@
       </view>
 
     </view>
-   
+   <view class="padding-20" style="padding-top:0rpx;">
+
+      <view class="flex-row flex-center padding-top-20 xian">
+       
+        <view class="flex-1"></view>
+       
+      
+
+
+          <view  class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" >去评价</view>
+ 
+       
+      </view>
+
+
+    </view>
 
 
   </view>
