@@ -3,7 +3,19 @@
 Page {
   background: white;
 }
-
+.shuzi{
+  width: 20rpx;
+  height: 20rpx;
+  background: #FF0000;
+  color: #FFFFFF;
+  font-size: 12rpx;
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+    margin-left:30rpx;
+    margin-top:3rpx;
+    line-height: 20rpx;
+}
 .Top {
   position: fixed;
   z-index: 100;

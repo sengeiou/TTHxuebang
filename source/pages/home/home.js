@@ -89,6 +89,20 @@ class Content extends AppBase {
 
     var jigouapi = new JigouApi();
 
+    jigouapi.myxiaoxi({}, (xiaoxilist) => {
+       
+       var weidu=xiaoxilist.filter((item)=>{
+
+         return item.isread_value=='N'
+
+       })
+
+   console.log("消息哈哈哈哈敖德萨大所");
+      this.Base.setMyData({ xiaoxishu: weidu.length })
+     
+    })
+
+
     this.btn();
 
     this.jifen();
@@ -1047,7 +1061,12 @@ class Content extends AppBase {
 
   }
 
+  xiaoxiliebiao(){
+  wx.navigateTo({
+    url: '/pages/mymessage/mymessage'
+  })
 
+  }
 
 
 
@@ -1089,6 +1108,6 @@ body.chakanjilu = content.chakanjilu;
 body.closetanchuang = content.closetanchuang;
 body.guize = content.guize;
 body.closenotice = content.closenotice;
-
+body.xiaoxiliebiao = content.xiaoxiliebiao;
 
 Page(body)

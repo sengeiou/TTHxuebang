@@ -13,7 +13,7 @@
   </view>
 </view>
 <view style="" class="margin-20 bg">
-  <view class="flex-row flex-center padding-20">
+  <view bindtap="chakankechen" class="flex-row flex-center padding-20">
 
     <image class="icon-150" src='{{uploadpath}}groupcourse/{{pintuaninfo.group_course_group_photo}}'></image>
     <view class="margin-left-40">
