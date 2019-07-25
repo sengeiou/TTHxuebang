@@ -116,7 +116,7 @@
     <view bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
       <view wx:if="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}'></image>
-      <view class='h6 margin-top-10'>已拼班</view>
+      <view class='h6 margin-top-10'>待拼班</view>
     </view>
 
     <view bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>

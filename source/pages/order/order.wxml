@@ -65,7 +65,7 @@
 
       <!-- <view class='height-66 '></view> -->
       <view class=" padding-top-10 flex-row flex-center " style="width:100%;">
-        <view class="padding-left-20">
+        <view   bindtap="kefu" class="padding-left-20">
           <image src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban'></image>
         </view>
         <view class="padding-left-20" style="height:68rpx;">
@@ -340,8 +340,8 @@
 
     <view class="flex-row flex-center margin-top">
       <view class="flex-1"></view>
-      <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
-      <image wx:if="{{type=='hexiao'}}" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
+      <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{instinfo.kefuerweima}}" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
+      <image wx:if="{{type=='hexiao'}}"  bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
       <view class="flex-1"></view>
     </view>
 
@@ -356,7 +356,8 @@
 
 
 <view class="baocunhexiao  flex-row flex-center" wx:if="{{erweima}}" data-id="erweima" bindtap="xiazai">
+<view class="flex-1"></view>
   <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
   <view class="zi margin-left-10">保存{{type=='hexiao'?'核销码':'二维码'}}</view>
-
+<view class="flex-1"></view>
 </view>

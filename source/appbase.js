@@ -354,11 +354,11 @@ export class AppBase {
         info
       });
       if (info == null || info.id == undefined) {
-        AppBase.UserInfo = {};
-        wx.redirectTo({
-          url: '/pages/auth/auth',
-        })
-        return;
+        // AppBase.UserInfo = {};
+        // wx.redirectTo({
+        //   url: '/pages/auth/auth',
+        // })
+        // return;
       }
       console.log("说锤子呢绒");
       var order = info.order;

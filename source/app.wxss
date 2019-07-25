@@ -58,6 +58,7 @@ view, navigator, input, text, textarea {
   font-size: 32rpx;
   font-weight: 350;
   color: black;
+ font-family:PingFangSC-Regular;
 }
 
 .flex-row {

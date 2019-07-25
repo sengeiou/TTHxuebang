@@ -18,6 +18,13 @@
       <view class='txt-black h40 txt-bold'>{{cityname}}</view>
       <view class='txt-black h40 txt-bold' wx:if='{{cityname==null}}'>深圳市</view>
       <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+      <view class="flex-1"></view>
+      <view catchtap="xiaoxiliebiao">
+        <view catchtap="xiaoxiliebiao" wx:if="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</view>
+        <image class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}'></image>
+
+
+      </view>
     </view>
 
     <view class=' flex-row margin-top-20'>
@@ -267,7 +274,7 @@
                                         <view style='height:84rpx;'></view>
                                         <view class=' txt-bold' style='color:#FFC200'>已连续签到{{day+1}}天</view>
                                         <view style='height:32rpx'></view>
-                                        
+
                                         <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
 
                                         <view class='h6 margin-top-20' bindtap='chakanjilu'>签到记录</view>

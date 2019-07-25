@@ -63,13 +63,13 @@ class Content extends AppBase {
 
 
   }
-  // kechenxianqin(e) {
-  //   console.log(e);
-  //   wx.navigateTo({
-  //     url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
-  //   })
+   kechenxianqin(e) {
+     
+     wx.navigateTo({
+       url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.id,
+     })
 
-  // }
+   }
 
   onMyShow() {
     var that = this;
