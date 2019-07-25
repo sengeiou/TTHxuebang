@@ -151,10 +151,13 @@ class Content extends AppBase {
           var batchapi = new BatchApi();
           batchapi.closeorder({ id: id }, (colseorder) => {
             that.Base.setMyData({ colseorder })
-           
-        wx.navigateBack({
-          
-        })
+             
+
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+
+       
 
 
           })

@@ -449,6 +449,7 @@ class Content extends AppBase {
     wx.navigateTo({
       url: '/pages/groupinfo/groupinfo?id='+this.Base.getMyData().canbuy.pt,
     })
+    
   }
 }
 var timer = 1;
