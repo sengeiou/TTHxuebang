@@ -51,7 +51,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold gd'>{{item.onlineclassroom_name}}</view>
+      <view class=' txt-bold chaochu'>{{item.onlineclassroom_name}}</view>
 
 
 
@@ -63,7 +63,7 @@
 
         <view class='flex-row flex-center margin-left-26'>
           <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.onlineclassroom_chapter_num}}章</view>
+          <view class=' f20 margin-left-10'>共{{item.onlineclassroom_chapter_num}}集</view>
         </view>
       </view>
 
@@ -87,7 +87,7 @@
 
   </view>
 </view>
-<view class='text-center f18 txt-bold margin-top'>
+<view class='text-center f18 txt-bold '>
 
 
   {{name}}
@@ -107,7 +107,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold gd'>{{item.name}}</view>
+      <view class=' txt-bold chaochu'>{{item.name}}</view>
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
@@ -116,7 +116,7 @@
 
         <view class='flex-row flex-center margin-left-26'>
           <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
+          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
         </view>
       </view>
 
@@ -158,7 +158,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold gd'>{{item.name}}</view>
+      <view class=' txt-bold chaochu'>{{item.name}}</view>
 
 
 
@@ -170,7 +170,7 @@
 
         <view class='flex-row flex-center margin-left-26'>
           <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
+          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
         </view>
       </view>
 
@@ -192,7 +192,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold gd'>{{item.name}}</view>
+      <view class=' txt-bold chaochu'>{{item.name}}</view>
 
 
 
@@ -204,7 +204,7 @@
 
         <view class='flex-row flex-center margin-left-26'>
           <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
+          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
         </view>
       </view>
 
@@ -219,7 +219,7 @@
 
     <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left -10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="mianfei">免费课程</view>
+      <view class="mianfei ">免费课程</view>
     </view>
     <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
       <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
