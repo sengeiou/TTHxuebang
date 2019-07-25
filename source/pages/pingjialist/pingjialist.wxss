@@ -19,6 +19,7 @@ Page {
   padding-right: 32rpx;
   padding-top: 22rpx;
 }
+
 .pinglunqu-1 {
   padding-left: 32rpx;
   padding-right: 32rpx;
@@ -48,7 +49,7 @@ Page {
 }
 
 .margin-left-4 {
-  margin-left: 4rpx;
+  margin-left: 8rpx;
 }
 
 .icon24 {

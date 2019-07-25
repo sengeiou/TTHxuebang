@@ -50,7 +50,8 @@ class Content extends AppBase {
       shuliang: 1,
       sl: 1,
       more: false,
-      xuanzhong:0
+      xuanzhong:0,
+      ketang: []
 
     })
 
@@ -114,8 +115,13 @@ class Content extends AppBase {
         onlineclassroomtype_id: jginfo.classtype_id
       }, (ketanglist) => {
 
+        var ketang = [];
+        for (var j = 0; j < ketanglist.length && j < 4; j++) {
+          ketang.push(ketanglist[j]);
+        }
+
         this.Base.setMyData({
-          ketanglist
+          ketanglist, ketang
         });
 
       })
@@ -149,6 +155,56 @@ class Content extends AppBase {
 
 
     });
+
+  }
+
+  seemore(e) {
+     
+    wx.showLoading({
+      title: '加载中...'
+    })
+
+    var ketang = this.Base.getMyData().ketang;
+    var ketanglist = this.Base.getMyData().ketanglist;
+    var count = 0;
+
+    console.log(count, "裂了")
+
+    for (var i = ketang.length; i < ketanglist.length; i++) {
+      ketang.push(ketanglist[i]);
+      count++;
+
+      if (count >= 4) {
+        break;
+      }
+    }
+
+    
+    if (count == 0) {
+      wx.hideLoading();
+      wx.showToast({
+        title: '已经没有了',
+        icon: 'none'
+      })
+    }
+
+    if (count != 0) {
+      //console.log("diaoni1");
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          ketang
+        });
+
+        wx.hideLoading()
+      }, 500);
+    }
+
+
+
+
+
+
 
   }
 
@@ -375,7 +431,9 @@ body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
 body.bindclose = content.bindclose;
-body.xuan = content.xuan;
+body.xuan = content.xuan; 
+
+body.seemore = content.seemore;
 
 body.showmore = content.showmore;
 body.shouqi = content.shouqi;

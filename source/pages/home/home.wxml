@@ -267,6 +267,7 @@
                                         <view style='height:84rpx;'></view>
                                         <view class=' txt-bold' style='color:#FFC200'>已连续签到{{day+1}}天</view>
                                         <view style='height:32rpx'></view>
+                                        
                                         <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
 
                                         <view class='h6 margin-top-20' bindtap='chakanjilu'>签到记录</view>

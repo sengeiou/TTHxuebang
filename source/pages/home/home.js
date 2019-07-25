@@ -551,6 +551,46 @@ class Content extends AppBase {
   btn() {
     var dian = this.Base.getMyData().dian;
     var jifenapi = new JifenApi();
+    // var num = 0;
+    
+
+    // jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
+
+
+    //   var le = dakalist.length;
+
+    //   if (time(today) - time(arr[le - 1]) == 86400000)
+      
+    //   {
+    //     num = 2; 
+        
+    //     for (var i = le; i > 0; i--) {
+    //       if (time(arr[i - 1]) - time(arr[i - 2]) == 86400000) {
+    //         num++;
+    //       }
+    //       else {
+    //         break; 
+    //       }
+    //       console.log(num);
+    //     }
+    //   } 
+    //   else {
+    //     console.log('第一天');
+    //   }
+
+
+    //   this.Base.setMyData({
+    //     dakalist
+    //   })
+
+
+      
+    // })
+
+
+
+   // return;
+
 
     jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
       this.Base.setMyData({
@@ -616,7 +656,6 @@ class Content extends AppBase {
         }
 
       }
-
 
       if (this.Base.getMyData().dk == 0) {
 
@@ -798,8 +837,44 @@ class Content extends AppBase {
             day: 7,
             dk: 7
           })
+         // console.log("三天前")
+        }
+
+      }
+
+      if (this.Base.getMyData().dk == 7) {
+        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 8 * 86400000);
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var a2 = dakalist.filter((item, idx) => {
+          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
+        })
+
+        var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
+
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        
+        if (a2.length == 0) {
+          this.Base.setMyData({
+            xianzai: pd_time
+          })
+          console.log("七天前开始")
+          //return
+        } else {
+          this.Base.setMyData({
+            day: 7,
+            dk: 7
+          })
           console.log("三天前")
         }
+
+        var week = ApiUtil.GetDates(7, pd_time);
+
+        this.Base.setMyData({
+          day: -1,
+          dian: 0,
+          no: 1,
+          week
+        })
 
       }
 

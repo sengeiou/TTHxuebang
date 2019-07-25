@@ -330,3 +330,10 @@ background: #FF6600;
 .margin-left-52{
   margin-left: 52rpx;
 }
+.more{
+  width:300rpx;
+height:84rpx;
+line-height: 84rpx;
+background:rgba(255,194,0,1);
+border-radius:42rpx;
+}

@@ -17,7 +17,6 @@
   </block>
 
 
-
   <view class='flex-row flex-center padding-30'>
     <view class='bg-primary radius-30 org_block flex-row flex-center'>
       <image src='{{uploadpath}}resource/{{res.V}}' class='icon'></image>
@@ -41,9 +40,11 @@
   </view>
 </view>
 
+
 <view wx:if="{{nomore!=1&&teachlist.length>0&&item.id!=null}}" class='h1'>
 <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 </view>
+
 
 <!-- <view class='tishi' wx:if='{{show==1}}'>
 <image src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon'></image>

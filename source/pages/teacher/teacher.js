@@ -31,7 +31,7 @@ class Content extends AppBase {
     var teacherapi = new TeacherApi();
     teacherapi.teachlist({
       status: "A",
-      orderby: 'r_main.id'
+      orderby: 'r_main.seq'
     }, (teachlist) => {
       var vteach = [];
       vteach.push(teachlist[0]);

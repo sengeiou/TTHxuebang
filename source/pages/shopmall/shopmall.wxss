@@ -43,12 +43,12 @@
 }
 
 .jf-icon {
-  width: 30rpx;
-  height: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .f60 {
-  font-size: 60rpx;
+  font-size: 80rpx;
 }
 
 .margin-top-36 {
