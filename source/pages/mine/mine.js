@@ -52,10 +52,10 @@ class Content extends AppBase {
     });
 
     var memberapi = new MemberApi();
-    memberapi.info({
-    }, (memberinfo) => {
-this.Base.setMyData({memberinfo})
-    })
+//     memberapi.info({
+//     }, (memberinfo) => {
+// this.Base.setMyData({memberinfo})
+//     })
 
     var mobile=this.Base.getMyData().memberinfo.mobile;
     
@@ -205,9 +205,11 @@ this.Base.setMyData({memberinfo})
   }
 
   tuikuan() {
+
     wx.navigateTo({
       url: '/pages/tuikuan/tuikuan',
     })
+
 
   }
 

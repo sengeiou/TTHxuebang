@@ -108,21 +108,25 @@
   <view class='padd-order-under flex-row flex-center'>
 
     <view bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</view>
       <image class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}'></image>
       <view class='h6 margin-top-10'>待付款</view>
     </view>
 
     <view bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}'></image>
       <view class='h6 margin-top-10'>已拼班</view>
     </view>
 
     <view bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}'></image>
       <view class='h6 margin-top-10'>待评价</view>
     </view>
 
     <view bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}'></image>
       <view class='h6 margin-top-10'>待收货</view>
     </view>

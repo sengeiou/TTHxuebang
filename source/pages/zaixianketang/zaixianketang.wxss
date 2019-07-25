@@ -6,7 +6,9 @@
   padding-right: 32rpx;
  
 }
-
+.gd{
+  height: 70rpx;
+}
 .margin-top-12 {
   margin-top: 12rpx;
 }
