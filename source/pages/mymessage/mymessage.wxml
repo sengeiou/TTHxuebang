@@ -12,7 +12,7 @@
   </view>
 
 
-  <view wx:for="{{xiaoxilist}}" wx:key="k" data-id='{{item.id}}' bindtap="xianqin" class="page__bd padding-20">
+  <view wx:for="{{xiaoxilist}}" wx:key="k"  data-idd="{{item.order_id}}" data-id='{{item.id}}' bindtap="xianqin" class="page__bd padding-20">
 
 
 

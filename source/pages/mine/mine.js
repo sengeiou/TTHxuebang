@@ -205,7 +205,8 @@ class Content extends AppBase {
   }
 
   tuikuan() {
-
+    this.Base.info("暂未开放");
+    return
     wx.navigateTo({
       url: '/pages/tuikuan/tuikuan',
     })

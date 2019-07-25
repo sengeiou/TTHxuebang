@@ -110,7 +110,7 @@ class Content extends AppBase {
   
 
       wx.navigateTo({
-        url: '/pages/wuliu/wuliu?id=' + e.currentTarget.dataset.id,
+        url: '/pages/wuliu/wuliu?id=' + e.currentTarget.dataset.idd,
       })
     }
   }
