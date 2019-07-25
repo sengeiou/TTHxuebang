@@ -63,22 +63,22 @@
     <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
 
 
-
-    <view class='padding-mid  ' style=''>
+    <!-- 暂时注释 -->
+    <!-- <view class='padding-mid  ' style=''>
       <view class='flex-row '>
         <view class='' style='color:#FF5252'>*</view>
         <view class='font-30  txt-black margin-left-10  width-210'>机构简介：</view>
       </view>
       <textarea class='margin-top-20 h5' style='width:600rpx;height:230rpx;' placeholder-class='pc' name='jianjie' placeholder='250字左右简介'></textarea>
-    </view>
+    </view> -->
 
   </view>
 
 
 
 
-
-  <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
+   <!-- 暂时注释 -->
+  <!-- <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
 
     <view class='height-72 txt-6'>
       课程({{idx+1}})
@@ -93,7 +93,7 @@
 
       <view class='padding-left-20 padding-bottom-30  ' style=''>
         <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+          
           <view class='font-30  txt-black margin-left-10 width-210'>课程名称：</view>
           <input bindinput='xiename' data-idx="{{idx}}" class='  ' style='' placeholder-class='pc' value='' name='kcname' placeholder='如：美术、机器人编程'></input>
         </view>
@@ -103,7 +103,7 @@
 
       <view class='padding-mid' style=''>
         <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+           
           <view class='font-30   txt-black margin-left-10 width-210'>年龄段：</view>
           <input bindinput='nianlin' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='age' style='' placeholder='3-10岁'></input>
         </view>
@@ -112,7 +112,7 @@
 
       <view class='padding-mid' style=''>
         <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+          
           <view class='font-30   txt-black margin-left-10  '>每周固定可预约的上课时间：</view>
           <input bindinput='yuyue' data-idx="{{idx}}" class='  ' style='width:200rpx' placeholder-class='pc' value='{{contacttel}}' name='time' placeholder='周二上午'></input>
         </view>
@@ -121,8 +121,7 @@
 
 
       <view class='padding-mid  ' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+        <view class='flex-row flex-center '> 
           <view class='font-30   txt-black margin-left-10 '>性别：</view>
 
           <view class='flex-row flex-center  margin-left-40'>
@@ -149,8 +148,7 @@
       <view class='' style='background:#f5f5f5; height:2rpx'></view>
 
       <view class='padding-mid  ' style=''>
-        <view class='flex-row  '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+        <view class='flex-row  '> 
           <view class='font-30  txt-black margin-left-10  width-210'>课程时长：</view>
           <input bindinput='shichang' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='duration' style='' placeholder='4节90分钟每节两次上完'></input>
         </view>
@@ -160,8 +158,7 @@
 
 
       <view class='padding-mid  ' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
+        <view class='flex-row flex-center '> 
           <view class='font-30   txt-black margin-left-10 '>开课方式：</view>
           <view class='flex-row flex-center  margin-left-40'>
             <view class='flex-row flex-center   ' bindtap='bindkaike' id='tiqian' data-idx='{{idx}}'>
@@ -183,8 +180,7 @@
       <view class='padding-mid  ' style=''>
         <view class='flex-row    '>
 
-          <view class='flex-row  '>
-            <!-- <view class='' style='color:#FF5252'>*</view> -->
+          <view class='flex-row  '> 
             <view class='font-30   txt-black margin-left-10 '>请假要求：</view>
           </view>
 
@@ -228,7 +224,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
+     
       <view class='h5  txt-black margin-left-10 '>机构高清门头照 （1-2张）</view>
     </view>
 
@@ -238,8 +234,6 @@
       <view class=' ' wx:for="{{jgimages}}" wx:key="k" wx:for-index="idx">
         <image src='{{uploadpath}}jgmentou/{{item}}' wx:if='{{idx<20}}' id="{{idx}}" bindtap='jgminusImg' class='icon-img'></image>
       </view>
-
-
 
       <view class='addjigou flex-row flex-center ' bindtap='jguploadimg' wx:if='{{jgimages.length<20}}'>
         <view class='flex-1'></view>
@@ -255,7 +249,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
+     
       <view class='h5  txt-black margin-left-10 '>机构内部环境照片（3张以上）</view>
     </view>
 
@@ -279,7 +273,7 @@
   <view class='margin-24 radius-8 bg-white padding-16' style=''>
 
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
+      
       <view class='h5  txt-black margin-left-10 '>小朋友上课或获奖照片（4张以上）</view>
     </view>
 
@@ -297,7 +291,7 @@
 
     </view>
 
-  </view>
+  </view> -->
 
 
   <view class='padding-30 ' style=''>
@@ -352,13 +346,15 @@
 
 <view style='height: 90rpx;'></view>
 
-<view class='kaitong bg-white'>
+
+<!-- 暂时注释 -->
+<!-- <view class='kaitong bg-white'>
   <view class='flex-row flex-center'>
     <view class='h5' style='margin-left:38rpx;'>学榜专属VIP会员，畅享海量特权</view>
     <view style='width:80rpx;'></view>
     <view class='lijikaitong h6 text-center' bindtap='tohuiyuan'>立即开通</view>
   </view>
-</view>
+</view> -->
 
 
 <view class="black_block" wx:if='{{tc==true}}'></view>

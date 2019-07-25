@@ -1,5 +1,6 @@
 <!--pages/purchase/purchase.wxml-->
 <!--pages/myorder/myorder.wxml-->
+<back-component></back-component>
 <view class=' padding-20  h6 bor_bot' style='color:#A1A1A1'>
   本次购买的课程属于在线录播课程且永久有效，仅在购买账号上观看， 请认真查看学期或课程有效时间范围，合理安排学习时间。
 </view>

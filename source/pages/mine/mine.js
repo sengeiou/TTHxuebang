@@ -37,6 +37,13 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+   
+
+    jigouapi.myxiaoxi({ isread:'N'},(xiaoxi)=>{
+       
+         this.Base.setMyData({xiaoxi:xiaoxi.length})
+
+    })
 
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({
@@ -45,10 +52,10 @@ class Content extends AppBase {
     });
 
     var memberapi = new MemberApi();
-    memberapi.info({
-    }, (memberinfo) => {
-this.Base.setMyData({memberinfo})
-    })
+//     memberapi.info({
+//     }, (memberinfo) => {
+// this.Base.setMyData({memberinfo})
+//     })
 
     var mobile=this.Base.getMyData().memberinfo.mobile;
     
@@ -198,9 +205,11 @@ this.Base.setMyData({memberinfo})
   }
 
   tuikuan() {
+
     wx.navigateTo({
       url: '/pages/tuikuan/tuikuan',
     })
+
 
   }
 

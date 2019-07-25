@@ -217,6 +217,11 @@ Page {
 .padding-30 {
   padding: 30rpx 0rpx 20rpx 30rpx;
 }
+.padding-3033{
+  padding:30rpx;
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
 
 .padding-301 {
   padding: 0rpx 30rpx 20rpx 30rpx;

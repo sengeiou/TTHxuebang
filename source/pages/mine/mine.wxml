@@ -108,21 +108,25 @@
   <view class='padd-order-under flex-row flex-center'>
 
     <view bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</view>
       <image class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}'></image>
       <view class='h6 margin-top-10'>待付款</view>
     </view>
 
     <view bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}'></image>
       <view class='h6 margin-top-10'>已拼班</view>
     </view>
 
     <view bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}'></image>
       <view class='h6 margin-top-10'>待评价</view>
     </view>
 
     <view bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
+      <view wx:if="{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</view>
       <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}'></image>
       <view class='h6 margin-top-10'>待收货</view>
     </view>
@@ -141,9 +145,17 @@
 
 <view class='bg-white margin-20 radius-8'>
 
+  <view data-name='ketan' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.yigouketan}}'></image>
+    <view class='margin-left-20  txt-black  flex-1 h'>已购课堂</view>
+    <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+  </view>
+
+
   <view data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>我的消息</view>
+    <view wx:if="{{xiaoxi!=0}}" class="hondian margin-right-20"></view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
@@ -161,11 +173,6 @@
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
-  <view data-name='ketan' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-    <image class='icon-24' src='{{uploadpath}}resource/{{res.myaddress}}'></image>
-    <view class='margin-left-20  txt-black  flex-1 h'>已购课堂</view>
-    <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-  </view>
 
 
   <view data-name='wt' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
@@ -208,7 +215,7 @@
 
   <view data-name='tg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.tuiguang}}'></image>
-    <view class='margin-left-20  txt-black  flex-1 h'>推广中心</view>
+    <view class='margin-left-20  txt-black  flex-1 h'>大使中心</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 

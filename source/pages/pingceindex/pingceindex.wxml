@@ -17,11 +17,8 @@
     <view class='h5 txt-bold margin-left-16'>测试简介</view>
   </view>
 
-  <view style="margin-top:-40rpx">
-    <text class='  h6 txt-6' style=''>
-    {{info.jianjie}}
-  </text>
-  </view>
+    <text class='  h6 txt-6' style=''>{{info.jianjie}}</text>
+ 
 
   <view class='flex-row flex-center margin-top-30'>
     <view class='flex-1'></view>
@@ -117,13 +114,8 @@
     <view class='h5 txt-bold margin-left-16'>测评须知</view>
   </view>
 
-  <view style="margin-top:-40rpx">
-    <text class='margin-top-14 h6 txt-6' style=''>
-     {{info.xuzhi}}
-  </text>
-  </view>
-
-
+  <text class='margin-top-14 h6 txt-6' style=''>{{info.xuzhi}}</text>
+ 
 </view>
 
 <view class='height-126'></view>

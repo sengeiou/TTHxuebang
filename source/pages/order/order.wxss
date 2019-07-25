@@ -15,6 +15,33 @@ Page {
   width: 80rpx;
   height: 80rpx;
 }
+.qxdd{
+
+width: 200rpx;
+height: 60rpx;
+background: #CCCCCC;
+font-size: 28rpx;
+color:#FFFFFF;
+text-align: center;
+line-height: 60rpx;
+border-radius: 10rpx;
+
+}
+
+.qzf{
+
+width: 200rpx;
+height: 60rpx;
+background: #50B674;
+font-size: 28rpx;
+color:#FFFFFF;
+text-align: center;
+line-height: 60rpx;
+border-radius: 10rpx;
+}
+.height-60{
+  height: 60rpx
+}
 .ddd{
   width: 200rpx;
 }

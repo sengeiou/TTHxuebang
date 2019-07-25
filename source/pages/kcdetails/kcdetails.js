@@ -39,7 +39,7 @@ class Content extends AppBase {
       show: "kcxq",
       shulian: 0
     })
-    
+    this.daojishi();
   }
 
 
@@ -375,7 +375,7 @@ class Content extends AppBase {
   yaoqin() {
     var api = new HaibaoApi;
     api.haibao1({
-      kcid: this.Base.options.id
+      kcid: this.Base.options.id,isdebug:'Y'
     }, (res) => {
       console.log(res);
       if (res.code == 0) {

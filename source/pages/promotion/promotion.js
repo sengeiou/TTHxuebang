@@ -18,7 +18,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '分销中心',
+      title: '大使中心',
     });
   }
   onLoad(options) {
@@ -170,7 +170,7 @@ class Content extends AppBase {
     if (this.Base.getMyData().tuiguaninfo[0].status != 'S')
     {
         this.Base.info("您现在还不是推广员");
-
+     return
     }
      
     api.haibao({}, (res) => {

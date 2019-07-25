@@ -11,7 +11,7 @@ page {
 
 .clear-contact {
   position: absolute;
-  opacity: 0;
+  opacity: 0; 
 }
  
 /* .clear-contact-debug {
@@ -53,6 +53,7 @@ view, navigator, input, text, textarea {
   font-size: 32rpx;
   font-weight: 350;
   color: black;
+ font-family:PingFangSC-Regular;
 }
 
 .flex-row {

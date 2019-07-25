@@ -43,7 +43,7 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var jifenapi = new JifenApi();
-    jifenapi.commoditylist({}, (list)=>{
+    jifenapi.commoditylist({orderby:'r_main.seq'}, (list)=>{
       this.Base.setMyData({ list })
     })
 

@@ -20,15 +20,15 @@
       <view class="h5 txt-bold" style='color:#222222'>{{pintuaninfo.kcname}}</view>
       <view class="h6" style='color:#999999'>已预约{{pintuaninfo.yuyuerenshu}}人</view>
 
-      <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top" style='color:#222222'>还差{{pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</view>
+      <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top" style='color:#222222'>还差{{ pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</view>
       <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团成功</view>
       <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</view>
       <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团失败</view>
       <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</view>
-      <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{pintuaninfo.price-pintuaninfo.group_course_group_price}}
+      <view wx:if="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{chajia}}
       </view>
-      <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{pintuaninfo.price-pintuaninfo.group_course_group_price}}</view>
-      <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{pintuaninfo.price-pintuaninfo.group_course_group_price}}</view>
+      <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{chajia}}</view>
+      <view wx:if="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{chajia}}</view>
       <view wx:if="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h6" style='color:#999999'>支付退款将在1-15个工作日内 原路退还到您的账户</view>
     </view>
   </view>

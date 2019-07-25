@@ -25,10 +25,13 @@ class Content extends AppBase {
     this.Base.setMyData({
       vteach: []
     });
+    
+  }
+  onMyShow(){
     var teacherapi = new TeacherApi();
     teacherapi.teachlist({
-      status:"A",
-      orderby: 'r_main.id'
+      status: "A",
+      orderby: 'r_main.seq'
     }, (teachlist) => {
       var vteach = [];
       vteach.push(teachlist[0]);

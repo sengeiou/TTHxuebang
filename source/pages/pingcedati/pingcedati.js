@@ -32,6 +32,10 @@ class Content extends AppBase {
       qie: 0,
       pingce: []
     });
+
+
+    console.log(this.Base.options.upid, "九九九")
+
   }
   onMyShow() {
     var that = this;
@@ -207,8 +211,9 @@ class Content extends AppBase {
 
       var pingceapi = new PingceApi();
 
-      console.log(this.Base.options.upid,"啦啦啦")
+     console.log(this.Base.options.upid,"啦啦啦")
      console.log(typeA, typeB, typeC, typeD, "智力")
+
       pingceapi.updatepingce({
         dati_status: "Y",
         typeA: typeA,
@@ -217,6 +222,12 @@ class Content extends AppBase {
         typeD: typeD,
         id: this.Base.options.upid
       }, (updatepingce) => {
+
+        pingceapi.addone({ id: this.Base.options.id}, (addone)=>{
+          this.Base.setMyData({ addone})
+        })
+
+
         this.Base.setMyData({
           updatepingce
         })

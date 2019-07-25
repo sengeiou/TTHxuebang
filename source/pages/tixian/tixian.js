@@ -67,22 +67,12 @@ class Content extends AppBase {
       this.Base.setMyData({ tishi3: true });
       return
     }
-    api.withdraw({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{
-      console.log(res);
-      console.log("哈哈哈");
-      console.log(res.code);
-     if(res.code=='-1')
-     {
-     this.Base.info(res.return);
-     }
-     if(res.code=='0')
-     { 
-       this.Base.toast("提现成功");
+    api.tixianjilu({ realname: this.Base.getMyData().fenixaoinfo[0].reainame, amount:jiner},(res)=>{ 
+      this.Base.toast("提现申请已发送");
+      
      wx.navigateBack({
-       
-     })
-     }
- 
+      
+      })
     })
 
   }

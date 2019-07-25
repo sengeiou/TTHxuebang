@@ -21,8 +21,7 @@ class Content extends AppBase {
     var that = this;
     var api=new JigouApi();
     api.xiaoxiinfo({id:this.Base.options.id},(xiaoxi)=>{
-      console.log(1231231);
-   console.log(xiaoxi);
+   
  this.Base.setMyData({xiaoxi:xiaoxi})
 
     })

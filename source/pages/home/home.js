@@ -96,10 +96,6 @@ class Content extends AppBase {
     var instapi = new InstApi();
 
 
-
-
-
-
     wx.showLoading({
       title: '加载中...',
     })
@@ -497,27 +493,29 @@ class Content extends AppBase {
     var id = e.currentTarget.id;
 
     var pingceapi = new PingceApi();
-    pingceapi.mypingcelist({}, (mypingcelist) => {
+    // pingceapi.mypingcelist({}, (mypingcelist) => {
 
-      var a = mypingcelist.filter((item, idx) => {
-        return item.pingce_id == id & item.member_id == this.Base.getMyData().memberinfo.id
-      })
+    //   var a = mypingcelist.filter((item, idx) => {
+    //     return item.pingce_id == id & item.member_id == this.Base.getMyData().memberinfo.id
+    //   })
 
-      console.log(a,"刚刚")
+    //   console.log(a,"刚刚")
 
-      if(a.length>0){
-        wx.navigateTo({
-          url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
-        })
-      }
-      else{
-        wx.navigateTo({
-          url: '/pages/pingceindex/pingceindex?id=' + id
-        })
-      }
+    //   if(a.length>0){
+    //     wx.navigateTo({
+    //       url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
+    //     })
+    //   }
+    //   else{
+    //     wx.navigateTo({
+    //       url: '/pages/pingceindex/pingceindex?id=' + id
+    //     })
+    //   }
 
+    // })
+    wx.navigateTo({
+      url: '/pages/pingceindex/pingceindex?id=' + id + '&member_id=' + this.Base.getMyData().memberinfo.id
     })
-
     //return;
 
     
@@ -540,6 +538,7 @@ class Content extends AppBase {
     })
   }
   closetanchuang(e) {
+    this.onMyShow();
     this.Base.setMyData({
       dakashow: false,
       tangchuan: false,
@@ -552,6 +551,46 @@ class Content extends AppBase {
   btn() {
     var dian = this.Base.getMyData().dian;
     var jifenapi = new JifenApi();
+    // var num = 0;
+    
+
+    // jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
+
+
+    //   var le = dakalist.length;
+
+    //   if (time(today) - time(arr[le - 1]) == 86400000)
+      
+    //   {
+    //     num = 2; 
+        
+    //     for (var i = le; i > 0; i--) {
+    //       if (time(arr[i - 1]) - time(arr[i - 2]) == 86400000) {
+    //         num++;
+    //       }
+    //       else {
+    //         break; 
+    //       }
+    //       console.log(num);
+    //     }
+    //   } 
+    //   else {
+    //     console.log('第一天');
+    //   }
+
+
+    //   this.Base.setMyData({
+    //     dakalist
+    //   })
+
+
+      
+    // })
+
+
+
+   // return;
+
 
     jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
       this.Base.setMyData({
@@ -617,7 +656,6 @@ class Content extends AppBase {
         }
 
       }
-
 
       if (this.Base.getMyData().dk == 0) {
 
@@ -799,8 +837,44 @@ class Content extends AppBase {
             day: 7,
             dk: 7
           })
+         // console.log("三天前")
+        }
+
+      }
+
+      if (this.Base.getMyData().dk == 7) {
+        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 8 * 86400000);
+        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
+        var a2 = dakalist.filter((item, idx) => {
+          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
+        })
+
+        var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
+
+        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+        
+        if (a2.length == 0) {
+          this.Base.setMyData({
+            xianzai: pd_time
+          })
+          console.log("七天前开始")
+          //return
+        } else {
+          this.Base.setMyData({
+            day: 7,
+            dk: 7
+          })
           console.log("三天前")
         }
+
+        var week = ApiUtil.GetDates(7, pd_time);
+
+        this.Base.setMyData({
+          day: -1,
+          dian: 0,
+          no: 1,
+          week
+        })
 
       }
 

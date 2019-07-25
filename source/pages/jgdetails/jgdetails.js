@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 9;
+   // options.id = 3;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -46,8 +46,13 @@ class Content extends AppBase {
 
     })
     this.Base.setMyData({
-      tanchuang: false, shuliang: 1, sl: 1,more:false
-      
+      tanchuang: false,
+      shuliang: 1,
+      sl: 1,
+      more: false,
+      xuanzhong:0,
+      ketang: []
+
     })
 
 
@@ -61,48 +66,64 @@ class Content extends AppBase {
       id: this.Base.options.id
     }, (jginfo) => {
 
-      
 
-        jigouapi.courselist({
-          jg_id: jginfo.id,
-          orderby: 'r_main.id'
-        }, (courselist) => {
-          var mylat = this.Base.getMyData().mylat;
-          var mylng = this.Base.getMyData().mylng;
-          for (var i = 0; i < courselist.length; i++) {
-            console.log("牛逼");
-            console.log(mylat);
-            var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
-            console.log("mile=" + mile);
-            var miletxt = ApiUtil.GetMileTxt(mile);
-            console.log("miletxt=" + miletxt);
-            courselist[i]["miletxt"] = miletxt;
 
-          }
+      jigouapi.courselist({
+        jg_id: jginfo.id,
+        orderby: 'r_main.id'
+      }, (courselist) => {
 
-          jigouapi.courseinfo({
-            id: courselist[0].id
-          }, (courseinfo) => {
+        console.log('13213213', courselist);
+
+        var mylat = this.Base.getMyData().mylat;
+        var mylng = this.Base.getMyData().mylng;
+        for (var i = 0; i < courselist.length; i++) {
+          console.log("牛逼");
+          console.log(mylat);
+          var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+          console.log("mile=" + mile);
+          var miletxt = ApiUtil.GetMileTxt(mile);
+          console.log("miletxt=" + miletxt);
+          courselist[i]["miletxt"] = miletxt;
+
+        }
+
+
+        jigouapi.courseinfo({
+          id: courselist[0].id
+        }, (courseinfo) => {
+
+
             this.Base.setMyData({
-              courseinfo, buy_id: courselist[0].id
+              courseinfo,
+              gou:1,
+              buy_id: courselist[0].id
             });
-          });
+       
 
-          this.Base.setMyData({
-            courselist: courselist, miletxt
-          });
         });
+
+        this.Base.setMyData({
+          courselist: courselist,
+          miletxt
+        });
+      });
 
 
 
       jigouapi.ketanglist({
         onlineclassroomtype_id: jginfo.classtype_id
       }, (ketanglist) => {
-        
+
+        var ketang = [];
+        for (var j = 0; j < ketanglist.length && j < 4; j++) {
+          ketang.push(ketanglist[j]);
+        }
+
         this.Base.setMyData({
-          ketanglist
+          ketanglist, ketang
         });
-        
+
       })
 
       jigouapi.orderstatus({
@@ -137,15 +158,69 @@ class Content extends AppBase {
 
   }
 
-  showmore(e){
-    this.Base.setMyData({more:true})
+  seemore(e) {
+     
+    wx.showLoading({
+      title: '加载中...'
+    })
+
+    var ketang = this.Base.getMyData().ketang;
+    var ketanglist = this.Base.getMyData().ketanglist;
+    var count = 0;
+
+    console.log(count, "裂了")
+
+    for (var i = ketang.length; i < ketanglist.length; i++) {
+      ketang.push(ketanglist[i]);
+      count++;
+
+      if (count >= 4) {
+        break;
+      }
+    }
+
+    
+    if (count == 0) {
+      wx.hideLoading();
+      wx.showToast({
+        title: '已经没有了',
+        icon: 'none'
+      })
+    }
+
+    if (count != 0) {
+      //console.log("diaoni1");
+      setTimeout(() => {
+        console.log("llll");
+        this.Base.setMyData({
+          ketang
+        });
+
+        wx.hideLoading()
+      }, 500);
+    }
+
+
+
+
+
+
+
   }
-  shouqi(e){
-    this.Base.setMyData({ more: false })
+
+  showmore(e) {
+    this.Base.setMyData({
+      more: true
+    })
+  }
+  shouqi(e) {
+    this.Base.setMyData({
+      more: false
+    })
   }
 
   jia(e) {
-    var kucun=e.currentTarget.id;
+    var kucun = e.currentTarget.id;
     var shuliang = this.Base.getMyData().shuliang;
     shuliang++
     if (shuliang > kucun) {
@@ -156,7 +231,9 @@ class Content extends AppBase {
       return;
     }
 
-    this.Base.setMyData({ shuliang })
+    this.Base.setMyData({
+      shuliang
+    })
   }
   jian(e) {
     var shuliang = this.Base.getMyData().shuliang;
@@ -169,19 +246,27 @@ class Content extends AppBase {
       return;
 
     }
-    this.Base.setMyData({ shuliang })
+    this.Base.setMyData({
+      shuliang
+    })
   }
 
   check(e) {
     var id = e.currentTarget.id;
+    var ck = e.currentTarget.dataset.check;
     var jigouapi = new JigouApi();
+
+
     this.Base.setMyData({
-      buy_id: id
+      buy_id: id,
+      ck: ck
     })
 
     jigouapi.courseinfo({
       id: id
     }, (courseinfo) => {
+
+
       this.Base.setMyData({
         courseinfo
       });
@@ -189,25 +274,90 @@ class Content extends AppBase {
   }
 
   bindpin(e) {
-    this.Base.setMyData({
-      pin: 1,
-      tanchuang: true
-    })
+    var id = this.Base.options.id;
+    var jigouapi = new JigouApi();
+
+    jigouapi.courselist({
+      jg_id: id
+    }, (clist) => {
+
+      var clist  = clist.filter((item, idx) => {
+        return item.isgroup >0
+      })
+
+      console.log(clist,"gg")
+
+      this.Base.setMyData({
+        clist, pin: 1,
+        tanchuang: true
+      });
+
+    });
+ 
   }
+  bindshowtc(e) {
+    var id = this.Base.options.id;
+    var jigouapi = new JigouApi();
+    jigouapi.courselist({
+      jg_id: id
+    }, (clist) => {
+      this.Base.setMyData({
+        clist, pin: 0,
+        tanchuang: true
+      });
+    });
+
+  }
+
+  xuan(e){
+    var id=e.currentTarget.id;
+    if(id=="A"){
+      this.Base.setMyData({ xuanzhong: 1 })
+    }
+    if (id == "B") {
+      this.Base.setMyData({ xuanzhong: 2 })
+    }
+  }
+
   tobuy(e) {
     var id = e.currentTarget.id;
+    var ck = this.Base.getMyData().xuanzhong;
     console.log(id + "电费");
     //return;
+    //this.Base.getMyData().pin == "1"  
 
     if (this.Base.getMyData().pin == "1") {
-      wx.navigateTo({
-        url: '/pages/purchase/purchase?course_id=' + id + '&type=0',
-      })
-    } else {
-      wx.navigateTo({
-        url: '/pages/purchase/purchase?course_id=' + id,
-      })
+      console.log(id);
+      console.log("aaa");
+     // return;
+      if (ck == 1) {
+        wx.navigateTo({
+          url: '/pages/purchase/purchase?course_id=' + id + '&type=0'  + '&leixin=0',
+        })
+      }
+      if (ck == 2) {
+        wx.navigateTo({
+          url: '/pages/purchase/purchase?course_id=' + id + '&type=0'  + '&leixin=1',
+        })
+      }
     }
+    else  {
+      console.log(id);
+      console.log("ggg");
+    //  return
+      if (ck == 1) {
+        wx.navigateTo({
+          url: '/pages/purchase/purchase?course_id=' + id + '&leixin=0',
+        })
+      }
+      if (ck == 2) {
+        wx.navigateTo({
+          url: '/pages/purchase/purchase?course_id=' + id + '&leixin=1',
+        })
+      }
+    }
+
+
   }
 
   tokcdetails(e) {
@@ -216,6 +366,7 @@ class Content extends AppBase {
       url: '/pages/kcdetails/kcdetails?id=' + id,
     })
   }
+
 
   fav(e) {
     var status = e.currentTarget.id;
@@ -255,11 +406,7 @@ class Content extends AppBase {
 
   }
 
-  bindshowtc(e) {
-    this.Base.setMyData({
-      tanchuang: true
-    })
-  }
+
   bindclose(e) {
     this.Base.setMyData({
       tanchuang: false
@@ -283,10 +430,13 @@ body.bindpin = content.bindpin;
 body.tobuy = content.tobuy;
 body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
-body.bindclose = content.bindclose; 
+body.bindclose = content.bindclose;
+body.xuan = content.xuan; 
 
-body.showmore = content.showmore; 
-body.shouqi = content.shouqi; 
+body.seemore = content.seemore;
+
+body.showmore = content.showmore;
+body.shouqi = content.shouqi;
 body.jia = content.jia;
 body.jian = content.jian;
 

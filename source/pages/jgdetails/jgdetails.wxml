@@ -18,16 +18,12 @@
 
 
 
-
-
-
   <view class='radius-10 bg-white padding-15  {{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "?"mid2":"mid"}}   margin-bottom-10'>
     <view class='padding-10 '>
       <view class='flex-row flex-center'>
         <view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</view>
         <image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></image>
       </view>
-
 
       <view class='margin-top-10'>
         <view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
@@ -102,7 +98,7 @@
 
   <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:340rpx;'></view>
 
-     <!-- <view class="margin-top-20">a{{model}}b</view> -->
+  <!-- <view class="margin-top-20">a{{model}}b</view> -->
 
   <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
 
@@ -122,12 +118,12 @@
       <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
     </view>
 
-<view class="flex-row flex-column" style="margin-top:-60rpx;">
-    <text decode="{{true}}" space="ensp" class='padding-20  h5 margin-top-20 {{more==false?"chaochu5 height-210":""}}' style="">  {{jginfo.jieshao}}</text>
+    <view class="flex-row flex-column" style="margin-top:-60rpx;">
+      <text decode="{{true}}" space="ensp" class='padding-20  h5 margin-top-20 {{more==false?"chaochu5 height-210":""}}' style="">  {{jginfo.jieshao}}</text>
 
-    <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
-    <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
-</view>
+      <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
+      <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
+    </view>
 
 
   </view>
@@ -145,7 +141,6 @@
         <view class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</view>
 
         <view class='flex-row flex-center'>
-
 
           <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
             <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
@@ -215,56 +210,66 @@
   </view>
 
   <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
-    <view class='flex-1'></view>
-    <view style='width:140rpx;height:2rpx;' class='bg-black margin-right-20'></view>
-    <view class=''>猜你喜欢</view>
-    <view style='width:140rpx;height:2rpx;' class='bg-black margin-left-20'></view>
-    <view class='flex-1'></view>
+
+    <image src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;"></image>
+
   </view>
 
 
 
   <view class='flex-row flex-center flex-wrap'>
-    <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketanglist}}' wx:key='k'>
+    <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketang}}' wx:key='k'>
 
-      <view style=''>
-        <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-      </view>
+       <view style=''>
+      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
+    </view>
 
-      <view class='padding-12'>
-        <view class='h6'>{{item.name}}</view>
-        <view style=' max-height: 50rpx;' class='f-16 chaochu2 margin-top-8'>
-          {{item.class_introduce}}
+    <view class='padding-12'>
+      <view class=' txt-bold chaochu'>{{item.name}}</view>
+      <view class='flex-row flex-center margin-top-14'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>{{item.age_name}}</view>
         </view>
 
-
-        <view class='flex-row flex-center margin-top-14'>
-          <view class='flex-row flex-center'>
-            <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-            <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-          </view>
-
-          <view class='flex-row flex-center margin-left-26'>
-            <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-            <view class=' f20 margin-left-10'>共{{item.chapter_num}}章</view>
-          </view>
+        <view class='flex-row flex-center margin-left-26'>
+          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
+          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
         </view>
-
-
       </view>
 
 
-      <view class='margin-left-10 margin-right-10 flex-row flex-bottom '>
-        <view class='  f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-        <view class='  f20 txt-gray' style="text-decoration:line-through;">￥{{item.originalprice}}</view>
-        <view class='  h6 txt-red margin-left-6'>￥</view>
-        <view class=' txt-red xg' style=''>{{item.price}}</view>
-      </view>
+
+    </view>
+
+    <view  class='margin-left-10 dd flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
+      <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
+      <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
+      <view class=' txt-red xg' style=''>{{item.price}}</view>
+    </view>
+
+    <!-- <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="mianfei">免费课程</view>
+    </view>
+
+    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
+      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
+      <view class="yigou">已购</view>
+    </view> -->
 
 
     </view>
   </view>
 
+  <view class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
+    <view class="flex-1"></view>
+    <view class="more text-center txt-bold txt-white" bindtap="seemore">
+      查看更多
+    </view>
+    <view class="flex-1"></view>
+  </view>
 
   <!-- <view class='height-100 '></view> -->
 
@@ -330,8 +335,8 @@
     </view>
 
     <view class=' flex-row flex-center'>
-      <view class='buybtn txt-white h5 text-center bg-cheng' bindtap='bindshowtc'>立即购买</view>
-      <view class='pingtuanbtn txt-white h5 text-center bg-hong' bindtap="bindpin">超低价拼班</view>
+      <view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
+      <view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</view>
     </view>
 
   </view>
@@ -339,8 +344,8 @@
 
 
 
-<view class='buy' catchtouchmove="{{true}}" wx:if='{{tanchuang==true}}' >
-  <view style='height:40vh;background:black;opacity:0.5'></view>
+<view class='buy' wx:if='{{tanchuang==true}}'>
+  <view catchtouchmove="{{true}}" style='height:40vh;background:black;opacity:0.5'></view>
 
   <view style='height:55.6vh;background:white' class='padding-block'>
 
@@ -369,7 +374,9 @@
 
         </view>
 
-        <view class='margin-top-20' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+        <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
 
       </view>
 
@@ -383,8 +390,32 @@
 
     <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
-    <view class='flex-row flex-center flex-wrap margin-top-10'>
-      <view class=' text-center h6 {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' bindtap='check'>{{item.name}}</view>
+    <view class="flex-row ">
+      <view class='flex-row flex-center flex-wrap margin-top-10'>
+
+
+        <view class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{clist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</view>
+
+
+        <!-- <view wx:if='{{pin==1}}'>
+          <view wx:if='{{isgroup>0}}' class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</view>
+        </view> -->
+
+      </view>
+
+      <!-- <view class='flex-row column flex-wrap margin-top-10'>
+
+        <view class=' text-center h6 chaochu {{buy_id==item.id&&ck=="N"?"kcname_block_check txt-white":"kcname_block"}}' wx:for='{{courselist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="N" bindtap='check'>{{item.name}}体验课{{item.expeprice}}元</view>
+
+      </view> -->
+    </view>
+
+
+    <view class='margin-top-10 h6' style='color:#666666'>课程规格</view>
+
+    <view class="flex-row flex-center">
+      <view class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>正价课</view>
+      <view class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
     </view>
 
 
@@ -395,8 +426,8 @@
     <!-- <view bindtap='tobuy' id='{{newkcinfo.id}}'>购买数量</view> -->
 
 
+    <view style=" border-bottom:2rpx solid #f5f5f5;margin-bottom:150rpx;" class="flex-row flex-center padding-T-B-28">
 
-    <view style=" border-bottom:2rpx solid #f5f5f5" class="flex-row flex-center padding-T-B-28">
 
       <view class="flex-1  flex-row column">
         <view class="h6  txt-6">购买数量</view>
@@ -408,27 +439,24 @@
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian"></image>
 
-
-
       <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
 
       <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" id="{{courseinfo.kucun}}"></image>
+
+
+
     </view>
-
-
-
-
 
 
     <view class='under'>
       <view class='flex-row flex-column'>
-
-        <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+        <view wx:if='{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+        <view wx:if='{{xuanzhong==0}}' class='next2 text-center txt-white'>下一步</view>
       </view>
     </view>
 
-  </view>
 
+  </view>
 
 
 </view>

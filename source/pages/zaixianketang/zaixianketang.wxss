@@ -6,7 +6,9 @@
   padding-right: 32rpx;
  
 }
-
+/* .gd{
+  height: 70rpx;
+} */
 .margin-top-12 {
   margin-top: 12rpx;
 }
@@ -44,6 +46,7 @@ text-decoration: line-through
 .kecheng-img {
   height: 330rpx;
   width: 100%;
+  border-radius:8rpx;
   /* border: 1rpx solid black; */
   /* background: rgba(216, 216, 216, 1); */
 }
@@ -133,14 +136,16 @@ border-radius: 5rpx;
    color:white;
    background-color: #FFC200;
    padding:15rpx;
+   padding-left:30rpx;
    border-top-left-radius:30rpx;
+    font-weight: bolder;
 }
 .yigou
 {
  font-size: 24rpx;
    color:white;
    background-color:#CCCCCC;
-  
+   font-weight: bolder;
    padding:15rpx;
     padding-left:20rpx;
    padding-right: 20rpx;
