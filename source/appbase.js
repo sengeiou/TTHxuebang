@@ -23,14 +23,15 @@ export class AppBase {
   static lastlat = 0;
   static lastlng = 0;
   static lastaddress = {
-    address: { ad_info: { adcode: "" } }};
+    address: { ad_info: { adcode: "" } }
+  };
   static CITYID = 440300;
   static CITYNAME = "深圳市";
   static CITYSET = false;
   static BRANDAPPLE = 12;
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
-  static Scene=1001;
+  static Scene = 1001;
   static InstInfo = null;
   static Resource = null;
   unicode = "tthxb";
@@ -38,7 +39,7 @@ export class AppBase {
   pagetitle = null;
   app = null;
   options = null;
-  inmaintain=false;
+  inmaintain = false;
   data = {
     apiurl: ApiConfig.GetApiUrl(),
     uploadpath: ApiConfig.GetUploadPath(),
@@ -101,7 +102,7 @@ export class AppBase {
        * 页面上拉触底事件的处理函数
        */
       onReachBottom: base.onReachBottom,
- 
+
       /**
        * 用户点击右上角分享
        */
@@ -144,19 +145,19 @@ export class AppBase {
 
     this.Base.options = options;
 
-    
+
     //console.log(mta.Page.init().options.scene);
     console.log("onload");
-    
+
     this.Base.setBasicInfo();
 
     this.Base.setMyData({
       options: options
     });
 
-    
-    
-   
+
+
+
 
     ApiConfig.SetUnicode(this.Base.unicode);
 
@@ -169,7 +170,7 @@ export class AppBase {
       title: '需要您授权才能正常使用小程序',
       content: '请点击“去设置”并启用“用户信息”，然后确定即可正常使用',
       confirmText: "去设置",
-      success: function(res) {
+      success: function (res) {
         if (res.confirm) {
           wx.openSetting({
 
@@ -204,14 +205,14 @@ export class AppBase {
         });
       });
     }
-    if(AppBase.InstInfo!=null){
-      var instinfo=AppBase.InstInfo;
+    if (AppBase.InstInfo != null) {
+      var instinfo = AppBase.InstInfo;
       if (instinfo == null || instinfo == false) {
 
         return;
-      } 
+      }
 
-      if (this.Base.inmaintain==false&&instinfo.instswitch == '否') {
+      if (this.Base.inmaintain == false && instinfo.instswitch == '否') {
         wx.reLaunch({
           url: '/pages/maintain/maintain',
         })
@@ -226,7 +227,7 @@ export class AppBase {
       } else {
 
       }
-    }else{
+    } else {
 
       instapi.info({}, (instinfo) => {
         if (instinfo == null || instinfo == false) {
@@ -256,14 +257,14 @@ export class AppBase {
           wx.getUserInfo({
             success: userres => {
               AppBase.UserInfo = userres.userInfo;
-              console.log("userres",userres);
+              console.log("userres", userres);
 
               var memberapi = new MemberApi();
               memberapi.getuserinfo({
                 code: res.code,
                 grant_type: "authorization_code",
-                iv:userres.iv,
-                encryptedData:userres.encryptedData
+                iv: userres.iv,
+                encryptedData: userres.encryptedData
               }, data => {
                 console.log("here");
                 console.log(data);
@@ -359,24 +360,50 @@ export class AppBase {
         })
         return;
       }
+      console.log("说锤子呢绒");
+      var order = info.order;
+      var dfkorder = 0;
+      var ypborder = 0;
+      var dpjorder = 0;
+      var dshorder = 0;
+      var tkorder = 0;
+      order.map((item) => {
+
+        if (item.pstatus == 'W') {
+          dfkorder++;
+        }
+        if (item.type == 'PT' && item.pstatus == 'PT') {
+          ypborder++;
+        }
+        if (item.pstatus =='PJ')
+        {
+          dpjorder++;
+        }
+      })
+      info.dfkorder = dfkorder;
+      info.ypborder=ypborder;
+      info.dpjorder=dpjorder;
+      info.dshorder=dshorder;
+      info.tkorder=tkorder;
+
       this.Base.setMyData({
         memberinfo: info
       });
       //that.onMyShow();
 
-      if (AppBase.lastlat!=0){
+      if (AppBase.lastlat != 0) {
         this.Base.setMyData({
           address: AppBase.lastaddress,
           lastdistance: 0,
           mylat: 0,
           mylng: 0
         });
-        console.log("vvckc","0");
+        console.log("vvckc", "0");
         that.onMyShow();
       }
 
       this.Base.getAddress((address) => {
-        AppBase.lastaddress=address;
+        AppBase.lastaddress = address;
         var mylat = address.location.lat;
         var mylng = address.location.lng;
         var memberinfo = this.Base.getMyData().memberinfo;
@@ -386,27 +413,27 @@ export class AppBase {
 
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
 
-        this.Base.setMyData({ adcode: address.ad_info.adcode});
+        this.Base.setMyData({ adcode: address.ad_info.adcode });
         console.log("citycode" + citycode);
-        console.log(citylist );
+        console.log(citylist);
         if (AppBase.CITYSET == false) {
           for (var i = 0; i < citylist.length; i++) {
 
             if (citylist[i].id == citycode) {
               AppBase.CITYID = citylist[i].id;
               AppBase.CITYNAME = citylist[i].name;
-              
+
               break;
             }
-            if (citylist[i].id == citycode && AppBase.CITYID != citycode){
+            if (citylist[i].id == citycode && AppBase.CITYID != citycode) {
               this.Base.setMyData({
                 nocity: 2
               });
             }
-            
-            if (citylist[i].id != citycode && AppBase.CITYID != citycode){
+
+            if (citylist[i].id != citycode && AppBase.CITYID != citycode) {
               this.Base.setMyData({
-               nocity:1
+                nocity: 1
               });
             }
 
@@ -425,7 +452,7 @@ export class AppBase {
           cityname: AppBase.CITYNAME
         });
 
-        var lastlat = Number(AppBase.lastlat == undefined ? 0 : AppBase.lastlat) ;
+        var lastlat = Number(AppBase.lastlat == undefined ? 0 : AppBase.lastlat);
         var lastlng = Number(AppBase.lastlng == undefined ? 0 : AppBase.lastlng);
 
         var lastdistance = ApiUtil.GetDistance(mylat, mylng, lastlat, lastlng);
@@ -436,12 +463,12 @@ export class AppBase {
         this.Base.setMyData({
           lastdistance,
           address,
-          mia:"??",
-        
-          
+          mia: "??",
+
+
         });
         console.log("lastdistance", Number(lastdistance), Number(lastdistance) == "NaN");
-        if (lastdistance > 500 || lastdistance==NaN){
+        if (lastdistance > 500 || lastdistance == NaN) {
           console.log("citycode2" + AppBase.CITYID);
           console.log("vvckc", "1");
           that.onMyShow();
@@ -451,7 +478,7 @@ export class AppBase {
         this.Base.setMyData({
           address: AppBase.lastaddress,
           lastdistance: 0,
-          address: { ad_info:{}},
+          address: { ad_info: {} },
           mylat: 0,
           mylng: 0
         });
@@ -469,7 +496,7 @@ export class AppBase {
   loadtabtype() {
     console.log("loadtabtype");
     var memberapi = new MemberApi();
-    memberapi.update(AppBase.UserInfo, () => {});
+    memberapi.update(AppBase.UserInfo, () => { });
   }
 
   onMyShow() {
@@ -572,7 +599,7 @@ export class AppBase {
     console.log("getmyaddress");
     if (lat == undefined && lng == undefined) {
       wx.getLocation({
-        success: function(res) {
+        success: function (res) {
           lat = res.latitude;
           lng = res.longitude;
           AppBase.QQMAP.reverseGeocoder({
@@ -580,22 +607,22 @@ export class AppBase {
               latitude: lat,
               longitude: lng
             },
-            success: function(res) {
+            success: function (res) {
               //that.setMyData({ addressinfo:res.result });
               callback(res.result);
             },
-            fail: function(res) {
+            fail: function (res) {
               console.log("fail get location");
               callback(res.result);
               console.log(res);
             },
-            complete: function(res) {
+            complete: function (res) {
               console.log("complete");
               console.log(res);
             }
           });
         },
-        fail: function(res) {
+        fail: function (res) {
           console.log("fail open location");
           console.log(res);
           if (failcallback != undefined) {
@@ -609,16 +636,16 @@ export class AppBase {
           latitude: lat,
           longitude: lng
         },
-        success: function(res) {
+        success: function (res) {
           console.log("success");
           console.log(res);
           callback(res.result);
         },
-        fail: function(res) {
+        fail: function (res) {
           console.log("fail");
           console.log(res);
         },
-        complete: function(res) {
+        complete: function (res) {
           console.log("complete");
           console.log(res);
         }
@@ -635,7 +662,7 @@ export class AppBase {
     var address = e.currentTarget.id;
     AppBase.QQMAP.geocoder({
       address: address,
-      success: function(res) {
+      success: function (res) {
         if (res.status == 0) {
           var lat = res.result.location.lat;
           var lng = res.result.location.lng;
@@ -645,16 +672,16 @@ export class AppBase {
             address: address,
             latitude: lat,
             longitude: lng,
-            success: function(res) {
+            success: function (res) {
 
             }
           })
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res);
       },
-      complete: function(res) {
+      complete: function (res) {
         console.log(res);
       }
     });
@@ -675,7 +702,7 @@ export class AppBase {
         "field": "file"
       },
 
-      success: function(res) {
+      success: function (res) {
         console.log(res);
         var data = res.data
         if (data.substr(0, 7) == "success") {
@@ -694,12 +721,12 @@ export class AppBase {
     });
   }
 
-  uploadImage(modul, callback, count , completecallback) {
+  uploadImage(modul, callback, count, completecallback) {
     wx.chooseImage({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       count: count,
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res.tempFilePaths);
         //that.setData({
@@ -716,7 +743,7 @@ export class AppBase {
               'module': modul,
               "field": "file"
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res);
               var data = res.data
               if (data.substr(0, 7) == "success") {
@@ -747,7 +774,7 @@ export class AppBase {
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       count: 1,
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res.tempFilePaths);
         //that.setData({
@@ -764,7 +791,7 @@ export class AppBase {
               'module': modul,
               "field": "file"
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res);
               var data = res.data
               if (data.substr(0, 7) == "success") {
@@ -795,7 +822,7 @@ export class AppBase {
       compressed: true, // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       maxDuration: 60,
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res.tempFilePaths);
         //that.setData({
@@ -814,7 +841,7 @@ export class AppBase {
               'module': modul,
               "field": "file"
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res);
               var data = res.data
               if (data.substr(0, 7) == "success") {
@@ -845,7 +872,7 @@ export class AppBase {
       count: 1,
       sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res.tempFilePaths);
         //that.setData({
@@ -862,7 +889,7 @@ export class AppBase {
               'module': modul,
               "field": "file"
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res);
               var data = res.data
               if (data.substr(0, 7) == "success") {
@@ -892,7 +919,7 @@ export class AppBase {
       sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['camera'], // 可以指定来源是相册还是相机，默认二者都有
       maxDuration: 60,
-      success: function(res) {
+      success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         console.log(res.tempFilePaths);
         //that.setData({
@@ -909,7 +936,7 @@ export class AppBase {
               'module': modul,
               "field": "file"
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res);
               var data = res.data
               if (data.substr(0, 7) == "success") {
@@ -931,7 +958,7 @@ export class AppBase {
       }
     })
   }
-  zhendon(){
+  zhendon() {
 
     wx.vibrateShort();
   }
@@ -939,7 +966,7 @@ export class AppBase {
     wx.showModal({
       title: '提示',
       content: message,
-      confirmText:"我知道了",
+      confirmText: "我知道了",
       confirmColor: '#FF6600',
       showCancel: false
     })
@@ -1046,16 +1073,16 @@ export class AppBase {
     console.log(url);
     wx.downloadFile({
       url: url, //仅为示例，并非真实的资源
-      success: function(res) {
+      success: function (res) {
         // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
         if (res.statusCode === 200) {
-         
+
           var tempFilePath = res.tempFilePath;
           console.log(res);
           wx.saveImageToPhotosAlbum({
             filePath: tempFilePath,
-            success: function(res) {
-            
+            success: function (res) {
+
               var savedFilePath = res.savedFilePath;
               if (open == true) {
                 wx.openDocument({
@@ -1110,15 +1137,14 @@ export class AppBase {
       }
     })
   }
-  toast(msg,i=0) {
-    if(i==0)
-    {
-    wx.showToast({
-      title: msg,
-      icon: "none"
-    })
+  toast(msg, i = 0) {
+    if (i == 0) {
+      wx.showToast({
+        title: msg,
+        icon: "none"
+      })
     }
-    else(i==1)
+    else (i == 1)
     {
       wx.showToast({
         title: msg,

@@ -17,23 +17,27 @@
 </view>
 
 
-<view class='flex-row flex-column ' style='background-color:#FFC200' wx:if="{{info.pstatus=='W'}}">
-  <view class='height-100'></view>
+<view class='flex-row flex-column ' style='background-color:#FFFFFF' wx:if="{{info.pstatus=='W'}}">
+  <view class='height-60'></view>
 
-  <view style='' class='txt-bold txt-white h4'>等待支付</view>
+  <view style='' class='txt-bold  h4'>待支付</view>
 
   <view class='flex-row flex-center margin-top-10'>
-    <image src='{{uploadpath}}resource/{{res.dindangtime}}' class='icon'></image>
-    <view style='' class=' txt-white margin-left-20'>剩余支付时间{{mMinute}}:{{mSecond}}</view>
+    <image src='{{uploadpath}}resource/{{res.heishijian}}' class='icon'></image>
+    <view style='' class='  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
   </view>
+  <view class="flex-row flex-center margin-top-20">
 
+    <view bindtap='colseorder' id='{{info.id}} ' class="qxdd">取消订单</view>
+    <view bindtap='bindpay' class="qzf margin-left-20">去支付</view>
+  </view>
 
   <!-- <view>
     <button bindtap='bindpay'>支付</button>
   </view> -->
-  <view class='height-100'></view>
+  <view class='height-60'></view>
 </view>
-
+<view class="height-20"></view>
 <view class='flex-row flex-column ' wx:if="{{info.pstatus=='P'||info.pstatus=='PJ'}}">
   <view style='height:38rpx;'></view>
   <view style='color:#999999' class='h6'>请勿随意将此页面分享给陌生人，保证订单有效性</view>
@@ -213,8 +217,8 @@
         <view class='margin-top-5 txt-gray h5 '>{{courseinfo.JG_jigou}}</view>
       </view>
       <view>
-        <view  class='txt-black  text-right'>￥{{info.amount}}</view>
-        <view wx:if="{{info.pstatus=='!W'}}" catchtap="hexiaoma" wx:if="{{info.patatus!='W'}}" class="margin-top h6 hexiaoma">核销码</view>
+        <view class='txt-black  text-right'>￥{{info.amount}}</view>
+        <view wx:if="{{info.pstatus!='W'}}" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</view>
       </view>
 
     </view>
@@ -286,11 +290,11 @@
 
 
 
-<view class='flex-row flex-center padding-20 bg-white btm ' wx:if="{{info.pstatus=='W'}}" style=' '>
+<!-- <view class='flex-row flex-center padding-20 bg-white btm ' wx:if="{{info.pstatus=='W'}}" style=' '>
   <view class='flex-1 '></view>
   <view class='txt-gray text-center h6 fbtn ' style='border:1px solid #AAAAAA; ' id='{{info.id}} ' bindtap='colseorder'>取消订单</view>
   <view class='txt-red text-center margin-left-20 h6 fbtn ' bindtap='bindpay' style='border:1px solid #FF5252; '>付款</view>
-</view>
+</view> -->
 
 <view wx:if="{{info.pstatus!='W'}}" class='flex-row flex-center'>
   <view class='flex-1'></view>
@@ -335,14 +339,14 @@
 
     <view class="flex-row flex-center margin-top">
       <view class="flex-1"></view>
-      <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai"  src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
+      <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
       <image wx:if="{{type=='hexiao'}}" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
       <view class="flex-1"></view>
     </view>
 
     <view class="margin-top  text-center" style="color:#222222 ">
 
-       {{type=='hexiao'?'如需要验证，请出示此核销码':'扫描二维码添加客服微信'}}
+      {{type=='hexiao'?'如需要验证，请出示此核销码':'扫描二维码添加客服微信'}}
     </view>
     <view class="height-50"></view>
   </view>

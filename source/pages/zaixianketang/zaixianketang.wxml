@@ -51,7 +51,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold'>{{item.onlineclassroom_name}}</view>
+      <view class='h6 txt-bold gd'>{{item.onlineclassroom_name}}</view>
 
 
 
@@ -107,7 +107,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold'>{{item.name}}</view>
+      <view class='h6 txt-bold gd'>{{item.name}}</view>
       <view class='flex-row flex-center margin-top-14'>
         <view class='flex-row flex-center'>
           <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
@@ -158,7 +158,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold'>{{item.name}}</view>
+      <view class='h6 txt-bold gd'>{{item.name}}</view>
 
 
 
@@ -192,7 +192,7 @@
     </view>
 
     <view class='padding-12'>
-      <view class='h6 txt-bold'>{{item.name}}</view>
+      <view class='h6 txt-bold gd'>{{item.name}}</view>
 
 
 

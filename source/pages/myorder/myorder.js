@@ -108,7 +108,6 @@ class Content extends AppBase {
       url: '/pages/order/order?id=' + e.currentTarget.dataset.id
     })
   
-   
   }
 
   bindshow(e) {
@@ -145,6 +144,24 @@ class Content extends AppBase {
     var that = this;
     var id = e.currentTarget.id;
     var wechatapi = new WechatApi();
+    var list = this.Base.getMyData().alllist.filter((item)=>{
+       
+       return  item.id==id;
+
+    });
+     if(list[0].type=='PT')
+     {
+       wechatapi.prepay2({ id: id }, (payret) => {
+         payret.complete = function (e) {
+           that.onMyShow();
+         }
+         console.log(payret);
+         wx.requestPayment(payret)
+       });
+
+     }
+else{
+
     wechatapi.prepay({ id: id }, (payret) => {
       payret.complete = function (e) {
         that.onMyShow();
@@ -152,6 +169,7 @@ class Content extends AppBase {
       console.log(payret);
       wx.requestPayment(payret)
     });
+     }
   }
   toorder(e) {
     var that = this;

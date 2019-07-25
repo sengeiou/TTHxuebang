@@ -182,26 +182,39 @@ class Content extends AppBase {
   hexiaoma() {
     this.Base.setMyData({ erweima: true, type: 'hexiao' })
   }
-  kefu(){
-    this.Base.setMyData({erweima:true,type:'kefu'})
+  kefu() {
+    this.Base.setMyData({ erweima: true, type: 'kefu' })
   }
-  hideModal(){
-    this.Base.setMyData({erweima:false})
+  hideModal() {
+    this.Base.setMyData({ erweima: false })
   }
-  xiazai(){
-   var type=this.Base.getMyData().type;
-   if(type=='kefu')
-   {
-     this.download(this.Base.getMyData().uploadpath + 'inst' + this.Base.getMyData().instinfo.kefuerweima);
+  xiazai() {
+    var type = this.Base.getMyData().type;
+    if (type == 'kefu') {
+      this.download(this.Base.getMyData().uploadpath + 'inst' + this.Base.getMyData().instinfo.kefuerweima);
 
-   }
-   else{
+    }
+    else {
 
-     this.download(this.Base.getMyData().apiurl + 'jigou' + 'jigou/qrcode?id=' + this.Base.getMyData().info.id +'&a.jpg');
+      this.download(this.Base.getMyData().apiurl + 'jigou' + 'jigou/qrcode?id=' + this.Base.getMyData().info.id + '&a.jpg');
 
-   }
+    }
+
+
+
+  }
+  tohome() {
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
+
+
+  }
+  pinjiagenduo(){
    
-    
+   wx.navigateTo({
+     url: '/pages/myorder/myorder?type=dpj',
+   })
 
   }
 }
@@ -221,4 +234,6 @@ body.todetails = content.todetails;
 body.hexiaoma = content.hexiaoma;
 body.hideModal = content.hideModal;
 body.xiazai = content.xiazai;
+body.tohome = content.tohome;
+body.pinjiagenduo = content.pinjiagenduo;
 Page(body)

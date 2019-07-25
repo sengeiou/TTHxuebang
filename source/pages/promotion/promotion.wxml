@@ -12,7 +12,7 @@
 <view class="padding-30  padding-top-20">
   <view class="content_bg ">
     <view class="padding-40">
-      <view class="h5" style='color:rgba(161, 111, 47, 1)'>累计推广收益(元)</view>
+      <view class="h5" style='color:rgba(161, 111, 47, 1)'>累计金币收益</view>
       <view style="height:70rpx" class="flex-row flex-bottom margin-top-20">
      
             
@@ -73,7 +73,7 @@
   <image class="yaoqin_icon padding-40" src='{{uploadpath}}resource/{{res.yaoqinhaoyou}}'></image>
   <view class="flex-1">
     <view class="f15" style='color:rgba(34, 34, 34, 1)'>邀请好友</view>
-    <view class="h11 margin-top-10" style='color:rgba(153, 153, 153, 1)'>邀请好友一起赚钱</view>
+    <view class="h11 margin-top-10" style='color:rgba(153, 153, 153, 1)'>邀请好友一起学习</view>
   </view>
   <image class="icon-10 padding-40" mode='widthFix' src='{{uploadpath}}resource/{{res.yaoqin_you}}'></image>
 
