@@ -1,4 +1,5 @@
 <!--pages/pingjia/pingjia.wxml-->
+<back-component></back-component>
 
 <form bindsubmit="submit" bindreset="formReset" report-submit="{{true}}">
   <view class='bg-white'>

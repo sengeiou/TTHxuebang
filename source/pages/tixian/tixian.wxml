@@ -1,3 +1,4 @@
+<back-component></back-component>
 <view wx:if="{{tishi1}}" class="padding-20 flex-row flex-center jingao">
   <view class="flex-1"></view>
   <image src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  "></image>

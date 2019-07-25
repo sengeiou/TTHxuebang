@@ -1,5 +1,5 @@
 <!--pages/wuliu/wuliu.wxml-->
-
+<back-component></back-component>
  <view class="flex-row flex-center padding_top">
   <image src="{{wuliu.result.logo}}" class="icon_logo"></image>
   <view class="flex-row column margin-left-20">

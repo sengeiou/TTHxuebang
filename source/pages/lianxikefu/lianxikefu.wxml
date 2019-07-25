@@ -1,5 +1,5 @@
 <!--pages/lianxikefu/lianxikefu.wxml-->
-
+<back-component></back-component>
 <button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
   <view class="weixin flex-row flex-center">
 

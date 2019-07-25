@@ -1,4 +1,8 @@
 <!--pages/searchword/searchword.wxml-->
+<back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
   <view class='search flex-row flex-center padding-5 '>
     <view style='width:20rpx;'></view>

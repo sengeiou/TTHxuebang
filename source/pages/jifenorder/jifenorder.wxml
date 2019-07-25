@@ -1,4 +1,8 @@
 <!--pages/jifenorder/jifenorder.wxml-->
+<back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view class=' flex-row flex-center  bg-white bor_bot top'>
 
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>

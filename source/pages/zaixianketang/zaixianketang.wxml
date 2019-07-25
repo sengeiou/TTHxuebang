@@ -1,6 +1,8 @@
 <!--pages/zaixianketang/zaixianketang.wxml-->
 <back-component></back-component>
-
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:100vw;height:350rpx;'>
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">
     <view>

@@ -1,5 +1,7 @@
 <back-component></back-component>
-
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view style='background-image:url({{uploadpath}}onlineclassroom/{{kecheninfo.jieshaoimg}});background-size:100% 100%;width:750rpx;height:700rpx;'>
   <view style="height:175rpx"></view>
   <video bindended="bfjs" bindplay="ksbf" bindpause='jsbf' bindtimeupdate="jindu" class='Top-img' style='width:100vw; height:400rpx;' poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' title='{{item.title}}' controls='true' object-fit="fill"

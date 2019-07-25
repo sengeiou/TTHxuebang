@@ -1,4 +1,9 @@
 <!--pages/mypingce/mypingce.wxml-->
+<back-component></back-component>
+
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 
 <view wx:for='{{mypingcelist}}' wx:key='k' bindtap='toceshi' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-image:url({{uploadpath}}pingceindex/{{item.pingce_listimg}});background-size:100% 100%;'>
 

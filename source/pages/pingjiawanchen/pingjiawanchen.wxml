@@ -1,11 +1,13 @@
 <!--pages/pingjiawanchen/pingjiawanchen.wxml-->
+<back-component></back-component>
+
 <view class='bg-top'>
   <view class='height-50'></view>
 
   <view class='flex-row flex-center margin-left-46'>
     <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
     <view class='flex-row column margin-left-28'>
-      <view class=''>评论成功，获得50积分</view>
+      <view class=''>评论成功，获得10积分</view>
       <view class='h5  margin-top-4'>您的评价是其他用户选购前的重要参考</view>
     </view>
   </view>

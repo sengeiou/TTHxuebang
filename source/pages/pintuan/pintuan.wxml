@@ -1,4 +1,5 @@
 <!--pages/myorder/myorder.wxml-->
+<back-component></back-component>
 <view class=' flex-row flex-center  bg-white bor_bot top'>
 
 

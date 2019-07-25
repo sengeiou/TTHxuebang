@@ -1,3 +1,4 @@
+<back-component></back-component>
 <view class="padding-30 padding-bottom-20 flex-row flex-center">
   <image class='member_icon' src='{{memberinfo.avatarUrl}}'></image>
   <view class='margin-left-10'>{{memberinfo.nickName}}</view>
