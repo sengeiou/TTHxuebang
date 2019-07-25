@@ -49,9 +49,10 @@ class Content extends AppBase {
       tanchuang: false,
       shuliang: 1,
       sl: 1,
-      more: false,
+       
       xuanzhong: 0,
-      ketang: []
+      ketang: [],
+      catchtouchmove:0
 
     })
 
@@ -66,6 +67,15 @@ class Content extends AppBase {
       id: this.Base.options.id
     }, (jginfo) => {
 
+      
+      var hang = jginfo.jieshao;
+     var hangshu=  hang.split('\n')
+
+      if (hangshu.length>5){
+        this.Base.setMyData({ more:false})
+     }
+      
+      console.log(hangshu);
 
 
       jigouapi.courselist({
@@ -301,7 +311,8 @@ class Content extends AppBase {
       this.Base.setMyData({
         clist,
         pin: 1,
-        tanchuang: true
+        tanchuang: true,
+        catchtouchmove:1
       });
 
     });
@@ -316,7 +327,8 @@ class Content extends AppBase {
       this.Base.setMyData({
         clist,
         pin: 0,
-        tanchuang: true
+        tanchuang: true,
+        catchtouchmove: 1
       });
     });
 
