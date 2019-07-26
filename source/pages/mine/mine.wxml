@@ -25,17 +25,18 @@
 <view class='orangeblock'>
 
 
+  <view style="position: absolute;z-index: 10;right: 14rpx;top: 24rpx;">
 
-
-  <view class='gengxin  '>
-    <button class='clear-button' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
-      <view class="flex-row flex-center">
-        <image src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10'></image>
-        <view class='txt-white h7 margin-left-4'>更新资料</view>
+    <button class='clear-button'  hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
+      <view class='gengxin '>
+        <view class="flex-row flex-center">
+          <image src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10'></image>
+          <view class='txt-white h7 margin-left-4'>更新资料</view>
+        </view>
       </view>
     </button>
-  </view>
 
+  </view>
 
 
   <view class='flex-row flex-center'>

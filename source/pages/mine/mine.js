@@ -94,6 +94,10 @@ class Content extends AppBase {
     })
   }
 
+  shua(e){
+    this.onMyShow();
+  }
+
   todetails(e) {
     var name = e.currentTarget.dataset.name;
     // if (name == "cj") {
@@ -251,5 +255,8 @@ body.gotohaizi = content.gotohaizi;
 body.showtoast = content.showtoast;
 body.orderlist = content.orderlist;
 body.pintuan = content.pintuan;
-body.tuikuan = content.tuikuan;
+body.tuikuan = content.tuikuan; 
+
+body.shua = content.shua; 
+
 Page(body)
