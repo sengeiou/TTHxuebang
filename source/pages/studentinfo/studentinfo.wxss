@@ -33,3 +33,7 @@ left:8vw;
   width:350rpx;
 
 }
+.ff{
+  min-height: 40rpx;
+  
+}

@@ -86,7 +86,7 @@
 
 
       <view class="section__title"> </view>
-      <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
         <view class="picker ipt" style='color:#C8C8C8' wx:if="{{region.length==0}}">请填写地址</view>
         <view class="picker ipt" wx:if="{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</view>
       </picker>

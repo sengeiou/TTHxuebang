@@ -404,6 +404,7 @@ export class AppBase {
       }
 
       this.Base.getAddress((address) => {
+        console.log("vvckc", "4",address );
         AppBase.lastaddress = address;
         var mylat = address.location.lat;
         var mylng = address.location.lng;

@@ -110,9 +110,9 @@ class Content extends AppBase {
     var instapi = new InstApi();
 
 
-    wx.showLoading({
-      title: '加载中...',
-    })
+    // wx.showLoading({
+    //   title: '加载中...',
+    // })
 
     console.log(this.Base.options.id);
     console.log("邀请人");
@@ -186,9 +186,9 @@ class Content extends AppBase {
 
     this.jisuanrenshu();
 
-    setTimeout(() => {
-      wx.hideLoading()
-    }, 1000);
+    // setTimeout(() => {
+    //   wx.hideLoading()
+    // }, 1000);
 
 
     setTimeout(() => {
@@ -360,9 +360,9 @@ class Content extends AppBase {
 
   onReachBottom() {
     console.log("???kk");
-    wx.showLoading({
-      title: '加载中...'
-    })
+    // wx.showLoading({
+    //   title: '加载中...'
+    // })
     var jgvteach = this.Base.getMyData().jgvteach;
     var jglist = this.Base.getMyData().jglist;
     var cs = 0;
@@ -389,7 +389,7 @@ class Content extends AppBase {
         this.Base.setMyData({
           jgvteach
         });
-        wx.hideLoading()
+        // wx.hideLoading()
       }, 500);
     }
 

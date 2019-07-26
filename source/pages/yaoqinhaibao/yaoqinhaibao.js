@@ -41,7 +41,7 @@ class Content extends AppBase {
   onShareAppMessage(e) {
     return {
 
-      title: '大家一起来赚钱⑧',
+      title: this.Base.getMyData().instinfo.zhuanfatishi,
 
       desc: '分享页面的内容',
 
