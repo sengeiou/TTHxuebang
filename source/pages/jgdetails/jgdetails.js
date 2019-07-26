@@ -178,7 +178,13 @@ class Content extends AppBase {
     });
 
   }
+  kechenxianqin(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+    })
 
+  }
   seemore(e) {
 
     wx.showLoading({
@@ -474,5 +480,5 @@ body.showmore = content.showmore;
 body.shouqi = content.shouqi;
 body.jia = content.jia;
 body.jian = content.jian;
-
+body.kechenxianqin = content.kechenxianqin
 Page(body)
