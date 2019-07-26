@@ -39,7 +39,7 @@
 
           <view class='flex-row flex-center  margin-left-20'>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{xiaoxi.dindan.course_age_name}}节课</view>
+            <view class='h6 txt-black margin-left-5'>{{xiaoxi.dindan.course_class_hours}}节课</view>
           </view>
 
 

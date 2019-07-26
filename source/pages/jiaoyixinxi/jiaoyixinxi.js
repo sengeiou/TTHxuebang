@@ -34,7 +34,7 @@ class Content extends AppBase {
    
 
     wx.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + xioaoxi.dindan.course_id,
+      url: '/pages/order/order?id=' + xioaoxi.order_id,
     })
 
 

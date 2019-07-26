@@ -42,12 +42,12 @@
 
               <view class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
                 <image class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-                <!-- <view class='h6'>收藏</view> -->
+                 <view class='h6 txt-gray'>收藏</view> 
               </view>
 
               <view class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' wx:if="{{isfav=='Y'}}" bindtap='fav' id='N'>
                 <image class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}'></image>
-                <!-- <view class='h6'>已收藏</view> -->
+                <view class='h6 txt-gray'>已收藏</view> 
               </view>
 
 
@@ -115,13 +115,14 @@
           </view>
           <view class='flex-row flex-center  padding-left-30  '>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
-            <view class='flex-1 h5 margin-left-10 txt-blue dizhi' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
+            <view class='h5 margin-left-10 txt-blue dizhi' style="width:500rpx" bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
+            <view class="flex-1"></view>
             <view class='h6 txt-black margin-right-40 txt-bold ' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</view>
           </view>
           <view class="height-40"></view>
 
 
-          <view wx:if="{{pintuanrenshu>0}}"  class='height-20 bg-gray'></view>
+          <view wx:if="{{pintuanrenshu==0}}"  class='height-20 bg-gray'></view>
           <view wx:if="{{pintuanrenshu>0}}" class="padding-20 flex-row flex-center">
 
             <view class="flex-1 h5" style='color:#222222'>{{pintuanrenshu}}人正在拼班，可直接参与</view>
@@ -259,7 +260,7 @@
     <view wx:if="{{pingjialist.length>0}}" class='height-20 bg-gray'></view>
 
 
-
+  <view wx:if="{{pingjialist.length==0&&pintuanrenshu==undefined}}" class='height-20 bg-gray'></view>
 
     <view class='flex-row bg-white {{sco==1?"top":""}}' style=''>
       <view class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</view>

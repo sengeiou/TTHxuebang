@@ -37,7 +37,8 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({
       show: "kcxq",
-      shulian: 0
+      shulian: 0,
+      daojishilistdd:[]
     })
     this.daojishi();
   }
@@ -54,6 +55,7 @@ class Content extends AppBase {
      
       console.log(52);
       var sjlist = [];
+     
       for (var i = 0; i < list.length; i++) {
         var listtt = [];
         var danqiandate = new Date();
@@ -298,15 +300,21 @@ class Content extends AppBase {
 
 
     if (status == "Y") {
-      this.Base.setMyData({
-        tishi: 1
-      });
+      // this.Base.setMyData({
+      //   tishi: 1
+      // });
+      wx.showToast({
+        title: '收藏成功',
+      })
     }
-    // if (status == "N") {
-    //   this.Base.setMyData({
-    //     tishi: 2
-    //   });
-    // }
+     if (status == "N") {
+    //    this.Base.setMyData({
+    //      tishi: 2
+    // });
+       wx.showToast({
+         title: '取消收藏',
+       })
+    }
 
 
 
