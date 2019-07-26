@@ -60,11 +60,11 @@
     </view>
 
   </view>
-
-  <view class='pinlun h5 txt-black'>
+<view class="pinlun">
+  <text class=' h5 txt-black'>
     {{item.content}}
-  </view>
-
+  </text>
+</view>
   <view class='img flex-row flex-center flex-wrap'>
 
     <image wx:if='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}'></image>
