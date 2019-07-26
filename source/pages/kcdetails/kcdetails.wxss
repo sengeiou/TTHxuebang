@@ -141,12 +141,12 @@ height: 28rpx;
   width: 100vw;
 }
 
-.to_top {
+/* .to_top {
   position: fixed;
   top: 60%;
   right: 0;
   z-index: 100;
-}
+} */
 .to_top1 {
   position: fixed;
   top: 80%;
