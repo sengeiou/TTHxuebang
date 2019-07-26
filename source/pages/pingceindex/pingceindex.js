@@ -353,15 +353,15 @@ class Content extends AppBase {
     var pingceapi = new PingceApi();
     var mypingcelist = this.Base.getMyData().mypingcelist;
 
-    if (mypingcelist.length == 0) {
-      console.log("电风扇");
-    } else {
+    // if (mypingcelist.length == 0) {
+    //   console.log("电风扇");
+    // } else {
 
      var a=  mypingcelist.filter((item,idx)=>{
        return item.pingce_id == pcid & item.member_id==id
       })
       
-   console.log(a[0].id,"六六六");
+   //console.log(a[0].id,"六六六");
    //return
 
       if (a.length > 0) {
@@ -392,7 +392,7 @@ class Content extends AppBase {
       }
 
 
-    }
+    // }
 
  
 

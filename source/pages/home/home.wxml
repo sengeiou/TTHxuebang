@@ -27,6 +27,7 @@
       </view>
     </view>
 
+
     <view class=' flex-row margin-top-20'>
 
       <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
@@ -37,6 +38,9 @@
       </navigator>
 
     </view>
+
+
+
   </view>
 </view>
 
