@@ -26,7 +26,7 @@
       </view>
 
       <view class='flex-row flex-center margin-top-5'>
-        <view class='flex-1 txt-gray h5'>{{courseinfo.type_typename}}</view>
+        <view class='flex-1 txt-gray h5'>{{courseinfo.JG_jigou}}</view>
       </view>
 
       <view class='flex-row flex-center flex-1 ' style=''>
