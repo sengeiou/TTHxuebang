@@ -146,10 +146,20 @@ class Content extends AppBase {
     }
   }
   again() {
- 
-    wx.navigateBack({
-       delta:1    
-    })
+     
+     if(this.Base.options.pd==1){
+
+       console.log(this.Base.options.id);
+       //return;
+      wx.navigateTo({
+        url: '/pages/pingceindex/pingceindex?id=' + this.Base.options.id,
+      })
+     }else{
+       wx.navigateBack({
+         delta: 1
+       })
+     }
+    
      
     console.log(555555);
   }

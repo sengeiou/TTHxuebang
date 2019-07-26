@@ -25,19 +25,20 @@
   margin-top: -90rpx;
   box-shadow: 1px 1px 5px #888;
 } */
+
 .mid {
   /* position: absolute;
   width: 91vw;
   z-index: 100;
   left: 2.5vw;
   top: 33%; */
-position:relative;
-z-index: 10;
+  position: relative;
+  z-index: 10;
   width: 91vw;
-  height: 350rpx;
+  height: 330rpx;
   margin-top: -30rpx;
-  
 }
+ 
 .mid2 {
   position: absolute;
   width: 91vw;
@@ -90,9 +91,8 @@ z-index: 10;
 .kecheng-img {
   height: 330rpx;
   width: 100%;
-  border-radius:8rpx;
-  /* border: 1rpx solid black; */
-  /* background: rgba(216, 216, 216, 1); */
+  border-radius: 8rpx;
+  /* border: 1rpx solid black; *//* background: rgba(216, 216, 216, 1); */
 }
 
 .kecheng-block {
@@ -106,7 +106,7 @@ z-index: 10;
 
 .padding-12 {
   padding: 12rpx;
-  padding-bottom:5rpx;
+  padding-bottom: 5rpx;
 }
 
 .f-16 {
@@ -121,18 +121,22 @@ z-index: 10;
   width: 16rpx;
   height: 16rpx;
 }
+
 .icon-20 {
   width: 40rpx;
   height: 40rpx;
 }
+
 .icon-17 {
   width: 44rpx;
   height: 40rpx;
 }
-.icon_jianjie{
-  width:40rpx;
-height:40rpx;
+
+.icon_jianjie {
+  width: 40rpx;
+  height: 40rpx;
 }
+
 .margin-left-6 {
   margin-left: 6rpx;
 }
@@ -144,37 +148,45 @@ height:40rpx;
 .margin-left-10 {
   margin-left: 10rpx;
 }
+
 .margin-right-10 {
   margin-right: 10rpx;
 }
+
 .margin-top-8 {
   margin-top: 8rpx;
 }
-.padding-T-B-28{
+
+.padding-T-B-28 {
   padding-top: 28rpx;
   padding-bottom: 28rpx;
 }
-.margin-left-28{
-  margin-left:28rpx; 
+
+.margin-left-28 {
+  margin-left: 28rpx;
 }
+
 .margin-top-12 {
   margin-top: 12rpx;
 }
+
 .f20 {
   font-size: 20rpx;
 }
 
-.dd{
-  margin:15rpx;
-  margin-top:5rpx;
+.dd {
+  margin: 15rpx;
+  margin-top: 5rpx;
 }
+
 .txt-red {
   color: #ff5252;
 }
-.xhx{
-text-decoration: line-through
 
+.xhx {
+  text-decoration: line-through;
 }
+
 .xg {
   padding-right: 15rpx;
 }
@@ -252,27 +264,30 @@ text-decoration: line-through
   margin-right: 20rpx;
   margin-top: 20rpx;
 }
-.height-210{
- height:220rpx;
-  
+
+.height-210 {
+  height: 220rpx;
 }
-.height-100{
-  min-height:220rpx;
-  
+
+.height-100 {
+  min-height: 220rpx;
 }
+
 .icon-10 {
   height: 20rpx;
   width: 20rpx;
 }
+
 .icon-13 {
   height: 26rpx;
   width: 26rpx;
 }
 
-.icon-rz{
-  width:104rpx;
-height:32rpx;
+.icon-rz {
+  width: 104rpx;
+  height: 32rpx;
 }
+
 .next {
   width: 600rpx;
   height: 84rpx;
@@ -280,6 +295,7 @@ height:32rpx;
   background: rgba(255, 102, 0, 1);
   border-radius: 42rpx;
 }
+
 .next2 {
   width: 600rpx;
   height: 84rpx;
@@ -294,7 +310,8 @@ height:32rpx;
   width: 94vw;
   bottom: 52rpx;
 }
-.head{
+
+.head {
   position: absolute;
   background: white;
   width: 94vw;
@@ -303,7 +320,7 @@ height:32rpx;
 
 .left {
   background: white;
-   width: 41.3%; 
+  width: 41.3%;
   height: 96rpx;
 }
 
@@ -312,34 +329,39 @@ height:32rpx;
   height: 96rpx;
   line-height: 96rpx;
 }
+
 .buybtn {
   width: 220rpx;
   height: 96rpx;
   line-height: 96rpx;
-   
 }
-.onlybuy{
- width: 58.7%; 
+
+.onlybuy {
+  width: 58.7%;
   height: 96rpx;
   line-height: 96rpx;
 }
+
 .pingtuanbtn {
   width: 220rpx;
   height: 96rpx;
   line-height: 96rpx;
-  
 }
-.bg-cheng{
-background: #FF6600;
+
+.bg-cheng {
+  background: #f60;
 }
-.bg-hong{
-  background: #FF4444;
+
+.bg-hong {
+  background: #f44;
 }
-.null_bgcheng{
-  background: #FFA86E;
+
+.null_bgcheng {
+  background: #ffa86e;
 }
-.null_bghong{
-  background: #FFA2A4;
+
+.null_bghong {
+  background: #ffa2a4;
 }
 
 .buy-block {
@@ -349,16 +371,14 @@ background: #FF6600;
   width: 100vw;
 }
 
-.di{
-position: fixed;
-
-z-index: 8;
-bottom: 0;
-top: 0;
-width: 100vw;
-overflow: hidden
+.di {
+  position: fixed;
+  z-index: 8;
+  bottom: 0;
+  top: 0;
+  width: 100vw;
+  overflow: hidden;
 }
-
 
 .huang_block {
   width: 100vw;
@@ -366,19 +386,23 @@ overflow: hidden
   /* line-height: 76rpx; */
   background: rgba(255, 250, 207, 1);
 }
-.txt_orange{
-  color: #FF976A
+
+.txt_orange {
+  color: #ff976a;
 }
-.txt_lan{
-  color: #2A82E4
+
+.txt_lan {
+  color: #2a82e4;
 }
-.margin-left-52{
+
+.margin-left-52 {
   margin-left: 52rpx;
 }
-.more{
-  width:300rpx;
-height:84rpx;
-line-height: 84rpx;
-background:rgba(255,194,0,1);
-border-radius:42rpx;
+
+.more {
+  width: 300rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  background: rgba(255, 194, 0, 1);
+  border-radius: 42rpx;
 }

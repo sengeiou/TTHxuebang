@@ -80,9 +80,8 @@ class Content extends AppBase {
       })
     } else {
       wx.navigateTo({
-        url: '/pages/pingcejieguo/pingcejieguo?id=' + id + '&typeA=' + tA + '&typeB=' + tB + '&typeC=' + tC + '&typeD=' + tD
+        url: '/pages/pingcejieguo/pingcejieguo?id=' + id   +'&pd=1'+ '&typeA=' + tA + '&typeB=' + tB + '&typeC=' + tC + '&typeD=' + tD
       })
-      
       
       console.log("有");
     }
