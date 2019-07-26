@@ -16,7 +16,7 @@
   top:30%;
 } */
 
-.mid {
+/* .mid {
   position: absolute;
   width: 91vw;
   z-index: 100;
@@ -24,8 +24,20 @@
   top: 33%;
   margin-top: -90rpx;
   box-shadow: 1px 1px 5px #888;
+} */
+.mid {
+  /* position: absolute;
+  width: 91vw;
+  z-index: 100;
+  left: 2.5vw;
+  top: 33%; */
+position:relative;
+z-index: 10;
+  width: 91vw;
+  height: 350rpx;
+  margin-top: -30rpx;
+  
 }
-
 .mid2 {
   position: absolute;
   width: 91vw;

@@ -684,12 +684,12 @@ button[disabled][type=primary] {
 }
 
 .icon-50 {
-  width: 120rpx;
-  height: 120rpx;
-}
-.icon-55{
   width: 130rpx;
   height: 130rpx;
+}
+.icon-55{
+  width: 140rpx;
+  height: 140rpx;
 }
 .icon-60 {
   width: 120rpx;
