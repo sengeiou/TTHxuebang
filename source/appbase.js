@@ -213,12 +213,12 @@ export class AppBase {
         return;
       }
 
-      if (this.Base.inmaintain == false && instinfo.instswitch == '否') {
-        wx.reLaunch({
-          url: '/pages/maintain/maintain',
-        })
-        return;
-      }
+      // if (this.Base.inmaintain == false && instinfo.instswitch == '否') {
+      //   wx.reLaunch({
+      //     url: '/pages/maintain/maintain',
+      //   })
+      //   return;
+      // }
       AppBase.InstInfo = instinfo;
       this.Base.setMyData({
         instinfo: instinfo

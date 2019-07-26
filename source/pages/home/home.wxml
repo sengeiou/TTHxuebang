@@ -76,6 +76,7 @@
 </view>
 
 
+
 <view class='flex-row flex-center margin-10 padding-top-10 '>
 
   <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
@@ -89,13 +90,16 @@
 
     <view class='height-5'></view>
 
+
     <view class='text-center' bindtap='totake' data-name='kc'>
       <image src='{{uploadpath}}resource/{{res.home_1}}' class='img2 radius-10' style=''></image>
     </view>
 
-  </view>
+  </view>   
 
 </view>
+
+
 
 <view class='margin-20'>
   <view class='flex-row flex-center '>
