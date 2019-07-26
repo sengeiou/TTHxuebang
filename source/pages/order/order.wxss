@@ -51,7 +51,7 @@ color:white;
 background: #50B674;
 padding: 10rpx 20rpx 10rpx 20rpx;
 border-radius: 10rpx;
-
+text-align: center;
 }
 .saoma{
  padding: 10rpx;
@@ -112,7 +112,7 @@ margin-top-10 {
 
 .nr {
   padding-top: 60rpx;
-  padding-bottom: 60rpx;
+ padding-bottom:40rpx;
 }
 
 .bor_bot {

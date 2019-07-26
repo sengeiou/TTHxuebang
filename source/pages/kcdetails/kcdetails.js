@@ -255,16 +255,26 @@ class Content extends AppBase {
   }
 
   bindtopurchase(e) {
+     
+    var price = this.Base.getMyData().courseinfo.price;
+      
+      if(price<=0)
+      {
+        this.Base.setMyData({
+          tanchuang: true,
+          ppp: 0,
+          pppp: 1,
+        })
+      }
+      else{
 
     this.Base.setMyData({
       tanchuang: true,
       ppp: 0,
       pppp:0,
     })
-    return
-    wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + this.Base.options.id
-    })
+      }
+  
   }
 
   opengroup() {

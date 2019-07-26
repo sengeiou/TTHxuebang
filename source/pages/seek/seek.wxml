@@ -296,7 +296,10 @@
         <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
         <view class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</view>
         <view class=' txt-red h6 padding-top-10'>￥</view>
-        <view class=' txt-red txt-bold'>{{item.price}}</view>
+        <view  wx:if="{{item.price>0}}" class=' txt-red txt-bold'>{{item.price}}</view>
+         
+          <view  wx:if="{{item.price<=0}}" class=' txt-red txt-bold'>{{item.expeprice}}</view>
+
       </view>
 
       <view class='flex-row flex-center'>

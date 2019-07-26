@@ -31,7 +31,7 @@ page {
 .to_top {
   position: fixed;
   bottom: 18%;
-  right: 4rpx;
+  right: 8rpx;
   z-index: 100;
 }
 .clear-button::after {
@@ -491,6 +491,10 @@ button[disabled][type=primary] {
 .margin-top-20 {
   margin-top: 20rpx;
 }
+.margin-top-15 {
+  margin-top: 15rpx;
+}
+
 
 .margin-top-30 {
   margin-top: 30rpx;
