@@ -1,3 +1,4 @@
+<back-component></back-component>
 <view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqinhaibaobai}});background-size: 100vw 100vh;">
   <view class="flex-row tx flex-center">
     <view class="flex-1"></view>

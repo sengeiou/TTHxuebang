@@ -25,15 +25,15 @@
     <image class='icon radius-10' src='{{uploadpath}}onlineclassroom/{{kecheninfo.onlineclassroom_img}}'></image>
 
     <view class='flex-1 flex-row column margin-left-20'>
-
+ 
       <view class='flex-row flex-center'>
-        <view class='flex-1 h5 txt-black'>{{kecheninfo.onlineclassroom_name}}</view>
+        <view class='flex-1 h5 txt-black txt-bold'>{{kecheninfo.onlineclassroom_name}}</view>
 
       </view>
 
-      <view class='flex-row flex-center margin-top-5'>
+      <!-- <view class='flex-row flex-center margin-top-5'>
         <view class='flex-1 txt-gray chaochu2 h6'>{{kecheninfo.onlineclassroom_class_introduce}}</view>
-      </view>
+      </view> -->
 
       <view class='flex-row flex-center flex-1 ' style=''>
 
@@ -47,7 +47,7 @@
 
         <view class='flex-row flex-center '>
           <image src='{{uploadpath}}resource/{{res.	zhanjie}}' class='icon-10'></image>
-          <view class='h6 txt-black margin-left-5'>共{{kecheninfo.onlineclassroom_chapter_num}}章</view>
+          <view class='h6 txt-black margin-left-5'>全集{{kecheninfo.onlineclassroom_chapter_num}}集</view>
         </view>
 
 

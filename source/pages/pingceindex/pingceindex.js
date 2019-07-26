@@ -41,9 +41,24 @@ class Content extends AppBase {
       console.log(a, "刚刚")
 
       if (a.length > 0) {
-        wx.navigateTo({
-          url: '/pages/pingcejieguo/pingcejieguo?id=' + this.Base.options.id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
-        })
+        var that=this;
+        wx.showModal({
+          title: '跳转',
+          content: '您已答题，将跳转至结果页',
+          showCancel: false,
+          cancelText: '取消',
+          cancelColor: '#EE2222',
+          confirmText: '确定',
+          confirmColor: '#2699EC',
+          success: function (res) {
+            if (res.confirm) {
+              wx.navigateTo({
+                url: '/pages/pingcejieguo/pingcejieguo?id=' + that.Base.options.id + '&typeA=' + a[0].typeA + '&typeB=' + a[0].typeB + '&typeC=' + a[0].typeC + '&typeD=' + a[0].typeD
+              })
+            }
+          }
+        });
+ 
       }
       // else {
       //   wx.navigateTo({

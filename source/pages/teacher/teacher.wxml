@@ -1,4 +1,8 @@
 <!--pages/teacher/teacher.wxml-->
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
+
 <view class='bg-white margin-bottom-20 qqq' style='' wx:for='{{vteach}}' wx:key='k' wx:if='{{teachlist.length>0&&item.id!=null}}'>
 
   <block wx:if="{{item.play=='Y'}}">

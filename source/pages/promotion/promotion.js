@@ -12,6 +12,10 @@ import {
 import {
   MemberApi
 } from "../../apis/member.api.js";
+
+import {
+  AliyunApi
+} from "../../apis/aliyun.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -25,7 +29,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({ name: "", photo: "", yanzhenma: "", dizhi: "" })
+    this.Base.setMyData({ name: "", photo: "", yanzhenma: "", dizhi: "", shijian: 0 })
   }
   ycmobile(str) {
     return str.substr(0, 3) + "****" + str.substr(7);
@@ -49,9 +53,9 @@ class Content extends AppBase {
 
     api.fenxiaoinfo({}, (res) => {
       console.log(res);
-     
+
       console.log(res.length);
-      this.Base.setMyData({ tuiguaninfo: res})
+      this.Base.setMyData({ tuiguaninfo: res })
       if (res.length == 0) {
         this.Base.setMyData({ showModal: true, });
       }
@@ -63,7 +67,7 @@ class Content extends AppBase {
     var shijian = this.Base.getMyData().instinfo.xiajishijian;
     memberapi.chakanxiaji({}, (xiaji) => {
       for (var i = 0; i < xiaji.length; i++) {
-        
+
         leijikehu.push(xiaji[i]);
       }
       console.log("数据");
@@ -95,6 +99,7 @@ class Content extends AppBase {
     this.Base.setMyData({ dizhi: e.detail.value })
   }
   queren() {
+    var that = this;
     var api = new JigouApi();
     var name = this.Base.getMyData().name;
     var photo = this.Base.getMyData().photo;
@@ -119,16 +124,30 @@ class Content extends AppBase {
       this.Base.info("请输入地址");
       return
     }
-    api.fenxiaoshenhe({ reainame: name, mobile: photo, dizhi: dizhi }, (res) => {
+    var aliyun = new AliyunApi();
+    aliyun.verifycode({ mobile: photo, type: 'tixian', verifycode: yanzhenma }, (res) => {
+      if (res.code == 0) {
+        api.fenxiaoshenhe({ reainame: name, mobile: photo, dizhi: dizhi }, (res) => {
 
-      if (res.code == '0') {
-        this.Base.setMyData({ showModal: false });
-        wx.navigateTo({
-          url: '/pages/review/review',
+          if (res.code == '0') {
+            that.Base.setMyData({ showModal: false });
+            wx.navigateTo({
+              url: '/pages/review/review',
+            })
+          }
+
         })
+
+      }
+      else {
+
+        this.Base.info("验证码错误");
+        return
+
       }
 
     })
+    return
 
 
   }
@@ -140,7 +159,7 @@ class Content extends AppBase {
 
   }
   mykehu() {
-    if (this.Base.getMyData().leijikehu.length==0) {
+    if (this.Base.getMyData().leijikehu.length == 0) {
       this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
       return
     }
@@ -166,13 +185,12 @@ class Content extends AppBase {
   }
   yaoqin() {
     var api = new HaibaoApi;
-      
-    if (this.Base.getMyData().tuiguaninfo[0].status != 'S')
-    {
-        this.Base.info("您现在还不是推广员");
-     return
+
+    if (this.Base.getMyData().tuiguaninfo[0].status != 'S') {
+      this.Base.info("您现在还不是推广员");
+      return
     }
-     
+
     api.haibao({}, (res) => {
       console.log(res);
       if (res.code == 0) {
@@ -200,6 +218,44 @@ class Content extends AppBase {
     return dindan;
 
   }
+  fason() {
+
+    var shouji = this.Base.getMyData().photo;
+
+    if (shouji.length != 11 || shouji[0] != 1) {
+      this.Base.info("手机号格式错误");
+      return
+    }
+
+    var that = this;
+
+    var api = new AliyunApi();
+
+    api.sendverifycode({ mobile: shouji, type: 'tixian' }, (res) => {
+      if (res.code == 0) {
+        var shu = 60;
+          var aaaa = setInterval(() => {
+          shu--
+          this.Base.setMyData({
+
+            shijian: shu
+          })
+          if (shu == 0) {
+            clearInterval(aaaa);
+          }
+        }, 1000)
+
+      }
+      else {
+        console.log(res);
+        console.log("发送失败");
+
+      }
+    })
+  }
+
+
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -220,4 +276,5 @@ body.myinvite = content.myinvite;
 body.tuiguandindan = content.tuiguandindan;
 body.yaoqin = content.yaoqin;
 body.jisuanchaoshi = content.jisuanchaoshi;
+body.fason = content.fason;
 Page(body)

@@ -44,7 +44,7 @@ class Content extends AppBase {
           courseinfo.price = courseinfo.isgroup;
         }
         else {
-          courseinfo.price = courseinfo.isgroup_tiyan;
+          courseinfo.price = courseinfo.isgroup_tiyan ;
         }
 
         this.Base.setMyData({

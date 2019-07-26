@@ -1,3 +1,4 @@
+<back-component></back-component>
 <view class="padding-20 flex-row flex-center">
   <image src='{{pintuaninfo.t_member_avatarUrl}}' class='radius-50 icon-40'></image>
   <view class="tz h7">

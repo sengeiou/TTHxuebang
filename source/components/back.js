@@ -20,7 +20,7 @@ Component({
     // 这里是一些组件内部数据
     
       uploadpath: ApiConfig.GetUploadPath(),
-    fanhui: "dac0aaadca3af190f785b274dd20dca5_19070213051_1588711162.png"
+    fanhui: "8890408b1678bf5452eb072c07bef0d0_19072617039_174084842.png"
   
   },
 

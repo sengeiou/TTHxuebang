@@ -1,4 +1,8 @@
 <!--pages/jifenorder/jifenorder.wxml-->
+<back-component></back-component>
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <view class=' flex-row flex-center  bg-white bor_bot top'>
 
   <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>
@@ -75,7 +79,7 @@
       </view>
 
 
-      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}'  bindtap='wuliu' id="{{item.id}}" class="lianxi text-center   txt-6" style="">物流详情</view>
+      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}'  bindtap='wuliu' id="{{item.id}}" class="lianxi text-center   txt-6" style="margin-right:20rpx">物流详情</view>
       <view wx:if='{{item.orderstatus=="B"}}' bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
 
 

@@ -608,6 +608,7 @@
 
                                             <view class='height-70' style=''></view>
 
+
                                             <view class=' to_top' hidden='{{!floorstatus}}'>
                                               <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
                                             </view>

@@ -1,6 +1,6 @@
 <!--pages/xuanzedizhi/xuanzedizhi.wxml-->
 
-
+<back-component></back-component>
 
 
 <view class="{{addresslist.length==0?'page':''}}">

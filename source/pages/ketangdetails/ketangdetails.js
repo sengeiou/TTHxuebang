@@ -173,12 +173,12 @@ class Content extends AppBase {
         isfav: status
       });
     });
-
-    setTimeout(() => {
+    clearTimeout(this.aaa);
+    this.aaa= setTimeout(() => {
       this.Base.setMyData({
         tishi: 0
       })
-     //  clearTimeout(timeoutId);
+      
     }, 3000);
 
 
@@ -186,7 +186,7 @@ class Content extends AppBase {
 
   }
   shipin = null;
-
+  aaa=null;
 
   jindu(e) {
 
@@ -349,10 +349,18 @@ class Content extends AppBase {
         console.log(123132132);
         ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) - 1;
         ketanpinlunlist[idx].isfav = 'N';
+        wx.showToast({
+          title: '取消点赞',
+          icon: 'none'
+        })
       } else {
         console.log(45645646);
         ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) + 1;
         ketanpinlunlist[idx].isfav = 'Y';
+        wx.showToast({
+          title: '点赞成功',
+          icon: 'none'
+        })
 
       }
       this.Base.setMyData({

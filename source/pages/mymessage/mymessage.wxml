@@ -1,8 +1,18 @@
+<back-component></back-component>
+
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
+
 <view class="page">
+<view wx:if='{{xiaoxilist.length==0}}' class="flex-row flex-column">
+    <view style="height:200rpx;"></view>
+    <image src="{{uploadpath}}resource/{{res.xiaoxiweikon}}" class="icon-170 "></image>
+
+  </view>
 
 
-
-  <view wx:for="{{xiaoxilist}}" wx:key="k" data-id='{{item.id}}' bindtap="xianqin" class="page__bd padding-20">
+  <view wx:for="{{xiaoxilist}}" wx:key="k"  data-idd="{{item.order_id}}" data-id='{{item.id}}' bindtap="xianqin" class="page__bd padding-20">
 
 
 

@@ -60,7 +60,7 @@ class Content extends AppBase {
   kechenxianqin(e) {
     console.log(e);
     wx.navigateTo({
-      url: '/pages/ketaninfo/ketaninfo?id=' + e.currentTarget.dataset.id,
+      url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
     })
 
   }

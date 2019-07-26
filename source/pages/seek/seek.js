@@ -137,9 +137,11 @@ class Content extends AppBase {
     jigouapi.activedistrictlist({
       city_id: AppBase.CITYID
     }, (filterdistrict) => {
+
       this.Base.setMyData({
         filterdistrict
       });
+
       if (this.Base.options.type == 'jg') {
         console.log(this.Base.getMyData());
 		    var address=this.Base.getMyData().address;

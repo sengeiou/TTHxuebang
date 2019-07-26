@@ -16,7 +16,7 @@
   top:30%;
 } */
 
-.mid {
+/* .mid {
   position: absolute;
   width: 91vw;
   z-index: 100;
@@ -24,8 +24,20 @@
   top: 33%;
   margin-top: -90rpx;
   box-shadow: 1px 1px 5px #888;
+} */
+.mid {
+  /* position: absolute;
+  width: 91vw;
+  z-index: 100;
+  left: 2.5vw;
+  top: 33%; */
+position:relative;
+z-index: 10;
+  width: 91vw;
+  height: 350rpx;
+  margin-top: -30rpx;
+  
 }
-
 .mid2 {
   position: absolute;
   width: 91vw;
@@ -241,7 +253,11 @@ text-decoration: line-through
   margin-top: 20rpx;
 }
 .height-210{
-  height:220rpx;
+ height:220rpx;
+  
+}
+.height-100{
+  min-height:220rpx;
   
 }
 .icon-10 {
@@ -274,22 +290,38 @@ height:32rpx;
 
 .under {
   position: absolute;
-  
+  background: white;
   width: 94vw;
   bottom: 52rpx;
+}
+.head{
+  position: absolute;
+  background: white;
+  width: 94vw;
+  top: 35%;
+}
+
+.left {
+  background: white;
+   width: 41.3%; 
+  height: 96rpx;
 }
 
 .right {
   width: 440rpx;
   height: 96rpx;
   line-height: 96rpx;
-  
 }
 .buybtn {
   width: 220rpx;
   height: 96rpx;
   line-height: 96rpx;
    
+}
+.onlybuy{
+ width: 58.7%; 
+  height: 96rpx;
+  line-height: 96rpx;
 }
 .pingtuanbtn {
   width: 220rpx;
@@ -317,11 +349,16 @@ background: #FF6600;
   width: 100vw;
 }
 
-.left {
-  background: white;
-  width: 310rpx;
-  height: 96rpx;
+.di{
+position: fixed;
+
+z-index: 8;
+bottom: 0;
+top: 0;
+width: 100vw;
+overflow: hidden
 }
+
 
 .huang_block {
   width: 100vw;

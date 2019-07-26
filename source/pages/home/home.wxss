@@ -78,12 +78,7 @@ Page {
   white-space: nowrap;
 }
 
-.to_top {
-  position: fixed;
-  top: 60%;
-  right: 0;
-  z-index: 100;
-}
+
 
 .midt {
   position: absolute;

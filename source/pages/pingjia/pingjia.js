@@ -33,6 +33,13 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
+     
+      var api=new JigouApi();
+ 
+    api.courseinfo({id:this.Base.options.id},(kcinfo)=>{
+
+      this.Base.setMyData({ kcinfo})
+    })
 
 
 

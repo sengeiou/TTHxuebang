@@ -1,10 +1,9 @@
 .backhome {
   position: fixed;
-  top: 80%;
-  right: 4%;
+  bottom: 10%;
+  right: 6rpx ;
   z-index: 100;
 }
 .icon-50 {
-  width: 100rpx;
-  height: 100rpx;
-}
+  width: 132rpx;
+  height: 132rpx;}

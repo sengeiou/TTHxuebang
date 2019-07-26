@@ -1,5 +1,7 @@
 <!--pages/order/order.wxml-->
-<view class="flex-row flex-center bg_top">
+<back-component></back-component>
+<view class="bg_top">
+<view class="flex-row flex-center ">
 
   <view class="flex-1"></view>
 
@@ -7,16 +9,37 @@
 
     <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
     <view class=' margin-left-20'>
-      <view class="txt-bold">购买成功,获得80积分</view>
+      <view class="txt-bold">购买成功,获得{{info.jifen}}积分</view>
       <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
     </view>
   </view>
-
+  
   <view class="flex-1"></view>
 
 </view>
+<view wx:if="{{info.pstatus!='W'}}" style="padding-bottom:60rpx" class='flex-row flex-center'>
+  <view class='flex-1'></view>
 
+  <view class='flex-row flex-center btn ' bindtap='tohome'>
+    <view class='flex-1'></view>
+    <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
+    <view class='txt-white h5 margin-left-18'>返回首页</view>
+    <view class='flex-1'></view>
+  </view>
 
+  <view style='width:24rpx'></view>
+
+  <view bindtap="pinjiagenduo" class='flex-row flex-center btn '>
+    <view class='flex-1'></view>
+    <image src='{{uploadpath}}resource/{{res.pinjiagenduo}}' class='icon-34'></image>
+    <view class='txt-white h5 margin-left-18'>评价更多订单</view>
+    <view class='flex-1'></view>
+  </view>
+
+  <view class='flex-1'></view>
+
+</view>
+</view>
 <view class='flex-row flex-column ' style='background-color:#FFFFFF' wx:if="{{info.pstatus=='W'}}">
   <view class='height-60'></view>
 
@@ -24,7 +47,7 @@
 
   <view class='flex-row flex-center margin-top-10'>
     <image src='{{uploadpath}}resource/{{res.heishijian}}' class='icon'></image>
-    <view style='' class='  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
+    <view style='' class='h6  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
   </view>
   <view class="flex-row flex-center margin-top-20">
 
@@ -64,7 +87,7 @@
 
       <!-- <view class='height-66 '></view> -->
       <view class=" padding-top-10 flex-row flex-center " style="width:100%;">
-        <view   bindtap="kefu" class="padding-left-20">
+        <view bindtap="kefu" class="padding-left-20">
           <image src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban'></image>
         </view>
         <view class="padding-left-20" style="height:68rpx;">
@@ -296,28 +319,7 @@
   <view class='txt-red text-center margin-left-20 h6 fbtn ' bindtap='bindpay' style='border:1px solid #FF5252; '>付款</view>
 </view> -->
 
-<view wx:if="{{info.pstatus!='W'}}" class='flex-row flex-center'>
-  <view class='flex-1'></view>
 
-  <view class='flex-row flex-center btn ' bindtap='tohome'>
-    <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>返回首页</view>
-    <view class='flex-1'></view>
-  </view>
-
-  <view style='width:24rpx'></view>
-
-  <view bindtap="pinjiagenduo" class='flex-row flex-center btn '>
-    <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.pinjiagenduo}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>评价更多订单</view>
-    <view class='flex-1'></view>
-  </view>
-
-  <view class='flex-1'></view>
-
-</view>
 
 <view wx:if="{{info.pstatus!='W'}}" class='height-50 '></view>
 <view wx:if="{{info.pstatus=='W'}}" class='height-100 '></view>
@@ -340,7 +342,7 @@
     <view class="flex-row flex-center margin-top">
       <view class="flex-1"></view>
       <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{instinfo.kefuerweima}}" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
-      <image wx:if="{{type=='hexiao'}}"  bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
+      <image wx:if="{{type=='hexiao'}}" bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
       <view class="flex-1"></view>
     </view>
 
@@ -355,8 +357,8 @@
 
 
 <view class="baocunhexiao  flex-row flex-center" wx:if="{{erweima}}" data-id="erweima" bindtap="xiazai">
-<view class="flex-1"></view>
+  <view class="flex-1"></view>
   <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
   <view class="zi margin-left-10">保存{{type=='hexiao'?'核销码':'二维码'}}</view>
-<view class="flex-1"></view>
+  <view class="flex-1"></view>
 </view>

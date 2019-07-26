@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    options.id=11;
+   // options.id=11;
     super.onLoad(options);
     this.Base.setMyData({
       check: true

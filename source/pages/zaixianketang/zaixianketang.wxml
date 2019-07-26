@@ -1,6 +1,8 @@
 <!--pages/zaixianketang/zaixianketang.wxml-->
 <back-component></back-component>
-
+<view class=' to_top' >
+ <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
 <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:100vw;height:350rpx;'>
   <swiper-item wx:for="{{lunbolist}}" wx:key="k">
     <view>
@@ -87,7 +89,7 @@
 
   </view>
 </view>
-<view class='text-center f18 txt-bold '>
+<view class='text-center f18 txt-bold  {{xz==-2?"":"margin-top"}} '>
 
 
   {{name}}
@@ -98,94 +100,7 @@
 
 
 
-
-
-  <view bindtap='kechenxianqin' data-id='{{item.id}}' wx:if="{{xz==-2}}" class='kecheng-block ' wx:for='{{remenkechen}}' wx:key='k'>
-
-    <view style=''>
-      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-    </view>
-
-    <view class='padding-12'>
-      <view class=' txt-bold chaochu'>{{item.name}}</view>
-      <view class='flex-row flex-center margin-top-14'>
-        <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-        </view>
-
-        <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
-        </view>
-      </view>
-
-
-
-    </view>
-
-    <view wx:if="{{item.isfree_value!='Y'&&item.idd=='N'}}" class='margin-left-10 dd flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-      <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
-      <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
-      <view class=' txt-red xg' style=''>{{item.price}}</view>
-    </view>
-
-    <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="mianfei">免费课程</view>
-    </view>
-
-    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="yigou">已购</view>
-    </view>
-
-  </view>
-
-
-
-
-
-
-
-
-
-  <view bindtap='kechenxianqin' data-id='{{item.id}}' wx:if="{{xz==-1}}" class='kecheng-block ' wx:for='{{mianfeikechen}}' wx:key='k'>
-
-    <view style=''>
-      <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-    </view>
-
-    <view class='padding-12'>
-      <view class=' txt-bold chaochu'>{{item.name}}</view>
-
-
-
-      <view class='flex-row flex-center margin-top-14'>
-        <view class='flex-row flex-center'>
-          <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-        </view>
-
-        <view class='flex-row flex-center margin-left-26'>
-          <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-          <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
-        </view>
-      </view>
-
-
-
-    </view>
-    <view wx:if="{{item.isfree_value=='Y'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="mianfei">免费课程</view>
-    </view>
-  </view>
-
-
-
-  <view bindtap='kechenxianqin' data-id='{{item.id}}' wx:if="{{xz>0}}" class='kecheng-block ' wx:for='{{xzlist}}' wx:key='k'>
+  <view bindtap='kechenxianqin' data-id='{{item.id}}'  class='kecheng-block ' wx:for='{{xzlist}}' wx:key='k'>
 
     <view style=''>
       <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>

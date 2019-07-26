@@ -28,7 +28,12 @@ page {
   border: 0rpx red solid;
   border-color: red;
 }
-
+.to_top {
+  position: fixed;
+  bottom: 18%;
+  right: 8rpx;
+  z-index: 100;
+}
 .clear-button::after {
   border: 0;
   background-color: transparent;
@@ -486,6 +491,10 @@ button[disabled][type=primary] {
 .margin-top-20 {
   margin-top: 20rpx;
 }
+.margin-top-15 {
+  margin-top: 15rpx;
+}
+
 
 .margin-top-30 {
   margin-top: 30rpx;
@@ -679,10 +688,13 @@ button[disabled][type=primary] {
 }
 
 .icon-50 {
-  width: 100rpx;
-  height: 100rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
-
+.icon-55{
+  width: 130rpx;
+  height: 130rpx;
+}
 .icon-60 {
   width: 120rpx;
   height: 120rpx;

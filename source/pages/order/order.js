@@ -75,6 +75,7 @@ class Content extends AppBase {
     purchaseapi.purchaseinfo({
       id: this.Base.options.id
     }, (info) => {
+      info.jifen= parseInt(info.amount*0.1)
       this.Base.setMyData({
         info
       });
@@ -151,12 +152,18 @@ class Content extends AppBase {
           var batchapi = new BatchApi();
           batchapi.closeorder({ id: id }, (colseorder) => {
             that.Base.setMyData({ colseorder })
+             
+
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+
+       
+
 
           })
-          wx.navigateBack({
 
-          })
-
+        
         }
       }
     });
@@ -210,11 +217,11 @@ class Content extends AppBase {
 
 
   }
-  pinjiagenduo(){
-   
-   wx.navigateTo({
-     url: '/pages/myorder/myorder?type=dpj',
-   })
+  pinjiagenduo() {
+
+    wx.navigateTo({
+      url: '/pages/myorder/myorder?type=dpj',
+    })
 
   }
 }

@@ -1,3 +1,3 @@
 <view class='backhome'>
-    <image src='{{uploadpath}}resource/{{fanhui}}' class='icon-50' bindtap='shouye'></image>
-  </view> 
+  <image src='{{uploadpath}}resource/{{fanhui}}' class='icon-50' bindtap='shouye'></image>
+</view>

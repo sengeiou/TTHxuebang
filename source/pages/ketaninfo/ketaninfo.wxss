@@ -17,7 +17,7 @@ Page{
   padding:20rpx;
 }
 .icon{
-  width:40vw;
+  width:30vw;
   height: 30vw;
 }
 .bor_bot{

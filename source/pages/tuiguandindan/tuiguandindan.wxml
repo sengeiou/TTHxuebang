@@ -11,7 +11,7 @@
   </picker>
 </view>
 <view class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
-  共{{quanbu.length}}笔订单,获得商品佣金0.01元
+  共{{quanbu.length}}笔订单
 </view>
 <block wx:for="{{quanbu}}" wx:key="k">
   <view class="bg-white margin-top-20">
