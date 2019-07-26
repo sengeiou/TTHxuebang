@@ -5,6 +5,6 @@
   z-index: 100;
 }
 .icon-50 {
-  width: 122rpx;
-  height: 122rpx;
+  width: 140rpx;
+  height: 140rpx;
 }
