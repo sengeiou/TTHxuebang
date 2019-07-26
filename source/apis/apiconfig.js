@@ -15,7 +15,6 @@ export class ApiConfig {
     return "https://tthxb.artxb.cn/upload/tthxb/";
   }
 
-  
   static GetApiUrl() {
     return "https://tthxb.artxb.cn/api/";
   }
