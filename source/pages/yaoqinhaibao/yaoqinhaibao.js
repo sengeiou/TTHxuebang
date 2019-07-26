@@ -32,8 +32,8 @@ class Content extends AppBase {
 
 
 
-    this.Base.setMyData({ lujin: "https://cmsdev.app-link.org/Users/alucard263096/tthxb/upload/tthxb/" + this.options.name })
-    this.Base.setMyData({ erweima: "http://cmsdev.app-link.org/alucard263096/tthxb/api/inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.Base.getMyData().memberinfo.id })
+    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
+    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+ "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.Base.getMyData().memberinfo.id })
   }
   baocun() {
     this.download(this.Base.getMyData().lujin);

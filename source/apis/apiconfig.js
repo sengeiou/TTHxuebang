@@ -10,6 +10,12 @@ export class ApiConfig {
   //   return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
   // }
 
+  static GetUploadurl(){
+
+    return "https://tthxb.artxb.cn/upload/tthxb/";
+  }
+
+  
   static GetApiUrl() {
     return "https://tthxb.artxb.cn/api/";
   }

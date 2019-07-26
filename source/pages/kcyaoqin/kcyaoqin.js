@@ -42,8 +42,8 @@ class Content extends AppBase {
 
 
 
-    this.Base.setMyData({ lujin: "https://cmsdev.app-link.org/Users/alucard263096/tthxb/upload/tthxb/" + this.options.name })
-    this.Base.setMyData({ erweima: "http://cmsdev.app-link.org/alucard263096/tthxb/api/inst/qrcode?inst_id=1&url=/pages/kcdetails/kcdetails?yaoqin_id=" + this.Base.getMyData().memberinfo.id + '&id=' + this.Base.options.kcid })
+    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
+    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+"inst/qrcode?inst_id=1&url=/pages/kcdetails/kcdetails?yaoqin_id=" + this.Base.getMyData().memberinfo.id + '&id=' + this.Base.options.kcid })
 
       var kcid = this.Base.options.kcid;
       api.courseinfo({ id: kcid }, (kcinfo) => {

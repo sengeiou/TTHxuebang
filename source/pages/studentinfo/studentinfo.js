@@ -54,14 +54,15 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    this.Base.getAddress((address) => {
+   
+      var address=this.Base.getMyData().address;
       console.log(address);
       var region = [address.address_component.province, address.address_component.city, address.address_component.district];
       this.Base.setMyData({
         region, dizhi: region[0] + region[1] + region[2]
       });
       console.log(region[0] + region[1] + region[2]);
-    });
+  
 
   }
   studentinfo() {
