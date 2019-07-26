@@ -6,6 +6,7 @@ Page {
 .kcname{
   font-size: 36rpx;
  color: #222222;
+ width: 600rpx;
 }
 .bianse{
   color:#FF6600;
@@ -444,7 +445,7 @@ Page {
 .kuan1 {
   width: 200rpx;
   font-size: 24rpx;
-  height: 80rpx;
+  height: 69rpx;
   white-space: normal;
 }
 

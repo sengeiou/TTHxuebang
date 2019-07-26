@@ -116,7 +116,7 @@
           <view class="height-40"></view>
 
 
-          <view wx:if="{{pintuanrenshu>0}}"  class='height-20 bg-gray'></view>
+          <view wx:if="{{pintuanrenshu==0}}"  class='height-20 bg-gray'></view>
           <view wx:if="{{pintuanrenshu>0}}" class="padding-20 flex-row flex-center">
 
             <view class="flex-1 h5" style='color:#222222'>{{pintuanrenshu}}人正在拼班，可直接参与</view>

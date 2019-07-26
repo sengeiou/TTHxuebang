@@ -16,7 +16,7 @@
     <view class='margin-30 border-bottom-2'>
 
       <view class='flex-row '>
-        <view class='flex-1 kcname txt-bold'>{{danqianzhanjie.name}} </view>
+        <view class=' kcname txt-bold'>{{danqianzhanjie.name}} </view>
         <view class='kd  flex-row flex-column  ' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
           <image mode='widthFix' class='icon' src='{{uploadpath}}resource/{{res.unfav}}'></image>
           <!-- <view class='h6'>收藏</view> -->
