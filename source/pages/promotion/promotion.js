@@ -53,10 +53,10 @@ class Content extends AppBase {
 
     api.fenxiaoinfo({}, (res) => {
       console.log(res);
-
+  console.log(1231313);
       console.log(res.length);
       this.Base.setMyData({ tuiguaninfo: res })
-      if (res.length == 0) {
+      if (res.length == 0 || res[0].status=='F') {
         this.Base.setMyData({ showModal: true, });
       }
 
@@ -159,7 +159,8 @@ class Content extends AppBase {
 
   }
   mykehu() {
-    if (this.Base.getMyData().leijikehu.length == 0) {
+  
+    if (this.Base.getMyData().leijikehu == 0) {
       this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
       return
     }
@@ -169,7 +170,7 @@ class Content extends AppBase {
   }
 
   myinvite() {
-    if (this.Base.getMyData().xiajituiguan.length == 0) {
+    if (this.Base.getMyData().xiajituiguan == 0) {
       this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
       return
     }
@@ -178,6 +179,10 @@ class Content extends AppBase {
     })
   }
   tuiguandindan() {
+    if (this.Base.getMyData().leijikehu == 0) {
+      this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+      return
+    }
     wx.navigateTo({
       url: '/pages/tuiguandindan/tuiguandindan',
     })

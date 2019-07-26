@@ -269,15 +269,15 @@ class Content extends AppBase {
     if (data.show == "hp") {
       opt.orderby = "scoring desc,distance";
     }
-
+    opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {
       for (var i = 0; i < jglist.length; i++) {
-        console.log(jglist[i]);
+       
         var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
-        console.log("mile=" + mile, mylat, mylng, jglist[i].lat, jglist[i].lng);
+       
         var miletxt = ApiUtil.GetMileTxt(mile);
-        console.log("miletxt=" + miletxt);
+        
         jglist[i]["miletxt"] = miletxt;
       }
 
@@ -327,8 +327,9 @@ class Content extends AppBase {
     if (data.options == "h_p") {
       opt.orderby = "scoring desc,distance";
     }
-
-
+    
+     opt.limit="100";
+     
     jigouapi.courselist(opt, (courselist) => {
       console.log("提交了哈哈啊");
       console.log(opt);
