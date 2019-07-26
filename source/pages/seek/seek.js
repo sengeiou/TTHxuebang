@@ -19,6 +19,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  courselist=[];
   setPageTitle() {
     wx.setNavigationBarTitle({
       title: '找课程',
@@ -63,7 +64,6 @@ class Content extends AppBase {
       fdistrict_id: options.fdistrict_id,
       tdistrict_id: "0",
       options_show: false,
-      courselist: [],
       jglist: [],
       buyshow: [],
       vteach: []
@@ -247,7 +247,6 @@ class Content extends AppBase {
     var mylat = this.Base.getMyData().mylat;
     var mylng = this.Base.getMyData().mylng;
 
-    console.log("mile=" , mylat, mylng);
 
     var opt = {
       mylat,
@@ -272,17 +271,13 @@ class Content extends AppBase {
     //opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {
-      for (var i = 0; i < jglist.length; i++) {
-       
-        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
-       
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        
-        jglist[i]["miletxt"] = miletxt;
-      }
+      
 
       var jgvteach = [];
       for (var j = 0; j < jglist.length && j < 5; j++) {
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[j].lat, jglist[j].lng);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        jglist[j]["miletxt"] = miletxt;
         jgvteach.push(jglist[j]);
       }
 
@@ -333,21 +328,18 @@ class Content extends AppBase {
     jigouapi.courselist(opt, (courselist) => {
       console.log("提交了哈哈啊");
       console.log(opt);
-      for (var i = 0; i < courselist.length; i++) {
-        var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
-        console.log("mile=" + mile);
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        console.log("miletxt=" + miletxt);
-        courselist[i]["miletxt"] = miletxt;
-
-      }
-
+      
       var vteach = [];
       for (var i = 0; i < courselist.length && i < 5; i++) {
+
+        var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        courselist[i]["miletxt"] = miletxt;
+
         vteach.push(courselist[i]);
       }
+      this.Base.courselist = courselist;
       this.Base.setMyData({
-        courselist,
         vteach
       });
 
@@ -392,15 +384,25 @@ class Content extends AppBase {
     wx.showLoading({
       title: '加载中...'
     })
+
+
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
+
     var jgvteach = this.Base.getMyData().jgvteach;
     var vteach = this.Base.getMyData().vteach;
-    var courselist = this.Base.getMyData().courselist;
+    var courselist = this.Base.courselist;
     var jglist = this.Base.getMyData().jglist;
     var count = 0;
     var cs = 0;
 
     if (this.Base.options.type == "kc") {
       for (var i = vteach.length; i < courselist.length; i++) {
+
+        var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        courselist[i]["miletxt"] = miletxt;
+
         vteach.push(courselist[i]);
         count++;
         if (count >= 7) {
@@ -434,6 +436,9 @@ class Content extends AppBase {
 
     if (this.Base.options.type == "jg") {
       for (var j = jgvteach.length; j < jglist.length; j++) {
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[j].lat, jglist[j].lng);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        jglist[j]["miletxt"] = miletxt;
         jgvteach.push(jglist[j]);
         cs++;
         if (cs >= 4) {
