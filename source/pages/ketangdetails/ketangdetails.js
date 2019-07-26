@@ -353,6 +353,7 @@ class Content extends AppBase {
           title: '取消点赞',
           icon: 'none'
         })
+        this.Base.zhendon();
       } else {
         console.log(45645646);
         ketanpinlunlist[idx].dianzanrenshu = Number(ketanpinlunlist[idx].dianzanrenshu) + 1;
@@ -361,6 +362,7 @@ class Content extends AppBase {
           title: '点赞成功',
           icon: 'none'
         })
+        this.Base.zhendon();
 
       }
       this.Base.setMyData({

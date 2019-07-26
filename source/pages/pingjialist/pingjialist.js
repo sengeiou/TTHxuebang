@@ -80,12 +80,14 @@ class Content extends AppBase {
           title: '取消点赞',
           icon:'none'
         })
+        this.Base.zhendon();
       } else {
         list[id].count++; 
         wx.showToast({
           title: '点赞成功',
           icon: 'none'
         })
+        this.Base.zhendon();
       }
      // this.Base.setMyData({ pingjialist: list })
      // this.onMyShow();

@@ -53,9 +53,10 @@
     </view>
 
     <view class='flex-row flex-center padding-20' bindtap="dianzan" id='{{idx}}'>
-      <view class='h6'>{{item.count}}</view>
+     
       <image wx:if='{{item.kcl!=""}}' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4'></image>
       <image wx:if='{{item.kcl==""}}' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4'></image>
+       <view class='h6 margin-left-4'>{{item.count}}</view>
     </view>
 
   </view>

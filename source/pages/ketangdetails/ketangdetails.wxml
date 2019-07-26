@@ -120,10 +120,11 @@
           <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
         </view>
         <view bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" class="flex-row flex-center">
-          <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
+         
 
           <image wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
           <image wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
+           <view class="h5 margin-left-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
         </view>
       </view>
 
@@ -236,10 +237,10 @@
             <view class="h5" style='color:#999999'>{{item.pinlun_shijian_dateformat}}</view>
           </view>
           <view bindtap="dianzan" data-id='{{item.id}}' data-idx="{{idx}}" class="flex-row flex-center">
-            <view class="h5 margin-right-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
+           
             <image wx:if="{{item.isfav=='N'}}" src='{{uploadpath}}resource/{{res.nodianzan}}' class='icon-15'></image>
             <image wx:if="{{item.isfav=='Y'}}" src='{{uploadpath}}resource/{{res.dianzan}}' class='icon-15'></image>
-
+ <view class="h5 margin-left-20" style='color:#999999'>{{item.dianzanrenshu}}</view>
           </view>
 
         </view>
