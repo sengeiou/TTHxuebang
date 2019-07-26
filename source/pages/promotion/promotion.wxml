@@ -92,7 +92,7 @@
   <view class="padding-20 flex-row flex-center">
     <view style='color:rgba(255, 82, 82, 1)'>*</view>
     <view class="margin-left-5 jl">手机号:</view>
-    <input type="number" maxlength="11" value='{{photo}}' bindinput='photo' placeholder-class="ysl"></input>
+    <input type="number" maxlength="11" value='{{photo}}' placeholder="请输入手机号码" bindinput='photo' placeholder-class="ysl"></input>
   </view>
   <view class="padding-20 flex-row flex-center">
     <view style='color:rgba(255, 82, 82, 1)'>*</view>

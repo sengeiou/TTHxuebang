@@ -9,7 +9,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '找课程',
+      title: '大使消息',
     });
   }
   onLoad(options) {
