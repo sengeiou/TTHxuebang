@@ -117,17 +117,16 @@ class Content extends AppBase {
       });
     });
     jigouapi.buyshow({limit:'20'}, (buyshow) => {
-      console.log(buyshow);
-      console.log(5555555555555);
+     
         var lunbolist=[];
-        buyshow.map((item)=>{
+        // buyshow.map((item)=>{
 
-           lunbolist.push(item);
-          lunbolist.push(item);
-        })
+        //    lunbolist.push(item);
+        //   lunbolist.push(item);
+        // })
 
       this.Base.setMyData({
-        buyshow: lunbolist
+        buyshow: buyshow
       });
     });
 
