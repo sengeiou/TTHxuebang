@@ -60,7 +60,7 @@ Page {
 .pinlun {
   padding-left: 20rpx;
   padding-right: 20rpx;
-  padding-top: 20rpx;
+  
   margin-left: 32rpx;
   margin-right: 32rpx;
   line-height:40rpx;
