@@ -691,11 +691,6 @@ button[disabled][type=primary] {
   width: 120rpx;
   height: 120rpx;
 }
-.to_top .icon-50{
-
-  width:  140rpx;
-  height: 140rpx;
-}
 .icon-55{
   width: 130rpx;
   height: 130rpx;

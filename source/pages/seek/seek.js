@@ -247,6 +247,8 @@ class Content extends AppBase {
     var mylat = this.Base.getMyData().mylat;
     var mylng = this.Base.getMyData().mylng;
 
+    console.log("mile=" , mylat, mylng);
+
     var opt = {
       mylat,
       mylng,
@@ -273,7 +275,7 @@ class Content extends AppBase {
       for (var i = 0; i < jglist.length; i++) {
         console.log(jglist[i]);
         var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
-        console.log("mile=" + mile);
+        console.log("mile=" + mile, mylat, mylng, jglist[i].lat, jglist[i].lng);
         var miletxt = ApiUtil.GetMileTxt(mile);
         console.log("miletxt=" + miletxt);
         jglist[i]["miletxt"] = miletxt;

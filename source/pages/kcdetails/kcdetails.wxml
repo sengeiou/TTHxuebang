@@ -1,5 +1,10 @@
 <!--pages/kcdetails/kcdetails.wxml-->
 <back-component></back-component>
+
+<view class=' to_top'>
+  <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+</view>
+
 <view>
 
 
@@ -417,9 +422,7 @@
   <view style='height:105rpx;'></view>
 
 
-  <view class=' to_top' hidden='{{!floorstatus}}'>
-    <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
-  </view>
+
   <!-- 
 <view class=' to_top1'>
     <image src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' bindtap='shouye'></image>

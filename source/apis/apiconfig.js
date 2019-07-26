@@ -18,7 +18,7 @@ export class ApiConfig {
       'TOKENKEY':ApiConfig.TOKENKEY
     };
     return headers;
-  }
+  } 
   static UNICODE = "";
   static SetUnicode(unicode) {
     ApiConfig.UNICODE = unicode;
