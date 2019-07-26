@@ -56,7 +56,7 @@ class Content extends AppBase {
   console.log(1231313);
       console.log(res.length);
       this.Base.setMyData({ tuiguaninfo: res })
-      if (res.length == 0 || res[0].status=='F') {
+      if (res.length == 0 ) {
         this.Base.setMyData({ showModal: true, });
       }
 

@@ -34,7 +34,9 @@ class Content extends AppBase {
     })
   }
   chonxintijiao(){
-
+   wx.navigateTo({
+     url: '/pages/promotion/promotion',
+   })
 
   }
 

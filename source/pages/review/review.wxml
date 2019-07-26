@@ -4,7 +4,7 @@
 </view>
 <view class="height-150"></view>
 
-<block wx:if="{{shenhe[0].status=='F'}}">
+<block wx:if="{{shenhe.length==0}}">
   <view class="flex-row  ">
     <view class="flex-1"></view>
 

@@ -269,7 +269,7 @@ class Content extends AppBase {
     if (data.show == "hp") {
       opt.orderby = "scoring desc,distance";
     }
-    opt.limit="100";
+    //opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {
       for (var i = 0; i < jglist.length; i++) {
@@ -328,7 +328,7 @@ class Content extends AppBase {
       opt.orderby = "scoring desc,distance";
     }
     
-     opt.limit="100";
+    // opt.limit="100";
      
     jigouapi.courselist(opt, (courselist) => {
       console.log("提交了哈哈啊");
