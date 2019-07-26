@@ -688,8 +688,8 @@ button[disabled][type=primary] {
 }
 
 .icon-50 {
-  width: 120rpx;
-  height: 120rpx;
+  width: 130rpx;
+  height: 130rpx;
 }
 .icon-55{
   width: 130rpx;
