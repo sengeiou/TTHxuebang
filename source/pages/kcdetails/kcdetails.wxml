@@ -255,7 +255,7 @@
 
     </view>
 
-    <view  wx:if="{{pingjialist.length>0}}" class='height-20 bg-gray'></view>
+    <view wx:if="{{pingjialist.length>0}}" class='height-20 bg-gray'></view>
 
 
 
@@ -310,7 +310,7 @@
         <view bindtap="shouye" class='flex-1  bg-white padding-15'>
 
           <view class='flex-row flex-column'>
-            <image class='icon-25' src='{{uploadpath}}resource/{{res.kc_shouye}}'></image>
+            <image class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_shouye}}'></image>
             <view class='h6 '>首页</view>
           </view>
 
@@ -318,7 +318,7 @@
         <view class='flex-1  bg-white padding-15'>
 
           <view bindtap="gotojigou" class='flex-row flex-column'>
-            <image class='icon-25' src='{{uploadpath}}resource/{{res.kc_jg}}'></image>
+            <image class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_jg}}'></image>
             <view class='h6 '>机构</view>
           </view>
 
@@ -327,7 +327,7 @@
         <view class='flex-1  bg-white padding-15'>
           <button class=' clear-button' hover-class='bg-primary' open-type='contact' style='border-radius:0;border:0;'>
             <view class='flex-row flex-column'>
-              <image class='icon-25' src='{{uploadpath}}resource/{{res.kc_kf}}'></image>
+              <image class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_kf}}'></image>
               <view class='h6 '>客服</view>
             </view>
           </button>
@@ -337,8 +337,13 @@
 
         <view wx:if="{{courseinfo.isgroup==0}}" class=' flex-4 flex-row flex-center  buy padding-15' bindtap='bindtopurchase'>
           <view class="flex-1"></view>
-          <view class='txt-white txt-bold h4'>
+          <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h4'>
             <text class="txt-white">￥</text>{{courseinfo.price}}</view>
+          <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h4'>
+            <text class="txt-white">￥</text>{{courseinfo.expeprice}}</view>
+
+
+
           <view class='h5 txt-white margin-left-10' wx:if="{{canbuy.code=='0'}}">立即购买</view>
           <view class="flex-1"></view>
         </view>
@@ -419,7 +424,7 @@
   <view class=' to_top' hidden='{{!floorstatus}}'>
     <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
   </view>
-<!-- 
+  <!-- 
 <view class=' to_top1'>
     <image src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' bindtap='shouye'></image>
   </view>  -->
@@ -480,10 +485,11 @@
       <view class='margin-top-10 h6' style='color:#666666'>课程</view>
 
       <view class='flex-row flex-center flex-wrap margin-top-10'>
-        <view class=' text-center h6    {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' bindtap='check'>体验课
-        {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</view>
-        <view class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>正价课
-        {{ppp==0?courseinfo.price:courseinfo.isgroup   }}元</view>
+
+        <view wx:if="{{courseinfo.expeprice>0}}"  class='    text-center h6    {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' bindtap='check'>体验课 {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</view>
+
+
+        <view wx:if="{{courseinfo.price>0}}" class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>正价课 {{ppp==0?courseinfo.price:courseinfo.isgroup }}元</view>
       </view>
 
       <!-- 
