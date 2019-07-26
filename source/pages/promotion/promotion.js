@@ -191,7 +191,7 @@ class Content extends AppBase {
   yaoqin() {
     var api = new HaibaoApi;
 
-    if (this.Base.getMyData().tuiguaninfo[0].status != 'S') {
+    if (this.Base.getMyData().tuiguaninfo.length == 0 || this.Base.getMyData().tuiguaninfo[0].status =='A') {
       this.Base.info("您现在还不是推广员");
       return
     }
