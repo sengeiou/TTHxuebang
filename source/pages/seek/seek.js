@@ -20,6 +20,7 @@ class Content extends AppBase {
     super();
   }
   courselist=[];
+  jglist=[];
   setPageTitle() {
     wx.setNavigationBarTitle({
       title: '找课程',
@@ -64,7 +65,6 @@ class Content extends AppBase {
       fdistrict_id: options.fdistrict_id,
       tdistrict_id: "0",
       options_show: false,
-      jglist: [],
       buyshow: [],
       vteach: []
     });
@@ -279,9 +279,8 @@ class Content extends AppBase {
         jglist[j]["miletxt"] = miletxt;
         jgvteach.push(jglist[j]);
       }
-
+      this.Base.jglist = jglist;
       this.Base.setMyData({
-        jglist,
         jgvteach
       });
     });
@@ -391,7 +390,7 @@ class Content extends AppBase {
     var jgvteach = this.Base.getMyData().jgvteach;
     var vteach = this.Base.getMyData().vteach;
     var courselist = this.Base.courselist;
-    var jglist = this.Base.getMyData().jglist;
+    var jglist = this.Base.jglist;
     var count = 0;
     var cs = 0;
 
