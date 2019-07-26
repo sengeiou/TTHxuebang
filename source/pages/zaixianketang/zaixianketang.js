@@ -36,7 +36,7 @@ class Content extends AppBase {
     jigouapi.zaixiankechenfenlei({}, (fenleilist) => {
 
       this.Base.setMyData({ fenleilist: fenleilist, });
-
+       
 
     })
     
