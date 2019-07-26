@@ -37,6 +37,13 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+   
+
+    jigouapi.myxiaoxi({ isread:'N'},(xiaoxi)=>{
+       
+         this.Base.setMyData({xiaoxi:xiaoxi.length})
+
+    })
 
     instapi.indexbanner({}, (indexbanner) => {
       this.Base.setMyData({

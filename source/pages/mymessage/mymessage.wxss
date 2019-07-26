@@ -14,9 +14,17 @@ color:white
 padding-bottom:0rpx;
 
 }
+.hondian{
+
+width:12rpx;
+height: 12rpx;
+border-radius: 50%;
+background: red;
+
+}
 .icon-30{
 
-width: 80rpx;
-height: 80rpx;
-margin-right:20rpx;
+width: 60rpx;
+
+padding-right: 20rpx;
 }

@@ -36,12 +36,23 @@ class Content extends AppBase {
     var that = this;
     var api = new JigouApi();
     api.pintuaninfo({ id: this.Base.options.id }, (pintuaninfo) => {
+        if(pintuaninfo.type=='T')
+        {
+          pintuaninfo.price = Number( Number(pintuaninfo.expeprice).toFixed(2));
+          pintuaninfo.group_course_group_price = Number(Number(pintuaninfo.group_course_group_expeprice).toFixed(2));
+        }
+        else{
+          pintuaninfo.price = Number(Number(pintuaninfo.price).toFixed(2));
+          pintuaninfo.group_course_group_price = Number(Number(pintuaninfo.group_course_group_price).toFixed(2));
+        }
+
       pintuaninfo.group_course_group_number = parseInt(pintuaninfo.group_course_group_number);
       console.error(pintuaninfo);
       var daojishilist = [];
       daojishilist[0] = pintuaninfo.jieshushijian;
       this.Base.setMyData({
-        pintuaninfo: pintuaninfo, daojishilist: daojishilist
+        pintuaninfo: pintuaninfo, daojishilist: daojishilist, chajia: 
+          Number((pintuaninfo.price - pintuaninfo.group_course_group_price).toFixed(2))
       })
    
     })
@@ -85,21 +96,24 @@ class Content extends AppBase {
 
   }
   yuanjiagoumai(){
-
+    var leixin = this.Base.getMyData().pintuaninfo.type;
+        leixin=   leixin=='T'?'1':'0';
     wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_course_id + '&&leixin=' + leixin
     })
 
 
   }
   chakankechen(){
     wx.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + this.Base.getMyData().pintuaninfo.group_course_id
+      url: '/pages/kcdetails/kcdetails?id=' + this.Base.getMyData().pintuaninfo.group_course_course_id
       })
   }
   kaigexintuan(){
+    var leixin = this.Base.getMyData().pintuaninfo.type;
+    leixin =  leixin == 'T' ? '1' : '0';
     wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id + '&&type=0'
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_course_id + '&&type=0'+'&&leixin='+leixin
     })
 
   }
@@ -109,9 +123,10 @@ class Content extends AppBase {
 
   }
   addgroup(){
-
+    var leixin = this.Base.getMyData().pintuaninfo.type;
+    leixin =   leixin == 'T' ? '1' : '0';
     wx.navigateTo({
-      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_id + '&&type=' + this.Base.options.id
+      url: '/pages/purchase/purchase?course_id=' + this.Base.getMyData().pintuaninfo.group_course_course_id + '&&type=' + this.Base.options.id + '&&leixin=' + leixin
 
     })
 

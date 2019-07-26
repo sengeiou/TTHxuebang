@@ -2,8 +2,8 @@
   <block wx:for="{{myxiaoxi}}" wx:key='k'>
     <view class="xxq  bg-white padding-20">
       <view class="flex-row flex-center">
-        <image class="icon-30" mode="widthFix" src="{{uploadpath}}resource/{{res.laba}}"></image>
-        <view class="margin-left-20">推广员系统消息</view>
+        <image class="icon-30" mode="widthFix" src="{{uploadpath}}resource/{{res.tuiguangxiaoxi}}"></image>
+        <view class="margin-left-20 h5 txt-bold">推广员系统消息</view>
 
       </view>
 
@@ -11,7 +11,7 @@
         {{item.content}}
 
       </view>
-      <view class="flex-row flex-center margin-top-20">
+      <view class="flex-row flex-center margin-top-20 margin-bottom-20">
 
         <view class="h6" style="color:#999999">{{item.xiaoxi_date}}</view>
         <view class="flex-1"></view>

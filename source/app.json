@@ -118,5 +118,8 @@
       }
     ]
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "back-component": "../../components/back"
+  }
 }

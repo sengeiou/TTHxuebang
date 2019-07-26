@@ -116,7 +116,7 @@ class Content extends AppBase {
         filtercourseage
       });
     });
-    jigouapi.buyshow({}, (buyshow) => {
+    jigouapi.buyshow({limit:'20'}, (buyshow) => {
       console.log(buyshow);
       console.log(5555555555555);
         var lunbolist=[];
@@ -309,7 +309,7 @@ class Content extends AppBase {
       opt.type = data.ftype_id;
     }
     if (data.fage_id != "0") {
-      opt.age_name = data.fage_id;
+      opt.age = data.fage_id;
     }
     if (data.options == "j_x") {
       opt.orderby = "jxrate,distance";
