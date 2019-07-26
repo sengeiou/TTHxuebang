@@ -25,66 +25,66 @@ class Content extends AppBase {
   constructor() {
     super();
   }
-
+  
   onLoad(options) {
     this.Base.Page = this;
     //options.id = 21;
     super.onLoad(options);
 
-    var timerid = setInterval(() => {
+    var timerid=setInterval(()=>{
       var reminderpay = this.Base.getMyData().reminderpay;
-      if (reminderpay > 0) {
+      if(reminderpay>0){
         reminderpay--;
         console.log(reminderpay);
-
-        var mMinute = (reminderpay) / 60;
+        
+        var mMinute = (reminderpay ) / 60;
         var mSecond = (reminderpay) % 60;
         mMinute = this.Base.util.ten2(mMinute);
         mSecond = this.Base.util.ten2(mSecond);
         console.log("reminderpay" + reminderpay);
-        this.Base.setMyData({ mMinute, mSecond, reminderpay });
+        this.Base.setMyData({  mMinute, mSecond, reminderpay});
 
-        if (reminderpay <= 0) {
+        if(reminderpay<=0){
           this.onMyShow();
         }
       }
-    }, 1000);
+    },1000);
     var codeimg = '';
     this.Base.setMyData({
       show: "finished",
-      reminderpay: 0,
+      reminderpay:0,
       timerid,
-      code: codeimg
+      code:codeimg 
     })
-
-
+    
+    
 
   }
-  onUnload() {
+  onUnload(){
     var timerid = this.Base.getMyData().timerid;
     clearInterval(timerid);
   }
-
+  
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
     var purchaseapi = new PurchaseApi();
 
-
+    
     purchaseapi.purchaseinfo({
       id: this.Base.options.id
     }, (info) => {
       this.Base.setMyData({
         info
       });
-      var codeimg = 'https://cmsdev.app-link.org/alucard263096/tthxb/api/jigou/qrcode?id=' + info.id + '&a.jpg';
-      this.Base.setMyData({ codeimg: codeimg });
-      console.log(codeimg + "图片链接");
+      var codeimg ='https://cmsdev.app-link.org/alucard263096/tthxb/api/jigou/qrcode?id='+info.id+'&a.jpg';
+      this.Base.setMyData({ codeimg: codeimg});
+      console.log(codeimg+"图片链接");
 
       //return;
-      if (info.pstatus == 'W') {
-        var reminderpay = parseInt(info.reminderpay);
+      if(info.pstatus=='W'){
+        var reminderpay=parseInt(info.reminderpay);
         this.Base.setMyData({ reminderpay });
       }
 
@@ -123,8 +123,8 @@ class Content extends AppBase {
     })
   }
 
-  bindpay() {
-    var that = this;
+  bindpay(){
+    var that=this;
     var wechatapi = new WechatApi();
     wechatapi.prepay({ id: this.Base.options.id }, (payret) => {
       payret.complete = function (e) {
@@ -151,10 +151,10 @@ class Content extends AppBase {
           var batchapi = new BatchApi();
           batchapi.closeorder({ id: id }, (colseorder) => {
             that.Base.setMyData({ colseorder })
-
+            
           })
           wx.navigateBack({
-
+            
           })
 
         }
@@ -165,45 +165,21 @@ class Content extends AppBase {
   }
 
 
-  todetails(e) {
+  todetails(e){
     wx.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + this.Base.getMyData().courseinfo.id,
+  url: '/pages/kcdetails/kcdetails?id='+this.Base.getMyData().courseinfo.id,
     })
-  }
+   }
 
 
   previewImage(e) {
 
-    wx.previewImage({
-      urls: this.Base.getMyData().codeimg.split(',')
-      // 需要预览的图片http链接  使用split把字符串转数组。不然会报错
-    })
-  }
-  hexiaoma() {
-    this.Base.setMyData({ erweima: true, type: 'hexiao' })
-  }
-  kefu(){
-    this.Base.setMyData({erweima:true,type:'kefu'})
-  }
-  hideModal(){
-    this.Base.setMyData({erweima:false})
-  }
-  xiazai(){
-   var type=this.Base.getMyData().type;
-   if(type=='kefu')
-   {
-     this.download(this.Base.getMyData().uploadpath + 'inst' + this.Base.getMyData().instinfo.kefuerweima);
+  wx.previewImage({
+    urls: this.Base.getMyData().codeimg.split(',')
+    // 需要预览的图片http链接  使用split把字符串转数组。不然会报错
+  })
+}
 
-   }
-   else{
-
-     this.download(this.Base.getMyData().apiurl + 'jigou' + 'jigou/qrcode?id=' + this.Base.getMyData().info.id +'&a.jpg');
-
-   }
-   
-    
-
-  }
 }
 
 var content = new Content();
@@ -211,14 +187,14 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.bindshow = content.bindshow;
+body.bindshow = content.bindshow; 
 body.bindback = content.bindback;
-body.bindpay = content.bindpay;
+body.bindpay = content.bindpay; 
 body.colseorder = content.colseorder;
+
 body.previewImage = content.previewImage;
-body.kefu = content.kefu;
+
 body.todetails = content.todetails;
-body.hexiaoma = content.hexiaoma;
-body.hideModal = content.hideModal;
-body.xiazai = content.xiazai;
+
+
 Page(body)

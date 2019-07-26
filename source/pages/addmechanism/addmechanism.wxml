@@ -3,325 +3,97 @@
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 
-  <view class='height-72 txt-6'>
-    机构信息
+
+
+
+  <view class='height-20 '>
   </view>
-
-  <view class='mid bg-white'>
-
-    <view class='padding-left-20 padding-bottom-30  ' style=''>
-      <view class='flex-row flex-center '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30  txt-black margin-left-10 width-210'>所属行业：</view>
-        <input class='  ' style='' placeholder-class='pc' value='' name='hangye' placeholder='请填写所属行业'></input>
-      </view>
-    </view>
-
-    <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-    <view class='padding-mid' style=''>
-      <view class='flex-row flex-center '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30   txt-black margin-left-10 width-210'>机构名称：</view>
-        <input class='  ' placeholder-class='pc' name='jigou' style='' placeholder='请填写机构名称'></input>
-      </view>
-    </view>
-
-    <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-    <view class='padding-mid' style=''>
-      <view class='flex-row flex-center '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30   txt-black margin-left-10 width-210'>机构联系方式：</view>
-        <input class='  ' style='' placeholder-class='pc' type="number" value='{{contacttel}}' name='mobile' placeholder='请填写联系电话'></input>
-      </view>
-    </view>
-    <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-    <view class='padding-mid  ' style=''>
-      <view class='flex-row flex-center '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30   txt-black margin-left-10 width-210'>机构所属区域：</view>
-        <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-          <view class="picker" style='color:#C8C8C8' wx:if="{{region.length==0}}">请填写地址</view>
-          <view class="picker" wx:if="{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</view>
-        </picker>
-      </view>
-    </view>
-
-
-    <view class='' style='background:#f5f5f5; height:2rpx'></view>
-
-
-    <view class='padding-mid' style=''>
-      <view class='flex-row flex-center '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30   txt-black margin-left-10 width-210'>详细地址：</view>
-        <input class='  ' style='' placeholder-class='pc' value='{{}}' name='fulladdress' placeholder='如xx路xx大厦'></input>
-      </view>
-    </view>
-    <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-
-
-    <view class='padding-mid  ' style=''>
-      <view class='flex-row '>
-        <view class='' style='color:#FF5252'>*</view>
-        <view class='font-30  txt-black margin-left-10  width-210'>机构简介：</view>
-      </view>
-      <textarea class='margin-top-20 h5' style='width:600rpx;height:230rpx;' placeholder-class='pc' name='jianjie' placeholder='250字左右简介'></textarea>
-    </view>
-
-  </view>
-
-
-
-
-
-  <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
-
-    <view class='height-72 txt-6'>
-      课程({{idx+1}})
-    </view>
-
-    <view wx:if='{{idx>0}}' bindtap='shanchu' id='{{idx}}' class='clear flex-row flex-center'>
-      <view class='flex-1'></view>
-      <image src='{{uploadpath}}resource/{{res.kc_clear}}' class='icon-clear'></image>
-    </view>
-
-    <view class='mid bg-white'>
-
-      <view class='padding-left-20 padding-bottom-30  ' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30  txt-black margin-left-10 width-210'>课程名称：</view>
-          <input bindinput='xiename' data-idx="{{idx}}" class='  ' style='' placeholder-class='pc' value='' name='kcname' placeholder='如：美术、机器人编程'></input>
-        </view>
-      </view>
-
-      <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-      <view class='padding-mid' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30   txt-black margin-left-10 width-210'>年龄段：</view>
-          <input bindinput='nianlin' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='age' style='' placeholder='3-10岁'></input>
-        </view>
-      </view>
-      <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-      <view class='padding-mid' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30   txt-black margin-left-10  '>每周固定可预约的上课时间：</view>
-          <input bindinput='yuyue' data-idx="{{idx}}" class='  ' style='width:200rpx' placeholder-class='pc' value='{{contacttel}}' name='time' placeholder='周二上午'></input>
-        </view>
-      </view>
-      <view class='margin-left-20' style='background:#f5f5f5; height:2rpx'></view>
-
-
-      <view class='padding-mid  ' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30   txt-black margin-left-10 '>性别：</view>
-
-          <view class='flex-row flex-center  margin-left-40'>
-
-            <view class='flex-row flex-center  ' bindtap='bindchecksex' id='A' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[idx].sex=="A"?"bg-orange":""}}'></view>
-              <view class='margin-left-10 font-30 '>不限</view>
-            </view>
-
-            <view class='flex-row flex-center  margin-left-40' bindtap='bindchecksex' id='W' data-idx='{{idx}}'>
-              <view class='sex_check radius-50  {{kclist[idx].sex=="W"?"bg-orange":""}}'></view>
-              <view class='margin-left-10 font-30'>限女生</view>
-            </view>
-
-            <view class='flex-row flex-center margin-left-40 ' bindtap='bindchecksex' id='M' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[idx].sex=="M"?"bg-orange":""}}'></view>
-              <view class='margin-left-10 font-30 '>限男生</view>
-            </view>
-
-          </view>
-
-        </view>
-      </view>
-      <view class='' style='background:#f5f5f5; height:2rpx'></view>
-
-      <view class='padding-mid  ' style=''>
-        <view class='flex-row  '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30  txt-black margin-left-10  width-210'>课程时长：</view>
-          <input bindinput='shichang' data-idx="{{idx}}" class='  ' placeholder-class='pc' name='duration' style='' placeholder='4节90分钟每节两次上完'></input>
-        </view>
-      </view>
-      <view class='' style='background:#f5f5f5; height:2rpx'></view>
-
-
-
-      <view class='padding-mid  ' style=''>
-        <view class='flex-row flex-center '>
-          <!-- <view class='' style='color:#FF5252'>*</view> -->
-          <view class='font-30   txt-black margin-left-10 '>开课方式：</view>
-          <view class='flex-row flex-center  margin-left-40'>
-            <view class='flex-row flex-center   ' bindtap='bindkaike' id='tiqian' data-idx='{{idx}}'>
-              <view class='sex_check radius-50  {{kclist[idx].kaike=="A"?"bg-orange":""}}'></view>
-              <view class='margin-left-10 font-30'>提前预约</view>
-            </view>
-
-            <view class='flex-row flex-center margin-left-40 ' bindtap='bindkaike' id='suishi' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[idx].kaike=="B"?"bg-orange":""}}'></view>
-              <view class='margin-left-10 font-30 '>随时插班</view>
-            </view>
-
-          </view>
-        </view>
-      </view>
-      <view class='' style='background:#f5f5f5; height:2rpx'></view>
-
-
-      <view class='padding-mid  ' style=''>
-        <view class='flex-row    '>
-
-          <view class='flex-row  '>
-            <!-- <view class='' style='color:#FF5252'>*</view> -->
-            <view class='font-30   txt-black margin-left-10 '>请假要求：</view>
-          </view>
-
-          <view class='flex-1 flex-row   flex-wrap '>
-
-            <view class='flex-row flex-center   ' bindtap='bindqingjia' id='tqgz' data-idx='{{idx}}'>
-              <view class='sex_check radius-50  {{kclist[idx].qingjia=="A"?"bg-orange":""}}'></view>
-              <view class='margin-left-10  font-30'>提前1天告知</view>
-            </view>
-
-            <view class='flex-row flex-center  margin-left-40 ' bindtap='bindqingjia' id='buyunxu' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[idx].qingjia=="B"?"bg-orange":""}}'></view>
-              <view class='margin-left-10  font-30'>不允许请假</view>
-            </view>
-
-            <view class='flex-row flex-center   margin-top-40 ' bindtap='bindqingjia' id='qita' data-idx='{{idx}}'>
-              <view class='sex_check radius-50 {{kclist[idx].qingjia=="C"?"bg-orange":""}}'></view>
-              <view class='margin-left-10  font-30'>其他</view>
-            </view>
-
-          </view>
-        </view>
-      </view>
-      <view class='' style='background:#f5f5f5; height:2rpx'></view>
-
-
-
-    </view>
-
-  </view>
-
-
-  <view class='tianjia text-center h5' style='margin:24rpx;color:#999999' bindtap='addkecheng'>
-    + 添加课程
-  </view>
-
-  <view class='height-72 txt-6'>
-    机构图片信息
-  </view>
-
-  <view class='margin-24 radius-8 bg-white padding-16' style=''>
-
+  <view class='padding-30  bg-white' style=''>
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
-      <view class='h5  txt-black margin-left-10 '>机构高清门头照 （1-2张）</view>
+      <view class='font-30 flex-1 txt-black'>机构名称：</view>
+      <input class=' flex-2' placeholder-class='pc' name='jigou' style='' placeholder='请填写机构名称'></input>
     </view>
-
-
-    <view class='flex-row flex-center flex-wrap'>
-
-      <view class=' ' wx:for="{{jgimages}}" wx:key="k" wx:for-index="idx">
-        <image src='{{uploadpath}}jgmentou/{{item}}' wx:if='{{idx<20}}' id="{{idx}}" bindtap='jgminusImg' class='icon-img'></image>
-      </view>
-
-
-
-      <view class='addjigou flex-row flex-center ' bindtap='jguploadimg' wx:if='{{jgimages.length<20}}'>
-        <view class='flex-1'></view>
-        <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon-50'></image>
-        <view class='flex-1'></view>
-      </view>
-
-    </view>
-
+    <!--bor_bak -->
   </view>
+  <view class='margin-left-20' style='background:#f5f5f5;width:100%;height:2rpx'></view>
 
 
-  <view class='margin-24 radius-8 bg-white padding-16' style=''>
-
+  <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
-      <view class='h5  txt-black margin-left-10 '>机构内部环境照片（3张以上）</view>
+      <view class='font-30  txt-black '>联系人姓名：</view>
+      <view style='width:50rpx;'></view>
+      <input class='flex-2 ' style='' placeholder-class='pc' value='{{contactname}}' name='name' placeholder='请填写联系人姓名'></input>
+      <view bindtap='useaddress' class='bt txt-white  radius-10 text-center'>使用微信地址</view>
     </view>
-
-    <view class='flex-row flex-center flex-wrap'>
-
-      <view class=' ' wx:for="{{hjimages}}" wx:key="k" wx:for-index="idx">
-        <image src='{{uploadpath}}huanjing/{{item}}' wx:if='{{idx<20}}' id="{{idx}}" bindtap='hjminusImg' class='icon-img'></image>
-      </view>
-
-      <view class='addjigou flex-row flex-center ' bindtap='hjuploadimg' wx:if='{{hjimages.length<20}}'>
-        <view class='flex-1'></view>
-        <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon-50'></image>
-        <view class='flex-1'></view>
-      </view>
-
-    </view>
-
+    <!--bor_bak -->
   </view>
 
+  <view class='margin-left-20' style='background:#f5f5f5;width:100%;height:2rpx'></view>
 
-  <view class='margin-24 radius-8 bg-white padding-16' style=''>
-
+  <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
-      <!-- <view class='' style='color:#FF5252'>*</view> -->
-      <view class='h5  txt-black margin-left-10 '>小朋友上课或获奖照片（4张以上）</view>
+      <view class='font-30 flex-1 txt-black'>联系电话：</view>
+      <input class=' flex-2' style='' placeholder-class='pc' value='{{contacttel}}' name='mobile' placeholder='请填写联系电话'></input>
     </view>
+    <!--bor_bak -->
+  </view>
+  <view class='margin-left-20' style='background:#f5f5f5;width:100%;height:2rpx'></view>
 
-    <view class='flex-row flex-center flex-wrap'>
 
-      <view class=' ' wx:for="{{skimages}}" wx:key="k" wx:for-index="idx">
-        <image src='{{uploadpath}}shangke/{{item}}' wx:if='{{idx<20}}' id="{{idx}}" bindtap='skminusImg' class='icon-img'></image>
-      </view>
+  <view class='padding-30 bg-white' style=''>
+    <view class='flex-row flex-center '>
+    
+      <view class='font-30 flex-1 txt-black'>地址：</view>
+      <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+     
+        <view class="picker" style='color:#C8C8C8' wx:if="{{region.length==0}}" >请填写地址</view>
 
-      <view class='addjigou flex-row flex-center ' bindtap='skuploadimg' wx:if='{{skimages.length<20}}'>
-        <view class='flex-1'></view>
-        <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon-50'></image>
-        <view class='flex-1'></view>
-      </view>
+         <!-- <input  class=' flex-2' placeholder-class='pc' disabled='{{true}}' value='{{region[0]}} {{region[1]}} {{region[2]}}' style='' name='address' placeholder='请填写地址'></input> -->
+        <view class="picker"  wx:if="{{region.length>0}}" >{{region[0]}} {{region[1]}} {{region[2]}}</view>
+      </picker>
+
+
+
 
     </view>
+    <!--bor_bak -->
+  </view>
+  <view class='margin-left-20 ' style='background:#f5f5f5;width:100%;height:2rpx'></view>
+
+
+  <view class='padding-30 bg-white' style=''>
+    <view class='flex-row flex-center '>
+      <view class='font-30 flex-1 txt-black'>门牌号：</view>
+      <input class=' flex-2' style='' placeholder-class='pc' value='{{detail}}' name='housenum' placeholder='请填写门牌号'></input>
+    </view>
+    <!--bor_bak -->
+  </view>
+  <view>
+
+
+
 
   </view>
+  <view class='height-20' style=''></view>
 
-
-  <view class='padding-30 ' style=''>
+  <view class='padding-30 bg-white' style=''>
     <view class='flex-row flex-center '>
       <view class='flex-1'></view>
+
 
       <image wx:if='{{show==1}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sf='N' class='icon-15'></image>
       <image wx:if='{{show==2}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sf='Y' class='icon-15'></image>
 
-      <view class='font-30 txt-black margin-left-10' wx:if='{{show==1}}' bindtap='bindcheck' data-sf='N'>我已详细阅读并同意</view>
-      <view class='font-30 txt-black margin-left-10' wx:if='{{show==2}}' bindtap='bindcheck' data-sf='Y'>我已详细阅读并同意</view>
 
-      <view class='font-30 txt-blue margin-left-5' bindtap='tocontent'>《学榜用户协议》</view>
+      <view class='font-30 txt-black margin-left-10'>我已详细阅读并同意</view>
+      <view class='font-30 txt-blue margin-left-5' bindtap='tocontent'> 学榜用户协议</view>
       <view class='flex-1'></view>
     </view>
     <!--bor_bak  disabled='{{show==1}}' -->
   </view>
 
-  <view class='flex-row flex-center'>
-    <view class='felx-1'></view>
-    <button class='dis   txt-white' wx:if='{{show==1}}' hover-class='dis_hov'>提交</button>
-    <button class='btn_bg   txt-white' wx:if='{{show==2}}' form-type='submit' hover-class='bg_hov'>提交</button>
-    <view class='felx-1'></view>
-  </view>
+  <button class='dis margin-40 txt-white' wx:if='{{show==1}}' hover-class='dis_hov'>提交</button>
+  <button class='btn_bg margin-40 txt-white' wx:if='{{show==2}}' form-type='submit' hover-class='bg_hov'>提交</button>
 
 </form>
 
@@ -330,49 +102,24 @@
 <view class='height-20 '></view>
 
 <view class='flex-row flex-column '>
+  <view class='ft-color h5'>关于对公付款</view>
+
   <view class='flex-row flex-center'>
-    <view class='ft-color h5'>关于对公付款，请查看</view>
+    <view class='ft-color h5'>如果您的企业需要对公付款，请查看</view>
     <navigator url='/pages/liucheng/liucheng' class='txt-blue h5 margin-left-5 txt-bold'>付款流程</navigator>
   </view>
 
 
   <view class='flex-row flex-center'>
     <view class='ft-color h5 '>如有疑问请咨询</view>
-    <view class='ft-color h5 txt-bold margin-left-10'> 学榜客服热线：{{instinfo.kf}}</view>
+    <view class='ft-color h5 txt-bold'>学榜客服热线：{{instinfo.kf}}</view>
   </view>
 
   <view class='flex-row flex-center'>
-    <view class='ft-color h5'>工作时间：</view>
+    <view class='ft-color h5'>工作时间</view>
     <view class='ft-color h5'>工作日9:00-18:30</view>
   </view>
 
   <view class='height-50'></view>
-
-</view>
-
-<view style='height: 90rpx;'></view>
-
-<view class='kaitong bg-white'>
-  <view class='flex-row flex-center'>
-    <view class='h5' style='margin-left:38rpx;'>学榜专属VIP会员，畅享海量特权</view>
-    <view style='width:80rpx;'></view>
-    <view class='lijikaitong h6 text-center' bindtap='tohuiyuan'>立即开通</view>
-  </view>
-</view>
-
-
-<view class="black_block" wx:if='{{tc==true}}'></view>
-
-<view class="white_block" wx:if='{{tc==true}}'>
-
-  <view class="flex-row flex-center" style="height:280rpx;">
-    <view class="flex-1"></view>
-    <view class="">信息已完成提交</view>
-    <view class="flex-1"></view>
-  </view>
-
-  <view  bindtap="bindshowtoast" class="bg-red txt-white h4-5 txt-bold text-center" style="background:#FFC200;height:120rpx;line-height:120rpx;">
-  确认
-  </view>
 
 </view>

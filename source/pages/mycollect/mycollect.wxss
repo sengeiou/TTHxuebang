@@ -1,32 +1,25 @@
 /* pages/myorder/myorder.wxss */
-
-Page {
+Page{
   background: #f5f5f5;
 }
-
-.txt {
-  color: #ffc200;
+.txt{
+  color: #FFC200;
 }
-
-.block {
+.block{
   padding-left: 20rpx;
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
-
 /* .icon{
   height: 168rpx;
   width: 168rpx;
 } */
-
-.icon2 {
-  height: 224rpx;
-  width: 228rpx;
-border-radius:8rpx;
+.icon2{
+  height: 168rpx;
+  width: 168rpx;
 }
-
-.bor_bot {
-  border-bottom: 1px solid #e5e5e5;
+.bor_bot{
+  border-bottom:1px solid #e5e5e5
 }
 
 .org_block {
@@ -62,62 +55,15 @@ border-radius:8rpx;
   position: absolute;
   width: 85.5%;
   z-index: 10;
-  height: 190rpx;
+  height: 146rpx;
   bottom: 0%;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
 }
-
-
-
 .biaoqian {
   min-width: 56rpx;
   height: 38rpx;
   line-height: 38rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
-}
-
-.kt_block {
-  width: 712rpx;
-  height: 250rpx;
-  margin: 20rpx;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
-  border-radius: 8rpx;
-}
-.margin-left-28{
-  margin-left: 28rpx;
-}
-.margin-top-32{
-  margin-top: 32rpx;
-}
-.margin-top-6{
-  margin-top: 6rpx;
-}
-.margin-left-26{
-  margin-left: 26rpx;
-}
-.margin-right-12{
-  margin-right: 12rpx;
-}
-.kt_img {
-  width: 296rpx;
-  height: 220rpx;
-  margin-left: 16rpx;
-}
-.f20 {
-  font-size: 20rpx;
-}
-.icon-16 {
-  width: 16rpx;
-  height: 16rpx;
-}
-.margin-16{
-  margin: 8rpx;
-}
-.biaoqian {
-  width: 116rpx;
-  height: 38rpx;
-  line-height: 38rpx;
 }

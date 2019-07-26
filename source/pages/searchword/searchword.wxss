@@ -65,10 +65,7 @@
   padding: 7px 8px;
   font-size: 0;
 }
-.icon{
-  height: 30rpx;
-  width: 30rpx;
-}
+
 .weui-search-bar__label {
   position: absolute;
   top: 0;
@@ -92,11 +89,12 @@
 
 .keywordtitle {
   font-size: 28rpx;
+  color: black;
   padding: 20rpx;
 }
 
 .keyword {
-  background: #F9FAFB;
+  background: white;
   font-size: 24rpx;
   border-radius: 35rpx;
   padding-top: 10rpx;
@@ -193,4 +191,3 @@ Page {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-

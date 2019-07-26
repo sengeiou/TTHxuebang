@@ -45,9 +45,6 @@ Page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
-.border_top{
-  border-top: 2rpx solid #e5e5e5; 
-}
 
 .type {
   padding-left: 17rpx;
@@ -171,16 +168,11 @@ Page {
   width: 100vw;
   margin-top: -130rpx;
 }
-.icon13{
-  height: 26rpx;
-  width: 26rpx;
-}
 .midtm{
-  
 }
 .mid{
   width: 85.5%;
-  height: 196rpx;
+  height: 186rpx;
   margin-top: 30rpx;
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;

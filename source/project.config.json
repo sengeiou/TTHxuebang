@@ -9,25 +9,15 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		}
+		"autoAudits": false
 	},
-	"compileType": "miniprogram",
-	"libVersion": "2.7.1",
+	"compileType": "童天慧",
 	"appid": "wxb76c39adb7275c20",
 	"projectname": "%E7%AB%A5%E5%A4%A9%E6%85%A75",
-	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
-	"scripts": {},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -44,10 +34,11 @@
 			"list": []
 		},
 		"game": {
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": 42,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -78,7 +69,7 @@
 					"scene": null
 				},
 				{
-					"id": 4,
+					"id": -1,
 					"name": "首页",
 					"pathName": "pages/home/home",
 					"query": "",
@@ -92,10 +83,10 @@
 					"scene": null
 				},
 				{
-					"id": 6,
+					"id": -1,
 					"name": "课程详情",
 					"pathName": "pages/kcdetails/kcdetails",
-					"query": "id=9",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -134,10 +125,10 @@
 					"scene": null
 				},
 				{
-					"id": 12,
+					"id": -1,
 					"name": "订单完成",
 					"pathName": "pages/order/order",
-					"query": "id=1",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -230,258 +221,6 @@
 					"pathName": "pages/jgdetails/jgdetails",
 					"query": "id=185",
 					"scene": "1008"
-				},
-				{
-					"id": -1,
-					"name": "课程评价",
-					"pathName": "pages/pingjia/pingjia",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评价完成",
-					"pathName": "pages/pingjiawanchen/pingjiawanchen",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评价列表",
-					"pathName": "pages/pingjialist/pingjialist",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "在线课堂",
-					"pathName": "pages/zaixianketang/zaixianketang",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 30,
-					"name": "课堂详情",
-					"pathName": "pages/ketangdetails/ketangdetails",
-					"query": "id=5",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评测首页",
-					"pathName": "pages/pingceindex/pingceindex",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评测答题",
-					"pathName": "pages/pingcedati/pingcedati",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "评测结果",
-					"pathName": "pages/pingcejieguo/pingcejieguo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "视频购买",
-					"pathName": "pages/shipingoumai/shipingoumai",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "视频购买完成",
-					"pathName": "pages/videopurcsucc/videopurcsucc",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "分销中心",
-					"pathName": "pages/promotion/promotion",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "推广规则",
-					"pathName": "pages/tuiguanguize/tuiguanguize",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "招募审核",
-					"pathName": "pages/review/review",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "体现",
-					"pathName": "pages/tixian/tixian",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "收支明细",
-					"pathName": "pages/mingxi/mingxi",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的客户",
-					"pathName": "pages/mykehu/mykehu",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 42,
-					"name": "客户详情",
-					"pathName": "pages/kehuinfo/kehuinfo",
-					"query": "id=13521",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的邀请",
-					"pathName": "pages/myinvite/myinvite",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商品推广订单",
-					"pathName": "pages/tuiguandindan/tuiguandindan",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "会员服务",
-					"pathName": "pages/huiyuanfuwu/huiyuanfuwu",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "学员管理",
-					"pathName": "pages/studentmsg/studentmsg",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "学员详情",
-					"pathName": "pages/studentinfo/studentinfo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "地址管理",
-					"pathName": "pages/address/address",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "课程海报",
-					"pathName": "pages/kcyaoqin/kcyaoqin",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "积分商城",
-					"pathName": "pages/shopmall/shopmall",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "积分商品详情",
-					"pathName": "pages/shopmalldetail/shopmalldetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "联系客服",
-					"pathName": "pages/lianxikefu/lianxikefu",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的评测",
-					"pathName": "pages/mypingce/mypingce",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的兑换",
-					"pathName": "pages/jifenorder/jifenorder",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的兑换详情",
-					"pathName": "pages/jifenorderinfo/jifenorderinfo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "物流页面",
-					"pathName": "pages/wuliu/wuliu",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "打卡测试页",
-					"pathName": "pages/ceshi/ceshi",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "拼团海报",
-					"pathName": "pages/pintuanhaibao/pintuanhaibao",
-					"query": "name=136313_ttxhbpt.png",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "积分收支",
-					"pathName": "pages/jifenshouzhi/jifenshouzhi",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "地址详情",
-					"pathName": "pages/addressmanage/addressmanage",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "视频订单详情",
-					"pathName": "pages/ketaninfo/ketaninfo",
-					"query": "id=6",
-					"scene": null
 				}
 			]
 		}

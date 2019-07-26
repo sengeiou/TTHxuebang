@@ -16,7 +16,7 @@ import {
 } from "../../apis/purchase.api.js";
 import {
   WechatApi
-} from "../../apis/wechat.api.js";
+} from "../../apis/wechat.api.js"; 
 import {
   BatchApi
 } from "../../apis/batch.api.js";
@@ -34,28 +34,6 @@ class Content extends AppBase {
       wclist: [],
       dflist: []
     })
-    var type = this.Base.options.type;
-    console.log("那真的牛批" + type);
-    if (type != undefined) {
-      if (type == 'ygm') {
-        var show = 'wc';
-      }
-      if (type == 'dfk') {
-        var show = 'wait'
-      }
-      if (type == 'dsh') {
-        var show = 'dsh';
-      }
-      if (type == 'dpj') {
-        var show = 'dpj';
-      }
-      console.log("那真的牛批");
-      this.Base.setMyData({
-        show: show
-      })
-    }
-
-
   }
   onMyShow() {
     var that = this;
@@ -63,14 +41,14 @@ class Content extends AppBase {
 
     api.purchaselist({
     }, (alllist) => {
-
+      
       this.Base.setMyData({
         alllist
       });
     });
 
     api.purchaselist({
-      pstatus: 'P,U,R,PJ'
+      pstatus: 'P,U,R'
     }, (wclist) => {
       this.Base.setMyData({
         wclist
@@ -85,30 +63,6 @@ class Content extends AppBase {
       });
     });
 
-    api.purchaselist({
-      pstatus: 'PJ'
-    }, (pjlist) => {
-      this.Base.setMyData({
-        pjlist
-      });
-    });
-
-    api.purchaselist({
-      pstatus: 'DSH'
-    }, (dshlist) => {
-      this.Base.setMyData({
-        dshlist
-      });
-    });
-
-  }
-  courseinfo(e)
-  {
-    wx.navigateTo({
-      url: '/pages/order/order?id=' + e.currentTarget.dataset.id
-    })
-  
-   
   }
 
   bindshow(e) {
@@ -121,7 +75,7 @@ class Content extends AppBase {
     }
     if (type == "wc") {
       this.Base.setMyData({
-        show: "wc"
+        show: "finished"
       })
     }
     if (type == "df") {
@@ -129,21 +83,11 @@ class Content extends AppBase {
         show: "wait"
       })
     }
-    if (type == "dsh") {
-      this.Base.setMyData({
-        show: "dsh"
-      })
-    }
-    if (type == "dpj") {
-      this.Base.setMyData({
-        show: "dpj"
-      })
-    }
   }
 
   bindpay(e) {
     var that = this;
-    var id = e.currentTarget.id;
+    var id=e.currentTarget.id;
     var wechatapi = new WechatApi();
     wechatapi.prepay({ id: id }, (payret) => {
       payret.complete = function (e) {
@@ -153,17 +97,17 @@ class Content extends AppBase {
       wx.requestPayment(payret)
     });
   }
-  toorder(e) {
+  toorder(e){
     var that = this;
     var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '/pages/order/order?id=' + id,
+      url: '/pages/order/order?id='+id,
     })
   }
   colseorder(e) {
     var that = this;
     var id = e.currentTarget.id;
-
+    
     wx.showModal({
       title: '',
       content: '确认取消订单？',
@@ -185,49 +129,7 @@ class Content extends AppBase {
 
 
   }
-  kantuan(e) {
-    wx.navigateTo({
-      url: '/pages/groupinfo/groupinfo?id=' + e.currentTarget.dataset.pt,
-    })
 
-  }
-  pinjia(e)
-  {
-    wx.navigateTo({
-      url: '/pages/pingjia/pingjia?id='+e.currentTarget.dataset.id,
-    })
-
-  }
-  shanchu(e)
-  {
-    var that = this;
-    var id = e.currentTarget.dataset.id;
-
-    wx.showModal({
-      title: '确认删除此订单？',
-      content: '删除后不能恢复',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#FF6600',
-      confirmText: '确定',
-      confirmColor: '#FF6600',
-      success: function (res) {
-        if (res.confirm) {
-          var batchapi = new BatchApi();
-          batchapi.deleteorder({ id: id }, (colseorder) => {
-            that.Base.setMyData({ colseorder })
-            that.onMyShow();
-          })
-        }
-      }
-    });
-  }
-  pinjialist(e) {
-    var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/pages/pingjialist/pingjialist?id=' + id
-    })
-  }
 }
 
 var content = new Content();
@@ -239,9 +141,4 @@ body.bindshow = content.bindshow;
 body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;
-body.kantuan = content.kantuan;
-body.pinjia = content.pinjia;
-body.shanchu = content.shanchu;
-body.courseinfo = content.courseinfo;
-body.pinjialist = content.pinjialist;
 Page(body)

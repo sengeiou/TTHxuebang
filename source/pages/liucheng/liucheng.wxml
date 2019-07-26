@@ -32,7 +32,7 @@
 <view style='border-radius:50rpx;'  id="{{instinfo.intotel}}" bindtap='phoneCall' class='bg flex-row flex-column padding-30 margin-30'>
   <view class='flex-row flex-center'>
     <image src='{{uploadpath}}resource/{{res.kefudianhua}}' class='icon'></image>
-    <view class='txt-black  margin-left-20' style='font-size:36rpx;'>电话</view>
+    <view class='txt-black  margin-left-20' style='font-size:36rpx;'>客服电话</view>
   </view>
 </view>
 

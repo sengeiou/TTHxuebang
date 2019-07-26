@@ -1,5 +1,4 @@
 <!--pages/seek/seek.wxml  wx:if='{{type=="jg"}}'-->
-<back-component></back-component>
 
 <view wx:if='{{type=="jg"}}'>
   <view class='fixedtop'>
@@ -12,12 +11,10 @@
       </view>
 
       <view class=' flex-row flex-center margin-top-10' bindtap='yingcang' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
-
         <view class='flex-1  flex-row flex-center '>
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20'></image>
         </view>
-
         <view class='flex-2 flex-row flex-center '>
           <view style='width:50rpx;'></view>
           <view class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</view>
@@ -27,38 +24,32 @@
             </swiper-item>
           </swiper>
         </view>
-
       </view>
 
       <view class='flex-row flex-center margin-top-5' style=''>
-
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
-          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全深圳</view>
-
-
+          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全市</view>
           <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
-
-
           <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
         </view>
 
         <view class='flex-1 flex-row flex-center'>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
-            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</view>
-            <view wx:if='{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-white":""}} txt-black'>精选</view>
+            <view wx:if='{{show=="jx"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
-            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</view>
-            <view wx:if='{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-white":""}} txt-black'>新上</view>
+            <view wx:if='{{show=="xs"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
-            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</view>
-            <view wx:if='{{show=="hp"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+            <view class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-white":""}} txt-black'>好评</view>
+            <view wx:if='{{show=="hp"}}' class='bg-white' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
 
@@ -74,7 +65,7 @@
   <view style='height:240rpx;'></view>
 
 
-  <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
+  <view wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' class=''>
 
     <view class=' padding-20' style=''>
       <image src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx'></image>
@@ -86,11 +77,7 @@
         <view class='padding-20 '>
 
           <view class='flex-row flex-center'>
-
-            <view class="flex-row flex-center flex-1 ">
-              <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
-              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"></image>
-            </view>
+            <view class='txt-black txt-bold flex-1'>{{item.jigou}}</view>
 
             <view class=''>
               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
@@ -118,18 +105,16 @@
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
-
             <view class='flex-row flex-1'>
               <view class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
             </view>
-
             <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
           </view>
 
           <view class='flex-row flex-center margin-top-5'>
             <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
-            <view class='flex-1 h6 margin-left-10 txt-black chaochu'>{{item.showaddress}}</view>
-            <view class='h6 margin-left-10'>{{item.miletxt}}</view>
+            <view class='flex-1 h6 margin-left-10 txt-black'>{{item.showaddress}}</view>
+            <view class='h6 '>{{item.miletxt}}</view>
           </view>
 
         </view>
@@ -141,7 +126,7 @@
   </view>
 
 
-  <view style='height:70rpx;'></view>
+  <view style='height:40rpx;'></view>
 </view>
 
 
@@ -161,26 +146,26 @@
       <view class=' flex-row flex-center margin-top-20'>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</view>
-          <view wx:if='{{options=="j_x"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-white":""}} txt-black txt-bold'>精选</view>
+          <view wx:if='{{options=="j_x"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="j_x"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</view>
-          <view wx:if='{{options=="x_s"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-white":""}} txt-black txt-bold'>新上</view>
+          <view wx:if='{{options=="x_s"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-bold f13":""}} txt-black txt-bold'>宝妈最爱</view>
-          <view wx:if='{{options=="bm_za"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-white":""}} txt-black txt-bold'>宝妈最爱</view>
+          <view wx:if='{{options=="bm_za"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
-          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</view>
-          <view wx:if='{{options=="h_p"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></view>
+          <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-white":""}} txt-black txt-bold'>好评</view>
+          <view wx:if='{{options=="h_p"}}' class='bg-white margin-top-5' style='width:80rpx;height:6rpx;'></view>
           <view wx:if='{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
@@ -291,7 +276,7 @@
 
       <view class='flex-row flex-center flex-1'>
         <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
-        <view class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</view>
+        <view class='h6 flex-1 margin-left-5 txt-gray'>{{item.JG_jigou}}</view>
         <view class=' txt-red h6 padding-top-10'>￥</view>
         <view class=' txt-red txt-bold'>{{item.price}}</view>
       </view>
@@ -305,11 +290,11 @@
 
   </view>
 
-  <!-- <view wx:if="{{nomore!=1}}" class='h1'>
+<!-- <view wx:if="{{nomore!=1}}" class='h1'>
 <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 </view> -->
 
-  <view style='height:40rpx;'></view>
+<view style='height:40rpx;'></view>
 
 
 
@@ -342,7 +327,7 @@
         </view>
       </view>
 
-      <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
+      <!-- <view class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></view>
 
 
       <view class='flex-row column padding-bottom-20'>
@@ -351,12 +336,12 @@
           <view class='{{tage_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTAge'>全部</view>
           <view class='{{tage_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' wx:for="{{filtercourseage}}" wx:key="k" id="{{item.id}}" bindtap='setTAge'>{{item.name}}</view>
         </view>
-      </view>
+      </view> -->
 
 
 
       <view class='btm'>
-        <view class='flex-row flex-column '>
+        <view class='flex-row flex-column ' style='height:350rpx;'>
 
           <view class='flex-1'></view>
 
@@ -379,8 +364,8 @@
 
 
 <swiper wx:if="{{type=='kc'&&options_show==false}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
-  <swiper-item wx:for-index="idx" style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
-    <view wx:if="{{idx%2==0}}" class='flex-row'>
+  <swiper-item style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
+    <view class='flex-row'>
       <view class='flex-1'></view>
       <view class='tipsshow'>
         <view class='flex-row flex-center'>
@@ -389,40 +374,17 @@
           </view>
 
           <view style='width:250rpx;' class='flex-row flex-center'>
-           
-            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}预约了</view>
-
-            <!-- <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
+            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;width:50rpx;'>{{showitem.member_nickName}}</view>
+            <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>预约了</view>
+            <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
               {{showitem.course_name}}
-            </view> -->
+            </view>
 
           </view>
 
         </view>
       </view>
-
     </view>
-    <view  wx:if="{{idx%2!=0}}" class='flex-row'>
-     
-       <view  class='tipsshow'>
-      <view class='flex-row flex-center'>
-
-
-        <view class='flex-row flex-center'>
-
-          <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;margin-top:5rpx'>
-            {{showitem.course_name}}
-          </view>
-
-        </view>
-
-      </view>
-    </view>
-
-    </view>
-
-
-   
   </swiper-item>
 </swiper>
 
@@ -434,12 +396,10 @@
 
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
+
   <scroll-view scroll-y>
-    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全深圳</view>
-    <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
+    <view bindtap='changeDistrict' class='padding-20 text-center' id='-1' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>全市</view>
+    <view bindtap='changeDistrict' class='padding-20 text-center' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style='border-bottom:1px solid #e5e5e5;'>{{item.name}}</view>
   </scroll-view>
 
 </view>
-
-
-

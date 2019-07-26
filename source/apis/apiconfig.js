@@ -1,21 +1,20 @@
 export class ApiConfig {
 
   static GetApiUrl() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
+    return "https://tthxb.artxb.cn/api/";
   }
   static GetUploadPath() {
-    return "https://alioss.app-link.org/alucard263096/tthxb/";
+    return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
   }
   static GetFileUploadAPI() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
+    return "https://tthxb.artxb.cn/fileupload";
   }
-  
+
   static GetHeader() {
     var headers = {
       'Content-Type': 'application/x-www-form-urlencoded',
       'UNICODE': ApiConfig.UNICODE,
-      'TOKEN': ApiConfig.TOKEN,
-      'TOKENKEY':ApiConfig.TOKENKEY
+      'TOKEN': ApiConfig.TOKEN
     };
     return headers;
   }
@@ -26,10 +25,6 @@ export class ApiConfig {
   static TOKEN = "";
   static SetToken(token) {
     ApiConfig.TOKEN = token;
-  }
-  static TOKENKEY = "";
-  static SetTokenKey(tokenkey) {
-    ApiConfig.TOKENKEY = tokenkey;
   }
 
   static showLoadingCounter = 0;

@@ -14,15 +14,10 @@ import {
 import {
   JigouApi
 } from "../../apis/jigou.api.js";
-//
+
 class Content extends AppBase {
   constructor() {
     super();
-  }
-  setPageTitle() {
-    wx.setNavigationBarTitle({
-      title: '找课程',
-    });
   }
   onLoad(options) {
     this.Base.Page = this;
@@ -116,18 +111,9 @@ class Content extends AppBase {
         filtercourseage
       });
     });
-    jigouapi.buyshow({limit:'20'}, (buyshow) => {
-      console.log(buyshow);
-      console.log(5555555555555);
-        var lunbolist=[];
-        buyshow.map((item)=>{
-
-           lunbolist.push(item);
-          lunbolist.push(item);
-        })
-
+    jigouapi.buyshow({}, (buyshow) => {
       this.Base.setMyData({
-        buyshow: lunbolist
+        buyshow
       });
     });
 
@@ -141,7 +127,6 @@ class Content extends AppBase {
         filterdistrict
       });
       if (this.Base.options.type == 'jg') {
-        console.log(this.Base.getMyData());
 		    var address=this.Base.getMyData().address;
         var adcode = address.ad_info.adcode;
         for (var i = 0; i < filterdistrict.length; i++) {
@@ -238,8 +223,6 @@ class Content extends AppBase {
     }
     this.loadcourse();
   }
-
-
   loadjg() {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
@@ -288,8 +271,6 @@ class Content extends AppBase {
       });
     });
   }
-
-
   loadcourse() {
     var jigouapi = new JigouApi();
     var mylat = this.Base.getMyData().mylat;
@@ -326,8 +307,6 @@ class Content extends AppBase {
 
 
     jigouapi.courselist(opt, (courselist) => {
-      console.log("提交了哈哈啊");
-      console.log(opt);
       for (var i = 0; i < courselist.length; i++) {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
         console.log("mile=" + mile);
@@ -538,7 +517,6 @@ class Content extends AppBase {
     });
   }
   setTAge(e) {
-    console.log("555555555");
     var id = e.currentTarget.id;
     this.Base.setMyData({
       tage_id: id

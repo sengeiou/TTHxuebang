@@ -59,113 +59,8 @@ export class ApiUtil {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
-
-
-  static zhenze(str) {
-    var TEL_REGEXP = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
-    if (TEL_REGEXP.test(str)) {
-      return true;
-    }
-    return false;
-  }
-
-  static Replace(str, from, to) {
-    return str.split(from).join(to);
-  }
-
-  static ParseDate(dateStr) {
-    return new Date(ApiUtil.Replace(dateStr, "-", "/"));
-  }
-
   static FormatDate(val) {
     return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
-  }
-
-  static Updatetime(str) {
-    var timestamp = Date.parse(str);
-
-    //返回当前时间毫秒数
-    timestamp = timestamp / 1000;
-    //获取当前时间
-    var n = timestamp *
-      1000;
-    console.log(n, "啊啊啊")
-
-    var date = new Date(n);
-
-
-    console.log(date,"啊啊")
-    //年
-    var Y =
-      date.getFullYear();
-      
-    //月
-    var M = date.getMonth()
-      + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
-    //日
-    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-
-    return (Y + "年" + M + "月" + D + "日")
-  }
-
-  static GetLocalTime(nS) {
-    return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
-  }
-
-  static GetCurrentMonthFirst() {
-    var date = new Date();
-    var todate = date.getFullYear() + "-" + ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1) + "-" + (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-    return todate;
-  }
-
-  static GetDates(days, todate) {
-
-
-
-    //todate默认参数是当前日期，可以传入对应时间
-    var dateArry = [];
-    var dateLater = ApiUtil.DateLater;
-    for (var i = 0; i < days; i++) {
-      var dateObj = dateLater(todate, i);
-      dateArry.push(dateObj)
-    }
-    return dateArry;
-  }
-
-  static GetNowFormatDate() {
-    var date = new Date();
-    var seperator1 = "-";
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
-      month = "0" + month;
-    }
-    if (strDate >= 0 && strDate <= 9) {
-      strDate = "0" + strDate;
-    }
-    var nowdate = year + seperator1 + month + seperator1 + strDate;
-    return nowdate;
-  }
-
-  //param：传入时间：dates: "2018-04-02", later: 往后多少天
-  static DateLater(dates, later) {
-    let dateObj = {};
-    let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
-    let date = new Date(dates.replace(/-/g, '/'));
-    console.log("hahahah");
-    console.log(dates.replace(/-/g, '/'));
-    date.setDate(date.getDate() + later);
-    let day = date.getDay();
-    dateObj.year = date.getFullYear();
-    dateObj.month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
-    dateObj.day = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
-
-    dateObj.seven_date = dateObj.year + '-' + dateObj.month + '-' + dateObj.day;
-    dateObj.daka_date = dateObj.month + '/' + dateObj.day;
-
-    dateObj.week = show_day[day];
-    return dateObj;
   }
 
   static ten2(i) {
@@ -275,37 +170,6 @@ export class ApiUtil {
   static Rad(d) {
     return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
   }
-
-  static masaike(name) {
-
-    console.log(12132);
-    // return name.substring(0, 1) + '***';
-    return name;
-
-  }
-
-  static shijianjisuan(date) {
-    console.log(date);
-    var jisuandate = new Date(date);
-    var danqiandate = new Date();
-    var dateDiff = jisuandate.getTime() - danqiandate.getTime();
-    var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));//计算出相差天数
-    var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
-    var hours = Math.floor(leave1 / (3600 * 1000))//计算出小时数
-    //计算相差分钟数
-    var leave2 = leave1 % (3600 * 1000)    //计算小时数后剩余的毫秒数
-    var minutes = Math.floor(leave2 / (60 * 1000))//计算相差分钟数
-    //计算相差秒数
-    var leave3 = leave2 % (60 * 1000)      //计算分钟数后剩余的毫秒数
-    var seconds = Math.round(leave3 / 1000)
-    console.log(" 相差 " + dayDiff + "天 " + hours + "小时 " + minutes + " 分钟" + seconds + " 秒")
-    console.log(dateDiff + "时间差的毫秒数", dayDiff + "计算出相差天数", leave1 + "计算天数后剩余的毫秒数"
-      , hours + "计算出小时数", minutes + "计算相差分钟数", seconds + "计算相差秒数");
-
-    return dateDiff;
-
-  }
-
   static GetDistance(lat1, lng1, lat2, lng2) {
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);
@@ -318,20 +182,17 @@ export class ApiUtil {
     //s=s.toFixed(4);
     return s;
   }
-
   static GetMileTxt(mile) {
     console.log(mile);
-    if (mile > 100000) {
+    if(mile>100000){
       return "";
     }
     if (mile > 1000) {
-      return + (mile / 1000.0).toFixed(0) + "km";
+      return  + (mile / 1000.0).toFixed(0) + "km";
     } else if (mile < 100) {
       return "100米内";
     } else {
       return "" + (mile).toString() + "m";
     }
   }
-
-
 }

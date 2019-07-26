@@ -45,14 +45,6 @@ class Content extends AppBase {
     })
   }
 
-  bindconfirm(e){
-    this.tosearch();
-  }
-  quxiao(e){
-    wx.navigateBack({
-      delta: 1,
-    })
-  }
 
   search(e) {
     //console.log(e.detail.value);
@@ -154,9 +146,7 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.skey = content.skey;
 body.search = content.search;
-body.tosearch = content.tosearch; 
-body.bindconfirm = content.bindconfirm; 
-body.quxiao = content.quxiao;
+body.tosearch = content.tosearch;
 body.todetails = content.todetails;
 body.clearrecord = content.clearrecord;
 body.fav = content.fav;
