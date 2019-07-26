@@ -173,12 +173,12 @@ class Content extends AppBase {
         isfav: status
       });
     });
-
-    setTimeout(() => {
+    clearTimeout(this.aaa);
+    this.aaa= setTimeout(() => {
       this.Base.setMyData({
         tishi: 0
       })
-     //  clearTimeout(timeoutId);
+      
     }, 3000);
 
 
@@ -186,7 +186,7 @@ class Content extends AppBase {
 
   }
   shipin = null;
-
+  aaa=null;
 
   jindu(e) {
 

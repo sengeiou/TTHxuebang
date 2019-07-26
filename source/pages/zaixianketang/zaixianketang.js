@@ -52,25 +52,37 @@ class Content extends AppBase {
   
   }
   onMyShow() {
-    var jigouapi = new JigouApi();
-    jigouapi.zaixiankechenlist({}, (zaixiankechen) => {
-      console.log(zaixiankechen);
-      console.log("adada");
-      var remenkechen = zaixiankechen.filter(item => item.ishot_value == 'Y');
-      var mianfeikechen = zaixiankechen.filter(item => item.isfree_value == 'Y');
-      console.log(remenkechen);
-      this.Base.setMyData({ kechenlist: zaixiankechen, remenkechen, mianfeikechen });
-    })
+   
+  this.getlist();
 
   }
+getlist(){
+  var json = null;
+  json = {};
+  if (this.Base.getMyData().xz == -2) {
+    json.ishot = 'Y';
+  } else if (this.Base.getMyData().xz == -1) {
+    json.isfree = 'Y';
+  } else {
+    json.onlineclassroomtype_id = this.Base.getMyData().xz;
+  }
+  var jigouapi = new JigouApi();
+
+  jigouapi.zaixiankechenlist(json, (zaixiankechen) => {
+  
+    this.Base.setMyData({ xzlist: zaixiankechen });
+  })
+
+}
+
   switchtype(e){
     var kechenlist = this.Base.getMyData().kechenlist;
    
     var id = e.currentTarget.dataset.id;
-       
-    this.Base.setMyData({ xzlist: kechenlist.filter(item => item.onlineclassroomtype_id==id)})
-    
+        
+   
     this.Base.setMyData({ xz:id, name:e.currentTarget.dataset.name})
+    this.getlist();
   }
   kechenxianqin(e)
   {
@@ -128,4 +140,5 @@ body.check = content.check;
 body.switchtype = content.switchtype;
 body.kechenxianqin = content.kechenxianqin;
 body.bannerGo = content.bannerGo;
+body.getlist = content.getlist;
 Page(body)

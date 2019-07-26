@@ -87,27 +87,23 @@
 
             <view class='flex-row   padding-20' style="padding-top:0prx">
 
-              <view class='flex-row flex-center  '>
-                <image src='{{uploadpath}}resource/{{res.nianlin}}' mode='widthFix' class='icon-15'></image>
-                <view class='h5  margin-left-10 ' style='color:#222222'>{{courseinfo.age_name}}</view>
+              <view class='flex-1  flex-column  flex-row  '>
+               <view class="h6 txt-gray">适合年龄</view>
+                <view class='h5  txt-bold margin-top-15  ' style='color:#222222'>{{courseinfo.age_name}}</view>
               </view>
 
-              <view class='' style='width:60rpx;'>
+            
+
+              <view class='flex-1  flex-column  flex-row  '>
+                <view class="h6 txt-gray">营业时间</view>
+                <view class='h5 margin-top-15  txt-bold ' style='color:#222222'>{{courseinfo.JG_time}}</view>
               </view>
 
-              <view class='flex-row flex-center '>
-                <image src='{{uploadpath}}resource/{{res.shijian}}' mode='widthFix' class='icon-15'></image>
-                <view class='h5  margin-left-10   ' style='color:#222222'>{{courseinfo.JG_time}}</view>
-              </view>
-
-              <view class='' style='width:60rpx;'>
-              </view>
-
-              <view class='flex-row flex-center  '>
-                <image src='{{uploadpath}}resource/{{res.yuyue}}' mode='widthFix' class='icon-15'></image>
-                <view class='h5  margin-left-10  ' style='color:#222222' wx:if='{{courseinfo.appointment_value=="Y"}}'>需要预约</view>
-                <view class='h5  margin-left-10  ' style='color:#222222' wx:if='{{courseinfo.appointment_value=="N"}}'>无需预约</view>
-                <view class='h7 txt-gray  margin-left-10' wx:if='{{courseinfo.appointment_value=="Y"}}'>{{courseinfo.people_num}}人预约</view>
+              <view class='flex-1  flex-column  flex-row  '>
+              
+                <view class='h6 txt-gray  '  wx:if='{{courseinfo.appointment_value=="Y"}}'>需要预约</view>
+                <view class='h6 txt-gray    '  wx:if='{{courseinfo.appointment_value=="N"}}'>无需预约</view>
+                <view class='h5 txt-bold  margin-top-15 ' wx:if='{{courseinfo.appointment_value=="Y"}}'>{{courseinfo.people_num}}人已预约</view>
               </view>
 
             </view>
@@ -115,12 +111,12 @@
           <view class='flex-row flex-center  padding-left-30  '>
             <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
             <view class='flex-1 h5 margin-left-10 txt-blue dizhi' bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</view>
-            <view class='h6 txt-black margin-right-20 txt-bold ' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</view>
+            <view class='h6 txt-black margin-right-40 txt-bold ' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</view>
           </view>
           <view class="height-40"></view>
 
 
-          <view class='height-20 bg-gray'></view>
+          <view wx:if="{{pintuanrenshu>0}}"  class='height-20 bg-gray'></view>
           <view wx:if="{{pintuanrenshu>0}}" class="padding-20 flex-row flex-center">
 
             <view class="flex-1 h5" style='color:#222222'>{{pintuanrenshu}}人正在拼班，可直接参与</view>
