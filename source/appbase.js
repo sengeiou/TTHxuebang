@@ -22,6 +22,7 @@ var mta = require('mta_wechat_sdk/mta_analysis.js')
 export class AppBase {
   static lastlat = 0;
   static lastlng = 0;
+  static lastdistance=0;
   static lastaddress = {
     address: { ad_info: { adcode: "" } }
   };
@@ -394,9 +395,9 @@ export class AppBase {
       if (AppBase.lastlat != 0) {
         this.Base.setMyData({
           address: AppBase.lastaddress,
-          lastdistance: 0,
-          mylat: 0,
-          mylng: 0
+          lastdistance: AppBase.lastdistance,
+          mylat: AppBase.lastlat,
+          mylng: AppBase.lastlng
         });
         console.log("vvckc", "0");
         that.onMyShow();
@@ -459,18 +460,17 @@ export class AppBase {
 
         AppBase.lastlat = mylat;
         AppBase.lastlng = mylng;
+        AppBase.lastdistance = lastdistance;
 
         this.Base.setMyData({
           lastdistance,
           address,
           mia: "??",
-
-
         });
         console.log("lastdistance", Number(lastdistance), Number(lastdistance) == "NaN");
         if (lastdistance > 500 || lastdistance == NaN) {
           console.log("citycode2" + AppBase.CITYID);
-          console.log("vvckc", "1");
+          console.log("vvckc", "1", mylat);
           that.onMyShow();
         }
       }, () => {
