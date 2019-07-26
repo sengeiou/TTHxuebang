@@ -79,7 +79,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         info
       });
-      var codeimg = 'https://cmsdev.app-link.org/alucard263096/tthxb/api/jigou/qrcode?id=' + info.id + '&a.jpg';
+      var codeimg = ApiConfig.GetApiUrl()+ 'jigou/qrcode?id=' + info.id + '&a.jpg';
       this.Base.setMyData({ codeimg: codeimg });
       console.log(codeimg + "图片链接");
 
