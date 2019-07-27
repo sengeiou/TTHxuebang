@@ -60,7 +60,8 @@ class Content extends AppBase {
 
   }
 
-
+  jglist=[];
+  courselist=[];
 
 
 
@@ -92,9 +93,17 @@ class Content extends AppBase {
     json.mylng = mylng;
     json.orderby = "distance";
     jigouapi.jglist(json, (jglist) => {
+      console.log("jglist", jglist);
+      var jgvlist = [];
+      for (var i = 0; i < 7 && i < jglist.length; i++) {
+        jgvlist.push(jglist[i]);
+      }
+
+      this.Base.jglist = jglist;
       this.Base.setMyData({
-        jglist
+        jgvlist
       });
+      
     });
 
 
@@ -103,17 +112,23 @@ class Content extends AppBase {
     kc.orderby = "distance";
 
     jigouapi.courselist(kc, (courselist) => {
+      var coursevlist = [];
+      for (var i = 0; i < 7 && i < courselist.length; i++) {
+        coursevlist.push(courselist[i]);
+      }
+
+      this.Base.courselist = courselist;
       this.Base.setMyData({
-        courselist
+        coursevlist
       });
     });
 
 
-    teacherapi.teachlist(video, (teachlist) => {
-      this.Base.setMyData({
-        teachlist
-      });
-    });
+    // teacherapi.teachlist(video, (teachlist) => {
+    //   this.Base.setMyData({
+    //     teachlist
+    //   });
+    // });
 
 
   }
@@ -221,6 +236,91 @@ class Content extends AppBase {
     wx.navigateTo({
       url: '/pages/kcdetails/kcdetails?id=' + id,
     })
+  }
+
+  onReachBottom() {
+    console.log("???kk");
+    wx.showLoading({
+      title: '加载中...'
+    })
+
+
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
+
+    var jgvlist = this.Base.getMyData().jgvlist;
+    var coursevlist = this.Base.getMyData().coursevlist;
+    var courselist = this.Base.courselist;
+    var jglist = this.Base.jglist;
+    var count = 0;
+    var cs = 0;
+
+    if (this.Base.getMyData().shows == "finished") {
+      for (var i = coursevlist.length; i < courselist.length; i++) {
+
+        coursevlist.push(courselist[i]);
+        count++;
+        if (count >= 7) {
+          break;
+        }
+      }
+      console.log(count + "AAA")
+      if (count == 0) {
+        console.log("diaoni2");
+        wx.hideLoading();
+        wx.showToast({
+          title: '已经没有了',
+          icon: 'none'
+        })
+      }
+
+      if (count != 0) {
+        console.log("diaoni1");
+        setTimeout(() => {
+          console.log("llll");
+          this.Base.setMyData({
+            coursevlist
+          });
+          wx.hideLoading()
+        }, 500);
+      }
+
+    }
+
+    
+
+    if (this.Base.getMyData().shows == "wait") {
+      for (var j = jgvlist.length; j < jglist.length; j++) {
+        jgvlist.push(jglist[j]);
+        cs++;
+        if (cs >= 7) {
+          break;
+        }
+      }
+      console.log("diaoni2",cs);
+      if (cs == 0) {
+        console.log("diaoni2");
+        wx.hideLoading();
+        wx.showToast({
+          title: '已经没有了',
+          icon: 'none'
+        });
+      }
+      if (cs != 0) {
+        setTimeout(() => {
+          console.log("llll");
+          console.log("diaoni1");
+          this.Base.setMyData({
+            jgvlist
+          });
+          wx.hideLoading()
+        }, 500);
+      }
+    }
+
+    console.log("diaoni3");
+
+
   }
 
 }
