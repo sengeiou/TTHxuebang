@@ -31,7 +31,7 @@ class Content extends AppBase {
 
   getUserInfo(e) {
     console.log(666666666);
-
+    wx.clearStorage();
     wx.switchTab({
       url: '/pages/home/home',
     });

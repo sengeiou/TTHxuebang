@@ -68,6 +68,9 @@ class Content extends AppBase {
         var danqiandate = new Date();
         var jisuandate = new Date(list[i].replace(/-/g, '/'));
         var dateDiff = jisuandate.getTime() - danqiandate.getTime();
+        if(dateDiff<0){
+          dateDiff=0;
+        }
         listtt.push(Math.floor(dateDiff / (24 * 3600 * 1000)));//计算出相差天数
         var leave1 = dateDiff % (24 * 3600 * 1000)    //计算天数后剩余的毫秒数
         listtt.push(Math.floor(leave1 / (3600 * 1000)));   //计算出小时数

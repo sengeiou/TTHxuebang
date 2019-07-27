@@ -39,18 +39,15 @@
 
     <view class="flex-row flex-center">
 
-      <view class="djs h4">{{sjlist[0][1]
-        <=9? "0"+sjlist[0][1]:sjlist[0][1]}} </view>
+      <view class="djs h4">{{sjlist[0][1] <=9? "0"+sjlist[0][1]:sjlist[0][1]}} </view>
           <view class="margin-left-10 margin-right-10">:</view>
-          <view class="djs h4">{{sjlist[0][2]
-            <=9? "0"+sjlist[0][2]:sjlist[0][2]}}</view>
-              <view class="margin-left-10 margin-right-10">:</view>
-              <view class="djs h4">{{sjlist[0][3]
-                <=9? "0"+sjlist[0][3]:sjlist[0][3]}}</view>
+          <view class="djs h4">{{sjlist[0][2] <=9? "0"+sjlist[0][2]:sjlist[0][2]}}</view>
+          <view class="margin-left-10 margin-right-10">:</view>
+          <view class="djs h4">{{sjlist[0][3] <=9? "0"+sjlist[0][3]:sjlist[0][3]}}</view>
 
-              </view>
+    </view>
 
-              <view class="flex-1"></view>
+    <view class="flex-1"></view>
 
           </view>
 
