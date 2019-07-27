@@ -535,14 +535,14 @@
                                               </view>
 
 
-                                              <view hidden='{{jglist.length>0}}'>
+                                              <view hidden='{{jgvteach.length>0}}'>
 
                                                 <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
 
                                               </view>
 
 
-                                              <view hidden='{{jglist.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
+                                              <view hidden='{{jgvteach.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
                                                 <view class=' padding-20' style=''>
                                                   <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
                                                 </view>
