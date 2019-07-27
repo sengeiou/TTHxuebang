@@ -131,9 +131,7 @@ class Content extends AppBase {
 
 
     console.log(show);
-    if (type == "kc") {
-      this.loadcourse();
-    } else {
+    
 
 
       jigouapi.activedistrictlist({
@@ -143,8 +141,8 @@ class Content extends AppBase {
         this.Base.setMyData({
           filterdistrict
         });
-
-        if (this.Base.options.type == 'jg') {
+        //默认搜索罗湖区算了
+        if (1==1||this.Base.options.type == 'jg') {
           console.log(this.Base.getMyData());
           var address = this.Base.getMyData().address;
           var adcode = address.ad_info.adcode;
@@ -157,10 +155,12 @@ class Content extends AppBase {
             }
           }
         }
-
-        this.loadjg();
+        if (type == "kc") {
+          this.loadcourse();
+        } else {
+          this.loadjg();
+        }
       });
-    }
 
     setTimeout(() => {
       wx.hideLoading()
@@ -303,6 +303,7 @@ class Content extends AppBase {
     };
 
     var data = this.Base.getMyData();
+    console.log("loadcourse",data);
     if (data.fdistrict_id != "0") {
       opt.district_id = data.fdistrict_id;
     }
