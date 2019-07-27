@@ -26,6 +26,8 @@ import {
 } from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
+	
+	jglist=[];
   constructor() {
     super();
   }
@@ -334,23 +336,17 @@ class Content extends AppBase {
       city_id: AppBase.CITYID,
       orderby: "distance"
     }, (jglist) => {
-      for (var i = 0; i < jglist.length; i++) {
-        console.log(jglist[i]);
-        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
-        console.log("mile=" + mile);
-        var miletxt = ApiUtil.GetMileTxt(mile);
-        console.log("miletxt=" + miletxt);
-        jglist[i]["miletxt"] = miletxt;
-      }
 
       var jgvteach = [];
       for (var i = 0; i < 4 && i < jglist.length; i++) {
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        jglist[i]["miletxt"] = miletxt;
         jgvteach.push(jglist[i]);
       }
 
-
+      this.Base.jglist=jglist;
       this.Base.setMyData({
-        jglist,
         jgvteach
       });
     });
@@ -359,16 +355,23 @@ class Content extends AppBase {
 
 
   onReachBottom() {
+    var mylat = this.Base.getMyData().mylat;
+    var mylng = this.Base.getMyData().mylng;
     console.log("???kk");
     // wx.showLoading({
     //   title: '加载中...'
     // })
     var jgvteach = this.Base.getMyData().jgvteach;
-    var jglist = this.Base.getMyData().jglist;
+    var jglist = this.Base.jglist;
     var cs = 0;
 
 
     for (var j = jgvteach.length; j < jglist.length; j++) {
+
+      var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
+      var miletxt = ApiUtil.GetMileTxt(mile);
+      jglist[i]["miletxt"] = miletxt;
+
       jgvteach.push(jglist[j]);
       cs++;
       if (cs >= 7) {
