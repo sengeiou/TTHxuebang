@@ -1,7 +1,7 @@
 <view class="tishikuang flex-row flex-center" wx:if='{{nocity==1}}'>
   <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30"></image>
-  <view class="f20 margin-left-10">您所在的城市“{{cityname}}”暂未开放，更多详细信息请咨询 </view>
-  <view class="f20 margin-left-10" style="color:#589DE9">400-9365-660 </view>
+  <view class="f20 margin-left-10">您所在的城市“{{cityname}}”准备开放中，可添加微信客服进行咨询： </view>
+  <view class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</view>
   <image src="{{uploadpath}}resource/{{res.heicha}}" bindtap="closetop" class="icon15 margin-left-10"></image>
 </view>
 

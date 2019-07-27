@@ -18,9 +18,11 @@ export class ApiConfig {
   static GetApiUrl() {
     return "https://tthxb.artxb.cn/api/";
   }
+
   static GetUploadPath() {
     return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
   }
+
   static GetFileUploadAPI() {
     return "https://tthxb.artxb.cn/fileupload";
   }
@@ -48,6 +50,7 @@ export class ApiConfig {
   }
 
   static showLoadingCounter = 0;
+  
   static ShowLoading = function () {
     return;
     if (ApiConfig.showLoadingCounter == 0) {

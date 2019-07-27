@@ -169,14 +169,14 @@ class Content extends AppBase {
           }, (addpingjia) => {
 
             var jifenapi = new JifenApi();
-            jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "pingjia" }, (addjifen) => {
-              this.Base.setMyData({ addjifen })
+            jifenapi.addjifen({ member_id: that.Base.getMyData().memberinfo.id, unicode: "pingjia" }, (addjifen) => {
+              that.Base.setMyData({ addjifen })
             })
-
 
             that.Base.setMyData({
               addpingjia
             });
+
           });
 
           wx.reLaunch({

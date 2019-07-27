@@ -21,8 +21,8 @@
 
     <view class="flex-row flx-center" style="margin-top:-20rpx ">
       <view class="flex-1" style="width:550rpx;"></view>
-      <view class=" " style="height:32rpx;" wx:if='{{item.dati_status_value=="N"}}'></view>
-      <view class="txt-bold txt-white h6" wx:if='{{item.dati_status_value=="Y"}}'>已测试</view>
+      <view class=" " style="height:32rpx;" wx:if='{{item.dati_status_value=="Y"}}'></view>
+      <view class="txt-bold txt-white h6" wx:if='{{item.dati_status_value=="N"}}'>已测试</view>
     </view>
 
   </view>
