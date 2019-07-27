@@ -368,9 +368,9 @@ class Content extends AppBase {
 
     for (var j = jgvteach.length; j < jglist.length; j++) {
 
-      var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
+      var mile = ApiUtil.GetDistance(mylat, mylng, jglist[j].lat, jglist[j].lng);
       var miletxt = ApiUtil.GetMileTxt(mile);
-      jglist[i]["miletxt"] = miletxt;
+      jglist[j]["miletxt"] = miletxt;
 
       jgvteach.push(jglist[j]);
       cs++;
