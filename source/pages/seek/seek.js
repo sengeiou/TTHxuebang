@@ -19,8 +19,8 @@ class Content extends AppBase {
   constructor() {
     super();
   }
-  courselist=[];
-  jglist=[];
+  courselist = [];
+  jglist = [];
   setPageTitle() {
     wx.setNavigationBarTitle({
       title: '找课程',
@@ -72,30 +72,6 @@ class Content extends AppBase {
     //  console.log(this.options.type);
 
 
-
-  }
-
-  onUnload() {
-    var timerStart = this.Base.getMyData().timerStart;
-    clearInterval(timerStart);
-  }
-  onMyShow() {
-
-    var isload = this.Base.getMyData().isload;
-    if(isload==true){
-      return;
-    }
-    this.Base.setMyData({ isload:true});
-    wx.showLoading({
-      title: '加载中...'
-    });
-
-    var type = this.Base.getMyData().type;
-
-    var that = this;
-    var instapi = new InstApi();
-    var show = this.Base.getMyData().show;
-
     var jigouapi = new JigouApi();
     jigouapi.gongaolist({
       orderby: " rand() "
@@ -116,47 +92,75 @@ class Content extends AppBase {
         filtercourseage
       });
     });
-    jigouapi.buyshow({limit:'20'}, (buyshow) => {
-     
-        var lunbolist=[];
-        // buyshow.map((item)=>{
+    jigouapi.buyshow({
+      limit: '20'
+    }, (buyshow) => {
 
-        //    lunbolist.push(item);
-        //   lunbolist.push(item);
-        // })
+      var lunbolist = [];
 
       this.Base.setMyData({
         buyshow: buyshow
       });
     });
 
+  }
+
+  onUnload() {
+    var timerStart = this.Base.getMyData().timerStart;
+    clearInterval(timerStart);
+  }
+  onMyShow() {
+
+    var jigouapi = new JigouApi();
+    var isload = this.Base.getMyData().isload;
+    if (isload == true) {
+      return;
+    }
+    this.Base.setMyData({
+      isload: true
+    });
+    wx.showLoading({
+      title: '加载中...'
+    });
+
+    var type = this.Base.getMyData().type;
+
+    var that = this;
+    var instapi = new InstApi();
+    var show = this.Base.getMyData().show;
+
+
     console.log(show);
-    this.loadcourse();
+    if (type == "kc") {
+      this.loadcourse();
+    } else {
 
-    jigouapi.activedistrictlist({
-      city_id: AppBase.CITYID
-    }, (filterdistrict) => {
 
-      this.Base.setMyData({
-        filterdistrict
-      });
+      jigouapi.activedistrictlist({
+        city_id: AppBase.CITYID
+      }, (filterdistrict) => {
 
-      if (this.Base.options.type == 'jg') {
-        console.log(this.Base.getMyData());
-		    var address=this.Base.getMyData().address;
-        var adcode = address.ad_info.adcode;
-        for (var i = 0; i < filterdistrict.length; i++) {
-          if (adcode == filterdistrict[i].id) {
-            var fdistrict_id = filterdistrict[i].id;
-            this.Base.setMyData({
-              fdistrict_id
-            });
+        this.Base.setMyData({
+          filterdistrict
+        });
+
+        if (this.Base.options.type == 'jg') {
+          console.log(this.Base.getMyData());
+          var address = this.Base.getMyData().address;
+          var adcode = address.ad_info.adcode;
+          for (var i = 0; i < filterdistrict.length; i++) {
+            if (adcode == filterdistrict[i].id) {
+              var fdistrict_id = filterdistrict[i].id;
+              this.Base.setMyData({
+                fdistrict_id
+              });
+            }
           }
         }
-      }
 
-      this.loadjg();
-    });
+        this.loadjg();
+      });
+    }
 
     setTimeout(() => {
       wx.hideLoading()
@@ -270,7 +274,7 @@ class Content extends AppBase {
     //opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {
-      
+
 
       var jgvteach = [];
       for (var j = 0; j < jglist.length && j < 5; j++) {
@@ -320,13 +324,13 @@ class Content extends AppBase {
     if (data.options == "h_p") {
       opt.orderby = "scoring desc,distance";
     }
-    
+
     // opt.limit="100";
-     
+
     jigouapi.courselist(opt, (courselist) => {
       console.log("提交了哈哈啊");
       console.log(opt);
-      
+
       var vteach = [];
       for (var i = 0; i < courselist.length && i < 5; i++) {
 
