@@ -246,7 +246,8 @@ export class AppBase {
         }
       }, false);
     }
-
+    //AppBase.UserInfo.openid ="ozqQo4xoUmSgko-BinZiPtjQxQlI";
+    // ApiConfig.SetToken(AppBase.UserInfo.openid);
     if (AppBase.UserInfo.openid == undefined) {
       // 登录
       console.log("onShow");

@@ -78,7 +78,7 @@
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
               </view>
-              <view wx:if="{{fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+              <view wx:if="{{1==2&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                 <view class='flex-1'></view>
                 <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
@@ -124,8 +124,8 @@
 
           <view wx:if="{{pintuanrenshu==0}}"  class='height-20 bg-gray'></view>
           <view wx:if="{{pintuanrenshu>0}}" class="padding-20 flex-row flex-center">
-
-            <view class="flex-1 h5" style='color:#222222'>{{pintuanrenshu}}人正在拼班，可直接参与</view>
+      {{pintuanrenshu}}人正在拼班，可直接参与 
+            <view class="flex-1 h5" style='color:#222222'></view>
             <view class="h6" bindtap="chakangenduo" style='color:#999999'>查看更多</view>
             <image src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10'></image>
 

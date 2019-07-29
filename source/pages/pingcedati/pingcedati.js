@@ -127,6 +127,10 @@ class Content extends AppBase {
 
   tijiao() {
 
+    this.Base.setMyData({
+      gif: true
+    });
+
     var pingcelist = this.Base.getMyData().pingcelist;
     var a = 0;
     var b = 0;
@@ -152,8 +156,8 @@ class Content extends AppBase {
       // console.log(a,b,c,d)
 
     }
-    console.log(a, b, c, d)
 
+    console.log(a, b, c, d)
 
     var numbers = [a, b, c, d];
     // var max = arr[i];
@@ -197,14 +201,9 @@ class Content extends AppBase {
 
     console.log(typeA, typeB, typeC, typeD,"力量")
 
-    this.Base.setMyData({
-      gif: true
-    });
-
-   setTimeout(() => {
-
+     
       this.Base.setMyData({
-        gif: false,
+        
         check: "",
         qie: 0
       })
@@ -235,28 +234,34 @@ class Content extends AppBase {
       })
 
 
+    setTimeout(() => {
+      this.Base.setMyData({
+         
+        sx: 0,
+        pingce: []
+      })
       wx.redirectTo({
         url: '/pages/pingcejieguo/pingcejieguo?typeA=' + typeA + '&typeB=' + typeB + '&typeC=' + typeC + '&typeD=' + typeD + '&id=' + this.Base.options.id,
+        // success: function(res) {
+        //   if (res.confirm) {
+        //     this.Base.setMyData({
+        //       gif: false
+        //     });
+        //   }
+        // }
 
-        success: function(res) {
+      })
+    }, 1100)
 
-          if (res.confirm) {
+      wx.redirectTo({
 
-            this.Base.setMyData({
-              sx: 0,
-              pingce: [],
-              gif: false
-            });
-
-          }
-
-        }
+        
 
       })
 
 
 
- }, 1100)
+  
 
 
   }

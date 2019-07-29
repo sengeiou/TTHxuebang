@@ -96,16 +96,21 @@ class Content extends AppBase {
       for (var a = 0; a < pingcejieguo.length; a++) {
 
         console.log(pingcejieguo[a].coursetype_id + "看了房价高");
-
-        type.push(pingcejieguo[a].coursetype_id);
+        
+        if (pingcejieguo[a].coursetype_id!=""){
+          type.push(pingcejieguo[a].coursetype_id);
+        }
+        
 
       }
 
       
-      console.log(type);
+      console.log(type,"懂得");
       console.log("的客话")
       
-      if(type[0]!=undefined){
+      if (type.length!= 0){
+        console.log("ff");
+        //return;
         jigouapi.courselist({
           type: type
         }, (courselist) => {

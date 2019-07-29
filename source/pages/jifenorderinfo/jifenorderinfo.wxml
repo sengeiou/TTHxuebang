@@ -42,7 +42,7 @@
 
 <view class="shangpin margin-top-20 ">
 
-  <view class="flex-row margin-left-28" bindtap="todetails" >
+  <navigator class="flex-row margin-left-28" url="/pages/shopmalldetail/shopmalldetail?id={{info.id}}" >
     <image src="{{uploadpath}}shop/{{info.img}}" class="icon-img"></image>
 
     <view class="txt-bold flex-1" style="margin-left:36rpx;"> {{info.name}}</view>
@@ -50,7 +50,7 @@
       <view class="h6">{{info.danjia}} 积分</view>
       <view class="h6 text-right" style="color:#B0B0B0">x{{info.shuliang}}</view>
     </view>
-  </view>
+  </navigator>
 
   <view class="flex-row flex-center margin-left-28 margin-top-10">
     <view class="h6 flex-1">运费（快递）</view>

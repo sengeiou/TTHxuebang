@@ -36,7 +36,7 @@
   z-index: 10;
   width: 91vw;
   height: 330rpx;
-  margin-top: -30rpx;
+  margin-top: -20rpx;
 }
  
 .mid2 {

@@ -50,16 +50,16 @@ class Content extends AppBase {
     var aaa = wx.getStorageSync(jintian);
     console.log(aaa + "电饭锅");
 
-    //return
-    if (aaa == "") {
-      wx.setStorage({
-        key: jintian,
-        data: 1
-      })
-      console.log("空空空")
-      this.Base.setMyData({ pd: 1 })
+     //勿删
+    // if (aaa == "") {
+    //   wx.setStorage({
+    //     key: jintian,
+    //     data: 1
+    //   })
+    //   console.log("空空空")
+    //   this.Base.setMyData({ pd: 1 })
       
-    }
+    // }
 
     // console.log(wx.getStorageSync(jintian), "刚刚")
 
@@ -80,7 +80,8 @@ class Content extends AppBase {
       guize: false,
       dk: -1,
       jf: 5,
-      dian: 0,
+      dian: 0, 
+      pd: 1
       
     })
 

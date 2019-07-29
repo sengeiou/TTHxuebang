@@ -29,8 +29,12 @@ class Content extends AppBase {
     })
   }
   tuiguan(){
-    wx.navigateBack({
+    // wx.navigateBack({
       
+    // })
+
+    wx.navigateTo({
+      url: '/pages/promotion/promotion',
     })
   }
   chonxintijiao(){
