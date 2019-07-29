@@ -78,7 +78,7 @@
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
               </view>
-              <view wx:if="{{1==2&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+              <view wx:if="{{courseinfo.isfenxiao=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                 <view class='flex-1'></view>
                 <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>

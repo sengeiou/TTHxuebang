@@ -10,16 +10,17 @@
   
 }
 .label {
-  padding-top: 5rpx;
-  padding-bottom: 5rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
   color: #ff9834;
   border: 1px solid #ff9834;
   border-radius: 20rpx;
   font-size: 20rpx;
   margin-left: 20rpx;
   margin-top: 5rpx;
+  
 }
 .jinbi{
 

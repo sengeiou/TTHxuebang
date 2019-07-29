@@ -65,7 +65,7 @@
             <view class="flex-1"></view>
           </button>
 
-          <view bindtap="fenxian" wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="h5 text-center margin-top-20 " style='width:100%;color:#666666'>
+          <view bindtap="fenxian" wx:if="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="h5 text-center margin-top-20  txt-bold" style='width:100%;color:#666666'>
             生成分享海报
           </view>
 

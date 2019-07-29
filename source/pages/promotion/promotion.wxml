@@ -1,10 +1,10 @@
 <back-component></back-component>
 <view class="padding-30 padding-bottom-20 flex-row flex-center">
   <image class='member_icon' src='{{memberinfo.avatarUrl}}'></image>
-  <view class='margin-left-10'>{{memberinfo.nickName}}</view>
+  <view class='margin-left-10 chaochu' >{{memberinfo.nickName}}</view>
   <view wx:if="{{!showModal&&tuiguaninfo[0].status=='S'}}" class="label">学榜大使</view>
   <view class="flex-1"></view>
-  <view class="h5" style='color:#666666' bindtap='tuiguanguize'>推广规则</view>
+  <view class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</view>
 </view>
 
 
@@ -97,7 +97,7 @@
   <view class="padding-20 flex-row flex-center">
     <view style='color:rgba(255, 82, 82, 1)'>*</view>
     <view class="margin-left-5 jl">验证码:</view>
-    <input  style="width:300rpx" value='{{yanzhenma}}'  maxlength="4" bindinput='yanzhenma' placeholder="输入验证码" placeholder-class="ysl"></input>
+    <input  style="width:300rpx" value='{{yanzhenma}}'maxlength="4" bindinput='yanzhenma' placeholder="输入验证码" placeholder-class="ysl"></input>
     <view wx:if="{{shijian==0}}" bindtap="fason" class="yz_btm">获取验证码</view>
     
     <view class="h5" wx:if="{{shijian>0}}" >{{shijian}}秒后重新发送</view>
