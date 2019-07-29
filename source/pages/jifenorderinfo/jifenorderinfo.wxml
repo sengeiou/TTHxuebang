@@ -3,8 +3,8 @@
 <view class="top_block flex-row flex-center ">
 
   <image wx:if='{{info.orderstatus=="A"}}' src="{{uploadpath}}resource/{{res.huowu}}" class="icon-huowu" style="margin-left:104rpx"></image>
-<image wx:if='{{info.orderstatus=="B"}}' src="{{uploadpath}}resource/{{res.baiche}}" class="icon-huowu" style="margin-left:104rpx"></image>
-<image wx:if='{{info.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.wanc}}" class="icon-huowu" style="margin-left:104rpx"></image>
+  <image wx:if='{{info.orderstatus=="B"}}' src="{{uploadpath}}resource/{{res.baiche}}" class="icon-huowu" style="margin-left:104rpx"></image>
+  <image wx:if='{{info.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.wanc}}" class="icon-huowu" style="margin-left:104rpx"></image>
   <view class="txt-white margin-left-20">
     {{info.orderstatus_name}}
   </view>
@@ -28,7 +28,7 @@
     </view>
     <view class="flex-1 " style="margin-left:30rpx">
       <view class="h6" style="width:580rpx">[深圳市]【已签收，签收人是本人】，感谢使用学榜快递，期待再次为您服务</view>
-      <view class="h6 txt-6">2019-05-08 00:10:48</view>
+      <!-- <view class="h6 txt-6">2019-05-08 00:10:48</view> -->
     </view>
 
     <image src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right margin-right-28" style=""></image>
@@ -42,7 +42,7 @@
 
 <view class="shangpin margin-top-20 ">
 
-  <view class="flex-row margin-left-28">
+  <view class="flex-row margin-left-28" bindtap="todetails" >
     <image src="{{uploadpath}}shop/{{info.img}}" class="icon-img"></image>
 
     <view class="txt-bold flex-1" style="margin-left:36rpx;"> {{info.name}}</view>
@@ -105,15 +105,15 @@
   </view>
 </view> -->
 
-<view class="bottom" wx:if='{{info.orderstatus=="B"}}' >
+<view class="bottom" wx:if='{{info.orderstatus=="B"}}'>
   <view class="flex-row flex-center">
     <view class="flex-1"></view>
-    
-    <view wx:if='{{info.orderstatus!="C"}}' id="{{info.id}}"  bindtap="shouhuo" class="btn text-center margin-top-10 margin-right-28">
+
+    <view wx:if='{{info.orderstatus!="C"}}' id="{{info.id}}" bindtap="shouhuo" class="btn text-center margin-top-10 margin-right-28">
       确认收货
     </view>
 
-    <view  wx:if='{{info.orderstatus=="C"}}' id="{{info.id}}"  bindtap="towuliu" class="btn text-center margin-top-10 margin-right-28">
+    <view wx:if='{{info.orderstatus=="C"}}' id="{{info.id}}" bindtap="towuliu" class="btn text-center margin-top-10 margin-right-28">
       查看物流
     </view>
   </view>

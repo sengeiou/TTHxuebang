@@ -48,10 +48,10 @@
       </view>
     </view>
 
-    <view class="add margin-top-20 flex-row flex-center" wx:if='{{type==""||type==undefined}}'>
+    <view class="add margin-top-20 flex-row flex-center" bindtap="addnew" wx:if='{{type==""||type==undefined}}'>
       <view class="flex-1"></view>
       <image src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15"></image>
-      <view class="h5 margin-left-10" style="color:#999999" bindtap="addnew">添加新地址</view>
+      <view class="h5 margin-left-10" style="color:#999999" >添加新地址</view>
       <view class="flex-1"></view>
     </view>
 
