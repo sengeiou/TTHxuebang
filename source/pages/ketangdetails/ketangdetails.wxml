@@ -57,7 +57,7 @@
         </view>
 
 
-        <button wx:if="{{fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" class="clear-button zhaunfa flex-row flex-center margin-bottom-10" open-type='share'>
+        <button wx:if="{{1==2&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" class="clear-button zhaunfa flex-row flex-center margin-bottom-10" open-type='share'>
 
           <view class='flex-1'></view>
           <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>

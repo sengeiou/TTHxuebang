@@ -180,6 +180,7 @@ class Content extends AppBase {
               });
             }
           } else {
+            console.log(3);
             this.Base.info(ret.result);
             this.Base.setMyData({zhifuzhon:false})
           }
@@ -233,6 +234,7 @@ class Content extends AppBase {
                 }
               } else {
                 console.log(ret.result);
+                console.log(1);
                 this.Base.info(ret.result);
                 this.Base.setMyData({ zhifuzhon: false })
               }
@@ -295,6 +297,8 @@ class Content extends AppBase {
             });
           }
         } else {
+          console.log(2);
+          console.log(ret);
           this.Base.info(ret.result);
           this.Base.setMyData({ zhifuzhon: false })
         }

@@ -2,7 +2,7 @@
 <view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqinhaibaobai}});background-size: 100vw 100vh;">
   <view class="flex-row tx flex-center">
     <view class="flex-1"></view>
-    <view>
+    <view class="flex-row flex-column">
       <image class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}"></image>
       <view class="text-center">{{memberinfo.nickName}}</view>
     </view>
