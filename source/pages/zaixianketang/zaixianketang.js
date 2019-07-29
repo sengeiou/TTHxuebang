@@ -26,70 +26,69 @@ class Content extends AppBase {
     var that = this;
 
     var jigouapi = new JigouApi();
-  
-   
-     this.Base.setMyData({
-       xz: -2, name: "热门课程"
 
-     })
+
+    this.Base.setMyData({
+      xz: -2, name: "热门课程"
+
+    })
 
     jigouapi.zaixiankechenfenlei({}, (fenleilist) => {
 
       this.Base.setMyData({ fenleilist: fenleilist, });
-       
+
 
     })
-    
+
     jigouapi.zaixianketanlunbo({}, (zaixianlunbo) => {
 
       this.Base.setMyData({ lunbolist: zaixianlunbo });
     })
-    jigouapi.zuixinzaixiankechen({},(zuixin)=>{
+    jigouapi.zuixinzaixiankechen({}, (zuixin) => {
       console.log("最新的熬");
       console.log("那是真的牛批");
-      this.Base.setMyData({ zuixin: zuixin});
+      this.Base.setMyData({ zuixin: zuixin });
     })
-  
+
   }
   onMyShow() {
-   
-  this.getlist();
+
+    this.getlist();
 
   }
-getlist(){
-  var json = null;
-  json = {};
-  if (this.Base.getMyData().xz == -2) {
-    json.ishot = 'Y';
-  } else if (this.Base.getMyData().xz == -1) {
-    json.isfree = 'Y';
-  } else {
-    json.onlineclassroomtype_id = this.Base.getMyData().xz;
+  getlist() {
+    var json = null;
+    json = {};
+    if (this.Base.getMyData().xz == -2) {
+      json.ishot = 'Y';
+    } else if (this.Base.getMyData().xz == -1) {
+      json.isfree = 'Y';
+    } else {
+      json.onlineclassroomtype_id = this.Base.getMyData().xz;
+    }
+    var jigouapi = new JigouApi();
+
+    jigouapi.zaixiankechenlist(json, (zaixiankechen) => {
+
+      this.Base.setMyData({ xzlist: zaixiankechen });
+    })
+
   }
-  var jigouapi = new JigouApi();
 
-  jigouapi.zaixiankechenlist(json, (zaixiankechen) => {
-  
-    this.Base.setMyData({ xzlist: zaixiankechen });
-  })
-
-}
-
-  switchtype(e){
+  switchtype(e) {
     var kechenlist = this.Base.getMyData().kechenlist;
-   
+
     var id = e.currentTarget.dataset.id;
-        
-   
-    this.Base.setMyData({ xz:id, name:e.currentTarget.dataset.name})
+
+
+    this.Base.setMyData({ xz: id, name: e.currentTarget.dataset.name })
     this.getlist();
   }
-  kechenxianqin(e)
-  {
-  console.log(e);
-       wx.navigateTo({
-         url: '/pages/ketangdetails/ketangdetails?id='+e.currentTarget.dataset.id,
-       })
+  kechenxianqin(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/ketangdetails/ketangdetails?id=' + e.currentTarget.dataset.id,
+    })
 
   }
 

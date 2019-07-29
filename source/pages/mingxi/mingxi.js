@@ -34,7 +34,7 @@ class Content extends AppBase {
 
        })
       
-      this.Base.setMyData({ tgjilu, shouru: shouru});
+      this.Base.setMyData({ tgjilu, shouru: Number(shouru).toFixed(2)});
 
     })
   }

@@ -27,7 +27,7 @@ class Content extends AppBase {
     //options.course_id = 15;
     super.onLoad(options);
     this.Base.setMyData({
-      usercomment: "", xuanzexueyuan: ''
+      usercomment: "", xuanzexueyuan: '',zhifuzhon:false
     })
   }
   onMyShow() {
@@ -106,13 +106,19 @@ class Content extends AppBase {
     var api = new JigouApi();
     var that = this;
     var xueyuan = this.Base.getMyData().xuanzexueyuan;
+    
+      if(this.Base.getMyData().zhifuzhon)
+      {
+   
+       return
 
-
+      }
 
     if (xueyuan == "") {
       this.Base.info("请选择学员");
       return;
     }
+     this.Base.setMyData({zhifuzhon:true})
 
     var name = xueyuan.name;
     var phone = xueyuan.shouji;
@@ -174,7 +180,9 @@ class Content extends AppBase {
               });
             }
           } else {
+            console.log(3);
             this.Base.info(ret.result);
+            this.Base.setMyData({zhifuzhon:false})
           }
         })
       }
@@ -226,7 +234,9 @@ class Content extends AppBase {
                 }
               } else {
                 console.log(ret.result);
+                console.log(1);
                 this.Base.info(ret.result);
+                this.Base.setMyData({ zhifuzhon: false })
               }
             })
 
@@ -287,7 +297,10 @@ class Content extends AppBase {
             });
           }
         } else {
+          console.log(2);
+          console.log(ret);
           this.Base.info(ret.result);
+          this.Base.setMyData({ zhifuzhon: false })
         }
       })
 
