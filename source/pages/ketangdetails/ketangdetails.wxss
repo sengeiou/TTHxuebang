@@ -151,7 +151,7 @@ Page {
 .fufei1 {
   display: flex;
   border-radius: 0 10rpx 0 10rpx;
-  margin-top: -235rpx;
+  margin-top: -225rpx;
   color: #fff;
   margin-left: 150rpx;
   background-color: #f44;
@@ -164,7 +164,7 @@ Page {
 .mianfei1 {
   display: flex;
   border-radius: 0 10rpx 0 10rpx;
-  margin-top: -235rpx;
+  margin-top: -225rpx;
   color: #fff;
   margin-left: 150rpx;
   background-color: #ccc;
