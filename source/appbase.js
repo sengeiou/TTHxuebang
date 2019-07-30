@@ -24,7 +24,7 @@ export class AppBase {
   static lastlng = 0;
   static lastdistance=0;
   static lastaddress = {
-    address: { ad_info: { adcode: "" } }
+    address: { ad_info: { adcode: "", city:""} }
   };
   static CITYID = 440300;
   static CITYNAME = "深圳市";

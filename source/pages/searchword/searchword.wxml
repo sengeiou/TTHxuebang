@@ -28,6 +28,7 @@
   <view class='h6 txt-red margin-left-20'></view>
 </view>
 
+
 <!-- <view style='height:95rpx;'></view> -->
 <block wx:if="{{result.length==0}}">
 
