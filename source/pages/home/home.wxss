@@ -60,16 +60,15 @@ Page {
 }
 
 .img2 {
-  width: 175px;
-  height: 83px;
-  border-radius: 4px;
+  width: 350rpx;
+  height: 168rpx;
+  border-radius: 8rpx;
 }
 
 .img {
-   width: 175px; 
-  
-  height: 177px;
-  border-radius: 4px;
+  width: 350rpx; 
+  height: 354rpx;
+  border-radius: 8rpx;
 }
 
 .dizhi {
@@ -167,7 +166,7 @@ Page {
 }
 
 .height-5 {
-  height: 10rpx;
+  height: 6rpx;
 }
 
 .orange {

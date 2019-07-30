@@ -1,6 +1,7 @@
+<!-- wx:if='{{nocity==1}}' -->
 <view class="tishikuang flex-row flex-center" wx:if='{{nocity==1}}'>
   <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30"></image>
-  <view class="f20 margin-left-10">您所在的城市“{{cityname}}”准备开放中，可添加微信客服进行咨询： </view>
+  <view class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </view>
   <view class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</view>
   <image src="{{uploadpath}}resource/{{res.heicha}}" bindtap="closetop" class="icon15 margin-left-10"></image>
 </view>
@@ -10,6 +11,7 @@
 <view wx:if='{{pd==1}}'>
   <image src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg"></image>
 </view>
+
 
 
 <view class=' ' style='background:{{jginfo.bgcolor}}'>
@@ -82,25 +84,14 @@
 
 
 <view class='flex-row flex-center margin-10 padding-top-10 '>
-
   <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
     <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view>
-
-  <view class='flex-1 flex-row flex-column'>
-    <view class='text-center' bindtap='toketang'>
-      <image src='{{uploadpath}}resource/{{res.home_3}}' class='img2 radius-10' style=''></image>
-    </view>
-
-    <view class='height-5'></view>
-
-
-    <view class='text-center' bindtap='totake' data-name='kc'>
-      <image src='{{uploadpath}}resource/{{res.home_1}}' class='img2 radius-10' style=''></image>
-    </view>
-
-  </view>   
-
+  <view class='flex-1 flex-row flex-column' style="height: 354rpx;">
+    <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style=''></image>
+  </view>
 </view>
 
 
