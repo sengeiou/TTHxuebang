@@ -7,7 +7,14 @@
 .ion-content {
   --background: white;
 }
+.videobg{
 
+  height: rpx(175);
+}
+.videobgg{
+  width: rpx(750);
+  height: rpx(720);
+}
 .kd {
   width: rpx(100);
   height: rpx(50);
@@ -76,7 +83,7 @@
 .zt1 {
 
 
-  margin-top: -rpx(170);
+  margin-top: rpx(-170);
 
   width: rpx(30);
   height: rpx(30);
@@ -122,10 +129,7 @@
   white-space: nowrap;
 }
 
-.Top-img {
-  width: 100vw;
-  height: rpx(400);
-}
+
 
 .ts_icon {
   width: rpx(240);
@@ -150,7 +154,7 @@
 
   display: flex;
   border-radius: 0 rpx(10) 0 rpx(10);
-  margin-top: -rpx(235);
+  margin-top: rpx(-235);
 
   color: #fff;
   margin-left: rpx(150);
@@ -161,10 +165,13 @@
   position: absolute;
 }
 
+
+
+
 .mianfei1 {
   display: flex;
   border-radius: 0 rpx(10) 0 rpx(10);
-  margin-top: -rpx(235);
+  margin-top: rpx(-235);
   color: #fff;
   margin-left: rpx(150);
   background-color: #ccc;
@@ -181,7 +188,10 @@
   top: 35%;
   right: 35%;
 }
+.plnr{
 
+  height: rpx(150);
+}
 .padding-right-30 {
   padding-right: rpx(30);
 }
@@ -224,7 +234,9 @@
 }
 
 .padding-302 {
+  padding-top:rpx(30);
   padding: rpx(10) rpx(30) rpx(20) rpx(30);
+    border-top:1px solid #FFD2B4;
 }
 
 .border-bottom-2 {
@@ -459,5 +471,6 @@
 }
 
 .w400{
-  width: rpx(400);
+  width: 100vw;
+  height: prx(400);
 }
