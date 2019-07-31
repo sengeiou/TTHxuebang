@@ -169,17 +169,7 @@
       <img mode='widthFix' style='width:100vw' src='{{uploadpath}}onlineclassroom/{{kecheninfo.haibao}}' />
       <div *ngIf="kecheninfo.isfree_value=='N'&&kecheninfo.idd==''" class="height-160"></div>
 
-      <div *ngIf="kecheninfo.isfree_value=='N'">
-        <div *ngIf="kecheninfo.idd==''" class='tishi-block flex-row flex-center'>
-          <div class='flex-1'></div>
-          <div class='txt-zong h6'>共{{kecheninfo.chapter_num}}章，每章仅需{{pinjunjia}}元</div>
-          <div class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</div>
-          <div class='flex-1'></div>
-        </div>
-
-
-      </div>
-
+   
       <div class='tishi' *ngIf='tishi==1'>
         <img src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon' />
       </div>
@@ -288,14 +278,23 @@
   </div>
 </ion-content>
 
+<div *ngIf="kecheninfo.isfree_value=='N'">
+  <div *ngIf="kecheninfo.idd==''" class='tishi-block flex-row flex-center'>
+    <div class='flex-1'></div>
+    <div class='txt-zong h6'>共{{kecheninfo.chapter_num}}章，每章仅需{{pinjunjia}}元</div>
+    <div class='txt-zong h6' hidden='{{true}}'>您已购买此栏目</div>
+    <div class='flex-1'></div>
+  </div>
 
-<div *ngIf="kecheninfo.idd==''" class='bottom-block flex-row flex-center'>
-  <div (click)='shikan()' class='flex-1 text-center watch_block'>试看</div>
-  <div (click)='goumai()' class='buy_block flex-row flex-center'>
-    <div class='flex-1'></div>
-    <div class='txt-white margin-top-6'>￥</div>
-    <div class='f40 txt-white txt-bold'>{{kecheninfo.price}}</div>
-    <div class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</div>
-    <div class='flex-1'></div>
+
+  <div *ngIf="kecheninfo.idd==''" class='bottom-block flex-row flex-center'>
+    <div (click)='shikan()' class='flex-1 text-center watch_block'>试看</div>
+    <div (click)='goumai()' class='buy_block flex-row flex-center'>
+      <div class='flex-1'></div>
+      <div class='txt-white margin-top-6'>￥</div>
+      <div class='f40 txt-white txt-bold'>{{kecheninfo.price}}</div>
+      <div class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</div>
+      <div class='flex-1'></div>
+    </div>
   </div>
 </div>
