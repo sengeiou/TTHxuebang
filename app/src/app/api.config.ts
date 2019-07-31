@@ -4,7 +4,7 @@ import { LoadingController } from '@ionic/angular';
 export class ApiConfig {
 	
     public static getApiUrl() {
-        return "https://tthxb.artxb.cn/api/";
+        return " https://cmsdev.app-link.org/alucard263096/tthxb/api/";
     }
     public static getUploadPath() {
         return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";

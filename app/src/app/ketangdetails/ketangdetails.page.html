@@ -178,16 +178,6 @@
         </div>
 
 
-        <div *ngIf="kecheninfo.idd==''" class='bottom-block flex-row flex-center'>
-          <div (click)='shikan()' class='flex-1 text-center watch_block'>试看</div>
-          <div (click)='goumai()' class='buy_block flex-row flex-center'>
-            <div class='flex-1'></div>
-            <div class='txt-white margin-top-6'>￥</div>
-            <div class='f40 txt-white txt-bold'>{{kecheninfo.price}}</div>
-            <div class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</div>
-            <div class='flex-1'></div>
-          </div>
-        </div>
       </div>
 
       <div class='tishi' *ngIf='tishi==1'>
@@ -297,3 +287,15 @@
     </div>
   </div>
 </ion-content>
+
+
+<div *ngIf="kecheninfo.idd==''" class='bottom-block flex-row flex-center'>
+  <div (click)='shikan()' class='flex-1 text-center watch_block'>试看</div>
+  <div (click)='goumai()' class='buy_block flex-row flex-center'>
+    <div class='flex-1'></div>
+    <div class='txt-white margin-top-6'>￥</div>
+    <div class='f40 txt-white txt-bold'>{{kecheninfo.price}}</div>
+    <div class='h5 txt-white margin-top-6 margin-left-12 txt-bold'>立即抢购</div>
+    <div class='flex-1'></div>
+  </div>
+</div>
