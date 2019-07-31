@@ -44,7 +44,7 @@ export class KetangdetailsPage extends AppBase {
     console.log(this.shipin);
   }
   fenxiaoinfo = {};
-  kecheninfo = {isfree_value:"N",idd:"",id:""};
+  kecheninfo = {isfree_value:"N",idd:"",id:"",jieshaoimg:""};
   isfav = "";
   pinjunjia = "";
   ketanpinlunlist = [];
