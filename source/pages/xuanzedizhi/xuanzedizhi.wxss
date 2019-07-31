@@ -15,7 +15,7 @@
   padding-top: 50rpx;
   padding-bottom: 50rpx;
   padding-left: 40rpx;
-  padding-right: 40rpx;
+  /* padding-right: 40rpx; */
   background-color: white;
   border-radius: 8rpx;
 }
@@ -67,9 +67,9 @@
   left: 104rpx;
   right: 104rpx;
   width: 540rpx;
-  height: 600rpx;
-  bottom: 388rpx;
-  border-radius: 8rpx;
+  height: 386rpx;
+  bottom: 558rpx;
+  border-radius: 38rpx;
 }
 
 .margin-top-34 {
