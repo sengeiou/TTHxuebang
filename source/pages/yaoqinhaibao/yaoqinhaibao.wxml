@@ -1,6 +1,15 @@
 <back-component></back-component>
-<view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqinhaibaobai}});background-size: 100vw 100vh;">
-  <view class="flex-row tx flex-center">
+<view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqindebeijin}});background-size: 100vw 100vh;">
+<view class="flex-row  " style="padding-top:40rpx">
+
+<view class="flex-1"></view>
+<image class="bggg" mode="widthFix" src="{{lujin}}"  >
+
+</image>
+<view class="flex-1"></view>
+</view>
+
+  <!-- <view class="flex-row tx flex-center">
     <view class="flex-1"></view>
     <view class="flex-row flex-column">
       <image class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}"></image>
@@ -10,29 +19,31 @@
   </view>
 
 
- <view class="flex-row ewm flex-center">
+  <view class="flex-row ewm flex-center">
     <view class="flex-1"></view>
     <view>
-       <image class="icon-100 radius-50 " src="{{erweima}}"></image>
-    
+      <image class="icon-100 radius-50 " src="{{erweima}}"></image>
+
     </view>
     <view class="flex-1"></view>
-  </view>
- 
+  </view> -->
+
 
 
   <view class="flex-row fd">
     <view class="flex-1"></view>
     <view class="anniu  flex-row flex-center" bindtap="baocun">
-     <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
-    <view class="zi margin-left-10">保存海报</view>
+      <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
+      <view class="zi margin-left-10">保存海报</view>
     </view>
     <view class="flex-1"></view>
 
-      <button class="anniu clear-button flex-row flex-center" open-type='share' >
-     <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}"></image>
-    <view class="zi margin-left-10">发给好友</view>
+    <button class="anniu clear-button flex-row flex-center" open-type='share'>
+      <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}"></image>
+      <view class="zi margin-left-10">发给好友</view>
     </button>
     <view class="flex-1"></view>
   </view>
+
+  
 </view>

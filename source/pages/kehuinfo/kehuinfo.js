@@ -34,7 +34,7 @@ class Content extends AppBase {
      memberapi.info({member_id:this.options.id},(member)=>{
        console.log("嚯嚯嚯");
  console.log(member);
-
+       member.shouyi = Number(this.Base.getMyData().instinfo.fenxiaobili * member.jiner).toFixed(2);
        member.jieshushijian = this.jisuanchaoshi(member.bandin_date, shijian)[1];
  
   this.Base.setMyData({member:member});

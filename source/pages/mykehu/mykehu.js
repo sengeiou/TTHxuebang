@@ -52,7 +52,10 @@ class Content extends AppBase {
     memberapi.chakanxiaji({}, (xiaji) => {
       for (var i = 0; i < xiaji.length; i++) {
         xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, 0)[1];
-     
+        console.log(this.Base.getMyData().instinfo.fenxiaobili);
+        console.log(xiaji[i].shouyi * this.Base.getMyData().instinfo.fenxiaobili);
+        console.log(12313);
+        xiaji[i].shouyi = Number(xiaji[i].jiner * this.Base.getMyData().instinfo.fenxiaobili).toFixed(2);
         quanbu.push(xiaji[i]);
       }
       console.log("数据");
