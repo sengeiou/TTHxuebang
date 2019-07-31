@@ -93,7 +93,7 @@ export class AppBase implements OnInit {
                         var redirecturl=encodeURIComponent(window.location.href);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
                         console.log({redurl});
-                        //window.location.href=redurl;
+                        window.location.href=redurl;
                     }
                 }
             });
@@ -143,7 +143,7 @@ export class AppBase implements OnInit {
                 });
             }else{
                 //alert("看到这个就是逻辑出大问题了");
-            this.onMyShow();
+                //this.onMyShow();
             }
         }else{
 
