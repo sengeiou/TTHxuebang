@@ -108,6 +108,35 @@ class Content extends AppBase {
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
 
+    console.log(this.Base.options.yaoqin_id);
+    console.log("邀请人");
+    console.log(this.Base.getMyData().memberinfo.id);
+    console.log("我的用户id");
+    if (this.Base.options.yaoqin_id != undefined && this.Base.getMyData().memberinfo.id != undefined) {
+      if (this.Base.options.yaoqin_id != this.Base.getMyData().memberinfo.id) {
+
+        jigouapi.yaoqin({
+          yaoqinren: this.Base.options.yaoqin_id
+        }, (res) => {
+
+          console.log(res);
+          console.log("asdasdasdasdasdas");
+
+        })
+
+      }
+
+    }
+
+
+
+
+
+
+
+
+
+
     var pingjiaapi = new PingjiaApi();
 
     var that = this;

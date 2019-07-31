@@ -38,7 +38,7 @@
         <view class=' '>
           <view class="padding-10">
             <view class='flex-row flex-center'>
-              <view class='txt-black txt-bold padding-left-20 flex-1' style='font-size:36rpx;'>{{courseinfo.name}}</view>
+              <view class='txt-black txt-bold padding-left-20  chaochu' style='font-size:36rpx;width:600rpx'>{{courseinfo.name}}</view>
 
               <view class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' wx:if="{{isfav=='N'}}" bindtap='fav' id='Y'>
                 <image class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}'></image>
@@ -78,7 +78,7 @@
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
               </view>
-              <view wx:if="{{courseinfo.isfenxiao=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+              <view wx:if="{{courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                 <view class='flex-1'></view>
                 <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
@@ -289,7 +289,7 @@
       <view class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' wx:if="{{canbuy.code=='-1'}}">
         <view class="flex-1"></view>
         <view class="h6" style="color:#FF976A">等待付款,</view>
-        <view bindtap="ljfk" class="h6" style="color:#2A82E4">点击立即付款</view>
+        <view bindtap="lifk" class="h6" style="color:#2A82E4">点击立即付款</view>
         <view class="flex-1"></view>
       </view>
 

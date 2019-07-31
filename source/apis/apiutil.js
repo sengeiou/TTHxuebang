@@ -62,11 +62,9 @@ export class ApiUtil {
 
 
   static zhenze(str) {
-    var TEL_REGEXP = /^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
-    if (TEL_REGEXP.test(str)) {
-      return true;
-    }
-    return false;
+    return (str.length==11&&str[0]==1)
+   
+   
   }
 
   static Replace(str, from, to) {

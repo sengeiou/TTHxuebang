@@ -44,7 +44,7 @@ export class KetangdetailsPage extends AppBase {
     console.log(this.shipin);
   }
   fenxiaoinfo = {};
-  kecheninfo = {isfree_value:"N",idd:"",id:""};
+  kecheninfo = {isfree_value:"N",idd:"",id:"",jieshaoimg:""};
   isfav = "";
   pinjunjia = "";
   ketanpinlunlist = [];
@@ -98,9 +98,10 @@ export class KetangdetailsPage extends AppBase {
 
   }
   qiehuanzhanjie(id) {
+    
     var mulu = this.zhanjie;
     var kecheninfo = this.kecheninfo;
-    if (mulu[id].isproved_value == 'N' && kecheninfo.idd == '') {
+    if (mulu[id].isproved_value == 'N' && kecheninfo.idd == ''&& kecheninfo.isfree_value=='N') {
       this.showAlert("需要付费观看,如果想观看要购买观看全集");
       return
 
@@ -196,12 +197,12 @@ export class KetangdetailsPage extends AppBase {
 
     // console.log(this.danqianzhanjie.proved_date);
     var a = Number(this.danqianzhanjie.proved_date);
-    if (e.detail.currentTime >= a) {
+    if ( e.target.currentTime >= a) {
 
       // this.info("购买后观看完整版视频");
 
       this.shipin.pause();
-      if (e.currentTime >= a + 1) {
+      if ( e.target.currentTime  >= a + 1) {
         this.shipin.seek(a);
       }
 
@@ -366,6 +367,7 @@ export class KetangdetailsPage extends AppBase {
     console.log(e);
   }
   bfjs(e) {
+   var shipin=this.shipin;
     var danqian = this.danqianzhanjie;
     var zhanjie = this.zhanjie;
     console.log(zhanjie);
@@ -380,7 +382,7 @@ export class KetangdetailsPage extends AppBase {
       return
     }
 
-    if (zhanjie[idx + 1].isproved_value == 'N') {
+    if (zhanjie[idx + 1].isproved_value == 'N'&&shipin.isfree_value=='N') {
       this.showAlert("购买后观看完整版视频");
 
       return

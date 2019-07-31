@@ -16,7 +16,7 @@
 <view style="" class="margin-20 bg">
   <view bindtap="chakankechen" class="flex-row flex-center padding-20">
 
-    <image class="icon-150" src='{{uploadpath}}groupcourse/{{pintuaninfo.group_course_group_photo}}'></image>
+    <image class="icon-150" src='{{uploadpath}}curriculum/{{pintuaninfo.kc_img}}'></image>
     <view class="margin-left-40">
       <view class="h5 txt-bold" style='color:#222222'>{{pintuaninfo.kcname}}</view>
       <view class="h6" style='color:#999999'>已预约{{pintuaninfo.yuyuerenshu}}人</view>

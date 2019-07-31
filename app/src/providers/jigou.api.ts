@@ -146,6 +146,40 @@ export class JigouApi {
     }
 
 
+    public addguankancishu(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/addguankancishu';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/addguankancishu', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/addguankancishu', data, err);
+            });
+    }
+
+
     public addjigou(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'jigou/addjigou';
         var headers = ApiConfig.GetHeader(url, data);
@@ -482,6 +516,40 @@ export class JigouApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('jigou/coursetype', data, err);
+            });
+    }
+
+
+    public fabuxitonxiaoxi(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/fabuxitonxiaoxi';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/fabuxitonxiaoxi', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/fabuxitonxiaoxi', data, err);
             });
     }
 
@@ -894,6 +962,40 @@ export class JigouApi {
     }
 
 
+    public ketangshoucanglist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/ketangshoucanglist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/ketangshoucanglist', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/ketangshoucanglist', data, err);
+            });
+    }
+
+
     public ketanpinlun(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'jigou/ketanpinlun';
         var headers = ApiConfig.GetHeader(url, data);
@@ -1064,6 +1166,40 @@ export class JigouApi {
     }
 
 
+    public myxiaoxi(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/myxiaoxi';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/myxiaoxi', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/myxiaoxi', data, err);
+            });
+    }
+
+
     public newkcinfo(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'jigou/newkcinfo';
         var headers = ApiConfig.GetHeader(url, data);
@@ -1162,6 +1298,40 @@ export class JigouApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('jigou/opengroup', data, err);
+            });
+    }
+
+
+    public orderstatus(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/orderstatus';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/orderstatus', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/orderstatus', data, err);
             });
     }
 
@@ -1404,6 +1574,40 @@ export class JigouApi {
     }
 
 
+    public shanchuxiaoxi(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/shanchuxiaoxi';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/shanchuxiaoxi', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/shanchuxiaoxi', data, err);
+            });
+    }
+
+
     public shanchuxueyuan(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'jigou/shanchuxueyuan';
         var headers = ApiConfig.GetHeader(url, data);
@@ -1438,6 +1642,108 @@ export class JigouApi {
     }
 
 
+    public shenhebutonguo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/shenhebutonguo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/shenhebutonguo', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/shenhebutonguo', data, err);
+            });
+    }
+
+
+    public shenhetonguo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/shenhetonguo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/shenhetonguo', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/shenhetonguo', data, err);
+            });
+    }
+
+
+    public tgjilu(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/tgjilu';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/tgjilu', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/tgjilu', data, err);
+            });
+    }
+
+
     public videofav(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'jigou/videofav';
         var headers = ApiConfig.GetHeader(url, data);
@@ -1468,6 +1774,40 @@ export class JigouApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('jigou/videofav', data, err);
+            });
+    }
+
+
+    public xiaoxiinfo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/xiaoxiinfo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/xiaoxiinfo', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/xiaoxiinfo', data, err);
             });
     }
 
@@ -1774,6 +2114,40 @@ export class JigouApi {
                     ApiConfig.DimissLoadingModal();
                 }
                 return ApiConfig.ErrorHandle('jigou/zaixianketanlunbo', data, err);
+            });
+    }
+
+
+    public zuixinzaixiankechen(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'jigou/zuixinzaixiankechen';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('jigou/zuixinzaixiankechen', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('jigou/zuixinzaixiankechen', data, err);
             });
     }
 

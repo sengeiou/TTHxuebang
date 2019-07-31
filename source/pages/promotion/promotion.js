@@ -46,6 +46,7 @@ class Content extends AppBase {
   onMyShow() {
     var api = new JigouApi();
     var that = this;
+    this.Base.setMyData({dianle:false})
     var mobile = this.Base.getMyData().memberinfo.mobile;
     if (mobile != '') {
       this.Base.setMyData({ ycmobile: this.ycmobile(mobile) })
@@ -161,7 +162,7 @@ class Content extends AppBase {
   mykehu() {
   
     if (this.Base.getMyData().leijikehu == 0) {
-      this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+      this.Base.info("暂无邀请的好友，快去邀请好友吧")
       return
     }
     wx.navigateTo({
@@ -179,8 +180,8 @@ class Content extends AppBase {
     })
   }
   tuiguandindan() {
-    if (this.Base.getMyData().leijikehu == 0) {
-      this.Base.info("暂无成功邀请的推广员，请先邀请好友成为推广员。")
+    if (this.Base.getMyData().tuiguandindan == 0) {
+      this.Base.info("暂无推广订单")
       return
     }
     wx.navigateTo({
@@ -191,12 +192,19 @@ class Content extends AppBase {
   yaoqin() {
     var api = new HaibaoApi;
 
+    if(this.Base.getMyData().dianle==true)
+    {
+    return
+    }
+
     if (this.Base.getMyData().tuiguaninfo.length == 0 || this.Base.getMyData().tuiguaninfo[0].status =='A') {
       this.Base.info("您现在还不是推广员");
       return
     }
+     
+     this.Base.setMyData({dianle:true});
 
-    api.haibao({}, (res) => {
+    api.haibao({ isdebug:'Y'}, (res) => {
       console.log(res);
       if (res.code == 0) {
         wx.navigateTo({

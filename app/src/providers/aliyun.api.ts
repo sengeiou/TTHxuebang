@@ -3,15 +3,15 @@ import { Http } from '@angular/http';
 import { RequestOptions } from '@angular/http';
 import { ApiConfig } from '../app/api.config'
 @Injectable()
-export class HaibaoApi {
+export class AliyunApi {
 
     constructor(public http: Http) {
 
     }
 
 
-    public haibao(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'haibao/haibao';
+    public sendverifycode(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'aliyun/sendverifycode';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -23,7 +23,7 @@ export class HaibaoApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('haibao/haibao', data, res)) {
+                if (ApiConfig.DataLoadedHandle('aliyun/sendverifycode', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -39,13 +39,13 @@ export class HaibaoApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('haibao/haibao', data, err);
+                return ApiConfig.ErrorHandle('aliyun/sendverifycode', data, err);
             });
     }
 
 
-    public haibao1(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'haibao/haibao1';
+    public verifycode(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'aliyun/verifycode';
         var headers = ApiConfig.GetHeader(url, data);
         let options = new RequestOptions({ headers: headers });
         let body = ApiConfig.ParamUrlencoded(data);
@@ -57,7 +57,7 @@ export class HaibaoApi {
 
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                if (ApiConfig.DataLoadedHandle('haibao/haibao1', data, res)) {
+                if (ApiConfig.DataLoadedHandle('aliyun/verifycode', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
                     }
@@ -73,41 +73,7 @@ export class HaibaoApi {
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
-                return ApiConfig.ErrorHandle('haibao/haibao1', data, err);
-            });
-    }
-
-
-    public haibao2(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'haibao/haibao2';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = new RequestOptions({ headers: headers });
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                if (ApiConfig.DataLoadedHandle('haibao/haibao2', data, res)) {
-                    if (showLoadingModal) {
-                        ApiConfig.DimissLoadingModal();
-                    }
-                    if (res==null) {
-                        return null;
-                    }
-                    return res.json();
-                } else {
-                    return Promise.reject(res);
-                }
-            })
-            .catch(err => {
-                if (showLoadingModal) {
-                    ApiConfig.DimissLoadingModal();
-                }
-                return ApiConfig.ErrorHandle('haibao/haibao2', data, err);
+                return ApiConfig.ErrorHandle('aliyun/verifycode', data, err);
             });
     }
 

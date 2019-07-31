@@ -14,7 +14,7 @@ page {
   position: fixed;
   z-index: 100;
   width: 100vw;
-  top: 20%;
+  top: 30%;
 }
 .dakawc{
   width:85vw;

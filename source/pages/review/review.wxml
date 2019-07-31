@@ -29,7 +29,7 @@
     <view class="flex-1"></view>
   </view>
   <view class="h4 text-center margin-top" style='color:rgba(255, 194, 0, 1)'>正在火速处理中</view>
-  <view class="h4-5 center" style='color:rgba(153, 153, 153, 1);'>学榜需要审核您的申请，再此期间你可以把课程分享给好友但无法获得金币。</view>
+  <view class="h4-5 center" style='color:rgba(153, 153, 153, 1);'>学榜需要审核您的申请，在此期间你可以把课程分享给好友但无法获得金币。</view>
   <view class="flex-row ">
     <view class="flex-1"></view>
     <view bindtap='tuiguan' class="btn">前往大使中心</view>

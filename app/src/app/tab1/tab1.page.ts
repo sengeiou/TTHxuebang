@@ -33,6 +33,7 @@ export class Tab1Page  extends AppBase {
   xz=-2;
   name="热门课程";
   lunbolist=[];
+  zuixin=[];
   onMyLoad() {
     var that = this;
 
@@ -42,6 +43,10 @@ export class Tab1Page  extends AppBase {
       this.xz=-2;
       this.name="热门课程";
     });
+    jigouapi.zuixinzaixiankechen({}).then((qwe)=>{
+   this.zuixin=qwe;
+
+    })
     
     jigouapi.zaixianketanlunbo({}).then((zaixianlunbo) => {
       this.lunbolist=zaixianlunbo;

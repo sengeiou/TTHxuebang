@@ -233,9 +233,9 @@
 
 
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{vteach}}' wx:key='k'>
-    <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}'></image>
+    <image class='kc_icon radius-10' mode="widthFix" src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
-      <view class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</view>
+      <view class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</view>
 
       <view class='flex-row flex-center'>
 

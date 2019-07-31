@@ -29,18 +29,18 @@
     <view class="xian"></view>
     <view class="content_bottom flex-row flex-center">
       <view bindtap='mykehu' class="flex-1 flex-row ">
-        <view class="flex-1"></view>
+        <!-- <view class="flex-1"></view> -->
         <view>
-          <view class="h5" style='color:rgba(161, 111, 47, 1)'>
+          <view class="margin-left-40 h5" style='color:rgba(161, 111, 47, 1)'>
             大使馆
           </view>
-          <view class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
+          <view class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
             {{leijikehu}}
           </view>
         </view>
         <view class="flex-1"></view>
       </view>
-      <view class="fenge"></view>
+      <!-- <view class="fenge"></view>
       <view bindtap='myinvite' class="flex-1 flex-row ">
         <view class="flex-1"></view>
         <view>
@@ -52,15 +52,15 @@
           </view>
         </view>
         <view class="flex-1"></view>
-      </view>
+      </view> -->
       <view class="fenge"></view>
       <view bindtap='tuiguandindan' class="flex-1 flex-row ">
-        <view class="flex-1"></view>
+        
         <view>
-          <view class="h5" style='color:rgba(161, 111, 47, 1)'>
+          <view class="h5 margin-left-40" style='color:rgba(161, 111, 47, 1)'>
             大使传单
           </view>
-          <view class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
+          <view class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
             {{tuiguandindan.length}}
           </view>
         </view>
