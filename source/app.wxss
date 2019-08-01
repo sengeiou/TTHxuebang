@@ -30,7 +30,7 @@ page {
 }
 .to_top {
   position: fixed;
-  bottom: 18%;
+  bottom: 20%;
   right: 8rpx;
   z-index: 100;
 }

@@ -1,6 +1,6 @@
 .backhome {
   position: fixed;
-  bottom: 10%;
+  bottom: 12%;
   right: 6rpx ;
   z-index: 100;
 }

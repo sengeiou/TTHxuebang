@@ -121,7 +121,7 @@ Page {
 .tipsshowfull{
   position: fixed;
   right: 0px;
-  top:822rpx;
+  top:60%;
   width:360rpx;
   background-color: rgba(150, 150, 150, 0.6);
   border-top-left-radius: 8rpx;
