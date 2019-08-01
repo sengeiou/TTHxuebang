@@ -16,9 +16,9 @@ export class ApiConfig {
   }
 
   static GetApiUrl() {
-    return "https://tthxb.artxb.cn/api/";
+    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
   }
-
+  // https://cmsdev.app-link.org/alucard263096/tthxb/api
   static GetUploadPath() {
     return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
   }

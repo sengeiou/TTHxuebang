@@ -31,15 +31,30 @@ class Content extends AppBase {
     var that = this;
     var shijian = this.Base.getMyData().instinfo.xiajishijian;
      var memberapi=new MemberApi();
-     memberapi.info({member_id:this.options.id},(member)=>{
-       console.log("嚯嚯嚯");
- console.log(member);
-       member.shouyi = Number(this.Base.getMyData().instinfo.fenxiaobili * member.jiner).toFixed(2);
-       member.jieshushijian = this.jisuanchaoshi(member.bandin_date, shijian)[1];
+    var quanbu = [];
+    var youxiao = [];
+    var shixiao = [];
+    memberapi.chakanxiaji({}, (xiaji) => {
+      for (var i = 0; i < xiaji.length; i++) {
+        xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, 0)[1];
+        console.log(this.Base.getMyData().instinfo.fenxiaobili);
+        console.log(xiaji[i].shouyi * this.Base.getMyData().instinfo.fenxiaobili);
+        console.log(12313);
+        xiaji[i].shouyi = Number(xiaji[i].jiner * this.Base.getMyData().instinfo.fenxiaobili).toFixed(2);
+        quanbu.push(xiaji[i]);
+      }
+      console.log("数据");
+      console.log(quanbu);
+      console.log(youxiao);
+      console.log(shixiao);
+      var member = quanbu.filter((item) => {
+        return item.id = this.Base.options.id;
+      })
+      this.Base.setMyData({ member: member[0] });
+    })
+       
  
-  this.Base.setMyData({member:member});
-
-     })
+ 
   }
 }
 var content = new Content();
