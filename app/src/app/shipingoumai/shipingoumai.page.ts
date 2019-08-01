@@ -71,7 +71,8 @@ export class ShipingoumaiPage extends AppBase {
                 this.showAlert(ret.result);
                 return;
               } else {
-
+               console.log(ret);
+               console.log("那真的niupi");
                 var wechatapi = this.wechatApi;
                 wechatapi.prepay3({ id: ret.return.id, h5: "Y" }).then((payret) => {
                   if (payret.code != 0) {

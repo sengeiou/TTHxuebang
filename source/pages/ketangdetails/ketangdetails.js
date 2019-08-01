@@ -314,6 +314,7 @@ class Content extends AppBase {
         this.Base.info("至少说点什么才可以发送哦");
         return
       }
+      this.Base.setMyData({ pinlun: ''})
       api.ketanpinlun({
         onlineclassroom_id: this.Base.options.id,
         neiron: pinlun

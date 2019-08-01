@@ -59,6 +59,8 @@ class Content extends AppBase {
         } else {
 
           var wechatapi = new WechatApi();
+          console.log(ret);
+          console.log("哈哈哈0");
           wechatapi.prepay3({ id: ret.return.id }, (payret) => {
             payret.complete = function (e) {
               console.log(e);

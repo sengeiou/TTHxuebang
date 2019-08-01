@@ -33,7 +33,7 @@ export class AppBase implements OnInit {
     public static InstInfo = null;
     public static MemberInfo=null;
     public InstInfo = {tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "" };
+    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -126,6 +126,7 @@ export class AppBase implements OnInit {
         
         if(AppBase.MemberInfo==null){
             //
+            
             if(this.params.code!=undefined&&this.params.state=='123'){
                 AppBase.memberapi.getuserinfo({h5:"Y",code:this.params.code,grant_type:"authorization_code"}).then((memberinfo)=>{
                     memberinfo.h5openid=memberinfo.openid;
@@ -142,12 +143,15 @@ export class AppBase implements OnInit {
                     
                 });
             }else{
+                
                 //alert("看到这个就是逻辑出大问题了");
                 //this.onMyShow();
             }
         }else{
-
             this.MemberInfo=AppBase.MemberInfo;
+            console.log("aaaa",this.MemberInfo);
+            ApiConfig.SetToken(this.MemberInfo.h5openid);
+            ApiConfig.SetTokenKey(this.MemberInfo.unionid);
             this.onMyShow();
         }
         

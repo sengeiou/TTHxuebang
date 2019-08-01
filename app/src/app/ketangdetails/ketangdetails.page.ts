@@ -155,10 +155,10 @@ export class KetangdetailsPage extends AppBase {
 
 
     if (status == "Y") {
-      this.tishi = 1;
+      this.toast("收藏成功");
     }
     if (status == "N") {
-      this.tishi = 2;
+      this.toast("取消收藏");
     }
 
     var jigouapi = this.jigouApi;

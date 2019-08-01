@@ -480,7 +480,7 @@
 					"id": 61,
 					"name": "视频订单详情",
 					"pathName": "pages/ketaninfo/ketaninfo",
-					"query": "id=24",
+					"query": "id=1714",
 					"scene": null
 				}
 			]
