@@ -75,7 +75,7 @@ class Content extends AppBase {
     purchaseapi.purchaseinfo({
       id: this.Base.options.id
     }, (info) => {
-      info.jifen= parseInt(info.amount)
+      info.jifen = Math.round(info.amount);
       this.Base.setMyData({
         info
       });

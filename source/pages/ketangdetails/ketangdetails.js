@@ -415,6 +415,7 @@ class Content extends AppBase {
     console.log(e);
   }
   bfjs() {
+    var kecheninfo = this.Base.getMyData().kecheninfo;
     var danqian = this.Base.getMyData().danqianzhanjie;
     var zhanjie = this.Base.getMyData().zhanjie;
     console.log(zhanjie);
@@ -429,7 +430,7 @@ class Content extends AppBase {
       return
     }
 
-    if (zhanjie[idx + 1].isproved_value == 'N') {
+    if (zhanjie[idx + 1].isproved_value == 'N' && kecheninfo.idd == '' && kecheninfo.isfree_value == 'N') {
       this.Base.info("购买后观看完整版视频");
 
       return

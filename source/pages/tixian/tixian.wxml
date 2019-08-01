@@ -50,9 +50,9 @@
 </view>
 
 
-<view class="padding-40">
+<!-- <view class="padding-40">
   <view class="h6" style="color:#999999;line-height:42rpx">提现说明:</view>
   <view wx:for="{{problemlist}}" wx:key='k' class="h6" style="color:#999999;line-height:42rpx">{{item.seq}}.{{item.content}}</view>
 
 
-</view>
+</view> -->

@@ -212,7 +212,7 @@ else{
   pinjia(e)
   {
     wx.navigateTo({
-      url: '/pages/pingjia/pingjia?id='+e.currentTarget.dataset.id,
+      url: '/pages/pingjia/pingjia?id='+e.currentTarget.dataset.id+'&&order_id='+e.currentTarget.id,
     })
 
   }

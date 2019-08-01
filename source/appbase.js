@@ -1072,6 +1072,7 @@ export class AppBase {
   }
 
   download(url, callback, open = false) {
+    var that=this;
     console.log(url);
     wx.downloadFile({
       url: url, //仅为示例，并非真实的资源
@@ -1084,7 +1085,7 @@ export class AppBase {
           wx.saveImageToPhotosAlbum({
             filePath: tempFilePath,
             success: function (res) {
-
+               that.Base.info("下载成功");
               var savedFilePath = res.savedFilePath;
               if (open == true) {
                 wx.openDocument({

@@ -1,6 +1,6 @@
 /**app.wxss**/
 
-
+@import "wxParse/wxParse.wxss";
 /* .ceshi{
   border:1px solid red;
 } */
