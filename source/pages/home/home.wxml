@@ -63,7 +63,7 @@
 
 
 <view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
-  <view class='margin-20  '>
+  <view class='   ' style="margin-left:20rpx;margin-right:20rpx">
 
     <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
@@ -576,7 +576,7 @@
 
                                                           <view class='flex-row flex-center margin-top-5'>
                                                             <view class='flex-row flex-1'>
-                                                              <view class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+                                                              <view class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem'  wx:for-index='idx' wx:if='{{idx<3}}'>{{litem.name}}</view>
                                                             </view>
                                                             <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
                                                           </view>
