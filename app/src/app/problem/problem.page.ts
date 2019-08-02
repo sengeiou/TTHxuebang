@@ -31,14 +31,36 @@ export class ProblemPage extends AppBase {
     this.headerscroptshow = 480;
       
   }
+  problemlist=[];
   aboutus=null;
+  show=""
   onMyShow() {
     var that = this;
     var jigouapi = this.jigouApi;
+ 
+    
+    jigouapi.problemlist({chanjin:'wd'}).then((problemlist) => {
+      console.log(problemlist);
+      this.problemlist=problemlist;
+    }) 
 
-    jigouapi.aboutus({}).then( (aboutus) => {
-      this.aboutus=aboutus;
-    });
+  }
+
+  bindshow(e){
+    
+    var id=e;
+    var show =this.show;
+    if(show==""){
+     this.show=id;
+    }
+    if (show != id) {
+      this.show=id;
+    }
+    if(show==id){
+      this.show="";
+    }
+
+
 
   }
 }

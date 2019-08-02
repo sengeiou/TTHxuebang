@@ -35,6 +35,16 @@ color: white;
 border-radius: 40rpx;
 
 }
+.tuan_btn1{
+width: 85%;
+padding-top:20rpx;
+padding-bottom:20rpx;
+background-color: white;
+border:1px solid #FF5252;
+color: #FF5252;
+border-radius: 40rpx;
+
+}
 .quan{
 
   border:1px dashed  #999999;

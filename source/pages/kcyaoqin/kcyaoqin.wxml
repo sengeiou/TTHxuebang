@@ -4,7 +4,7 @@
     <view class="flex-row flex-column">
       <image class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}"></image>
       <view class="text-center h5 margin-top-10">{{memberinfo.nickName}}邀请您一起学习</view>
-       <view class="text-center h4 margin-top-20 ">{{kcinfo .name}}</view>
+       <view class="text-center h4 margin-top-20 chaochu " style="width:500rpx">{{kcinfo .name}}</view>
          <image  class="sp " src="{{uploadpath}}mechanism/{{kcinfo.JG_jg_img}}"></image>
     </view>
     <view class="flex-1"></view>

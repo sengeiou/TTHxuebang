@@ -35,6 +35,7 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var api = new JigouApi();
+    this.Base.setMyData({ fenxianle:false})
     api.pintuaninfo({ id: this.Base.options.id }, (pintuaninfo) => {
         if(pintuaninfo.type=='T')
         {
@@ -56,7 +57,7 @@ class Content extends AppBase {
       })
    
     })
-
+    
   }
   daojishi() {
     var that = this;
@@ -136,6 +137,16 @@ class Content extends AppBase {
 
   }
   fenxian(){
+
+     if(this.Base.getMyData().fenxianle)
+     {
+return
+
+     }
+  this.Base.setMyData({
+    fenxianle:true
+  })
+  
     var tz = this.Base.getMyData().pintuaninfo.commander_id == this.Base.getMyData().memberinfo.id?'1':'0';
     console.log(this.Base.getMyData().pintuaninfo.commander_id);
     console.log(this.Base.getMyData().memberinfo.id);

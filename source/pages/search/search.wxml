@@ -121,7 +121,7 @@
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{coursevlist}}' wx:key='k'>
     <image class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
-      <view class='txt-bold txt-black flex-1'>{{item.name}}</view>
+      <view class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</view>
 
       <view class='flex-row flex-center'>
 
