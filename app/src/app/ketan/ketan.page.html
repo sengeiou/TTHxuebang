@@ -20,7 +20,7 @@
 
 
   <div class="margin-24 order" *ngFor="let item of alllist;">
-    <div class="padding-20 flex-row " (click)="kechenxianqin(item.id)" *ngIf="item.type=='SP'">
+    <div class="padding-20 flex-row " (click)="kechenxianqin(item.onlineclassroom_id)" *ngIf="item.type=='SP'">
 
       <img *ngIf="item.type!='SP'" class='icon radius-10' 
         src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
@@ -80,7 +80,7 @@
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
-            <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</div>
+            <div class='h6 txt-black margin-left-5'>共{{item.onlineclassroom_chapter_num}}章</div>
           </div>
 
           <div class="w20"></div>

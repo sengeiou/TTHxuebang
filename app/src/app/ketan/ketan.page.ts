@@ -61,7 +61,7 @@ export class KetanPage extends AppBase {
   }
 
   kechenxianqin(id) {
-    this.navigate("ketaninfo",{id})
+    this.navigate("ketangdetails",{id})
   }
   alllist=[];
   onMyShow() {
@@ -69,7 +69,7 @@ export class KetanPage extends AppBase {
     var api = this.puchaseApi;
 
     api.purchaselist({
-      type: 'SP', sppp:1
+      type: 'SP',pstatus:'P', sppp:1
     }).then( (alllist) => {
 
       this.alllist=alllist;
