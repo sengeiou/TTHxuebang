@@ -263,7 +263,10 @@ Page {
 .margin-left-21 {
   margin-left: 38rpx;
 }
-
+.icon13{
+  height: 26rpx;
+  width: 26rpx;
+}
 .icon-12 {
   width: 12rpx;
   height: 12rpx;
