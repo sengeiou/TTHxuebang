@@ -36,7 +36,7 @@
       <view class='flex-row flex-center margin-top-5' style=''>
 
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
-          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全深圳</view>
+          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全{{cityname}}</view>
 
 
           <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
@@ -440,7 +440,7 @@
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
   <scroll-view scroll-y>
-    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全深圳</view>
+    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</view>
     <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
   </scroll-view>
 
