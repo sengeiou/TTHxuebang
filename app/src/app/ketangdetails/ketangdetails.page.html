@@ -14,10 +14,11 @@
   <div class="videobgg" [style.background-image]="'url('+uploadpath+'onlineclassroom/'+kecheninfo.jieshaoimg+')'" style="background-size:100% 100%;" >
     <div class="videobg"></div>
     <video  [class.hide]="danqianzhanjie==null"  (ended)="bfjs($event)" (play)="ksbf($event)" (pause)='jsbf($event)'
-      (timeupdate)="jindu($event)" class='Top-img w400' style='width:100vw; '
-       object-fit="fill"
+      (timeupdate)="jindu($event)" class='Top-img w400' style='width:100vw;object-fit:fill' 
       id='v_1'  src='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.video}}'
-      play-btn-position="center" preload x-webkit-airplay=”true” playsinline webkit-playsinline=”true” autoplay  >
+      play-btn-position="center" preload x-webkit-airplay=”true” playsinline webkit-playsinline=”true” 
+      x5-video-player-type="h5"
+      autoplay  >
 
     </video>
    <!-- poster='{{uploadpath}}onlineclassroomdirectory/{{danqianzhanjie.cover}}' -->
