@@ -31,7 +31,7 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
     jigouapi.zaixiankecheninfo({ id: this.Base.options.id }, (kecheninfo) => {
       this.Base.setMyData({
-        kecheninfo: kecheninfo,
+        kecheninfo: kecheninfo,istijiao:false
       })
 
     })
@@ -39,7 +39,21 @@ class Content extends AppBase {
   youhuijuan() {
     this.Base.info("该功能暂未开放");
   }
-  tijiao() {
+  tijiao() {  
+
+   
+    if(this.Base.getMyData().istijiao)
+    {
+return
+
+    }
+  this.Base.setMyData({
+
+
+  istijiao:true
+
+  })
+
 
     var json = {
       onlineclassroom_id: this.Base.options.id, type: "SP", kt: this.options.type

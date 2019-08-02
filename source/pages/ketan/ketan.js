@@ -70,7 +70,7 @@ class Content extends AppBase {
     var api = new PurchaseApi();
 
     api.purchaselist({
-      type: 'SP', sppp:1
+      type: 'SP', pstatus:'P', sppp:1
     }, (alllist) => {
 
       this.Base.setMyData({
