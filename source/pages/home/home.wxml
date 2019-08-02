@@ -546,7 +546,12 @@
                                                         <view class='padding-20 '>
 
                                                           <view class='flex-row flex-center'>
-                                                            <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view>
+                                                            <!-- <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view> -->
+<view class="flex-row flex-center flex-1 ">
+              <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
+              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}" ></image>
+            </view>
+
 
                                                             <view class=''>
                                                               <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
