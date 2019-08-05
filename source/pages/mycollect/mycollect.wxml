@@ -42,8 +42,8 @@
 
       <view>
 
-        <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+        <view >
+          <image  class="icon-170" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
          
