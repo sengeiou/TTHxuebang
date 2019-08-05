@@ -56,7 +56,7 @@ export class ApiUtil {
   }
 
   static FormatDateTime(val) {
-    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate() +
+    return val.getFullYear() + "/" + (val.getMonth() + 1) + "/" + val.getDate() +
       " " + val.getHours() + ":" + val.getMinutes() + ":" + val.getSeconds();
   }
 
@@ -76,7 +76,7 @@ export class ApiUtil {
   }
 
   static FormatDate(val) {
-    return val.getFullYear() + "-" + (val.getMonth() + 1) + "-" + val.getDate();
+    return val.getFullYear() + "/" + (val.getMonth() + 1) + "/" + val.getDate();
   }
 
   static Updatetime(str) {
