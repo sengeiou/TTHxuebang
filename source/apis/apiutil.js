@@ -118,8 +118,6 @@ export class ApiUtil {
 
   static GetDates(days, todate) {
 
-
-
     //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     var dateLater = ApiUtil.DateLater;
@@ -179,6 +177,7 @@ export class ApiUtil {
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
     return myreg.test(str);
   }
+
   static FormatPercent(val) {
     val = val * 100.0;
     return val.toFixed(2) + '%';

@@ -81,7 +81,8 @@ class Content extends AppBase {
       dk: -1,
       jf: 5,
       dian: 0, 
-      pd: 1
+      pd: 1,
+      days: []
       
     })
 
@@ -91,6 +92,22 @@ class Content extends AppBase {
     var that = this;
 
     var jigouapi = new JigouApi();
+
+    var jifenapi = new JifenApi();
+    jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
+
+      var days = this.Base.getMyData().days;
+      for (var i = dakalist.length - 1; i >= 0; i--) {
+        days.push(dakalist[i].daka_date_dateformat)
+      }
+      this.Base.setMyData({ dakalist, days })
+      console.log(this.Base.getMyData().days, '打卡日期列表');
+
+      this.timetwo();
+
+    })
+
+
 
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
        
@@ -106,9 +123,9 @@ class Content extends AppBase {
     })
 
 
-    this.btn();
+    // this.btn();
 
-    this.jifen();
+    //this.jifen();
 
     var instapi = new InstApi();
 
@@ -565,385 +582,111 @@ class Content extends AppBase {
   }
 
 
-  //打卡
-  btn() {
-    var dian = this.Base.getMyData().dian;
-    var jifenapi = new JifenApi();
-    // var num = 0;
-    
+  //打卡部分
+  timetwo(e) {
+    console.log('卡路里')
 
-    // jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
+    var days = this.Base.getMyData().days;
 
 
-    //   var le = dakalist.length;
+    var nowtime = new Date();
 
-    //   if (time(today) - time(arr[le - 1]) == 86400000)
-      
-    //   {
-    //     num = 2; 
-        
-    //     for (var i = le; i > 0; i--) {
-    //       if (time(arr[i - 1]) - time(arr[i - 2]) == 86400000) {
-    //         num++;
-    //       }
-    //       else {
-    //         break; 
-    //       }
-    //       console.log(num);
-    //     }
-    //   } 
-    //   else {
-    //     console.log('第一天');
-    //   }
+    var now = this.Base.util.FormatDate(nowtime);
 
-
-    //   this.Base.setMyData({
-    //     dakalist
-    //   })
-
-
-      
-    // })
+    var leg = days.length;
 
 
 
-   // return;
+    var time1 = (new Date(now)).getTime(); //当前日期时间戳
 
+    var time2 = (new Date(this.Base.util.FormatDate(new Date(days[leg - 1])))).getTime(); //数组中倒数第一天日期时间戳
 
-    jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
-      this.Base.setMyData({
-        dakalist
-      })
+    var time3 = (new Date(this.Base.util.FormatDate(new Date(days[leg - 2])))).getTime(); //数组中倒数第二天日期时间戳
 
-      if (dakalist.length == 0) {
-        var jintian = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+    var num = 0;//该变量用以计算连续天数
 
-        var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
+    if (time1 - time2 == 0) {
+      this.Base.setMyData({ daka: true })
+    }
+    else {
+      this.Base.setMyData({ daka: false })
+    }
 
-        var a = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
+    console.log((time1 - time2), "判断日期连续");
 
-        var week = ApiUtil.GetDates(7, pd_time);
-     
-        this.Base.setMyData({
-          day: -1,
-          dian: 0,
-          no: 1,
-          week
-        })
-        console.log("哈哈哈开始")
+    if (time1 - time2 <= 86400000) { //判断当前日期与最近一天
 
-        return
+      console.log("昨天有记录,此处可用以执行查询连续天数方法")
 
-      }
+      num = 1;
 
-      if (this.Base.getMyData().dk == -1) {
-        var jintian = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
+      for (var i = leg; i > 0; i--) {
+        var t_one = (new Date(this.Base.util.FormatDate(new Date(days[i - 1])))).getTime();
+        var t_two = (new Date(this.Base.util.FormatDate(new Date(days[i - 2])))).getTime();
 
-
-
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) + 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-
-        var a = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-
-        if (a.length == 0) {
+        if (t_one - t_two == 86400000) {
+          console.log("加起来")
+          num++; //连续天数
           this.Base.setMyData({
-            xianzai: jintian, day: -1, no: 1,dk:0,dian:0
+            num: num
           })
-          console.log("考虑开始");
-
-          // return
-
-        }
-
-        else {
-          this.Base.setMyData({
-            day: 0,
-            dk: 0,
-            dian: 1,
-            xianzai: time
-          })
-          console.log("今天")
-        }
-
-      }
-
-      if (this.Base.getMyData().dk == 0) {
-
-        var jintian = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian.getFullYear() + '/' + (jintian.getMonth() + 1 < 10 ? '0' + (jintian.getMonth() + 1) : jintian.getMonth() + 1) + '/' + (jintian.getDate() < 10 ? '0' + (jintian.getDate()) : jintian.getDate()) + ' '));
-        var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-
-        var a = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        if (a.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("一天前开始")
-          //return
-        }
-        else {
-          this.Base.setMyData({
-            day: 1,
-            dk: 1
-          })
-          console.log("一天前")
-        }
-
-      }
-
-      if (this.Base.getMyData().dk == 1) {
-
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 2 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        console.log("离开了")
-        console.log(a2)
-        console.log("离开了")
-
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("前天")
-          //return
+          console.log(num, "连续天数")
         } else {
+          console.log("结束循环")
           this.Base.setMyData({
-            day: 2,
-            dk: 2
+            num: num
           })
-          console.log("两天前")
-        }
-      }
-
-      if (this.Base.getMyData().dk == 2) {
-
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 3 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 2 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("三天前开始")
-
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 3,
-            dk: 3
-          })
-          console.log("三天前")
+          break;
         }
 
       }
 
-      if (this.Base.getMyData().dk == 3) {
+      var num = this.Base.getMyData().num;
 
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 4 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 3 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("四天前开始")
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 4,
-            dk: 4
-          })
-          console.log("四天前")
-        }
-
+      if (time1 - time2 == 0) {
+        var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
+      } else {
+        var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - num * 86400000);
       }
 
-      if (this.Base.getMyData().dk == 4) {
+      console.log(daysago, "测试");
 
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 5 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 4 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("五天前开始")
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 5,
-            dk: 5
-          })
-          console.log("五天前")
-        }
+      var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
 
-      }
-
-      if (this.Base.getMyData().dk == 5) {
-        var jf = this.Base.getMyData().jf;
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 6 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 5 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("六天前开始")
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 6,
-            dk: 6,
-            jf: 25
-          })
-          console.log("三天前")
-        }
-
-      }
-
-      if (this.Base.getMyData().dk == 6) {
-
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 7 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-        var panduan = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 6 * 86400000);
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("七天前开始")
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 7,
-            dk: 7
-          })
-         // console.log("三天前")
-        }
-
-      }
-
-      if (this.Base.getMyData().dk == 7) {
-        var jintian2 = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - 8 * 86400000);
-        var time = this.Base.util.FormatDate(new Date(jintian2.getFullYear() + '/' + (jintian2.getMonth() + 1 < 10 ? '0' + (jintian2.getMonth() + 1) : jintian2.getMonth() + 1) + '/' + (jintian2.getDate() < 10 ? '0' + (jintian2.getDate()) : jintian2.getDate()) + ' '));
-        var a2 = dakalist.filter((item, idx) => {
-          return this.Base.util.FormatDate(new Date(item.daka_date_dateformat)) == time
-        })
-
-        var panduan = new Date(new Date(ApiUtil.GetNowFormatDate()).getTime());
-
-        var pd_time = this.Base.util.FormatDate(new Date(panduan.getFullYear() + '/' + (panduan.getMonth() + 1 < 10 ? '0' + (panduan.getMonth() + 1) : panduan.getMonth() + 1) + '/' + (panduan.getDate() < 10 ? '0' + (panduan.getDate()) : panduan.getDate()) + ' '));
-        
-        if (a2.length == 0) {
-          this.Base.setMyData({
-            xianzai: pd_time
-          })
-          console.log("七天前开始")
-          //return
-        } else {
-          this.Base.setMyData({
-            day: 7,
-            dk: 7
-          })
-          console.log("三天前")
-        }
-
-        var week = ApiUtil.GetDates(7, pd_time);
-
-        this.Base.setMyData({
-          day: -1,
-          dian: 0,
-          no: 1,
-          week
-        })
-
-      }
-
-      //  if (dakalist.length==0){
-      //   var xianzai = ApiUtil.GetNowFormatDate();
-      //  }
-      //  else{
-      //    var xianzai = this.Base.getMyData().xianzai;
-      //  }
-      var xianzai = this.Base.getMyData().xianzai;
-      console.log("现在" + xianzai)
-
-      var nowdate = ApiUtil.GetNowFormatDate();
-
-      var timestamp = new Date(nowdate).getTime();
-
-      var cj = new Date('2019-07-03 15:35').getTime();
-
-      var time = ApiUtil.DateLater('2019-07-02', 7);
-
-      var week = ApiUtil.GetDates(7, xianzai);
-
-      console.log("现在时间" + nowdate)
-      console.log("时间戳" + timestamp)
-      console.log("创建时间戳" + cj)
-      console.log(week)
+      var week = ApiUtil.GetDates(7, begindate);
+      var timestamp = new Date(ApiUtil.GetNowFormatDate()).getTime();
 
       for (var i = 0; i < week.length; i++) {
         if (new Date(week[i].seven_date).getTime() == timestamp) {
           week[i].daka_date = "今天"
         }
       }
+      if (num % 7 > 0) {
+        this.Base.setMyData({
+          min: num % 7, week: week
+        })
+      }
+      if (num % 7 == 0) {
+        this.Base.setMyData({
+          min: 7, week: week
+        })
+      }
+    }
+    else {
+      console.log("昨天无记录,重新计算天数")
+    }
 
-      this.Base.setMyData({
-        week: week
-      });
-
-    })
 
   }
-  //打卡
+  //打卡部分
   bindSignIn(e) {
     var that = this;
+    var num = this.Base.getMyData().num;
 
-    this.Base.setMyData({dian:1})
-    //   days = e.currentTarget.dataset.days;
-    // days++
-
-    if (this.Base.getMyData().jf == 25) {
+    if (this.Base.getMyData().num < 7) {
       this.Base.setMyData({ jifen: 25 })
-    } else {
+    }
+    else {
       this.Base.setMyData({ jifen: 5 })
     }
 
@@ -953,8 +696,7 @@ class Content extends AppBase {
       jifen: this.Base.getMyData().jifen,
       status: "A"
     }, (daka) => {
-
-      if (this.Base.getMyData().jifen==5){
+      if (this.Base.getMyData().jifen == 5) {
         jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "meiridaka" }, (addjifen) => {
           this.Base.setMyData({ addjifen })
         })
@@ -964,64 +706,23 @@ class Content extends AppBase {
           this.Base.setMyData({ addjifen })
         })
       }
-      
-
       this.Base.setMyData({
         daka
       })
       this.onMyShow();
-
     })
 
-
-    //console.log(days + "天数");
-    // wx.showToast({
-    //   icon: 'success',
-    //   title: '打卡成功',
-    // })
-
     this.Base.setMyData({
-      // signNum: days,
       signState: true,
       dakashow: true,
       tangchuan: false
     })
 
-    // var min = e.currentTarget.dataset.min,
-    //   max = e.currentTarget.dataset.max,
-    //   weeks = e.currentTarget.dataset.weeks;
-
-    // if (days % 7 == 0) {
-    //   weeks += 1;
-    //   this.Base.setMyData({
-    //     weeks: weeks
-    //   })
-    // }
-
-    // if (days == 7 * weeks + 1) {
-    //   this.Base.setMyData({
-    //     min: 7 * weeks + 1,
-    //     max: 7 * weeks + 7
-    //   })
-    // }
-
   }
 
-   //打卡
-  jifen() {
-    var jifenapi = new JifenApi();
-    jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
-      this.Base.setMyData({
-        dakalist
-      })
-      var sum = 0
-      for (var i = 0; i < dakalist.length; i++) {
-        sum += parseInt(dakalist[i].jifen);
-      }
-      this.Base.setMyData({ sum })
-    })
-  }
-  //打卡
+
+
+  
   getDates(days, todate) { //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     for (var i = 0; i < days; i++) {
@@ -1107,6 +808,8 @@ body.toduihuan = content.toduihuan;
 body.setcity = content.setcity;
 
 body.bindSignIn = content.bindSignIn;
+body.timetwo = content.timetwo;
+
 body.showtc = content.showtc;
 body.chakanjilu = content.chakanjilu;
 body.closetanchuang = content.closetanchuang;

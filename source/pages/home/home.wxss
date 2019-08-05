@@ -1,4 +1,5 @@
 /* pages/ceshi/ceshi.wxss */
+/* pages/ceshi/ceshi.wxss */
 
 Page {
   background: white;
@@ -273,20 +274,22 @@ Page {
 }
 
 .width-46 {
-  width: 46rpx;
+  width: 60rpx;
 }
 
 .dakaxian {
-  margin-left: -18rpx;
-  margin-right: -18rpx;
+  margin-left: -20rpx;
+  margin-right: -20rpx; 
   height: 4rpx;
-  width: 84rpx;
+  width: 80rpx;
 }
 
 .marginleft-10 {
   margin-left: -16rpx;
 }
-
+.width-40{
+  width: 44rpx;
+}
 .dakaxian2 {
   margin-left: -18rpx;
   margin-right: -18rpx;
