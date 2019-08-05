@@ -426,20 +426,20 @@
       <view class='left flex-row flex-center' style="width:310/750rpx;">
 
         <view class='flex-1 flex-row flex-column' bindtap='toindex'>
-          <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-17'></image>
+          <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></image>
           <view class='h7 margin-top-8'>首页</view>
         </view>
 
         <view class='flex-1 flex-row flex-column'>
           <!-- <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image> -->
-          <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-17' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-          <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-17' src='{{uploadpath}}resource/{{res.fav}}'></image>
+          <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
+          <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
           <view class='h7 margin-top-8'>收藏</view>
         </view>
 
         <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
           <view class=' flex-row flex-column'>
-            <image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-17'></image>
+            <image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></image>
             <view class='h7 margin-top-8'>客服</view>
           </view>
         </button>

@@ -1,5 +1,5 @@
 <!--pages/teacher/teacher.wxml-->
-<view class=' to_top' >
+<view class=' to_top'  hidden='{{!floorstatus}}' >
  <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
 </view>
 

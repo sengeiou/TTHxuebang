@@ -20,6 +20,9 @@ Page {
     margin-top:-10rpx;
     line-height: 30rpx;
 }
+.bor_bot{
+  border-bottom: 1px solid #F5F6F8;
+}
 .hondian{
 
 width:12rpx;

@@ -16,14 +16,14 @@
 
 <view class='menu-padding flex-row flex-center flex-wrap bg-white'>
 
-  <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:18vw' class='flex-row  flex-column  '>
+  <view bindtap='switchtype' data-id="-2" data-name="热门课程" style='width:20vw' class='flex-row  flex-column  '>
     <image hidden="{{!(-2==xz)}}" src='{{uploadpath}}resource/{{res.remen}}' class='icon-50 radius-50'></image>
     <image hidden="{{!(-2!=xz)}}" src='{{uploadpath}}resource/{{res.remenwx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{-2==xz?"txt-bold":""}}'>精选</view>
     <view wx:if="{{-2==xz}}" class="henxian"></view>
     <view wx:if="{{-2!=xz}}" class="nohenxian"></view>
   </view>
-  <view bindtap='switchtype' data-id="-1" data-name="免费课程" style='width:18vw' class='flex-row  flex-column  '>
+  <view bindtap='switchtype' data-id="-1" data-name="免费课程" style='width:20vw' class='flex-row  flex-column  '>
     <image hidden="{{!(-1==xz)}}" src='{{uploadpath}}resource/{{res.mianfei}}' class='icon-50 radius-50'></image>
     <image hidden="{{!(-1!=xz)}}" src='{{uploadpath}}resource/{{res.mianfeiwx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{-1==xz?"txt-bold":""}}'>免费</view>
@@ -31,7 +31,7 @@
     <view wx:if="{{-1!=xz}}" class="nohenxian"></view>
   </view>
 
-  <view bindtap='switchtype' data-id="{{item.id}}" data-name="{{item.name}}" wx:for='{{fenleilist}}' wx:key="k" wx:for-index='idx' style='width:18vw' class='flex-row  flex-column  '>
+  <view bindtap='switchtype' data-id="{{item.id}}" data-name="{{item.name}}" wx:for='{{fenleilist}}' wx:key="k" wx:for-index='idx' style='width:20vw' class='flex-row  flex-column  '>
     <image hidden="{{!(item.id==xz)}}" src='{{uploadpath}}onlineclassroomtype/{{item.img}}' class='icon-50 radius-50'></image>
     <image hidden="{{!(item.id!=xz)}}" src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50'></image>
     <view class='h6 margin-top-12 {{item.id==xz?"txt-bold":""}}'>{{item.name}}</view>

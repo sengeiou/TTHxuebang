@@ -78,6 +78,9 @@
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
               </view>
+
+
+              <block wx:if="{{!tanchuang}}">
               <view wx:if="{{courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                 <view class='flex-1'></view>
@@ -86,6 +89,7 @@
                 <view class='flex-1'></view>
 
               </view>
+               </block>
             </view>
 
 

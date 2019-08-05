@@ -29,6 +29,30 @@ class Content extends AppBase {
       this.Base.setMyData({ baomalist });
     });
   }
+  onPageScroll(e) {
+    console.log(e)
+    //this.Base.setMyData({ scrolltop: e.scrollTop})
+    if (e.scrollTop > 100) {
+      this.setData({
+        floorstatus: true
+      });
+    }
+    if (e.scrollTop > 520) {
+      this.setData({
+        sco: 1
+      });
+    }
+    if (e.scrollTop <= 520) {
+      this.setData({
+        sco: 2
+      });
+    }
+    if (e.scrollTop <= 100) {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  }
   binddetails(e){
     var id=e.currentTarget.id;
 
@@ -45,4 +69,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.binddetails = content.binddetails;
+body.onPageScroll = content.onPageScroll;
 Page(body)
