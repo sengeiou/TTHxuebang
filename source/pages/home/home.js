@@ -107,8 +107,6 @@ class Content extends AppBase {
 
     })
 
-
-
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
        
        var weidu=xiaoxilist.filter((item)=>{
@@ -144,7 +142,6 @@ class Content extends AppBase {
         jigouapi.yaoqin({
           yaoqinren: this.Base.options.id
         }, (res) => {
-
           console.log(res);
           console.log("asdasdasdasdasdas");
 
@@ -588,13 +585,11 @@ class Content extends AppBase {
 
     var days = this.Base.getMyData().days;
 
-
     var nowtime = new Date();
 
     var now = this.Base.util.FormatDate(nowtime);
 
     var leg = days.length;
-
 
 
     var time1 = (new Date(now)).getTime(); //当前日期时间戳
@@ -608,6 +603,7 @@ class Content extends AppBase {
     if (time1 - time2 == 0) {
       this.Base.setMyData({ daka: true })
     }
+
     else {
       this.Base.setMyData({ daka: false })
     }
@@ -643,18 +639,28 @@ class Content extends AppBase {
 
       var num = this.Base.getMyData().num;
 
-      if (time1 - time2 == 0) {
-        var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
-      } else {
-        var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - num * 86400000);
+      if (days == null || days.length == 0) {
+        console.log("品牌")
+        var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()));
+        var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
+      }
+      else{
+        console.log("饭饭")
+        if (time1 - time2 == 0) {
+          var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
+        } else {
+          var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - num * 86400000);
+        }
+
+        var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
       }
 
-      console.log(daysago, "测试");
-
-      var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
 
       var week = ApiUtil.GetDates(7, begindate);
+
       var timestamp = new Date(ApiUtil.GetNowFormatDate()).getTime();
+
+      console.log(timestamp, "测试");
 
       for (var i = 0; i < week.length; i++) {
         if (new Date(week[i].seven_date).getTime() == timestamp) {
@@ -675,8 +681,7 @@ class Content extends AppBase {
     else {
       console.log("昨天无记录,重新计算天数")
     }
-
-
+ 
   }
   //打卡部分
   bindSignIn(e) {
@@ -720,9 +725,7 @@ class Content extends AppBase {
 
   }
 
-
-
-  
+ 
   getDates(days, todate) { //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     for (var i = 0; i < days; i++) {

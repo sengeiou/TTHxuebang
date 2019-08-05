@@ -393,7 +393,7 @@ Page {
   /* background: rgb(252, 205, 151); */
   border-radius: 8rpx;
   width: 506rpx;
-  height: 912rpx;
+  height: 882rpx;
   padding: 44rpx 40rpx 0rpx 40rpx;
 }
 
@@ -418,7 +418,7 @@ Page {
 }
 
 .close {
-  margin-top: 46rpx;
+  margin-top: 26rpx;
 }
 
 .icon-75 {
