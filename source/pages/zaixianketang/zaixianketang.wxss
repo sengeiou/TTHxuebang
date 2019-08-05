@@ -15,8 +15,8 @@
 }
 
 .icon-50 {
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 
 .kecheng-block {
