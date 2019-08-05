@@ -1111,7 +1111,7 @@ export class AppBase {
           wx.saveImageToPhotosAlbum({
             filePath: tempFilePath,
             success: function (res) {
-               that.Base.info("下载成功");
+               that.Base.info("保存成功");
               var savedFilePath = res.savedFilePath;
               if (open == true) {
                 wx.openDocument({

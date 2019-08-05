@@ -26,7 +26,7 @@ border-radius: 10rpx;
 }
 .icon{
   width:40vw;
-  height: 30vw;
+  height: 40vw;
 }
 .bor_bot{
   border-bottom:1px solid #e5e5e5

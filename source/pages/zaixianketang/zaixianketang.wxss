@@ -1,12 +1,14 @@
 /* pages/zaixianketang/zaixianketang.wxss */
 
 .menu-padding {
-  padding-left: 32rpx;
+  
   padding-top: 28rpx;
-  padding-right: 32rpx;
+ 
 }
 
 /* .gd{
+  padding-left: 32rpx;
+   padding-right: 32rpx;
   height: 70rpx;
 } */
 
@@ -15,8 +17,8 @@
 }
 
 .icon-50 {
-  width: 80rpx;
-  height: 80rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 
 .kecheng-block {
