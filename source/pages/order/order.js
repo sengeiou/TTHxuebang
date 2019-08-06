@@ -216,12 +216,13 @@ class Content extends AppBase {
   xiazai() {
     var type = this.Base.getMyData().type;
     if (type == 'kefu') {
-      this.download(this.Base.getMyData().uploadpath + 'inst' + this.Base.getMyData().instinfo.kefuerweima);
+
+      this.download(this.Base.getMyData().uploadpath + 'inst/' + this.Base.getMyData().instinfo.kefuerweima);
 
     }
     else {
 
-      this.download(this.Base.getMyData().apiurl + 'jigou' + 'jigou/qrcode?id=' + this.Base.getMyData().info.id + '&a.jpg');
+      this.download(this.Base.getMyData().apiurl + 'jigou/qrcode?id=' + this.Base.getMyData().info.id + '&a.jpg');
 
     }
 
