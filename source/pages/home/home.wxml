@@ -148,7 +148,7 @@
         <view class="  flex-row flex-center ">
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>0?"txthuang":"txt-9"}} '>5</view>
+            <view class='h6   {{min>0?"txthuang":"txt-9"}} '>+5</view>
             <view class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></view>
             <view class=' f8 '>{{week[0].daka_date}}</view>
           </view>
@@ -156,7 +156,7 @@
           <view class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>1?"txthuang":"txt-9"}}'>5</view>
+            <view class='h6   {{min>1?"txthuang":"txt-9"}}'>+5</view>
             <view class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></view>
             <view class=' f8 '>{{week[1].daka_date}}</view>
           </view>
@@ -164,7 +164,7 @@
           <view class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>2?"txthuang":"txt-9"}}'>5</view>
+            <view class='h6   {{min>2?"txthuang":"txt-9"}}'>+5</view>
             <view class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></view>
             <view class=' f8 '>{{week[2].daka_date}}</view>
           </view>
@@ -172,7 +172,7 @@
           <view class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6  {{min>3?"txthuang":"txt-9"}}'>5</view>
+            <view class='h6  {{min>3?"txthuang":"txt-9"}}'>+5</view>
             <view class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></view>
             <view class=' f8 '>{{week[3].daka_date}}</view>
           </view>
@@ -180,7 +180,7 @@
           <view class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6    {{min>4?"txthuang":"txt-9"}}'>5</view>
+            <view class='h6    {{min>4?"txthuang":"txt-9"}}'>+5</view>
             <view class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></view>
             <view class=' f8 '>{{week[4].daka_date}}</view>
           </view>
@@ -188,7 +188,7 @@
           <view class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6     {{min>5?"txthuang":"txt-9"}}'>5</view>
+            <view class='h6     {{min>5?"txthuang":"txt-9"}}'>+5</view>
             <view class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></view>
             <view class=' f8 '>{{week[5].daka_date}}</view>
           </view>
@@ -196,7 +196,7 @@
           <view class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6    {{min>6?"txthuang":"txt-9"}}'>25</view>
+            <view class='h6    {{min>6?"txthuang":"txt-9"}}'>+25</view>
             <view class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></view>
             <view class=' f8 '>{{week[6].daka_date}}</view>
           </view>
@@ -232,7 +232,6 @@
   </view>
 
 
-
   <view wx:if='{{dakashow==true}}' class='chengong'>
 
     <view class='flex-row flex-center'>
@@ -243,7 +242,7 @@
         <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==5}}'>+5积分</view>
         <view class='tuhuang margin-top-10'>签到成功</view>
         <view style='height:84rpx;'></view>
-        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{day+1}}天</view>
+        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</view>
         <view style='height:32rpx'></view>
 
         <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
@@ -334,12 +333,7 @@
   </view>
 
 
-
-
-
   <!-- <view class='height-30'></view> -->
-
-
 
   <!-- <view class='margin-20'>
   <view class='flex-row flex-center '>
@@ -350,9 +344,6 @@
   </view>
 </view>
 
-
-
-
 <view class='scv'>
   <scroll-view scroll-x style=" " class='sp' bindscroll="scroll">
 
@@ -362,8 +353,6 @@
       <view class='txt-white h5'>#活动汇演</view>
 
       <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
-
-
 
       <view class='flex-row flex-center margin-top-20'>
       

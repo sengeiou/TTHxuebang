@@ -556,7 +556,7 @@ class Content extends AppBase {
 
 
   showtc(e) {
-    this.onMyShow();
+    //this.onMyShow();
     this.Base.setMyData({
       tangchuan: true
     })
