@@ -239,7 +239,7 @@
 
             <view class="flex-row flex-center flex-1 ">
               <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
-              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"></image>
+              <image  wx:if="{{item.renzhen=='是'}}" src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"></image>
             </view>
 
 
