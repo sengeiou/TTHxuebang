@@ -35,6 +35,8 @@ class Content extends AppBase {
     var youxiao = [];
     var shixiao = [];
     memberapi.chakanxiaji({}, (xiaji) => {
+      console.log(xiaji);
+      console.log("adasdsa");
       for (var i = 0; i < xiaji.length; i++) {
         xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, 0)[1];
         console.log(this.Base.getMyData().instinfo.fenxiaobili);
@@ -48,7 +50,7 @@ class Content extends AppBase {
       console.log(youxiao);
       console.log(shixiao);
       var member = quanbu.filter((item) => {
-        return item.id = this.Base.options.id;
+        return item.id == this.Base.options.id;
       })
       this.Base.setMyData({ member: member[0] });
     })
