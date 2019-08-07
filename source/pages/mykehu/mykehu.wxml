@@ -29,12 +29,12 @@
   <view data-val="all" bindtap="binddate" class="{{date=='all'?'opt':'noopt'}}">全部</view>
   <view class="flex-1"></view>
 
-  <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
+  <!-- <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
     <view class="flex-row flex-center">
       <view class="h6">自定义时间</view>
       <image class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}"></image>
     </view>
-  </picker>
+  </picker> -->
 
 </view>
 <block wx:if="{{show=='all'}}">

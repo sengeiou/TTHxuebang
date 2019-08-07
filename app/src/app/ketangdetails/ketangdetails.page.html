@@ -36,7 +36,7 @@
         <div class='margin-30 border-bottom-2'>
 
           <div class='flex-row '>
-            <div class=' kcname txt-bold'>{{danqianzhanjie.name}} </div>
+            <div class=' kcname txt-bold chaochu' >{{danqianzhanjie.name}} </div>
             <div class='kd  flex-row flex-column  ' *ngIf="isfav=='N'" (click)="fav('Y')"  id='Y'>
               <img mode='widthFix' class='icon' src='{{uploadpath}}resource/{{res.unfav}}' />
               <div class='h6 txt-gray'>收藏</div>
@@ -106,17 +106,19 @@
                   <img class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}'/>
                   <div class="chaochu2 {{danqianzhanjie.id==item.id&&spbf?'bianse':''}} kuan1">{{item.name}}</div>
                    <!-- <div>123123</div> -->
-                  <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''">
+                  <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''" style="position: relative;">
 
                     <div *ngIf="item.isproved_value=='N'&&kecheninfo.idd==''" class="h7 fufei1">付费</div>
                     <div *ngIf="item.isproved_value=='Y'&&kecheninfo.idd==''" class="h7 mianfei1">试看</div>
                     <div *ngIf="kecheninfo.idd!=''" class="h7 mianfei1">已购</div>
 
                   </div>
-                  <img *ngIf="danqianzhanjie.id==item.id&&spbf" src='{{uploadpath}}resource/{{res.spzantin}}'
-                    class='zt1'/>
-                  <img *ngIf="!(danqianzhanjie.id==item.id&&spbf)" src='{{uploadpath}}resource/{{res.spbofan}}'
-                    class='zt1'/>
+                  <div  style="position: relative;">
+                    <img *ngIf="danqianzhanjie.id==item.id&&spbf" src='{{uploadpath}}resource/{{res.spzantin}}'
+                      class='zt1'/>
+                    <img *ngIf="!(danqianzhanjie.id==item.id&&spbf)" src='{{uploadpath}}resource/{{res.spbofan}}'
+                      class='zt1'/>
+                  </div>
                 </div>
               </div>
             </div>
@@ -198,16 +200,18 @@
             <div class="{{item.dq==true?'bk':''}}">
               <img class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}' />
               <div class="chaochu2 kuan1">{{item.name}}</div>
-              <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''">
+              <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''" style="position: relative;">
 
                 <div *ngIf="item.isproved_value=='N'&&kecheninfo.idd==''" class="h7 fufei1">付费</div>
                 <div *ngIf="item.isproved_value=='Y'&&kecheninfo.idd==''" class="h7 mianfei1">试看</div>
                 <div *ngIf="kecheninfo.idd!=''" class="h7 mianfei1">已购</div>
 
               </div>
-              <img *ngIf="danqianzhanjie.id==item.id&&spbf" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1' />
-              <img *ngIf="!(danqianzhanjie.id==item.id&&spbf)" src='{{uploadpath}}resource/{{res.spbofan}}'
-                class='zt1' />
+              <div  style="position: relative;">
+                <img *ngIf="danqianzhanjie.id==item.id&&spbf" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1' />
+                <img *ngIf="!(danqianzhanjie.id==item.id&&spbf)" src='{{uploadpath}}resource/{{res.spbofan}}'
+                  class='zt1' />
+              </div>
             </div>
           </div>
         </div>

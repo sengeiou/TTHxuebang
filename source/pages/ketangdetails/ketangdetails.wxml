@@ -1,4 +1,6 @@
 <back-component></back-component>
+
+<block wx:if="{{isios==false}}">
 <view class=' to_top'>
   <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
 </view>
@@ -176,14 +178,6 @@
 
 </block>
 
-
-
-
-
-
-
-
-
 <block wx:if="{{liebiao}}" animation='{{animationData}}'>
   <view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
     <view class="padding-20 flex-row flex-center">
@@ -217,8 +211,6 @@
     </scroll-view>
   </view>
 </block>
-
-
 <block wx:if="{{quanbu}}">
   <view style='background-image:url({{uploadpath}}resource/{{res.shipinbg}});background-size:100% 100%;'>
     <view class="padding-20 flex-row flex-center">
@@ -282,3 +274,14 @@
     </view>
   </view>
 </block>
+</block>
+
+
+<block wx:if="{{isios==true}}">
+<image bindtap="viewPhoto" id="{{uploadpath}}resource/{{res.gotoketang}}" style="width:100vw;height:100vh"  src="{{uploadpath}}resource/{{res.gotoketang}}"></image>
+
+
+</block>
+
+
+
