@@ -38,6 +38,25 @@ class Content extends AppBase {
 
   onMyShow() {
     var that = this;
+
+    var syso = AppBase.System;
+    console.log(syso);
+    if (syso.substr(0, 3) == 'iOS') {
+      this.Base.setMyData({
+
+        isios: true
+
+      })
+    }
+    else {
+      this.Base.setMyData({
+
+        isios: false
+
+      })
+
+    }
+
     var jigouapi = new JigouApi();
      
     jigouapi.addguankancishu({id:this.Base.options.id},()=>{
