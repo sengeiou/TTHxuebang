@@ -4,6 +4,7 @@ import { NavController, ModalController, ToastController, NavParams, AlertContro
     from "@ionic/angular";
 import { InstApi } from "../providers/inst.api";
 import { MemberApi } from "../providers/member.api";
+import { WechatApi } from "../providers/wechat.api";
 import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
 import { ViewController } from '@ionic/core';
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { OnInit } from '@angular/core';
 
+declare let wx: any;
 
 export class AppBase implements OnInit {
     public needlogin = false;
@@ -23,6 +25,7 @@ export class AppBase implements OnInit {
     public static myapp: AppComponent = null;
     public static instapi: InstApi = null;
     public static memberapi: MemberApi = null;
+    public static wechatApi: WechatApi = null;
     public static UNICODE = "tthxb";
 
     public statusBarStyle = "X";//{DARK}
@@ -32,7 +35,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo=null;
-    public InstInfo = {tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public InstInfo = {h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
     public static MYBABY = [];
     public mybaby = [];
@@ -90,15 +93,17 @@ export class AppBase implements OnInit {
 
                 }else{
                     if(AppBase.MemberInfo==null){
-                        var redirecturl=encodeURIComponent(window.location.href);
+                        var redirecturl=encodeURIComponent("http://yuyue.helpfooter.com/tabs/tab1");
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
                         console.log({redurl});
                         window.location.href=redurl;
                     }
                 }
+                this.setWechatShare();
             });
         } else {
             this.InstInfo = AppBase.InstInfo;
+            this.setWechatShare();
         }
     }
     getMemberInfo() {
@@ -137,10 +142,10 @@ export class AppBase implements OnInit {
 
                     ApiConfig.SetToken(memberinfo.h5openid);
                     ApiConfig.SetTokenKey(memberinfo.unionid);
-                    AppBase.memberapi.updateh5(memberinfo).then((res)=>{
-                        this.onMyShow();
-                    });
-                    
+                    // AppBase.memberapi.updateh5(memberinfo).then((res)=>{
+                    //     this.onMyShow();
+                    // });
+                    window.location.href="/tabs/tab1";
                 });
             }else{
                 
@@ -344,4 +349,69 @@ export class AppBase implements OnInit {
     tryLogin() {
         this.showModal("MobileloginPage", {});
     }
+
+
+    setWechatShare(title=undefined,desc=undefined){
+        if(title==undefined){
+            title=this.InstInfo.h5sharetitle;
+        }
+        if(desc==undefined){
+            desc=this.InstInfo.h5sharedesc;
+        }
+        AppBase.wechatApi.gensign({url:window.location.href}).then((config)=>{
+            
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: this.InstInfo.h5appid, // 必填，公众号的唯一标识
+                timestamp: config.timestamp, // 必填，生成签名的时间戳
+                nonceStr: config.nonceStr, // 必填，生成签名的随机串
+                signature: config.signature,// 必填，签名，见附录1
+                jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            });
+            
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                        title: title,
+                        desc: desc,
+                        link: window.location.href,
+                        imgUrl: this.uploadpath+"inst/"+ this.InstInfo.logo,
+                        trigger: function (res) {
+                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            //alert('已分享');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            //alert("onMenuShareAppMessage" + JSON.stringify(res));
+                        }
+                    });
+
+                    wx.onMenuShareTimeline({
+                        title: title,
+                        link: window.location.href,
+                        imgUrl: this.uploadpath+"inst/"+ this.InstInfo.logo,
+                        trigger: function (res) {
+                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            //alert('已分享');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            // alert("onMenuShareTimeline" + JSON.stringify(res));
+                        }
+                    });
+                
+            });
+        
+
+    });
+	}
 }
