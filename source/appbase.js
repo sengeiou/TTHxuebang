@@ -35,6 +35,8 @@ export class AppBase {
   static Scene = 1001;
   static InstInfo = null;
   static Resource = null;
+  static System=null;  
+  static Model=null;
   unicode = "tthxb";
   needauth = true;
   pagetitle = null;
@@ -149,7 +151,18 @@ export class AppBase {
 
     //console.log(mta.Page.init().options.scene);
     console.log("onload");
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log("真的牛皮你");
+        console.log(res); 
+            AppBase.System=res.system;
+            AppBase.model=res.model;
+            
+          
+      }
+    })
 
+    
     this.Base.setBasicInfo();
 
     this.Base.setMyData({

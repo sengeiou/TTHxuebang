@@ -24,12 +24,11 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     var that = this;
-
+  
     var jigouapi = new JigouApi();
 
-
     this.Base.setMyData({
-      xz: -2, name: "热门课程"
+      xz: -2, name: "热门课程", 
 
     })
 
@@ -54,6 +53,25 @@ class Content extends AppBase {
   onMyShow() {
 
     this.getlist();
+    var syso=AppBase.System;
+  console.log(syso);
+    if(syso.substr(0,3)=='iOS')
+    {
+      this.Base.setMyData({
+     
+       isios:true
+
+      })
+    }
+    else{
+      this.Base.setMyData({
+
+        isios: false
+
+      })
+
+    }
+    
 
   }
   getlist() {
