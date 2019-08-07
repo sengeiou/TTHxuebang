@@ -26,8 +26,8 @@ import {
 } from "../../apis/jifen.api.js";
 
 class Content extends AppBase {
-	
-	jglist=[];
+
+  jglist = [];
   constructor() {
     super();
   }
@@ -36,21 +36,23 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-    
-    this.Base.setMyData({ scenes:AppBase.scenes})
+
+    this.Base.setMyData({
+      scenes: AppBase.scenes
+    })
     // var str = "(1+8+9)*5/4";
     // console.log(eval(str));
     //console.log(aa)
     // var qeqe = wx.getStorageSync(jintian);
-    
-   
+
+
 
     var jintian = ApiUtil.FormatDate(new Date);
     console.log(jintian, "滴滴")
     var aaa = wx.getStorageSync(jintian);
     console.log(aaa + "电饭锅");
 
-     //勿删
+    //勿删
     // if (aaa == "") {
     //   wx.setStorage({
     //     key: jintian,
@@ -58,7 +60,7 @@ class Content extends AppBase {
     //   })
     //   console.log("空空空")
     //   this.Base.setMyData({ pd: 1 })
-      
+
     // }
 
     // console.log(wx.getStorageSync(jintian), "刚刚")
@@ -80,10 +82,10 @@ class Content extends AppBase {
       guize: false,
       dk: -1,
       jf: 5,
-      dian: 0, 
+      dian: 0,
       pd: 1,
       days: []
-      
+
     })
 
   }
@@ -94,13 +96,18 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     var jifenapi = new JifenApi();
-    jifenapi.dakalist({ member_id: this.Base.getMyData().memberinfo.id }, (dakalist) => {
+    jifenapi.dakalist({
+      member_id: this.Base.getMyData().memberinfo.id
+    }, (dakalist) => {
 
       var days = this.Base.getMyData().days;
       for (var i = dakalist.length - 1; i >= 0; i--) {
         days.push(dakalist[i].daka_date_dateformat)
       }
-      this.Base.setMyData({ dakalist, days })
+      this.Base.setMyData({
+        dakalist,
+        days
+      })
       console.log(this.Base.getMyData().days, '打卡日期列表');
 
       this.timetwo();
@@ -108,16 +115,18 @@ class Content extends AppBase {
     })
 
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
-       
-       var weidu=xiaoxilist.filter((item)=>{
 
-         return item.isread_value=='N'
+      var weidu = xiaoxilist.filter((item) => {
 
-       })
+        return item.isread_value == 'N'
 
-   console.log("消息哈哈哈哈敖德萨大所");
-      this.Base.setMyData({ xiaoxishu: weidu.length })
-     
+      })
+
+      console.log("消息哈哈哈哈敖德萨大所");
+      this.Base.setMyData({
+        xiaoxishu: weidu.length
+      })
+
     })
 
 
@@ -150,11 +159,9 @@ class Content extends AppBase {
       }
 
     }
-    var pingceapi = new PingceApi();
-
-
 
     var pingceapi = new PingceApi();
+
     pingceapi.mypingcelist({
       member_id: this.Base.getMyData().memberinfo.id
     }, (mypingcelist) => {
@@ -164,7 +171,9 @@ class Content extends AppBase {
     })
 
 
-    pingceapi.indexlist({orderby:'r_main.seq'}, (indexlist) => {
+    pingceapi.indexlist({
+      orderby: 'r_main.seq'
+    }, (indexlist) => {
       this.Base.setMyData({
         indexlist
       });
@@ -184,7 +193,7 @@ class Content extends AppBase {
     if (AppBase.CITYID != this.Base.getMyData().currectcityid ||
       this.lastdistance > 500
     ) {
-    
+
       console.log(AppBase.CITYID);
       console.log("asldjhaskdhas");
       console.log(this.Base.getMyData().currectcityid);
@@ -209,18 +218,24 @@ class Content extends AppBase {
 
 
     setTimeout(() => {
-      this.Base.setMyData({ pd: 2 })
+      this.Base.setMyData({
+        pd: 2
+      })
     }, 6000)
 
   }
 
-  closetop(e){
-    this.Base.setMyData({ nocity:0})
+  closetop(e) {
+    this.Base.setMyData({
+      nocity: 0
+    })
   }
-  
+
   setcity(e) {
-    var id=e.currentTarget.id;
-    this.Base.setMyData({ currectcityid: id });
+    var id = e.currentTarget.id;
+    this.Base.setMyData({
+      currectcityid: id
+    });
     this.loadjg();
   }
 
@@ -230,7 +245,7 @@ class Content extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-  toduihuan(e){
+  toduihuan(e) {
     wx.navigateTo({
       url: '/pages/shopmall/shopmall',
     })
@@ -242,7 +257,7 @@ class Content extends AppBase {
     })
   }
 
-  toceshilist(e){
+  toceshilist(e) {
     wx.navigateTo({
       url: '/pages/mypingce/mypingce?type=A'
     })
@@ -274,14 +289,14 @@ class Content extends AppBase {
       var bn = [];
       cacheid = cacheid.split(",");
 
-      console.log(cacheid,"解决");
+      console.log(cacheid, "解决");
       for (var item of noticebanner) {
         if (item.city_id == "0" || AppBase.CITYID.toString() == item.city_id.toString()) {
           bn.push(item);
           cacheid.push(item.id);
         }
       }
-     wx.setStorageSync("homenoticecacheid", cacheid.join(","));
+      wx.setStorageSync("homenoticecacheid", cacheid.join(","));
       if (bn.length > 0) {
         this.Base.setMyData({
           noticebanner: bn,
@@ -344,7 +359,7 @@ class Content extends AppBase {
     var mylng = this.Base.getMyData().mylng;
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
-    
+
     jigouapi.jglist({
       mylat,
       mylng,
@@ -360,7 +375,7 @@ class Content extends AppBase {
         jgvteach.push(jglist[i]);
       }
 
-      this.Base.jglist=jglist;
+      this.Base.jglist = jglist;
       this.Base.setMyData({
         jgvteach
       });
@@ -432,20 +447,19 @@ class Content extends AppBase {
           })
         }
 
-        console.log(indexbanner[i].url,"当电灯")
-        
+        console.log(indexbanner[i].url, "当电灯")
+
         if (indexbanner[i].type == 'SF') {
-          
-          if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine'){
+
+          if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine') {
             console.log("试试")
             wx.reLaunch({
               url: indexbanner[i].url
             })
-          }
-          else{
+          } else {
             console.log("不杀死hi")
             wx.navigateTo({
-             url: indexbanner[i].url
+              url: indexbanner[i].url
             })
           }
         }
@@ -550,7 +564,7 @@ class Content extends AppBase {
     })
     //return;
 
-    
+
   }
 
 
@@ -598,14 +612,16 @@ class Content extends AppBase {
 
     var time3 = (new Date(this.Base.util.FormatDate(new Date(days[leg - 2])))).getTime(); //数组中倒数第二天日期时间戳
 
-    var num = 0;//该变量用以计算连续天数
+    var num = 0; //该变量用以计算连续天数
 
     if (time1 - time2 == 0) {
-      this.Base.setMyData({ daka: true })
-    }
-
-    else {
-      this.Base.setMyData({ daka: false })
+      this.Base.setMyData({
+        daka: true
+      })
+    } else {
+      this.Base.setMyData({
+        daka: false
+      })
     }
 
     console.log((time1 - time2), "判断日期连续");
@@ -643,8 +659,7 @@ class Content extends AppBase {
         console.log("品牌")
         var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()));
         var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
-      }
-      else{
+      } else {
         console.log("饭饭")
         if (time1 - time2 == 0) {
           var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
@@ -669,19 +684,40 @@ class Content extends AppBase {
       }
       if (num % 7 > 0) {
         this.Base.setMyData({
-          min: num % 7, week: week
+          min: num % 7,
+          week: week
         })
       }
       if (num % 7 == 0) {
         this.Base.setMyData({
-          min: 7, week: week
+          min: 7,
+          week: week
         })
       }
-    }
-    else {
+    } else {
       console.log("昨天无记录,重新计算天数")
+
+      var daysago = new Date((new Date(ApiUtil.GetNowFormatDate()).getTime()));
+      var begindate = this.Base.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
+
+      var week = ApiUtil.GetDates(7, begindate);
+
+      var timestamp = new Date(ApiUtil.GetNowFormatDate()).getTime();
+
+      console.log(timestamp, "测试");
+
+      for (var i = 0; i < week.length; i++) {
+        if (new Date(week[i].seven_date).getTime() == timestamp) {
+          week[i].daka_date = "今天"
+        }
+      }
+      this.Base.setMyData({
+        min: 0,
+        week: week
+      })
+
     }
- 
+
   }
   //打卡部分
   bindSignIn(e) {
@@ -689,10 +725,13 @@ class Content extends AppBase {
     var num = this.Base.getMyData().num;
 
     if (this.Base.getMyData().num < 7) {
-      this.Base.setMyData({ jifen: 25 })
-    }
-    else {
-      this.Base.setMyData({ jifen: 5 })
+      this.Base.setMyData({
+        jifen: 25
+      })
+    } else {
+      this.Base.setMyData({
+        jifen: 5
+      })
     }
 
     var jifenapi = new JifenApi();
@@ -702,13 +741,23 @@ class Content extends AppBase {
       status: "A"
     }, (daka) => {
       if (this.Base.getMyData().jifen == 5) {
-        jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "meiridaka" }, (addjifen) => {
-          this.Base.setMyData({ addjifen })
+        jifenapi.addjifen({
+          member_id: this.Base.getMyData().memberinfo.id,
+          unicode: "meiridaka"
+        }, (addjifen) => {
+          this.Base.setMyData({
+            addjifen
+          })
         })
       }
       if (this.Base.getMyData().jifen == 25) {
-        jifenapi.addjifen({ member_id: this.Base.getMyData().memberinfo.id, unicode: "lianxvdaka" }, (addjifen) => {
-          this.Base.setMyData({ addjifen })
+        jifenapi.addjifen({
+          member_id: this.Base.getMyData().memberinfo.id,
+          unicode: "lianxvdaka"
+        }, (addjifen) => {
+          this.Base.setMyData({
+            addjifen
+          })
         })
       }
       this.Base.setMyData({
@@ -725,7 +774,7 @@ class Content extends AppBase {
 
   }
 
- 
+
   getDates(days, todate) { //todate默认参数是当前日期，可以传入对应时间
     var dateArry = [];
     for (var i = 0; i < days; i++) {
@@ -741,10 +790,10 @@ class Content extends AppBase {
     })
   }
 
-  jisuanrenshu(){
+  jisuanrenshu() {
     var jifenapi = new JifenApi();
     jifenapi.dakalist({
-       
+
     }, (dakalist) => {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
@@ -761,7 +810,7 @@ class Content extends AppBase {
       }
 
       this.Base.setMyData({
-         resultArr
+        resultArr
       })
     })
 
@@ -769,10 +818,10 @@ class Content extends AppBase {
 
   }
 
-  xiaoxiliebiao(){
-  wx.navigateTo({
-    url: '/pages/mymessage/mymessage'
-  })
+  xiaoxiliebiao() {
+    wx.navigateTo({
+      url: '/pages/mymessage/mymessage'
+    })
 
   }
 
@@ -784,10 +833,10 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.toceshi = content.toceshi; 
+body.toceshi = content.toceshi;
 body.tojgdetails = content.tojgdetails;
 body.toketang = content.toketang;
-body.totake = content.totake; 
+body.totake = content.totake;
 body.toceshilist = content.toceshilist;
 body.jisuanrenshu = content.jisuanrenshu;
 body.swiperChange = content.swiperChange;
@@ -799,15 +848,15 @@ body.bannerGo2 = content.bannerGo2;
 body.tocity = content.tocity;
 body.onReachBottom = content.onReachBottom;
 body.onPageScroll = content.onPageScroll;
-body.loadBanner = content.loadBanner; 
+body.loadBanner = content.loadBanner;
 
-body.closetop = content.closetop; 
+body.closetop = content.closetop;
 
 body.btn = content.btn;
 body.getDates = content.getDates;
-body.jifen = content.jifen; 
+body.jifen = content.jifen;
 
-body.toduihuan = content.toduihuan; 
+body.toduihuan = content.toduihuan;
 body.setcity = content.setcity;
 
 body.bindSignIn = content.bindSignIn;

@@ -21,12 +21,13 @@
       <view class='txt-black h40 txt-bold' wx:if='{{cityname==null}}'>深圳市</view>
       <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       <view class="flex-1"></view>
+
+
       <view catchtap="xiaoxiliebiao">
         <view catchtap="xiaoxiliebiao" wx:if="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</view>
         <image class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}'></image>
-
-
       </view>
+
     </view>
 
 
@@ -130,10 +131,12 @@
 
 <view class='margin-20 padding-bottom-20'>
 
+
+
   <view class='flex-row flex-center '>
     <view class='orange'></view>
     <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
-    <view class='txt9 margin-left-20'>已连续签到{{num}}天</view>
+    <view class='txt9 margin-left-20'>已连续签到{{num==null||num==undefined?0:num}}天</view>
     <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
     <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
     <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
@@ -210,6 +213,14 @@
 
     <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==true}}' bindtap='showtc'>已打卡</view>
 
+  </view>
+
+
+  <view class='flex-row flex-center margin-top-16'>
+    <view class='flex-row flex-center '>
+      <image wx:for='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' wx:if='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}'></image>
+    </view>
+    <view class='margin-left-16 h6 txt9'>等{{resultArr.length}}人已连续打卡</view>
   </view>
 
 

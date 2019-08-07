@@ -38,7 +38,7 @@
   height: 330rpx;
   margin-top: -20rpx;
 }
- 
+
 .mid2 {
   position: absolute;
   width: 91vw;
@@ -221,6 +221,15 @@
   width: 100vw;
 }
 
+.tanchuang {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow:hidden;
+}
+
 .black_block {
   height: 50vh;
   background: black;
@@ -234,6 +243,24 @@
 
 .padding-block {
   padding: 32rpx 26rpx 32rpx 26rpx;
+  height: 55vh;
+  position: relative;
+}
+.black{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.5;
+  z-index: 49;
+}
+.white{
+  position: fixed;
+  width: 100vw;
+  height: 68vh;
+  bottom: 0;
+  background: white;
+  z-index: 50;
 }
 
 .icon-img {
@@ -308,9 +335,14 @@
   position: absolute;
   background: white;
   width: 94vw;
-  bottom: 52rpx;
+  bottom: 0;
 }
-
+.topblock{
+  position: absolute;
+  background: white;
+  width: 94vw;
+  top: 20rpx;
+}
 .head {
   position: absolute;
   background: white;
