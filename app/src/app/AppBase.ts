@@ -35,7 +35,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo=null;
-    public InstInfo = {h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
     public static MYBABY = [];
     public mybaby = [];
@@ -360,7 +360,7 @@ export class AppBase implements OnInit {
         }
         AppBase.wechatApi.gensign({url:window.location.href}).then((config)=>{
             var json={
-                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: this.InstInfo.h5appid, // 必填，公众号的唯一标识
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
@@ -374,7 +374,7 @@ export class AppBase implements OnInit {
                         title: title,
                         desc: desc,
                         link: window.location.href,
-                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.logo,
+                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
                         trigger: function (res) {
                             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
                             //alert('用户点击发送给朋友');
@@ -393,7 +393,7 @@ export class AppBase implements OnInit {
                     wx.onMenuShareTimeline({
                         title: title,
                         link: window.location.href,
-                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.logo,
+                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
                         trigger: function (res) {
                             // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
                             //alert('用户点击分享到朋友圈');
