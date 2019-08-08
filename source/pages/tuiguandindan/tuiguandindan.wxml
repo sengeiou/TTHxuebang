@@ -38,7 +38,7 @@
           <view class="margin-left-20 h5">x1</view>
         </view>
 
-        <view class="h5 margin-top-10" style="color:rgba(255, 82, 82, 1)">{{instinfo.fenxiaobili*100}}%</view>
+        <view class="h5 margin-top-10" style="color:rgba(255, 82, 82, 1)">{{item.ddfenxiaobili*100}}%</view>
 
 
 

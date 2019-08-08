@@ -70,7 +70,7 @@ class Content extends AppBase {
      item.dindan.map((item1)=>{
        console.log(46546546);
        console.log(item1);
-       item1.yonjin =     Number(item1.amount * this.Base.getMyData().instinfo.fenxiaobili).toFixed(2);
+       item1.yonjin = Number(item1.amount * item1.ddfenxiaobili).toFixed(2);
        dindan.push(item1)
        })  
 

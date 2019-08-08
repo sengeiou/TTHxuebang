@@ -56,7 +56,7 @@
         <view class="flex-row flex-center margin-top-20">
         <view class="h6">我的收益:</view>
          <image class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}"></image>
-        <view class="h6 margin-left-10">{{item.shouyi}}</view>
+        <view class="h6 margin-left-10">{{item.shouyijiner}}</view>
       </view>
 
     </view>
