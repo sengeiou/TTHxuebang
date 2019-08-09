@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 1;
+    //options.id = 326;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -309,7 +309,9 @@ class Content extends AppBase {
     }, (clist) => {
 
       var clist = clist.filter((item, idx) => {
-        return item.isgroup > 0
+
+        console.log(parseInt(item.isgroup) ,"发广告")  
+        return parseInt(item.isgroup) > 0 || parseInt(item.isgroup_tiyan)
       })
 
       console.log(clist, "gg")

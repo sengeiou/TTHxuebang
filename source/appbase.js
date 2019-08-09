@@ -1199,15 +1199,17 @@ export class AppBase {
     console.log("backtotop");
     wx.pageScrollTo({
       scrollTop: 0,
-      duration: 300
+      duration: 100
     })
   }
+
   gotoBottom() {
     wx.pageScrollTo({
       scrollTop: 100000,
       duration: 300
     })
   }
+  
   copytext(e) {
     var id = e.currentTarget.id;
     wx.setClipboardData({
