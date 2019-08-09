@@ -31,6 +31,7 @@
 </view>
 
 
+<view class="height-100"></view>
 
 <view bindtap='tianjia' class="flex-row">
   <view class="flex-1"></view>

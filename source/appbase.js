@@ -343,12 +343,12 @@ export class AppBase {
               }, data => {
                 console.log("here");
                 console.log(data);
+                AppBase.UserInfo.unionid = data.unionid;
                 AppBase.UserInfo.openid = data.openid;
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
+                ApiConfig.SetTokenKey(data.unionid);
                 ApiConfig.SetToken(data.openid);
-                console.log("goto update info");
-
 
                 //that.Base.gotoOpenUserInfoSetting();
                 if (this.Base.needauth == true) {
@@ -356,7 +356,7 @@ export class AppBase {
                     url: '/pages/auth/auth',
                   })
                 } else {
-                  that.onMyShow();
+                  that.checkPermission();
                 }
               });
               //that.getAddress();
@@ -395,11 +395,11 @@ export class AppBase {
         info
       });
       if (info == null || info.id == undefined) {
-        // AppBase.UserInfo = {};
-        // wx.redirectTo({
-        //   url: '/pages/auth/auth',
-        // })
-        // return;
+        AppBase.UserInfo = {};
+        wx.redirectTo({
+          url: '/pages/auth/auth',
+        })
+        return;
       }
       console.log("说锤子呢绒");
       var order = info.order;
