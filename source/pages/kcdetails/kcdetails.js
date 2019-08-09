@@ -161,7 +161,7 @@ class Content extends AppBase {
 
       console.log("哈哈哈");
       console.log(courseinfo);
-      if (courseinfo.isgroup != 0) {
+      if (courseinfo.isgroup != 0 || courseinfo.isgroup_tiyan!=0) {
         jigouapi.pintuanlist({
           group_course_course_id: courseinfo.id
         }, (pintuanlist) => {
@@ -313,7 +313,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       tanchuang: true,
       ppp: 1,
-      pppp:0,
+      pppp:1,
     })
 
     return

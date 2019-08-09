@@ -529,13 +529,13 @@
           <view class='margin-top-10 h6' style='color:#666666'>课程规格</view>
 
           <view class="flex-row flex-center" wx:if='{{pin==1}}'>
-            <view wx:if='{{courseinfo.isgroup!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>正价课</view>
-            <view wx:if='{{courseinfo.isgroup_tiyan!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>系列课</view>
+            <view wx:if='{{courseinfo.isgroup!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</view>
+            <view wx:if='{{courseinfo.isgroup_tiyan!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
           </view>
 
           <view class="flex-row flex-center" wx:if='{{pin==0}}'>
-            <view wx:if='{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>正价课</view>
-            <view wx:if='{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>系列课</view>
+            <view wx:if='{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</view>
+            <view wx:if='{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
           </view>
         </view>
 
