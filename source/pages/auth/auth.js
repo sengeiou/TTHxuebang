@@ -12,11 +12,14 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+  onShow(){
+    
+  }
   onLoad(options) {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.needauth = true;
+    this.Base.needauth = false;
   }
   onMyShow() {
     var that = this;
@@ -32,9 +35,9 @@ class Content extends AppBase {
   getUserInfo(e) {
     console.log(666666666);
     wx.clearStorage();
-    wx.switchTab({
-      url: '/pages/home/home',
-    });
+    wx.navigateBack({
+      
+    })
     //open-type="getUserInfo" bindgetuserinfo="getUserInfo"
   }
 }
