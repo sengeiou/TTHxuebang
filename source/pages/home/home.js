@@ -36,8 +36,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-    this.Base.needauth=false;
-
 
     this.Base.setMyData({
       scenes: AppBase.scenes
