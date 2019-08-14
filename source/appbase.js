@@ -131,6 +131,7 @@ export class AppBase {
       contactweixin: base.contactweixin,
       download: base.download,
       checkPermission: base.checkPermission,
+      getUserInfo: base.getUserInfo,
       copytext: base.copytext,
       recorderManager: base.recorderManager,
       backtotop: base.backtotop,
@@ -170,7 +171,20 @@ export class AppBase {
     });
 
 
- 
+    var instapi = new InstApi();
+    if (AppBase.Resource != null) {
+      this.Base.setMyData({
+        res: AppBase.Resource
+      });
+    } else {
+
+      instapi.resources({}, (res) => {
+        AppBase.Resource = res;
+        this.Base.setMyData({
+          res
+        });
+      });
+    }
 
 
     ApiConfig.SetUnicode(this.Base.unicode);
@@ -231,20 +245,9 @@ export class AppBase {
   minimm
   onShow() {
     var that = this;
-    var instapi = new InstApi();
-    if (AppBase.Resource != null) {
-      this.Base.setMyData({
-        res: AppBase.Resource
-      });
-    } else {
 
-      instapi.resources({}, (res) => {
-        AppBase.Resource = res;
-        this.Base.setMyData({
-          res
-        });
-      });
-    }
+    var instapi = new InstApi();
+    
     if (AppBase.InstInfo != null) {
       var instinfo = AppBase.InstInfo;
       if (instinfo == null || instinfo == false) {
@@ -285,83 +288,41 @@ export class AppBase {
         }
       }, false);
     }
-    //AppBase.UserInfo.openid ="ozqQo4xoUmSgko-BinZiPtjQxQlI";
-    // ApiConfig.SetToken(AppBase.UserInfo.openid);
+    //AppBase.UserInfo.openid ="ozqQo4y4CUIXHIf0c2aJ7V9gd_Lo";
+    //ApiConfig.SetToken(AppBase.UserInfo.openid);
     if (AppBase.UserInfo.openid == undefined) {
       // 登录
       console.log("onShow");
       wx.login({
         success: res => {
           // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          console.log("res");
-          console.log(res);
-          wx.getUserInfo({
-            success: userres => {
-              AppBase.UserInfo = userres.userInfo;
-              console.log("userres", userres);
-
-              var memberapi = new MemberApi();
-              memberapi.getuserinfo({
-                code: res.code,
-                grant_type: "authorization_code",
-                iv: userres.iv,
-                encryptedData: userres.encryptedData
-              }, data => {
-                console.log("here");
-                console.log(data);
-                AppBase.UserInfo.unionid = data.unionid;
-                AppBase.UserInfo.openid = data.openid;
-                AppBase.UserInfo.session_key = data.session_key;
-                console.log(AppBase.UserInfo);
-                ApiConfig.SetTokenKey(data.unionid);
-                ApiConfig.SetToken(data.openid);
-                console.log("goto update info");
-                //this.loadtabtype();
-
-                memberapi.update(AppBase.UserInfo, () => {
-
-                  console.log(AppBase.UserInfo);
-                  that.Base.setMyData({
-                    UserInfo: AppBase.UserInfo
-                  });
-
-                  that.checkPermission();
-
-                });
-
-                //that.Base.getAddress();
+          console.log("loginres", res);
+          
+          var memberapi = new MemberApi();
+          memberapi.getuserinfo({
+            code: res.code,
+            grant_type: "authorization_code"
+          }, data => {
+            console.log("loginres2", data);
+            AppBase.UserInfo.openid = data.openid;
+            AppBase.UserInfo.session_key = data.session_key;
+            ApiConfig.SetToken(data.openid);
+            memberapi.updateauth(AppBase.UserInfo, (res) => {
+              console.log("loginres3", res);
+              that.Base.setMyData({
+                UserInfo: AppBase.UserInfo
               });
-            },
-            fail: userloginres => {
-              console.log("auth fail");
-              console.log(userloginres);
-              console.log(res);
-              var memberapi = new MemberApi();
-              memberapi.getuserinfo({
-                code: res.code,
-                grant_type: "authorization_code"
-              }, data => {
-                console.log("here");
-                console.log(data);
-                AppBase.UserInfo.unionid = data.unionid;
-                AppBase.UserInfo.openid = data.openid;
-                AppBase.UserInfo.session_key = data.session_key;
-                console.log(AppBase.UserInfo);
-                ApiConfig.SetTokenKey(data.unionid);
-                ApiConfig.SetToken(data.openid);
+              that.checkPermission();
 
-                //that.Base.gotoOpenUserInfoSetting();
-                if (this.Base.needauth == true) {
-                  wx.redirectTo({
-                    url: '/pages/auth/auth',
-                  })
-                } else {
-                  that.checkPermission();
-                }
-              });
-              //that.getAddress();
-            }
-          });
+              that.getUserInfo();
+              
+
+            });
+
+
+
+            });
+
 
         }
       })
@@ -382,10 +343,96 @@ export class AppBase {
         UserInfo: AppBase.UserInfo
       });
 
+      that.getUserInfo();
+
+
       that.checkPermission();
     }
 
   }
+
+  getUserInfo(){
+    var that=this;
+    var memberapi=new MemberApi();
+    wx.getUserInfo({
+      success: userres => {
+        var openid = AppBase.UserInfo.openid;
+        var session_key = AppBase.UserInfo.session_key;
+        AppBase.UserInfo = userres.userInfo;
+        AppBase.UserInfo.openid = openid;
+        AppBase.UserInfo.session_key = session_key;
+        console.log("loginres4", userres);
+
+        var api = new WechatApi();
+        api.decrypteddata({
+          iv: userres.iv,
+          encryptedData: userres.encryptedData
+        }, ret => {
+
+          AppBase.UserInfo.unionid = ret.return.unionId;
+          ApiConfig.SetTokenKey(ret.return.unionId);
+          console.log("loginres5", ret);
+          console.log("loginres6", AppBase.UserInfo);
+
+          memberapi.update(AppBase.UserInfo, () => {
+
+            console.log(AppBase.UserInfo);
+            that.Base.setMyData({
+              UserInfo: AppBase.UserInfo
+            });
+            memberapi.info({}, (info) => {
+              console.log({
+                tick: "member",
+                info
+              });
+
+              console.log("说锤子呢绒");
+              var order = info.order;
+              var dfkorder = 0;
+              var ypborder = 0;
+              var dpjorder = 0;
+              var dshorder = 0;
+              var tkorder = 0;
+              order.map((item) => {
+
+                if (item.pstatus == 'W') {
+                  dfkorder++;
+                }
+                if (item.type == 'PT' && item.pstatus == 'PT') {
+                  ypborder++;
+                }
+                if (item.pstatus == 'PJ') {
+                  dpjorder++;
+                }
+              })
+              info.dfkorder = dfkorder;
+              info.ypborder = ypborder;
+              info.dpjorder = dpjorder;
+              info.dshorder = dshorder;
+              info.tkorder = tkorder;
+
+              this.Base.setMyData({
+                memberinfo: info
+              });
+            });
+
+          });
+        });
+
+      },
+      fail: userloginres => {
+        console.log("auth fail");
+        console.log(userloginres);
+        if (that.Base.needauth == true) {
+          console.log("auth redirect", that.Base.needauth, that.needauth);
+          wx.navigateTo({
+            url: '/pages/auth/auth',
+          })
+        }
+      }
+    })
+  }
+
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
@@ -394,13 +441,7 @@ export class AppBase {
         tick: "member",
         info
       });
-      if (info == null || info.id == undefined) {
-        AppBase.UserInfo = {};
-        wx.redirectTo({
-          url: '/pages/auth/auth',
-        })
-        return;
-      }
+      
       console.log("说锤子呢绒");
       var order = info.order;
       var dfkorder = 0;
