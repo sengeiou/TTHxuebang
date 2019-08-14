@@ -1,4 +1,5 @@
 <!-- wx:if='{{nocity==1}}' -->
+
 <view class="tishikuang flex-row flex-center" wx:if='{{nocity==1}}'>
   <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30"></image>
   <view class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </view>
@@ -10,6 +11,16 @@
 
 <view wx:if='{{pd==1}}'>
   <image src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg"></image>
+</view>
+
+
+
+<!-- 用户首次进入引导图 -->
+<view catchtouchmove="{{true}}" wx:if='{{yd==1}}'>
+  <image src="{{uploadpath}}resource/{{res.home01}}" wx:if='{{img==1}}'   class="homeimage"></image>
+  <view class="bot" wx:if='{{img==1}}' bindtap="qiehuan"></view>
+  <view class="bot" wx:if='{{img==2}}' bindtap="closeimage"></view>
+  <image src="{{uploadpath}}resource/{{res.home02}}" wx:if='{{img==2}}' class="homeimage"></image>
 </view>
 
 
@@ -53,9 +64,9 @@
   <view class="flex-row flex-center " style="margin-top:30rpx;">
 
     <view class="h6 txt-white margin-left-20">定位显示您的位置在“</view>
-    <view class="h6" style="color:#3887DE">{{cityname}}</view>
+    <view class="h6" style="color:#3887DE">{{address.address_component.city}}</view>
     <view class="h6 txt-white flex-1">”</view>
-    <view class="btn text-center h6 txt-white margin-right-20" bindtap="setcity" id="{{city_id}}">切换到{{cityname}}</view>
+    <view class="btn text-center h6 txt-white margin-right-20" bindtap="setcity" id="{{address.ad_info.adcode}}">切换到{{address.address_component.city}}</view>
     <image src="{{uploadpath}}resource/{{res.baicha}}" bindtap="closetop" class="icon15 margin-right-20"></image>
 
   </view>
@@ -151,7 +162,7 @@
         <view class="  flex-row flex-center ">
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>0?"txthuang":"txt-9"}} '>+5</view>
+            <view class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></view>
             <view class=' f8 '>{{week[0].daka_date}}</view>
           </view>
@@ -159,7 +170,7 @@
           <view class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>1?"txthuang":"txt-9"}}'>+5</view>
+            <view class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></view>
             <view class=' f8 '>{{week[1].daka_date}}</view>
           </view>
@@ -167,7 +178,7 @@
           <view class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6   {{min>2?"txthuang":"txt-9"}}'>+5</view>
+            <view class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></view>
             <view class=' f8 '>{{week[2].daka_date}}</view>
           </view>
@@ -175,7 +186,7 @@
           <view class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6  {{min>3?"txthuang":"txt-9"}}'>+5</view>
+            <view class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></view>
             <view class=' f8 '>{{week[3].daka_date}}</view>
           </view>
@@ -183,15 +194,15 @@
           <view class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6    {{min>4?"txthuang":"txt-9"}}'>+5</view>
+            <view class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></view>
             <view class=' f8 '>{{week[4].daka_date}}</view>
           </view>
 
-          <view class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}} '></view>
+          <view class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></view>
 
           <view class="flex-row flex-column width-46">
-            <view class='h6     {{min>5?"txthuang":"txt-9"}}'>+5</view>
+            <view class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
             <view class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></view>
             <view class=' f8 '>{{week[5].daka_date}}</view>
           </view>
@@ -264,6 +275,8 @@
       <view class='flex-1'></view>
     </view>
 
+
+
     <view class='flex-row flex-center'>
       <view class='flex-1'></view>
       <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
@@ -314,8 +327,9 @@
 
             <view class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
 
-            <view class='h6 txt-white'>+{{idx
-              <6?5:25}}</view>
+            <view class='h6 txt-white' wx:if='{{num<=7}}'>+{{idx<6?5:25}}</view>
+
+            <view class='h6 txt-white' wx:if='{{num>7}}'>+25</view>
 
             </view>
           </view>

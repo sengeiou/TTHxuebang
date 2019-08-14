@@ -456,37 +456,50 @@ export class AppBase {
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
 
         this.Base.setMyData({ adcode: address.ad_info.adcode });
-        console.log("citycode" + citycode);
-        console.log(citylist);
+  
         if (AppBase.CITYSET == false) {
+
+          console.log(AppBase.CITYID, "哦哦", citycode)
+
+          var citys = citylist.filter((item, idx) => {
+            return item.code == citycode
+          })
+
+          console.log(citys, "阔脚裤")
+
+
+          if (citys.length == 0) {
+            this.Base.setMyData({
+              nocity: 1
+            });
+          }
+
+          
+
           for (var i = 0; i < citylist.length; i++) {
+
+            console.log(citylist[i].id, "大蒜", citycode, AppBase.CITYID)
 
             if (citylist[i].id == citycode) {
               AppBase.CITYID = citylist[i].id;
               AppBase.CITYNAME = citylist[i].name;
-
               break;
-            }
-            if (citylist[i].id == citycode && AppBase.CITYID != citycode) {
-              this.Base.setMyData({
-                nocity: 2
-              });
-            }
-
-            if (citylist[i].id != citycode && AppBase.CITYID != citycode) {
-              this.Base.setMyData({
-                nocity: 1
-              });
             }
 
 
           }
+
+          
+
+
         }
 
         var memberapi = new MemberApi();
         memberapi.usecity({
           city_id: AppBase.CITYID
         });
+
+         
 
         this.Base.setMyData({
           mylat,

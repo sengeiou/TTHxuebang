@@ -47,25 +47,25 @@ class Content extends AppBase {
 
 
 
-    var jintian = ApiUtil.FormatDate(new Date);
-    console.log(jintian, "滴滴")
-    var aaa = wx.getStorageSync(jintian);
-    console.log(aaa + "电饭锅");
+    // var jintian = ApiUtil.FormatDate(new Date);
+    // console.log(jintian, "滴滴")
+    var san = wx.getStorageSync('first');
+    console.log(san + "电饭锅");
 
     //勿删
-    // if (aaa == "") {
-    //   wx.setStorage({
-    //     key: jintian,
-    //     data: 1
-    //   })
-    //   console.log("空空空")
-    //   this.Base.setMyData({ pd: 1 })
-
-    // }
+    if (san == "" || san==null) {
+      wx.setStorage({
+        key: 'first',
+        data: 1
+      })
+      console.log("空空空")
+      this.Base.setMyData({ yd: 1 })
+    }
 
     // console.log(wx.getStorageSync(jintian), "刚刚")
 
     // console.log(this.Base.getMyData().pd, "靠靠靠")
+    
 
     this.Base.setMyData({
       currentItemId: 2,
@@ -82,6 +82,8 @@ class Content extends AppBase {
       guize: false,
       dk: -1,
       jf: 5,
+      img:1,
+      num:0,
       dian: 0,
       pd: 1,
       days: []
@@ -96,6 +98,8 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     var jifenapi = new JifenApi();
+
+ 
     jifenapi.dakalist({
       member_id: this.Base.getMyData().memberinfo.id
     }, (dakalist) => {
@@ -153,7 +157,6 @@ class Content extends AppBase {
         }, (res) => {
           console.log(res);
           console.log("asdasdasdasdasdas");
-
         })
 
       }
@@ -183,6 +186,22 @@ class Content extends AppBase {
 
     var memberinfo = this.Base.getMyData().memberinfo;
     var citylist = memberinfo.citylist;
+    
+    var citycode = this.Base.getMyData().adcode.substr(0, 4) + "00";
+
+    var citys = citylist.filter((item, idx) => {
+      return item.code == citycode
+    })
+
+    console.log(citycode, "好借口", AppBase.CITYID);
+
+    if (citys.length != 0 && AppBase.CITYID != citycode) {
+      this.Base.setMyData({
+        nocity: 2
+      });
+    }
+
+
 
 
     this.loadBanner();
@@ -224,7 +243,16 @@ class Content extends AppBase {
     }, 6000)
 
   }
-
+  qiehuan(e){
+   this.Base.setMyData({
+     img:2
+   })
+  }
+  closeimage(e){
+    this.Base.setMyData({
+      yd: 0
+    })
+  }
   closetop(e) {
     this.Base.setMyData({
       nocity: 0
@@ -232,11 +260,28 @@ class Content extends AppBase {
   }
 
   setcity(e) {
-    var id = e.currentTarget.id;
+    var id = (e.currentTarget.id).substr(0, 4) + "00";
+
+    var memberinfo = this.Base.getMyData().memberinfo;
+    var citylist = memberinfo.citylist;
+
+    for (var i = 0; i < citylist.length; i++) {
+      if (id == citylist[i].id) {
+        AppBase.CITYID = citylist[i].id;
+        AppBase.CITYNAME = citylist[i].name;
+        AppBase.CITYSET = true;
+        var memberapi = new MemberApi();
+        memberapi.usecity({
+          city_id: AppBase.CITYID
+        });
+      }
+    }
+
     this.Base.setMyData({
-      currectcityid: id
+      nocity:0
     });
-    this.loadjg();
+    this.onMyShow();
+    //this.loadjg();
   }
 
   tojgdetails(e) {
@@ -726,11 +771,11 @@ class Content extends AppBase {
 
     if (this.Base.getMyData().num < 7) {
       this.Base.setMyData({
-        jifen: 25
+        jifen: 5
       })
     } else {
       this.Base.setMyData({
-        jifen: 5
+        jifen: 25
       })
     }
 
@@ -867,6 +912,8 @@ body.chakanjilu = content.chakanjilu;
 body.closetanchuang = content.closetanchuang;
 body.guize = content.guize;
 body.closenotice = content.closenotice;
-body.xiaoxiliebiao = content.xiaoxiliebiao;
+body.xiaoxiliebiao = content.xiaoxiliebiao; 
 
+body.qiehuan = content.qiehuan; 
+body.closeimage = content.closeimage;
 Page(body)
