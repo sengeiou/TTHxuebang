@@ -19,7 +19,8 @@ App({
    
     var ss = options;
     console.log("ddd")
-    console.log(options.scene)
+    console.log(options.scene,"飞飞")
+    
     console.log("ddd")
     if (options.scene!=undefined){
       AppBase.scenes = options.scene
