@@ -124,11 +124,12 @@ class Content extends AppBase {
     var phone = xueyuan.shouji;
     var  diqu=xueyuan.dizhi;
     var age = xueyuan.sui;
+    var sex = xueyuan.sex=='sex'?'男':'女';
     var json1 = {
-      course_id: this.Base.options.course_id, phone: phone, name: name, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N',diqu:diqu,age:age,
+      course_id: this.Base.options.course_id, phone: phone, name: name, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N',diqu:diqu,age:age,sex:sex
     };
     var json2 = {
-      course_id: this.Base.options.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age,
+      course_id: this.Base.options.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     }
 
     if (this.Base.options.type != undefined) {
