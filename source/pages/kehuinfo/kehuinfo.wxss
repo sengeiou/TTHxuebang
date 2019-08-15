@@ -1,9 +1,0 @@
-.xian{
-  border-bottom: 1rpx solid #F5F5F5;
-  padding-bottom: 40rpx;
-}
-.xian1{
-  border-bottom: 1rpx solid #F5F5F5;
-  padding-top:40rpx;
-  padding-bottom: 40rpx;
-}
