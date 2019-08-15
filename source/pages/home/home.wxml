@@ -1,0 +1,587 @@
+<!-- wx:if='{{nocity==1}}' -->
+
+<view class="tishikuang flex-row flex-center" wx:if='{{nocity==1}}'>
+  <image src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30"></image>
+  <view class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </view>
+  <view class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</view>
+  <image src="{{uploadpath}}resource/{{res.heicha}}" bindtap="closetop" class="icon15 margin-left-10"></image>
+</view>
+
+
+
+<view wx:if='{{pd==1}}'>
+  <image src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg"></image>
+</view>
+
+
+
+<!-- 用户首次进入引导图 -->
+<view catchtouchmove="{{true}}" wx:if='{{yd==1}}'>
+  <image src="{{uploadpath}}resource/{{res.home01}}" wx:if='{{img==1}}'   class="homeimage"></image>
+  <view class="bot" wx:if='{{img==1}}' bindtap="qiehuan"></view>
+  <view class="bot" wx:if='{{img==2}}' bindtap="closeimage"></view>
+  <image src="{{uploadpath}}resource/{{res.home02}}" wx:if='{{img==2}}' class="homeimage"></image>
+</view>
+
+
+
+<view class=' ' style='background:{{jginfo.bgcolor}}'>
+  <view class='padding-15  bg-primary'>
+    <view bindtap='tocity' class='flex-row flex-center'>
+      <view class='txt-black h40 txt-bold'>{{cityname}}</view>
+      <view class='txt-black h40 txt-bold' wx:if='{{cityname==null}}'>深圳市</view>
+      <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+      <view class="flex-1"></view>
+
+
+      <view catchtap="xiaoxiliebiao">
+        <view catchtap="xiaoxiliebiao" wx:if="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</view>
+        <image class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}'></image>
+      </view>
+
+    </view>
+
+
+    <view class=' flex-row margin-top-20'>
+
+      <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
+        <view class='flex-1' style='width:20rpx;margin-top:4rpx;'></view>
+        <image class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+        <view class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</view>
+        <view class='flex-1'></view>
+      </navigator>
+
+    </view>
+
+
+
+  </view>
+</view>
+
+
+<view class="topblock" wx:if='{{nocity==2}}'>
+
+  <view class="flex-row flex-center " style="margin-top:30rpx;">
+
+    <view class="h6 txt-white margin-left-20">定位显示您的位置在“</view>
+    <view class="h6" style="color:#3887DE">{{address.address_component.city}}</view>
+    <view class="h6 txt-white flex-1">”</view>
+    <view class="btn text-center h6 txt-white margin-right-20" bindtap="setcity" id="{{address.ad_info.adcode}}">切换到{{address.address_component.city}}</view>
+    <image src="{{uploadpath}}resource/{{res.baicha}}" bindtap="closetop" class="icon15 margin-right-20"></image>
+
+  </view>
+
+</view>
+
+
+<view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
+  <view class='   ' style="margin-left:20rpx;margin-right:20rpx">
+
+    <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
+      <image  bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+    </swiper-item>
+  </swiper> -->
+
+    <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:710rpx;height:354rpx;'>
+      <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+      </swiper-item>
+    </swiper>
+
+
+  </view>
+</view>
+
+
+<view class='flex-row flex-center margin-10 padding-top-10 '>
+  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
+    <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
+  </view>
+  <view class='flex-1 flex-row flex-column' style="height: 354rpx;">
+    <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style=''></image>
+  </view>
+</view>
+
+
+
+<view class='margin-20'>
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold'>家长测试</view>
+    <view class='txt9 margin-left-20 flex-1'>更多了解自己，快快测一测</view>
+    <view class='txt9 margin-left-20 ' bindtap="toceshilist" style='color:#FFC200'>更多测试</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+</view>
+
+
+
+<view class='scv'>
+  <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
+
+    <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
+      <!-- <view class='txt-white h5 chaochu'>{{item.pingce_name}}</view> -->
+      <view class=' ' style='height:68rpx;'></view>
+      <view class='flex-row flex-center'>
+        <view class='txt-white h6'>{{item.peoplenum}}</view>
+        <view class='h6 margin-left-12 txt-white opa' style=''>人参与测试</view>
+      </view>
+    </view>
+
+
+  </scroll-view>
+</view>
+
+<!-- <view class='height-30'></view> -->
+
+
+
+<view class='margin-20 padding-bottom-20'>
+
+
+
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
+    <view class='txt9 margin-left-20'>已连续签到{{num==null||num==undefined?0:num}}天</view>
+    <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
+    <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+
+
+  <view class='qiandao margin-top-30 flex-row flex-center'>
+    <view class='margin-left-29  flex-1'>
+
+      <view class=' flex-row flex-center '>
+
+        <view class="  flex-row flex-center ">
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></view>
+            <view class=' f8 '>{{week[0].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></view>
+            <view class=' f8 '>{{week[1].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></view>
+            <view class=' f8 '>{{week[2].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></view>
+            <view class=' f8 '>{{week[3].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></view>
+            <view class=' f8 '>{{week[4].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num<=7?5:25}}</view>
+            <view class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></view>
+            <view class=' f8 '>{{week[5].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column width-46">
+            <view class='h6    {{min>6?"txthuang":"txt-9"}}'>+25</view>
+            <view class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></view>
+            <view class=' f8 '>{{week[6].daka_date}}</view>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
+
+    <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==true}}' bindtap='showtc'>已打卡</view>
+
+  </view>
+
+
+  <view class='flex-row flex-center margin-top-16'>
+    <view class='flex-row flex-center '>
+      <image wx:for='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' wx:if='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}'></image>
+    </view>
+    <view class='margin-left-16 h6 txt9'>等{{resultArr.length}}人已连续打卡</view>
+  </view>
+
+
+  <view wx:if='{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></view>
+
+  <view class=' gz ' wx:if='{{guize==true}}'>
+    <view class='guize bg-white flex-row flex-column'>
+
+      <view class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</view>
+
+      <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+       1.登录用户每天可签到1次，并自动领取相应积分；
+       2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
+       3.活动最终解释权归学榜所有。
+      </text>
+
+      <view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
+    </view>
+
+  </view>
+
+
+  <view wx:if='{{dakashow==true}}' class='chengong'>
+
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <view style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;' class='dakawc flex-row flex-column'>
+        <view style='height:376rpx;'></view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==25}}'>+25积分</view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==5}}'>+5积分</view>
+        <view class='tuhuang margin-top-10'>签到成功</view>
+        <view style='height:84rpx;'></view>
+        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</view>
+        <view style='height:32rpx'></view>
+
+        <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
+
+        <view class='h6 margin-top-20' bindtap='chakanjilu'>签到记录</view>
+        <image src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-10 margin-top-10' bindtap='chakanjilu'></image>
+      </view>
+      <view class='flex-1'></view>
+    </view>
+
+
+
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
+      <view class='flex-1'></view>
+    </view>
+
+  </view>
+
+  <view wx:if='{{tangchuan==true}}' class='tangchuan'>
+
+    <view class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
+
+      <view class='flex-row  '>
+
+        <view class='icon-75  flex-row flex-center '>
+          <view class='flex-1'></view>
+          <view class='flex-row flex-column'>
+            <view class='h6 txt-white'>总积分</view>
+            <view class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</view>
+          </view>
+          <view class='flex-1'></view>
+        </view>
+
+        <view class='flex-row column margin-left-26'>
+          <view class='flex-1'></view>
+          <view class='h6'>累计签到{{dakalist.length}}天</view>
+          <view class='flex-1'></view>
+          <view class='h6'>已连续签到{{num}}天</view>
+          <view class='flex-1'></view>
+          <view class='h6'>连续签到7天额外领取20积分</view>
+          <view class='flex-1'></view>
+        </view>
+
+      </view>
+
+
+
+      <view class="zhong margin-top-46">
+        <view class=' ' wx:for='{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
+
+          <view class='bg-tuhuang gun' wx:if='{{idx>0}}' style=''></view>
+
+          <view class='flex-row flex-center'>
+
+            <view class='{{num>idx?"txt-white":"tuhuang"}} h6'>{{num>idx? "已签": "未签"}}</view>
+
+            <view class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></view>
+
+            <view class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+            <view class='h6 txt-white' wx:if='{{num<=7}}'>+{{idx<6?5:25}}</view>
+
+            <view class='h6 txt-white' wx:if='{{num>7}}'>+25</view>
+
+            </view>
+          </view>
+        </view>
+
+
+
+        <view class='flex-row flex-center'>
+          <view class='flex-1'></view>
+          <view class='daka-btn text-center' wx:if='{{daka==true}}' style='color:#FFC200'>已签到</view>
+          <view class='flex-1'></view>
+        </view>
+
+        <view style='height:12rpx;'></view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view class='flex-1'></view>
+        <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
+        <view class='flex-1'></view>
+      </view>
+    </view>
+
+
+
+  </view>
+
+
+  <!-- <view class='height-30'></view> -->
+
+  <!-- <view class='margin-20'>
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold flex-1'>精彩视频</view>
+    <view class='txt9 margin-left-20 ' style='color:#FFC200'>查看更多</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+</view>
+
+<view class='scv'>
+  <scroll-view scroll-x style=" " class='sp' bindscroll="scroll">
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+      <view class='flex-row flex-center margin-top-20'>
+      
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+
+      <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='shipin flex-row column' style=''>
+
+      <view class=' ' style='height:146rpx;'></view>
+      <view class='txt-white h5'>#活动汇演</view>
+
+      <view class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</view>
+
+
+      <view class='flex-row flex-center margin-top-20'>
+        <view class='flex-row flex-center'>
+          <image src='{{uploadpath}}resource/{{res.unfav}}' class='icon15'></image>
+          <view class='f20 margin-left-10 txt-white ' style=''>1294</view>
+        </view>
+
+        <view class='flex-row flex-center margin-left-40'>
+          <image src='{{uploadpath}}resource/{{res.problem}}' class='icon15'></image>
+          <view class='margin-left-10 txt-white  f20' style=''>12w</view>
+        </view>
+      </view>
+
+    </view>
+
+  </scroll-view>
+</view> -->
+
+
+
+
+
+  <view class=''>
+
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.diz}}' class='icon'></image>
+      <view class=' h4 txt-bold txt-black margin-left-16'>离我最近</view>
+      <view class='flex-1'></view>
+    </view>
+
+
+    <view hidden='{{jgvteach.length>0}}'>
+
+      <image style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}'></image>
+
+    </view>
+
+
+    <view hidden='{{jgvteach.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
+      <view class=' padding-20' style=''>
+        <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+      </view>
+      <view class='midt flex-row'>
+        <view class='flex-1'></view>
+        <view class='mid radius-10'>
+          <view class=''>
+            <view class=' bg-white   margin-bottom-10'>
+
+              <view class='padding-20 '>
+
+                <view class='flex-row flex-center'>
+                  <!-- <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view> -->
+                  <view class="flex-row flex-center flex-1 ">
+                    <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
+                    <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}"></image>
+                  </view>
+
+
+                  <view class=''>
+                    <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
+                      <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                    </view>
+                    <view wx:if="{{item.scoring==4}}" class='flex-row flex-center '>
+                      <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                      <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                    </view>
+                    <view wx:if="{{item.scoring==3}}" class='flex-row flex-center '>
+                      <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                      <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                    </view>
+                    <view wx:if="{{item.scoring==2}}" class='flex-row flex-center '>
+                      <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                      <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                    </view>
+                    <view wx:if="{{item.scoring==1}}" class='flex-row flex-center '>
+                      <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                      <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                    </view>
+                  </view>
+
+
+                </view>
+
+
+                <view class='flex-row flex-center margin-top-5'>
+                  <view class='flex-row flex-1'>
+                    <view class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' wx:if='{{idx<3}}'>{{litem.name}}</view>
+                  </view>
+                  <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
+                </view>
+
+
+                <view class='flex-row flex-center margin-top-5'>
+                  <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
+                  <view class='flex-1 h5 margin-left-10 txt-black dizhi'>{{item.showaddress}}</view>
+                  <view class='h6 '>{{item.miletxt}}</view>
+                </view>
+
+
+
+              </view>
+
+            </view>
+          </view>
+        </view>
+        <view class='flex-1'></view>
+      </view>
+
+
+    </view>
+
+
+
+  </view>
+
+  <view class='height-70' style=''></view>
+
+
+  <view class=' to_top' hidden='{{!floorstatus}}'>
+    <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+  </view>
+
+
+
+
+
+  <!-- wx:if="{{showlastnotice==true&&noticebanner.length>0}}" -->
+  <view class='backmu' wx:if="{{showlastnotice==true&&noticebanner.length>0}}">
+    <view class='flex-row flex-center' style='height:100vh'>
+      <view class='flex-1'></view>
+      <view class='width:500rpx;height:766rpx;'>
+
+        <!-- wx:if="{{noticebanner.length==1}}" -->
+        <view wx:if="{{noticebanner.length==1}}" wx:for="{{noticebanner}}">
+          <view bindtap='bannerGo2' id="{{item.id}}">
+            <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
+          </view>
+        </view>
+
+        <!-- wx:if="{{noticebanner.length>1}}" -->
+        <swiper wx:if="{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+          <swiper-item wx:for="{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
+            <view bindtap='bannerGo2' id="{{item.id}}">
+              <image src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;'></image>
+            </view>
+          </swiper-item>
+        </swiper>
+
+        <!-- position:absolute;margin-top:-746rpx;margin-left:450rpx; -->
+        <view class="flex-row flex-center margin-top-20">
+          <view class="flex-1"></view>
+          <image bindtap='closenotice' src='{{uploadpath}}resource/{{res.close_icon}}' style='width:40rpx;height:40rpx;'></image>
+          <view class="flex-1"></view>
+        </view>
+
+      </view>
+      <view class='flex-1'></view>
+    </view>
+  </view>

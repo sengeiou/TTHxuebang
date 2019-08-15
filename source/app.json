@@ -1,0 +1,127 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/auth/auth",
+    "pages/jiaoyixinxi/jiaoyixinxi",
+    "pages/maintain/maintain",
+    "pages/ketan/ketan",
+    "pages/ketaninfo/ketaninfo",
+    "pages/tuikuan/tuikuan",
+    "pages/yiduihuang/yiduihuang",
+    "pages/mypingce/mypingce",
+    "pages/lianxikefu/lianxikefu",
+    "pages/exchangesuccess/exchangesuccess",
+    "pages/studentinfo/studentinfo",
+
+    "pages/ceshi/ceshi",
+    
+    "pages/pintuan/pintuan",
+    "pages/jifenorder/jifenorder",
+    "pages/jifenorderinfo/jifenorderinfo",
+    "pages/wuliu/wuliu",
+    "pages/kcyaoqin/kcyaoqin",
+    "pages/jifenshouzhi/jifenshouzhi",
+    "pages/shopmalldetail/shopmalldetail",
+    "pages/xuanzedizhi/xuanzedizhi",
+    "pages/studentmsg/studentmsg",
+    "pages/review/review",
+    "pages/mingxi/mingxi",
+    "pages/kehuinfo/kehuinfo",
+    "pages/pintuanhaibao/pintuanhaibao",
+    "pages/mykehu/mykehu",
+    "pages/yaoqinhaibao/yaoqinhaibao",
+    "pages/tuiguandindan/tuiguandindan",
+    "pages/tuiguanxiaoxi/tuiguanxiaoxi",
+    "pages/myinvite/myinvite",
+    "pages/tixian/tixian",
+    "pages/videopurcsucc/videopurcsucc",
+    "pages/tuiguanguize/tuiguanguize",
+    "pages/shipingoumai/shipingoumai",
+    "pages/huiyuanfuwu/huiyuanfuwu",
+    "pages/promotion/promotion",
+    "pages/groupinfo/groupinfo",
+    "pages/pingceindex/pingceindex",
+    "pages/pingcedati/pingcedati",
+    "pages/pingcejieguo/pingcejieguo",
+    "pages/ketangdetails/ketangdetails",
+    "pages/zaixianketang/zaixianketang",
+    "pages/pingjia/pingjia",
+    "pages/pingjialist/pingjialist",
+    "pages/pingjiawanchen/pingjiawanchen",
+    "pages/personaldata/personaldata",
+    "pages/hexiao/hexiao",
+    "pages/order/order",
+    "pages/messageinfo/messageinfo",
+    "pages/mycollect/mycollect",
+    "pages/liucheng/liucheng",
+    "pages/baomainfo/baomainfo",
+    "pages/baoma/baoma",
+    "pages/seek/seek",
+    "pages/cityselect/cityselect",
+    "pages/search/search",
+    "pages/searchword/searchword",
+    "pages/city/city",
+    "pages/myorder/myorder",
+    "pages/purchase/purchase",
+    "pages/kcdetails/kcdetails",
+    "pages/content/content",
+    "pages/jgdetails/jgdetails",
+    "pages/aboutus/aboutus",
+    "pages/mymessage/mymessage",
+    "pages/problem/problem",
+    "pages/teacher/teacher",
+    "pages/addmechanism/addmechanism",
+    "pages/mine/mine",
+    "pages/address/address",
+    "pages/addressmanage/addressmanage",
+    "pages/shopmall/shopmall",
+    "components/back"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "学榜获取您的位置信息,为您推荐附近优质的机构"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#FFC200",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#4C4C4C",
+    "selectedColor": "#FFC30C",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "images/icons/sy.png",
+        "selectedIconPath": "images/icons/sy1.png"
+      },
+      {
+        "text": "宝妈必看",
+        "pagePath": "pages/baoma/baoma",
+        "iconPath": "images/icons/bm.png",
+        "selectedIconPath": "images/icons/bm1.png"
+      },
+      {
+        "text": "名师专访",
+        "pagePath": "pages/teacher/teacher",
+        "iconPath": "images/icons/ms.png",
+        "selectedIconPath": "images/icons/ms1.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/wd.png",
+        "selectedIconPath": "images/icons/wd1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "back-component": "../../components/back"
+  }
+}

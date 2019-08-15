@@ -1,0 +1,204 @@
+<view class='margin-20'>
+
+  <view class='flex-row flex-center '>
+    <view class='orange'></view>
+    <view class='f18 margin-left-12 txt-black txt-bold'>每日打卡</view>
+    <view class='txt9 margin-left-20'>已连续签到{{num}}天</view>
+    <view class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</view>
+    <view class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</view>
+    <image src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15'></image>
+  </view>
+
+
+  <view class='qiandao margin-top-30 flex-row flex-center'>
+    <view class='margin-left-29  flex-1'>
+
+      <view class=' flex-row flex-center '>
+
+        <view class="  flex-row flex-center ">
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46  text-center {{min>0?"txthuang":"txt-9"}} '>5</view>
+            <view class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></view>
+            <view class=' f8 '>{{week[0].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46   text-center {{min>1?"txthuang":"txt-9"}}'>5</view>
+            <view class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></view>
+            <view class=' f8 '>{{week[1].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46   text-center {{min>2?"txthuang":"txt-9"}}'>5</view>
+            <view class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></view>
+            <view class=' f8 '>{{week[2].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46   text-center {{min>3?"txthuang":"txt-9"}}'>5</view>
+            <view class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></view>
+            <view class=' f8 '>{{week[3].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46 text-center {{min>4?"txthuang":"txt-9"}}'>5</view>
+            <view class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></view>
+            <view class=' f8 '>{{week[4].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46  text-center {{min>5?"txthuang":"txt-9"}}'>5</view>
+            <view class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></view>
+            <view class=' f8 '>{{week[5].daka_date}}</view>
+          </view>
+
+          <view class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></view>
+
+          <view class="flex-row flex-column">
+            <view class='h6  width-46 text-center {{min>6?"txthuang":"txt-9"}}'>25</view>
+            <view class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></view>
+            <view class=' f8 '>{{week[6].daka_date}}</view>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+    <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
+
+    <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==true}}' bindtap='showtc'>已打卡</view>
+
+  </view>
+
+
+  <view wx:if='{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></view>
+
+  <view class=' gz ' wx:if='{{guize==true}}'>
+    <view class='guize bg-white flex-row flex-column'>
+
+      <view class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</view>
+
+      <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+       1.登录用户每天可签到1次，并自动领取相应积分；
+       2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
+       3.活动最终解释权归学榜所有。
+      </text>
+
+      <view class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
+    </view>
+
+  </view>
+
+
+
+  <view wx:if='{{dakashow==true}}' class='chengong'>
+
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <view style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;' class='dakawc flex-row flex-column'>
+        <view style='height:376rpx;'></view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==25}}'>+25积分</view>
+        <view class='txt_jifen txt-bold txt-white' wx:if='{{jf==5}}'>+5积分</view>
+        <view class='tuhuang margin-top-10'>签到成功</view>
+        <view style='height:84rpx;'></view>
+        <view class=' txt-bold' style='color:#FFC200'>已连续签到{{day+1}}天</view>
+        <view style='height:32rpx'></view>
+
+        <view class='h6 margin-top-20'>连续签到7天额外领取20积分</view>
+
+        <view class='h6 margin-top-20' bindtap='chakanjilu'>签到记录</view>
+        <image src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-10 margin-top-10' bindtap='chakanjilu'></image>
+      </view>
+      <view class='flex-1'></view>
+    </view>
+
+    <view class='flex-row flex-center'>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
+      <view class='flex-1'></view>
+    </view>
+
+  </view>
+
+  <view wx:if='{{tangchuan==true}}' class='tangchuan'>
+
+    <view class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
+
+      <view class='flex-row  '>
+
+        <view class='icon-75  flex-row flex-center '>
+          <view class='flex-1'></view>
+          <view class='flex-row flex-column'>
+            <view class='h6 txt-white'>总积分</view>
+            <view class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</view>
+          </view>
+          <view class='flex-1'></view>
+        </view>
+
+        <view class='flex-row column margin-left-26'>
+          <view class='flex-1'></view>
+          <view class='h6'>累计签到{{dakalist.length}}天</view>
+          <view class='flex-1'></view>
+          <view class='h6'>已连续签到{{num}}天</view>
+          <view class='flex-1'></view>
+          <view class='h6'>连续签到7天额外领取20积分</view>
+          <view class='flex-1'></view>
+        </view>
+
+      </view>
+
+
+
+      <view class="zhong margin-top-46">
+        <view class=' ' wx:for='{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
+
+          <view class='bg-tuhuang gun' wx:if='{{idx>0}}' style=''></view>
+
+          <view class='flex-row flex-center'>
+
+            <view class='{{num>idx?"txt-white":"tuhuang"}} h6'>{{num>idx? "已签": "未签"}}</view>
+
+            <view class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></view>
+
+            <view class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</view>
+
+            <view class='h6 txt-white'>+{{idx
+              <6?5:25}}</view>
+
+            </view>
+          </view>
+        </view>
+
+
+
+        <view class='flex-row flex-center'>
+          <view class='flex-1'></view>
+          <view class='daka-btn text-center' wx:if='{{dian==1}}' style='color:#FFC200'>已签到</view>
+          <view class='flex-1'></view>
+        </view>
+
+        <view style='height:42rpx;'></view>
+      </view>
+
+      <view class='flex-row flex-center'>
+        <view class='flex-1'></view>
+        <image src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang'></image>
+        <view class='flex-1'></view>
+      </view>
+  </view>
+
+
+
+</view>
