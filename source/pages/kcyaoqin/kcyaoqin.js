@@ -43,7 +43,7 @@ class Content extends AppBase {
 
 
     this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
-    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+"inst/qrcode?inst_id=1&url=/pages/kcdetails/kcdetails?yaoqin_id=" + this.Base.getMyData().memberinfo.id + '&&id=' + this.Base.options.kcid })
+    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+"inst/qrcode?inst_id=1&url=/pages/kcdetails/kcdetails?yaoqin_id=" + this.Base.getMyData().memberinfo.id + '%26id=' + this.Base.options.kcid })
 
       var kcid = this.Base.options.kcid;
       api.courseinfo({ id: kcid }, (kcinfo) => {
