@@ -234,7 +234,6 @@
     <view class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</view>
   </view>
 
-
   <view wx:if='{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></view>
 
   <view class=' gz ' wx:if='{{guize==true}}'>
