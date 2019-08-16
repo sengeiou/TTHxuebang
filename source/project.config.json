@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 61,
+			"current": 62,
 			"list": [
 				{
 					"id": 0,
@@ -482,6 +482,13 @@
 					"pathName": "pages/ketaninfo/ketaninfo",
 					"query": "id=1714",
 					"scene": null
+				},
+				{
+					"id": 62,
+					"name": "111",
+					"pathName": "pages/kcdetails/kcdetails",
+					"query": "yaoqin_id=1111&id=468",
+					"scene": 1011
 				}
 			]
 		}

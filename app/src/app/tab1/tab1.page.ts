@@ -82,6 +82,12 @@ export class Tab1Page  extends AppBase {
    this.name=name;
    this.getKechenList();
   }
+  tiaozhuan(item)
+  {
+
+    console.log(item);
+    this.navigate("ketangdetails",{id:item.course_id})
+  }
   kechenxianqin(id)
   {
     this.navigate("ketangdetails",{id:id})

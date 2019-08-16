@@ -84,7 +84,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
           </view>
 
           <view style='width:20rpx;'></view>
@@ -92,7 +92,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
           </view>
 
 
@@ -195,7 +195,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
           </view>
 
           <view style='width:20rpx;'></view>
@@ -203,7 +203,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
           </view>
 
 
@@ -309,7 +309,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
           </view>
 
           <view style='width:20rpx;'></view>
@@ -317,7 +317,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
           </view>
 
 
@@ -422,7 +422,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</view>
           </view>
 
           <view style='width:20rpx;'></view>
@@ -430,7 +430,7 @@
 
           <view class='flex-row flex-center '>
             <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}</view>
+            <view class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</view>
           </view>
 
 

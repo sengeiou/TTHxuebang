@@ -149,9 +149,17 @@ export class AppBase {
 
     this.Base.options = options;
 
-
-    //console.log(mta.Page.init().options.scene);
-    console.log("onload");
+    var obj = wx.getLaunchOptionsSync();
+    console.log(obj);
+    console.log('启动小程序的路径:', obj.path);
+    console.log('启动小程序的场景值:', obj.scene);
+    console.log('启动小程序的 query 参数:', obj.query);
+    console.log('来源信息:', obj.shareTicket);
+    console.log('来源信息参数appId:', obj.referrerInfo.appId);
+    console.log('来源信息传过来的数据:', obj.referrerInfo.extraData);
+  
+    
+    
     wx.getSystemInfo({
       success: function (res) {
         console.log("真的牛皮你");

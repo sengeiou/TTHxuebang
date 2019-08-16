@@ -8,14 +8,13 @@
 
 <ion-content>
 
-  <!--pages/zaixianketang/zaixianketang.wxml-->
 
 
   <ion-slides indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' class="lb">
     <ion-slide *ngFor="let item of lunbolist">
       <div>
         <!-- mode="aspectFill"  bindtap='divPhoto' -->
-        <img src='{{uploadpath}}kecheng/{{item.img}}' class='lb' (click)='divPhoto(uploadpath+"kecheng/"+item.img)' />
+        <img src='{{uploadpath}}kecheng/{{item.img}}' class='lb' (click)='tiaozhuan(item)' />
       </div>
     </ion-slide>
   </ion-slides>
