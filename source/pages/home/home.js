@@ -843,6 +843,7 @@ class Content extends AppBase {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
+
       for (var i = 0; i < dakalist.length; i++) {
         for (var j = 0; j < resultArr.length; j++) {
           if (resultArr[j].member_id == dakalist[i].member_id) {
@@ -854,8 +855,17 @@ class Content extends AppBase {
         }
       }
 
+       
+        var personnumber = parseInt(this.Base.getMyData().instinfo.personnumber);
+      console.log(personnumber, "人数");
+
+      var number = resultArr.length;
+
+      var zong = ((parseInt(number) + personnumber) / 10000).toFixed(2) + 'W';
+      console.log(zong,"总数")
+
       this.Base.setMyData({
-        resultArr
+        zong
       })
     })
 
