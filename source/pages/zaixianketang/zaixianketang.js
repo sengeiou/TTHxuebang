@@ -117,7 +117,7 @@ class Content extends AppBase {
       if (id == indexbanner[i].id) {
         if (indexbanner[i].type == 'KC') {
           wx.navigateTo({
-            url: '/pages/kcdetails/kcdetails?id=' + indexbanner[i].course_id
+            url: '/pages/ketangdetails/ketangdetails?id=' + indexbanner[i].course_id
           })
         }
         if (indexbanner[i].type == 'JG') {
