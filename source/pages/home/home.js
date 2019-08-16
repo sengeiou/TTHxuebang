@@ -53,7 +53,7 @@ class Content extends AppBase {
     console.log(san + "电饭锅");
 
     //勿删
-    if (san == "" || san==null) {
+    if (san == "" || san == null) {
       wx.setStorage({
         key: 'first',
         data: 1
@@ -65,7 +65,7 @@ class Content extends AppBase {
     // console.log(wx.getStorageSync(jintian), "刚刚")
 
     // console.log(this.Base.getMyData().pd, "靠靠靠")
-    
+
 
     this.Base.setMyData({
       currentItemId: 2,
@@ -82,8 +82,8 @@ class Content extends AppBase {
       guize: false,
       dk: -1,
       jf: 5,
-      img:1,
-      num:0,
+      img: 1,
+      num: 0,
       dian: 0,
       pd: 1,
       days: []
@@ -99,7 +99,7 @@ class Content extends AppBase {
 
     var jifenapi = new JifenApi();
 
- 
+
     jifenapi.dakalist({
       member_id: this.Base.getMyData().memberinfo.id
     }, (dakalist) => {
@@ -186,7 +186,7 @@ class Content extends AppBase {
 
     var memberinfo = this.Base.getMyData().memberinfo;
     var citylist = memberinfo.citylist;
-    
+
     var citycode = this.Base.getMyData().adcode.substr(0, 4) + "00";
 
     var citys = citylist.filter((item, idx) => {
@@ -243,12 +243,12 @@ class Content extends AppBase {
     }, 6000)
 
   }
-  qiehuan(e){
-   this.Base.setMyData({
-     img:2
-   })
+  qiehuan(e) {
+    this.Base.setMyData({
+      img: 2
+    })
   }
-  closeimage(e){
+  closeimage(e) {
     this.Base.setMyData({
       yd: 0
     })
@@ -278,7 +278,7 @@ class Content extends AppBase {
     }
 
     this.Base.setMyData({
-      nocity:0
+      nocity: 0
     });
     this.onMyShow();
     //this.loadjg();
@@ -549,9 +549,9 @@ class Content extends AppBase {
   tocity(e) {
     wx.navigateTo({
       url: '/pages/city/city',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
     })
   }
 
@@ -843,6 +843,7 @@ class Content extends AppBase {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
+
       for (var i = 0; i < dakalist.length; i++) {
         for (var j = 0; j < resultArr.length; j++) {
           if (resultArr[j].member_id == dakalist[i].member_id) {
@@ -854,8 +855,17 @@ class Content extends AppBase {
         }
       }
 
+
+      var personnumber = parseInt(this.Base.getMyData().instinfo.personnumber);
+      console.log(personnumber, "人数");
+
+      var number = resultArr.length;
+
+      var zong = ((parseInt(number) + personnumber) / 10000).toFixed(2) + 'W';
+      console.log(zong, "总数")
+
       this.Base.setMyData({
-        resultArr
+        zong
       })
     })
 
@@ -912,8 +922,8 @@ body.chakanjilu = content.chakanjilu;
 body.closetanchuang = content.closetanchuang;
 body.guize = content.guize;
 body.closenotice = content.closenotice;
-body.xiaoxiliebiao = content.xiaoxiliebiao; 
+body.xiaoxiliebiao = content.xiaoxiliebiao;
 
-body.qiehuan = content.qiehuan; 
+body.qiehuan = content.qiehuan;
 body.closeimage = content.closeimage;
 Page(body)

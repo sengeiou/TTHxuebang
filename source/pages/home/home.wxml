@@ -231,7 +231,7 @@
     <view class='flex-row flex-center '>
       <image wx:for='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' wx:if='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}'></image>
     </view>
-    <view class='margin-left-16 h6 txt9'>等{{resultArr.length}}人已连续打卡</view>
+    <view class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</view>
   </view>
 
 
