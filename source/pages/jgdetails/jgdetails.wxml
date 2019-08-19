@@ -489,17 +489,25 @@
 
           </view>
 
-          <view wx:if='{{pin==0}}'>
-            <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-            <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
-            <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
+
+          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.showprice==""||courseinfo.showprice==null?0.00:courseinfo.showprice}}</view>
+
+
+          <view wx:if='{{xuanzhong!=0}}'>
+            <view wx:if='{{pin==0}}'>
+              <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+              <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
+              <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
+            </view>
+
+            <view wx:if='{{pin==1}}'>
+              <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
+              <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
+              <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.isgroup_tiyan}}</view>
+            </view>
           </view>
 
-          <view wx:if='{{pin==1}}'>
-            <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
-            <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>
-            <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.isgroup_tiyan}}</view>
-          </view>
+
 
         </view>
 
@@ -539,7 +547,7 @@
             <view wx:if='{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</view>
             <view wx:if='{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
           </view>
-          
+
         </view>
 
         <view style="height:120rpx;"></view>

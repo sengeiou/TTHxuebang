@@ -49,6 +49,7 @@ class Content extends AppBase {
       tanchuang: false,
       shuliang: 1,
       sl: 1,
+      pin:3,
        
       xuanzhong: 0,
       ketang: [],
