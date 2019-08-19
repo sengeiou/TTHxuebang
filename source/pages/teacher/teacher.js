@@ -166,7 +166,7 @@ class Content extends AppBase {
           var videoContext = wx.createVideoContext("v_" + id);
           videoContext.play();
           console.log("played");
-        },500);
+        },100);
       }
     }
   }
