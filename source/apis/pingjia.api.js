@@ -41,7 +41,7 @@ export class PingjiaApi{
         })
     }
 
-    pingjialist(json, callback, showLoading = true) {
+    addpinjialike(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class PingjiaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingjia/pingjialist',
+            url: ApiConfig.GetApiUrl() + 'pingjia/addpinjialike',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class PingjiaApi{
         })
     }
 
-    addpinjialike(json, callback, showLoading = true) {
+    pingjialist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class PingjiaApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'pingjia/addpinjialike',
+            url: ApiConfig.GetApiUrl() + 'pingjia/pingjialist',
             data: json,
             method: 'POST',
             dataType: 'json',

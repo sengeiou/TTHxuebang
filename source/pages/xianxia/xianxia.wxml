@@ -1,0 +1,26 @@
+<view class="flex-row flex-center">
+  <view class="flex-1"></view>
+
+  <view>
+    <view wx:for="{{huodonlist}}" wx:key='k' bindtap="listclick" data-id="{{item.id}}" style="width:95vw" class="margin-top-10 margin-bottom-10">
+
+
+      <image class="activityCover" src='{{uploadpath}}resource/{{res.ceshidetu}}'></image>
+
+      <view class="activitycontent flex-row flex-center">
+        <view class="center">
+          <view class="txt-bold margin-left-40 margin-top-10">{{item.activityName}}</view>
+
+          <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-10">活动时间:{{item.activityTime}} </view>
+          <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-5">活动地点:{{item.activitySite}} </view>
+
+
+
+        </view>
+      </view>
+      <view class='height-160'></view>
+    </view>
+
+  </view>
+  <view class="flex-1"></view>
+</view>

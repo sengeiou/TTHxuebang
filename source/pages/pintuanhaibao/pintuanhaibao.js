@@ -18,7 +18,7 @@ class Content extends AppBase {
     this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
     this.Base.setMyData({ bg: ApiConfig.GetUploadPath() +   "resource/613db08f9d08ea17b8c68db38314ecee_19070419047_1556147856.png" })
     this.Base.setMyData({
-      erweima: ApiConfig.GetApiUrl() + "/inst/qrcode?inst_id=1&url=/pages/groupinfo/groupinfo?id=" + options.id
+      erweima: ApiConfig.GetApiUrl() + "inst/qrcode?inst_id=1&url=/pages/groupinfo/groupinfo?%26id=" + options.id
     })
 
     super.onLoad(options);

@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 62,
+			"current": 58,
 			"list": [
 				{
 					"id": 0,
@@ -456,10 +456,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 58,
 					"name": "拼团海报",
 					"pathName": "pages/pintuanhaibao/pintuanhaibao",
-					"query": "name=136313_ttxhbpt.png",
+					"query": "id=51",
 					"scene": null
 				},
 				{
@@ -489,6 +489,20 @@
 					"pathName": "pages/kcdetails/kcdetails",
 					"query": "yaoqin_id=1111&id=468",
 					"scene": 1011
+				},
+				{
+					"id": -1,
+					"name": "pages/xianxia/xianxia",
+					"pathName": "pages/xianxia/xianxia",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "pages/huodoninfo/huodoninfo",
+					"query": "id=1",
+					"scene": null
 				}
 			]
 		}
