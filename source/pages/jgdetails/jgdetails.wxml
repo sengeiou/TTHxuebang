@@ -490,7 +490,7 @@
           </view>
 
 
-          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.showprice==""||courseinfo.showprice==null?0.00:courseinfo.showprice}}</view>
+          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{min.expeprice}}</view>
 
 
           <view wx:if='{{xuanzhong!=0}}'>

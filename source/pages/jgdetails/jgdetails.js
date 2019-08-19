@@ -98,7 +98,15 @@ class Content extends AppBase {
           console.log("miletxt=" + miletxt);
           courselist[i]["miletxt"] = miletxt;
 
+        } 
+
+        var min = courselist[0];
+
+        for (var j = 0; j < courselist.length; j++) {
+          var cur = courselist[i];
+            cur < min ? min = cur : null
         }
+        console.log(min,"最小值")
 
         var jiancha = courselist.filter((item, idx) => {
           return item.isgroup != '0.00' || item.isgroup_tiyan != '0.00'
@@ -127,7 +135,7 @@ class Content extends AppBase {
 
         this.Base.setMyData({
           courselist: courselist,
-          miletxt
+          miletxt, min 
         });
       });
 
