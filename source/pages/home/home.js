@@ -260,8 +260,9 @@ class Content extends AppBase {
   }
 
   setcity(e) {
+    var that=this;
     var id = (e.currentTarget.id).substr(0, 4) + "00";
-
+    var name=e.currentTarget.dataset.name;
     var memberinfo = this.Base.getMyData().memberinfo;
     var citylist = memberinfo.citylist;
 
@@ -278,9 +279,11 @@ class Content extends AppBase {
     }
 
     this.Base.setMyData({
-      nocity: 0
+      nocity: 0, cityname: name
     });
+
     this.onMyShow();
+    
     //this.loadjg();
   }
 
@@ -865,7 +868,7 @@ class Content extends AppBase {
       console.log(zong, "总数")
 
       this.Base.setMyData({
-        zong
+        zong, resultArr
       })
     })
 
