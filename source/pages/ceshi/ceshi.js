@@ -29,9 +29,9 @@ class Content extends AppBase {
       days:[],
 
       signState: false, //签到状态
-     // min: 0, 
 
-
+      fen:2.6,
+     // min: 0,
     })
   }
   onMyShow() {

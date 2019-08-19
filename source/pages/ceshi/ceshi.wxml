@@ -1,4 +1,4 @@
-<view class='margin-20'>
+<!-- <view class='margin-20'>
 
   <view class='flex-row flex-center '>
     <view class='orange'></view>
@@ -201,4 +201,27 @@
 
 
 
+</view> -->
+
+
+
+<view class="starbox">
+  <view class="stars" style="width: 100%;">
+    <view class=" ims">
+      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+    </view>
+  </view>
+  <view class="stars2" style="width: {{fen*20}}%">
+    <view class="ims">
+      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+    </view>
+  </view>
 </view>
