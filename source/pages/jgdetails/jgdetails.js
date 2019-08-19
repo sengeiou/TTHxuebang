@@ -52,7 +52,8 @@ class Content extends AppBase {
        
       xuanzhong: 0,
       ketang: [],
-      catchtouchmove:0
+      catchtouchmove:0,
+      trunoff:false
 
     })
 
@@ -311,7 +312,7 @@ class Content extends AppBase {
       var clist = clist.filter((item, idx) => {
 
         console.log(parseInt(item.isgroup) ,"发广告")  
-        return parseInt(item.isgroup) > 0 || parseInt(item.isgroup_tiyan)
+        return item.isgroup > 0 || item.isgroup_tiyan>0
       })
 
       console.log(clist, "gg")
@@ -449,17 +450,28 @@ class Content extends AppBase {
 
   }
 
-
   bindclose(e) {
     this.Base.setMyData({
       tanchuang: false
     })
   }
+
   toindex(e) {
     wx.reLaunch({
       url: '/pages/home/home',
     })
   }
+
+  bindfullscreenchange(e){
+    console.log("10000",e)
+    if (e.detail.fullScreen==true){
+      this.Base.setMyData({ trunoff: true })
+    }else{
+      this.Base.setMyData({ trunoff: false })
+    }
+    
+  }
+
 }
 
 var content = new Content();
@@ -475,6 +487,8 @@ body.toindex = content.toindex;
 body.bindshowtc = content.bindshowtc;
 body.bindclose = content.bindclose;
 body.xuan = content.xuan;
+
+body.bindfullscreenchange = content.bindfullscreenchange;
 
 body.seemore = content.seemore;
 

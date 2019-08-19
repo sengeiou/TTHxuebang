@@ -1,6 +1,5 @@
 <!--pages/jgdetails/jgdetails.wxml-->
 
-
 <back-component></back-component>
 
 <view class=' to_top'>
@@ -110,85 +109,86 @@
 
       </view>
 
-      <cover-view wx:if='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+      <view wx:if='{{trunoff==false}}'>
+        <cover-view wx:if='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
-        <cover-view class='padding-10 '>
-          <cover-view class='flex-row flex-center'>
-            <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
-            <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
-          </cover-view>
-
-          <cover-view class='margin-top-10'>
-            <cover-view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
-              <cover-image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+          <cover-view class='padding-10 '>
+            <cover-view class='flex-row flex-center'>
+              <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
+              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
             </cover-view>
-            <cover-view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
-              <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              <cover-image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-            </cover-view>
-            <cover-view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
-              <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-            </cover-view>
-            <cover-view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
-              <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-            </cover-view>
-            <cover-view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
-              <cover-image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-            </cover-view>
-          </cover-view>
 
-
-          <cover-view class='flex-row flex-center margin-top-10'>
-
-            <cover-view class='flex-row flex-1'>
-              <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
+            <cover-view class='margin-top-10'>
+              <cover-view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
+                <cover-image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+              </cover-view>
+              <cover-view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
+                <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+                <cover-image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+              </cover-view>
+              <cover-view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
+                <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+                <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+              </cover-view>
+              <cover-view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
+                <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+                <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+              </cover-view>
+              <cover-view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
+                <cover-image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+                <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+              </cover-view>
             </cover-view>
 
 
+            <cover-view class='flex-row flex-center margin-top-10'>
+
+              <cover-view class='flex-row flex-1'>
+                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
+              </cover-view>
 
 
 
-          </cover-view>
 
-          <cover-view class='flex-row flex-center margin-top-5 padding-10'>
 
-            <cover-view class='flex-row flex-column flex-1'>
-              <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
-              <cover-view class="txt-gray h6">适合年龄</cover-view>
-              <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
             </cover-view>
 
-            <cover-view class='flex-row flex-column flex-1'>
-              <!-- <image src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13"></image> -->
-              <cover-view class="txt-gray h6">营业时间</cover-view>
-              <cover-view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</cover-view>
+            <cover-view class='flex-row flex-center margin-top-5 padding-10'>
+
+              <cover-view class='flex-row flex-column flex-1'>
+                <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
+                <cover-view class="txt-gray h6">适合年龄</cover-view>
+                <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
+              </cover-view>
+
+              <cover-view class='flex-row flex-column flex-1'>
+                <!-- <image src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13"></image> -->
+                <cover-view class="txt-gray h6">营业时间</cover-view>
+                <cover-view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</cover-view>
+              </cover-view>
+
+              <cover-view class='flex-row flex-column flex-1'>
+                <!-- <image src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13"></image> -->
+                <!-- <view class="txt-gray h6" >预约</view> -->
+                <cover-view class='h6 txt-gray '>需要预约</cover-view>
+                <cover-view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</cover-view>
+              </cover-view>
+
             </cover-view>
 
-            <cover-view class='flex-row flex-column flex-1'>
-              <!-- <image src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13"></image> -->
-              <!-- <view class="txt-gray h6" >预约</view> -->
-              <cover-view class='h6 txt-gray '>需要预约</cover-view>
-              <cover-view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</cover-view>
+            <cover-view class='flex-row flex-center ' style="margin-top: 24rpx;">
+              <cover-view>
+                <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
+              </cover-view>
+              <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
+              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
             </cover-view>
 
-          </cover-view>
-
-          <cover-view class='flex-row flex-center ' style="margin-top: 24rpx;">
-            <cover-view>
-              <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
-            </cover-view>
-            <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
-            <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
           </cover-view>
 
         </cover-view>
-
-      </cover-view>
-
+      </view>
     </view>
 
     <!-- <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></view>
@@ -207,7 +207,7 @@
 
       <view class='padding-20'>
 
-        <video class='pos' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
+        <video class='pos' bindfullscreenchange='bindfullscreenchange' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
         </video>
 
         <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img'></image>
@@ -395,62 +395,64 @@
 
   <view style='height:96rpx;'></view>
 
-  <view style='' class='buy-block'>
+  <cover-view style='' class='buy-block' wx:if='{{trunoff==false}}'>
 
+    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+      <cover-view class='flex-1'></cover-view>
+      <cover-view class='txt_orange h6'>等待付款，</cover-view>
+      <cover-view class='txt_lan h6'>点击这里立即付款</cover-view>
+      <cover-view class='flex-1'></cover-view>
+    </cover-view>
 
-    <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <view class='flex-1'></view>
-      <view class='txt_orange h6'>等待付款，</view>
-      <view class='txt_lan h6'>点击这里立即付款</view>
-      <view class='flex-1'></view>
-    </view>
+    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+      <cover-view class='flex-1'></cover-view>
+      <cover-view class='txt_orange h6'>此机构课程预约已满</cover-view>
+      <cover-view class='flex-1'></cover-view>
+    </cover-view>
 
-    <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <view class='flex-1'></view>
-      <view class='txt_orange h6'>此机构课程预约已满</view>
-      <view class='flex-1'></view>
-    </view>
+    <cover-view class='flex-row flex-center'>
+      <cover-view class='left flex-row flex-center' style="width:310/750rpx;">
 
-    <view class='flex-row flex-center'>
-      <view class='left flex-row flex-center' style="width:310/750rpx;">
+        <cover-view class='flex-1 flex-row flex-column' bindtap='toindex'>
+          <cover-image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></cover-image>
+          <cover-view class='h7 margin-top-8'>首页</cover-view>
+        </cover-view>
 
-        <view class='flex-1 flex-row flex-column' bindtap='toindex'>
-          <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></image>
-          <view class='h7 margin-top-8'>首页</view>
-        </view>
-
-        <view class='flex-1 flex-row flex-column'>
+        <cover-view class='flex-1 flex-row flex-column'>
           <!-- <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image> -->
-          <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
-          <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
-          <view class='h7 margin-top-8'>收藏</view>
-        </view>
+          <cover-image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></cover-image>
+          <cover-image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></cover-image>
+          <cover-view class='h7 margin-top-8'>收藏</cover-view>
+        </cover-view>
 
         <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-          <view class=' flex-row flex-column'>
-            <image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></image>
-            <view class='h7 margin-top-8'>客服</view>
-          </view>
+          <cover-view class=' flex-row flex-column'>
+            <cover-image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></cover-image>
+            <cover-view class='h7 margin-top-8'>客服</cover-view>
+          </cover-view>
         </button>
 
-      </view>
+      </cover-view>
 
 
 
-      <view class=' flex-row flex-center' wx:if='{{nogroup=="Y"}}'>
-        <view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
-        <view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</view>
-      </view>
+      <cover-view class=' flex-row flex-center' wx:if='{{nogroup=="Y"}}'>
+        <cover-view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
+        <cover-view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</cover-view>
+      </cover-view>
 
 
-      <view wx:if='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
+      <cover-view wx:if='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
 
 
 
 
 
-    </view>
-  </view>
+    </cover-view>
+  </cover-view>
+
+
+
 </view>
 
 
@@ -537,14 +539,14 @@
             <view wx:if='{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</view>
             <view wx:if='{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</view>
           </view>
+          
         </view>
 
-      <view style="height:120rpx;"></view>
+        <view style="height:120rpx;"></view>
 
       </view>
 
 
-      
 
       <view class='under'>
 

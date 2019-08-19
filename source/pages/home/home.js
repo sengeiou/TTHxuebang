@@ -283,7 +283,7 @@ class Content extends AppBase {
     });
 
     this.onMyShow();
-    
+
     //this.loadjg();
   }
 
@@ -864,8 +864,13 @@ class Content extends AppBase {
 
       var number = resultArr.length;
 
-      var zong = ((parseInt(number) + personnumber) / 10000).toFixed(2) + 'W';
+      if ((parseInt(number) + personnumber)>=10000){
+         var zong = ((parseInt(number) + personnumber) / 10000).toFixed(2) + 'W';
       console.log(zong, "总数")
+     }else{
+        var zong = parseInt(number) + personnumber
+     }
+      
 
       this.Base.setMyData({
         zong, resultArr
