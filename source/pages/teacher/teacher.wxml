@@ -6,7 +6,7 @@
 <view class='bg-white margin-bottom-20 qqq' style='' wx:for='{{vteach}}' wx:key='k' wx:if='{{teachlist.length>0&&item.id!=null}}'>
 
   <block wx:if="{{item.play=='Y'}}">
-    <video bindplay='play'  class='pos' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" autoplay='{{true}}' id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
+    <video bindtap='play'  class='pos' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
       <cover-view class='title txt-white  txt-bold'>{{item.title}}</cover-view>
     </video>
   </block>
