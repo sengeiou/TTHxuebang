@@ -21,26 +21,21 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var huodonapi = new HuodonApi();
-    huodonapi.huodonlist({}, (huodonlist) => {
-      this.Base.setMyData({ huodonlist });
+    huodonapi.huodoninfo({id:this.Base.options.id}, (huodoninfo)=>{
 
-    })
+      this.Base.setMyData({ huodoninfo});
 
-    console.log("牛逼了");
+     })
+  
+  
 
 
 
 
-  }
-
-  listclick(e) {
-    console.log(e);
-
-    wx.navigateTo({
-      url: '/pages/huodoninfo/huodoninfo?id=' + e.currentTarget.dataset.id,
-    })
 
   }
+
+
 
 
 }
@@ -49,7 +44,5 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.binddetails = content.binddetails;
-body.onPageScroll = content.onPageScroll;
-body.listclick = content.listclick;
+
 Page(body)

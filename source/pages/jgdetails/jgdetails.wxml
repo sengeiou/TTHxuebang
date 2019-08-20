@@ -320,7 +320,7 @@
 
 
     <view class='flex-row flex-center flex-wrap'>
-      <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block ' wx:for='{{ketang}}' wx:key='k'>
+      <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' wx:for='{{ketang}}' wx:key='k'>
 
         <view style=''>
           <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>

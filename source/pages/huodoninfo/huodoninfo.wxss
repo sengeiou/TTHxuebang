@@ -1,1 +1,75 @@
-/* pages/huodoninfo/huodoninfo.wxss */
+.height-999 {
+ 
+}
+
+.conten {
+  width: 93vw;
+  background: white;
+  margin-top: 100rpx;
+  z-index: 999;
+  border-radius: 20rpx;
+}
+
+.tmbg {
+  position: absolute;
+}
+
+.bmcs {
+  width: 200rpx;
+  height: 56rpx;
+  background: #f60;
+  border-radius: 50rpx;
+  line-height: 56rpx;
+  text-align: center;
+  color: white;
+}
+.toupiao{
+background: #FEF4F2;
+color:#F5555D;
+font-size: 22rpx;
+padding:27rpx;
+
+}
+.tpgz{
+  width: 140rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 22rpx;
+  border-radius: 50rpx;
+  background: white;
+  color:#FF6600;
+  border:1px solid #FF6600;
+
+}
+.kecheng-block {
+  width: 40vw;
+  background: rgba(255, 255, 255, 1);
+ 
+  margin-left: 35rpx;
+  margin-top: 30rpx;
+}
+.tp{
+ margin-top:20rpx;
+ margin-bottom: 40rpx;
+width:180rpx;
+height: 64rpx;
+line-height: 64rpx;
+  text-align: center;
+ color:white;
+ background: #FF6600;
+ border-radius: 64rpx;
+}
+.shuzi{
+position: absolute;
+margin-left:10rpx;
+margin-top:-60rpx;
+color:#FF6600;
+font-size: 26rpx;
+width: 45rpx;
+height: 45rpx;
+line-height: 45rpx;
+text-align: center;
+background: #FFC200;
+border-radius: 50%;
+}
