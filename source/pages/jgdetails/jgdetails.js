@@ -103,8 +103,14 @@ class Content extends AppBase {
         var min = courselist[0];
 
         for (var j = 0; j < courselist.length; j++) {
-          var cur = courselist[i];
+          if (courselist[j].isgroup > 0 || courselist[j].isgroup_tiyan>0){
+            var cur = courselist[j].isgroup_tiyan;
             cur < min ? min = cur : null
+          }else{
+            var cur = courselist[j].expeprice;
+            cur < min ? min = cur : null
+          }
+          
         }
         console.log(min,"最小值")
 
@@ -126,7 +132,7 @@ class Content extends AppBase {
 
           this.Base.setMyData({
             courseinfo,
-            gou: 1,
+            gou: 1, min ,
             buy_id: courselist[0].id
           });
 
@@ -135,7 +141,7 @@ class Content extends AppBase {
 
         this.Base.setMyData({
           courselist: courselist,
-          miletxt, min 
+          miletxt, 
         });
       });
 

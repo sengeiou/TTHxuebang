@@ -490,7 +490,7 @@
           </view>
 
 
-          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{min.expeprice}}</view>
+          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{min}}</view>
 
 
           <view wx:if='{{xuanzhong!=0}}'>
@@ -499,6 +499,7 @@
               <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</view>
               <view class='margin-top-20' wx:if='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</view>
             </view>
+
 
             <view wx:if='{{pin==1}}'>
               <view class='margin-top-20' wx:if='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</view>

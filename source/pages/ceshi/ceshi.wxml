@@ -199,8 +199,6 @@
       </view>
   </view>
 
-
-
 </view> -->
 
 
@@ -217,8 +215,10 @@
   </view>
   <view class="stars2" style="width: {{fen*20}}%">
     <view class="ims">
+
       <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
       <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+
       <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
       <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
       <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
