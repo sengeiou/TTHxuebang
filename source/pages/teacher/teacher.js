@@ -142,6 +142,7 @@ class Content extends AppBase {
 
   }
   play(e) {
+	  var that=this;
     var id = e.currentTarget.id;
     id=id.split("_");
     id = id[1];
@@ -165,11 +166,13 @@ class Content extends AppBase {
         console.log(id);
         var videoContext = wx.createVideoContext("v_" + id);
         if (nowplaying_id==id){
-
+			
           videoContext.pause();
+		  that.Base.setMyData({nowplaying_id:0});
         }else{
 
           videoContext.play();
+		  that.Base.setMyData({nowplaying_id:id});
         }
       }
     }
