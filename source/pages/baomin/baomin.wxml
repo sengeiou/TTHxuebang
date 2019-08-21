@@ -1,0 +1,179 @@
+<back-component></back-component>
+<view style='background-image:url({{uploadpath}}resource/{{res.huodonbg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
+  <image class="tmbg" mode="widthFix" style="width:100vw" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}"></image>
+  <view class="flex-row   flex-center">
+
+    <view class="flex-1"></view>
+
+    <view class="conten">
+
+      <view class="padding-20 flex-row  ">
+
+        <image src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}" style="width:220rpx;height:220rpx"></image>
+
+        <view class="padding-20">
+          <view class="flex-1"></view>
+          <view class="txt-bold " style="width:350rpx;">{{huodoninfo.activityName}}</view>
+
+
+          <view class="flex-row margin-top  flex-center">
+            <view class="f-22" style="color:#555555" style="width:70rpx;">时间:</view>
+            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;"> {{huodoninfo.activityTime}}</view>
+          </view>
+
+          <view class="flex-row flex-center   margin-top-20">
+            <view class="f-22" style="color:#555555" style="width:70rpx;">地址:</view>
+            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;">{{huodoninfo.activitySite}}</view>
+          </view>
+
+
+
+        </view>
+
+
+      </view>
+
+
+
+      <view class="toupiao">报名截止时间： {{huodoninfo.apply_endTime}}</view>
+
+      <view class="padding-20  margin-top-20">
+        <view class="txt-bold text-center">参赛信息</view>
+
+
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>节目名称：</view>
+            <input class='  ' placeholder-class='pc' name='jigou' bindinput="minchen"  style='' placeholder='请填写节目名称'></input>
+          </view>
+        </view>
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>节目人数：</view>
+            <input class='  ' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'></input>
+          </view>
+        </view>
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>带队老师：</view>
+            <input class='  ' placeholder-class='pc' bindinput="laoshi" name='jigou' style='' placeholder='请填写带队老师'></input>
+          </view>
+        </view>
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>联系方式：</view>
+            <input class='  ' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'></input>
+          </view>
+        </view>
+
+   
+     <picker  range="{{saiqu}}" value="{{saiqu[index].name}}"  range-key="{{'name'}}" bindchange="bindsaiquChange">
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>报名赛区：</view>
+            <view wx:if="{{index==undefined}}" class="pc">请选择赛区</view>
+             <view class="">{{saiqu[index].name}}</view>
+             <view class="flex-1"></view>
+               <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
+          </view>
+        </view>
+          </picker>
+        <view class='padding-mid' style=''>
+          <view class='flex-row flex-center '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 width-210'>所属机构：</view>
+            <input class='  ' placeholder-class='pc' bindinput="jigou" name='jigou' style='' placeholder='请输入机构名称'></input>
+          </view>
+        </view>
+        <view class='padding-mid' style=''>
+          <view class='flex-row  '>
+            <view class='jl' style='color:#FF5252'></view>
+            <view class='font-30   txt-black margin-left-10 width-210'>参赛宣言：</view>
+            <textarea class='  ' placeholder-class='pc' bindinput="xuanyan" name='jigou' style='' placeholder='请输入参赛宣言'></textarea>
+          </view>
+        </view>
+
+        <view class='padding-mid' style=''>
+          <view class='flex-row  '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 '>上传封面图片 (1张)</view>
+
+          </view>
+
+          <image src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg' wx:if="{{fenmian==''}}" class='icon-img'></image>
+
+          <image mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' wx:if="{{fenmian!=''}}" class='icon-img'></image>
+
+
+        </view>
+
+        <view class='padding-mid' style=''>
+          <view class='flex-row  '>
+            <view class='jl' style='color:#FF5252'>*</view>
+            <view class='font-30   txt-black margin-left-10 '>上传照片（照片数量不限）</view>
+
+          </view>
+             <view class="height-20"></view>
+            <view class="ts">
+            1.请上传表演人员合照 
+            </view>
+             <view class="ts">
+            2.照片类型：艺术字、生活照、影视照 
+            </view>
+             <view class="ts">
+            3.请上传20M以内的照片 
+            </view>
+
+          <view class="flex-row flex-center flex-wrap">
+            <view class=' ' wx:for="{{jgimages}}" wx:key="k" wx:for-index="idx">
+              <image mode="aspectFill" src='{{uploadpath}}jiemutupian/{{item}}' wx:if='{{idx<20}}' id="{{uploadpath}}jiemutupian/{{item}}" data-id="{{idx}}" bindtap='viewPhoto' bindlongpress="deleteimg" class='icon-img'></image>
+            </view>
+            <image src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg1' class='icon-img'></image>
+          </view>
+          <view>
+
+          </view>
+        </view>
+
+        <view class="padding-40 flex-row flex-center ">
+
+          <image wx:if="{{xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}"></image>
+          <image wx:if="{{!xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}"></image>
+          <view class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</view>
+          <view bindtap="baomin" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</view>
+
+        </view>
+
+      </view>
+
+
+
+
+
+
+    </view>
+
+    <view class="flex-1"></view>
+  </view>
+  <view class="flex-row margin-top">
+
+    <view class="flex-1"></view>
+    <view bindtap="yulan" class="yulan">预览报名页面</view>
+    <view class="flex-1"></view>
+  </view>
+  <view class="flex-row margin-top-20">
+
+    <view class="flex-1"></view>
+
+    <view bindtap="tijiao" class="tijiao">提交信息</view>
+    <view class="flex-1"></view>
+  </view>
+
+
+  <view class="height-70"></view>
+</view>

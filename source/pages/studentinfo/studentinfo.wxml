@@ -15,7 +15,7 @@
     <view class="flex-1"></view>
   </view>
 
-  <view class="margin-top-20 qq" >
+  <view class="margin-top-20 qq">
     <view class="padding-20 flex-row flex-center">
 
       <view class="h15 " style="color:#FF5252;width:20rpx">*</view>
@@ -38,23 +38,23 @@
     </view>
 
     <picker class="" mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
-    <view class="padding-20 flex-row flex-center">
+      <view class="padding-20 flex-row flex-center">
 
-      <view class="h15" style="color:#FF5252;width:20rpx">*</view>
-      <view class="h15 margin-left-10" style="color:#222222">孩子生日</view>
-      <view class="flex-1"></view>
+        <view class="h15" style="color:#FF5252;width:20rpx">*</view>
+        <view class="h15 margin-left-10" style="color:#222222">孩子生日</view>
+        <view class="flex-1"></view>
 
 
-      <view class="section__title">{{xssj}} </view>
-  
-<view wx:if="{{xssj==''}}" class="margin-right-10" style="color:#CCCCCC">请输入</view>
+        <view class="section__title">{{xssj}} </view>
+
+        <view wx:if="{{xssj==''}}" class="margin-right-10" style="color:#CCCCCC">请输入</view>
         <image src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10"></image>
 
 
 
-    </view>
-    
-      </picker>
+      </view>
+
+    </picker>
     <view class="padding-20 flex-row flex-center">
 
       <view class="h15 " style="color:#FF5252;width:20rpx"></view>

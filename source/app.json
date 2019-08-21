@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/auth/auth",
+    "pages/baomin/baomin",
     "pages/jiaoyixinxi/jiaoyixinxi",
     "pages/maintain/maintain",
     "pages/ketan/ketan",
@@ -34,6 +35,7 @@
     "pages/tuiguanxiaoxi/tuiguanxiaoxi",
     "pages/myinvite/myinvite",
     "pages/tixian/tixian",
+    "pages/jiemuxianqin/jiemuxianqin",
     "pages/videopurcsucc/videopurcsucc",
     "pages/tuiguanguize/tuiguanguize",
     "pages/shipingoumai/shipingoumai",
@@ -68,6 +70,7 @@
     "pages/jgdetails/jgdetails",
     "pages/aboutus/aboutus",
     "pages/mymessage/mymessage",
+    "pages/tiaokuan/tiaokuan",
     "pages/problem/problem",
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
@@ -115,8 +118,8 @@
         {
           "text": "线下活动",
           "pagePath": "pages/xianxia/xianxia",
-          "iconPath": "images/icons/ms.png",
-          "selectedIconPath": "images/icons/ms1.png"
+          "iconPath": "images/icons/hd.png",
+          "selectedIconPath": "images/icons/hd1.png"
         },
       {
         "text": "我的",

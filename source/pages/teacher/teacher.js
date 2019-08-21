@@ -142,12 +142,14 @@ class Content extends AppBase {
 
   }
   play(e) {
+	  var that=this;
     var id = e.currentTarget.id;
     id=id.split("_");
     id = id[1];
     console.log("bindplay");
     console.log(id);
     var teachlist = this.Base.getMyData().vteach;
+    var nowplaying_id=this.Base.getMyData().nowplaying_id;
     for (var i = 0; i < teachlist.length; i++) {
       if (id != teachlist[i].id) {
         try{
@@ -159,14 +161,19 @@ class Content extends AppBase {
         }
       }else{
         teachlist[i].play="Y";
-        this.Base.setMyData({ vteach: teachlist});
-        setTimeout(()=>{
-          console.log("play");
-          console.log(id);
-          var videoContext = wx.createVideoContext("v_" + id);
+        this.Base.setMyData({ vteach: teachlist });
+        console.log("play");
+        console.log(id);
+        var videoContext = wx.createVideoContext("v_" + id);
+        if (nowplaying_id==id){
+			
+          videoContext.pause();
+		  that.Base.setMyData({nowplaying_id:0});
+        }else{
+
           videoContext.play();
-          console.log("played");
-        },100);
+		  that.Base.setMyData({nowplaying_id:id});
+        }
       }
     }
   }

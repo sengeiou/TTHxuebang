@@ -81,7 +81,7 @@
         </view>
 
         <view class='addimg' bindtap='uploadimg'>
-          <image src='{{uploadpath}}resource/{{res.addimg}}' class='icon56'></image>
+          <image src='{{uploadpath}}resource/{{res.jiatu}}' class='icon56'></image>
         </view>
 
       </view>
@@ -97,7 +97,6 @@
       </view>
       <view class='flex-row flex-center margin-top-40'>
         <view class=' txt-black flex-1 h5'>综合评分</view>
-
 
         <view wx:if='{{jgpingfen==0}}'>
           <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='1'></image>

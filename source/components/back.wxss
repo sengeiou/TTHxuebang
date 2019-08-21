@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 17%;
   right: 6rpx ;
-  z-index: 100;
+  z-index: 9999;
 }
 .icon-50 {
   width: 132rpx;

@@ -1,22 +1,25 @@
 /* pages/ceshi/ceshi.wxss */
+
 /* pages/ceshi/ceshi.wxss */
 
 Page {
   background: white;
 }
-.shuzi{
+
+.shuzi {
   width: 20rpx;
   height: 20rpx;
-  background: #FF0000;
-  color: #FFFFFF;
+  background: #f00;
+  color: #fff;
   font-size: 12rpx;
   position: absolute;
   border-radius: 50%;
   text-align: center;
-    margin-left:30rpx;
-    margin-top:3rpx;
-    line-height: 20rpx;
+  margin-left: 30rpx;
+  margin-top: 3rpx;
+  line-height: 20rpx;
 }
+
 .Top {
   position: fixed;
   z-index: 100;
@@ -67,7 +70,7 @@ Page {
 }
 
 .img {
-  width: 350rpx; 
+  width: 350rpx;
   height: 354rpx;
   border-radius: 8rpx;
 }
@@ -78,22 +81,18 @@ Page {
   white-space: nowrap;
 }
 
-
-
 .midt {
   position: absolute;
   width: 100vw;
   z-index: 10;
   bottom: 0%;
-  /* opacity: 0.8; */
-  /* box-shadow: 1px 1px 5px #dfdfdf; */
-  
+  /* opacity: 0.8; *//* box-shadow: 1px 1px 5px #dfdfdf; */
 }
 
 .mid {
   width: 85.5vw;
-  margin-bottom:30rpx;
-  box-shadow:0px 2px 8px 0px rgba(0,0,0,0.06);
+  margin-bottom: 30rpx;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
 }
 
 .biaoqian {
@@ -264,10 +263,12 @@ Page {
 .margin-left-21 {
   margin-left: 38rpx;
 }
-.icon13{
+
+.icon13 {
   height: 26rpx;
   width: 26rpx;
 }
+
 .icon-12 {
   width: 12rpx;
   height: 12rpx;
@@ -279,7 +280,7 @@ Page {
 
 .dakaxian {
   margin-left: -18rpx;
-  margin-right: -18rpx; 
+  margin-right: -18rpx;
   height: 4rpx;
   width: 74rpx;
 }
@@ -498,4 +499,36 @@ Page {
 .icon20 {
   height: 20rpx;
   width: 20rpx;
+}
+
+.starbox {
+  width: 250rpx;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.stars {
+  width: 130rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.stars2 {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.icon-25 {
+  width: 20rpx;
+  height: 18rpx;
+}
+
+.ims {
+  float: left;
+  white-space: nowrap;
 }
