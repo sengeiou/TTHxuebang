@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 326;
+    // options.id =  360 ;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -100,19 +100,7 @@ class Content extends AppBase {
 
         } 
 
-        var min = courselist[0];
-
-        for (var j = 0; j < courselist.length; j++) {
-          if (courselist[j].isgroup > 0 || courselist[j].isgroup_tiyan>0){
-            var cur = courselist[j].isgroup_tiyan;
-            cur < min ? min = cur : null
-          }else{
-            var cur = courselist[j].expeprice;
-            cur < min ? min = cur : null
-          }
-          
-        }
-        console.log(min,"最小值")
+       
 
         var jiancha = courselist.filter((item, idx) => {
           return item.isgroup != '0.00' || item.isgroup_tiyan != '0.00'
@@ -132,7 +120,7 @@ class Content extends AppBase {
 
           this.Base.setMyData({
             courseinfo,
-            gou: 1, min ,
+            gou: 1,  
             buy_id: courselist[0].id
           });
 
@@ -299,7 +287,6 @@ class Content extends AppBase {
     var ck = e.currentTarget.dataset.check;
     var jigouapi = new JigouApi();
 
-
     this.Base.setMyData({
       buy_id: id,
       ck: ck
@@ -308,7 +295,6 @@ class Content extends AppBase {
     jigouapi.courseinfo({
       id: id
     }, (courseinfo) => {
-
 
       this.Base.setMyData({
         courseinfo
@@ -323,6 +309,8 @@ class Content extends AppBase {
     jigouapi.courselist({
       jg_id: id
     }, (clist) => {
+ 
+
 
       var clist = clist.filter((item, idx) => {
 
@@ -330,11 +318,52 @@ class Content extends AppBase {
         return item.isgroup > 0 || item.isgroup_tiyan>0
       })
 
+      jigouapi.courseinfo({
+        id: clist[0].id
+      }, (courseinfo) => {
+
+        this.Base.setMyData({
+          courseinfo
+        });
+      });
+
+
+      var min = clist[0].expeprice;
+
+      for (var j = 0; j < clist.length; j++) {
+        if (clist[j].isgroup > 0 || clist[j].isgroup_tiyan > 0) {
+          console.log("进来")
+          if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan > 0) {
+            var cur = clist[j].isgroup_tiyan;
+            cur < min ? min = cur : null
+            console.log(1);
+          }
+          if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan == 0) {
+            var cur = clist[j].isgroup;
+            cur < min ? min = cur : null
+            console.log(2);
+          }
+          if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan > 0) {
+            var cur = clist[j].isgroup_tiyan;
+            cur < min ? min = cur : null
+            console.log(3);
+          }
+
+        } if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan == 0) {
+          var cur = clist[j].expeprice;
+          cur < min ? min = cur : null
+          console.log(4);
+        }
+        console.log(min, "最小值")
+      }
+      
+
       console.log(clist, "gg")
 
       this.Base.setMyData({
         clist,
         pin: 1,
+        min,
         tanchuang: true,
         catchtouchmove:1
       });
@@ -348,9 +377,32 @@ class Content extends AppBase {
     jigouapi.courselist({
       jg_id: id
     }, (clist) => {
+
+
+
+      jigouapi.courseinfo({
+        id: clist[0].id
+      }, (courseinfo) => {
+
+        this.Base.setMyData({
+          courseinfo
+        });
+      });
+
+      var min = clist[0].expeprice;
+
+      for (var j = 0; j < clist.length; j++) {
+       
+          var cur = clist[j].expeprice;
+          cur < min ? min = cur : null
+           
+        
+        console.log(min, "最小值")
+      }
       this.Base.setMyData({
         clist,
         pin: 0,
+        min,
         tanchuang: true,
         catchtouchmove: 1
       });
