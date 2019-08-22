@@ -196,7 +196,7 @@ class Content extends AppBase {
       if (res.code == 0) {
         wx.showModal({
           title: '提示',
-          content: 报名成功,
+          content: '报名成功,请等待管理员审核',
           confirmText: "我知道了",
           confirmColor: '#FF6600',
           showCancel: false,

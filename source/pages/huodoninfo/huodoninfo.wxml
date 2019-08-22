@@ -1,6 +1,9 @@
 <back-component></back-component>
-<view style='background-image:url({{uploadpath}}resource/{{res.huodonbg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
-  <image class="tmbg" mode="widthFix" style="width:100vw" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}"></image>
+
+
+<image class="tmbg" mode="widthFix" style="width:100vw" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}"></image>
+
+<view id='gdd'>
   <view class="flex-row   flex-center">
 
     <view class="flex-1"></view>
@@ -50,14 +53,14 @@
 
       <view class="flex-row flex-center flex-wrap">
 
-        <view   wx:for="{{huodoninfo.jiemu}}" wx:key='k' wx:for-index='idx' class='kecheng-block'>
+        <view wx:for="{{huodoninfo.jiemu}}" wx:key='k' wx:for-index='idx' class='kecheng-block'>
           <image bindtap="jiemuinfo" id="{{item.id}}" data-id='{{idx}}' src="{{uploadpath}}jiemu/{{item.fenmian}}" style="width:40vw;height:40vw"></image>
           <view wx:if="{{idx+1>=4}}" class="shuzi">{{idx+1}}</view>
 
           <view wx:if="{{idx+1<4}}" class="qianjimin">
-            <image  wx:if="{{idx==0}}" src="{{uploadpath}}resource/{{res.yi}}" mode="widthFix" style="width:50rpx"></image>
-            <image wx:if="{{idx==1}}" src="{{uploadpath}}resource/{{res.er}}"  mode="widthFix" style="width:50rpx"></image>
-            <image wx:if="{{idx==2}}" src="{{uploadpath}}resource/{{res.san}}"  mode="widthFix" style="width:50rpx"></image>
+            <image wx:if="{{idx==0}}" src="{{uploadpath}}resource/{{res.yi}}" mode="widthFix" style="width:50rpx"></image>
+            <image wx:if="{{idx==1}}" src="{{uploadpath}}resource/{{res.er}}" mode="widthFix" style="width:50rpx"></image>
+            <image wx:if="{{idx==2}}" src="{{uploadpath}}resource/{{res.san}}" mode="widthFix" style="width:50rpx"></image>
           </view>
           <view class="text-center f15 margin-top-5">{{item.name}}</view>
           <view class="text-center f-22" style="color:#555555">{{item.piaoshu}}票</view>
@@ -65,7 +68,7 @@
             <view class="flex-1"></view>
 
             <view wx:if="{{item.mypiao==0}}" bindtap="toupiao" id="{{item.id}}" data-id='{{idx}}' class="tp">投票</view>
-           <view  wx:if="{{item.mypiao>0}}" class="tpcg">投票成功</view>
+            <view wx:if="{{item.mypiao>0}}" class="tpcg">投票成功</view>
             <view class="flex-1"></view>
           </view>
         </view>
@@ -81,8 +84,11 @@
 
     <view class="flex-1"></view>
   </view>
-  <view class="margin-top h5 txt-bold text-center">本活动由学榜提供支持</view>
+
+  <view   class="margin-top h5 txt-bold text-center cc">本活动由学榜提供支持</view>
   <view class="height-70"></view>
+
+  <image class="hsbg" style="height:{{gaodu*2+200}}rpx" src="{{uploadpath}}resource/{{res.huodonbg}}"></image>
 </view>
 
 <view wx:if='{{guize==true}}' catchtouchmove="true" class="block_black"></view>

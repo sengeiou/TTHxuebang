@@ -52,7 +52,7 @@
           <view class='flex-row flex-center '>
             <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>节目人数：</view>
-            <input class='  ' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'></input>
+            <input class=' ' type='number' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'></input>
           </view>
         </view>
         <view class='padding-mid' style=''>
@@ -66,7 +66,7 @@
           <view class='flex-row flex-center '>
             <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>联系方式：</view>
-            <input class='  ' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'></input>
+            <input class='  ' type='number' maxlength='11' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'></input>
           </view>
         </view>
 

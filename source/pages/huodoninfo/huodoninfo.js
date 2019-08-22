@@ -39,6 +39,25 @@ class Content extends AppBase {
       this.Base.setMyData({
         huodoninfo
       });
+
+      setTimeout(function () {
+        var query = wx.createSelectorQuery();
+        query.select('#gdd').boundingClientRect();
+        query.exec((res) => {
+          //res就是 所有标签为mjltest的元素的信息 的数组
+          console.log(res);
+          console.log("哈哈哈哈");
+          console.log(res[0].height);
+          that.Base.setMyData({ gaodu: res[0].height });
+        })
+      }, 500)
+
+      
+
+
+
+
+
     })
     instapi.guize({
       type: 'G'
@@ -72,9 +91,21 @@ class Content extends AppBase {
     })
   }
   baomin() {
+
+
+    return
     var date = Date.parse(new Date()) / 1000;
     var huodoninfo = this.Base.getMyData().huodoninfo;
-   
+
+    if (date < huodoninfo.apply_startTime_timespan) {
+      wx.showToast({
+        title: '报名未开始',
+        icon: 'none',
+      })
+      return
+    }
+
+
     if (date > huodoninfo.apply_endTime_timespan + 86400) {
       wx.showToast({
         title: '报名已结束',
@@ -122,7 +153,7 @@ class Content extends AppBase {
 
       if (zige.length == 0) {
         api.toupiao({ jiemu_id: e.currentTarget.id }, (res) => {
-         
+
           if (res.code == 0) {
             wx.showToast({
               title: '投票成功',
