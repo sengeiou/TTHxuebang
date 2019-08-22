@@ -197,28 +197,28 @@
             </view>
 
 
+              <view class="starbox text-right">
+                <view class="stars" style="width: 100%;">
+                  <view class=" ims">
+                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-25"></image>
+                  </view>
+                </view>
 
-            <view class=''>
-              <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+                <view class="stars2" style="width: {{item.curriculumlist[0].avgScore==''?item.scoring*20:item.curriculumlist[0].avgScore*20}}%">
+                  <view class="ims">
+                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-25"></image>
+                  </view>
+                </view>
+
               </view>
-              <view wx:if="{{item.scoring==4}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==3}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==2}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==1}}" class='flex-row flex-center margin-right-20'>
-                <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-            </view>
 
 
           </view>
