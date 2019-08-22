@@ -1,11 +1,14 @@
-
 .gz {
   position: fixed;
   z-index: 999;
   left: 100rpx;
   right: 100rpx;
-  bottom: 30%;
+  bottom: 20%;
   border-radius: 8rpx;
+}
+.ts{
+  color:#CCCCCC;
+  font-size: 22rpx;
 }
 .block_black {
   background: black;
@@ -27,7 +30,7 @@
 .conten {
   width: 93vw;
   background: white;
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   z-index: 500;
   border-radius: 20rpx;
 }
@@ -82,16 +85,37 @@ line-height: 64rpx;
  background: #FF6600;
  border-radius: 64rpx;
 }
-.tpcg{
- margin-top:20rpx;
- margin-bottom: 40rpx;
-width:180rpx;
-height: 64rpx;
-line-height: 64rpx;
-  text-align: center;
- color:white;
- background: #999999;
- border-radius: 64rpx;
+.padding-mid {
+  padding-top: 30rpx;
+   margin-right: 20rpx;
+  padding-bottom: 30rpx;
+  margin-left: 20rpx;
+  border-bottom:2rpx solid #F5F5F5;
+}
+.icon-img {
+  width: 160rpx;
+  height: 160rpx;
+  margin:20rpx;
+}
+.addjigou {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border: 2rpx dashed rgba(204, 204, 204, 1);
+}
+.jl{
+  width:20rpx;
+}
+textarea{
+width: 320rpx;
+ 
+height: 120rpx;
+}
+.pc {
+  color: #c8c8c8;
+}
+.width-210{
+  width: 180rpx;
 }
 .shuzi{
 position: absolute;
@@ -106,9 +130,26 @@ text-align: center;
 background: #FFC200;
 border-radius: 50%;
 }
-.qianjimin{
+.yulan{
 
-  position: absolute;
-margin-left:10rpx;
-margin-top:-60rpx;
+  width:600rpx;
+  height: 84rpx;
+  color:#FF6600;
+  background: white;
+  line-height: 84rpx;
+  text-align: center;
+  border: 1px solid #FF6600;
+  border-radius: 80rpx;
+}
+
+.tijiao{
+
+  width:600rpx;
+  height: 84rpx;
+  color:#FFFFFF;
+  background:#FF6600;
+  line-height: 84rpx;
+  text-align: center;
+
+  border-radius: 80rpx;
 }

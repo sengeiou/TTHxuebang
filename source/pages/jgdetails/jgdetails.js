@@ -95,6 +95,8 @@ class Content extends AppBase {
           var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
           console.log("mile=" + mile);
           var miletxt = ApiUtil.GetMileTxt(mile);
+          courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+            courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
           console.log("miletxt=" + miletxt);
           courselist[i]["miletxt"] = miletxt;
 

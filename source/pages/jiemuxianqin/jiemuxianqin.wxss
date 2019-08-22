@@ -1,0 +1,72 @@
+.top_img{
+width:100vw;
+height: 100vw;
+}
+.psq{
+position: absolute;
+margin-top:-160rpx;
+width: 100vw;
+height: 160rpx;
+background-color: rgba(255, 194, 0, 0.9);
+}
+.xian{
+
+width: 2rpx;
+height: 100rpx;
+background: #979797;
+opacity: 0.6;
+}
+.jgtupian{
+  width:100%;
+  height: 360rpx;
+  margin-top:20rpx;
+}
+.toupiao{
+
+  width:600rpx;
+  height: 84rpx;
+  color:#FFFFFF;
+  background:#FF6600;
+  line-height: 84rpx;
+  text-align: center;
+
+  border-radius: 80rpx;
+}
+.fanhui{
+
+ width:240rpx;
+  height: 84rpx;
+  color:#FF6600;
+  background:white;
+  line-height: 84rpx;
+  text-align: center;
+  border:1px solid #FF6600;
+  border-radius: 80rpx;
+}
+.tijiao{
+
+ width:360rpx;
+  height: 84rpx;
+  color:#FFFFFF;
+  background:#FF6600;
+  line-height: 84rpx;
+  text-align: center;
+   margin-left:20rpx;
+  border-radius: 80rpx;
+}
+.toupiaochengon{
+
+  width:600rpx;
+  height: 84rpx;
+  color:#FFFFFF;
+  background:#999999;
+  line-height: 84rpx;
+  text-align: center;
+
+  border-radius: 80rpx;
+}
+.gudin{
+  position: fixed;
+  bottom: 8vh;
+  width: 100vw;
+}

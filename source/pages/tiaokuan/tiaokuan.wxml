@@ -1,0 +1,2 @@
+<back-component></back-component>
+<image src='{{uploadpath}}tiaokuan/{{tiaokuan.content}}'  mode='widthFix' style='width:100vw;margin-bottom:-10rpx;'></image>

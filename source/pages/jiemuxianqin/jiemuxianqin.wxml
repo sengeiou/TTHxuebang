@@ -1,0 +1,81 @@
+<back-component></back-component>
+<image src="{{uploadpath}}jiemu/{{jiemuinfo.fenmian}}" class="top_img" mode='aspectFill'></image>
+<view class="flex-row flex-center psq">
+  <view class="flex-row flex-column flex-1">
+    <view class="txt-bold" style="colof:#333333">{{jiemuinfo.saiqu_id_name}}</view>
+    <view class="margin-top-10 f-22" style="color:#666668">参赛赛区</view>
+
+  </view>
+  <view class="xian"></view>
+  <view class="flex-row flex-column flex-1">
+    <view class="txt-bold" style="colof:#333333">{{paimin}}</view>
+    <view class="margin-top-10 f-22" style="color:#666668">排名</view>
+
+  </view>
+  <view class="xian"></view>
+  <view class="flex-row flex-column flex-1">
+    <view class="txt-bold" style="colof:#333333">{{jiemuinfo.piaoshu}}</view>
+    <view class="margin-top-10 f-22" style="color:#666668">当前票数</view>
+
+  </view>
+
+
+</view>
+<view class="padding-40">
+  <view class="txt-bold" style="color:#555555">节目信息</view>
+
+  <view class="flex-row flex-center margin-top-10">
+    <view class="f-26" style="color:#555555">节目名称：{{jiemuinfo.name}}</view>
+    <view class="flex-1"></view>
+    <view class="f-26" style="color:#555555">人数:{{jiemuinfo.renshu}}</view>
+    <view style="width:80rpx"></view>
+  </view>
+
+</view>
+<view class="padding-40">
+  <view class="txt-bold" style="color:#555555">参赛宣言</view>
+  <view class="f-26 margin-top-10" style="color:#555555">{{jiemuinfo.xuanyan}}</view>
+</view>
+
+<view class="padding-40">
+  <view class="txt-bold" style="color:#555555">图片展示</view>
+
+  <view class="height-40"></view>
+  <image wx:if="{{yulan!=undefined}}" class="jgtupian" mode="aspectFill" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item.tupian}}"></image>
+
+  <image wx:if="{{yulan==undefined}}" class="jgtupian" mode="aspectFill" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item}}"></image>
+
+
+</view>
+
+<view style="height:15vh"></view>
+<view wx:if="{{jiemuinfo.mypiao==0}}" class=" gudin flex-row margin-top-20">
+
+  <view class="flex-1"></view>
+
+  <view bindtap="toupiao" class="toupiao">投票</view>
+  <view class="flex-1"></view>
+
+</view>
+
+
+<view wx:if="{{jiemuinfo.mypiao>0}}" class=" gudin flex-row margin-top-20">
+
+  <view class="flex-1"></view>
+
+  <view class="toupiaochengon">投票成功</view>
+  <view class="flex-1"></view>
+
+</view>
+
+
+<view wx:if="{{yulan==undefined}}" class=" gudin flex-row margin-top-20">
+
+  <view class="flex-1"></view>
+
+  <view bindtap="fanhui" class="fanhui">
+    <image style="width:24rpx" mode="widthFix" src="{{uploadpath}}resource/{{res.fanhuizuo}}"></image> 返回修改</view>
+  <view bindtap="tijiao" class="tijiao">提交信息</view>
+  <view class="flex-1"></view>
+
+</view>
