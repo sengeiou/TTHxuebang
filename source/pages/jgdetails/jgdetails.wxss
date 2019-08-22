@@ -438,3 +438,36 @@
   background: rgba(255, 194, 0, 1);
   border-radius: 42rpx;
 }
+
+.starbox {
+  width: 120rpx;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.stars1 {
+  position: relative;
+  bottom: 0;
+  left: 0; 
+  overflow: hidden;
+}
+
+.stars_2 {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.icon-star{
+  height: 24rpx;
+  width: 24rpx;  
+  overflow: hidden;
+}
+
+.ims {
+  float: left;
+   white-space: nowrap;
+  overflow:auto;
+  /* white-space: nowrap; */
+}

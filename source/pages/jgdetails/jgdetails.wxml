@@ -1,5 +1,6 @@
 <!--pages/jgdetails/jgdetails.wxml-->
 
+
 <back-component></back-component>
 
 <view class=' to_top'>
@@ -36,26 +37,27 @@
             <image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></image>
           </view>
 
-          <view class='margin-top-10'>
-            <view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
-              <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
+          <view class="starbox text-right margin-top-10">
+            <view class="stars" style="width: 100%;">
+              <view class=" ims">
+                <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+              </view>
             </view>
-            <view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-              <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
+
+            <view class="stars2" style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+              <view class="ims">
+                <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+              </view>
             </view>
-            <view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-            </view>
-            <view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-            </view>
-            <view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
-              <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></image>
-            </view>
+
           </view>
 
 
@@ -119,26 +121,31 @@
               <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
             </cover-view>
 
-            <cover-view class='margin-top-10'>
-              <cover-view wx:if="{{jginfo.scoring==5}}" class='flex-row flex-center margin-right-20'>
-                <cover-image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+            <cover-view class="starbox text-right  ">
+
+              <cover-view class="stars_2" style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+                <cover-view class="ims "  >
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                </cover-view>
               </cover-view>
-              <cover-view wx:if="{{jginfo.scoring==4}}" class='flex-row flex-center margin-right-20'>
-                <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-                <cover-image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
+
+              <cover-view class="stars1 " style="width: 100%;">
+                 <cover-view class="ims "  >
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                </cover-view>
               </cover-view>
-              <cover-view wx:if="{{jginfo.scoring==3}}" class='flex-row flex-center margin-right-20'>
-                <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-                <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              </cover-view>
-              <cover-view wx:if="{{jginfo.scoring==2}}" class='flex-row flex-center margin-right-20'>
-                <cover-image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-                <cover-image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              </cover-view>
-              <cover-view wx:if="{{jginfo.scoring==1}}" class='flex-row flex-center margin-right-20'>
-                <cover-image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-                <cover-image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:24rpx;width:24rpx;'></cover-image>
-              </cover-view>
+
+
+
+
             </cover-view>
 
 
@@ -296,8 +303,8 @@
           <view class='flex-row flex-center flex-1'>
             <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
             <view class='h6 flex-1 txt-white margin-left-5 chaochu' style='color:#AAAAAA'>{{item.JG_jigou}}</view>
-            <view  class=' txt-red txt-bold'>￥{{item.zuidijia}}</view>
-         
+            <view class=' txt-red txt-bold'>￥{{item.zuidijia}}</view>
+
           </view>
 
           <view class='flex-row flex-center'>
@@ -490,7 +497,7 @@
           </view>
 
 
-          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{min}}</view>
+          <view class='margin-top-20' wx:if='{{xuanzhong==0}}' style='color:#FF4444'>￥{{minprice}}</view>
 
 
           <view wx:if='{{xuanzhong!=0}}'>

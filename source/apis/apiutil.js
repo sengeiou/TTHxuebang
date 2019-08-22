@@ -25,11 +25,8 @@ export class ApiUtil {
   static zuidijia(a,b,c,d){
       var list=[];
       list.push(a,b,c,d);
-    
      list= list.filter((item)=>{
-      
          return    item>0;
-
      })
      var min= Math.min.apply(null,list)
       console.log(list);
@@ -40,6 +37,19 @@ export class ApiUtil {
     return min.toFixed(2); 
 
   }
+
+  static minprice(a) {
+    var list = [];
+    list.push(a);
+    list = list.filter((item) => {
+      return item > 0;
+    })
+    var min = Math.min.apply(null, list)
+      
+    return min.toFixed(2);
+
+  }
+
   static fixRename(ret) {
     var renamelist = ApiUtil.renamelist;
     console.log("rename a");

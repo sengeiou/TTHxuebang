@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    // options.id =  360 ;
+     options.id =  15 ;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({
@@ -333,30 +333,35 @@ class Content extends AppBase {
       var min = clist[0].expeprice;
 
       for (var j = 0; j < clist.length; j++) {
-        if (clist[j].isgroup > 0 || clist[j].isgroup_tiyan > 0) {
-          console.log("进来")
-          if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan > 0) {
-            var cur = clist[j].isgroup_tiyan;
-            cur < min ? min = cur : null
-            console.log(1);
-          }
-          if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan == 0) {
-            var cur = clist[j].isgroup;
-            cur < min ? min = cur : null
-            console.log(2);
-          }
-          if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan > 0) {
-            var cur = clist[j].isgroup_tiyan;
-            cur < min ? min = cur : null
-            console.log(3);
-          }
+        // if (clist[j].isgroup > 0 || clist[j].isgroup_tiyan > 0) {
+        //   console.log("进来")
+        //   if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan > 0) {
+        //     var cur = clist[j].isgroup_tiyan;
+        //     cur < min ? min = cur : null
+        //     console.log(1);
+        //   }
+        //   if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan == 0) {
+        //     var cur = clist[j].isgroup;
+        //     cur < min ? min = cur : null
+        //     console.log(2);
+        //   }
+        //   if (clist[j].isgroup > 0 && clist[j].isgroup_tiyan > 0) {
+        //     var cur = clist[j].isgroup_tiyan;
+        //     cur < min ? min = cur : null
+        //     console.log(3);
+        //   }
 
-        } if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan == 0) {
-          var cur = clist[j].expeprice;
-          cur < min ? min = cur : null
-          console.log(4);
-        }
-        console.log(min, "最小值")
+        // } if (clist[j].isgroup == 0 && clist[j].isgroup_tiyan == 0) {
+        //   var cur = clist[j].expeprice;
+        //   cur < min ? min = cur : null
+        //   console.log(4);
+        // }
+
+
+        var minprice = ApiUtil.zuidijia(clist[j].expeprice, clist[j].price, clist[j].isgroup, clist[j].isgroup_tiyan);
+       
+
+        console.log(minprice, "最小值")
       }
       
 
@@ -365,7 +370,8 @@ class Content extends AppBase {
       this.Base.setMyData({
         clist,
         pin: 1,
-        min,
+        minprice,
+        //min,
         tanchuang: true,
         catchtouchmove:1
       });
@@ -395,16 +401,13 @@ class Content extends AppBase {
 
       for (var j = 0; j < clist.length; j++) {
        
-          var cur = clist[j].expeprice;
-          cur < min ? min = cur : null
+        var minprice = ApiUtil.zuidijia(clist[j].expeprice, clist[j].price, clist[j].isgroup, clist[j].isgroup_tiyan);
            
-        
-        console.log(min, "最小值")
       }
       this.Base.setMyData({
         clist,
         pin: 0,
-        min,
+        minprice,
         tanchuang: true,
         catchtouchmove: 1
       });
