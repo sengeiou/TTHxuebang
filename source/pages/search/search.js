@@ -9,6 +9,9 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 import {
+  ApiUtil
+} from "../../apis/apiutil";
+import {
   JigouApi
 } from "../../apis/jigou.api.js";
 import {
@@ -114,7 +117,13 @@ class Content extends AppBase {
     jigouapi.courselist(kc, (courselist) => {
       var coursevlist = [];
       for (var i = 0; i < 7 && i < courselist.length; i++) {
+
+
+        courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+          courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
+
         coursevlist.push(courselist[i]);
+
       }
 
       this.Base.courselist = courselist;
@@ -257,6 +266,10 @@ class Content extends AppBase {
 
     if (this.Base.getMyData().shows == "finished") {
       for (var i = coursevlist.length; i < courselist.length; i++) {
+       
+
+        courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+          courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
 
         coursevlist.push(courselist[i]);
         count++;

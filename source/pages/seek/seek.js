@@ -131,36 +131,36 @@ class Content extends AppBase {
 
 
     console.log(show);
-    
 
 
-      jigouapi.activedistrictlist({
-        city_id: AppBase.CITYID
-      }, (filterdistrict) => {
 
-        this.Base.setMyData({
-          filterdistrict
-        });
-        //默认搜索罗湖区算了
-        if (1==1||this.Base.options.type == 'jg') {
-          console.log(this.Base.getMyData());
-          var address = this.Base.getMyData().address;
-          var adcode = address.ad_info.adcode;
-          for (var i = 0; i < filterdistrict.length; i++) {
-            if (adcode == filterdistrict[i].id) {
-              var fdistrict_id = filterdistrict[i].id;
-              this.Base.setMyData({
-                fdistrict_id
-              });
-            }
+    jigouapi.activedistrictlist({
+      city_id: AppBase.CITYID
+    }, (filterdistrict) => {
+
+      this.Base.setMyData({
+        filterdistrict
+      });
+      //默认搜索罗湖区算了
+      if (1 == 1 || this.Base.options.type == 'jg') {
+        console.log(this.Base.getMyData());
+        var address = this.Base.getMyData().address;
+        var adcode = address.ad_info.adcode;
+        for (var i = 0; i < filterdistrict.length; i++) {
+          if (adcode == filterdistrict[i].id) {
+            var fdistrict_id = filterdistrict[i].id;
+            this.Base.setMyData({
+              fdistrict_id
+            });
           }
         }
-        if (type == "kc") {
-          this.loadcourse();
-        } else {
-          this.loadjg();
-        }
-      });
+      }
+      if (type == "kc") {
+        this.loadcourse();
+      } else {
+        this.loadjg();
+      }
+    });
 
     setTimeout(() => {
       wx.hideLoading()
@@ -303,7 +303,7 @@ class Content extends AppBase {
     };
 
     var data = this.Base.getMyData();
-    console.log("loadcourse",data);
+    console.log("loadcourse", data);
     if (data.fdistrict_id != "0") {
       opt.district_id = data.fdistrict_id;
     }
@@ -338,7 +338,8 @@ class Content extends AppBase {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
         var miletxt = ApiUtil.GetMileTxt(mile);
         courselist[i]["miletxt"] = miletxt;
-
+        courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+          courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
         vteach.push(courselist[i]);
       }
       this.Base.courselist = courselist;
@@ -405,7 +406,8 @@ class Content extends AppBase {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
         var miletxt = ApiUtil.GetMileTxt(mile);
         courselist[i]["miletxt"] = miletxt;
-
+        courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+          courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
         vteach.push(courselist[i]);
         count++;
         if (count >= 7) {
@@ -623,11 +625,17 @@ class Content extends AppBase {
 
   onShareAppMessage() {
     var data = this.Base.getMyData();
+    console.log("/pages/seek/seek?type=" + data.type +
+      "&ftype_id=" + data.ftype_id +
+      "&fage_id=" + data.fage_id +
+      "&fdistrict_id=" + data.fdistrict_id);
+      console.log('haha');
     return {
       path: "/pages/seek/seek?type=" + data.type +
         "&ftype_id=" + data.ftype_id +
         "&fage_id=" + data.fage_id +
         "&fdistrict_id=" + data.fdistrict_id
+       
     };
   }
 
