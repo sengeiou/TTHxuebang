@@ -75,7 +75,7 @@ class Content extends AppBase {
     var date = Date.parse(new Date()) / 1000;
     var huodoninfo = this.Base.getMyData().huodoninfo;
    
-    if (date > huodoninfo.apply_endTime_timespan) {
+    if (date > huodoninfo.apply_endTime_timespan + 86400) {
       wx.showToast({
         title: '报名已结束',
         icon: 'none',
@@ -110,7 +110,7 @@ class Content extends AppBase {
       return
     }
 
-    if (date > huodoninfo.vote_endTime_timespan) {
+    if (date > huodoninfo.vote_endTime_timespan + 86400) {
       wx.showToast({
         title: '投票已结束',
         icon: 'none',

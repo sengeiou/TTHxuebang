@@ -142,7 +142,7 @@ class Content extends AppBase {
         filterdistrict
       });
       //默认搜索罗湖区算了
-      if (1 == 1 || this.Base.options.type == 'jg') {
+      if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id==0) {
         console.log(this.Base.getMyData());
         var address = this.Base.getMyData().address;
         var adcode = address.ad_info.adcode;

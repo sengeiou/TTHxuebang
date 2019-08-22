@@ -15,7 +15,7 @@
           <view class="flex-1"></view>
           <view class="txt-bold " style="width:330rpx;">{{huodoninfo.activityName}}</view>
           <view bindtap="baomin" class="bmcs margin-top">报名参赛</view>
-          <view class="margin-top-10" style="font-size:18rpx;color:#555555">报名截止时间：{{huodoninfo.apply_endTime}}</view>
+          <view class="margin-top-10" style="font-size:18rpx;color:#555555">报名截止时间：{{huodoninfo.apply_endTime}} 23:59</view>
         </view>
 
 

@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 67,
+			"current": 69,
 			"list": [
 				{
 					"id": 0,
@@ -523,6 +523,20 @@
 					"name": "节目预览",
 					"pathName": "pages/jiemuxianqin/jiemuxianqin",
 					"query": "json={\"huodon_id\":\"1\",\"name\":\"1\",\"renshu\":\"1\",\"laoshi\":\"1\",\"lianxifanshi\":\"1\",\"jigou\":\"1\",\"xuanyan\":\"1\",\"saiqu_id\":\"2\",\"fenmian\":\"04de0c1f5ffc81796fe28cdffa4cce57_19082118058_566434558.png\",\"tupian\":[\"59d8fcde54a3d36a3cfd4e089e1b001d_19082118002_1637018213.png\",\"cf2acb420b9b314c14b007e5426ccd3b_19082118002_1949403445.png\",\"2d157cc8d946cb5302211d954d2bd9e0_19082118002_1169129829.png\",\"22ec30794c8116e7e68da3f2486320cf_19082118002_1785632508.png\"]}",
+					"scene": null
+				},
+				{
+					"id": 68,
+					"name": "cesh",
+					"pathName": "pages/seek/seek",
+					"query": "type=kc&ftype_id=0&fage_id=0&fdistrict_id=440307",
+					"scene": null
+				},
+				{
+					"id": 69,
+					"name": "pages/seek/seek",
+					"pathName": "pages/seek/seek",
+					"query": "type=kc&ftype_id=0&fage_id=0&fdistrict_id=440306&appid=wx9627418e6ac276a5",
 					"scene": null
 				}
 			]

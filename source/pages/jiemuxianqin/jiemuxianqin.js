@@ -97,7 +97,7 @@ class Content extends AppBase {
       return
     }
 
-    if (date > this.Base.options.vote_endTime_timespan) {
+    if (date > this.Base.options.vote_endTime_timespan + 86400) {
       wx.showToast({
         title: '投票已结束',
         icon: 'none',

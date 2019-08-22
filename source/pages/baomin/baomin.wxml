@@ -35,7 +35,7 @@
 
 
 
-      <view class="toupiao">报名截止时间： {{huodoninfo.apply_endTime}}</view>
+      <view class="toupiao">报名截止时间： {{huodoninfo.apply_endTime}} 23:59</view>
 
       <view class="padding-20  margin-top-20">
         <view class="txt-bold text-center">参赛信息</view>
