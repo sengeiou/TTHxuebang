@@ -92,7 +92,7 @@
   <view   class="margin-top h5 txt-bold text-center cc">本活动由学榜提供支持</view>
   <view class="height-70"></view>
 
-  <image class="hsbg" style="height:{{gaodu*2+25}}rpx" src="{{uploadpath}}resource/{{res.huodonbg}}"></image>
+  <image class="hsbg" style="height:{{gaodu+25}}px" src="{{uploadpath}}resource/{{res.huodonbg}}"></image>
 </view>
 
 <view wx:if='{{guize==true}}' catchtouchmove="true" class="block_black"></view>

@@ -165,7 +165,7 @@ export class AppBase {
         console.log("真的牛皮你");
         console.log(res); 
             AppBase.System=res.system;
-            AppBase.model=res.model;
+        AppBase.Model=res.model;
             
           
       }

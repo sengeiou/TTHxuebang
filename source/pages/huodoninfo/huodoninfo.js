@@ -170,6 +170,9 @@ class Content extends AppBase {
         console.log(res);
         console.log("哈哈哈哈");
         console.log(res[0].height);
+        console.log(AppBase.Model);
+        
+      
         that.Base.setMyData({ gaodu: res[0].height });
       })
     
