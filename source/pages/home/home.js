@@ -187,7 +187,7 @@ class Content extends AppBase {
     var memberinfo = this.Base.getMyData().memberinfo;
     var citylist = memberinfo.citylist;
 
-    var citycode = this.Base.getMyData().adcode.substr(0, 4) + "00";
+    var citycode = this.Base.getMyData().citycode;
 
     var citys = citylist.filter((item, idx) => {
       return item.code == citycode

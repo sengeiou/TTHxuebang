@@ -504,7 +504,7 @@ export class AppBase {
 
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
 
-        this.Base.setMyData({ adcode: address.ad_info.adcode });
+        this.Base.setMyData({ adcode: address.ad_info.adcode, citycode });
   
         if (AppBase.CITYSET == false) {
 
