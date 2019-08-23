@@ -72,7 +72,7 @@ class Content extends AppBase {
     huodonapi.huodoninfo({ id: this.Base.options.id }, (huodoninfo) => {
       this.Base.setMyData({ huodoninfo });
     })
-    instapi.saiqu({}, (saiqu) => {
+    instapi.saiqu({huodon_id:this.Base.options.id}, (saiqu) => {
       this.Base.setMyData({ saiqu });
 
     })

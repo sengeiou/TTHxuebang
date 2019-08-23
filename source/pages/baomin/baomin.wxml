@@ -15,24 +15,22 @@
           <view class="flex-1"></view>
           <view class="txt-bold " style="width:350rpx;">{{huodoninfo.activityName}}</view>
 
-
-          <view class="flex-row margin-top  flex-center">
-            <view class="f-22" style="color:#555555" style="width:70rpx;">时间:</view>
-            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;"> {{huodoninfo.activityTime}}</view>
-          </view>
-
-          <view class="flex-row flex-center   margin-top-20">
-            <view class="f-22" style="color:#555555" style="width:70rpx;">地址:</view>
-            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;">{{huodoninfo.activitySite}}</view>
-          </view>
-
-
-
         </view>
 
 
       </view>
+  <view class="padding-20">
+        <view class="flex-row  flex-center">
+          <view class="f-22" style="color:#555555">时间</view>
+          <view class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.activityTime}}</view>
+         
+        </view>
+        <view class="flex-row  flex-center margin-top-20">
+          <view class="f-22" style="color:#555555">地址:</view>
+          <view class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.activitySite}}</view>
+        </view>
 
+      </view>
 
 
       <view class="toupiao">报名截止时间： {{huodoninfo.apply_endTime}} 23:59</view>
@@ -107,7 +105,7 @@
 
           <image src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg' wx:if="{{fenmian==''}}" class='icon-img'></image>
 
-          <image mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' wx:if="{{fenmian!=''}}" class='icon-img'></image>
+          <image mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' bindtap='jguploadimg' wx:if="{{fenmian!=''}}" class='icon-img'></image>
 
 
         </view>
