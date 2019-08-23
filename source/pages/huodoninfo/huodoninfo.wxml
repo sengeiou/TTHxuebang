@@ -77,7 +77,7 @@
       </view>
       <view class="padding-20 txt-bold" style="color:#555555">演出详情</view>
       <view class="padding-20">
-        <image mode="widthFix" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_bot}}" style="width:100%"></image>
+        <image bindload="jiazaiwanle" mode="widthFix" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_bot}}" style="width:100%"></image>
       </view>
       <view class="height-40"></view>
     </view>
@@ -88,7 +88,7 @@
   <view   class="margin-top h5 txt-bold text-center cc">本活动由学榜提供支持</view>
   <view class="height-70"></view>
 
-  <image class="hsbg" style="height:{{gaodu*2+200}}rpx" src="{{uploadpath}}resource/{{res.huodonbg}}"></image>
+  <image class="hsbg" style="height:{{gaodu*2+60}}rpx" src="{{uploadpath}}resource/{{res.huodonbg}}"></image>
 </view>
 
 <view wx:if='{{guize==true}}' catchtouchmove="true" class="block_black"></view>

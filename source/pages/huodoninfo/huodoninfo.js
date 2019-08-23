@@ -40,24 +40,6 @@ class Content extends AppBase {
         huodoninfo
       });
 
-      setTimeout(function () {
-        var query = wx.createSelectorQuery();
-        query.select('#gdd').boundingClientRect();
-        query.exec((res) => {
-          //res就是 所有标签为mjltest的元素的信息 的数组
-          console.log(res);
-          console.log("哈哈哈哈");
-          console.log(res[0].height);
-          that.Base.setMyData({ gaodu: res[0].height });
-        })
-      }, 500)
-
-      
-
-
-
-
-
     })
     instapi.guize({
       type: 'G'
@@ -93,7 +75,7 @@ class Content extends AppBase {
   baomin() {
 
 
-    return
+  var that=this;
     var date = Date.parse(new Date()) / 1000;
     var huodoninfo = this.Base.getMyData().huodoninfo;
 
@@ -179,6 +161,19 @@ class Content extends AppBase {
 
 
   }
+  jiazaiwanle(){
+ var that=this;
+      var query = wx.createSelectorQuery();
+      query.select('#gdd').boundingClientRect();
+      query.exec((res) => {
+        //res就是 所有标签为mjltest的元素的信息 的数组
+        console.log(res);
+        console.log("哈哈哈哈");
+        console.log(res[0].height);
+        that.Base.setMyData({ gaodu: res[0].height });
+      })
+    
+  }
 }
 
 
@@ -191,4 +186,5 @@ body.closetanchuang = content.closetanchuang;
 body.baomin = content.baomin;
 body.jiemuinfo = content.jiemuinfo;
 body.toupiao = content.toupiao;
+body.jiazaiwanle = content.jiazaiwanle;
 Page(body)
