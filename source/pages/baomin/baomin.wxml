@@ -90,7 +90,7 @@
         </view>
         <view class='padding-mid' style=''>
           <view class='flex-row  '>
-            <view class='jl' style='color:#FF5252'></view>
+            <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>参赛宣言：</view>
             <textarea class='  ' placeholder-class='pc' bindinput="xuanyan" name='jigou' style='' placeholder='请输入参赛宣言'></textarea>
           </view>

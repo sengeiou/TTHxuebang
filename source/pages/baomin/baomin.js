@@ -155,6 +155,12 @@ class Content extends AppBase {
       this.Base.info("请填写联系方式");
       return
     }
+    if (xuanyan=='')
+    {
+      this.Base.info("请填写参赛宣言");
+      return
+
+    }
     if (index == undefined) {
       this.Base.info("请填写报名赛区");
       return
