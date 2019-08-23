@@ -42,12 +42,17 @@ export class AppBase implements OnInit {
     public options = null;
     public params: Params = null;
 
+    public keyt="memberinfo99";
+    public stat="stat9";
+
     public firseonshow = true;
     public scrolltop = 0;
     public headerscroptshow = 0;
 
     static Current = null;
     currentpage = "";
+
+    static STATICRAND="";
 
 
     public constructor(
@@ -63,11 +68,19 @@ export class AppBase implements OnInit {
             this.params = params;
         });
         this.res = [];
+        var stat=window.sessionStorage.getItem(this.stat);
+        if(stat==null){
+            stat=parseInt((Math.random()*99999.9).toString()).toString();
+            window.sessionStorage.setItem(this.stat,stat);
+        }
+        AppBase.STATICRAND=stat;
 
-        var memberinfo=window.sessionStorage.getItem("memberinfo");
+        var memberinfo=window.localStorage.getItem(this.keyt);
+        
         if(memberinfo!=null){
             AppBase.MemberInfo=JSON.parse(memberinfo);
         }
+        console.log("rdw",AppBase.MemberInfo);
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -88,13 +101,15 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = instinfo;
                 this.InstInfo = instinfo;
                 console.log(instinfo);
-                
-                if(this.params.code!=undefined&&this.params.state=='123'){
+                console.log("aaabbbccc",AppBase.STATICRAND);
+                if(this.params.code!=undefined&&this.params.state==AppBase.STATICRAND){
 
                 }else{
                     if(AppBase.MemberInfo==null){
-                        var redirecturl=encodeURIComponent("http://yuyue.helpfooter.com/tabs/tab1");
-                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+                        var url=window.location.href;
+                        //url="http://yuyue.helpfooter.com/tabs/tab1";
+                        var redirecturl=encodeURIComponent(url);
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state="+AppBase.STATICRAND+"#wechat_redirect";
                         console.log({redurl});
                         window.location.href=redurl;
                     }
@@ -128,31 +143,36 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
-        
+        console.log("aaabbbccc",AppBase.STATICRAND);
         if(AppBase.MemberInfo==null){
             //
             
-            if(this.params.code!=undefined&&this.params.state=='123'){
+            console.log("aaabbbccc",this.params.code);
+            console.log("aaabbbccc",this.params.code!=undefined&&this.params.state==AppBase.STATICRAND);
+            console.log("aaabbbccc",this.params.state);
+            if(this.params.code!=undefined&&this.params.state==AppBase.STATICRAND){
                 AppBase.memberapi.getuserinfo({h5:"Y",code:this.params.code,grant_type:"authorization_code"}).then((memberinfo)=>{
                     memberinfo.h5openid=memberinfo.openid;
                     AppBase.MemberInfo=memberinfo;
                     this.MemberInfo=memberinfo;
 
-                    window.sessionStorage.setItem("memberinfo",JSON.stringify(this.MemberInfo));
-
+                    window.localStorage.setItem(this.keyt,JSON.stringify(this.MemberInfo));
+                    
                     ApiConfig.SetToken(memberinfo.h5openid);
                     ApiConfig.SetTokenKey(memberinfo.unionid);
-                    // AppBase.memberapi.updateh5(memberinfo).then((res)=>{
-                    //     this.onMyShow();
-                    // });
-                    window.location.href="/tabs/tab1";
+                     AppBase.memberapi.updateh5(memberinfo).then((res)=>{
+                        // this.onMyShow();
+                     });
+                    //window.location.href="/tabs/tab1";
                 });
             }else{
                 
+                //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
-                //this.onMyShow();
+                this.onMyShow();
             }
         }else{
+            //alert("2"+this.MemberInfo.h5openid);
             this.MemberInfo=AppBase.MemberInfo;
             console.log("aaaa",this.MemberInfo);
             ApiConfig.SetToken(this.MemberInfo.h5openid);

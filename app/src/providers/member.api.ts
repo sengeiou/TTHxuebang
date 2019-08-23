@@ -394,9 +394,10 @@ export class MemberApi {
         if (showLoadingModal) {
             loading = ApiConfig.GetLoadingModal();
         }
-
+   
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
+                
                 if (ApiConfig.DataLoadedHandle('member/updateh5', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
@@ -410,6 +411,7 @@ export class MemberApi {
                 }
             })
             .catch(err => {
+                
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }
