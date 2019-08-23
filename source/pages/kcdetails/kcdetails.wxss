@@ -264,3 +264,33 @@ height: 28rpx;
   margin-left: 20rpx;
   margin-right: 40rpx;
 }
+.starbox {
+  width: 170rpx;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.stars {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.stars2 {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.icon-star {
+  width: 34rpx;
+  height: 32rpx;
+}
+
+.ims {
+  float: left;
+  white-space: nowrap;
+}

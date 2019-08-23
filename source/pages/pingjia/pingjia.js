@@ -24,7 +24,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+   // options.id=34;
     super.onLoad(options);
     this.Base.setMyData({
       images: [], pingfen: 0, jgpingfen: 0, check: false, focus:false
@@ -33,15 +33,13 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-     
-      var api=new JigouApi();
- 
+
+    var api=new JigouApi();
+
     api.courseinfo({id:this.Base.options.id},(kcinfo)=>{
 
-      this.Base.setMyData({ kcinfo})
+      this.Base.setMyData({ kcinfo, jg_id: kcinfo.jg_id})
     })
-
-
 
   }
 
@@ -155,9 +153,11 @@ class Content extends AppBase {
 
           pingjiaapi.addpingjia({
             member_id:that.Base.getMyData().memberinfo.id,
+            mechanism_id: that.Base.getMyData().jg_id,
             kecheng_id: that.Base.options.id,
             order_id:that.Base.options.order_id,
             pingfen: pingfen,
+            jgpingfen: jgpingfen,
             content: text,
             img1: img1,
             img2, img2,
@@ -182,7 +182,7 @@ class Content extends AppBase {
 
           wx.reLaunch({
               url: '/pages/pingjiawanchen/pingjiawanchen',
-          }),
+          })
 
             wx.showToast({
               title: '提交成功',
