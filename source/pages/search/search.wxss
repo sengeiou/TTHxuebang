@@ -83,33 +83,3 @@ Page{
   padding-right: 10rpx;
 }
 
-.starbox {
-  width: 100rpx;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-}
-
-.stars {
-  position: relative;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.stars2 {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.icon-25 {
-  width: 20rpx;
-  height: 18rpx;
-}
-
-.ims {
-  float: left;
-  white-space: nowrap;
-}

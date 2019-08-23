@@ -1,7 +1,7 @@
 <!--pages/seek/seek.wxml  wx:if='{{type=="jg"}}'-->
 <back-component></back-component>
-<view class=' to_top' >
- <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
+<view class=' to_top'>
+  <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
 </view>
 
 <view wx:if='{{type=="jg"}}'>
@@ -92,31 +92,31 @@
 
             <view class="flex-row flex-center flex-1 ">
               <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
-              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}" ></image>
+              <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}"></image>
             </view>
 
-            <view class=''>
-              <view wx:if="{{item.scoring==5}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+            <view class="starbox text-right">
+              <view class="stars" style="width: 100%;">
+                <view class=" ims">
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                </view>
               </view>
-              <view wx:if="{{item.scoring==4}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==3}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==2}}" class='flex-row flex-center margin-right-20'>
-                <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-              <view wx:if="{{item.scoring==1}}" class='flex-row flex-center margin-right-20'>
-                <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-                <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              </view>
-            </view>
 
+              <view class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                <view class="ims">
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                </view>
+              </view>
+
+            </view>
 
           </view>
 
@@ -233,39 +233,31 @@
 
 
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{vteach}}' wx:key='k'>
-    <image class='kc_icon radius-10'  src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}'></image>
+    <image class='kc_icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}'></image>
     <view class='flex-row column   margin-left-20 flex-1'>
       <view class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</view>
 
-      <view class='flex-row flex-center'>
-
-
-        <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
-          <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+      <view class="starbox text-right">
+        <view class="stars" style="width: 100%;">
+          <view class=" ims">
+            <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+          </view>
         </view>
 
-        <view wx:if="{{item.scoring==4}}" class='flex-row flex-center '>
-          <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
+        <view class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+          <view class="ims">
+            <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+            <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+          </view>
         </view>
 
-        <view wx:if="{{item.scoring==3}}" class='flex-row flex-center '>
-          <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-          <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-        </view>
-
-        <view wx:if="{{item.scoring==2}}" class='flex-row flex-center '>
-          <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-          <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-        </view>
-
-        <view wx:if="{{item.scoring==1}}" class='flex-row flex-center '>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-          <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-        </view>
-
-
-        <view class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</view>
       </view>
 
       <view class='flex-row flex-center flex-1' style=''>
@@ -296,9 +288,9 @@
         <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
         <view class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</view>
         <view class=' txt-red h6 padding-top-10'>￥</view>
-        <view  class=' txt-red txt-bold'>{{item.zuidijia}}</view>
-         
-       
+        <view class=' txt-red txt-bold'>{{item.zuidijia}}</view>
+
+
 
       </view>
 
@@ -386,7 +378,7 @@
 
 <swiper wx:if="{{type=='kc'&&options_show==false}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
   <swiper-item wx:for-index="idx" style="width:360rpx;" wx:for="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
-    <view  class='flex-row'>
+    <view class='flex-row'>
       <view class='flex-1'></view>
       <view class='tipsshow'>
         <view class='flex-row flex-center'>
@@ -395,7 +387,7 @@
           </view>
 
           <view style='width:250rpx;' class='flex-row flex-center'>
-           
+
             <view style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}预约了{{showitem.course_name}}</view>
 
             <!-- <view style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
@@ -425,9 +417,9 @@
       </view>
     </view> -->
 
-    
 
-   
+
+
   </swiper-item>
 </swiper>
 
@@ -445,6 +437,3 @@
   </scroll-view>
 
 </view>
-
-
-
