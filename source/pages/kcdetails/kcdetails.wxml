@@ -51,29 +51,31 @@
               </view>
 
 
-
-
             </view>
 
-            <view wx:if="{{scoring==5}}" style='margin-top:20rpx' class='flex-row flex-center margin-20 '>
-              <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
+            <view class="starbox text-right margin-left-20 margin-top-20">
+              <view class="stars" style="width: 100%;">
+                <view class=" ims">
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                </view>
+              </view>
+
+              <view class="stars2" style="width: {{courseinfo.pingfen==''?courseinfo.scoring*20:courseinfo.pingfen*20}}%">
+                <view class="ims">
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                </view>
+              </view>
+
             </view>
-            <view wx:if="{{scoring==4}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-            </view>
-            <view wx:if="{{scoring==3}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-            </view>
-            <view wx:if="{{scoring==2}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-            </view>
-            <view wx:if="{{scoring==1}}" style='margin-top:20rpx' class='flex-row flex-center margin-20'>
-              <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:32rpx;width:34rpx;'></image>
-            </view>
+
             <view class='flex-row margin-top-5 padding-left-20'>
               <view class="flex-row flex-1">
                 <view class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
@@ -81,15 +83,15 @@
 
 
               <block wx:if="{{!tanchuang}}">
-              <view wx:if="{{courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+                <view wx:if="{{courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
-                <view class='flex-1'></view>
-                <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
-                <view class='h6 margin-left-10'>转发好友</view>
-                <view class='flex-1'></view>
+                  <view class='flex-1'></view>
+                  <image src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'></image>
+                  <view class='h6 margin-left-10'>转发好友</view>
+                  <view class='flex-1'></view>
 
-              </view>
-               </block>
+                </view>
+              </block>
             </view>
 
 
@@ -362,10 +364,10 @@
         <view wx:if="{{!(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)}}" class="flex-row flex-4 ">
           <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
 
-          
+
             <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
 
-             <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
+            <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
 
           </view>
@@ -373,31 +375,31 @@
 
             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
 
-             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
+            <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">发起拼班</view>
 
           </view>
 
           <view class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-1'}}">
-           <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
+            <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
 
-             <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
+            <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
 
             <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">立即购买</view>
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FFA2A4' wx:if="{{canbuy.code=='-1'}}">
-              <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
+            <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
 
-             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
+            <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='-1'}}">发起拼班</view>
 
           </view>
 
 
           <view class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' wx:if="{{canbuy.code=='-2'}}">
-             <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
+            <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
 
-             <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
+            <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='-2'}}">立即购买</view>
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' wx:if="{{canbuy.code=='-2'}}">
@@ -407,17 +409,17 @@
           </view>
 
           <view class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E' wx:if="{{canbuy.code=='-3'}}">
-             <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
+            <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
 
-             <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
+            <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
             <view class='h6 txt-white' wx:if="{{canbuy.code=='-3'}}">立即购买</view>
           </view>
           <view class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' bindtap='opengroup' wx:if="{{canbuy.code=='-3'}}">
-           
 
-               <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
 
-             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
+            <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
+
+            <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
             <view class='h6 txt-white ' wx:if="{{canbuy.code=='-3'}}">发起拼班</view>
 
           </view>
@@ -427,7 +429,7 @@
 
         </view>
 
-  
+
       </view>
     </view>
 

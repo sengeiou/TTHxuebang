@@ -121,9 +121,13 @@
               <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
             </cover-view>
 
+
+            <cover-view style="height:10rpx;"></cover-view>
+
             <cover-view class="starbox text-right  ">
 
-              <cover-view class="stars_2" style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+              <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
+              <cover-view class="stars_2" style="width:100%">
                 <cover-view class="ims "  >
                   <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
                   <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
@@ -133,23 +137,23 @@
                 </cover-view>
               </cover-view>
 
+              <cover-view class="hiddenblock" style="width:{{jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)}}%"></cover-view>
+
               <cover-view class="stars1 " style="width: 100%;">
                  <cover-view class="ims "  >
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
+                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
                 </cover-view>
               </cover-view>
-
-
 
 
             </cover-view>
 
 
-            <cover-view class='flex-row flex-center margin-top-10'>
+            <cover-view class='flex-row flex-center  '>
 
               <cover-view class='flex-row flex-1'>
                 <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>

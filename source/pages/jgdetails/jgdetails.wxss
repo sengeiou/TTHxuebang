@@ -447,13 +447,23 @@
 }
 
 .stars1 {
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  z-index: 12;
+  top: 0;
   left: 0; 
   overflow: hidden;
 }
-
+.hiddenblock{
+ position: absolute;
+ z-index: 12;
+ background: white;
+ float: left; 
+ height: 30rpx;
+ top: 0;
+ right: 0;
+}
 .stars_2 {
+  z-index: 10;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -461,13 +471,11 @@
 }
 .icon-star{
   height: 24rpx;
-  width: 24rpx;  
-  overflow: hidden;
+  width: 24rpx;
+  float: left;    
 }
 
 .ims {
-  float: left;
-   white-space: nowrap;
-  overflow:auto;
+  float: left; 
   /* white-space: nowrap; */
 }

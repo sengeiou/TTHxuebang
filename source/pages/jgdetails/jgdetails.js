@@ -21,7 +21,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-     options.id =  15 ;
+    // options.id =  15 ;
     super.onLoad(options);
     var that = this;
     wx.getSystemInfo({

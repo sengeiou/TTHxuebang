@@ -33,7 +33,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    // options.id=26;
     super.onLoad(options);
     this.Base.setMyData({
       show: "kcxq",
