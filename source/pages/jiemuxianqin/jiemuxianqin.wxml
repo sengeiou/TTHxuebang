@@ -41,9 +41,9 @@
   <view class="txt-bold" style="color:#555555">图片展示</view>
 
   <view class="height-40"></view>
-  <image wx:if="{{yulan!=undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item.tupian}}" class="jgtupian" mode="scaleToFill" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item.tupian}}"></image>
+  <image wx:if="{{yulan!=undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item.tupian}}" class="jgtupian" mode="widthFix" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item.tupian}}"></image>
 
-  <image wx:if="{{yulan==undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item}}" class="jgtupian" mode="scaleToFill" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item}}"></image>
+  <image wx:if="{{yulan==undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item}}" class="jgtupian" mode="widthFix" wx:for="{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item}}"></image>
 
 
 </view>
