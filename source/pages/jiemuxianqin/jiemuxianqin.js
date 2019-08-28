@@ -109,7 +109,7 @@ class Content extends AppBase {
 
       if (zige.length == 0) {
         api.toupiao({
-          jiemu_id: e.currentTarget.id
+          jiemu_id: that.Base.options.id
         }, (res) => {
 
           if (res.code == 0) {
@@ -118,6 +118,10 @@ class Content extends AppBase {
               icon: 'none',
             })
             that.onMyShow();
+          } 
+          else{
+            that.Base.info(res.result);
+            
           }
         })
       } else {
@@ -137,6 +141,7 @@ class Content extends AppBase {
 
   }
   tijiao() {
+    var that = this;
     var json = JSON.parse(this.Base.options.json);
     var huodonapi = new HuodonApi();
     console.log(json);
@@ -151,7 +156,7 @@ class Content extends AppBase {
 
         wx.showModal({
           title: '提示',
-          content: 报名成功,
+          content: "报名成功",
           confirmText: "我知道了",
           confirmColor: '#FF6600',
           showCancel: false,
@@ -168,6 +173,9 @@ class Content extends AppBase {
 
        
 
+      }
+      else{
+      that.Base.info(res.result);
       }
 
 

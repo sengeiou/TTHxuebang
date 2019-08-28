@@ -72,7 +72,7 @@ class Content extends AppBase {
     huodonapi.huodoninfo({ id: this.Base.options.id }, (huodoninfo) => {
       this.Base.setMyData({ huodoninfo });
     })
-    instapi.saiqu({}, (saiqu) => {
+    instapi.saiqu({huodon_id:this.Base.options.id}, (saiqu) => {
       this.Base.setMyData({ saiqu });
 
     })
@@ -155,6 +155,12 @@ class Content extends AppBase {
       this.Base.info("请填写联系方式");
       return
     }
+    if (xuanyan=='')
+    {
+      this.Base.info("请填写参赛宣言");
+      return
+
+    }
     if (index == undefined) {
       this.Base.info("请填写报名赛区");
       return
@@ -196,7 +202,7 @@ class Content extends AppBase {
       if (res.code == 0) {
         wx.showModal({
           title: '提示',
-          content: 报名成功,
+          content: '报名成功,请等待管理员审核',
           confirmText: "我知道了",
           confirmColor: '#FF6600',
           showCancel: false,

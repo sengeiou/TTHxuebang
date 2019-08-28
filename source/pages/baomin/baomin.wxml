@@ -15,24 +15,22 @@
           <view class="flex-1"></view>
           <view class="txt-bold " style="width:350rpx;">{{huodoninfo.activityName}}</view>
 
-
-          <view class="flex-row margin-top  flex-center">
-            <view class="f-22" style="color:#555555" style="width:70rpx;">时间:</view>
-            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;"> {{huodoninfo.activityTime}}</view>
-          </view>
-
-          <view class="flex-row flex-center   margin-top-20">
-            <view class="f-22" style="color:#555555" style="width:70rpx;">地址:</view>
-            <view class="f-26 txt-bold margin-left-10" style="color:#555555;width:280rpx;">{{huodoninfo.activitySite}}</view>
-          </view>
-
-
-
         </view>
 
 
       </view>
+  <view class="padding-20">
+        <view class="flex-row  flex-center">
+          <view class="f-22" style="color:#555555">时间</view>
+          <view class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.activityTime}}</view>
+         
+        </view>
+        <view class="flex-row  flex-center margin-top-20">
+          <view class="f-22" style="color:#555555">地址:</view>
+          <view class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.activitySite}}</view>
+        </view>
 
+      </view>
 
 
       <view class="toupiao">报名截止时间： {{huodoninfo.apply_endTime}} 23:59</view>
@@ -52,7 +50,7 @@
           <view class='flex-row flex-center '>
             <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>节目人数：</view>
-            <input class='  ' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'></input>
+            <input class=' ' type='number' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'></input>
           </view>
         </view>
         <view class='padding-mid' style=''>
@@ -66,7 +64,7 @@
           <view class='flex-row flex-center '>
             <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>联系方式：</view>
-            <input class='  ' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'></input>
+            <input class='  ' type='number' maxlength='11' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'></input>
           </view>
         </view>
 
@@ -92,7 +90,7 @@
         </view>
         <view class='padding-mid' style=''>
           <view class='flex-row  '>
-            <view class='jl' style='color:#FF5252'></view>
+            <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>参赛宣言：</view>
             <textarea class='  ' placeholder-class='pc' bindinput="xuanyan" name='jigou' style='' placeholder='请输入参赛宣言'></textarea>
           </view>
@@ -107,7 +105,7 @@
 
           <image src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg' wx:if="{{fenmian==''}}" class='icon-img'></image>
 
-          <image mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' wx:if="{{fenmian!=''}}" class='icon-img'></image>
+          <image mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' bindtap='jguploadimg' wx:if="{{fenmian!=''}}" class='icon-img'></image>
 
 
         </view>

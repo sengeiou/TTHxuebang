@@ -165,7 +165,7 @@ export class AppBase {
         console.log("真的牛皮你");
         console.log(res); 
             AppBase.System=res.system;
-            AppBase.model=res.model;
+        AppBase.Model=res.model;
             
           
       }
@@ -504,7 +504,7 @@ export class AppBase {
 
         var citycode = address.ad_info.adcode.substr(0, 4) + "00";
 
-        this.Base.setMyData({ adcode: address.ad_info.adcode });
+        this.Base.setMyData({ adcode: address.ad_info.adcode, citycode });
   
         if (AppBase.CITYSET == false) {
 

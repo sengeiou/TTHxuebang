@@ -12,10 +12,10 @@ margin-top:-20rpx;
 .center{
  width:95vw;
  background: white;
- height: 180rpx;
+ height: 220rpx;
  border-radius: 10rpx;
 
 }
 .height-160{
-  height: 170rpx;
+  height: 210rpx;
 }

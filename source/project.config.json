@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 69,
+			"current": 67,
 			"list": [
 				{
 					"id": 0,
@@ -498,10 +498,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 64,
 					"name": "活动详情",
 					"pathName": "pages/huodoninfo/huodoninfo",
-					"query": "id=1",
+					"query": "id=3",
 					"scene": null
 				},
 				{
@@ -519,10 +519,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 67,
 					"name": "节目预览",
 					"pathName": "pages/jiemuxianqin/jiemuxianqin",
-					"query": "json={\"huodon_id\":\"1\",\"name\":\"1\",\"renshu\":\"1\",\"laoshi\":\"1\",\"lianxifanshi\":\"1\",\"jigou\":\"1\",\"xuanyan\":\"1\",\"saiqu_id\":\"2\",\"fenmian\":\"04de0c1f5ffc81796fe28cdffa4cce57_19082118058_566434558.png\",\"tupian\":[\"59d8fcde54a3d36a3cfd4e089e1b001d_19082118002_1637018213.png\",\"cf2acb420b9b314c14b007e5426ccd3b_19082118002_1949403445.png\",\"2d157cc8d946cb5302211d954d2bd9e0_19082118002_1169129829.png\",\"22ec30794c8116e7e68da3f2486320cf_19082118002_1785632508.png\"]}",
+					"query": "json=%7B%22huodon_id%22%3A%223%22%2C%22name%22%3A%2212%22%2C%22renshu%22%3A%22312%22%2C%22laoshi%22%3A%221241%22%2C%22lianxifanshi%22%3A%22123%22%2C%22jigou%22%3A%22123%22%2C%22xuanyan%22%3A%22123%22%2C%22saiqu_id%22%3A%221%22%2C%22fenmian%22%3A%22133feeff1de48e43678c600df56e7e27_19082314010_862415438.png%22%2C%22tupian%22%3A%5B%22d15b6cbb64a28e0466e2ef5622d86e69_19082314016_1037133112.png%22%2C%2296e9dbc0e226c38aeb2ee3421b9c2c3a_19082314016_1015283301.png%22%2C%2279246ea56c0f5045df9b1ea1c693cdbe_19082314016_133371966.png%22%5D%7D",
 					"scene": null
 				},
 				{
