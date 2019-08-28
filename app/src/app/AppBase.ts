@@ -132,6 +132,16 @@ export class AppBase implements OnInit {
 
         });
     }
+    shouye(){
+        
+  
+
+ 
+    this.navigate("/tabs/tab1");
+ 
+   
+
+    }
     getResources() {
         if (AppBase.Resources == null) {
             AppBase.instapi.resources({}, false).then((res) => {

@@ -14,7 +14,17 @@
     @return ($px * 100vw) / 750;
   }
 
-
+  .backhome {
+    position: fixed;
+    bottom: 17%;
+    right: rpx(6) ;
+    z-index: 9999;
+  }
+  .icon-50 {
+    width: (132);
+    height: rpx(132);
+    }
+  
 
 /* .ceshi{
   border:1px solid red;

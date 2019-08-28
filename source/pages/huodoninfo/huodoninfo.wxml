@@ -52,6 +52,8 @@
 
       </view>
 
+      <view class="padding-20 f-26" style="padding-top:0rpx;padding-bottom:0rpx;color:#FF6600">点击图片可查看节目详情</view>
+
 
 
 
@@ -100,11 +102,11 @@
   <view class='guize bg-white flex-row flex-column'>
 
     <view class='txt-bold margin-top' style='font-size:40rpx'>投票规则</view>
-
-    <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+ <view style="height:500rpx;padding:0rpx 60rpx 0rpx 60rpx;">
+    <text  style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
        {{guizezon}} 
       </text>
-
+</view>
     <view class='' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
     <view class="height-40"></view>
   </view>

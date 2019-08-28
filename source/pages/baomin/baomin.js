@@ -26,7 +26,9 @@ class Content extends AppBase {
       lianxifanshi: '',
       jigou: '',
       xuanyan: '',
-
+     
+        guize: false
+      
 
     })
   }
@@ -76,6 +78,24 @@ class Content extends AppBase {
       this.Base.setMyData({ saiqu });
 
     })
+    instapi.guize({
+      type: 'K' ,activity_id: this.Base.options.id
+    }, (guize) => {
+      var guizezon = '';
+      guize.map((item) => {
+
+        guizezon += item.guize + '\n';
+
+      })
+
+      this.Base.setMyData({
+        guize,
+        guizezon
+      })
+
+
+
+    })
 
   }
 
@@ -100,6 +120,11 @@ class Content extends AppBase {
     }, 9, undefined);
 
 
+  }
+  closetanchuang() {
+    this.Base.setMyData({
+      guize: false
+    })
   }
   deleteimg(e) {
 
@@ -295,7 +320,10 @@ class Content extends AppBase {
 
   }
   baomin(){
+   
+this.Base.setMyData({guize:true});
 
+  return
   wx.navigateTo({
     url: '/pages/tiaokuan/tiaokuan',
   })
@@ -319,6 +347,7 @@ body.laoshi = content.laoshi;
 body.lianxifanshi = content.lianxifanshi;
 body.jigou = content.jigou;
 body.xuanyan = content.xuanyan;
+body.closetanchuang = content.closetanchuang;
 body.tijiao = content.tijiao;
 body.bindsaiquChange = content.bindsaiquChange;
 body.yulan = content.yulan;
