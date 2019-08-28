@@ -187,6 +187,9 @@ export class AppBase implements OnInit {
             console.log("aaaa",this.MemberInfo);
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
+
+            
+
             this.onMyShow();
         }
         
@@ -222,6 +225,10 @@ export class AppBase implements OnInit {
         }
         this.isbacking = true;
         //alert(this.Params.fromtab);
+        if(history.length<2){
+            this.navCtrl.navigateBack('tabs/tab1' );
+            return;
+        }
         if (this.params.fromtab != undefined) {
             this.navCtrl.navigateBack('tabs/' + this.params.fromtab);
         } else {
