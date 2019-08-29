@@ -45,7 +45,8 @@
     <image class="icon-60 radius-50" src="{{item.avatarUrl}}"></image>
     <view class="margin-left-20">
       <view class="flex-row flex-center">
-        <view class="h6 chaochu taichan">{{item.nickName}}</view>
+        <view wx:if="{{item.nickName!=''}}" class="h6 chaochu taichan">{{item.nickName}}</view>
+            <view wx:if="{{item.nickName==''}}" class="h6 chaochu taichan">未授权用户</view>
         <view wx:if="{{item.istuiguanyuan=='1'}}" class="biaoqian margin-left-10">学榜大使</view>
       </view>
       <view class="flex-row flex-center margin-top-20">
