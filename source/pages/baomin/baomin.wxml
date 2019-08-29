@@ -88,7 +88,7 @@
             <input class='  ' placeholder-class='pc' bindinput="jigou" name='jigou' style='' placeholder='请输入机构名称'></input>
           </view>
         </view>
-        <view class='padding-mid' style=''>
+        <view wx:if='{{guize!=true}}' class='padding-mid' style=''>
           <view class='flex-row  '>
             <view class='jl' style='color:#FF5252'>*</view>
             <view class='font-30   txt-black margin-left-10 width-210'>参赛宣言：</view>
@@ -174,4 +174,21 @@
 
 
   <view class="height-70"></view>
+</view>
+
+
+<view wx:if='{{guize==true}}' catchtouchmove="true" class="block_black"></view>
+<view   class=' gz ' wx:if='{{guize==true}}'>
+  <view class='guize bg-white flex-row flex-column'>
+
+    <view class='txt-bold margin-top' style='font-size:40rpx'>报名条款</view>
+ <view style="height:500rpx;padding:0rpx 60rpx 0rpx 60rpx;">
+    <text  style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+       {{guizezon}} 
+      </text>
+</view>
+    <view class='' style='color:#FF6600' bindtap='closetanchuang'>我知道了</view>
+    <view class="height-40"></view>
+  </view>
+
 </view>

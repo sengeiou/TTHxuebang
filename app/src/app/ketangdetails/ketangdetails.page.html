@@ -182,43 +182,7 @@
       </div>
 
     </div>
-    <div *ngIf="liebiao">
-        <div class="4564das" [style.background-image]="'url('+uploadpath+'resource/'+res.shipinbg+')'"
-        style='background-size:100% 100%;'>
-      <div class="padding-20 flex-row flex-center">
-        <div class="flex-1">{{danqianzhanjie.classroom_id_name}}</div>
-        <div (click)="guanbiliebiao()" class="cs wh120">
-
-        </div>
-        <img (click)="guanbiliebiao()" src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-15' />
-      </div>
-      <div class="gd scroll-y">
-        <div class=" padding-10 flex-row flex-center flex-wrap">
-
-          <div *ngFor="let item of zhanjie;let idx=index;" (click)='qiehuanzhanjie(idx)'
-            class='kecheng-block flex-row flex-column'>
-            <div class="{{item.dq==true?'bk':''}}">
-              <img class='mulu1' src='{{uploadpath}}onlineclassroomdirectory/{{item.cover}}' />
-              <div class="chaochu2 kuan1">{{item.name}}</div>
-              <div *ngIf="kecheninfo.isfree_value=='N'||kecheninfo.idd!=''" style="position: relative;">
-
-                <div *ngIf="item.isproved_value=='N'&&kecheninfo.idd==''" class="h7 fufei1">付费</div>
-                <div *ngIf="item.isproved_value=='Y'&&kecheninfo.idd==''" class="h7 mianfei1">试看</div>
-                <div *ngIf="kecheninfo.idd!=''" class="h7 mianfei1">已购</div>
-
-              </div>
-              <div  style="position: relative;">
-                <img *ngIf="danqianzhanjie.id==item.id&&spbf" src='{{uploadpath}}resource/{{res.spzantin}}' class='zt1' />
-                <img *ngIf="!(danqianzhanjie.id==item.id&&spbf)" src='{{uploadpath}}resource/{{res.spbofan}}'
-                  class='zt1' />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-</div>
-    </div>
+  
 
 
    
@@ -340,4 +304,10 @@
       <div class='flex-1'></div>
     </div>
   </div>
+</div>
+
+
+
+<div class='backhome'>
+  <img src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' (click)='shouye()'/>
 </div>

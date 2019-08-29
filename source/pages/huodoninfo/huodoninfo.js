@@ -42,7 +42,7 @@ class Content extends AppBase {
 
     })
     instapi.guize({
-      type: 'G'
+      type: 'G', activity_id:this.Base.options.id
     }, (guize) => {
       var guizezon = '';
       guize.map((item) => {

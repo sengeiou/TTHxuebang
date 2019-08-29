@@ -79,7 +79,7 @@ class Content extends AppBase {
   next(sx) {
     var id = sx;
     console.log(id + "谷歌");
-
+   
     var ck = this.Base.getMyData().ck;
     console.log(ck + "苹果");
 

@@ -23,7 +23,7 @@ class Content extends AppBase {
   jglist = [];
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '找课程',
+      title: '找机构',
     });
   }
   onLoad(options) {
