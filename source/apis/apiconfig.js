@@ -17,7 +17,7 @@ export class ApiConfig {
   
   static GetApiUrl() {
   // return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
-   return "https://tthxb.artxb.cn/api/";
+  return "https://tthxb.artxb.cn/api/";
   }
   
   //tthxb.artxb.cn/api
