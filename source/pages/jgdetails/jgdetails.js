@@ -82,7 +82,7 @@ class Content extends AppBase {
 
       jigouapi.courselist({
         jg_id: jginfo.id,
-        orderby: 'r_main.id'
+        orderby: 'r_main.seq'
       }, (courselist) => {
 
         console.log('13213213', courselist);
