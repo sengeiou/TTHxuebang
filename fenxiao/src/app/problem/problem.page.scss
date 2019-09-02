@@ -1,0 +1,19 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+  
+
+
+ion-content{
+    --background:#f5f5f5
+    }
+
+
+  .icon{
+    width:  rpx(24);
+    height: rpx(14);
+  }
+  .icon2{
+    width: rpx(14);
+    height:rpx(24);
+  }
