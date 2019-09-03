@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/xuebang/xuebang",
     "pages/auth/auth",
     "pages/baomin/baomin",
     "pages/jiaoyixinxi/jiaoyixinxi",
