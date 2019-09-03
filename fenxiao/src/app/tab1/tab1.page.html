@@ -28,122 +28,122 @@
 
     </div> -->
 
-    <div (click)='switchtype(item.id,item.name)' *ngFor='let item of fenleilist;let idx=index;' style='width:18vw'
-      class='flex-row  flex-column  '>
+    <div class=''>
+      <div style=" " class='ss1 scroll-x'>
+        <div class="flex-row flex-center " [ngStyle]="{'width.px': fenleilist.length*35*rad }">
+          <div *ngFor='let item of fenleilist;let idx=index' (click)="qiehuanzhanjie(idx)">
 
-      <img src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50' />
-      <div class='h6 margin-top-12 '>{{item.name}}22</div>
+            <div *ngIf="idx<zhon">
+              <div class="ceshi  flex-row  flex-column">
 
-    </div>
+                <img src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50' />
+                <div class='h6 margin-top-12 '>{{fenleilist[idx].typename}}</div>
 
-
-  </div>
-
-
-
-
-  <div *ngIf="xz==-2" class='text-center f18 txt-bold margin-top'>
-    最新上架
-  </div>
-  <div *ngIf="xz==-2" class='flex-row flex-center flex-wrap padding-bottom-40'>
-    <div (click)="kechenxianqin(item.onlineclassroom_id)" class='kecheng-block ' *ngFor='let item of zuixin'>
-
-      <div style=''>
-        <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
-      </div>
-
-      <div class='padding-12'>
-        <div class=' txt-bold chaochu'>{{item.onlineclassroom_name}}</div>
+              </div>
 
 
+              <div class="ceshi  flex-row  flex-column">
 
-        <div class='flex-row flex-center margin-top-14'>
-          <div class='flex-row flex-center'>
-            <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
-            <div class=' f20 margin-left-10'>{{item.onlineclassroom_age_name}}</div>
-          </div>
+                <img src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50' />
+                <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
 
-          <div class='flex-row flex-center margin-left-26'>
-            <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
-            <div class=' f20 margin-left-10'>共{{item.onlineclassroom_chapter_num}}集</div>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
 
       </div>
-      <div *ngIf="item.onlineclassroom_isfree!='Y'&&item.idd=='N'"
-        class='margin-left-10 dd flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.onlineclassroom_learning_num}}人学过</div>
-        <div class='margin-top-4 f20 txt-gray  xhx'>￥{{item.onlineclassroom_originalprice}}</div>
-        <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
-        <div class=' txt-red xg' style=''>{{item.onlineclassroom_price}}</div>
-      </div>
-
-      <div *ngIf="item.onlineclassroom_isfree=='Y'&&item.idd=='N'"
-        class='margin-left -10 flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray  flex-1 '>{{item.onlineclassroom_learning_num}}人学过</div>
-        <div class="mianfei">免费课程</div>
-      </div>
-      <div *ngIf="item.idd!='N'" class='margin-left-10 flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray  flex-1 '>{{item.onlineclassroom_learning_num}}人学过</div>
-        <div class="yigou">已购</div>
-      </div>
-
     </div>
+
+
+
+
+
+
   </div>
+   
+  <div class="sx flex-row flex-center">
 
-
-
-
-  <div class='text-center f18 txt-bold {{xz==-2?"":"margin-top"}} '>
-    {{name}}
+<div class="flex-1 h5 text-center">热销</div>
+<div class="flex-1 h5 text-center">最新</div>
+<div class="flex-1 h5 text-center">离我最近</div>
+<div class="flex-1 h5 text-center">佣金最高</div>
+    
   </div>
+    
 
-
-  <div class='flex-row flex-center flex-wrap padding-bottom-40'>
-    <div (click)="kechenxianqin(item.id)" data-id='{{item.id}}' class='kecheng-block ' *ngFor='let item of xzlist'>
-
-      <div style=''>
-        <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}' />
-      </div>
-
-      <div class='padding-12'>
-        <div class=' txt-bold chaochu'>{{item.name}}</div>
-
-
-
-        <div class='flex-row flex-center margin-top-14'>
-          <div class='flex-row flex-center'>
-            <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
-            <div class=' f20 margin-left-10'>{{item.age_name}}</div>
+  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' *ngFor='let item of vteach;let idx=index' >
+      <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
+      <div class='flex-row column   margin-left-20 flex-1'>
+        <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</div>
+  
+        <div class="starbox text-right">
+          <div class="stars" style="width: 100%;">
+            <div class=" ims">
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+            </div>
           </div>
-
-          <div class='flex-row flex-center margin-left-26'>
-            <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
-            <div class=' f20 margin-left-10'>共{{item.chapter_num}}集</div>
+  
+          <div class="stars2">
+            <div class="ims">
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+            </div>
           </div>
+  
         </div>
-
-
+  
+        <div class='flex-row flex-center flex-1' style=''>
+  
+  
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'/>
+            <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+          </div>
+  
+  
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'/>
+            <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+          </div>
+  
+  
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10'/>
+            <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+          </div>
+  
+  
+        </div>
+  
+  
+        <div class='flex-row flex-center flex-1'>
+          <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}/'>
+          <div class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</div>
+          <div class=' txt-red h6 padding-top-10'>￥</div>
+          <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
+  
+  
+  
+        </div>
+  
+        <div class='flex-row flex-center'>
+          <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
+          <div class='h6 txt-black txt-bold'>{{item.miletxt}}</div>
+        </div>
+  
       </div>
-      <div *ngIf="item.isfree_value!='Y'&&item.idd=='N'" class='margin-left-10 dd flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</div>
-        <div class='margin-top-4 f20 txt-gray  xhx'>￥{{item.originalprice}}</div>
-        <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
-        <div class=' txt-red xg' style=''>{{item.price}}</div>
-      </div>
-
-      <div *ngIf="item.isfree_value=='Y'&&item.idd=='N'" class='margin-left -10 flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</div>
-        <div class="mianfei ">免费课程</div>
-      </div>
-      <div *ngIf="item.idd!='N'" class='margin-left-10 flex-row flex-center margin-top-12'>
-        <div class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</div>
-        <div class="yigou">已购</div>
-      </div>
-
+  
     </div>
-
-  </div>
-
+  
 </ion-content>

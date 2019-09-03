@@ -11,7 +11,26 @@ ion-content{
   padding-right: rpx(32);
  
 }
-
+.ceshi {
+  width: 19vw;
+  padding-top: rpx(16);
+  padding-bottom: rpx(16);
+  padding-right: rpx(10);
+  border-radius: rpx(20);
+  
+}
+.mid{
+  width: 85.5%;
+  height:  rpx(196);
+  margin-top:  rpx(30);
+  /* opacity: 0.8; */
+  box-shadow: 1px 1px 5px #dfdfdf;
+}
+.sx{
+  width: 100vw;
+  height: rpx(80);
+  background: #FFC200;
+}
 .search_icon {
   width: rpx(35);
   height: rpx(30);
@@ -21,7 +40,10 @@ ion-content{
   border-radius: rpx(30);
   background-color: #F9FAFB;
 }
-
+.ss1 {
+  width: 100vw;
+  height: rpx(370);
+}
 /* .gd{
   height: 70rpx;
 } */
