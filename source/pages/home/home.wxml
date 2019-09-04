@@ -89,9 +89,7 @@
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </swiper-item>
     </swiper>
-
-
-
+ 
   </view>
 </view>
 
@@ -100,10 +98,10 @@
   <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
     <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view>
-  <view class='flex-1 flex-row flex-column' style="height: 354rpx;">
+  <view class='flex-1 flex-row flex-column' style="height: 358rpx;">
     <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image>
     <view class="flex-1"></view>
-    <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style=''></image>
+    <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style='' style="margin-bottom:6rpx"></image>
   </view>
 </view>
 
@@ -226,7 +224,7 @@
 
                 </view>
 
-                <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
+                <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
 
                 <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==true}}' bindtap='showtc'>已打卡</view>
 
