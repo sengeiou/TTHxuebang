@@ -1,0 +1,37 @@
+
+
+<ion-content>
+
+    <div class=''>
+        <div style=" " class='ss1 scroll-x'>
+          <div class="flex-row flex-center " [ngStyle]="{'width.px': fenleilist.length*35*rad }">
+            <div *ngFor='let item of fenleilist;let idx=index'>
+  
+              <div *ngIf="idx<zhon">
+                <div (click)="qiehuanzhanjie(idx)" class="ceshi  flex-row  flex-column">
+  
+                  <img src='{{uploadpath}}onlineclassroomtype/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
+               
+                  <div class='h6 margin-top-12 '>{{fenleilist[idx].name}}</div>
+  
+                </div>
+  
+  
+                <div (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
+  
+                  <img src='{{uploadpath}}onlineclassroomtype/{{fenleilist[idx+zhon].img}}' class='icon-50 radius-50' />
+                  <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
+  
+                </div>
+  
+              </div>
+  
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+  
+
+</ion-content>

@@ -7,9 +7,28 @@ ion-content{
   }
 .menu-padding {
   padding-left: rpx(32);
-  padding-top: rpx(28);
+  
   padding-right: rpx(32);
  
+}
+.fxsousuo{
+  width: rpx(120);
+  height: rpx(60);
+}
+.padding-50{
+  padding:rpx(50);
+}
+.hqhb{
+ height: rpx(52);
+ width: rpx(160);
+ background: #FF6600;
+ color:#FFFFFF;
+ line-height: rpx(52);
+ text-align: center;
+ font-size: rpx(24);
+ border-radius: rpx(40);
+
+
 }
 .ceshi {
   width: 19vw;
@@ -19,6 +38,10 @@ ion-content{
   border-radius: rpx(20);
   
 }
+.kc_icon {
+  width: rpx(228);
+  height: rpx(224);
+}
 .mid{
   width: 85.5%;
   height:  rpx(196);
@@ -26,14 +49,29 @@ ion-content{
   /* opacity: 0.8; */
   box-shadow: 1px 1px 5px #dfdfdf;
 }
+.xianshi{
+height: rpx(520);
+
+}
+.sj{
+border-radius:rpx(10);
+width: rpx(52);
+height: rpx(52);
+background: #222222;
+color:#FFFFFF;
+font-size: rpx(24);
+line-height: rpx(52);
+text-align: center;
+
+}
 .sx{
   width: 100vw;
   height: rpx(80);
   background: #FFC200;
 }
 .search_icon {
-  width: rpx(35);
-  height: rpx(30);
+  width: rpx(40);
+  height: rpx(35);
 }
 .search {
 
@@ -50,7 +88,7 @@ ion-content{
 .margin-top-12 {
   margin-top: rpx(12);
 }
-chaochu2{
+.chaochu2{
   overflow:hidden; 
 
 text-overflow:ellipsis; 
@@ -61,6 +99,11 @@ display:-webkit-box;
 
 -webkit-line-clamp:2; 
 
+}
+.kecheng1{
+  width:90vw;
+  margin-left:5vw;
+  margin-top:rpx(20);
 }
 .kecheng-block {
   width: rpx(330);

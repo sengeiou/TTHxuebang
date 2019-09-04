@@ -1,0 +1,21 @@
+
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+
+
+.ss1 {
+    width: 100vw;
+    height: rpx(370);
+  }
+  .ceshi {
+    width: 24vw;
+    padding-top: rpx(16);
+    padding-bottom: rpx(16);
+    padding-right: rpx(10);
+    border-radius: rpx(20);
+    
+  }
+  .margin-top-12 {
+    margin-top: rpx(12);
+  }

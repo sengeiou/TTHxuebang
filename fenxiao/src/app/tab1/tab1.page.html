@@ -3,11 +3,11 @@
 
 
 
-  <div class="padding-20  flex-row flex-center">
+  <div class="padding-10  bg-white flex-row flex-center">
 
-    <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
+    <img class='fxsousuo' src='{{uploadpath}}resource/{{res.fxsousuo}}' />
 
-    <div class=" flex-1 search padding-20 flex-row flex-center">
+    <div class=" flex-1 search padding-10 flex-row flex-center">
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
       <div class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</div>
     </div>
@@ -31,20 +31,21 @@
     <div class=''>
       <div style=" " class='ss1 scroll-x'>
         <div class="flex-row flex-center " [ngStyle]="{'width.px': fenleilist.length*35*rad }">
-          <div *ngFor='let item of fenleilist;let idx=index' (click)="qiehuanzhanjie(idx)">
+          <div *ngFor='let item of fenleilist;let idx=index'>
 
             <div *ngIf="idx<zhon">
-              <div class="ceshi  flex-row  flex-column">
+              <div (click)="qiehuanzhanjie(idx)" class="ceshi  flex-row  flex-column">
 
-                <img src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50' />
+                <img *ngIf="idx!=0" src='{{uploadpath}}coursetype/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
+                <img *ngIf="idx==0" src='{{uploadpath}}resource/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
                 <div class='h6 margin-top-12 '>{{fenleilist[idx].typename}}</div>
 
               </div>
 
 
-              <div class="ceshi  flex-row  flex-column">
+              <div (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
 
-                <img src='{{uploadpath}}onlineclassroomtype/{{item.img_wx}}' class='icon-50 radius-50' />
+                <img src='{{uploadpath}}coursetype/{{fenleilist[idx+zhon].img}}' class='icon-50 radius-50' />
                 <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
 
               </div>
@@ -64,86 +65,184 @@
 
 
   </div>
-   
-  <div class="sx flex-row flex-center">
 
-<div class="flex-1 h5 text-center">热销</div>
-<div class="flex-1 h5 text-center">最新</div>
-<div class="flex-1 h5 text-center">离我最近</div>
-<div class="flex-1 h5 text-center">佣金最高</div>
-    
-  </div>
-    
+  <div class="xianshi" style="background-size:100% 100%;"
+    [style.background-image]="'url('+uploadpath+'resource/'+res.xianshifuli+')'">
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' *ngFor='let item of vteach;let idx=index' >
+    <div class="flex-row flex-center padding-50">
+      <div class="flex-1"></div>
+      <div class="h5 txt-bold">距结束</div>
+      <div class="sj margin-left-20">23</div>
+      <div class="padding-5">:</div>
+      <div class="sj">59</div>
+      <div class="padding-5">:</div>
+      <div class="sj">59</div>
+    </div>
+    <div id='{{item.id}}' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
+      *ngFor='let item of huodon;let idx=index'>
       <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
       <div class='flex-row column   margin-left-20 flex-1'>
         <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</div>
-  
+
+
+        <div class="flex-row flex-center">
+          <div class="starbox text-right">
+            <div class="stars" style="width: 100%;">
+              <div class=" ims">
+                <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              </div>
+            </div>
+
+            <div class="stars2">
+              <div class="ims">
+                <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="h7 margin-left-20 margin-top-5" style="color:#FF5733">368人已购课</div>
+        </div>
+        <div class='flex-row flex-center flex-1' style=''>
+
+
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+          </div>
+
+
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+          </div>
+
+
+          <div class='flex-row flex-center flex-1'>
+            <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+          </div>
+
+
+        </div>
+
+        <div class="flex-row flex-center">
+
+          <div style="color:#FA2020">￥39.9</div>
+          <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥299</div>
+        </div>
+        <div class="flex-row flex-center">
+
+          <div class="flex-row ">
+            <div class="h6 ">佣金:</div>
+            <div class="h6" style="color:#FA2020">￥35.9</div>
+          </div>
+          <div class="flex-1"></div>
+          <div class="hqhb">获取海报</div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="flex-row flex-center margin-top-20">
+      <div class="flex-1"></div>
+      <div class="h6 " style="color:white">查看更多限时福利</div>
+      <img class='icon-10 margin-left-10 radius-10' src="{{uploadpath}}resource/{{res.xianshixia}}" />
+      <div class="flex-1"></div>
+    </div>
+  </div>
+
+  <div class="sx flex-row flex-center">
+
+    <div class="flex-1 h5 text-center">热销</div>
+    <div class="flex-1 h5 text-center">最新</div>
+    <div class="flex-1 h5 text-center">离我最近</div>
+    <div class="flex-1 h5 text-center">佣金最高</div>
+
+  </div>
+
+
+  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
+    *ngFor='let item of vteach;let idx=index'>
+    <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
+    <div class='flex-row column   margin-left-20 flex-1'>
+      <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</div>
+
+
+      <div class="flex-row flex-center">
         <div class="starbox text-right">
           <div class="stars" style="width: 100%;">
             <div class=" ims">
-              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
             </div>
           </div>
-  
+
           <div class="stars2">
             <div class="ims">
-              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
-              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star"/>
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
             </div>
           </div>
-  
+
         </div>
-  
-        <div class='flex-row flex-center flex-1' style=''>
-  
-  
-          <div class='flex-row flex-center flex-1'>
-            <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'/>
-            <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
-          </div>
-  
-  
-          <div class='flex-row flex-center flex-1'>
-            <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'/>
-            <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
-          </div>
-  
-  
-          <div class='flex-row flex-center flex-1'>
-            <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10'/>
-            <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
-          </div>
-  
-  
-        </div>
-  
-  
-        <div class='flex-row flex-center flex-1'>
-          <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}/'>
-          <div class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</div>
-          <div class=' txt-red h6 padding-top-10'>￥</div>
-          <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
-  
-  
-  
-        </div>
-  
-        <div class='flex-row flex-center'>
-          <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
-          <div class='h6 txt-black txt-bold'>{{item.miletxt}}</div>
-        </div>
-  
+
+        <div class="h7 margin-left-20 margin-top-5" style="color:#FF5733">368人已购课</div>
       </div>
-  
+      <div class='flex-row flex-center flex-1' style=''>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+        </div>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+        </div>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+        </div>
+
+
+      </div>
+
+      <div class="flex-row flex-center">
+
+        <div style="color:#FA2020">￥39.9</div>
+        <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥299</div>
+      </div>
+      <div class="flex-row flex-center">
+
+        <div class="flex-row ">
+          <div class="h6 ">佣金:</div>
+          <div class="h6" style="color:#FA2020">￥35.9</div>
+        </div>
+        <div class="flex-1"></div>
+        <div class="hqhb">获取海报</div>
+      </div>
+
     </div>
-  
+
+  </div>
+
 </ion-content>

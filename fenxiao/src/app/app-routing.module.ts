@@ -9,7 +9,9 @@ const routes: Routes = [
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
   { path: 'problem', loadChildren: './problem/problem.module#ProblemPageModule' },
   { path: 'ketan', loadChildren: './ketan/ketan.module#KetanPageModule' },
-  { path: 'ketaninfo', loadChildren: './ketaninfo/ketaninfo.module#KetaninfoPageModule' }
+  { path: 'ketaninfo', loadChildren: './ketaninfo/ketaninfo.module#KetaninfoPageModule' },  { path: 'wxauthlogin', loadChildren: './wxauthlogin/wxauthlogin.module#WxauthloginPageModule' },
+  { path: 'zaixianketan', loadChildren: './zaixianketan/zaixianketan.module#ZaixianketanPageModule' }
+
 ];
 @NgModule({
   imports: [
