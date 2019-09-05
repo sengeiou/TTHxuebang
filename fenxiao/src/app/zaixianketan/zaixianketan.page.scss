@@ -2,11 +2,13 @@
 @function rpx($px) {
     @return ($px * 100vw) / 750;
   }
-
+  ion-content{
+    --background:#F5F6F8;
+    }
 
 .ss1 {
     width: 100vw;
-    height: rpx(370);
+    height: rpx(320);
   }
   .ceshi {
     width: 24vw;
@@ -18,4 +20,37 @@
   }
   .margin-top-12 {
     margin-top: rpx(12);
+  }
+  .sx{
+    width: 100vw;
+    height: rpx(80);
+   
+  }
+  .wd{
+      width: rpx(400);
+  }
+  .hqhb{
+    height: rpx(52);
+    width: rpx(160);
+    background: #FF6600;
+    color:#FFFFFF;
+    line-height: rpx(52);
+    text-align: center;
+    font-size: rpx(24);
+    border-radius: rpx(40);
+   
+   
+   }
+  .xz{
+
+    color:#FFC200;
+  }
+  .kecheng1{
+    width:94vw;
+    margin-left:3vw;
+    margin-top:rpx(20);
+  }
+  .kc_icon {
+    width: rpx(228);
+    height: rpx(224);
   }
