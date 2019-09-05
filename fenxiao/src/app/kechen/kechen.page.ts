@@ -50,4 +50,8 @@ export class KechenPage extends AppBase {
   {
     this.xz=c;
   }
+  kcinfo(id)
+  {
+    this.navigate("kcinfo",{id:id})
+  }
 }

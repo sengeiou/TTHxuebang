@@ -10,7 +10,7 @@
     
       </div>
 
-      <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
+      <div bindtap='tokcdetails' id='{{item.id}}' (click)='kcinfo(item.id)' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
       *ngFor='let item of vteach;let idx=index'>
       <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
       <div class='flex-row column   margin-left-20 flex-1'>

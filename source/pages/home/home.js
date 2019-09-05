@@ -300,9 +300,23 @@ class Content extends AppBase {
   }
 
   toketang(e) {
-    wx.navigateTo({
-      url: '/pages/zaixianketang/zaixianketang'
-    })
+
+    var syso = AppBase.System;
+    console.log(syso);
+    if (syso.substr(0, 3) == 'iOS') {
+     this.Base.info("暂未开放");
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/zaixianketang/zaixianketang'
+      })
+
+    }
+
+
+  
+ 
+
   }
 
   toceshilist(e) {
