@@ -773,55 +773,67 @@ class Content extends AppBase {
      
       
     var that = this;
-    var num = this.Base.getMyData().num;
 
-    if (this.Base.getMyData().num < 7) {
-      this.Base.setMyData({
-        jifen: 5
-      })
-    } else {
-      this.Base.setMyData({
-        jifen: 25
-      })
-    }
 
-    var jifenapi = new JifenApi();
-    jifenapi.daka({
-      member_id: this.Base.getMyData().memberinfo.id,
-      jifen: this.Base.getMyData().jifen,
-      status: "A"
-    }, (daka) => {
-      if (this.Base.getMyData().jifen == 5) {
-        jifenapi.addjifen({
-          member_id: this.Base.getMyData().memberinfo.id,
-          unicode: "meiridaka"
-        }, (addjifen) => {
-          this.Base.setMyData({
-            addjifen
-          })
+    if (this.Base.getMyData().daka==false){
+
+      this.Base.setMyData({
+        signState: true,
+        dakashow: true,
+        tangchuan: false,
+        daka:true
+      })
+
+      var num = this.Base.getMyData().num;
+
+
+      if (this.Base.getMyData().num < 7) {
+        this.Base.setMyData({
+          jifen: 5
+        })
+      } else {
+        this.Base.setMyData({
+          jifen: 25
         })
       }
-      if (this.Base.getMyData().jifen == 25) {
-        jifenapi.addjifen({
-          member_id: this.Base.getMyData().memberinfo.id,
-          unicode: "lianxvdaka"
-        }, (addjifen) => {
-          this.Base.setMyData({
-            addjifen
-          })
-        })
-      }
-      this.Base.setMyData({
-        daka
-      })
-      this.onMyShow();
-    })
 
-    this.Base.setMyData({
-      signState: true,
-      dakashow: true,
-      tangchuan: false
-    })
+      var jifenapi = new JifenApi();
+      jifenapi.daka({
+        member_id: this.Base.getMyData().memberinfo.id,
+        jifen: this.Base.getMyData().jifen,
+        status: "A"
+      }, (daka) => {
+        if (this.Base.getMyData().jifen == 5) {
+          jifenapi.addjifen({
+            member_id: this.Base.getMyData().memberinfo.id,
+            unicode: "meiridaka"
+          }, (addjifen) => {
+            this.Base.setMyData({
+              addjifen
+            })
+          })
+        }
+        if (this.Base.getMyData().jifen == 25) {
+          jifenapi.addjifen({
+            member_id: this.Base.getMyData().memberinfo.id,
+            unicode: "lianxvdaka"
+          }, (addjifen) => {
+            this.Base.setMyData({
+              addjifen
+            })
+          })
+        }
+        this.Base.setMyData({
+          daka
+        })
+        this.onMyShow();
+      })
+}
+
+
+   
+
+
 
   }
 

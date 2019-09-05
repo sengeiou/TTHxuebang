@@ -49,7 +49,7 @@ class Content extends AppBase {
       tanchuang: false,
       shuliang: 1,
       sl: 1,
-      pin:3,
+      pin:3,  
        
       xuanzhong: 0,
       ketang: [],
@@ -80,13 +80,13 @@ class Content extends AppBase {
       console.log(hangshu);
 
 
+
       jigouapi.courselist({
         jg_id: jginfo.id,
         orderby: 'r_main.seq'
       }, (courselist) => {
-
         console.log('13213213', courselist);
-
+        
         var mylat = this.Base.getMyData().mylat;
         var mylng = this.Base.getMyData().mylng;
         for (var i = 0; i < courselist.length; i++) {

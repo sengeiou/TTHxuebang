@@ -1,36 +1,38 @@
 /* pages/mine/mine.wxss */
 
 Page {
-  background: #F5F6F8;
+  background: #f5f6f8;
 }
 
 .h {
   font-size: 30rpx;
 }
-.shuzi{
+
+.shuzi {
   width: 30rpx;
   height: 30rpx;
-  background: #FF0000;
-  color: #FFFFFF;
+  background: #f00;
+  color: #fff;
   font-size: 20rpx;
   position: absolute;
   border-radius: 50%;
   text-align: center;
-    margin-left:20rpx;
-    margin-top:-10rpx;
-    line-height: 30rpx;
+  margin-left: 20rpx;
+  margin-top: -10rpx;
+  line-height: 30rpx;
 }
-.bor_bot{
-  border-bottom: 1px solid #F5F6F8;
-}
-.hondian{
 
-width:12rpx;
-height: 12rpx;
-border-radius: 50%;
-background: red;
-
+.bor_bot {
+  border-bottom: 1px solid #f5f6f8;
 }
+
+.hondian {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: red;
+}
+
 .bg_img {
   position: absolute;
   width: 100%;
@@ -71,16 +73,17 @@ background: red;
   background: linear-gradient(130deg, rgba(255, 190, 49, 1) 0%, rgba(255, 140, 16, 1) 100%);
   border-radius: 8rpx;
 }
-.margin-top-10{
-  margin-top:10rpx;
+
+.margin-top-10 {
+  margin-top: 10rpx;
 }
+
 .tx {
   width: 154rpx;
   height: 154rpx;
 }
 
 .gengxin {
-  
   width: 110rpx;
   height: 28rpx;
   margin-top: 16rpx;
@@ -91,8 +94,9 @@ background: red;
   background: linear-gradient(156deg, rgba(255, 190, 49, 1) 0%, rgba(255, 190, 49, 1) 100%);
   border-radius: 200rpx 0rpx 0rpx 200rpx;
 }
-.hover{
-  background: #FFA823
+
+.hover {
+  background: #ffa823;
 }
 
 .margin-left-4 {
@@ -117,35 +121,59 @@ background: red;
   background: rgba(255, 255, 255, 1);
   border-radius: 28rpx;
 }
-.txt-orange{
-  color: #FFA823
+
+.txt-orange {
+  color: #ffa823;
 }
-.radius-8{
+
+.radius-8 {
   border-radius: 8rpx;
 }
-.icon-24{
+
+.icon-24 {
   width: 30rpx;
   height: 30rpx;
 }
-.f22{
+
+.f22 {
   font-size: 22rpx;
 }
-.padd-order{
+
+.padd-order {
   padding-left: 30rpx;
   padding-right: 30rpx;
   padding-top: 22rpx;
   padding-bottom: 22rpx;
 }
-.padd-order-under{
+
+.padd-order-under {
   padding-left: 30rpx;
   padding-right: 24rpx;
   padding-top: 32rpx;
   padding-bottom: 38rpx;
 }
-.icon-48{
+
+.icon-48 {
   width: 48rpx;
   height: 48rpx;
 }
-.height-60{
+
+.height-60 {
   height: 60rpx;
+}
+
+.shop {
+  padding: 36rpx 22rpx 36rpx 22rpx;
+  border-radius: 8rpx;
+}
+
+.more {
+  width: 212rpx;
+  height: 50rpx;
+  background: rgba(254, 203, 133, 1);
+  border-radius: 26rpx;
+}
+.third{
+  padding:  50rpx 24rpx 44rpx 0rpx;
+  border-radius: 8rpx;
 }

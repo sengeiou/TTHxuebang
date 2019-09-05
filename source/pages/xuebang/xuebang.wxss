@@ -35,7 +35,7 @@
   position: relative;
   z-index: 10;
   width: 91vw;
-  height: 330rpx;
+  height: 220rpx;
   margin-top: -20rpx;
 }
 
