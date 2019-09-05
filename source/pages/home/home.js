@@ -769,6 +769,9 @@ class Content extends AppBase {
   }
   //打卡部分
   bindSignIn(e) {
+     
+     
+      
     var that = this;
     var num = this.Base.getMyData().num;
 
