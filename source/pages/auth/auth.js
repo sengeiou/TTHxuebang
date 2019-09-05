@@ -19,10 +19,11 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.needauth = false;
+    this.Base.needauth = false; 
   }
   onMyShow() {
     var that = this;
+     
   }
   checkPermission() {
 
@@ -35,9 +36,11 @@ class Content extends AppBase {
   getUserInfo(e) {
     console.log(666666666);
     wx.clearStorage();
+    AppBase.jump = true; 
     wx.navigateBack({
       
     })
+    
     //open-type="getUserInfo" bindgetuserinfo="getUserInfo"
   }
 }

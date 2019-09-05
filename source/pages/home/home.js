@@ -304,7 +304,10 @@ class Content extends AppBase {
     var syso = AppBase.System;
     console.log(syso);
     if (syso.substr(0, 3) == 'iOS') {
-     this.Base.info("暂未开放");
+      wx.showToast({
+        title: "暂未开放~",
+        icon: "none"
+      })
     }
     else {
       wx.navigateTo({
@@ -312,9 +315,6 @@ class Content extends AppBase {
       })
 
     }
-
-
-  
  
 
   }
