@@ -110,7 +110,8 @@ class Content extends AppBase {
     clearInterval(timerStart);
   }
   onMyShow() {
-
+    var that=this;
+  
     var jigouapi = new JigouApi();
     var isload = this.Base.getMyData().isload;
     if (isload == true) {

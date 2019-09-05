@@ -94,7 +94,7 @@ class Content extends AppBase {
 
   onMyShow() {
     var that = this;
-
+ 
     var jigouapi = new JigouApi();
 
     var jifenapi = new JifenApi();
@@ -326,6 +326,8 @@ class Content extends AppBase {
   }
 
   loadBanner() {
+  
+
     var instapi = new InstApi();
     // console.log()
     instapi.indexbanner({

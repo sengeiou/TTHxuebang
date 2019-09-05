@@ -41,9 +41,15 @@
     }
     .width-600{
       width: rpx(600);
+      font-size: rpx(52);
     }
     .width-500{
       width: rpx(500);
+    }
+    .txt-blue{
+
+      color: #3c78d8;
+
     }
     .top10{
       margin-top:-rpx(10);
@@ -317,7 +323,11 @@
       padding: rpx(16);  
        
     }
-    
+    .lb{
+
+      width:rpx(750);
+      height:rpx(400);
+    }
     .img {
       margin-left: rpx(20);
       margin-right: rpx(40);

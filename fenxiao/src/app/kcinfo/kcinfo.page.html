@@ -23,6 +23,16 @@
         </swiper-item>
       </swiper> -->
 
+      <ion-slides indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' class="lb">
+          <ion-slide *ngFor="let item of kechenlunbo">
+            <div>
+              <!-- mode="aspectFill"  bindtap='divPhoto' -->
+              <img *ngIf="item.video==''" src='{{uploadpath}}kecheng/{{item.img}}' class='lb' (click)='tiaozhuan(item)' />
+            </div>
+          </ion-slide>
+        </ion-slides>
+
+
       <div class="height-116"></div>
 
     </div>
@@ -36,7 +46,7 @@
           <div class=' '>
             <div class="padding-10">
               <div class='flex-row flex-center'>
-                <div class='txt-black txt-bold padding-left-20  chaochu h5 width-600'>
+                <div class='txt-black txt-bold padding-left-20  chaochu  width-600'>
                   {{courseinfo.name}}</div>
 
 
@@ -69,12 +79,12 @@
 
               <div class='flex-row margin-top-5 padding-left-20'>
                 <div class="flex-row flex-1">
-                  <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 '
+                  <div style="border:0.5px solid #16110b;color:#16110b" class='biaoqian  text-center radius-10 txt-green h6 margin-5 '
                     *ngFor='let litem of courseinfo.labels;let idx=index'>{{litem.name}}</div>
                 </div>
 
 
-                <div *ngIf="!tanchuang">
+                <!-- <div *ngIf="!tanchuang">
                   <div bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                     <div class='flex-1'></div>
@@ -83,7 +93,7 @@
                     <div class='flex-1'></div>
 
                   </div>
-                </div>
+                </div> -->
               </div>
 
 
@@ -114,7 +124,7 @@
             </div>
             <div class='flex-row flex-center  padding-left-30  '>
               <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'>
-              <div class='h5 margin-left-10 txt-blue dizhi' class="width-500" bindtap='openMap'
+              <div class='h5 margin-left-10 txt-blue dizhi width-500' 
                 id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</div>
               <div class="flex-1"></div>
               <div class='h6 txt-black margin-right-40 txt-bold ' *ngIf="miletxt!=undefined">距你{{miletxt}}</div>
