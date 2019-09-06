@@ -59,4 +59,9 @@ export class ZaixianketanPage extends AppBase {
   {
     this.xz=c;
   }
+  ketaninfo(e)
+  {
+
+    this.navigate("ketangdetails",{id:e});
+  }
 }

@@ -13,15 +13,35 @@
     border-radius: rpx(100);
     
     }
+    .guanggao {
+      width: 100vw;
+      height: rpx(88);
+      background: #FEF4F2;
+    }
     .zi{
       color:rgb(88, 18, 18);
     font-size:rpx(30);
     }
+    .yijian{
+      font-size: rpx(24);
+      width:rpx(186);
+      height:rpx(52);
+      border:1px solid #FF6600;
+      border-radius: rpx(26);
+      line-height: rpx(52);
+      text-align: center;
+      color:#FF6600;
+      }
     .sp{
       margin-top:rpx(20);
     width: 70vw;
     height: 20vh;
     
+    }
+    .tgtp{
+     width:30vw;
+     height: 30vw;
+   margin-top:rpx(20);
     }
     .fd{
      position: fixed;

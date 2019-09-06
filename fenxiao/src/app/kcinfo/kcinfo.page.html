@@ -1,3 +1,17 @@
+
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
 <ion-content>
   <div>
 
@@ -37,7 +51,11 @@
 
     </div>
 
-
+    <div class="guanggao flex-row flex-center">
+      <div class="f-26 margin-left-20" style="color:#F5555D">
+         此页面为学榜大使专属，仅限大使可以使用。
+       </div>
+       </div>
 
     <div style=' ' class=''>
 
@@ -252,6 +270,33 @@
       </div>
 
       <div *ngIf="pingjialist.length>0" class='height-20 bg-gray'></div>
+     
+
+      <div  class="padding-30 flex-row flex-center"
+        style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+        <div class="flex-1 h5" style='color:#222222'>推广文案</div>
+        <div class="h6 yijian margin-right-20" >一键复制文案</div>
+       
+      </div>
+      <div class="padding-30 h6" style="color:#999999">
+        国之瑰宝 中国舞 编程【2节课 | 0-12岁 | 4节课】 ￥39.9立即购买
+      </div>
+
+      
+      <div  class="padding-30 flex-row flex-center"
+        style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+        <div class="flex-1 h5" style='color:#222222'>推广课程图片</div>
+        <div class="h6 yijian margin-right-20" >一键保存图片</div>
+      
+      </div>
+      <div class="padding-30 flex-row flex-center flex-wrap">
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+
+      </div>
 
 
       <div *ngIf="(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0" class='height-20 bg-gray'>

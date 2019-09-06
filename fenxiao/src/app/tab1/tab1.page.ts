@@ -145,4 +145,12 @@ export class Tab1Page extends AppBase {
     }
    
   }
+  tokcdetails(id){
+     this.navigate("kcinfo",{id:id});     
+
+  }
+  sousuo(){
+   console.log("adads");
+    this.navigate('searchword');
+  }
 }

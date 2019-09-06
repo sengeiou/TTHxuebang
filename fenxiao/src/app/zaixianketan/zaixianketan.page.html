@@ -1,3 +1,13 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
 
   <div class='bg-white'>
@@ -40,7 +50,7 @@
     </div>
 
 
-    <div id='{{item.id}}' class='padding-20 flex-row   bg-white kecheng1 radius-10 shadow'
+    <div id='{{item.id}}' (click)="ketaninfo(item.id)" class='padding-20 flex-row   bg-white kecheng1 radius-10 shadow'
     *ngFor='let item of kechenlist;let idx=index'>
     <img class='kc_icon radius-10' src="{{uploadpath}}onlineclassroom/{{item.jieshaoimg}}" />
     <div class='flex-row column   margin-left-20 flex-1'>
