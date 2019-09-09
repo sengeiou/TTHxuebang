@@ -94,7 +94,7 @@
 </view>
 
 
-<view class='flex-row flex-center margin-10 padding-top-10 '>
+<!-- <view class='flex-row flex-center margin-10 padding-top-10 '>
   <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
     <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view>
@@ -103,8 +103,15 @@
     <view class="flex-1"></view>
     <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style='' style="margin-bottom:6rpx"></image>
   </view>
+</view> -->
+<view class='flex-row flex-center margin-10 padding-top-10 '>
+  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
+    <image src='{{uploadpath}}resource/{{res.zjg}}' mode='scaleToFill' class='img2 radius-10' style=''></image>
+  </view>
+  <view class='flex-1 ' >
+    <image src='{{uploadpath}}resource/{{res.zkc}}' bindtap='totake'  data-name='kc' class='img2 radius-10' style=''></image> 
+  </view>
 </view>
-
 
 <view class='margin-20'>
   <view class='flex-row flex-center '>
