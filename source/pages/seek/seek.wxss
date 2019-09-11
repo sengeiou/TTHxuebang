@@ -160,7 +160,7 @@ Page {
   position: fixed;
   width: 230rpx;
   z-index: 200;
-  top: 238rpx;
+  
 }
 .list2 {
   position: fixed;

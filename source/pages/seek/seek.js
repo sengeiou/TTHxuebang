@@ -54,6 +54,7 @@ class Content extends AppBase {
       xialaage: "yc",
       //type: "kc",
       show: "jx",
+      ageid:-1,
       options: "j_x",
       mylat: 0,
       mylng: 0,
@@ -112,8 +113,8 @@ class Content extends AppBase {
     clearInterval(timerStart);
   }
   onMyShow() {
-    var that=this;
-  
+    var that = this;
+
     var jigouapi = new JigouApi();
     var isload = this.Base.getMyData().isload;
     if (isload == true) {
@@ -145,7 +146,7 @@ class Content extends AppBase {
         filterdistrict
       });
       //默认搜索罗湖区算了
-      if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id==0) {
+      if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id == 0) {
         console.log(this.Base.getMyData());
         var address = this.Base.getMyData().address;
         var adcode = address.ad_info.adcode;
@@ -225,7 +226,6 @@ class Content extends AppBase {
       this.Base.setMyData({
         options: "j_x"
       })
-
 
     }
     if (options == "x_s") {
@@ -314,9 +314,19 @@ class Content extends AppBase {
     if (data.fdistrict_id != "0") {
       opt.district_id = data.fdistrict_id;
     }
-    if (data.ftype_id != "0") {
-      opt.type = data.ftype_id;
+    // if (data.ftype_id != "0") {
+    opt.type = this.Base.options.typeid;
+
+    
+
+    if (data.ages == 1) {
+      opt.ages = data.ages;
+      opt.minage = data.minage;
+      opt.maxage = data.maxage;
     }
+
+    //opt.type = 1;
+    // }
     if (data.fage_id != "0") {
       opt.age = data.fage_id;
     }
@@ -549,8 +559,48 @@ class Content extends AppBase {
 
     this.backtotop();
     this.loadjg();
+    this.loadcourse();
 
   }
+
+
+  changeage(e) {
+    var seq = parseInt(e.currentTarget.id);
+
+    console.log(seq,"各个")
+
+    var minage=e.currentTarget.dataset.minage;
+    var maxage = e.currentTarget.dataset.maxage;
+
+    console.log('最小值' + minage)
+    console.log('最大值' + maxage)
+    if (seq == -1) {
+      this.Base.setMyData({
+        ages: 0,
+        ageid: seq,
+        xiala: "yc",
+        xialakc: "yc",
+        xialaage: "yc",
+      });
+    } else {
+ 
+      this.Base.setMyData({
+        ages: 1,
+        ageid: seq,
+        minage: minage,
+        maxage: maxage,
+        xiala: "yc",
+        xialakc: "yc",
+        xialaage: "yc",
+      });
+    }
+
+    this.backtotop(); 
+    this.loadcourse();
+
+  }
+
+
   setTDistrict(e) {
     var id = e.currentTarget.id;
     this.Base.setMyData({
@@ -624,11 +674,24 @@ class Content extends AppBase {
   }
 
   bindxialakc(e) {
-    var xialakc = this.Base.getMyData().xialakc;
+    // var xialakc = this.Base.getMyData().xialakc;
+
+    // this.Base.setMyData({
+    //   xialakc: xialakc == "xs" ? "yc" : "xs"
+    // })
+    var data = this.Base.getMyData();
+
+    var fdistrict_id = e.currentTarget.id;
+    
+
 
     this.Base.setMyData({
-      xialakc: xialakc == "xs" ? "yc" : "xs"
-    })
+      options_show: false,
+      fdistrict_id
+    });
+    this.loadcourse();
+ 
+
   }
 
   bindxialaage(e) {
@@ -658,13 +721,13 @@ class Content extends AppBase {
       "&ftype_id=" + data.ftype_id +
       "&fage_id=" + data.fage_id +
       "&fdistrict_id=" + data.fdistrict_id);
-      console.log('haha');
+    console.log('haha');
     return {
       path: "/pages/seek/seek?type=" + data.type +
         "&ftype_id=" + data.ftype_id +
         "&fage_id=" + data.fage_id +
         "&fdistrict_id=" + data.fdistrict_id
-       
+
     };
   }
 
@@ -685,7 +748,9 @@ body.bindxuanxiang = content.bindxuanxiang;
 body.bindxiala = content.bindxiala;
 body.bindxialakc = content.bindxialakc;
 body.bindxialaage = content.bindxialaage;
-body.yingcang = content.yingcang;
+body.yingcang = content.yingcang; 
+
+body.changeage = content.changeage; 
 
 body.bindScreening = content.bindScreening;
 body.bindshow = content.bindshow;

@@ -74,6 +74,7 @@
 </view>
 
 
+
 <view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
   <view class='   ' style="margin-left:20rpx;margin-right:20rpx">
 
@@ -101,73 +102,49 @@
   </view> -->
 
 
-
+<!--
 <view class='flex-row flex-center margin-top-20' style=" ">
   <view class="flex-1"></view>
   <image src='{{uploadpath}}resource/{{res.zjg}}' bindtap='totake' data-name='jg' mode='scaleToFill' class='img2 radius-10' style=''></image>
-  <!-- <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image> -->
+  <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image> 
   <view class="flex-1"></view>
   <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' ></image>
   <view class="flex-1"></view>
-</view> -->
-
+</view>
+-->
 
 <!-- 修改后 -->
 
-<swiper indicator-dots="true" style="height: 300rpx">
-  <swiper-item class="margin-top-30 text-center">
-     <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.shufa}}" class="class_icon"></image>
-        <view class="h6">书法</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.yueqi}}" class="class_icon"></image>
-        <view class="h6">乐器</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.shengyue}}" class="class_icon"></image>
-        <view class="h6">声乐</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.wudao}}" class="class_icon"></image>
-        <view class="h6">舞蹈</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.tiyu}}" class="class_icon"></image>
-        <view class="h6">体育</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.biancheng}}" class="class_icon"></image>
-        <view class="h6">编程</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.jiqiren}}" class="class_icon"></image>
-        <view class="h6">机器人</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.biaoyanyishu}}" class="class_icon"></image>
-        <view class="h6">艺术表演</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.english}}" class="class_icon"></image>
-        <view class="h6">英语</view>
-      </view>
-      <view class="lesson-width">
-        <image src="{{uploadpath}}resource/{{res.legao}}" class="class_icon"></image>
-        <view class="h6">乐高</view>
-      </view>
-      
-     </swiper-item>
+<swiper style="height: 280rpx">
+
+  <swiper-item class=" flex-row flex-center flex-wrap">
+    <view class="flex-row flex-column lesson-width {{idx>4?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<10}}'>
+      <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
+      <view class="h6">{{item.typename}}</view>
+    </view>
+  </swiper-item>
+
+  <swiper-item class=" flex-row flex-center flex-wrap">
+    <view class="flex-row flex-column lesson-width" wx:for='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' wx:if='{{idx>=10}}'>
+      <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
+      <view class="h6">{{item.typename}}</view>
+    </view>
+  </swiper-item>
+
+
 </swiper>
 
 
 <view class="flex-row flex-center margin-10 padding-top-10 ">
+
   <view class="flex-1 text-center">
-    <image src='{{uploadpath}}resource/{{res.home_1}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;"  bindtap='totake' data-name='kc'></image>
+    <image src='{{uploadpath}}resource/{{res.homejigou}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='totake' data-name='jg'></image>
   </view>
+
   <view class="flex-1 text-center">
-    <image src='{{uploadpath}}resource/{{res.home_1}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;"  bindtap='totake' data-name='jg'></image>
+    <image src='{{uploadpath}}resource/{{res.homebaoma}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='tobaoma' ></image>
   </view>
+
 </view>
 
 <!-- </view> -->

@@ -99,6 +99,12 @@ class Content extends AppBase {
 
     var jifenapi = new JifenApi();
 
+    jigouapi.coursetype({}, (filtercoursetype) => {
+      this.Base.setMyData({
+        filtercoursetype
+      });
+    });
+
 
     jifenapi.dakalist({
       member_id: this.Base.getMyData().memberinfo.id
@@ -399,7 +405,7 @@ class Content extends AppBase {
   }
 
   tobaoma(e) {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '/pages/baoma/baoma',
     })
   }
@@ -919,6 +925,15 @@ class Content extends AppBase {
 
   }
 
+  bindtokc(e){
+   var typeid=e.currentTarget.id;
+
+    wx.navigateTo({
+      url: '/pages/seek/seek?type=kc&typeid=' + typeid
+    })
+
+  }
+
 
 
 }
@@ -927,6 +942,9 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+
+body.bindtokc = content.bindtokc;
+
 body.toceshi = content.toceshi;
 body.tojgdetails = content.tojgdetails;
 body.toketang = content.toketang;

@@ -560,8 +560,10 @@ Page {
   height: 50rpx
 }
 
-.lesson-width {
-  float: left;
-  width: 20%;
-  margin-bottom: 30rpx;
+.lesson-width { 
+  width: 20%; 
+}
+.icon26{
+  width: 60rpx;
+  height: 60rpx;
 }
