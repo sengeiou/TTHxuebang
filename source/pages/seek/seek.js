@@ -50,6 +50,8 @@ class Content extends AppBase {
     this.Base.setMyData({
       type: options.type,
       xiala: "yc",
+      xialakc: "yc",
+      xialaage: "yc",
       //type: "kc",
       show: "jx",
       options: "j_x",
@@ -170,7 +172,9 @@ class Content extends AppBase {
   }
   tojgdetails(e) {
     this.Base.setMyData({
-      xiala: "yc"
+      xiala: "yc",
+      xialakc: "yc",
+      xialaage: "yc",
     })
     var id = e.currentTarget.id;
 
@@ -188,7 +192,9 @@ class Content extends AppBase {
 
   bindshow(e) {
     this.Base.setMyData({
-      xiala: "yc"
+      xiala: "yc",
+      xialakc: "yc",
+      xialaage: "yc",
     })
     var type = e.currentTarget.dataset.type;
     console.log(type);
@@ -525,14 +531,18 @@ class Content extends AppBase {
     if (seq == -1) {
       this.Base.setMyData({
         fdistrict_id: 0,
-        xiala: "yc"
+        xiala: "yc",
+        xialakc: "yc",
+        xialaage: "yc",
       });
     } else {
 
       var filterdistrict = this.Base.getMyData().filterdistrict;
       this.Base.setMyData({
         fdistrict_id: filterdistrict[seq].id,
-        xiala: "yc"
+        xiala: "yc",
+        xialakc: "yc",
+        xialaage: "yc",
       });
     }
 
@@ -612,9 +622,27 @@ class Content extends AppBase {
 
   }
 
+  bindxialakc(e) {
+    var xialakc = this.Base.getMyData().xialakc;
+
+    this.Base.setMyData({
+      xialakc: xialakc == "xs" ? "yc" : "xs"
+    })
+  }
+
+  bindxialaage(e) {
+    var xialaage = this.Base.getMyData().xialaage;
+
+    this.Base.setMyData({
+      xialaage: xialaage == "xs" ? "yc" : "xs"
+    })
+  }
+
   yingcang(e) {
     this.Base.setMyData({
-      xiala: "yc"
+      xiala: "yc",
+      xialakc: "yc",
+      xialaage: "yc",
     })
   }
 
@@ -654,6 +682,8 @@ body.tojgdetails = content.tojgdetails;
 body.tokcdetails = content.tokcdetails;
 body.bindxuanxiang = content.bindxuanxiang;
 body.bindxiala = content.bindxiala;
+body.bindxialakc = content.bindxialakc;
+body.bindxialaage = content.bindxialaage;
 body.yingcang = content.yingcang;
 
 body.bindScreening = content.bindScreening;
