@@ -10,7 +10,12 @@ const routes: Routes = [
   { path: 'problem', loadChildren: './problem/problem.module#ProblemPageModule' },
   { path: 'ketan', loadChildren: './ketan/ketan.module#KetanPageModule' },
   { path: 'ketaninfo', loadChildren: './ketaninfo/ketaninfo.module#KetaninfoPageModule' },  { path: 'wxauthlogin', loadChildren: './wxauthlogin/wxauthlogin.module#WxauthloginPageModule' },
-  { path: 'zaixianketan', loadChildren: './zaixianketan/zaixianketan.module#ZaixianketanPageModule' }
+  { path: 'zaixianketan', loadChildren: './zaixianketan/zaixianketan.module#ZaixianketanPageModule' },
+  { path: 'kechen', loadChildren: './kechen/kechen.module#KechenPageModule' },
+  { path: 'kcinfo', loadChildren: './kcinfo/kcinfo.module#KcinfoPageModule' },
+  { path: 'searchword', loadChildren: './searchword/searchword.module#SearchwordPageModule' },
+  { path: 'generate', loadChildren: './generate/generate.module#GeneratePageModule' },
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule' }
 
 ];
 @NgModule({

@@ -1,0 +1,322 @@
+
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <div>
+
+
+    <div class='' style='background-size:100% 100%; '
+      [style.background-image]="'url('+uploadpath+'curriculum/'+courseinfo.xq_bg+')'">
+
+      <div class="height-140"></div>
+
+      <!-- <swiper indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true'
+        style='width:750px;height:400px;'>
+        <swiper-item wx:for="{{kechenlunbo}}" wx:key="k">
+          <div>
+
+
+
+            <img wx:if='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='divPhoto'
+              id='{{uploadpath}}kecheng/{{item.img}}' style='width:750px;height:400px;'>
+
+            <video wx:if='{{item.video!=""}}' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}'
+              poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750px;height:400px;'></video>
+          </div>
+        </swiper-item>
+      </swiper> -->
+
+      <ion-slides indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' class="lb">
+          <ion-slide *ngFor="let item of kechenlunbo">
+            <div>
+              <!-- mode="aspectFill"  bindtap='divPhoto' -->
+              <img *ngIf="item.video==''" src='{{uploadpath}}kecheng/{{item.img}}' class='lb' (click)='tiaozhuan(item)' />
+            </div>
+          </ion-slide>
+        </ion-slides>
+
+
+      <div class="height-116"></div>
+
+    </div>
+
+    <div class="guanggao flex-row flex-center">
+      <div class="f-26 margin-left-20" style="color:#F5555D">
+         此页面为学榜大使专属，仅限大使可以使用。
+       </div>
+       </div>
+
+    <div style=' ' class=''>
+
+      <div class='flex-row column '>
+        <div class=' bg-white  '>
+          <div class=' '>
+            <div class="padding-10">
+              <div class='flex-row flex-center'>
+                <div class='txt-black txt-bold padding-left-20  chaochu  width-600'>
+                  {{courseinfo.name}}</div>
+
+
+
+
+              </div>
+
+              <div class="starbox text-right margin-left-20 margin-top-20">
+                <div class="stars" style="width: 100%;">
+                  <div class=" ims">
+                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star">
+                  </div>
+                </div>
+
+                <div class="stars2" style="">
+                  <div class="ims">
+                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star">
+                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class='flex-row margin-top-5 padding-left-20'>
+                <div class="flex-row flex-1">
+                  <div style="border:0.5px solid #16110b;color:#16110b" class='biaoqian  text-center radius-10 txt-green h6 margin-5 '
+                    *ngFor='let litem of courseinfo.labels;let idx=index'>{{litem.name}}</div>
+                </div>
+
+
+                <!-- <div *ngIf="!tanchuang">
+                  <div bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+
+                    <div class='flex-1'></div>
+                    <img src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon'>
+                    <div class='h6 margin-left-10'>转发好友</div>
+                    <div class='flex-1'></div>
+
+                  </div>
+                </div> -->
+              </div>
+
+
+
+              <div class='flex-row   padding-20' style="padding-top:0prx">
+
+                <div class='flex-1  flex-column  flex-row  '>
+                  <div class="h6 txt-gray">适合年龄</div>
+                  <div class='h5  txt-bold margin-top-15  ' style='color:#222222'>{{courseinfo.age_name}}</div>
+                </div>
+
+
+
+                <div class='flex-1  flex-column  flex-row  '>
+                  <div class="h6 txt-gray">营业时间</div>
+                  <div class='h5 margin-top-15  txt-bold ' style='color:#222222'>{{courseinfo.JG_time}}</div>
+                </div>
+
+                <div class='flex-1  flex-column  flex-row  '>
+
+                  <div class='h6 txt-gray  ' *ngIf='courseinfo.appointment_value=="Y"'>需要预约</div>
+                  <div class='h6 txt-gray    ' *ngIf='courseinfo.appointment_value=="N"'>无需预约</div>
+                  <div class='h5 txt-bold  margin-top-15 ' *ngIf='courseinfo.appointment_value=="Y"'>
+                    {{courseinfo.people_num}}人已预约</div>
+                </div>
+
+              </div>
+            </div>
+            <div class='flex-row flex-center  padding-left-30  '>
+              <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'>
+              <div class='h5 margin-left-10 txt-blue dizhi width-500' 
+                id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</div>
+              <div class="flex-1"></div>
+              <div class='h6 txt-black margin-right-40 txt-bold ' *ngIf="miletxt!=undefined">距你{{miletxt}}</div>
+            </div>
+            <div class="height-40"></div>
+
+
+
+
+
+
+            <div class='height-20 bg-gray top10'></div>
+
+            <div *ngIf="pingjialist.length>0" class="padding-30 flex-row flex-center"
+              style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+              <div class="flex-1 h5" style='color:#222222'>课程评价({{pingjialist.length}})</div>
+              <div class="h6" style='color:#999999'>查看更多</div>
+              <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10'>
+            </div>
+
+
+
+            <div *ngFor='let item of pingjialist;let idx=index'>
+              <div *ngIf='idx==0'>
+                <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
+
+                  <img src='{{item.member_avatarUrl}}' class='tx radius-50'>
+
+                  <div class=' flex-1  margin-left-16'>
+                    <div class='h6 txt-black' *ngIf='item.niming_value!="Y"'>{{item.member_id_name}}</div>
+                    <div class='h6 txt-black' *ngIf='item.niming_value=="Y"'>匿名用户</div>
+                  </div>
+
+                  <div class='flex-row flex-center  '>
+
+                    <div *ngIf='item.pingfen==1'>
+                      <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5'>
+                      <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'
+                        *ngFor='let item of 4 '>
+                    </div>
+
+                    <div *ngIf='item.pingfen==2'>
+                      <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of 2'>
+                      <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'
+                        *ngFor='let item of 3 '>
+                    </div>
+
+                    <div *ngIf='item.pingfen==3'>
+                      <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of 2 '>
+                      <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'
+                        *ngFor='let item of 3 '>
+                    </div>
+
+                    <div *ngIf='item.pingfen==4'>
+                      <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of 3 '>
+                      <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'
+                        *ngFor='let item of 2 '>
+                    </div>
+
+                    <div *ngIf='item.pingfen==5'>
+                      <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of 4 '>
+                      <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'>
+                    </div>
+
+
+                  </div>
+
+
+                </div>
+
+                <div class='pinlun h5 txt-black'>
+                  {{item.content}}
+                </div>
+
+                <div class='img flex-row flex-center flex-wrap'>
+
+                  <img *ngIf='item.img1!=""&&item.img1!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img1}}'>
+
+                  <img *ngIf='item.img2!=""&&item.img2!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img2}}'>
+
+                  <img *ngIf='item.img3!=""&&item.img3!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img3}}'>
+
+                  <img *ngIf='item.img4!=""&&item.img4!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img4}}'>
+
+                  <img *ngIf='item.img5!=""&&item.img5!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img5}}'>
+
+                  <img *ngIf='item.img6!=""&&item.img6!="undefined"' mode="aspectFill"
+                    src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='divPhoto'
+                    id='{{uploadpath}}pingjia/{{item.img6}}'>
+
+
+                </div>
+
+                <div class="height-20"></div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="pingjialist.length>0" class='height-20 bg-gray'></div>
+     
+
+      <div  class="padding-30 flex-row flex-center"
+        style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+        <div class="flex-1 h5" style='color:#222222'>推广文案</div>
+        <div class="h6 yijian margin-right-20" >一键复制文案</div>
+       
+      </div>
+      <div class="padding-30 h6" style="color:#999999">
+        国之瑰宝 中国舞 编程【2节课 | 0-12岁 | 4节课】 ￥39.9立即购买
+      </div>
+
+      
+      <div  class="padding-30 flex-row flex-center"
+        style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+        <div class="flex-1 h5" style='color:#222222'>推广课程图片</div>
+        <div class="h6 yijian margin-right-20" >一键保存图片</div>
+      
+      </div>
+      <div class="padding-30 flex-row flex-center flex-wrap">
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+        <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 tgtp'>
+
+      </div>
+
+
+      <div *ngIf="(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0" class='height-20 bg-gray'>
+      </div>
+
+      <div class='flex-row bg-white {{sco==1?"top":""}}' style=''>
+        <div class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut'
+          data-type='kcxq'>课程详情</div>
+        <div class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='gotoBottom'
+          data-type='gmxz'>购买须知</div>
+      </div>
+
+
+      <div class=''>
+        <img src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}} ' class=' ' mode='widthFix' style='width:100vw'>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</ion-content>

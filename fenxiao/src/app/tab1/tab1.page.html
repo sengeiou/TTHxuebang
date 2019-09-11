@@ -5,11 +5,11 @@
 
   <div class="padding-10  bg-white flex-row flex-center">
 
-    <img class='fxsousuo' src='{{uploadpath}}resource/{{res.fxsousuo}}' />
+    <img  class='fxsousuo' src='{{uploadpath}}resource/{{res.fxsousuo}}' />
 
-    <div class=" flex-1 search padding-10 flex-row flex-center">
+    <div  (click)="sousuo()"  class=" flex-1 search padding-10 flex-row flex-center">
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-      <div class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</div>
+      <div   class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</div>
     </div>
 
 
@@ -34,7 +34,7 @@
           <div *ngFor='let item of fenleilist;let idx=index'>
 
             <div *ngIf="idx<zhon">
-              <div (click)="qiehuanzhanjie(idx)" class="ceshi  flex-row  flex-column">
+              <div (click)="qiehuanzhanjie(idx,item.id)" class="ceshi  flex-row  flex-column">
 
                 <img *ngIf="idx!=0" src='{{uploadpath}}coursetype/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
                 <img *ngIf="idx==0" src='{{uploadpath}}resource/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
@@ -43,7 +43,7 @@
               </div>
 
 
-              <div (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
+              <div (click)="qiehuanzhanjie(idx+zhon,item.id)" class="ceshi  flex-row  flex-column">
 
                 <img src='{{uploadpath}}coursetype/{{fenleilist[idx+zhon].img}}' class='icon-50 radius-50' />
                 <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
@@ -170,7 +170,7 @@
   </div>
 
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
+  <div  (click)="tokcdetails(item.id)"  id='{{item.id}}' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
     *ngFor='let item of vteach;let idx=index'>
     <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
     <div class='flex-row column   margin-left-20 flex-1'>

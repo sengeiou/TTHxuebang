@@ -94,7 +94,7 @@ class Content extends AppBase {
 
   onMyShow() {
     var that = this;
-
+ 
     var jigouapi = new JigouApi();
 
     var jifenapi = new JifenApi();
@@ -300,9 +300,23 @@ class Content extends AppBase {
   }
 
   toketang(e) {
-    wx.navigateTo({
-      url: '/pages/zaixianketang/zaixianketang'
-    })
+
+    var syso = AppBase.System;
+    console.log(syso);
+    if (syso.substr(0, 3) == 'iOS') {
+      wx.showToast({
+        title: "暂未开放~",
+        icon: "none"
+      })
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/zaixianketang/zaixianketang'
+      })
+
+    }
+ 
+
   }
 
   toceshilist(e) {
@@ -312,6 +326,8 @@ class Content extends AppBase {
   }
 
   loadBanner() {
+  
+
     var instapi = new InstApi();
     // console.log()
     instapi.indexbanner({
@@ -769,6 +785,9 @@ class Content extends AppBase {
   }
   //打卡部分
   bindSignIn(e) {
+     
+     
+      
     var that = this;
 
 

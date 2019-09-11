@@ -31,12 +31,23 @@ class Content extends AppBase {
     this.Base.setMyData({
       mobile: ""
     });
+    
+    
+
     // this.Base.setMyData({ reminderpay });
   }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
     var jigouapi = new JigouApi();
+   
+    
+    console.log(AppBase.jump, '快快快')
+    if (AppBase.jump == false) {
+      wx.navigateTo({
+        url: '/pages/auth/auth'
+      })
+    }
    
 
     jigouapi.myxiaoxi({ isread:'N'},(xiaoxi)=>{

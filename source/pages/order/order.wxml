@@ -55,6 +55,102 @@
     <view bindtap='bindpay' class="qzf margin-left-20">去支付</view>
   </view>
 
+  <view style='' class=' bg-white flex-row flex-column padding-20 radius-10  margin-top-20'>
+    <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:290rpx;'>
+
+      <!-- <view class='height-20'></view>
+      <view class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</view>
+      <view style='height:10'></view>
+      <view class='flex-row flex-center ' style='width:100% '>
+        <view class='flex-2 '></view>
+        <view style='width:50rpx;height:10rpx;'></view>
+        <view class=' txt-bold txt-white   text-center'>{{courseinfo.teacherwechatid}}</view>
+        <view style='width:36rpx;'></view>
+        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</view>
+        <view class='flex-1 '></view>
+      </view> -->
+
+      <!-- <view class='height-66 '></view> -->
+      <view class=" padding-top-10 flex-row flex-center " style="width:100%;">
+        <view bindtap="kefu" class="padding-left-20">
+          <image src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban'></image>
+        </view>
+        <view class="padding-left-20" style="height:68rpx;">
+          <view bindtap="kefu" class="saoma">扫码添加客服</view>
+        </view>
+
+        <view class="flex-1"></view>
+      </view>
+       
+         <view class="f-26 " style="color:#FFFFFF">苹果手机用户请添加客服协助您完成购课</view>
+
+      <view style='width:100% ' class="margin-top-10">
+        <view class='flex-row flex-center ' style='width:100% '>
+
+          <view class=' flex-row flex-center   flex-1  '>
+            <view class="flex-1"></view>
+            <view class="txt-white quan h6 text-center ">1</view>
+            <view class="flex-1 "></view>
+
+          </view>
+          <view class=' flex-row flex-center   flex-1  '>
+            <view class="flex-1"></view>
+            <view class="txt-white quan h6 text-center ">2</view>
+            <view class="flex-1"></view>
+          </view>
+     
+        </view>
+        <view class='flex-row flex-center xxxx ' style='width:100% '>
+          <view class="flex-1"></view>
+
+          <view class=" xian1"></view>
+          <view class="flex-1"></view>
+        </view>
+
+        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+
+          <view class=' txt-white flex-1 h5 text-center'>添加微信号 </view>
+          <view class=' txt-white flex-1 h5 text-center'>联系学榜客服 </view>
+      
+        </view>
+
+        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+       
+        <view class="flex-row flex-1 margin-left-10">
+          <view class=' txt-white  h7 text-center '>
+            {{courseinfo.teacherwechatid}} </view>
+             <view class="fz margin-left-10" id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>复制微信号</view>
+             </view>
+          <view class=' txt-white flex-1 h7 text-center'>完成课程购买 </view>
+       
+        </view>
+        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+
+          <view class=' flex-row  flex-1 flex-center '>
+            <view class="flex-1"></view>
+         
+            <view class="flex-1"></view>
+          </view>
+          <view class=' txt-white flex-1 h7 text-center'> </view>
+          <view class=' txt-white flex-1 h7 text-center'></view>
+        </view>
+      </view>
+
+
+
+
+    </view>
+
+
+
+    <!-- <view style='height:28rpx;'></view>
+
+    <view class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</view>
+    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindtap='viewPhoto'></image>
+    <view class=' ' style='color:black;font-size:28rpx;'>如机构需要验证，请出示核销码</view> -->
+
+
+  </view>
   <!-- <view>
     <button bindtap='bindpay'>支付</button>
   </view> -->

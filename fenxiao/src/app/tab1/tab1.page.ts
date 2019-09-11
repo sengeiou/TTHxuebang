@@ -66,6 +66,7 @@ export class Tab1Page extends AppBase {
       mylat,
       mylng,
       isfenxiao:'Y',
+      limit:"0,100",
       orderby: "distance"
     };
 
@@ -132,7 +133,7 @@ export class Tab1Page extends AppBase {
 
 
 
-  qiehuanzhanjie(idx) {
+  qiehuanzhanjie(idx,id) {
     console.log(idx);
 
     if (idx == 0) {
@@ -140,8 +141,16 @@ export class Tab1Page extends AppBase {
     }
     else {
 
-
+      this.navigate("kechen",{id:id})
     }
    
+  }
+  tokcdetails(id){
+     this.navigate("kcinfo",{id:id});     
+
+  }
+  sousuo(){
+   console.log("adads");
+    this.navigate('searchword');
   }
 }

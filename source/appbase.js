@@ -37,8 +37,10 @@ export class AppBase {
   static Resource = null;
   static System=null;  
   static Model=null;
+  static jump = true;
   unicode = "tthxb";
   needauth = true;
+  
   pagetitle = null;
   app = null;
   options = null;
@@ -370,13 +372,14 @@ export class AppBase {
         AppBase.UserInfo.openid = openid;
         AppBase.UserInfo.session_key = session_key;
         console.log("loginres4", userres);
+ 
 
         var api = new WechatApi();
         api.decrypteddata({
           iv: userres.iv,
           encryptedData: userres.encryptedData
         }, ret => {
-
+          AppBase.jump = true; 
           AppBase.UserInfo.unionid = ret.return.unionId;
           ApiConfig.SetTokenKey(ret.return.unionId);
           console.log("loginres5", ret);
@@ -431,11 +434,18 @@ export class AppBase {
       fail: userloginres => {
         console.log("auth fail");
         console.log(userloginres);
+        
         if (that.Base.needauth == true) {
-          console.log("auth redirect", that.Base.needauth, that.needauth);
-          wx.navigateTo({
-            url: '/pages/auth/auth',
-          })
+          
+          AppBase.jump = false; 
+
+           
+
+           console.log("得到的", AppBase.jump);
+          // wx.navigateTo({
+          //   url: '/pages/auth/auth',
+          // })
+
         }
       }
     })
