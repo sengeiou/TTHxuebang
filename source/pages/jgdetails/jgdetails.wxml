@@ -321,14 +321,11 @@
       </view>
     </view>
 
-    <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
 
+   <!-- 猜你喜欢，在线课堂推荐,勿删 -->
+    <!-- <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
       <image src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;"></image>
-
     </view>
-
-
-
     <view class='flex-row flex-center flex-wrap'>
       <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' wx:for='{{ketang}}' wx:key='k'>
 
@@ -360,30 +357,17 @@
           <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
           <view class=' txt-red xg' style=''>{{item.price}}</view>
         </view>
-
-        <!-- <view wx:if="{{item.isfree_value=='Y'&&item.idd=='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="mianfei">免费课程</view>
-    </view>
-
-    <view wx:if="{{item.idd!='N'}}" class='margin-left-10 flex-row flex-center margin-top-12'>
-      <view class='margin-top-4 f20 txt-gray  flex-1 '>{{item.learning_num}}人学过</view>
-      <view class="yigou">已购</view>
-    </view> -->
-
-
+  
       </view>
     </view>
-
     <view class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
       <view class="flex-1"></view>
       <view class="more text-center txt-bold txt-white" bindtap="seemore">
         查看更多
       </view>
       <view class="flex-1"></view>
-    </view>
-
-    <!-- <view class='height-100 '></view> -->
+    </view> -->
+ 
 
     <view class="flex-row flex-center padding-T-B-28">
       <view class="flex-1"></view>

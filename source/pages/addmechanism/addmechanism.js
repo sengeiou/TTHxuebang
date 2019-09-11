@@ -551,6 +551,7 @@ class Content extends AppBase {
             that.Base.setMyData({
               addjigou
             });
+            
            // console.log(addjigou.return);
            // console.log("大幅度");
             var kclist = that.Base.getMyData().kclist;
