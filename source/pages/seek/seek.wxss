@@ -45,6 +45,7 @@ Page {
   margin-left: 20rpx;
   margin-right: 20rpx;
 }
+
 .border_top{
   border-top: 2rpx solid #e5e5e5; 
 }
@@ -160,6 +161,19 @@ Page {
   width: 230rpx;
   z-index: 200;
   top: 238rpx;
+}
+.list2 {
+  position: fixed;
+  width: 188rpx;
+  z-index: 200;
+  top: 142rpx;
+}
+.list3 {
+  position: fixed;
+  width: 188rpx;
+  z-index: 200;
+  right: 0;
+  top: 74rpx;
 }
 .img{
   width: 220rpx;

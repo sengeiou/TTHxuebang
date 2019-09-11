@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div  (click)="tokcdetails(item.id)"  id='{{item.id}}' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
+  *ngFor='let item of courselist;let idx=index'>
+  <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.kc_img}}" />
+  <div class='flex-row column   margin-left-20 flex-1'>
+    <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</div>
+
+
+    <div class="flex-row flex-center">
+      <div class="starbox text-right">
+        <div class="stars" style="width: 100%;">
+          <div class=" ims">
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          </div>
+        </div>
+
+        <div class="stars2">
+          <div class="ims">
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="h7 margin-left-20 margin-top-5" style="color:#FF5733">368人已购课</div>
+    </div>
+    <div class='flex-row flex-center flex-1' style=''>
+
+
+      <div class='flex-row flex-center flex-1'>
+        <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+        <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+      </div>
+
+
+      <div class='flex-row flex-center flex-1'>
+        <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+        <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+      </div>
+
+
+      <div class='flex-row flex-center flex-1'>
+        <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+        <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+      </div>
+
+
+    </div>
+
+    <div class="flex-row flex-center">
+
+      <div style="color:#FA2020">￥39.9</div>
+      <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥299</div>
+    </div>
+    <div class="flex-row flex-center">
+
+      <div class="flex-row ">
+        <div class="h6 ">佣金:</div>
+        <div class="h6" style="color:#FA2020">￥35.9</div>
+      </div>
+      <div class="flex-1"></div>
+      <div class="hqhb">获取海报</div>
+    </div>
+
+  </div>
+
+</div>
+</ion-content>

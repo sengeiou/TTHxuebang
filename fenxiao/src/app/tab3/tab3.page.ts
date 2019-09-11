@@ -29,6 +29,12 @@ export class Tab3Page extends AppBase {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
       
   }
+  showModal1=false;
+  tuiguandindan=[];
+  onMyLoad() {
+
+    
+  }
   onMyShow() {
     var that = this;
 

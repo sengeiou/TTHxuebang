@@ -1,67 +1,159 @@
-<ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>
-      {{InstInfo.name}}
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
 
-  <div class='orangeblock'>
+  <div class="padding-30 padding-bottom-20 flex-row flex-center">
+    <img class='member_icon'>
+    <div class='margin-left-10 chaochu'>ssaaa</div>
+    <div *ngIf="!showModal&&tuiguaninfo[0].status=='S'" class="label">学榜大使</div>
+    <div class="flex-1"></div>
+    <div class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</div>
+  </div>
 
 
-    <div class='flex-row flex-center'>
 
-      <div class='flex-row column flex-1'>
-        <div class='f48 txt-bold txt-white'>{{MemberInfo.nickName}}</div>
-        <div class='f26 txt-bold txt-white margin-top-10'> </div>
+
+  <div class="padding-30  padding-top-20">
+    <div class="content_bg ">
+      <div class="padding-40">
+        <div class="h5" style='color:rgba(161, 111, 47, 1)'>累计金币收益</div>
+        <div style="height:70rpx" class="flex-row flex-bottom margin-top-20">
+
+
+
+          <img class="icon-25  margin-right-10  " src='{{uploadpath}}resource/{{res.qiandai}}'>
+
+          <div class=" h2" style="color:rgba(255, 255, 255, 1);">111</div>
+          <div class="flex-1"></div>
+          <div bindtap='lijitixian' class="tixian">立即提现</div>
+        </div>
       </div>
 
-      <img class='tx radius-50  ' style='border:2px solid #CECFCE' src='{{MemberInfo.avatarUrl}}' />
-
-    </div>
-  </div>
-
-  <div class='bg-white margin-20 radius-8'>
-
-    <div data-name='wt' (click)='navigate("ketan")' class='flex-row flex-center margin-30   pd'>
-      <img class='icon-24' src='{{uploadpath}}resource/{{res.yigouketan}}' />
-      <div class='margin-left-20  txt-black  flex-1 h'>已购课程</div>
-      <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
-    </div>
-
-    <!-- <div  (click)='todetails("wt")' class='flex-row flex-center margin-30   pd'>
-      <img class='icon-24' src='{{uploadpath}}resource/{{res.chanjian}}' />
-      <div class='margin-left-20  txt-black  flex-1 h'>常见问题</div>
-      <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
-    </div> -->
-
-
-    <div class=' margin-30   pd'>
-      <a href="tel:{{InstInfo.tel}}" class='clear-button' hover-class='bg_gray'  style='border-radius:0;border:0;'>
-        <div class='flex-row flex-center'>
-          <img class='icon-24' src='{{uploadpath}}resource/{{res.lianxikefu}}' />
-          <div class='margin-left-20  txt-black h '>联系客服</div>
-          <div class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{InstInfo.openning}}</div>
-          <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+      <div class="xian"></div>
+      <div class="content_bottom flex-row flex-center">
+        <div bindtap='mykehu' class="flex-2 flex-row ">
+          <!-- <div class="flex-1"></div> -->
+          <div>
+            <div class="margin-left-40 h5" style='color:rgba(161, 111, 47, 1)'>
+              大使馆(人)
+            </div>
+            <div class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
+              111
+            </div>
+          </div>
+          <div class="flex-1"></div>
         </div>
-      </a>
+         <div class="fenge"></div>
+            <div bindtap='myinvite' class="flex-3 flex-row ">
+              <div class="flex-1"></div>
+              <div>
+                <div class="h5" style='color:rgba(161, 111, 47, 1)'>
+                  成功邀请推广员(人)
+                </div>
+                <div class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
+                 1231
+                </div>
+              </div>
+              <div class="flex-1"></div>
+            </div> 
+        <div class="fenge"></div>
+        <div bindtap='tuiguandindan' class="flex-2 flex-row ">
+
+          <div>
+            <div class="h5 margin-left-40" style='color:rgba(161, 111, 47, 1)'>
+              大使传单
+            </div>
+            <div class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
+              {{tuiguandindan.length}}
+            </div>
+          </div>
+          <div class="flex-1"></div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="margin-30 margin-top-10 flex-row bg-white  flex-center">
 
-
-    <div  (click)='todetails("wm")' class='flex-row flex-center margin-30   pd'>
-      <img class='icon-24' src='{{uploadpath}}resource/{{res.us}}' />
-      <div class='margin-left-20  txt-black  flex-1 h'>关于我们</div>
-      <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+    <img class="yaoqin_icon margin-40 " src='{{uploadpath}}resource/{{res.yaoqinhaoyou}}' />
+    <div class="flex-1">
+      <div class="f15 " style='color:rgba(34, 34, 34, 1)'>邀请好友</div>
+      <div class="h11 margin-top-10" style='color:rgba(153, 153, 153, 1)'>邀请好友一起学习</div>
     </div>
-
-
+    <img class="icon-10  margin-40" src='{{uploadpath}}resource/{{res.yaoqin_you}}' />
 
   </div>
 
-  <div class='height-60'></div>
+  <div class="margin-30 margin-top-10 flex-row bg-white  flex-center">
+
+    <img class="yaoqin_icon margin-40 " src='{{uploadpath}}resource/{{res.yaoqinhaoyou}}' />
+    <div class="flex-1">
+      <div class="f15 " style='color:rgba(34, 34, 34, 1)'>我的收藏</div>
+      <div class="h11 margin-top-10" style='color:rgba(153, 153, 153, 1)'>我收藏的可推广课程</div>
+    </div>
+    <img class="icon-10  margin-40" src='{{uploadpath}}resource/{{res.yaoqin_you}}' />
+
+  </div>
+
+  <div class="padding-40">
+    <div class="f-26" style="color:#222222">- 如何邀请好友？</div>
+
+    <div class="margin-top-10 f-22" style="color:#999999">点击邀请好友，可直接转发给好友，或者生成海报发到朋友圈。点击 好友即成为你的团队人员。</div>
+
+  </div>
+
+
+
+  <div class="padding-40">
+    <div class="f-26" style="color:#222222">- 邀请成功有什么好处？</div>
+
+    <div class="margin-top-10 f-22" style="color:#999999">好友购买含佣金的课程你都能得到一定的提成。</div>
+
+  </div>
+  <div class="padding-40">
+    <div class="f-26" style="color:#222222">- 邀请好友成为推广员获得收益？</div>
+
+    <div class="margin-top-10 f-22" style="color:#999999">成功邀请一位好友注册成为学榜推广员，您将获得200积分。</div>
+
+  </div>
+  <div class="modal-mask" bindtap="hideModal" *ngIf="showModal1" catchtouchmove="preventTouchMove"></div>
+  <div class="modal-dialog" *ngIf="showModal1">
+    <div class="padding-20 margin-left-20">填写信息申请成为推广员</div>
+
+    <div class="padding-20 flex-row flex-center">
+      <div style='color:rgba(255, 82, 82, 1)'>*</div>
+      <div class="margin-left-5 jl">姓名:</div>
+      <input value='{{name}}' bindinput='name' placeholder="请输入真实姓名" placeholder-class="ysl">
+    </div>
+    <div class="padding-20 flex-row flex-center">
+      <div style='color:rgba(255, 82, 82, 1)'>*</div>
+      <div class="margin-left-5 jl">手机号:</div>
+      <input type="number" maxlength="11" value='{{photo}}' placeholder="请输入手机号码" bindinput='photo'
+        placeholder-class="ysl">
+    </div>
+    <div class="padding-20 flex-row flex-center">
+      <div style='color:rgba(255, 82, 82, 1)'>*</div>
+      <div class="margin-left-5 jl">验证码:</div>
+      <input style="width:300rpx" value='{{yanzhenma}}' maxlength="4" bindinput='yanzhenma' placeholder="输入验证码"
+        placeholder-class="ysl">
+      <div *ngIf="shijian==0" bindtap="fason" class="yz_btm">获取验证码</div>
+
+      <div class="h5" *ngIf="shijian>0">{{shijian}}秒后重新发送</div>
+
+
+    </div>
+    <div class="padding-20 flex-row flex-center">
+      <div style='color:rgba(255, 82, 82, 1)'>*</div>
+      <div class="margin-left-5 jl">地址:</div>
+      <input value='{{dizhi}}' bindinput='dizhi' placeholder="详细住址" placeholder-class="ysl">
+    </div>
+    <div bindtap='queren' class="flex-row margin-top-60">
+      <div class="flex-1"></div>
+      <div class="tuan_btn  text-center  ">
+        确认
+      </div>
+
+      <div class="flex-1"></div>
+    </div>
+  </div>
 
 
 </ion-content>

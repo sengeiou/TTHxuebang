@@ -154,14 +154,26 @@
   <view class='fixedtop'>
     <view class='bg-primary'>
 
-      <view class='padding-left-20 padding-right-20 padding-top-20 '>
-        <navigator url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 '>
+      <view class='padding-left-20 padding-right-20 padding-top-20 flex-row'>
+        <navigator url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 ' style="width: 564rpx;">
           <image class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
           <view class='h6 txt-gray margin-left'>搜索课程</view>
         </navigator>
+
+        <!-- 修改后 -->
+        <view class='flex-row flex-center margin-left-15' bindtap='bindxialaage' style=''>
+          <view class='txt-black h5 txt-bold' wx:if="{{'0'==fdistrict_id}}">全{{cityname}}</view>
+
+
+          <view class='txt-black h5 txt-bold' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+
+
+          <image class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.gengduo}}'></image>
+        </view>
+
       </view>
 
-      <view class=' flex-row flex-center margin-top-20'>
+      <!-- <view class=' flex-row flex-center margin-top-20'>
 
         <view class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
           <view class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</view>
@@ -199,10 +211,49 @@
           <view class='margin-top-5' style='width:80rpx;height:6rpx;'></view>
         </view>
 
-      </view>
+      </view> -->
 
-    </view>
-  </view>
+
+    <!-- 修改后 -->
+    <view class='flex-row flex-center margin-top-5' style=''>
+
+        <view class='flex-row flex-center weizhi' bindtap='bindxialakc' style=''>
+          <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全{{cityname}}</view>
+
+
+          <view class='txt-black h5 txt-bold margin-top-5' wx:for="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" wx:if="{{ditem.id==fdistrict_id}}">{{ditem.name}}</view>
+
+
+          <image class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}'></image>
+        </view>
+
+        <view class='flex-1 flex-row flex-center'>
+
+          <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
+            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</view>
+            <view wx:if='{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+            <view wx:if='{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></view>
+          </view>
+
+          <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
+            <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</view>
+            <view wx:if='{{show=="hp"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+            <view wx:if='{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></view>
+          </view>
+
+          <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
+                    <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</view>
+                    <view wx:if='{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
+                    <view wx:if='{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></view>
+                  </view>
+                </view>
+
+              </view>
+
+            </view>
+          </view>
+     
+
   <view style='height:180rpx;'></view>
 
 
@@ -430,6 +481,24 @@
 
 
 <view wx:if='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
+
+  <scroll-view scroll-y>
+    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</view>
+    <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
+  </scroll-view>
+
+</view>
+
+<view wx:if='{{xialakc=="xs"}}' class='bg-white list2' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
+
+  <scroll-view scroll-y>
+    <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</view>
+    <view bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' wx:for='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</view>
+  </scroll-view>
+
+</view>
+
+<view wx:if='{{xialaage=="xs"}}' class='bg-white list3' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
 
   <scroll-view scroll-y>
     <view bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</view>
