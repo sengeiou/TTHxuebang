@@ -2,7 +2,7 @@
 <view wx:if="{{tishi1}}" class="padding-20 flex-row flex-center jingao">
   <view class="flex-1"></view>
   <image src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  "></image>
-  <view class="h6 margin-left-10">提现最低金额为10元，不能超过可提现金额 5000元</view>
+  <view class="h6 margin-left-10">不能超过可提现金额 5000元</view>
   <view class="flex-1"></view>
 </view>
 
@@ -26,7 +26,7 @@
   <view class="bg">
     <view class="flex-row flex-center  margin-20 xhx">
       <view class="h2">￥</view>
-      <input bindinput="shuru" class="flex-1 margin-left-20 h2 shuru" value="{{jiner}}" type='digit' confirm-type='done' placeholder-class="tsk" placeholder="最低提现10元"></input>
+      <input bindinput="shuru" class="flex-1 margin-left-20 h2 shuru" value="{{jiner}}" type='digit' confirm-type='done' placeholder-class="tsk" ></input>
       <view bindtap="quanbu" class="h6" style="color:#589DE9">全部提现</view>
     </view>
     <view class="flex-row flex-center  padding-30 ">

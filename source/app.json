@@ -7,7 +7,7 @@
     "pages/jiaoyixinxi/jiaoyixinxi",
     "pages/maintain/maintain",
     "pages/ketan/ketan",
-    "pages/ketaninfo/ketaninfo",
+  
     "pages/tuikuan/tuikuan",
     "pages/yiduihuang/yiduihuang",
     "pages/mypingce/mypingce",
@@ -37,17 +37,16 @@
     "pages/myinvite/myinvite",
     "pages/tixian/tixian",
     "pages/jiemuxianqin/jiemuxianqin",
-    "pages/videopurcsucc/videopurcsucc",
+  
     "pages/tuiguanguize/tuiguanguize",
-    "pages/shipingoumai/shipingoumai",
+  
     "pages/huiyuanfuwu/huiyuanfuwu",
     "pages/promotion/promotion",
     "pages/groupinfo/groupinfo",
     "pages/pingceindex/pingceindex",
     "pages/pingcedati/pingcedati",
     "pages/pingcejieguo/pingcejieguo",
-    "pages/ketangdetails/ketangdetails",
-    "pages/zaixianketang/zaixianketang",
+   
     "pages/pingjia/pingjia",
     "pages/pingjialist/pingjialist",
     "pages/pingjiawanchen/pingjiawanchen",

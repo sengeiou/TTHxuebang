@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="top_bg">
+    <div class="padding-20">
+
+      <div class="f-26" style="color:#F5555D">重要提示：</div>
+      <div class="f-26 margin-top-10" style="color:#F5555D">推广海报带有分销商城锁粉功能，用户终身绑定！</div>
+    </div>
+
+  </div>
+  <div style="background-size:100% 100%;"
+    [style.background-image]="'url('+uploadpath+'resource/'+res.kchaibaobeijin +')'">
+    <div class="height-20"></div>
+    <div class="flex-row flex-center">
+
+      <div class="flex-1"></div>
+
+      <img class="hb" src="{{uploadpath}}resource/{{res.kchaibaobeijin1}}" />
+      <div class="flex-1"></div>
+
+    </div>
+    <div class="height-20"></div>
+
+    <div class="flex-row flex-center">
+
+      <div class="flex-1"></div>
+
+      <div class="flex-row flex-center anniu">
+        <img class="icon-25 margin-left-20" src="{{uploadpath}}resource/{{res.baocunhaibao}}" />
+        <div class="f13 margin-left-10">保存图片到本地</div>
+      </div>
+      <div class="flex-row flex-center anniu margin-left-20">
+        <img class="icon-25 margin-left-20" src="{{uploadpath}}resource/{{res.fenxianpyq}}" />
+        <div class="f13 margin-left-10">分享到朋友圈</div>
+
+      </div>
+      <div class="flex-1"></div>
+    </div>
+    <div class="height-50"></div>
+    <div class="margin-20 wenan">
+      <div class="padding-20 flex-row flex-center">
+        <div class="h5">推广文案</div>
+        <div class="flex-1"></div>
+        <div class="f-26" style="color:#FF6600">保存图片或分享朋友圈即自动复制文案</div>
+
+      </div> 
+      <div class="flex-row ">
+        <div class="flex-1"></div>
+      <div class="xian"></div>
+      <div class="flex-1"></div>
+    </div>
+   <div  class="padding-20" style="white-space: pre-wrap">
+    
+<div class="h6" style="color:#999999">国之瑰宝 中国舞</div>
+<div class="h6" style="color:#999999">12312312</div>
+<div class="h6" style="color:#999999">编程【2节课 | 0-12岁 | 4节课】</div>
+<div class="h6" style="color:#999999">￥39.9立即购买</div>
+
+    
+   </div>
+    </div>
+  <div class="height-100"></div>
+  </div>
+</ion-content>
