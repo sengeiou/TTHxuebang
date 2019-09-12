@@ -94,8 +94,6 @@
   </view>
 </view>
 
-<!--加上这个轮播图不会有切城市不限时问题-->
-<input hidden="{{true}}" wx:for="{{indexbanner}}" wx:key="k" value="{{uploadpath}}indexbanner/{{item.img}}" ></input>
 
 
 <!-- <view class='flex-row flex-center margin-10 padding-top-10 '>
