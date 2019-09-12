@@ -927,9 +927,9 @@ class Content extends AppBase {
 
   bindtokc(e){
    var typeid=e.currentTarget.id;
-
+    var typename = e.currentTarget.dataset.name;
     wx.navigateTo({
-      url: '/pages/seek/seek?type=kc&typeid=' + typeid
+      url: '/pages/seek/seek?type=kc&typeid=' + typeid + '&typename=' + typename
     })
 
   }

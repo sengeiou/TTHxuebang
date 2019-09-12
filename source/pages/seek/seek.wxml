@@ -174,7 +174,7 @@
       <view class=' flex-row flex-center margin-top-20'>
 
   
-<!--  -->
+
         <view class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
           <view class='txt-black h5 txt-bold margin-top-5' wx:if="{{'0'==fdistrict_id}}">全{{cityname}}</view>
 
@@ -272,7 +272,7 @@
   <view style='height:180rpx;'></view>
 
 
-  <view wx:if="{{courselist.length==0}}">
+  <view wx:if="{{vteach.length==0}}">
     <view class='flex-row text-center'>
       <view class='flex-1'>
       </view>
@@ -294,8 +294,6 @@
 
     </view>
   </view>
-
-
 
 
   <view bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' wx:for='{{vteach}}' wx:key='k'>

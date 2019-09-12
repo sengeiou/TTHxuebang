@@ -58,7 +58,7 @@
 </view>
 
 
-<view class="topblock" wx:if='{{nocity==2}}'>
+<view class="topblock" wx:if='{{nocity==2&&cityname!=address.address_component.city}}'>
 
   <view class="flex-row flex-center " style="margin-top:30rpx;">
 
@@ -123,12 +123,12 @@
       <view class="h6">找机构</view>
     </view>
 
-    <view class="flex-row flex-column lesson-width " bindtap='bindtokc'>
+    <view class="flex-row flex-column lesson-width " bindtap='bindtokc' data-name='找课程'>
       <image src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26"></image>
       <view class="h6">找课程</view>
     </view>
 
-    <view class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<8}}'>
+    <view class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<8}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>

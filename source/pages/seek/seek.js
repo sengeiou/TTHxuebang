@@ -110,13 +110,14 @@ class Content extends AppBase {
   setPageTitle(options) {
 
     console.log(options,"来来来")
-
+     
+    var typename = options.typename;
     
     if (options.type == 'kc') {
 
-console.log("啦啦啦啦")
-
-      var  title='找课程';
+      console.log("啦啦啦啦")
+      
+      var title = typename;
     } 
     if (options.type == 'jg'){
       console.log("换个哈哈哈")
