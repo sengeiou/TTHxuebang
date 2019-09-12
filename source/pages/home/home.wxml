@@ -84,7 +84,7 @@
     </swiper-item>
   </swiper> -->
 
-    <swiper indicator-dots='true' autoplay='false' interval='2000' duration='200' circular='true' style='width:710rpx;height:354rpx;'>
+    <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:710rpx;height:354rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
         <!-- mode="aspectFill"  bindtap='viewPhoto' -->
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
