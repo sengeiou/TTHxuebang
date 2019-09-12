@@ -80,7 +80,6 @@ class Content extends AppBase {
 
       jigouapi.courselist({
         isxuebang: "Y",
-        orderby: 'r_main.seq'
       }, (courselist) => {
 
         console.log('13213213', courselist);

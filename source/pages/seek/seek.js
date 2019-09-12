@@ -21,15 +21,13 @@ class Content extends AppBase {
   }
   courselist = [];
   jglist = [];
-  setPageTitle() {
-    wx.setNavigationBarTitle({
-      title: '找课程',
-    });
-  }
+
+
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
     //this.options.type="jg";
+ 
     if (options.type == undefined) {
       options.type = 'kc';
     }
@@ -74,6 +72,7 @@ class Content extends AppBase {
 
     //  console.log(this.options.type);
 
+    this.setPageTitle(options);
 
     var jigouapi = new JigouApi();
     jigouapi.gongaolist({
@@ -107,6 +106,28 @@ class Content extends AppBase {
     });
 
   }
+
+  setPageTitle(options) {
+
+    console.log(options,"来来来")
+
+    
+    if (options.type == 'kc') {
+
+console.log("啦啦啦啦")
+
+      var  title='找课程';
+    } 
+    if (options.type == 'jg'){
+      console.log("换个哈哈哈")
+      var  title='找机构 ';
+    }
+
+    wx.setNavigationBarTitle({
+      title: title
+    });
+  }
+
 
   onUnload() {
     var timerStart = this.Base.getMyData().timerStart;
@@ -146,19 +167,20 @@ class Content extends AppBase {
         filterdistrict
       });
       //默认搜索罗湖区算了
-      if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id == 0) {
-        console.log(this.Base.getMyData());
-        var address = this.Base.getMyData().address;
-        var adcode = address.ad_info.adcode;
-        for (var i = 0; i < filterdistrict.length; i++) {
-          if (adcode == filterdistrict[i].id) {
-            var fdistrict_id = filterdistrict[i].id;
-            this.Base.setMyData({
-              fdistrict_id
-            });
-          }
-        }
-      }
+
+      // if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id == 0) {
+      //   console.log(this.Base.getMyData());
+      //   var address = this.Base.getMyData().address;
+      //   var adcode = address.ad_info.adcode;
+      //   for (var i = 0; i < filterdistrict.length; i++) {
+      //     if (adcode == filterdistrict[i].id) {
+      //       var fdistrict_id = filterdistrict[i].id;
+      //       this.Base.setMyData({
+      //         fdistrict_id
+      //       });
+      //     }
+      //   }
+      // }
       if (type == "kc") {
         this.loadcourse();
       } else {
@@ -760,7 +782,10 @@ body.hideFilter = content.hideFilter;
 body.resetFilter = content.resetFilter;
 body.setTDistrict = content.setTDistrict;
 body.setTType = content.setTType;
-body.setTAge = content.setTAge;
+body.setTAge = content.setTAge; 
+
+body.setPageTitle = content.setPageTitle;
+
 body.changeDistrict = content.changeDistrict;
 body.catchTouchMove = content.catchTouchMove;
 Page(body)
