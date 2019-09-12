@@ -288,7 +288,7 @@ class Content extends AppBase {
       nocity: 0, cityname: name
     });
 
-    // this.onMyShow();
+      this.onMyShow();
 
     //this.loadjg();
   }
