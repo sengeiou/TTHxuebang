@@ -384,6 +384,40 @@ export class MemberApi {
     }
 
 
+    public updateauth(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'member/updateauth';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = new RequestOptions({ headers: headers });
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                if (ApiConfig.DataLoadedHandle('member/updateauth', data, res)) {
+                    if (showLoadingModal) {
+                        ApiConfig.DimissLoadingModal();
+                    }
+                    if (res==null) {
+                        return null;
+                    }
+                    return res.json();
+                } else {
+                    return Promise.reject(res);
+                }
+            })
+            .catch(err => {
+                if (showLoadingModal) {
+                    ApiConfig.DimissLoadingModal();
+                }
+                return ApiConfig.ErrorHandle('member/updateauth', data, err);
+            });
+    }
+
+
     public updateh5(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'member/updateh5';
         var headers = ApiConfig.GetHeader(url, data);
@@ -394,10 +428,9 @@ export class MemberApi {
         if (showLoadingModal) {
             loading = ApiConfig.GetLoadingModal();
         }
-   
+
         return this.http.post(url, body, options).toPromise()
             .then((res) => {
-                
                 if (ApiConfig.DataLoadedHandle('member/updateh5', data, res)) {
                     if (showLoadingModal) {
                         ApiConfig.DimissLoadingModal();
@@ -411,7 +444,6 @@ export class MemberApi {
                 }
             })
             .catch(err => {
-                
                 if (showLoadingModal) {
                     ApiConfig.DimissLoadingModal();
                 }

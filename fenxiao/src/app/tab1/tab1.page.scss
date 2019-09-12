@@ -18,6 +18,14 @@ ion-content{
 .padding-50{
   padding:rpx(50);
 }
+.xz{
+  width: rpx(90);
+  height: rpx(3);
+  background: white;
+}
+.xzz{
+  height: rpx(3);
+}
 .hqhb{
  height: rpx(52);
  width: rpx(160);
@@ -50,8 +58,13 @@ ion-content{
   box-shadow: 1px 1px 5px #dfdfdf;
 }
 .xianshi{
-height: rpx(520);
+height: rpx(480);
 
+}
+
+.padding-top-0{
+
+   padding-top: rpx(0);
 }
 .sj{
 border-radius:rpx(10);
@@ -104,6 +117,19 @@ display:-webkit-box;
   width:94vw;
   margin-left:3vw;
   margin-top:rpx(20);
+}
+.margin-top-2000{
+  margin-top:rpx(40);
+
+}
+.marigin-top-5{
+ margin-top:rpx(5);
+
+}
+.kecheng11{
+  width:94vw;
+  margin-left:3vw;
+  
 }
 .kecheng-block {
   width: rpx(330);

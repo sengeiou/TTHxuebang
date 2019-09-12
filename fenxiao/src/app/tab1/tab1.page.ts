@@ -7,12 +7,13 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { JigouApi } from 'src/providers/jigou.api';
+import { InstApi } from 'src/providers/inst.api';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  providers: [MemberApi, JigouApi]
+  providers: [MemberApi, JigouApi, InstApi]
 })
 export class Tab1Page extends AppBase {
 
@@ -24,6 +25,7 @@ export class Tab1Page extends AppBase {
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi,
+    public instApi: InstApi,
     public jigouApi: JigouApi
   ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
@@ -31,20 +33,14 @@ export class Tab1Page extends AppBase {
   }
   rad = 1;
   fenleilist = [];
-  xz = -1;
+  xz = 0;
   name = "在线课程";
   lunbolist = [];
   zuixin = [];
   zhon = 0;
+  genduo = false;
   onMyLoad() {
     var that = this;
-
- 
-
-
-
-
-
 
   }
   xzlist = [];
@@ -55,7 +51,7 @@ export class Tab1Page extends AppBase {
   jgvteach = [];
   vteach = [];
   courselist = [];
-  huodon=[];
+  huodon = [];
   loadcourse() {
     var jigouapi = this.jigouApi;
     var mylat = this.mylat;
@@ -65,8 +61,8 @@ export class Tab1Page extends AppBase {
     var opt = {
       mylat,
       mylng,
-      isfenxiao:'Y',
-      limit:"0,100",
+      isfenxiao: 'Y',
+      limit: "0,100",
       orderby: "distance"
     };
 
@@ -76,34 +72,33 @@ export class Tab1Page extends AppBase {
     //opt.limit="100";
 
     jigouapi.courselist(opt).then((courselist) => {
-      
-     var huodon=[];
+
+      var huodon = [];
       var vteach = [];
       for (var i = 0; i < courselist.length && i < 5; i++) {
-
-         if(i==0)
-         {
+        if (i == 0) {
           huodon.push(courselist[i]);
-         } 
-        
+        }
         vteach.push(courselist[i]);
       }
       console.log(vteach);
       this.courselist = courselist;
-      this.huodon=huodon;
+      this.huodon = huodon;
       console.log(this.huodon);
       this.vteach = vteach;
 
     });
   }
-
+  fuli = [];
+  fuli0 = [];
   onMyShow() {
     this.rad = 375 * 1.0 / screen.width;
 
     this.loadcourse();
     var jigouapi = this.jigouApi;
+    var instapi = this.instApi;
     jigouapi.coursetype({}).then((fenleilist) => {
-      
+
 
       var fenlei1 = { id: 0, img: this.res.zaixian, typename: '在线课程' };
       var list = [];
@@ -112,18 +107,30 @@ export class Tab1Page extends AppBase {
       fenleilist.map((item) => {
         list.push(item);
       })
-         
+
       console.log(list);
 
       this.zhon = Math.floor(list.length / 2);
 
 
       this.fenleilist = list;
-      this.xz = -1;
+
       this.name = "在线课程";
     });
     jigouapi.zuixinzaixiankechen({}).then((qwe) => {
       this.zuixin = qwe;
+
+    })
+    instapi.xianshifuli({ id: 0 }).then((fuli) => {
+      console.log(11111);
+      console.log(fuli);
+      this.fuli0=[];
+         var fulilist = fuli.kc;
+      this.fuli0.push(fuli.kc[0]);
+      this.fuli = fulilist.filter((item, idx) => {
+        return idx != 0;
+
+      });
 
     })
   }
@@ -133,24 +140,30 @@ export class Tab1Page extends AppBase {
 
 
 
-  qiehuanzhanjie(idx,id) {
+  qiehuanzhanjie(idx) {
     console.log(idx);
-
+    var id = 0;
+    id = this.fenleilist[idx].id;
     if (idx == 0) {
       this.navigate("zaixianketan")
     }
     else {
 
-      this.navigate("kechen",{id:id})
+      this.navigate("kechen", { id: id })
     }
-   
-  }
-  tokcdetails(id){
-     this.navigate("kcinfo",{id:id});     
 
   }
-  sousuo(){
-   console.log("adads");
+  tokcdetails(id) {
+    this.navigate("kcinfo", { id: id });
+
+  }
+  sousuo() {
+    console.log("adads");
     this.navigate('searchword');
+  }
+  ckhb(id)
+  {
+    console.log(id);
+    this.navigate("kchaibao",{id:id});
   }
 }

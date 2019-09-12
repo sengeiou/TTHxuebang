@@ -15,7 +15,9 @@ const routes: Routes = [
   { path: 'kcinfo', loadChildren: './kcinfo/kcinfo.module#KcinfoPageModule' },
   { path: 'searchword', loadChildren: './searchword/searchword.module#SearchwordPageModule' },
   { path: 'generate', loadChildren: './generate/generate.module#GeneratePageModule' },
-  { path: 'search', loadChildren: './search/search.module#SearchPageModule' }
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+  { path: 'kchaibao', loadChildren: './kchaibao/kchaibao.module#KchaibaoPageModule' },
+  { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' }
 
 ];
 @NgModule({

@@ -8,13 +8,14 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { JigouApi } from 'src/providers/jigou.api';
 
+
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss'],
+  selector: 'app-kchaibao',
+  templateUrl: './kchaibao.page.html',
+  styleUrls: ['./kchaibao.page.scss'],
   providers: [MemberApi, JigouApi]
 })
-export class SearchPage extends AppBase {
+export class KchaibaoPage  extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -23,7 +24,7 @@ export class SearchPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public jigouApi: JigouApi,
+     public jigouapi:JigouApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
@@ -34,28 +35,20 @@ export class SearchPage extends AppBase {
     //参数
     this.params;
   }
-  courselist=[];
-  coursevlist=[];
+  neiron="";
   onMyShow(){
-   console.log("哈哈哈哈");
-    var jigouapi = this.jigouApi;
-    jigouapi.courselist({searchkeyword:this.params.name,limit:'100'}).then((courselist) => {
-      console.log(courselist);
-      var coursevlist = [];
-    
+    var api=this.jigouapi;
+    api.courseinfo({id:this.params.id}).then((kcinfo)=>{
+    console.log(kcinfo);
+    console.log( kcinfo.wenan);
 
-      this.courselist = courselist;
-      this.coursevlist=coursevlist;
-        
-      });
-    };
-    ckhb(id)
-    {
-      console.log(id);
-      this.navigate("kchaibao",{id:id});
-    }
-    tokcdetails(id) {
-      this.navigate("kcinfo", { id: id });
-  
-    }
+    kcinfo.wenan= kcinfo.wenan.replace(/\n/g,"<br>");
+    kcinfo.wenan= kcinfo.wenan.replace(/<br\/>/g, "");
+   
+    console.log( kcinfo.wenan);
+     this.neiron=kcinfo.wenan;
+     
+    })
+
+  }
 }

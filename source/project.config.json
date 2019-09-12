@@ -137,7 +137,7 @@
 					"id": 12,
 					"name": "订单完成",
 					"pathName": "pages/order/order",
-					"query": "id=2155",
+					"query": "id=2170",
 					"scene": null
 				},
 				{
@@ -537,6 +537,13 @@
 					"name": "pages/seek/seek",
 					"pathName": "pages/seek/seek",
 					"query": "type=kc&ftype_id=0&fage_id=0&fdistrict_id=440306&appid=wx9627418e6ac276a5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/ketangdetails/ketangdetails",
+					"pathName": "pages/ketan/ketan",
+					"query": "id=2155",
 					"scene": null
 				}
 			]

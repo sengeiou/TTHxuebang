@@ -56,7 +56,7 @@
   </view>
 
   <view style='' class=' bg-white flex-row flex-column padding-20 radius-10  margin-top-20'>
-    <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:290rpx;'>
+    <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:320rpx;'>
 
       <!-- <view class='height-20'></view>
       <view class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</view>
@@ -82,7 +82,7 @@
         <view class="flex-1"></view>
       </view>
        
-         <view class="f-26 " style="color:#FFFFFF">苹果手机用户请添加客服协助您完成购课</view>
+         <view class=" txt-bold " style="color:#FFFFFF;width:450rpx;font-size:26rpx;">苹果手机用户暂时无法在平台完成支付 因为平台ios端系统在更新维护中~</view>
 
       <view style='width:100% ' class="margin-top-10">
         <view class='flex-row flex-center ' style='width:100% '>

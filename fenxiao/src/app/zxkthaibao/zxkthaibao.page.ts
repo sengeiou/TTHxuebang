@@ -6,15 +6,14 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
-import { JigouApi } from 'src/providers/jigou.api';
+
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.page.html',
-  styleUrls: ['./search.page.scss'],
-  providers: [MemberApi, JigouApi]
+  selector: 'app-zxkthaibao',
+  templateUrl: './zxkthaibao.page.html',
+  styleUrls: ['./zxkthaibao.page.scss'],
 })
-export class SearchPage extends AppBase {
+export class ZxkthaibaoPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -23,7 +22,6 @@ export class SearchPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public jigouApi: JigouApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
@@ -34,28 +32,7 @@ export class SearchPage extends AppBase {
     //参数
     this.params;
   }
-  courselist=[];
-  coursevlist=[];
   onMyShow(){
-   console.log("哈哈哈哈");
-    var jigouapi = this.jigouApi;
-    jigouapi.courselist({searchkeyword:this.params.name,limit:'100'}).then((courselist) => {
-      console.log(courselist);
-      var coursevlist = [];
-    
 
-      this.courselist = courselist;
-      this.coursevlist=coursevlist;
-        
-      });
-    };
-    ckhb(id)
-    {
-      console.log(id);
-      this.navigate("kchaibao",{id:id});
-    }
-    tokcdetails(id) {
-      this.navigate("kcinfo", { id: id });
-  
-    }
+  }
 }
