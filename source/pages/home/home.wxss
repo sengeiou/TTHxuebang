@@ -554,3 +554,16 @@ Page {
   float: left;
   white-space: nowrap;
 }
+
+.class_icon {
+  width: 50rpx;
+  height: 50rpx
+}
+
+.lesson-width { 
+  width: 20%; 
+}
+.icon26{
+  width: 60rpx;
+  height: 60rpx;
+}

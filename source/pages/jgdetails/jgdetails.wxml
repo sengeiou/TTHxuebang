@@ -15,7 +15,7 @@
         <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
           <swiper-item wx:for="{{jigouimg}}" wx:key="k">
             <view>
-            
+              <!-- mode="aspectFill"  bindtap='viewPhoto' -->
               <image src='{{uploadpath}}jigouimg/{{item.img}}?x-oss-process=style/test_img' bindtap='viewPhoto' id='{{uploadpath}}jigouimg/{{item.img}}' style='width:750rpx;height:444rpx;'></image>
             </view>
           </swiper-item>
@@ -24,6 +24,7 @@
     </view>
 
 
+    <!-- {{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "?"mid2":"mid"}} -->
 
     <view class="flex-row flex-column">
 
@@ -67,6 +68,8 @@
             </view>
 
 
+            <!-- <view bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</view>
+            <view bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</view> -->
 
 
 
@@ -76,19 +79,20 @@
           <view class='flex-row flex-center margin-top-5 padding-10'>
 
             <view class='flex-row flex-column flex-1'>
-           
+              <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
               <view class="txt-gray h6">适合年龄</view>
               <view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</view>
             </view>
 
             <view class='flex-row flex-column flex-1'>
-             
+              <!-- <image src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13"></image> -->
               <view class="txt-gray h6">营业时间</view>
               <view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</view>
             </view>
 
             <view class='flex-row flex-column flex-1'>
-           
+              <!-- <image src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13"></image> -->
+              <!-- <view class="txt-gray h6" >预约</view> -->
               <view class='h6 txt-gray '>需要预约</view>
               <view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</view>
             </view>
@@ -122,7 +126,7 @@
 
             <cover-view class="starbox text-right  ">
 
-            
+              <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
               <cover-view class="stars_2" style="width:100%">
                 <cover-view class="ims "  >
                   <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
@@ -164,19 +168,20 @@
             <cover-view class='flex-row flex-center margin-top-5 padding-10'>
 
               <cover-view class='flex-row flex-column flex-1'>
-              
+                <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
                 <cover-view class="txt-gray h6">适合年龄</cover-view>
                 <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
               </cover-view>
 
               <cover-view class='flex-row flex-column flex-1'>
-              
+                <!-- <image src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13"></image> -->
                 <cover-view class="txt-gray h6">营业时间</cover-view>
                 <cover-view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</cover-view>
               </cover-view>
 
               <cover-view class='flex-row flex-column flex-1'>
-              
+                <!-- <image src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13"></image> -->
+                <!-- <view class="txt-gray h6" >预约</view> -->
                 <cover-view class='h6 txt-gray '>需要预约</cover-view>
                 <cover-view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</cover-view>
               </cover-view>
@@ -197,12 +202,16 @@
       </view>
     </view>
 
-  
+    <!-- <view wx:if='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></view>
+
+    <view wx:if='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:340rpx;'></view> -->
+
+    <!-- <view class="margin-top-20">a{{model}}b</view> -->
 
     <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
 
       <view class='flex-row flex-center  radius-10 padding-20'>
-       
+        <!-- <view class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></view> -->
         <image src="{{uploadpath}}resource/{{res.jg_jianjie}}" class="icon_jianjie"></image>
         <view class='margin-left-10 txt-bold'>机构简介</view>
       </view>
@@ -214,7 +223,7 @@
 
         <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img'></image>
 
-      
+        <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
       </view>
 
       <view class="" style="margin-top:-30rpx;">
@@ -231,7 +240,8 @@
 
     </view>
 
-  
+    <!-- <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image> -->
+
 
     <image src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw'></image>
 
@@ -311,15 +321,12 @@
       </view>
     </view>
 
-    <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
 
+   <!-- 猜你喜欢，在线课堂推荐,勿删 -->
+    <!-- <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
       <image src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;"></image>
-
     </view>
-
-
-
-    <!-- <view class='flex-row flex-center flex-wrap'>
+    <view class='flex-row flex-center flex-wrap'>
       <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' wx:for='{{ketang}}' wx:key='k'>
 
         <view style=''>
@@ -350,13 +357,9 @@
           <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
           <view class=' txt-red xg' style=''>{{item.price}}</view>
         </view>
-
-       
-
-
+  
       </view>
     </view>
-
     <view class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
       <view class="flex-1"></view>
       <view class="more text-center txt-bold txt-white" bindtap="seemore">
@@ -364,8 +367,7 @@
       </view>
       <view class="flex-1"></view>
     </view> -->
-
-    <!-- <view class='height-100 '></view> -->
+ 
 
     <view class="flex-row flex-center padding-T-B-28">
       <view class="flex-1"></view>

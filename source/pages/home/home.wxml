@@ -74,6 +74,7 @@
 </view>
 
 
+
 <view style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
   <view class='   ' style="margin-left:20rpx;margin-right:20rpx">
 
@@ -89,29 +90,65 @@
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </swiper-item>
     </swiper>
- 
+
   </view>
 </view>
 
 
 <!-- <view class='flex-row flex-center margin-10 padding-top-10 '>
+
   <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
     <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
-  </view>
-  <view class='flex-1 flex-row flex-column' style="height: 358rpx;">
-    <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image>
-    <view class="flex-1"></view>
-    <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' style='' style="margin-bottom:6rpx"></image>
-  </view>
-</view> -->
-<view class='flex-row flex-center margin-10 padding-top-10 '>
-  <view class='flex-1 text-center' bindtap='totake' data-name='jg'>
-    <image src='{{uploadpath}}resource/{{res.zjg}}' mode='scaleToFill' class='img2 radius-10' style=''></image>
-  </view>
-  <view class='flex-1 ' >
-    <image src='{{uploadpath}}resource/{{res.zkc}}' bindtap='totake'  data-name='kc' class='img2 radius-10' style=''></image> 
-  </view>
+  </view> -->
+
+
+<!--
+<view class='flex-row flex-center margin-top-20' style=" ">
+  <view class="flex-1"></view>
+  <image src='{{uploadpath}}resource/{{res.zjg}}' bindtap='totake' data-name='jg' mode='scaleToFill' class='img2 radius-10' style=''></image>
+  <image src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style=''></image> 
+  <view class="flex-1"></view>
+  <image src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10' ></image>
+  <view class="flex-1"></view>
 </view>
+-->
+
+<!-- 修改后 -->
+
+<swiper style="height: 280rpx">
+
+  <swiper-item class=" flex-row flex-center flex-wrap">
+    <view class="flex-row flex-column lesson-width {{idx>4?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<10}}'>
+      <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
+      <view class="h6">{{item.typename}}</view>
+    </view>
+  </swiper-item>
+
+  <swiper-item class=" flex-row flex-center flex-wrap">
+    <view class="flex-row flex-column lesson-width" wx:for='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' wx:if='{{idx>=10}}'>
+      <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
+      <view class="h6">{{item.typename}}</view>
+    </view>
+  </swiper-item>
+
+
+</swiper>
+
+
+<view class="flex-row flex-center margin-10 padding-top-10 ">
+
+  <view class="flex-1 text-center">
+    <image src='{{uploadpath}}resource/{{res.homejigou}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='totake' data-name='jg'></image>
+  </view>
+
+  <view class="flex-1 text-center">
+    <image src='{{uploadpath}}resource/{{res.homebaoma}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='tobaoma' ></image>
+  </view>
+
+</view>
+
+<!-- </view> -->
+
 
 <view class='margin-20'>
   <view class='flex-row flex-center '>

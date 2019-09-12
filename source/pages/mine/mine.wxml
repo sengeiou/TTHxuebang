@@ -78,7 +78,7 @@
 
 
 
-<view class='flex-row flex-center margin-top '>
+<!-- <view class='flex-row flex-center margin-top '>
 
   <view class='flex-row flex-column flex-1' data-name='cj' bindtap="showtoast">
     <image class='icon-50 ' src='{{uploadpath}}resource/{{res.mine_choujiang}}'></image>
@@ -96,6 +96,16 @@
   </view>
 </view>
 
+<view class='flex-row flex-center'>
+  <view class='flex-1'></view>
+  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
+  <view class='h7 txt-orange margin-left-4'>{{memberinfo.integral}}</view>
+  <view class='flex-1'></view>
+</view> -->
+
+
+
+
 <!-- <view class="third flex-row flex-center margin-20" style="background:black">
   <view class="flex-1"></view>
   <view class="more flex-row flex-center">
@@ -104,7 +114,7 @@
     <image class='icon-10 margin-left-10' src='{{uploadpath}}resource/{{res.to}}'></image>
     <view class="flex-1"></view>
   </view>
-</view>
+</view> -->
 
 <view class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
   <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
@@ -113,15 +123,10 @@
   <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
   <view class="h6 margin-left-10">积分商城</view>
   <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}'></image>
-</view> -->
-
-
-<view class='flex-row flex-center'>
-  <view class='flex-1'></view>
-  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class='h7 txt-orange margin-left-4'>{{memberinfo.integral}}</view>
-  <view class='flex-1'></view>
 </view>
+
+
+
 
 
 <view class='bg-white radius-8 margin-20'>
@@ -240,11 +245,11 @@
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 
-  <!-- <view data-name='tg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+  <view data-name='tg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.tuiguang}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>大使中心</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-  </view> -->
+  </view>
 
 
   <view class='margin-top padding' wx:if="{{memberinfo.canhexiao=='Y'}}">
