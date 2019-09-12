@@ -64,4 +64,8 @@ export class ZaixianketanPage extends AppBase {
 
     this.navigate("ketangdetails",{id:e});
   }
+  zxkthanbao(id)
+  {
+    this.navigate("zxkthaibao",{id:id});
+  }
 }

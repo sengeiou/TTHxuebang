@@ -49,5 +49,13 @@ export class SearchPage extends AppBase {
         
       });
     };
+    ckhb(id)
+    {
+      console.log(id);
+      this.navigate("kchaibao",{id:id});
+    }
+    tokcdetails(id) {
+      this.navigate("kcinfo", { id: id });
   
+    }
 }

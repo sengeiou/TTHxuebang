@@ -54,4 +54,9 @@ export class KechenPage extends AppBase {
   {
     this.navigate("kcinfo",{id:id})
   }
+  ckhb(id)
+  {
+  this.navigate("kchaibao",{id:id});
+
+  }
 }

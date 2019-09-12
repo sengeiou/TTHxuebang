@@ -1,0 +1,30 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+
+
+.top_bg{
+height: rpx(136);
+background: #FEF4F2;
+
+}
+.hb{
+height: rpx(960);
+width: rpx(570);
+z-index: 20;
+}
+.anniu{
+width:rpx( 300);
+height:rpx(84);
+background: #FFFFFF;
+border-radius: rpx(40);
+}
+.wenan{
+background: #FFFFFF;
+border-radius: rpx(10);
+}
+.xian{
+    height: rpx(1);
+    width: 95%;
+    background: #f4f4f4;
+}

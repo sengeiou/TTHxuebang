@@ -59,7 +59,7 @@ class Content extends AppBase {
       this.Base.setMyData({ tishi2: true });
       return
     }
-    if (jiner < 5 || jiner > 5000) {
+    if (jiner < 0 || jiner > 5000) {
       this.Base.setMyData({ tishi1: true });
       return
     }
