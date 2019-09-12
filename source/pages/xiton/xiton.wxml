@@ -1,0 +1,3 @@
+<view class="margin-20">
+<text >{{xiaoxi}}</text>
+</view>

@@ -1,9 +1,19 @@
 // pages/mymessage/mymessage.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
-import { JigouApi } from "../../apis/jigou.api.js";
-import { PurchaseApi } from "../../apis/purchase.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  JigouApi
+} from "../../apis/jigou.api.js";
+import {
+  PurchaseApi
+} from "../../apis/purchase.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -13,7 +23,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-  
+
 
   }
   onMyShow() {
@@ -26,27 +36,34 @@ class Content extends AppBase {
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
       for (var i = 0; i < xiaoxilist.length; i++) {
         xiaoxilist[i].youhua = [{
-          text: '取消',
+            text: '取消',
 
-          style: 'background-color: #ddd; color: #fff;padding-left:20rpx;padding-right:20rpx',
-        },
-        {
-          text: '删除',
-          id: xiaoxilist[i].id,
-          style: 'background-color: #F4333C; color: #fff;padding-left:20rpx;padding-right:20rpx',
-        }]
+            style: 'background-color: #ddd; color: #fff;padding-left:20rpx;padding-right:20rpx',
+          },
+          {
+            text: '删除',
+            id: xiaoxilist[i].id,
+            style: 'background-color: #F4333C; color: #fff;padding-left:20rpx;padding-right:20rpx',
+          }
+        ]
 
       }
 
-      this.Base.setMyData({ xiaoxilist: xiaoxilist })
+      this.Base.setMyData({
+        xiaoxilist: xiaoxilist
+      })
       console.log(12132);
     })
 
     instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+      this.Base.setMyData({
+        indexbanner
+      });
     });
     jigouapi.jglist({}, (jglist) => {
-      this.Base.setMyData({ jglist });
+      this.Base.setMyData({
+        jglist
+      });
     });
   }
 
@@ -62,13 +79,17 @@ class Content extends AppBase {
       return item.id != e.detail.value.id
 
     })
-    this.Base.setMyData({ xiaoxilist })
+    this.Base.setMyData({
+      xiaoxilist
+    })
 
-     var api=new JigouApi();
-    api.shanchuxiaoxi({ id: e.detail.value.id},(res)=>{
-    
-    console.log("真的删除了啊啊");
-    console.log(res);
+    var api = new JigouApi();
+    api.shanchuxiaoxi({
+      id: e.detail.value.id
+    }, (res) => {
+
+      console.log("真的删除了啊啊");
+      console.log(res);
 
     })
 
@@ -79,20 +100,19 @@ class Content extends AppBase {
   }
   xianqin(e) {
     console.log(e);
-    var xiaoxilist=this.Base.getMyData().xiaoxilist;
-       xiaoxilist=xiaoxilist.filter((item)=>{
-       
-         return item.id ==e.currentTarget.dataset.id;
+    var xiaoxilist = this.Base.getMyData().xiaoxilist;
+    xiaoxilist = xiaoxilist.filter((item) => {
 
-       })
-        console.log(xiaoxilist);
-       if(xiaoxilist[0].type=='A')
-       {
+      return item.id == e.currentTarget.dataset.id;
 
-    wx.navigateTo({
-      url: '/pages/jiaoyixinxi/jiaoyixinxi?id=' + e.currentTarget.dataset.id,
     })
-       }
+    console.log(xiaoxilist);
+    if (xiaoxilist[0].type == 'A') {
+
+      wx.navigateTo({
+        url: '/pages/jiaoyixinxi/jiaoyixinxi?id=' + e.currentTarget.dataset.id,
+      })
+    }
     if (xiaoxilist[0].type == 'C') {
 
       wx.navigateTo({
@@ -100,17 +120,28 @@ class Content extends AppBase {
       })
     }
     if (xiaoxilist[0].type == 'B') {
-  
 
-    var api=new JigouApi();
-      api.xiaoxiinfo({ id: e.currentTarget.dataset.id }, (xiaoxi) => {
+
+      var api = new JigouApi();
+      api.xiaoxiinfo({
+        id: e.currentTarget.dataset.id
+      }, (xiaoxi) => {
 
       })
-   
-  
+
+
 
       wx.navigateTo({
         url: '/pages/wuliu/wuliu?id=' + e.currentTarget.dataset.idd,
+      })
+    }
+    if (xiaoxilist[0].type == 'E') {
+
+      console.log(xiaoxilist[0].content);
+      console.log(e.currentTarget.dataset.idd);
+
+      wx.navigateTo({
+        url: '/pages/xiton/xiton?id=' + xiaoxilist[0].content,
       })
     }
   }
