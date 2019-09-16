@@ -279,7 +279,7 @@
 
       <view>
         <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nokecheng}}'></image>
         </view>
         <view class='h5 txt-gray'>
           未找到您需要的课程
