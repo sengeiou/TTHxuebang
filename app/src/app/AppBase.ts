@@ -45,6 +45,8 @@ export class AppBase implements OnInit {
     public keyt="memberinfo99";
     public stat="stat9";
 
+    public heading="学榜";
+
     public firseonshow = true;
     public scrolltop = 0;
     public headerscroptshow = 0;
