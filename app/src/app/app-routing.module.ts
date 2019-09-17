@@ -84,7 +84,16 @@ const routes: Routes = [
   { path: 'xuebang', loadChildren: './xuebang/xuebang.module#XuebangPageModule' },
   { path: 'yaoqinhaibao', loadChildren: './yaoqinhaibao/yaoqinhaibao.module#YaoqinhaibaoPageModule' },
   { path: 'yiduihuang', loadChildren: './yiduihuang/yiduihuang.module#YiduihuangPageModule' },
+  { path: 'zaixianketang', loadChildren: './zaixianketang/zaixianketang.module#ZaixianketangPageModule' },  { path: 'xianxia', loadChildren: './xianxia/xianxia.module#XianxiaPageModule' },
+  { path: 'xiton', loadChildren: './xiton/xiton.module#XitonPageModule' },
+  { path: 'xuanzedizhi', loadChildren: './xuanzedizhi/xuanzedizhi.module#XuanzedizhiPageModule' },
+  { path: 'xuebang', loadChildren: './xuebang/xuebang.module#XuebangPageModule' },
+  { path: 'yaoqinhaibao', loadChildren: './yaoqinhaibao/yaoqinhaibao.module#YaoqinhaibaoPageModule' },
+  { path: 'yiduihuang', loadChildren: './yiduihuang/yiduihuang.module#YiduihuangPageModule' },
+  { path: 'update', loadChildren: './update/update.module#UpdatePageModule' },
+  { path: 'wuliu', loadChildren: './wuliu/wuliu.module#WuliuPageModule' },
   { path: 'zaixianketang', loadChildren: './zaixianketang/zaixianketang.module#ZaixianketangPageModule' }
+
 ];
 @NgModule({
   imports: [
