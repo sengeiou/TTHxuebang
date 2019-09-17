@@ -119,7 +119,7 @@
 <swiper style="height: 280rpx">
 
   <swiper-item class=" flex-row flex-center flex-wrap">
-    <view class="flex-row flex-column lesson-width {{idx>4?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<10}}'>
+    <view class="flex-row flex-column lesson-width {{idx>4?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.typename}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<10}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>

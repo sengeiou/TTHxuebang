@@ -929,7 +929,7 @@ class Content extends AppBase {
    var typeid=e.currentTarget.id;
 
     wx.navigateTo({
-      url: '/pages/seek/seek?type=kc&typeid=' + typeid
+      url: '/pages/seek/seek?type=kc&keyword=' + typeid
     })
 
   }
