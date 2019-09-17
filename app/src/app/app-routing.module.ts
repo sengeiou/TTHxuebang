@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'addmechanism', loadChildren: './addmechanism/addmechanism.module#AddmechanismPageModule' },
   { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
   { path: 'addressmanage', loadChildren: './addressmanage/addressmanage.module#AddressmanagePageModule' },
-  { path: 'auth', loadChildren: './auth/auth.module#AuthPageModule' },
   { path: 'baoma', loadChildren: './baoma/baoma.module#BaomaPageModule' },
   { path: 'baomainfo', loadChildren: './baomainfo/baomainfo.module#BaomainfoPageModule' },
   { path: 'baomin', loadChildren: './baomin/baomin.module#BaominPageModule' },
