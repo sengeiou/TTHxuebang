@@ -25,6 +25,9 @@ class Content extends AppBase {
 
   onLoad(options) {
     this.Base.Page = this;
+    if (options.keyword != undefined) {
+      options.keyword = decodeURI(options.keyword);
+    }
     super.onLoad(options);
     //this.options.type="jg";
  
@@ -338,8 +341,11 @@ class Content extends AppBase {
       opt.district_id = data.fdistrict_id;
     }
     // if (data.ftype_id != "0") {
-    opt.type = this.Base.options.typeid;
+    //opt.type = this.Base.options.typeid;
 
+    if (this.Base.options.keyword!=undefined){
+      opt.searchkeyword = this.Base.options.keyword;
+    }
     
 
     if (data.ages == 1) {
@@ -741,16 +747,20 @@ class Content extends AppBase {
   onShareAppMessage() {
     var data = this.Base.getMyData();
     console.log("/pages/seek/seek?type=" + data.type +
-      "&ftype_id=" + data.ftype_id +
+      "&ftype_id=" + data.type_id +
       "&fage_id=" + data.fage_id +
       "&fdistrict_id=" + data.fdistrict_id);
     console.log('haha');
+    var url = "/pages/seek/seek?type=" + this.Base.options.type +
+      "&fage_id=" + data.fage_id +
+      "&fdistrict_id=" + data.fdistrict_id;
+    //"&keyword=" + this.Base.options.keyword +
+    
+    if (this.Base.options.keyword!=undefined){
+      url += "&keyword=" + this.Base.options.keyword;
+    }
     return {
-      path: "/pages/seek/seek?type=" + data.type +
-        "&ftype_id=" + data.ftype_id +
-        "&fage_id=" + data.fage_id +
-        "&fdistrict_id=" + data.fdistrict_id
-
+      path: url
     };
   }
 
