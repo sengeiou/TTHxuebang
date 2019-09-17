@@ -111,7 +111,7 @@ export class AppBase implements OnInit {
                         var redirecturl=encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state="+AppBase.STATICRAND+"#wechat_redirect";
                         console.log({redurl});
-                        window.location.href=redurl;
+                        //window.location.href=redurl;
                     }
                 }
                 this.setWechatShare();
