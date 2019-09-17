@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 71,
 			"list": [
 				{
 					"id": 0,
@@ -544,6 +544,13 @@
 					"name": "pages/ketangdetails/ketangdetails",
 					"pathName": "pages/ketan/ketan",
 					"query": "id=2155",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/seek/seek",
+					"pathName": "pages/seek/seek",
+					"query": "fage_id=0&fdistrict_id=0&ftype_id=0&type=kc",
 					"scene": null
 				}
 			]

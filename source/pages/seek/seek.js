@@ -718,13 +718,13 @@ class Content extends AppBase {
   onShareAppMessage() {
     var data = this.Base.getMyData();
     console.log("/pages/seek/seek?type=" + data.type +
-      "&ftype_id=" + data.ftype_id +
+      "&ftype_id=" + data.type_id +
       "&fage_id=" + data.fage_id +
       "&fdistrict_id=" + data.fdistrict_id);
     console.log('haha');
     return {
-      path: "/pages/seek/seek?type=" + data.type +
-        "&ftype_id=" + data.ftype_id +
+      path: "/pages/seek/seek?type=" + this.Base.options.type +
+        "&typeid=" + this.Base.options.typeid +
         "&fage_id=" + data.fage_id +
         "&fdistrict_id=" + data.fdistrict_id
 
