@@ -1,0 +1,220 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+ion-content {
+    --background: #f5f5f5;
+}
+
+.font-30 {
+    font-size: rpx(30);
+}
+
+.btn_bg {
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
+    border-radius: rpx(42);
+    background: #ff5252;
+}
+
+.bg_hov {
+    background: rgb(248, 130, 130);
+}
+
+.txt-gray {
+    color: #c8c8c8;
+}
+
+.dis {
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
+    /* background: rgba(255, 82, 82, 1); */
+    border-radius: rpx(42);
+    background: #b9b9b9;
+}
+
+.dis_hov {
+    background: #b9b8b8;
+}
+
+.pc {
+    color: #c8c8c8;
+}
+
+.ft-color {
+    color: #8c8c8c;
+}
+
+.bt {
+    position: relative;
+    background: #54b576;
+    width: rpx(136);
+    height: rpx(48);
+    line-height: rpx(48);
+    font-size: rpx(20);
+}
+
+.height-72 {
+    height: rpx(72);
+    line-height: rpx(72);
+    padding-left: rpx(36);
+}
+
+.mid {
+    margin-left: rpx(24);
+    margin-right: rpx(24);
+    border-radius: rpx(8);
+    padding: rpx(32) rpx(20) rpx(32) rpx(20);
+}
+
+.padding-mid {
+    padding-top: rpx(30);
+    padding-right: rpx(20);
+    padding-bottom: rpx(30);
+    padding-left: rpx(20);
+}
+
+.padding-bottom-30 {
+    padding-bottom: rpx(30);
+}
+
+.width-210 {
+    width: rpx(210);
+}
+
+.sex_check {
+    width: rpx(24);
+    height: rpx(24);
+    border: rpx(2) solid rgba(153, 153, 153, 1);
+}
+
+.margin-left-40 {
+    margin-left: rpx(40);
+}
+
+.bg-orange {
+    background: #ffc200;
+}
+
+.margin-top-40 {
+    margin-top: rpx(40);
+}
+
+.tianjia {
+    width: rpx(700);
+    height: rpx(118);
+    line-height: rpx(118);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(8);
+    border: rpx(4) dashed #b6b5b5;
+}
+
+.margin-24 {
+    margin: rpx(24);
+}
+
+.radius-8 {
+    border-radius: rpx(8);
+}
+
+.padding-16 {
+    padding: rpx(16);
+}
+
+.margin-L-R-40 {
+    margin-left: rpx(40);
+    margin-right: rpx(40);
+}
+
+.kaitong {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    height: rpx(104);
+    line-height: rpx(104);
+}
+
+.lijikaitong {
+    width: rpx(200);
+    height: rpx(64);
+    line-height: rpx(64);
+    border-radius: rpx(34);
+    background: #222;
+    color: #ffdc98;
+}
+
+.icon-img {
+    width: rpx(200);
+    height: rpx(200);
+    margin: rpx(10);
+}
+
+.addjigou {
+    width: rpx(200);
+    height: rpx(200);
+    margin: rpx(10);
+    border: rpx(2) dashed rgba(204, 204, 204, 1);
+}
+
+.clear {
+    margin-bottom: -rpx(15);
+    margin-right: rpx(10);
+}
+
+.icon-clear {
+    height: rpx(32);
+    width: rpx(32);
+}
+
+.black_block {
+    position: fixed;
+    z-index: 100;
+    background: black;
+    opacity: 0.6;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+}
+
+.white_block {
+    position: fixed;
+    z-index: 101;
+    background: white;
+    width: rpx(600);
+    height: rpx(400);
+    border-radius: rpx(8);
+    top: 30%;
+    bottom: 20%;
+    left: rpx(74);
+    right: rpx(74);
+}
+
+
+.height-90 {
+    height: rpx(90);
+}
+
+.height-2 {
+    height: rpx(2);
+}
+
+.height-80 {
+    height: rpx(80);
+}
+
+.pl-20 {
+    padding-left: rpx(20)
+}
+
+.height-280 {
+    height: rpx(280);
+}
+
+.hh120 {
+    height: rpx(120);
+    line-height: rpx(120);
+}

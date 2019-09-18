@@ -1,0 +1,43 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+<!--pages/address/address.wxml-->
+<div class='margin-20'>
+    <div class='margin-left-14 h5' style='color:#999999'>我的地址</div>
+    <div class='hezi' bindtap='addressmanage'>
+      <div class='flex-row flex-center'>
+        <view>
+          <div class='flex-row'>
+            <div class='flex-row'>
+              <div class='txt-bold f15' style='color:#222222'>学榜均</div>
+              <div class='margin-left-20 f15' style='color:#222222'>17872898823</div>
+            </div>
+          </div>
+  
+          <div class='margin-top-20 f13' style='color:#666666'>深圳市南山区紫光信息港B205..</div>
+        </div>
+  
+        <div class='flex-1'></div>
+  
+        <view>
+          <img class='icon-25' src='{{uploadpath}}resource/{{res.address_right}}' />
+        </div>
+      </div>
+  
+    </div>
+  
+    <button class='but txt-white'>添加新地址</button>
+  </div>
+
+    </ion-content>

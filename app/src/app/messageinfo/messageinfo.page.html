@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar  color='primary'>
+        <ion-buttons slot="start">
+          <ion-button (click)='back()'>
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>{{heading}}</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+  <ion-content >
+
+
+<!--pages/messageinfo/messageinfo.wxml-->
+<div class='height-20' style='border-top:2rpx solid #E5E5E5'>
+
+  </div>
+  
+  <div class='' style='border-bottom:2rpx solid #E5E5E5' bindtap='todetails'>
+    <navigator class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+      <div class='padding-20 bor_bot' style=''>
+  
+        <div class='flex-row flex-center'>
+          <div class='flex-1  txt-black ' style=''>交易消息</div>
+          <div class='h6 ' style='color:#AAAAAA'>2019-03-11 09:36</div>
+        </div>
+  
+        <div class='h5 margin-top-10' style='color:#AAAAAA'>
+          你已成功购买童彩飞扬的课程，付款金额9.9元。联系学榜客服预约上课。
+        </div>
+  
+      </div>
+  
+  
+  
+      <div class='flex-row  padding-20 bor_bot' style=''>
+  
+        <img class='icon radius-10' src='{{uploadpath}}curriculum/{{info.course_kc_img}}' />
+  
+        <div class='flex-1  column margin-left-20'>
+  
+          <div class='flex-row flex-center'>
+            <div class='flex-1 txt-black'>{{info.course_id_name}}</div>
+            <div class='txt-black'>￥{{info.amount}}</div>
+          </div>
+  
+          <div class='flex-row flex-center margin-top-5'>
+            <div class='flex-1 txt-gray h5'>{{courseinfo.JG_jigou}}</div>
+          </div>
+  
+          <div class='flex-row flex-center flex-1 margin-top-5' style=''>
+  
+  
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{info.course_age}}岁</div>
+            </div>
+  
+            <div style='width:20rpx;'></div>
+  
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{info.course_class_hours}}节课</div>
+            </div>
+  
+            <div style='width:20rpx;'></div>
+  
+  
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{info.course_duration}}分钟/节</div>
+            </div>
+  
+  
+          </div>
+  
+  
+        </div>
+  
+      </div>
+  
+      <div class='flex-row flex-center padding-20' style=''>
+        <div class='flex-1'></div>
+        <div class='txt-black txt-bold margin-left-20'>实付金额：￥{{info.amount}}</div>
+      </div>
+  
+    </navigator>
+  </div>
+
+  </ion-content>

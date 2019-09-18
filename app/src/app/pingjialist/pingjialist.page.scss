@@ -1,0 +1,82 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/pingjialist/pingjialist.wxss */
+
+Page {
+    background: white;
+  }
+  
+  .height30 {
+    height: rpx(60);
+    line-height: rpx(60);
+    padding-left: rpx(24);
+  }
+  
+  .bg-gray {
+    background: #f5f6f8;
+  }
+  
+  .pinglunqu {
+    padding-left: rpx(32);
+    padding-right: rpx(32);
+    padding-top: rpx(22);
+  }
+  
+  .pinglunqu-1 {
+    padding-left: rpx(32);
+    padding-right: rpx(32);
+    padding-top: rpx(62);
+  }
+  
+  .tx {
+    height: rpx(64);
+    width: rpx(64);
+  }
+  
+  .txt9 {
+    color: #999;
+  }
+  
+  .icon20 {
+    height: rpx(20);
+    width: rpx(20);
+  }
+  
+  .margin-5 {
+    margin: rpx(5);
+  }
+  
+  .margin-top-4 {
+    margin-top: rpx(4);
+  }
+  
+  .margin-left-4 {
+    margin-left: rpx(8);
+  }
+  
+  .icon24 {
+    width: rpx(24);
+    height: rpx(24);
+  }
+  
+  .pinlun {
+    padding-left: rpx(20);
+    padding-right: rpx(20);
+    margin-left: rpx(32);
+    margin-right: rpx(32);
+    line-height:rpx(40);
+  }
+  
+  .pinlun-img {
+    width: rpx(190);
+    height: rpx(190);
+    padding: rpx(16);
+  }
+  
+  .img {
+    margin-left: rpx(40);
+    margin-right: rpx(40);
+  }
+  

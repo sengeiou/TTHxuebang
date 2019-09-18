@@ -1,0 +1,97 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+        <img src="{{uploadpath}}jiemu/{{jiemuinfo.fenmian}}" class="top_img" mode='aspectFill' />
+        <div class="flex-row flex-center psq">
+          <div class="flex-row flex-column flex-1">
+            <div class="txt-bold" style="colof:#333333">{{jiemuinfo.saiqu_id_name}}</div>
+            <div class="margin-top-10 f-22" style="color:#666668">参赛赛区</div>
+        
+          </div>
+          <div class="xian"></div>
+          <div class="flex-row flex-column flex-1">
+            <div class="txt-bold" style="colof:#333333">{{paimin}}</div>
+            <div class="margin-top-10 f-22" style="color:#666668">排名</div>
+        
+          </div>
+          <div class="xian"></div>
+          <div class="flex-row flex-column flex-1">
+            <div class="txt-bold" style="colof:#333333">{{jiemuinfo.piaoshu}}</div>
+            <div class="margin-top-10 f-22" style="color:#666668">当前票数</div>
+        
+          </div>
+        
+        
+        </div>
+        <div class="padding-40">
+          <div class="txt-bold" style="color:#555555">节目信息</div>
+        
+          <div class="flex-row flex-center margin-top-10">
+            <div class="f-26" style="color:#555555">节目名称：{{jiemuinfo.name}}</div>
+            <div class="flex-1"></div>
+            <div class="f-26" style="color:#555555">人数:{{jiemuinfo.renshu}}</div>
+            <div style="width:80rpx"></div>
+          </div>
+        
+        </div>
+        <div class="padding-40">
+          <div class="txt-bold" style="color:#555555">参赛宣言</div>
+          <div class="f-26 margin-top-10" style="color:#555555">{{jiemuinfo.xuanyan}}</div>
+        </div>
+        
+        <div class="padding-40">
+          <div class="txt-bold" style="color:#555555">图片展示</div>
+        
+          <div class="height-40"></div>
+          <img **ngIf"{{yulan!=undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item.tupian}}" class="jgtupian" mode="widthFix" **ngFor"{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item.tupian}}" />
+        
+          <img **ngIf"{{yulan==undefined}}" bindtap="viewPhoto" id="{{uploadpath}}jiemutupian/{{item}}" class="jgtupian" mode="widthFix" **ngFor"{{jiemuinfo.tupian}}" src="{{uploadpath}}jiemutupian/{{item}}" />
+        
+        
+        </div>
+        
+        <div style="height:15vh"></div>
+        <div **ngIf"{{jiemuinfo.mypiao==0}}" class=" gudin flex-row margin-top-20">
+        
+          <div class="flex-1"></div>
+        
+          <div bindtap="toupiao" class="toupiao">投票</div>
+          <div class="flex-1"></div>
+        
+        </div>
+        
+        
+        <div **ngIf"{{jiemuinfo.mypiao>0}}" class=" gudin flex-row margin-top-20">
+        
+          <div class="flex-1"></div>
+        
+          <div class="toupiaochengon">投票成功</div>
+          <div class="flex-1"></div>
+        
+        </div>
+        
+        
+        <div **ngIf"{{yulan==undefined}}" class=" gudin flex-row margin-top-20">
+        
+          <div class="flex-1"></div>
+        
+          <div bindtap="fanhui" class="fanhui">
+            <img style="width:24rpx" mode="widthFix" src="{{uploadpath}}resource/{{res.fanhuizuo}}" /> 返回修改</div>
+          <div bindtap="tijiao" class="tijiao">提交信息</div>
+          <div class="flex-1"></div>
+        
+        </div>
+
+    </ion-content>

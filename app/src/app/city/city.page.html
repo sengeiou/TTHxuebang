@@ -1,0 +1,61 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+<!--pages/city/city.wxml-->
+<div class='flex-row flex-center top'>
+    <div class='h5 txt-bold txt-black'>当前：</div>
+    <div class='h5 txt-bold txt-black'>{{CurrentName}}</div>
+  </div>
+  
+  
+  
+  
+  
+  <div class='flex-row column mid '>
+  
+    <div class='h5 txt-bold txt-black margin-20' style=''>定位/最近访问</div>
+  
+    <div class='flex-row flex-center  flex-wrap'>
+  
+      <div **ngIf"{{item.city_name!=''}}" style='' class='block flex-row flex-column  radius-10' **ngFor"{{usecitylist}}" wx:key="k" wx:for-index='idx'>
+        <div class='flex-row  flex-center'  bindtap='setCity' id='{{item.city_id}}' >
+          <img src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' **ngIf"{{idx==0}}" />
+          <div class='h5 txt-black margin-left-5'>{{item.city_name}}</div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  </div>
+  
+  
+  <div class='flex-row column mid '>
+  
+    <div class='h5 txt-bold txt-black margin-20'>已开放城市</div>
+  
+    <div class='flex-row flex-center flex-wrap'>
+  
+      <div class='flex-row flex-center ' **ngFor"{{memberinfo.citylist}}">
+        <div bindtap='setCity' id='{{item.id}}' style='' class='block flex-row flex-column radius-10 text-center'>
+          <div class='h5 txt-black margin-left-5 '>{{item.name}}</div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  </div>
+
+    </ion-content>

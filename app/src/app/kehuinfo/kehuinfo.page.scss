@@ -1,0 +1,13 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.xian{
+    border-bottom: rpx(1) solid #F5F5F5;
+    padding-bottom: rpx(40);
+  }
+  .xian1{
+    border-bottom: rpx(1) solid #F5F5F5;
+    padding-top:rpx(40);
+    padding-bottom: rpx(40);
+  }

@@ -1,0 +1,195 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+<!--pages/pingjia/pingjia.wxml-->
+<!-- <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" /> -->
+
+<form bindsubmit="submit" bindreset="formReset" report-submit="{{true}}">
+    <div class='bg-white'>
+      <div class='kecheng flex-row  bor_bot  '>
+  
+        <img src='{{uploadpath}}curriculum/{{kcinfo.kc_img}}' class='icon-img' />
+  
+        <div class='flex-row column  '>
+          <div class='margin-left-40 txt-black h5'>课程评分</div>
+          <div class='flex-row flex-center margin-top-24 margin-left-30 '>
+  
+            <div **ngIf'{{pingfen==0}}'>
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+            <div **ngIf'{{pingfen==1}}'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+            <div **ngIf'{{pingfen==2}}'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+            <div **ngIf'{{pingfen==3}}'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+            <div **ngIf'{{pingfen==4}}'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+            <div **ngIf'{{pingfen==5}}'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen' id='5' />
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <div class='mid  '>
+  
+        <div class="" bindtap="show">
+          <textarea class='write h5 txt-black' focus='{{focus}}' name='text' contenteditable="{{true}}" auto-height="{{true}}" placeholder='分享您的上课心得，让其他宝妈更好了解哟' style='width:92vw' placeholder-style='color:#CCCCCC' maxlength='-1'></textarea>
+  
+          <div class='height-150'></div>
+  
+        </div>
+  
+        <div class='flex-row flex-center flex-wrap img'>
+  
+          <div class=' ' **ngFor"{{images}}" wx:key="k" wx:for-index="idx">
+            <img src='{{uploadpath}}pingjia/{{item}}' class='imgbg' bindtap='minusImg' id="{{idx}}" />
+          </div>
+  
+          <div class='addimg' bindtap='uploadimg'>
+            <img src='{{uploadpath}}resource/{{res.jiatu}}' class='icon56' />
+          </div>
+  
+        </div>
+  
+      </div>
+  
+      <div class='height-20 bg-gray'></div>
+  
+      <div class='jigou'>
+        <div class='flex-row flex-center'>
+          <img src='{{uploadpath}}resource/{{res.addimg}}' class='icon22' />
+          <div class='margin-left-20 txt-black h5'>机构评分</div>
+        </div>
+        <div class='flex-row flex-center margin-top-40'>
+          <div class=' txt-black flex-1 h5'>综合评分</div>
+  
+          <div **ngIf'{{jgpingfen==0}}'>
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+          <div **ngIf'{{jgpingfen==1}}'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+          <div **ngIf'{{jgpingfen==2}}'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+          <div **ngIf'{{jgpingfen==3}}'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+          <div **ngIf'{{jgpingfen==4}}'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+          <div **ngIf'{{jgpingfen==5}}'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen' id='5' />
+          </div>
+  
+  
+  
+  
+  
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class='submit flex-row bg-white'>
+  
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check' data-ck='nm' **ngIf'{{check==true}}'>
+        <img src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon' />
+  
+        <div class='txt-black h6 margin-left-10'>匿名评价</div>
+      </div>
+  
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check' data-ck='bnm' **ngIf'{{check==false}}'>
+  
+        <img src='{{uploadpath}}resource/{{res.weixuan}}' class='icon' />
+  
+        <div class='txt-black h6 margin-left-10'>匿名评价</div>
+      </div>
+  
+  
+      <div class="flex-1"></div>
+  
+      <button style=' ' form-type='submit' class='subbtn txt-white text-center' style='border-radius:0;border:0'>提交评价</button>
+    </div>
+  
+  </form>
+
+
+    </ion-content>

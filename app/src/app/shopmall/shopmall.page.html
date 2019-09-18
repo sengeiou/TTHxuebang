@@ -1,0 +1,86 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+<!--pages/shopmall/shopmall.wxml-->
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class=' to_top' >
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+</div>
+<view>
+  <div class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jifen_bg}});background-size:100% 100%;'>
+
+
+    <div class="flex-row flex-center">
+      <div class="flex-1"></div>
+      <img class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset" />
+    </div>
+
+    <div class='flex-row '>
+      <div class='flex-1'></div>
+
+      <div class='flex-row'>
+        <img class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}' />
+        <div class='f60 txt-bold margin-left-10' style='color:#222222'>{{memberinfo.integral}}</div>
+      </div>
+
+      <div class='flex-1'></div>
+    </div>
+
+    <div class='flex-row margin-left-66 margin-top-32'>
+
+      <div class='sz flex-row _center' bindtap="toshouzhi">
+        <div class='flex-row'>
+          <view>
+            <img class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}' />
+          </div>
+          <div class='margin-left-10 h5' style=' '>收支明细</div>
+        </div>
+      </div>
+
+      <div class='sz flex-row _center margin-left-46' bindtap="toorder">
+        <view>
+          <img class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}' />
+        </div>
+        <view>
+          <div class='margin-left-10 h5' style=' '>我的兑换</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class='flex-row flex-wrap'>
+    <div **ngFor'{{list}}' wx:key='k'>
+      <div class='hezi' bindtap="todetails" id="{{item.id}}">
+        <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
+
+        <div class="padding">
+          <div class='  txt-bold f13 chaochu' style="width:300rpx;max-height:85rpx;">{{item.name}}</div>
+          <div class='flex-row flex-center  margin-top-6'>
+            <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 " />
+            <div class=" txt9 h5 margin-left-10">{{item.interral}}</div>
+            <div class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}元</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div style="height:40rpx"></div>
+
+
+    </ion-content>

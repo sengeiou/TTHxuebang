@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar  color='primary'>
+        <ion-buttons slot="start">
+          <ion-button (click)='back()'>
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>{{heading}}</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+  <ion-content >
+
+
+<!--pages/lianxikefu/lianxikefu.wxml-->
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+  <div class="weixin flex-row flex-center">
+
+    <img src="{{uploadpath}}resource/{{res.wxkefu}}" class="icon-42" style="margin-left:84rpx" />
+
+
+    <div class="flex-row column flex-1" style="margin-left:50rpx;">
+      <div class="txt-bold">微信客服</div>
+      <div class="h6 margin-top-20 txt-9">学榜客服会热情解决您的所有问题</div>
+    </div>
+
+    <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right " style="margin-right:48rpx;" />
+
+  </div>
+</button>
+
+
+
+<div class="weixin flex-row flex-center" style="margin-top:0" bindtap="phoneCall" id="{{instinfo.tel}}">
+
+  <img src="{{uploadpath}}resource/{{res.dhkefu}}" class="icon-50" style="margin-left:84rpx" />
+
+
+  <div class="flex-row column flex-1" style="margin-left:50rpx;">
+    <div class="txt-bold">电话客服</div>
+    <div class="h6 margin-top-20 txt-9">工作日 {{instinfo.worktime}}</div>
+  </div>
+
+  <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right " style="margin-right:48rpx;" />
+
+</div>
+
+  </ion-content>

@@ -1,0 +1,11 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+Page{
+    background: #f5f5f5;
+  }
+  .xian{
+    padding-bottom: rpx(20);
+    border-bottom: rpx(1) solid #F5F5F5;
+  }

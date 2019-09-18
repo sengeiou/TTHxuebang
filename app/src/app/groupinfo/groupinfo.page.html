@@ -1,0 +1,173 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+        <div class="padding-20 flex-row flex-center">
+          <img src='{{pintuaninfo.t_member_avatarUrl}}' class='radius-50 icon-40' />
+          <div class="tz h7">
+            团长
+          </div>
+          <div class="margin-left-20">
+            <div class="h4" style='color:#222222'>
+              {{pintuaninfo.t_member_nickName}}
+            </div>
+            <div class="h6" style='color:#999999'>
+              快去邀请小伙伴们一起学习吧
+            </div>
+          </div>
+        </div>
+        <div style="" class="margin-20 bg">
+          <div bindtap="chakankechen" class="flex-row flex-center padding-20">
+        
+            <img class="icon-150" src='{{uploadpath}}curriculum/{{pintuaninfo.kc_img}}' />
+            <div class="margin-left-40">
+              <div class="h5 txt-bold" style='color:#222222'>{{pintuaninfo.kcname}}</div>
+              <div class="h6" style='color:#999999'>已预约{{pintuaninfo.yuyuerenshu}}人</div>
+        
+              <div **ngIf"{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top" style='color:#222222'>还差{{ pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</div>
+              <div **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团成功</div>
+              <div **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</div>
+              <div **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团失败</div>
+              <div **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</div>
+              <div **ngIf"{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{chajia}}
+              </div>
+              <div **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{chajia}}</div>
+              <div **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{chajia}}</div>
+              <div **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h6" style='color:#999999'>支付退款将在1-15个工作日内 原路退还到您的账户</div>
+            </div>
+          </div>
+          <div **ngIf"{{pintuaninfo.status=='A'}}" class="padding-20 flex-row flex-center">
+        
+            <div class="flex-1"></div>
+        
+            <div class="flex-row flex-center">
+        
+              <div class="djs h4">{{sjlist[0][1] <=9? "0"+sjlist[0][1]:sjlist[0][1]}} </div>
+                  <div class="margin-left-10 margin-right-10">:</div>
+                  <div class="djs h4">{{sjlist[0][2] <=9? "0"+sjlist[0][2]:sjlist[0][2]}}</div>
+                  <div class="margin-left-10 margin-right-10">:</div>
+                  <div class="djs h4">{{sjlist[0][3] <=9? "0"+sjlist[0][3]:sjlist[0][3]}}</div>
+        
+            </div>
+        
+            <div class="flex-1"></div>
+        
+                  </div>
+        
+                  <div class="height-40">
+                  </div>
+        
+        
+                  <button bindtap='laren' open-type="share" **ngIf"{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row clear-button">
+                    <div class="flex-1"></div>
+                    <div class="tuan_btn  text-center  ">
+                      邀请好友参团
+        
+                    </div>
+        
+                    <div class="flex-1"></div>
+                  </button>
+        
+                  <div bindtap="fenxian" **ngIf"{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20    flex-row " >
+                      <div class="flex-1"></div>
+                    <div class="tuan_btn1  flex-center  flex-row">
+                    <div class="flex-1"></div>
+                    <img class="icon-15" src="{{uploadpath}}resource/{{res.fenxianhaibao}}" />
+                     <div class="margin-left-10" style="color:#FF5252">生成分享海报</div> 
+                  <div class="flex-1"></div>
+                    </div>
+        
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div bindtap='chakankechen' **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+                    <div class="flex-1"></div>
+                    <div class="tuan_btn  text-center   ">
+                      查看课程
+                    </div>
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+                    <div class="flex-1"></div>
+                    <div class="tuan_btn  text-center " bindtap='kaigexintuan'>
+                      开个新团： ￥{{pintuaninfo.group_course_group_price}}
+                    </div>
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div bindtap='yuanjiagoumai' **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                    原价购买： ￥{{pintuaninfo.price}}
+                  </div>
+        
+        
+                  <div bindtap='yuanjiagoumai' **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                    <div class="flex-1"></div>
+                    <div class="tuan_btn  text-center  ">
+                      原价购买： ￥{{pintuaninfo.price}}
+                    </div>
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div bindtap='chakankechen' **ngIf"{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                    查看课程
+                  </div>
+        
+                  <div **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                    <div class="flex-1"></div>
+                    <div class="tuan_btn  text-center" bindtap='kaigexintuan'>
+                      开个新团 ￥{{pintuaninfo.group_course_group_price}}
+                    </div>
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div bindtap='chakankechen' **ngIf"{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                    查看课程
+                  </div>
+        
+                  <div **ngIf"{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                    <div class="flex-1"></div>
+                    <div bindtap='addgroup' class="tuan_btn  text-center  ">
+                      我要参团: ￥{{pintuaninfo.group_course_group_price}}
+                    </div>
+                    <div class="flex-1"></div>
+                  </div>
+        
+                  <div bindtap='yuanjiagoumai' **ngIf"{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                    原价购买：￥{{pintuaninfo.price}}
+                  </div>
+                  <div class="height-40"></div>
+              </div>
+        
+            
+              <div class="margin-20 bg">
+        
+        
+                <div class="padding-20 ">
+                  <div class="txt-bold h5" style='color:#222222'>参与拼团</div>
+        
+                  <div class="flex-row flex-center margin-top-30">
+        
+                    <div **ngFor"{{pintuaninfo.group_course_group_number}}" wx:key="k" wx:for-index="idx">
+                      <img **ngIf"{{pintuaninfo.tuanlist[idx]!=undefide}}" src='{{pintuaninfo.tuanlist[idx].touxian}}' class='radius-50 icon-50 margin-right-10 ' />
+        
+                      <div **ngIf"{{pintuaninfo.tuanlist[idx]==undefide}}" class="quan radius-50 icon-50 margin-right-10  "></div>
+                    </div>
+        
+                  </div>
+              <div class="height-20"></div>
+                </div>
+              </div>
+
+    </ion-content>

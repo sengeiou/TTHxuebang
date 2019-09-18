@@ -1,0 +1,92 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/xuanzedizhi/xuanzedizhi.wxss */
+.page{
+    /* background: white; */
+  }
+  .margin-left-14 {
+    margin-left: rpx(14);
+  }
+  
+  .margin-left-34 {
+    margin-left: rpx(34);
+  }
+  
+  .hezi {
+    margin-top: rpx(20);
+    padding-top: rpx(50);
+    padding-bottom: rpx(50);
+    padding-left: rpx(40);
+    /* padding-right: rpx(40); */
+    background-color: white;
+    border-radius: rpx(8);
+  }
+  
+  .but {
+    position: fixed;
+    left: rpx(76);
+    bottom: rpx(54);
+    width: 80vw;
+    border-radius: rpx(42);
+    background-color: #f60;
+  }
+  
+  .icon-12 {
+    width: rpx(24);
+    height: rpx(24);
+  }
+  
+  .icon-15 {
+    width: rpx(30);
+    height: rpx(30);
+  }
+  
+  .icon-32 {
+    width: rpx(32);
+    height: rpx(32);
+  }
+  
+  .add {
+    height: rpx(140);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(8);
+  }
+  
+  .block_black {
+    background: black;
+    opacity: 0.6;
+    position: fixed;
+    z-index: 50;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .white_black {
+    background: white;
+    position: fixed;
+    z-index: 100;
+    left: rpx(104);
+    right: rpx(104);
+    width: rpx(540);
+    height: rpx(386);
+    bottom: rpx(558);
+    border-radius: rpx(38);
+  }
+  
+  .margin-top-34 {
+    margin-top: rpx(34);
+  }
+  .margin-top-8 {
+    margin-top: rpx(8);
+  }
+  .shu {
+    width: rpx(2);
+    height: rpx(56);
+    margin-left: rpx(84);
+    margin-right: rpx(84);
+    background: #f5f6f8;
+  }
+  

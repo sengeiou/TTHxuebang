@@ -1,0 +1,18 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+<!--pages/maintain/maintain.wxml-->
+<img src="{{uploadpath}}resource/{{res.maintain}}" style="width:100vw;" mode='widthFix' />
+
+
+    </ion-content>

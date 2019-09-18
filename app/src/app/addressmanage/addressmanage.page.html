@@ -1,0 +1,69 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+
+        <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+            <div class='margin-20'>
+            
+              <div class='flex-row'>
+                <div class='margin-left-14 h5' style='color:#999999'>填写详细地址方便直接送货上门</div>
+                <div class='flex-1'></div>
+                <div class='delete' **ngIf'{{xiugai==1}}' bindtap="binddeleted">删除</div>
+              </div>
+              <div class='hezi'>
+                <div class='flex-row flex-center'>
+                  <div class='f15' style='width:24vw'>收件人姓名：</div>
+                  <input class='margin-left-20 f15' **ngIf'{{xiugai==undefined||xiugai==""}}' style='width:60vw' value="" name='name' placeholder='请输入收件人姓名'> />
+                  <input class='margin-left-20 f15' style='width:60vw'  **ngIf'{{xiugai==1}}' value="{{info.name}}" name='name' placeholder='请输入收件人姓名'> />
+                </div>
+            
+            
+                <div class='flex-row flex-center margin-top-68'>
+                  <div class='f15' style='width:24vw'>手机号：</div>
+                  <input class='margin-left-20 f15' maxlength="11" type="number"  **ngIf'{{xiugai==undefined||xiugai==""}}' style='width:60vw' name='mobile' placeholder='请输入手机号'> />
+                  <input class='margin-left-20 f15' maxlength="11" type="number"  value="{{info.phonenumber}}"  **ngIf'{{xiugai==1}}' style='width:60vw' name='mobile' placeholder='请输入手机号'> />
+                </div>
+            
+            
+                <div class='flex-row flex-center margin-top-68'>
+                  <div class='f15' style='width:24vw'>地址：</div>
+                  <picker mode="region" bindchange="bindRegionChange"  >
+                    <input class='margin-left-24 f15' **ngIf'{{xiugai==undefined||xiugai==""}}' style='width:55vw' name='region' disabled='false' value='{{city}}' placeholder='请选择您的地址'> />
+                    <input class='margin-left-24 f15' **ngIf'{{xiugai==1}}' style='width:55vw' name='region' disabled='false' value='{{city}}' placeholder='请选择您的地址'> />
+                    
+                  </picker>
+                  <img class='icon-25' src='{{uploadpath}}resource/{{res.address_right}}' />
+                </div>
+            
+                <div class='flex-row  margin-top-68'>
+                  <div class='f15 {{show==2?"margin-top-8":""}}' style='width:24vw; '>门牌号：</div>
+            
+                  
+                  <textarea class='margin-left-20 f15 '  **ngIf'{{xiugai==undefined||xiugai==""}}' name='address' style='width:70%;min-height:180rpx; ' placeholder='例:某街道5号楼203室'></textarea>
+            
+                  <textarea class='margin-left-20 f15' **ngIf'{{xiugai==1}}'  value="{{info.address}}" name='address' style='width:70%;min-height:180rpx; ' placeholder='例:某街道5号楼203室'></textarea>
+            
+            
+                </div>
+              </div>
+            
+              <button class='but txt-white margin-top-54 ' form-type='submit' >保存</button>
+            
+            </div>
+            </form>
+            
+            
+
+    </ion-content>

@@ -21,15 +21,16 @@ class Content extends AppBase {
   }
   courselist = [];
   jglist = [];
-  setPageTitle() {
-    wx.setNavigationBarTitle({
-      title: '找课程',
-    });
-  }
+
+
   onLoad(options) {
     this.Base.Page = this;
+    if (options.keyword != undefined) {
+      options.keyword = decodeURI(options.keyword);
+    }
     super.onLoad(options);
     //this.options.type="jg";
+ 
     if (options.type == undefined) {
       options.type = 'kc';
     }
@@ -74,6 +75,7 @@ class Content extends AppBase {
 
     //  console.log(this.options.type);
 
+    this.setPageTitle(options);
 
     var jigouapi = new JigouApi();
     jigouapi.gongaolist({
@@ -107,6 +109,29 @@ class Content extends AppBase {
     });
 
   }
+
+  setPageTitle(options) {
+
+    console.log(options,"来来来")
+     
+    var typename = options.typename;
+    
+    if (options.type == 'kc') {
+
+      console.log("啦啦啦啦")
+      
+      var title = typename;
+    } 
+    if (options.type == 'jg'){
+      console.log("换个哈哈哈")
+      var  title='找机构 ';
+    }
+
+    wx.setNavigationBarTitle({
+      title: title
+    });
+  }
+
 
   onUnload() {
     var timerStart = this.Base.getMyData().timerStart;
@@ -146,19 +171,20 @@ class Content extends AppBase {
         filterdistrict
       });
       //默认搜索罗湖区算了
-      if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id == 0) {
-        console.log(this.Base.getMyData());
-        var address = this.Base.getMyData().address;
-        var adcode = address.ad_info.adcode;
-        for (var i = 0; i < filterdistrict.length; i++) {
-          if (adcode == filterdistrict[i].id) {
-            var fdistrict_id = filterdistrict[i].id;
-            this.Base.setMyData({
-              fdistrict_id
-            });
-          }
-        }
-      }
+
+      // if ((1 == 1 || this.Base.options.type == 'jg') && this.Base.getMyData().fdistrict_id == 0) {
+      //   console.log(this.Base.getMyData());
+      //   var address = this.Base.getMyData().address;
+      //   var adcode = address.ad_info.adcode;
+      //   for (var i = 0; i < filterdistrict.length; i++) {
+      //     if (adcode == filterdistrict[i].id) {
+      //       var fdistrict_id = filterdistrict[i].id;
+      //       this.Base.setMyData({
+      //         fdistrict_id
+      //       });
+      //     }
+      //   }
+      // }
       if (type == "kc") {
         this.loadcourse();
       } else {
@@ -315,8 +341,11 @@ class Content extends AppBase {
       opt.district_id = data.fdistrict_id;
     }
     // if (data.ftype_id != "0") {
-    opt.type = this.Base.options.typeid;
+    //opt.type = this.Base.options.typeid;
 
+    if (this.Base.options.keyword!=undefined){
+      opt.searchkeyword = this.Base.options.keyword;
+    }
     
 
     if (data.ages == 1) {
@@ -718,16 +747,20 @@ class Content extends AppBase {
   onShareAppMessage() {
     var data = this.Base.getMyData();
     console.log("/pages/seek/seek?type=" + data.type +
-      "&ftype_id=" + data.ftype_id +
+      "&ftype_id=" + data.type_id +
       "&fage_id=" + data.fage_id +
       "&fdistrict_id=" + data.fdistrict_id);
     console.log('haha');
+    var url = "/pages/seek/seek?type=" + this.Base.options.type +
+      "&fage_id=" + data.fage_id +
+      "&fdistrict_id=" + data.fdistrict_id;
+    //"&keyword=" + this.Base.options.keyword +
+    
+    if (this.Base.options.keyword!=undefined){
+      url += "&keyword=" + this.Base.options.keyword;
+    }
     return {
-      path: "/pages/seek/seek?type=" + data.type +
-        "&ftype_id=" + data.ftype_id +
-        "&fage_id=" + data.fage_id +
-        "&fdistrict_id=" + data.fdistrict_id
-
+      path: url
     };
   }
 
@@ -760,7 +793,10 @@ body.hideFilter = content.hideFilter;
 body.resetFilter = content.resetFilter;
 body.setTDistrict = content.setTDistrict;
 body.setTType = content.setTType;
-body.setTAge = content.setTAge;
+body.setTAge = content.setTAge; 
+
+body.setPageTitle = content.setPageTitle;
+
 body.changeDistrict = content.changeDistrict;
 body.catchTouchMove = content.catchTouchMove;
 Page(body)

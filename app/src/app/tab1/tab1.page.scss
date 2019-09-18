@@ -12,7 +12,7 @@ ion-content{
  
 }
 /* .gd{
-  height: 70rpx;
+  height: rpx(70);
 } */
 .margin-top-12 {
   margin-top: rpx(12);
@@ -52,7 +52,7 @@ text-decoration: line-through
   height: rpx(330);
   width: 100%;
   border-radius:rpx(8);
-  /* border: 1rpx solid black; */
+  /* border: rpx(1) solid black; */
   /* background: rgba(216, 216, 216, 1); */
 }
 

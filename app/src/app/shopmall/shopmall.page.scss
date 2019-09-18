@@ -1,0 +1,78 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/shopmall/shopmall.wxss */
+
+.toubu {
+    width: rpx(750);
+    height: rpx(300);
+    /* opacity: 0.5167; */
+  }
+  
+  .sz {
+    width: rpx(286);
+    height: rpx(72);
+    background: white;
+    border-radius: rpx(36);
+  }
+  
+  .lingjifen{
+      width: rpx(184);
+    height: rpx(72);
+  }
+  
+  .margin-left-66 {
+    margin-left: rpx(66);
+  }
+  
+  .margin-left-46 {
+    margin-left: rpx(46);
+  }
+  .margin-top-6 {
+    margin-top: rpx(6);
+  }
+  .margin-top-32 {
+    margin-top: rpx(32);
+  }
+  
+  .szmx-icon {
+    width: rpx(28);
+    height: rpx(22);
+  }
+  
+  .zjf-icon {
+    width: rpx(28);
+    height: rpx(26);
+  }
+  
+  .jf-icon {
+    width: rpx(60);
+    height: rpx(60);
+  }
+  
+  .f60 {
+    font-size: rpx(80);
+  }
+  
+  .margin-top-36 {
+    margin-top: rpx(36);
+  }
+  
+  .hezi {
+    margin-top: rpx(24);
+    margin-left: rpx(24);
+    border-radius: rpx(8);
+    background-color: white;
+    box-shadow:rpx(0) rpx(4) rpx(8) rpx(0) rgba(0,0,0,0.1);
+  }
+  
+  .img {
+    width: rpx(340);
+    height: rpx(340);
+    border-radius: rpx(8);
+  }
+  .padding{
+    padding: rpx(0) rpx(20) rpx(20) rpx(20);
+  }
+  

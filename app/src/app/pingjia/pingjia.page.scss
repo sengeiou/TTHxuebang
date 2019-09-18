@@ -1,0 +1,118 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/pingjia/pingjia.wxss */
+
+Page {
+    background: #f5f6f8;
+  }
+  
+  .kecheng {
+    margin-left: rpx(28);
+    margin-top: rpx(26);
+    padding-bottom: rpx(26);
+    /* margin-right: rpx(28); */
+  }
+  
+  .icon-img {
+    width: rpx(168);
+    height: rpx(168);
+    border-radius: rpx(8);
+  }
+  
+  .margin-top-24 {
+    margin-top: rpx(14);
+  }
+  
+  .margin-left-30 {
+    margin-left: rpx(30);
+  }
+  
+  .mid {
+    margin-left: rpx(28);
+    margin-top: rpx(18);
+    padding-bottom: rpx(26);
+    margin-right: rpx(28);
+  }
+  
+  .write {
+    /* min-height: rpx(248); *//* vertical-align: middle; */
+    padding-bottom: rpx(100);
+  }
+  
+  .addimg {
+    width: rpx(56);
+    height: rpx(56);
+    padding: rpx(66);
+    margin: rpx(12); 
+    border: rpx(2) dashed #ccc;
+  }
+  
+  .imgbg {
+    width: rpx(192);
+    height: rpx(192);
+    margin: rpx(12);
+    border: 0;
+    border-radius: rpx(0);
+  }
+   
+  .img {
+    margin-left: rpx(20);
+    margin-right: rpx(20);
+  }
+  
+  
+  .margin-left-10{
+    margin-left: rpx(10);
+  }
+  
+  .icon56 {
+    width: rpx(56);
+    height: rpx(48);
+  }
+  
+  .height-150 {
+    height: rpx(150);
+  }
+  
+  .bg-gray {
+    background: #f5f6f8;
+  }
+  
+  .jigou {
+    margin-left: rpx(30);
+    margin-top: rpx(22);
+    padding-bottom: rpx(26);
+    margin-right: rpx(22);
+  }
+  
+  .icon22 {
+    height: rpx(44);
+    width: rpx(44);
+  }
+  
+  .margin-top-40 {
+    margin-top: rpx(40);
+  }
+  
+  .submit {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+  }
+  
+  .subbtn {
+    width: rpx(200);
+    height: rpx(100);
+    line-height: rpx(100);
+    background: rgba(255, 102, 0, 1);
+  }
+  
+  .margin-left-28 {
+    margin-left: rpx(28);
+  }
+  .padding-left-28 {
+    padding-left: rpx(28);
+  }
+  

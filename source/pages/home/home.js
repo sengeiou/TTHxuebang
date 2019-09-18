@@ -289,7 +289,7 @@ class Content extends AppBase {
       nocity: 0, cityname: name
     });
 
-    // this.onMyShow();
+      this.onMyShow();
 
     //this.loadjg();
   }
@@ -495,7 +495,7 @@ class Content extends AppBase {
           jgvteach
         });
         // wx.hideLoading()
-      }, 500);
+      }, 1);
     }
 
 
@@ -583,24 +583,28 @@ class Content extends AppBase {
   }
 
   onPageScroll(e) {
-    console.log(e)
+    //console.log(e)
     //this.Base.setMyData({ scrolltop: e.scrollTop})
-    if (e.scrollTop > 100) {
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop > 100 && floorstatus!=true) {
       this.setData({
         floorstatus: true
       });
     }
-    if (e.scrollTop > 520) {
+    var sco = this.Base.getMyData().sco;
+    if (e.scrollTop > 520 && sco!=1) {
       this.setData({
         sco: 1
       });
     }
-    if (e.scrollTop <= 520) {
+    var sco2 = this.Base.getMyData().sco;
+    if (e.scrollTop <= 520 && sco2!=2) {
       this.setData({
         sco: 2
       });
     }
-    if (e.scrollTop <= 100) {
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop <= 100 && floorstatus!=false) {
       this.setData({
         floorstatus: false
       });
@@ -929,9 +933,9 @@ class Content extends AppBase {
 
   bindtokc(e){
    var typeid=e.currentTarget.id;
-
+    var typename = e.currentTarget.dataset.name;
     wx.navigateTo({
-      url: '/pages/seek/seek?type=kc&typeid=' + typeid
+      url: '/pages/seek/seek?type=kc&typeid=' + typeid + '&typename=' + typename
     })
 
   }

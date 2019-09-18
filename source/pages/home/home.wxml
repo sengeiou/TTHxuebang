@@ -16,12 +16,12 @@
 
 
 <!-- 用户首次进入引导图 -->
-<view catchtouchmove="{{true}}" wx:if='{{yd==1}}'>
+<!-- <view catchtouchmove="{{true}}" wx:if='{{yd==1}}'>
   <image src="{{uploadpath}}resource/{{res.home01}}" wx:if='{{img==1}}' class="homeimage"></image>
   <view class="bot" wx:if='{{img==1}}' bindtap="qiehuan"></view>
   <view class="bot" wx:if='{{img==2}}' bindtap="closeimage"></view>
   <image src="{{uploadpath}}resource/{{res.home02}}" wx:if='{{img==2}}' class="homeimage"></image>
-</view>
+</view> -->
 
 
 
@@ -32,7 +32,6 @@
       <view class='txt-black h40 txt-bold' wx:if='{{cityname==null}}'>深圳市</view>
       <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}'></image>
       <view class="flex-1"></view>
-
 
       <view catchtap="xiaoxiliebiao">
         <view catchtap="xiaoxiliebiao" wx:if="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</view>
@@ -59,7 +58,7 @@
 </view>
 
 
-<view class="topblock" wx:if='{{nocity==2}}'>
+<view class="topblock" wx:if='{{nocity==2&&cityname!=address.address_component.city}}'>
 
   <view class="flex-row flex-center " style="margin-top:30rpx;">
 
@@ -86,7 +85,7 @@
 
     <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' current="{{indexcurrent}}" circular='true' style='width:710rpx;height:354rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
-        <!-- mode="aspectFill"  bindtap='viewPhoto' -->
+     
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}"  class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </swiper-item>
     </swiper>
@@ -102,7 +101,6 @@
     <image src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style=''></image>
   </view> -->
 
-
 <!--
 <view class='flex-row flex-center margin-top-20' style=" ">
   <view class="flex-1"></view>
@@ -116,37 +114,56 @@
 
 <!-- 修改后 -->
 
-<swiper style="height: 280rpx">
+<swiper indicator-dots='true' style="height: 300rpx" class=" ">
 
   <swiper-item class=" flex-row flex-center flex-wrap">
-    <view class="flex-row flex-column lesson-width {{idx>4?'margin-top-20':''}}" bindtap='bindtokc' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<10}}'>
+
+    <view class="flex-row flex-column lesson-width " bindtap='totake' data-name='jg'>
+      <image src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26"></image>
+      <view class="h6">找机构</view>
+    </view>
+
+    <view class="flex-row flex-column lesson-width " bindtap='bindtokc' data-name='找课程'>
+      <image src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26"></image>
+      <view class="h6">找课程</view>
+    </view>
+
+    <view class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<8}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>
+
   </swiper-item>
 
   <swiper-item class=" flex-row flex-center flex-wrap">
-    <view class="flex-row flex-column lesson-width" wx:for='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' wx:if='{{idx>=10}}'>
+
+    <view class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" wx:for='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' wx:if='{{idx>=8}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>
+
+    <view class="flex-row flex-column lesson-width" style="height:92rpx" wx:for='{{10-((filtercoursetype.length)-8)}}'>
+    <view class="icon26"></view>
+      <view class="h6"> </view>
+    </view>
+
   </swiper-item>
 
 
 </swiper>
 
 
-<view class="flex-row flex-center margin-10 padding-top-10 ">
+<!-- <view class="flex-row flex-center margin-10 padding-top-10 ">
 
   <view class="flex-1 text-center">
     <image src='{{uploadpath}}resource/{{res.homejigou}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='totake' data-name='jg'></image>
   </view>
 
   <view class="flex-1 text-center">
-    <image src='{{uploadpath}}resource/{{res.homebaoma}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='tobaoma' ></image>
+    <image src='{{uploadpath}}resource/{{res.homebaoma}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='tobaoma'></image>
   </view>
 
-</view>
+</view> -->
 
 <!-- </view> -->
 

@@ -1,0 +1,361 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+<!--pages/mycollect/mycollect.wxml-->
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class=' to_top' >
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+</div>
+<div class=' flex-row flex-center  bg-white bor_bot'>
+
+  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='t1'>
+    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t1"?"txt":""}} txt-black'>课程</div>
+    <div **ngIf'{{show=="t1"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf'{{show!="t1"}}' class='' style='width:80rpx;height:6rpx;'></div>
+  </div>
+
+  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='t2'>
+    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t2"?"txt":""}} txt-black'>机构</div>
+    <div **ngIf'{{show=="t2"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf'{{show!="t2"}}' class='' style='width:80rpx;height:6rpx;'></div>
+  </div>
+
+
+  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='t3'>
+    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t3"?"txt":""}} txt-black'>在线课堂</div>
+    <div **ngIf'{{show=="t3"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf'{{show!="t3"}}' class='' style='width:80rpx;height:6rpx;'></div>
+  </div>
+
+  <div class='flex-1 flex-row flex-column' bindtap='bindtishi' data-type='t4'>
+    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t4"?"txt":""}} txt-black'>宝妈必看</div>
+    <div **ngIf'{{show=="t4"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf'{{show!="t4"}}' class='' style='width:80rpx;height:6rpx;'></div>
+  </div>
+
+</div>
+
+<!--课程收藏-->
+<div class='' hidden='{{show!="t1"}}'>
+  <div **ngIf"{{kclist.length==0}}">
+    <div class='flex-row text-center'>
+      <div class='flex-1'>
+
+      </div>
+
+      <view>
+
+        <div >
+          <img  class="icon-170" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+        </div>
+        <div class='h5 txt-gray'>
+         
+        </div>
+      </div>
+      <div class='flex-1'>
+
+      </div>
+    </div>
+  </div>
+
+  <navigator url='/pages/kcdetails/kcdetails?id={{item.course_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' **ngFor"{{kclist}}" wx:key='k'>
+
+
+    <div class='flex-row  padding-20 ' style=''>
+
+      <img class='icon2 radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
+
+      <div class='flex-1 flex-row column margin-left-20'>
+
+
+        <div class='flex-1 txt-black txt-bold'>{{item.course_name}}</div>
+
+
+        <div class='flex-row flex-center '>
+
+
+          <div **ngIf"{{item.course_scoring==5}}" class='flex-row flex-center '>
+            <img **ngFor'{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+          </div>
+
+          <div **ngIf"{{item.course_scoring==4}}" class='flex-row flex-center '>
+            <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+          </div>
+
+          <div **ngIf"{{item.course_scoring==3}}" class='flex-row flex-center '>
+            <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+          </div>
+
+          <div **ngIf"{{item.course_scoring==2}}" class='flex-row flex-center '>
+            <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+          </div>
+
+          <div **ngIf"{{item.course_scoring==1}}" class='flex-row flex-center '>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+          </div>
+
+
+          <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.course_people_num}}人购课</div>
+        </div>
+
+
+
+        <div class='flex-row flex-center flex-1' style=''>
+
+          <div class='flex-row flex-center '>
+            <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
+          </div>
+
+          <div style='width:20rpx;'></div>
+
+          <div class='flex-row flex-center '>
+            <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.course_duration}}节课</div>
+          </div>
+
+          <div style='width:20rpx;'></div>
+
+          <div class='flex-row flex-center '>
+            <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}分钟/节</div>
+          </div>
+
+
+        </div>
+
+
+
+
+        <div class='flex-row flex-bottom margin-top-5'>
+          <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
+          <div class='flex-1 txt-gray h6'>{{item.course_jigouname}}</div>
+
+          <div class="" style='font-size:16rpx;color:#FF5733'>￥</div>
+          <div class='txt-bold' style="color:#FF5733">{{item.course_price}}</div>
+
+        </div>
+
+        <div class="flex-row flex-center margin-top-10">
+          <div class='flex-1 txt-gray h6'>{{item.course_jgaddress}}</div>
+          <div class=' txt-bold h6'>{{item.miletxt}}</div>
+
+        </div>
+
+
+
+
+
+      </div>
+
+    </div>
+
+    <!-- <div class='flex-row flex-center padding-20' style=''>
+      <div class='flex-1'></div>
+      <div class='txt-black txt-bold margin-left-20'>实付金额：￥{{item.amount}}</div>
+    </div> -->
+
+  </navigator>
+</div>
+
+
+<!--机构收藏-->
+<div class='' hidden='{{show!="t2"}}'>
+
+  <div **ngIf"{{jglist.length==0}}">
+    <div class='flex-row text-center'>
+      <div class='flex-1'>
+      </div>
+      <view>
+        <div class='nofound-img'>
+          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+        </div>
+        <div class='h5 txt-gray'>
+          你还没有添加机构的收藏
+        </div>
+      </div>
+      <div class='flex-1'>
+      </div>
+    </div>
+  </div>
+
+
+  <div hidden='{{jglist.length==0}}' **ngFor'{{jglist}}' wx:key='k' id='{{item.jg_id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+    <div class=' padding-20' style=''>
+      <img src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:400rpx' />
+    </div>
+
+
+    <div class='flex-row flex-column '>
+      <div class='radius-10 bg-white  mid margin-bottom-10'>
+
+        <div class='padding-20 '>
+
+          <div class='flex-row flex-center'>
+            <div class='txt-black txt-bold flex-1'>{{item.jg_jigou}}</div>
+
+            <div class=''>
+              <div **ngIf"{{item.jg_scoring==5}}" class='flex-row flex-center margin-right-20'>
+                <img **ngFor'{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              </div>
+              <div **ngIf"{{item.jg_scoring==4}}" class='flex-row flex-center margin-right-20'>
+                <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+                <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              </div>
+              <div **ngIf"{{item.jg_scoring==3}}" class='flex-row flex-center margin-right-20'>
+                <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+                <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              </div>
+              <div **ngIf"{{item.jg_scoring==2}}" class='flex-row flex-center margin-right-20'>
+                <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+                <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              </div>
+              <div **ngIf"{{item.jg_scoring==1}}" class='flex-row flex-center margin-right-20'>
+                <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+                <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class='flex-row flex-center margin-top-5'>
+
+            <div class='flex-row flex-1'>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-16' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor"{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+            </div>
+
+            <div class='f20 txt-9'>已预约{{item.jg_people_num}}人</div>
+          </div>
+
+          <div class="flex-row flex-center margin-top-5">
+            <div class='flex-1 h6   txt-black dizhi'>{{item.jg_showaddress}}</div>
+            <div class="h6 txt-bold">{{item.miletxt}}</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <div class='height-50'></div>
+
+
+
+</div>
+
+
+<!--在线课堂收藏-->
+<div class='' hidden='{{show!="t3"}}'>
+
+  <div **ngIf"{{ketangshoucanglist.length==0}}">
+    <div class='flex-row text-center'>
+      <div class='flex-1'>
+
+      </div>
+
+      <view>
+
+        <div class='nofound-img'>
+          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+        </div>
+        <div class='h5 txt-gray'>
+          你还没有添加在线课堂的收藏
+        </div>
+      </div>
+      <div class='flex-1'>
+      </div>
+    </div>
+  </div>
+
+  <div class="kt_block flex-row flex-center" **ngFor'{{ketangshoucanglist}}' wx:key='k' id="{{item.onlineclassroom_id}}" bindtap="todetails">
+
+    <img src="{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}" class="kt_img" />
+
+    <div class="flex-row column margin-left-28  margin-right-12">
+      <div class="h6">{{item.onlineclassroom_name}}</div>
+      <div class="txt-9 margin-top-6 chaochu2" style="font-size:16rpx;width:360rpx;">{{item.onlineclassroom_class_introduce}}</div>
+
+
+
+      <div class='flex-row flex-center margin-top-20 '>
+        <div class='flex-row flex-center'>
+          <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
+          <div class=' f20 margin-left-10'>{{item.onlineclassroom_age_name}}</div>
+        </div>
+
+        <div class='flex-row flex-center margin-left-26'>
+          <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
+          <div class=' f20 margin-left-10'>共{{item.onlineclassroom_chapter_num}}章</div>
+        </div>
+      </div>
+
+
+
+
+      <div class='  flex-row flex-bottom margin-top-32'>
+        <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.onlineclassroom_learning_num}}人学过</div>
+        <div class='margin-top-4 f20 txt-gray' style="text-decoration:line-through;">￥{{item.onlineclassroom_originalprice}}</div>
+        <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
+        <div class=' ' style='color:#FF5252'>{{item.onlineclassroom_price}}</div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<!--宝妈必看-->
+<div class='' hidden='{{show!="t4"}}'>
+
+  <div class='flex-row text-center'>
+    <div class='flex-1'>
+
+    </div>
+
+    <view>
+
+      <div class='nofound-img'>
+        <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+      </div>
+      <div class='h5 txt-gray'>
+        暂未开放
+      </div>
+    </div>
+    <div class='flex-1'>
+    </div>
+  </div>
+
+</div>
+
+    </ion-content>

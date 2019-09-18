@@ -1,0 +1,40 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.photo{
+    width:100%;
+    height: 100%;
+    
+    }
+    .anniu{
+    
+    padding:rpx(20) rpx(70) rpx(20) rpx(70);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(100);
+    
+    }
+    .zi{
+      color:rgba(34, 34, 34, 1);
+    font-size:rpx(30);
+    }
+    .sp{
+      margin-top:rpx(20);
+    width: 70vw;
+    height: 20vh;
+    
+    }
+    .fd{
+     position: fixed;
+     bottom: 5%;
+    width: 100vw;
+    }
+    .tx{
+    
+    margin-top:16vh;
+    
+    }
+    .ewm{
+    margin-top:8vh;
+    
+    }

@@ -10,24 +10,26 @@
     </ion-toolbar>
   </ion-header>
 <ion-content>
-  <div class='flex-row bg-white    shadow ' style='margin-top:18rpx;' *ngFor="let item of problemlist" >
+  <!--pages/problem/problem.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class='flex-row bg-white    shadow ' style='margin-top:18rpx;' **ngFor'{{problemlist}}' wx:key='k'>
 
     <div class='flex-row column flex-1 '>
-  
-      <div class='flex-row flex-center padding-30 ' style='' (click)='bindshow(item.id)' id='{{item.id}}'>
-        <img  *ngIf='show==item.id' class='icon' src='{{uploadpath}}resource/{{res.xiangxia}}'/>
-        <img *ngIf='show!=item.id' class='icon2' src='{{uploadpath}}resource/{{res.right_icon}}'/>
+
+      <div class='flex-row flex-center padding-30 ' style='' bindtap='bindshow' id='{{item.id}}'>
+        <img **ngIf'{{show==item.id}}' class='icon ' src='{{uploadpath}}resource/{{res.xiangxia}}' />
+        <img **ngIf'{{show!=item.id}}' class='icon2 ' src='{{uploadpath}}resource/{{res.right_icon}}' />
         <div class='txt-black flex-1 margin-left-20' style='font-size:30rpx'>{{item.title}}</div>
       </div>
-  
-      <div class='' *ngIf='show==item.id'>
+
+      <div class='' **ngIf'{{show==item.id}}'>
         <div class='margin-left-20' style='height:2rpx;width:90%; background:#F5F5F5'></div>
         <div class='h5  margin-bottom-10 padding-40 flex-row flex-center '>
           <div class='icon'></div>
           <div class='flex-1' style='color:#434343'>{{item.content}}</div>
         </div>
       </div>
-  
+
     </div>
   </div>
 </ion-content>

@@ -1,0 +1,21 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.zp{
+    width: 80vw;
+    height: 133vw;
+    }
+    .fd{
+     position: fixed;
+     bottom: 3%;
+    width: 100vw;
+    }
+    .anniu{
+    
+    padding:rpx(20) rpx(70) rpx(20) rpx(70);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(100);
+    
+    }
+    /* pages/pintuanhaibao/pintuanhaibao.wxss */

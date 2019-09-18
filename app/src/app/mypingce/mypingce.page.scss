@@ -1,0 +1,18 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/mypingce/mypingce.wxss */
+.ceshi {
+    width: rpx(680);
+    height: rpx(206);
+    margin: rpx(34);
+    border-radius: rpx(8);
+    /* background: #5db982; */
+  }
+  .opa{
+    opacity: 0.5;
+  }
+  .margin-left-12 {
+    margin-left: rpx(12);
+  }

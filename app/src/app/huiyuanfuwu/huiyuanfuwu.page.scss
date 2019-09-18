@@ -1,0 +1,153 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/huiyuanfuwu/huiyuanfuwu.wxss */
+
+Page {
+    background: #F5F6F8;
+  }
+  
+  .top-block {
+    width: 100vw;
+    height: rpx(344);
+    background: #ffc200;
+  }
+  
+  .padding-top {
+    padding-left: rpx(58);
+    padding-top: rpx(86);
+  }
+  
+  .margin-left-58 {
+    margin-left: rpx(58);
+  }
+  
+  .margin-top-86 {
+    margin-top: rpx(86);
+  }
+  
+  .h20 {
+    font-size: rpx(40);
+  }
+  
+  .h13 {
+    font-size: rpx(26);
+  }
+  
+  .h15 {
+    font-size: rpx(30);
+  }
+  
+  .margin-left-6 {
+    margin-left: rpx(6);
+  }
+  
+  .margin-top-4 {
+    margin-top: rpx(4);
+  }
+  
+  .firstblock {
+    width: rpx(340);
+    height: rpx(600);
+    margin-left: rpx(24);
+    margin-right: rpx(12);
+    margin-bottom: rpx(10);
+    border-radius: rpx(8);
+    display: inline-block;
+    box-shadow: rpx(0) rpx(4) rpx(8) rpx(0) rgba(0, 0, 0, 0.1);
+  }
+  
+  .block {
+    width: rpx(340);
+    height: rpx(600);
+    margin-left: rpx(12);
+    margin-right: rpx(12);
+     margin-bottom: rpx(10);
+    border-radius: rpx(8);
+    display: inline-block;
+    box-shadow: rpx(0) rpx(4) rpx(8) rpx(0) rgba(0, 0, 0, 0.1);
+  }
+  
+  .ss {
+    height: rpx(610);
+    white-space: nowrap;
+  }
+  
+  .jiage {
+    position: relative;
+    padding: rpx(34) rpx(60) rpx(24) rpx(60);
+    /* height: rpx(168); */
+    background: linear-gradient(315deg, rgba(255, 150, 144, 1) 0%, rgba(255, 93, 87, 1) 100%);
+  }
+  
+  .quanyi {
+    height: rpx(250); 
+    padding: rpx(24) rpx(40) rpx(0) rpx(40);
+  }
+  
+  .icon-20 {
+    height: rpx(20);
+    width: rpx(20);
+  }
+  
+  .margin-left-20 {
+    margin-left: rpx(20);
+  }
+  
+  .margin-top-20 {
+    margin-top: rpx(16);
+  }
+  
+  .margin-top-24 {
+    margin-top: rpx(24);
+  }
+  
+  .margin-top-30 {
+    margin-top: rpx(30);
+  }
+  
+  .margin-top-10 {
+    margin-top: rpx(10);
+  }
+  
+  .margin-top-12 {
+    margin-top: rpx(12);
+  }
+  
+  .tuijian {
+    position: absolute;
+    height: rpx(86);
+    width: rpx(86);
+    right: 0;
+    top: 0;
+  }
+  
+  .lianxikefu {
+    width: rpx(264);
+    height: rpx(66);
+    line-height: rpx(66);
+    background: rgba(34, 34, 34, 1);
+    border-radius: rpx(34);
+    color: #ffdc98;
+  }
+  
+  .duibi {
+    width: rpx(690);
+    height: rpx(332);
+    margin: rpx(30);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(8);
+  }
+  .title{
+    height:rpx(84);
+    background: #FFC200;
+  }
+  .white-content{
+    height:rpx(80);
+    background: white;
+  }
+  .border-top-bottom{
+    border-bottom: rpx(2) solid #F5F5F5;
+    border-top: rpx(2) solid #F5F5F5;
+  }
