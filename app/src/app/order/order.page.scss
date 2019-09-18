@@ -1,0 +1,217 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/order/order.wxss */
+
+Page {
+    background: #f5f5f5;
+  }
+  
+  .bg_top {
+    background: white;
+  }
+  .icon-34 {
+    width: 34rpx;
+    height: 34rpx;
+  }
+  .icon-80 {
+    width: 80rpx;
+    height: 80rpx;
+  }
+  .qxdd{
+  
+  width: 200rpx;
+  height: 60rpx;
+  background: #CCCCCC;
+  font-size: 28rpx;
+  color:#FFFFFF;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  
+  }
+  
+  .qzf{
+  
+  width: 200rpx;
+  height: 60rpx;
+  background: #50B674;
+  font-size: 28rpx;
+  color:#FFFFFF;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  }
+  .height-60{
+    height: 60rpx
+  }
+  .ddd{
+    width: 200rpx;
+  }
+  .hexiaoma{
+  
+  color:white;
+  background: #50B674;
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  }
+  .saoma{
+   padding: 10rpx;
+   border-radius: 10rpx;
+  font-size: 16rpx;
+  color:#999999;
+  background:white;
+  
+  }
+  .erweimaban{
+    width:60rpx;
+    height: 60rpx;
+  }
+  .erweimade{
+    width: 440rpx;
+    height: 440rpx;
+  }
+  /* .height-66{
+    height: 66rpx;
+  } */
+  .fz {
+    padding: 5rpx 10rpx 5rpx 10rpx;
+    border: 1px solid white;
+    border-radius: 10rpx;
+    font-size: 20rpx;
+    color: white;
+  }
+  
+  .xxxx {
+    position: absolute;
+    margin-top: -18rpx;
+    margin-left: -50rpx;
+  }
+  
+  margin-top-10 {
+    margin-top: 20rpx;
+  }
+  
+  .xian1 {
+    width: 340rpx;
+    height: 1rpx;
+    background-color: #2f9a55;
+  }
+  
+  .xian {
+    height: 1prx;
+    width: 100%;
+    background: #2f9a55;
+  }
+  
+  .quan {
+    background: #2f9a55;
+    width: 35rpx;
+    height: 35rpx;
+    border-radius: 50%;
+    z-index: 9999;
+  }
+  
+  .nr {
+    padding-top: 60rpx;
+   padding-bottom:40rpx;
+  }
+  
+  .bor_bot {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .borbot {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .bor_top {
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .pd {
+    padding-top: 20rpx;
+    padding-right: 20rxp;
+    padding-bottom: 20rpx;
+    padding-left: 10rpx;
+  }
+  .margin-left-18 {
+    margin-left: 18rpx;
+  }
+  .btn {
+    width: 312rpx;
+    height: 84rpx;
+    border-radius: 56rpx;
+    border: 2rpx solid #FF6600;
+    background-color: #FF6600;
+  }
+  .fbtn {
+    width: 140rpx;
+    height: 48rpx;
+    line-height: 48rpx;
+    border-radius: 40rpx;
+  }
+  
+  .btm {
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+    z-index: 100;
+    border-top: 2rpx solid #e5e5e5;
+  }
+  
+  
+  .modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+  }
+  
+  .modal-dialog {
+    width: 680rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: 50rpx 35rpx;
+    border-radius: 10rpx;
+  }
+  .baocunhexiao{
+  
+  width: 30vw;
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    left: 25vw;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin-top: 850rpx ;
+    border-radius: 100rpx;
+  padding:20rpx 60rpx 20rpx 60rpx;
+  background: rgba(255, 255, 255, 1);
+  
+  
+  }
+  .modal-title {
+    padding: 40rpx;
+   
+    font-size: 32rpx;
+    color: #030303;
+    text-align: center;
+  }
+  
+  .modal-content {
+    padding: 50rpx 32rpx;
+  }
+  

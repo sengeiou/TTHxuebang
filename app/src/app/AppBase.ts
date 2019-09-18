@@ -34,18 +34,18 @@ export class AppBase implements OnInit {
     public static Resources = null;
     public res = null;
     public static InstInfo = null;
-    public static MemberInfo=null;
-    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
+    public static MemberInfo = null;
+    public InstInfo = { h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "" };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
     public params: Params = null;
 
-    public keyt="memberinfo99";
-    public stat="stat9";
+    public keyt = "memberinfo99";
+    public stat = "stat9";
 
-    public heading="学榜";
+    public heading = "学榜";
 
     public firseonshow = true;
     public scrolltop = 0;
@@ -54,7 +54,7 @@ export class AppBase implements OnInit {
     static Current = null;
     currentpage = "";
 
-    static STATICRAND="";
+    static STATICRAND = "";
 
 
     public constructor(
@@ -70,19 +70,19 @@ export class AppBase implements OnInit {
             this.params = params;
         });
         this.res = [];
-        var stat=window.sessionStorage.getItem(this.stat);
-        if(stat==null){
-            stat=parseInt((Math.random()*99999.9).toString()).toString();
-            window.sessionStorage.setItem(this.stat,stat);
+        var stat = window.sessionStorage.getItem(this.stat);
+        if (stat == null) {
+            stat = parseInt((Math.random() * 99999.9).toString()).toString();
+            window.sessionStorage.setItem(this.stat, stat);
         }
-        AppBase.STATICRAND=stat;
+        AppBase.STATICRAND = stat;
 
-        var memberinfo=window.localStorage.getItem(this.keyt);
-        
-        if(memberinfo!=null){
-            AppBase.MemberInfo=JSON.parse(memberinfo);
+        var memberinfo = window.localStorage.getItem(this.keyt);
+
+        if (memberinfo != null) {
+            AppBase.MemberInfo = JSON.parse(memberinfo);
         }
-        console.log("rdw",AppBase.MemberInfo);
+        console.log("rdw", AppBase.MemberInfo);
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -103,16 +103,16 @@ export class AppBase implements OnInit {
                 AppBase.InstInfo = instinfo;
                 this.InstInfo = instinfo;
                 console.log(instinfo);
-                console.log("aaabbbccc",AppBase.STATICRAND);
-                if(this.params.code!=undefined&&this.params.state==AppBase.STATICRAND){
+                console.log("aaabbbccc", AppBase.STATICRAND);
+                if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
 
-                }else{
-                    if(AppBase.MemberInfo==null){
-                        var url=window.location.href;
+                } else {
+                    if (AppBase.MemberInfo == null) {
+                        var url = window.location.href;
                         //url="http://yuyue.helpfooter.com/tabs/tab1";
-                        var redirecturl=encodeURIComponent(url);
-                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri="+redirecturl+"&response_type=code&scope=snsapi_userinfo&state="+AppBase.STATICRAND+"#wechat_redirect";
-                        console.log({redurl});
+                        var redirecturl = encodeURIComponent(url);
+                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
+                        console.log({ redurl });
                         //window.location.href=redurl;
                     }
                 }
@@ -134,14 +134,14 @@ export class AppBase implements OnInit {
 
         });
     }
-    shouye(){
-        
-  
+    shouye() {
 
- 
-    this.navigate("/tabs/tab1");
- 
-   
+
+
+
+        this.navigate("/tabs/tab1");
+
+
 
     }
     getResources() {
@@ -155,46 +155,46 @@ export class AppBase implements OnInit {
         }
     }
     ionViewDidEnter() {
-        console.log("aaabbbccc",AppBase.STATICRAND);
-        if(AppBase.MemberInfo==null){
+        console.log("aaabbbccc", AppBase.STATICRAND);
+        if (AppBase.MemberInfo == null) {
             //
-            
-            console.log("aaabbbccc",this.params.code);
-            console.log("aaabbbccc",this.params.code!=undefined&&this.params.state==AppBase.STATICRAND);
-            console.log("aaabbbccc",this.params.state);
-            if(this.params.code!=undefined&&this.params.state==AppBase.STATICRAND){
-                AppBase.memberapi.getuserinfo({h5:"Y",code:this.params.code,grant_type:"authorization_code"}).then((memberinfo)=>{
-                    memberinfo.h5openid=memberinfo.openid;
-                    AppBase.MemberInfo=memberinfo;
-                    this.MemberInfo=memberinfo;
 
-                    window.localStorage.setItem(this.keyt,JSON.stringify(this.MemberInfo));
-                    
+            console.log("aaabbbccc", this.params.code);
+            console.log("aaabbbccc", this.params.code != undefined && this.params.state == AppBase.STATICRAND);
+            console.log("aaabbbccc", this.params.state);
+            if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
+                AppBase.memberapi.getuserinfo({ h5: "Y", code: this.params.code, grant_type: "authorization_code" }).then((memberinfo) => {
+                    memberinfo.h5openid = memberinfo.openid;
+                    AppBase.MemberInfo = memberinfo;
+                    this.MemberInfo = memberinfo;
+
+                    window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
+
                     ApiConfig.SetToken(memberinfo.h5openid);
                     ApiConfig.SetTokenKey(memberinfo.unionid);
-                     AppBase.memberapi.updateh5(memberinfo).then((res)=>{
+                    AppBase.memberapi.updateh5(memberinfo).then((res) => {
                         // this.onMyShow();
-                     });
+                    });
                     //window.location.href="/tabs/tab1";
                 });
-            }else{
-                
+            } else {
+
                 //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
                 this.onMyShow();
             }
-        }else{
+        } else {
             //alert("2"+this.MemberInfo.h5openid);
-            this.MemberInfo=AppBase.MemberInfo;
-            console.log("aaaa",this.MemberInfo);
+            this.MemberInfo = AppBase.MemberInfo;
+            console.log("aaaa", this.MemberInfo);
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
 
-            
+
 
             this.onMyShow();
         }
-        
+
 
     }
 
@@ -227,8 +227,8 @@ export class AppBase implements OnInit {
         }
         this.isbacking = true;
         //alert(this.Params.fromtab);
-        if(history.length<2){
-            this.navCtrl.navigateBack('tabs/tab1' );
+        if (history.length < 2) {
+            this.navCtrl.navigateBack('tabs/tab1');
             return;
         }
         if (this.params.fromtab != undefined) {
@@ -390,67 +390,72 @@ export class AppBase implements OnInit {
     }
 
 
-    setWechatShare(title=undefined,desc=undefined){
-        if(title==undefined){
-            title=this.InstInfo.h5sharetitle;
+    setWechatShare(title = undefined, desc = undefined) {
+        if (title == undefined) {
+            title = this.InstInfo.h5sharetitle;
         }
-        if(desc==undefined){
-            desc=this.InstInfo.h5sharedesc;
+        if (desc == undefined) {
+            desc = this.InstInfo.h5sharedesc;
         }
-        AppBase.wechatApi.gensign({url:window.location.href}).then((config)=>{
-            var json={
+        AppBase.wechatApi.gensign({ url: window.location.href }).then((config) => {
+            var json = {
                 debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                 appId: this.InstInfo.h5appid, // 必填，公众号的唯一标识
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
-            var that=this;
+            var that = this;
             wx.ready(function () {
                 wx.onMenuShareAppMessage({
-                        title: title,
-                        desc: desc,
-                        link: window.location.href,
-                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
-                        trigger: function (res) {
-                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-                            //alert('用户点击发送给朋友');
-                        },
-                        success: function (res) {
-                            //alert('已分享');
-                        },
-                        cancel: function (res) {
-                            //alert('已取消');
-                        },
-                        fail: function (res) {
-                            //alert("onMenuShareAppMessage" + JSON.stringify(res));
-                        }
-                    });
+                    title: title,
+                    desc: desc,
+                    link: window.location.href,
+                    imgUrl: that.uploadpath + "inst/" + that.InstInfo.h5sharelogo,
+                    trigger: function (res) {
+                        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                        //alert('用户点击发送给朋友');
+                    },
+                    success: function (res) {
+                        //alert('已分享');
+                    },
+                    cancel: function (res) {
+                        //alert('已取消');
+                    },
+                    fail: function (res) {
+                        //alert("onMenuShareAppMessage" + JSON.stringify(res));
+                    }
+                });
 
-                    wx.onMenuShareTimeline({
-                        title: title,
-                        link: window.location.href,
-                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
-                        trigger: function (res) {
-                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-                            //alert('用户点击分享到朋友圈');
-                        },
-                        success: function (res) {
-                            //alert('已分享');
-                        },
-                        cancel: function (res) {
-                            //alert('已取消');
-                        },
-                        fail: function (res) {
-                            // alert("onMenuShareTimeline" + JSON.stringify(res));
-                        }
-                    });
-                
+                wx.onMenuShareTimeline({
+                    title: title,
+                    link: window.location.href,
+                    imgUrl: that.uploadpath + "inst/" + that.InstInfo.h5sharelogo,
+                    trigger: function (res) {
+                        // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                        //alert('用户点击分享到朋友圈');
+                    },
+                    success: function (res) {
+                        //alert('已分享');
+                    },
+                    cancel: function (res) {
+                        //alert('已取消');
+                    },
+                    fail: function (res) {
+                        // alert("onMenuShareTimeline" + JSON.stringify(res));
+                    }
+                });
+
             });
-        
 
-    });
-	}
+
+        });
+    }
+
+    backHome() {
+        this.navCtrl.navigateBack('tabs/home');
+        return;
+    }
 }

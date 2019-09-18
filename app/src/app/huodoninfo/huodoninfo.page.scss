@@ -1,0 +1,138 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.gz {
+    position: fixed;
+    z-index: 999;
+    left: 100rpx;
+    right: 100rpx;
+    bottom: 30%;
+    border-radius: 8rpx;
+  }
+  
+  .block_black {
+    background: black;
+    opacity: 0.6;
+    position: fixed;
+    z-index: 998;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .guize {
+    width: 540rpx;
+    border-radius: 8rpx;
+    opacity: 1;
+  }
+  
+  .conten {
+    width: 93vw;
+    background: white;
+    margin-top: 50rpx;
+    z-index: 500;
+    border-radius: 20rpx;
+  }
+  
+  .tmbg {
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .cc {
+    z-index: 50;
+    position: absolute;
+    margin-bottom:20rpx;
+    width: 100vw;
+  }
+  
+  .hsbg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+  }
+  
+  .bmcs {
+    width: 200rpx;
+    height: 56rpx;
+    background: #f60;
+    border-radius: 50rpx;
+    line-height: 56rpx;
+    text-align: center;
+    color: white;
+  }
+  
+  .toupiao {
+    background: #fef4f2;
+    color: #f5555d;
+    font-size: 22rpx;
+    padding: 27rpx;
+  }
+  
+  .tpgz {
+    width: 140rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 22rpx;
+    border-radius: 50rpx;
+    background: white;
+    color: #f60;
+    border: 1px solid #f60;
+  }
+  
+  .kecheng-block {
+    width: 40vw;
+    background: rgba(255, 255, 255, 1);
+    margin-left: 35rpx;
+    margin-top: 30rpx;
+  }
+  
+  .tp {
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
+    width: 180rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: white;
+    background: #f60;
+    border-radius: 64rpx;
+  }
+  
+  .tpcg {
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
+    width: 180rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    color: white;
+    background: #999;
+    border-radius: 64rpx;
+  }
+  
+  .shuzi {
+    position: absolute;
+    margin-left: 10rpx;
+    margin-top: -60rpx;
+    color: #f60;
+    font-size: 26rpx;
+    width: 45rpx;
+    height: 45rpx;
+    line-height: 45rpx;
+    text-align: center;
+    background: #ffc200;
+    border-radius: 50%;
+  }
+  
+  .qianjimin {
+    position: absolute;
+    margin-left: 10rpx;
+    margin-top: -60rpx;
+  }
+  
