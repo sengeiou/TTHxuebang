@@ -9,8 +9,8 @@
 } */
 
 .img {
-    width: 230rpx;
-    height: 240rpx;
+    width: rpx(230);
+    height: rpx(240);
   }
   
   /* .on{
@@ -26,7 +26,7 @@
     z-index: 100;
     left: 2.5vw;
     top: 33%;
-    margin-top: -90rpx;
+    margin-top: -rpx(90);
     box-shadow: 1px 1px 5px #888;
   } */
   
@@ -39,8 +39,8 @@
     position: relative;
     z-index: 10;
     width: 91vw;
-    height: 330rpx;
-    margin-top: -20rpx;
+    height: rpx(330);
+    margin-top: -rpx(20);
   }
   
   .mid2 {
@@ -49,7 +49,7 @@
     z-index: 100;
     left: 2.5vw;
     top: 33%;
-    margin-top: -60rpx;
+    margin-top: -rpx(60);
     box-shadow: 1px 1px 5px #888;
   }
   
@@ -58,22 +58,22 @@
   }
   
   .kc_icon {
-    width: 228rpx;
-    height: 224rpx;
+    width: rpx(228);
+    height: rpx(224);
   }
   
   .biaoqian {
-    min-width: 56rpx;
-    height: 38rpx;
-    line-height: 38rpx;
-    padding-left: 10rpx;
-    padding-right: 10rpx;
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
   }
   
   .video {
-    padding-left: 15rpx;
-    padding-right: 15rpx;
-    padding-top: 15rpx;
+    padding-left: rpx(15);
+    padding-right: rpx(15);
+    padding-top: rpx(15);
   }
   
   .mk {
@@ -88,99 +88,99 @@
   }
   
   .ts_icon {
-    width: 240rpx;
-    height: 260rpx;
+    width: rpx(240);
+    height: rpx(260);
   }
   
   .kecheng-img {
-    height: 330rpx;
+    height: rpx(330);
     width: 100%;
-    border-radius: 8rpx;
-    /* border: 1rpx solid black; *//* background: rgba(216, 216, 216, 1); */
+    border-radius: rpx(8);
+    /* border: rpx(1) solid black; *//* background: rgba(216, 216, 216, 1); */
   }
   
   .kecheng-block {
-    width: 330rpx;
+    width: rpx(330);
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
-    border-radius: 8rpx;
-    margin-left: 30rpx;
-    margin-top: 30rpx;
+    box-shadow: rpx(0) rpx(4) rpx(12) rpx(0) rgba(0, 0, 0, 0.1);
+    border-radius: rpx(8);
+    margin-left: rpx(30);
+    margin-top: rpx(30);
   }
   
   .padding-12 {
-    padding: 12rpx;
-    padding-bottom: 5rpx;
+    padding: rpx(12);
+    padding-bottom: rpx(5);
   }
   
   .f-16 {
-    font-size: 16rpx;
+    font-size: rpx(16);
   }
   
   .margin-top-14 {
-    margin-top: 14rpx;
+    margin-top: rpx(14);
   }
   
   .icon-16 {
-    width: 16rpx;
-    height: 16rpx;
+    width: rpx(16);
+    height: rpx(16);
   }
   
   .icon-20 {
-    width: 40rpx;
-    height: 40rpx;
+    width: rpx(40);
+    height: rpx(40);
   }
   
   .icon-17 {
-    width: 44rpx;
-    height: 40rpx;
+    width: rpx(44);
+    height: rpx(40);
   }
   
   .icon_jianjie {
-    width: 40rpx;
-    height: 40rpx;
+    width: rpx(40);
+    height: rpx(40);
   }
   
   .margin-left-6 {
-    margin-left: 6rpx;
+    margin-left: rpx(6);
   }
   
   .margin-left-26 {
-    margin-left: 26rpx;
+    margin-left: rpx(26);
   }
   
   .margin-left-10 {
-    margin-left: 10rpx;
+    margin-left: rpx(10);
   }
   
   .margin-right-10 {
-    margin-right: 10rpx;
+    margin-right: rpx(10);
   }
   
   .margin-top-8 {
-    margin-top: 8rpx;
+    margin-top: rpx(8);
   }
   
   .padding-T-B-28 {
-    padding-top: 28rpx;
-    padding-bottom: 28rpx;
+    padding-top: rpx(28);
+    padding-bottom: rpx(28);
   }
   
   .margin-left-28 {
-    margin-left: 28rpx;
+    margin-left: rpx(28);
   }
   
   .margin-top-12 {
-    margin-top: 12rpx;
+    margin-top: rpx(12);
   }
   
   .f20 {
-    font-size: 20rpx;
+    font-size: rpx(20);
   }
   
   .dd {
-    margin: 15rpx;
-    margin-top: 5rpx;
+    margin: rpx(15);
+    margin-top: rpx(5);
   }
   
   .txt-red {
@@ -192,29 +192,29 @@
   }
   
   .xg {
-    padding-right: 15rpx;
+    padding-right: rpx(15);
   }
   
   .margin-top-4 {
-    margin-top: 4rpx;
+    margin-top: rpx(4);
   }
   
   .mianfei {
-    font-size: 24rpx;
+    font-size: rpx(24);
     color: white;
     background-color: #ffc200;
-    padding: 15rpx;
-    border-top-left-radius: 30rpx;
+    padding: rpx(15);
+    border-top-left-radius: rpx(30);
   }
   
   .yigou {
-    font-size: 24rpx;
+    font-size: rpx(24);
     color: white;
     background-color: #ccc;
-    padding: 15rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-    border-top-left-radius: 30rpx;
+    padding: rpx(15);
+    padding-left: rpx(20);
+    padding-right: rpx(20);
+    border-top-left-radius: rpx(30);
   }
   
   .buy {
@@ -246,7 +246,7 @@
   }
   
   .padding-block {
-    padding: 32rpx 26rpx 32rpx 26rpx;
+    padding: rpx(32) rpx(26) rpx(32) rpx(26);
     height: 55vh;
     position: relative;
   }
@@ -268,71 +268,71 @@
   }
   
   .icon-img {
-    width: 160rpx;
-    height: 160rpx;
+    width: rpx(160);
+    height: rpx(160);
   }
   
   .kcname_block {
-    min-width: 188rpx;
-    height: 60rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    line-height: 60rpx;
+    min-width: rpx(188);
+    height: rpx(60);
+    padding-left: rpx(30);
+    padding-right: rpx(30);
+    line-height: rpx(60);
     background: rgba(245, 245, 245, 1);
-    border-radius: 8rpx;
-    margin-right: 20rpx;
-    margin-top: 20rpx;
+    border-radius: rpx(8);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
   }
   
   .kcname_block_check {
-    min-width: 188rpx;
-    height: 60rpx;
-    padding-left: 30rpx;
-    padding-right: 30rpx;
-    line-height: 60rpx;
+    min-width: rpx(188);
+    height: rpx(60);
+    padding-left: rpx(30);
+    padding-right: rpx(30);
+    line-height: rpx(60);
     background: #f60;
-    border-radius: 8rpx;
-    margin-right: 20rpx;
-    margin-top: 20rpx;
+    border-radius: rpx(8);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
   }
   
   .height-210 {
-    height: 220rpx;
+    height: rpx(220);
   }
   
   .height-100 {
-    min-height: 220rpx;
+    min-height: rpx(220);
   }
   
   .icon-10 {
-    height: 20rpx;
-    width: 20rpx;
+    height: rpx(20);
+    width: rpx(20);
   }
   
   .icon-13 {
-    height: 26rpx;
-    width: 26rpx;
+    height: rpx(26);
+    width: rpx(26);
   }
   
   .icon-rz {
-    width: 104rpx;
-    height: 32rpx;
+    width: rpx(104);
+    height: rpx(32);
   }
   
   .next {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
     background: rgba(255, 102, 0, 1);
-    border-radius: 42rpx;
+    border-radius: rpx(42);
   }
   
   .next2 {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
     background: #cfcfcf;
-    border-radius: 42rpx;
+    border-radius: rpx(42);
   }
   
   .under {
@@ -345,7 +345,7 @@
     position: absolute;
     background: white;
     width: 94vw;
-    top: 20rpx;
+    top: rpx(20);
   }
   .head {
     position: absolute;
@@ -357,31 +357,31 @@
   .left {
     background: white;
     width: 41.3%;
-    height: 96rpx;
+    height: rpx(96);
   }
   
   .right {
-    width: 440rpx;
-    height: 96rpx;
-    line-height: 96rpx;
+    width: rpx(440);
+    height: rpx(96);
+    line-height: rpx(96);
   }
   
   .buybtn {
-    width: 220rpx;
-    height: 96rpx;
-    line-height: 96rpx;
+    width: rpx(220);
+    height: rpx(96);
+    line-height: rpx(96);
   }
   
   .onlybuy {
     width: 58.7%;
-    height: 96rpx;
-    line-height: 96rpx;
+    height: rpx(96);
+    line-height: rpx(96);
   }
   
   .pingtuanbtn {
-    width: 220rpx;
-    height: 96rpx;
-    line-height: 96rpx;
+    width: rpx(220);
+    height: rpx(96);
+    line-height: rpx(96);
   }
   
   .bg-cheng {
@@ -418,8 +418,8 @@
   
   .huang_block {
     width: 100vw;
-    height: 76rpx;
-    /* line-height: 76rpx; */
+    height: rpx(76);
+    /* line-height: rpx(76); */
     background: rgba(255, 250, 207, 1);
   }
   
@@ -432,19 +432,19 @@
   }
   
   .margin-left-52 {
-    margin-left: 52rpx;
+    margin-left: rpx(52);
   }
   
   .more {
-    width: 300rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(300);
+    height: rpx(84);
+    line-height: rpx(84);
     background: rgba(255, 194, 0, 1);
-    border-radius: 42rpx;
+    border-radius: rpx(42);
   }
   
   .starbox {
-    width: 120rpx;
+    width: rpx(120);
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -462,7 +462,7 @@
    z-index: 12;
    background: white;
    float: left; 
-   height: 30rpx;
+   height: rpx(30);
    top: 0;
    right: 0;
   }
@@ -474,8 +474,8 @@
     left: 0;
   }
   .icon-star{
-    height: 24rpx;
-    width: 24rpx;
+    height: rpx(24);
+    width: rpx(24);
     float: left;    
   }
   

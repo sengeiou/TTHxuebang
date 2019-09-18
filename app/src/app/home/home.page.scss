@@ -11,24 +11,24 @@ Page {
   }
   
   .shuzi {
-    width: 20rpx;
-    height: 20rpx;
+    width: rpx(20);
+    height: rpx(20);
     background: #f00;
     color: #fff;
-    font-size: 12rpx;
+    font-size: rpx(12);
     position: absolute;
     border-radius: 50%;
     text-align: center;
-    margin-left: 30rpx;
-    margin-top: 3rpx;
-    line-height: 20rpx;
+    margin-left: rpx(30);
+    margin-top: rpx(3);
+    line-height: rpx(20);
   }
   
   .Top {
     position: fixed;
     z-index: 100;
     top: 0px;
-    width: 750rpx;
+    width: rpx(750);
   }
   
   .homeimage {
@@ -51,51 +51,51 @@ Page {
   }
   
   .tsimg {
-    width: 452rpx;
-    height: 150rpx;
+    width: rpx(452);
+    height: rpx(150);
     z-index: 100;
     position: fixed;
-    right: 34rpx;
+    right: rpx(34);
   }
   
   .search {
     width: 100%;
-    border-radius: 30rpx;
+    border-radius: rpx(30);
     background-color: white;
   }
   
   .h40 {
-    font-size: 40rpx;
+    font-size: rpx(40);
   }
   
   .topblock {
     position: absolute;
     z-index: 100;
-    top: 72rpx;
-    left: 24rpx;
-    width: 700rpx;
-    height: 86rpx;
+    top: rpx(72);
+    left: rpx(24);
+    width: rpx(700);
+    height: rpx(86);
     background: rgba(34, 34, 34, 0.8);
   }
   
   .btn {
-    width: 160rpx;
-    height: 40rpx;
-    line-height: 40rpx;
+    width: rpx(160);
+    height: rpx(40);
+    line-height: rpx(40);
     background: rgba(56, 135, 222, 1);
-    border-radius: 28rpx;
+    border-radius: rpx(28);
   }
   
   .img2 {
-    width: 350rpx;
-    height: 168rpx;
-    border-radius: 8rpx;
+    width: rpx(350);
+    height: rpx(168);
+    border-radius: rpx(8);
   }
   
   .img {
-    width: 350rpx;
-    height: 354rpx;
-    border-radius: 8rpx;
+    width: rpx(350);
+    height: rpx(354);
+    border-radius: rpx(8);
   }
   
   .dizhi {
@@ -114,28 +114,28 @@ Page {
   
   .mid {
     width: 85.5vw;
-    margin-bottom: 30rpx;
+    margin-bottom: rpx(30);
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
   }
   
   .biaoqian {
-    min-width: 56rpx;
-    height: 38rpx;
-    line-height: 38rpx;
-    padding-left: 10rpx;
-    padding-right: 10rpx;
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
   }
   
   .li {
     width: 100%;
-    height: 312rpx;
+    height: rpx(312);
   }
   
   /* .li1 {
-    width: 600rpx;
+    width: rpx(600);
     margin: 0 auto;
-    border-radius: 10rpx;
-    height: 300rpx;
+    border-radius: rpx(10);
+    height: rpx(300);
     transform: scale(0.9);
   } */
   
@@ -144,8 +144,8 @@ Page {
   }
   
   .search_icon {
-    width: 35rpx;
-    height: 30rpx;
+    width: rpx(35);
+    height: rpx(30);
   }
   
   .backmu {
@@ -159,37 +159,37 @@ Page {
   }
   
   .scv {
-    margin-left: 20rpx;
+    margin-left: rpx(20);
   }
   
   .ss {
-    height: 145rpx;
+    height: rpx(145);
     white-space: nowrap;
   }
   
   .ceshi {
-    width: 412rpx;
-    height: 105rpx;
-    padding-top: 16rpx;
-    padding-bottom: 16rpx;
-    padding-left: 26rpx;
-    padding-right: 26rpx;
-    margin-right: 20rpx;
-    border-radius: 8rpx;
+    width: rpx(412);
+    height: rpx(105);
+    padding-top: rpx(16);
+    padding-bottom: rpx(16);
+    padding-left: rpx(26);
+    padding-right: rpx(26);
+    margin-right: rpx(20);
+    border-radius: rpx(8);
     display: inline-block;
     /* background: #5db982; */
   }
   
   .height-30 {
-    height: 50rpx;
+    height: rpx(50);
   }
   
   .lb {
-    border-radius: 8rpx;
+    border-radius: rpx(8);
   }
   
   .height-5 {
-    height: 6rpx;
+    height: rpx(6);
   }
   
   .orange {
@@ -205,7 +205,7 @@ Page {
   }
   
   .margin-left-12 {
-    margin-left: 12rpx;
+    margin-left: rpx(12);
   }
   
   .opa {
@@ -213,62 +213,62 @@ Page {
   }
   
   .icon15 {
-    width: 30rpx;
-    height: 30rpx;
+    width: rpx(30);
+    height: rpx(30);
   }
   
   .daka {
-    width: 102rpx;
-    height: 102rpx;
-    line-height: 102rpx;
-    margin: 10rpx;
+    width: rpx(102);
+    height: rpx(102);
+    line-height: rpx(102);
+    margin: rpx(10);
     background: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(122, 122, 122, 1) 100%);
-    box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(176, 176, 176, 1);
+    box-shadow: rpx(0) rpx(0) rpx(8) rpx(0) rgba(176, 176, 176, 1);
   }
   
   .touxiang {
-    width: 40rpx;
-    height: 40rpx;
-    border: 2rpx solid rgba(255, 255, 255, 1);
+    width: rpx(40);
+    height: rpx(40);
+    border: rpx(2) solid rgba(255, 255, 255, 1);
   }
   
   .touxiang2 {
-    width: 40rpx;
-    height: 40rpx;
-    margin-left: -20rpx;
-    border: 2rpx solid rgba(255, 255, 255, 1);
+    width: rpx(40);
+    height: rpx(40);
+    margin-left: -rpx(20);
+    border: rpx(2) solid rgba(255, 255, 255, 1);
   }
   
   .margin-top-16 {
-    margin-top: 16rpx;
+    margin-top: rpx(16);
   }
   
   .margin-left-16 {
-    margin-left: 16rpx;
+    margin-left: rpx(16);
   }
   
   .shipin {
-    width: 256rpx;
-    height: 264rpx;
-    border-radius: 8rpx;
+    width: rpx(256);
+    height: rpx(264);
+    border-radius: rpx(8);
     background: #ffc200;
-    padding: 18rpx;
-    margin-right: 20rpx;
+    padding: rpx(18);
+    margin-right: rpx(20);
     display: inline-block;
   }
   
   .sp {
-    height: 350rpx;
+    height: rpx(350);
     white-space: nowrap;
   }
   
   .f20 {
-    font-size: 20rpx;
+    font-size: rpx(20);
   }
   
   .icon8 {
-    width: 16rpx;
-    height: 16rpx;
+    width: rpx(16);
+    height: rpx(16);
   }
   
   .txthuang {
@@ -276,51 +276,51 @@ Page {
   }
   
   .dakadian {
-    width: 12rpx;
-    height: 12rpx;
+    width: rpx(12);
+    height: rpx(12);
     border-radius: 50%;
-    margin-top: 14rpx;
-    margin-bottom: 14rpx;
+    margin-top: rpx(14);
+    margin-bottom: rpx(14);
   }
   
   .margin-left-21 {
-    margin-left: 38rpx;
+    margin-left: rpx(38);
   }
   
   .icon13 {
-    height: 26rpx;
-    width: 26rpx;
+    height: rpx(26);
+    width: rpx(26);
   }
   
   .icon-12 {
-    width: 12rpx;
-    height: 12rpx;
+    width: rpx(12);
+    height: rpx(12);
   }
   
   .width-46 {
-    width: 60rpx;
+    width: rpx(60);
   }
   
   .dakaxian {
-    margin-left: -20rpx;
-    margin-right: -20rpx;
-    height: 4rpx;
-    width: 80rpx;
+    margin-left: -rpx(20);
+    margin-right: -rpx(20);
+    height: rpx(4);
+    width: rpx(80);
   }
   
   .marginleft-10 {
-    margin-left: -16rpx;
+    margin-left: -rpx(16);
   }
   
   .width-40 {
-    width: 44rpx;
+    width: rpx(44);
   }
   
   .dakaxian2 {
-    margin-left: -18rpx;
-    margin-right: -18rpx;
-    height: 4rpx;
-    width: 74rpx;
+    margin-left: -rpx(18);
+    margin-right: -rpx(18);
+    height: rpx(4);
+    width: rpx(74);
   }
   
   .bg9 {
@@ -332,52 +332,52 @@ Page {
   }
   
   .margin-top-10 {
-    margin-top: 10rpx;
+    margin-top: rpx(10);
   }
   
   .icon8 {
-    width: 16rpx;
-    height: 16rpx;
+    width: rpx(16);
+    height: rpx(16);
   }
   
   .margin-top-4 {
-    margin-top: 12rpx;
+    margin-top: rpx(12);
   }
   
   .margin-left-29 {
-    margin-left: 40rpx;
+    margin-left: rpx(40);
   }
   
   .qiandao {
-    width: 706rpx;
-    height: 122rpx;
+    width: rpx(706);
+    height: rpx(122);
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0rpx 4rpx 16rpx 0rpx rgba(0, 0, 0, 0.06);
-    border-radius: 76rpx;
+    box-shadow: rpx(0) rpx(4) rpx(16) rpx(0) rgba(0, 0, 0, 0.06);
+    border-radius: rpx(76);
   }
   
   .daka {
-    width: 102rpx;
-    height: 102rpx;
-    line-height: 102rpx;
-    margin: 10rpx;
+    width: rpx(102);
+    height: rpx(102);
+    line-height: rpx(102);
+    margin: rpx(10);
     background: linear-gradient(139deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 85%, rgba(122, 122, 122, 1) 100%);
-    box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(176, 176, 176, 1);
+    box-shadow: rpx(0) rpx(0) rpx(8) rpx(0) rgba(176, 176, 176, 1);
   }
   
   .yidaka {
-    width: 102rpx;
-    height: 102rpx;
-    line-height: 102rpx;
-    margin: 10rpx;
+    width: rpx(102);
+    height: rpx(102);
+    line-height: rpx(102);
+    margin: rpx(10);
     color: white;
     background: #b0b0b0;
-    box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(176, 176, 176, 1);
+    box-shadow: rpx(0) rpx(0) rpx(8) rpx(0) rgba(176, 176, 176, 1);
   }
   
   .icon-10 {
-    height: 20rpx;
-    width: 20rpx;
+    height: rpx(20);
+    width: rpx(20);
   }
   
   .block_black {
@@ -395,36 +395,36 @@ Page {
   .tangchuan {
     position: fixed;
     z-index: 100;
-    left: 82rpx;
-    right: 82rpx;
+    left: rpx(82);
+    right: rpx(82);
     top: 5%;
   }
   
   .gz {
     position: fixed;
     z-index: 100;
-    left: 100rpx;
-    right: 100rpx;
+    left: rpx(100);
+    right: rpx(100);
     bottom: 20%;
-    border-radius: 8rpx;
+    border-radius: rpx(8);
   }
   
   .guize {
-    width: 540rpx;
-    height: 600rpx;
-    border-radius: 8rpx;
+    width: rpx(540);
+    height: rpx(600);
+    border-radius: rpx(8);
   }
   
   .jilu {
     /* background: rgb(252, 205, 151); */
-    border-radius: 8rpx;
-    width: 506rpx;
-    height: 882rpx;
-    padding: 44rpx 40rpx 0rpx 40rpx;
+    border-radius: rpx(8);
+    width: rpx(506);
+    height: rpx(882);
+    padding: rpx(44) rpx(40) rpx(0) rpx(40);
   }
   
   .margin-top {
-    margin-top: 50rpx;
+    margin-top: rpx(50);
   }
   
   .chengong {
@@ -435,57 +435,57 @@ Page {
   }
   
   .dakawc {
-    height: 812rpx;
-    width: 564rpx;
+    height: rpx(812);
+    width: rpx(564);
   }
   
   .txt_jifen {
-    font-size: 82rpx;
+    font-size: rpx(82);
   }
   
   .close {
-    margin-top: 26rpx;
+    margin-top: rpx(26);
   }
   
   .icon-75 {
-    height: 150rpx;
-    width: 150rpx;
+    height: rpx(150);
+    width: rpx(150);
   }
   
   .f36 {
-    font-size: 36rpx;
+    font-size: rpx(36);
   }
   
   .margin-left-26 {
-    margin-left: 26rpx;
+    margin-left: rpx(26);
   }
   
   .daka-btn {
-    width: 280rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(280);
+    height: rpx(84);
+    line-height: rpx(84);
     background: rgba(161, 96, 0, 1);
-    border-radius: 60rpx;
+    border-radius: rpx(60);
   }
   
   .daka-btn-wc {
-    width: 280rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(280);
+    height: rpx(84);
+    line-height: rpx(84);
     background: white;
     color: #ffc200;
-    border-radius: 60rpx;
+    border-radius: rpx(60);
   }
   
   .yuan {
-    width: 18rpx;
-    height: 18rpx;
+    width: rpx(18);
+    height: rpx(18);
     background: rgba(161, 96, 0, 1);
   }
   
   .checkyuan {
-    width: 18rpx;
-    height: 18rpx;
+    width: rpx(18);
+    height: rpx(18);
     background: rgba(248, 232, 3, 0.993);
   }
   
@@ -498,38 +498,38 @@ Page {
   }
   
   .margin-left-15 {
-    margin-left: 30rpx;
+    margin-left: rpx(30);
   }
   
   .zhong {
-    padding: 36rpx;
+    padding: rpx(36);
   }
   
   .margin-top-46 {
-    margin-top: 80rpx;
+    margin-top: rpx(80);
   }
   
   .gun {
-    width: 2rpx;
-    height: 72rpx;
-    margin-top: -8rpx;
-    margin-bottom: -14rpx;
-    margin-left: 86rpx;
+    width: rpx(2);
+    height: rpx(72);
+    margin-top: -rpx(8);
+    margin-bottom: -rpx(14);
+    margin-left: rpx(86);
   }
   
   .tishikuang {
     width: 100vw;
-    height: 58rpx;
+    height: rpx(58);
     background: rgba(255, 250, 207, 1);
   }
   
   .icon20 {
-    height: 20rpx;
-    width: 20rpx;
+    height: rpx(20);
+    width: rpx(20);
   }
   
   .starbox {
-    width: 100rpx;
+    width: rpx(100);
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -550,8 +550,8 @@ Page {
   }
   
   .icon-25 {
-    width: 20rpx;
-    height: 18rpx;
+    width: rpx(20);
+    height: rpx(18);
   }
   
   .ims {
@@ -560,14 +560,14 @@ Page {
   }
   
   .class_icon {
-    width: 50rpx;
-    height: 50rpx
+    width: rpx(50);
+    height: rpx(50)
   }
   
   .lesson-width { 
     width: 20%; 
   }
   .icon26{
-    width: 60rpx;
-    height: 60rpx;
+    width: rpx(60);
+    height: rpx(60);
   }

@@ -5,30 +5,30 @@
 .center{
 
     text-align: center;
-    margin-top:20rpx;
+    margin-top:rpx(20);
   }
   .jingao{
     background: #FFECEC;
   }
   .shuru{
-  height: 100rpx;
+  height: rpx(100);
   
   }
   .btn{
-    margin-top:50rpx;
-    padding:25rpx 260rpx 25rpx 260rpx;
+    margin-top:rpx(50);
+    padding:rpx(25) rpx(260) rpx(25) rpx(260);
     background: rgba(34, 171, 57, 1);
     color:rgba(255, 255, 255, 1);
-    font-size: 30rpx;
-    border-radius: 120rpx;
+    font-size: rpx(30);
+    border-radius: rpx(120);
   }
   .xhx{
     border-bottom: 1px solid #F5F5F5;
-    margin-bottom: 0rpx;
-    padding-bottom: 20rpx;
+    margin-bottom: rpx(0);
+    padding-bottom: rpx(20);
   }
   .tsk{
-  font-size: 24rpx;
+  font-size: rpx(24);
   color:#CCCCCC;
   
   }

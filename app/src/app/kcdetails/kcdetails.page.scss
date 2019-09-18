@@ -8,11 +8,11 @@ page {
     background: white;
   }
   .kd{
-    width: 100rpx;
-    height: 100rpx;
-    margin-top:40rpx;
+    width: rpx(100);
+    height: rpx(100);
+    margin-top:rpx(40);
     position: absolute;
-    margin-left:620rpx;
+    margin-left:rpx(620);
   }
   .chengong{
     position: fixed;
@@ -22,27 +22,27 @@ page {
   }
   .dakawc{
     width:85vw;
-    height: 350rpx;
-    border-radius: 10rpx;
+    height: rpx(350);
+    border-radius: rpx(10);
     background: white;
   }
   .cs{
     position: absolute;
-    margin-left:20rpx;
+    margin-left:rpx(20);
   }
   .close{
-   margin-top:54rpx;
+   margin-top:rpx(54);
   
   }
   /* .type {
-    padding-left: 17rpx;
-    padding-right: 17rpx;
-    padding-top: 4rpx;
-    padding-bottom: 4rpx;
+    padding-left: rpx(17);
+    padding-right: rpx(17);
+    padding-top: rpx(4);
+    padding-bottom: rpx(4);
   } */
   .icon-15{
-  width: 28rpx;
-  height: 28rpx;
+  width: rpx(28);
+  height: rpx(28);
   
   }
   
@@ -51,9 +51,9 @@ page {
     top: 30%;
    background-color: white;
     z-index: 100;
-     width: 650rpx;
-   height: 500rpx;
-   border-radius: 20rpx;
+     width: rpx(650);
+   height: rpx(500);
+   border-radius: rpx(20);
    left:7%;
   }
   .block_black {
@@ -70,66 +70,66 @@ page {
     border-top:1px solid #F5F5F5;
   }
   .zhaunfa {
-    width: 168rpx;
-    height: 52rpx;
+    width: rpx(168);
+    height: rpx(52);
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0rpx 4rpx 8rpx 0rpx rgba(0, 0, 0, 0.1);
-    border-radius: 200rpx 0rpx 0rpx 200rpx;
+    box-shadow: rpx(0) rpx(4) rpx(8) rpx(0) rgba(0, 0, 0, 0.1);
+    border-radius: rpx(200) rpx(0) rpx(0) rpx(200);
     opacity: 0.7968000000000001;
     position: fixed;
-    left: 580rpx;
+    left: rpx(580);
     z-index: 9999;
-    margin-top: -300rpx;
+    margin-top: -rpx(300);
   }
   .zhuanfa-icon {
-    width: 26rpx;
-    height: 22rpx;
+    width: rpx(26);
+    height: rpx(22);
   }
   .txt {
     color: #ffc200;
   }
   .padding-block {
-    padding: 32rpx 26rpx 32rpx 26rpx;
+    padding: rpx(32) rpx(26) rpx(32) rpx(26);
   }
   .buy {
     background: #fe792e;
   }
   .icon-img {
-    width: 160rpx;
-    height: 160rpx;
+    width: rpx(160);
+    height: rpx(160);
   }
   .kcname_block {
-    min-width: 188rpx;
-    height: 60rpx;
-    line-height: 60rpx;
+    min-width: rpx(188);
+    height: rpx(60);
+    line-height: rpx(60);
     color:#222222;
     background: rgba(245, 245, 245, 1);
-    border-radius: 8rpx;
-    margin-right: 20rpx;
-    margin-top: 20rpx;
+    border-radius: rpx(8);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
   }
   
   .kcname_block_check {
-    min-width: 188rpx;
-    height: 60rpx;
-    line-height: 60rpx;
+    min-width: rpx(188);
+    height: rpx(60);
+    line-height: rpx(60);
     background: #f60;
-    border-radius: 8rpx;
-    margin-right: 20rpx;
-    margin-top: 20rpx;
+    border-radius: rpx(8);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
   }
   .next {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
     background: rgba(255, 102, 0, 1);
-    border-radius: 42rpx;
+    border-radius: rpx(42);
   }
   .under {
     position: absolute;
     
     width: 94vw;
-    bottom: 52rpx;
+    bottom: rpx(52);
   }
   .bui {
     position: fixed;
@@ -163,11 +163,11 @@ page {
   }
   
   .biaoqian {
-    min-width: 56rpx;
-    height: 38rpx;
-    line-height: 38rpx;
-    padding-left: 10rpx;
-    padding-right: 10rpx;
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
   }
   
   .top {
@@ -185,8 +185,8 @@ page {
   }
   
   .ts_icon {
-    width: 240rpx;
-    height: 260rpx;
+    width: rpx(240);
+    height: rpx(260);
   }
   
   .dizhi {
@@ -198,28 +198,28 @@ page {
   .qpb {
     color: #fff;
     background-color: #f60;
-    border-radius: 10rpx;
-    padding-top: 10rpx;
-    padding-bottom: 10rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
+    border-radius: rpx(10);
+    padding-top: rpx(10);
+    padding-bottom: rpx(10);
+    padding-left: rpx(20);
+    padding-right: rpx(20);
   }
   
   .pinglunqu {
-    padding-left: 32rpx;
-    padding-right: 32rpx;
-    padding-top: 22rpx;
+    padding-left: rpx(32);
+    padding-right: rpx(32);
+    padding-top: rpx(22);
   }
   
   .pinglunqu-1 {
-    padding-left: 32rpx;
-    padding-right: 32rpx;
-    padding-top: 62rpx;
+    padding-left: rpx(32);
+    padding-right: rpx(32);
+    padding-top: rpx(62);
   }
   
   .tx {
-    height: 64rpx;
-    width: 64rpx;
+    height: rpx(64);
+    width: rpx(64);
   }
   
   .txt9 {
@@ -227,49 +227,49 @@ page {
   }
   
   .icon20 {
-    height: 20rpx;
-    width: 20rpx;
+    height: rpx(20);
+    width: rpx(20);
   }
   
   .margin-5 {
-    margin: 5rpx;
+    margin: rpx(5);
   }
   
   .margin-top-4 {
-    margin-top: 4rpx;
+    margin-top: rpx(4);
   }
   
   .margin-left-4 {
-    margin-left: 4rpx;
+    margin-left: rpx(4);
   }
   
   .icon24 {
-    width: 24rpx;
-    height: 24rpx;
+    width: rpx(24);
+    height: rpx(24);
   }
   
   .pinlun {
-    /* padding-left: 20rpx; */
-    padding-right: 20rpx;
-    padding-top: 20rpx;
-    margin-left: 32rpx;
-    margin-right: 32rpx;
-    line-height: 40rpx;
+    /* padding-left: rpx(20); */
+    padding-right: rpx(20);
+    padding-top: rpx(20);
+    margin-left: rpx(32);
+    margin-right: rpx(32);
+    line-height: rpx(40);
   }
   
   .pinlun-img {
-    width: 190rpx;
-    height: 190rpx;
-    padding: 16rpx;  
+    width: rpx(190);
+    height: rpx(190);
+    padding: rpx(16);  
      
   }
   
   .img {
-    margin-left: 20rpx;
-    margin-right: 40rpx;
+    margin-left: rpx(20);
+    margin-right: rpx(40);
   }
   .starbox {
-    width: 170rpx;
+    width: rpx(170);
     position: relative;
     display: inline-block;
     overflow: hidden;
@@ -290,8 +290,8 @@ page {
   }
   
   .icon-star {
-    width: 34rpx;
-    height: 32rpx;
+    width: rpx(34);
+    height: rpx(32);
   }
   
   .ims {

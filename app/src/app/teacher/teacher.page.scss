@@ -9,17 +9,17 @@ Page {
   }
   
   .org_block {
-    padding-left: 5rpx;
-    padding-right: 15rpx;
-    padding-top: 6rpx;
-    padding-bottom: 6rpx;
+    padding-left: rpx(5);
+    padding-right: rpx(15);
+    padding-top: rpx(6);
+    padding-bottom: rpx(6);
   }
   
   .title {
     /* position: absolute;
     width: 50%; */
-    margin-top: 24rpx;
-    margin-left: 32rpx;
+    margin-top: rpx(24);
+    margin-left: rpx(32);
     /* z-index: 100; */
     overflow: hidden;
     text-overflow: ellipsis;
@@ -38,7 +38,7 @@ Page {
     width: 100%;
   }
   .ts_icon{
-    width: 240rpx;
-    height: 260rpx;
+    width: rpx(240);
+    height: rpx(260);
   }
   

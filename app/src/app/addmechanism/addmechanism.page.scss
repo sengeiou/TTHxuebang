@@ -8,14 +8,14 @@ ion-content {
 }
 
 .font-30 {
-    font-size: 30rpx;
+    font-size: rpx(30);
 }
 
 .btn_bg {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
-    border-radius: 42rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
+    border-radius: rpx(42);
     background: #ff5252;
 }
 
@@ -28,11 +28,11 @@ ion-content {
 }
 
 .dis {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
     /* background: rgba(255, 82, 82, 1); */
-    border-radius: 42rpx;
+    border-radius: rpx(42);
     background: #b9b9b9;
 }
 
@@ -51,48 +51,48 @@ ion-content {
 .bt {
     position: relative;
     background: #54b576;
-    width: 136rpx;
-    height: 48rpx;
-    line-height: 48rpx;
-    font-size: 20rpx;
+    width: rpx(136);
+    height: rpx(48);
+    line-height: rpx(48);
+    font-size: rpx(20);
 }
 
 .height-72 {
-    height: 72rpx;
-    line-height: 72rpx;
-    padding-left: 36rpx;
+    height: rpx(72);
+    line-height: rpx(72);
+    padding-left: rpx(36);
 }
 
 .mid {
-    margin-left: 24rpx;
-    margin-right: 24rpx;
-    border-radius: 8rpx;
-    padding: 32rpx 20rpx 32rpx 20rpx;
+    margin-left: rpx(24);
+    margin-right: rpx(24);
+    border-radius: rpx(8);
+    padding: rpx(32) rpx(20) rpx(32) rpx(20);
 }
 
 .padding-mid {
-    padding-top: 30rpx;
-    padding-right: 20rpx;
-    padding-bottom: 30rpx;
-    padding-left: 20rpx;
+    padding-top: rpx(30);
+    padding-right: rpx(20);
+    padding-bottom: rpx(30);
+    padding-left: rpx(20);
 }
 
 .padding-bottom-30 {
-    padding-bottom: 30rpx;
+    padding-bottom: rpx(30);
 }
 
 .width-210 {
-    width: 210rpx;
+    width: rpx(210);
 }
 
 .sex_check {
-    width: 24rpx;
-    height: 24rpx;
-    border: 2rpx solid rgba(153, 153, 153, 1);
+    width: rpx(24);
+    height: rpx(24);
+    border: rpx(2) solid rgba(153, 153, 153, 1);
 }
 
 .margin-left-40 {
-    margin-left: 40rpx;
+    margin-left: rpx(40);
 }
 
 .bg-orange {
@@ -100,33 +100,33 @@ ion-content {
 }
 
 .margin-top-40 {
-    margin-top: 40rpx;
+    margin-top: rpx(40);
 }
 
 .tianjia {
-    width: 700rpx;
-    height: 118rpx;
-    line-height: 118rpx;
+    width: rpx(700);
+    height: rpx(118);
+    line-height: rpx(118);
     background: rgba(255, 255, 255, 1);
-    border-radius: 8rpx;
-    border: 4rpx dashed #b6b5b5;
+    border-radius: rpx(8);
+    border: rpx(4) dashed #b6b5b5;
 }
 
 .margin-24 {
-    margin: 24rpx;
+    margin: rpx(24);
 }
 
 .radius-8 {
-    border-radius: 8rpx;
+    border-radius: rpx(8);
 }
 
 .padding-16 {
-    padding: 16rpx;
+    padding: rpx(16);
 }
 
 .margin-L-R-40 {
-    margin-left: 40rpx;
-    margin-right: 40rpx;
+    margin-left: rpx(40);
+    margin-right: rpx(40);
 }
 
 .kaitong {
@@ -134,40 +134,40 @@ ion-content {
     bottom: 0;
     z-index: 10;
     width: 100vw;
-    height: 104rpx;
-    line-height: 104rpx;
+    height: rpx(104);
+    line-height: rpx(104);
 }
 
 .lijikaitong {
-    width: 200rpx;
-    height: 64rpx;
-    line-height: 64rpx;
-    border-radius: 34rpx;
+    width: rpx(200);
+    height: rpx(64);
+    line-height: rpx(64);
+    border-radius: rpx(34);
     background: #222;
     color: #ffdc98;
 }
 
 .icon-img {
-    width: 200rpx;
-    height: 200rpx;
-    margin: 10rpx;
+    width: rpx(200);
+    height: rpx(200);
+    margin: rpx(10);
 }
 
 .addjigou {
-    width: 200rpx;
-    height: 200rpx;
-    margin: 10rpx;
-    border: 2rpx dashed rgba(204, 204, 204, 1);
+    width: rpx(200);
+    height: rpx(200);
+    margin: rpx(10);
+    border: rpx(2) dashed rgba(204, 204, 204, 1);
 }
 
 .clear {
-    margin-bottom: -15rpx;
-    margin-right: 10rpx;
+    margin-bottom: -rpx(15);
+    margin-right: rpx(10);
 }
 
 .icon-clear {
-    height: 32rpx;
-    width: 32rpx;
+    height: rpx(32);
+    width: rpx(32);
 }
 
 .black_block {
@@ -184,37 +184,37 @@ ion-content {
     position: fixed;
     z-index: 101;
     background: white;
-    width: 600rpx;
-    height: 400rpx;
-    border-radius: 8rpx;
+    width: rpx(600);
+    height: rpx(400);
+    border-radius: rpx(8);
     top: 30%;
     bottom: 20%;
-    left: 74rpx;
-    right: 74rpx;
+    left: rpx(74);
+    right: rpx(74);
 }
 
 
 .height-90 {
-    height: 90rpx;
+    height: rpx(90);
 }
 
 .height-2 {
-    height: 2rpx;
+    height: rpx(2);
 }
 
 .height-80 {
-    height: 80rpx;
+    height: rpx(80);
 }
 
 .pl-20 {
-    padding-left: 20rpx
+    padding-left: rpx(20)
 }
 
 .height-280 {
-    height: 280rpx;
+    height: rpx(280);
 }
 
 .hh120 {
-    height: 120rpx;
-    line-height: 120rpx;
+    height: rpx(120);
+    line-height: rpx(120);
 }

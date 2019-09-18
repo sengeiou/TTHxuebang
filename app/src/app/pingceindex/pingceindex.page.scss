@@ -6,43 +6,43 @@
 
 .top-img {
     width: 100vw;
-    height: 260rpx;
+    height: rpx(260);
   }
   
   .padding-24 {
-    padding: 24rpx;
+    padding: rpx(24);
   }
   
   .margin-24 {
-    margin: 24rpx;
+    margin: rpx(24);
   }
   .margin-left-12{
-    margin-left: 6rpx;
+    margin-left: rpx(6);
   }
   .mid-block {
-    margin: 12rpx 24rpx 24rpx 24rpx;
+    margin: rpx(12) rpx(24) rpx(24) rpx(24);
   }
   
   .bottom-block {
-    margin: 12rpx 24rpx 0rpx 24rpx;
+    margin: rpx(12) rpx(24) rpx(0) rpx(24);
   }
   
   .huangtiao {
-    width: 8rpx;
-    height: 28rpx;
+    width: rpx(8);
+    height: rpx(28);
     background: rgba(255, 194, 0, 1);
   }
   
   .margin-left-16 {
-    margin-left: 16rpx;
+    margin-left: rpx(16);
   }
   
   .margin-top-24 {
-    margin-top: 24rpx;
+    margin-top: rpx(24);
   }
   
   .margin-top-14 {
-    margin-top: 14rpx;
+    margin-top: rpx(14);
   }
   
   .txt-6 {
@@ -50,30 +50,30 @@
   }
   
   .quan {
-    width: 110rpx;
-    height: 110rpx;
-    border: 12rpx solid;
+    width: rpx(110);
+    height: rpx(110);
+    border: rpx(12) solid;
     border-image: linear-gradient(180deg, rgba(192, 208, 255, 1), rgba(95, 82, 160, 1)) 6 6;
   }
   
   .margin-top-30 {
-    margin-top: 30rpx;
+    margin-top: rpx(30);
   }
   
   .ceshi {
-    width: 600rpx;
-    height: 84rpx;
-    line-height: 84rpx;
+    width: rpx(600);
+    height: rpx(84);
+    line-height: rpx(84);
     background: rgba(255, 102, 0, 1);
-    border-radius: 42rpx;
+    border-radius: rpx(42);
   }
   
   .height-126 {
-    height: 126rpx;
+    height: rpx(126);
   }
   
   .height-52 {
-    height: 52rpx;
+    height: rpx(52);
   }
   
   .animation-box {
@@ -128,7 +128,7 @@
     width: 90px;
     height: 90px;
     /* 这里的宽高是必须大于等于canvas圆环的直径 否则绘制到盒子外面就看不见了
-    一开始设置 width:440rpx; height:440rpx; 发现 在360X640分辨率的设备，下绘制的圆环跑盒子外去了
+    一开始设置 width:rpx(440); height:rpx(440); 发现 在360X640分辨率的设备，下绘制的圆环跑盒子外去了
     小程序使用rpx单位适配 ，但是canvas绘制的是px单位的。所以只能用px单位绘制的圆环在盒子内显示 */
     display: flex;
     align-items: center;

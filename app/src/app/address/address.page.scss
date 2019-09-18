@@ -3,25 +3,25 @@
 }
 
 .margin-left-14 {
-    margin-left: 14rpx;
+    margin-left: rpx(14);
   }
   
   .hezi {
-    margin-top: 20rpx;
-    padding-top: 50rpx;
-    padding-bottom: 50rpx;
-    padding-left: 40rpx;
-    padding-right: 40rpx;
+    margin-top: rpx(20);
+    padding-top: rpx(50);
+    padding-bottom: rpx(50);
+    padding-left: rpx(40);
+    padding-right: rpx(40);
     background-color: white;
-    border-radius: 8rpx;
+    border-radius: rpx(8);
   }
   
   .but {
     position: fixed;
-    left: 76rpx;
-    bottom: 54rpx;
+    left: rpx(76);
+    bottom: rpx(54);
     width: 80vw;
-    border-radius: 42rpx;
+    border-radius: rpx(42);
     background-color: #f60;
   }
   

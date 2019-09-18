@@ -11,159 +11,159 @@
 
     <ion-content >
 <!--pages/pingceindex/pingceindex.wxml-->
-<back-component></back-component>
-<view class='top-img' style='background-image:url({{uploadpath}}pingceindex/{{info.indeximg}});background-size:100% 100%;'>
-  <view class=' ' style='height:178rpx;'></view>
-  <view class='flex-row flex-center'>
-    <view class='h6  ' style='color:#B4B4B4;margin-left:62rpx '>已有</view>
-    <view class=' h6 margin-left-12 txt-bold'>{{info.peoplenum}}</view>
-    <view class='h6 margin-left-12 ' style='color:#B4B4B4 '>人参与测试</view>
-  </view>
-</view>
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class='top-img' style='background-image:url({{uploadpath}}pingceindex/{{info.indeximg}});background-size:100% 100%;'>
+  <div class=' ' style='height:178rpx;'></div>
+  <div class='flex-row flex-center'>
+    <div class='h6  ' style='color:#B4B4B4;margin-left:62rpx '>已有</div>
+    <div class=' h6 margin-left-12 txt-bold'>{{info.peoplenum}}</div>
+    <div class='h6 margin-left-12 ' style='color:#B4B4B4 '>人参与测试</div>
+  </div>
+</div>
 
 
-<view class='mid-block bg-white padding-20 radius-8'>
+<div class='mid-block bg-white padding-20 radius-8'>
 
-  <view class='flex-row flex-center'>
-    <view class='huangtiao'></view>
-    <view class='h5 txt-bold margin-left-16'>测试简介</view>
-  </view>
+  <div class='flex-row flex-center'>
+    <div class='huangtiao'></div>
+    <div class='h5 txt-bold margin-left-16'>测试简介</div>
+  </div>
 
     <text class='  h6 txt-6' style=''>{{info.jianjie}}</text>
  
 
-  <view class='flex-row flex-center margin-top-30'>
-    <view class='flex-1'></view>
+  <div class='flex-row flex-center margin-top-30'>
+    <div class='flex-1'></div>
 
-    <view class='flex-row flex-column'>
+    <div class='flex-row flex-column'>
 
-      <!-- <view class='quan radius-50 flex-row flex-column '>
-        <view class='flex-1'></view>
-        <view class='h7' style='color:#B4B4B4'>平均</view>
-        <view style='color:#B71B93'>{{info.zhunque}}</view>
-        <view class='flex-1'></view>
-      </view> -->
+      <!-- <div class='quan radius-50 flex-row flex-column '>
+        <div class='flex-1'></div>
+        <div class='h7' style='color:#B4B4B4'>平均</div>
+        <div style='color:#B71B93'>{{info.zhunque}}</div>
+        <div class='flex-1'></div>
+      </div> -->
 
-      <view class="container">
-        <view class='progress_box '>
+      <div class="container">
+        <div class='progress_box '>
           <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
           <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
-          <view class='progress_text'>
-            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93' class="text-center">{{zq}}</view>
-          </view>
-        </view>
-      </view>
+          <div class='progress_text'>
+            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+            <div style='color:#B71B93' class="text-center">{{zq}}</div>
+          </div>
+        </div>
+      </div>
 
 
-      <view class='  h5'>测试准确度</view>
+      <div class='  h5'>测试准确度</div>
 
-    </view>
+    </div>
 
-    <view class='flex-1'></view>
+    <div class='flex-1'></div>
 
-    <view class='flex-row flex-column'>
+    <div class='flex-row flex-column'>
 
 
-      <!-- <view class='quan radius-50 flex-row flex-column '>
-        <view class='flex-1'></view>
-        <view class='h7' style='color:#B4B4B4'>平均</view>
-        <view style='color:#B71B93'>{{info.shiyon}}</view>
-        <view class='flex-1'></view>
-      </view> -->
+      <!-- <div class='quan radius-50 flex-row flex-column '>
+        <div class='flex-1'></div>
+        <div class='h7' style='color:#B4B4B4'>平均</div>
+        <div style='color:#B71B93'>{{info.shiyon}}</div>
+        <div class='flex-1'></div>
+      </div> -->
 
-      <view class="container">
-        <view class='progress_box '>
+      <div class="container">
+        <div class='progress_box '>
           <canvas class="progress_bg" canvas-id="canvasProgressbg2"> </canvas>
           <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
-          <view class='progress_text'>
-            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93' class="text-center">{{sy}}</view>
-          </view>
-        </view>
-      </view>
+          <div class='progress_text'>
+            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+            <div style='color:#B71B93' class="text-center">{{sy}}</div>
+          </div>
+        </div>
+      </div>
 
 
 
-      <view class='  h5'>建议实用性</view>
-    </view>
+      <div class='  h5'>建议实用性</div>
+    </div>
 
-    <view class='flex-1'></view>
+    <div class='flex-1'></div>
 
-    <view class='flex-row flex-column'>
-      <!-- <view class='quan radius-50 flex-row flex-column '>
-        <view class='flex-1'></view>
-        <view class='h7' style='color:#B4B4B4'>平均</view>
-        <view style='color:#B71B93'>{{info.yidong}}</view>
-        <view class='flex-1'></view>
-      </view> -->
+    <div class='flex-row flex-column'>
+      <!-- <div class='quan radius-50 flex-row flex-column '>
+        <div class='flex-1'></div>
+        <div class='h7' style='color:#B4B4B4'>平均</div>
+        <div style='color:#B71B93'>{{info.yidong}}</div>
+        <div class='flex-1'></div>
+      </div> -->
 
-      <view class="container">
-        <view class='progress_box '>
+      <div class="container">
+        <div class='progress_box '>
           <canvas class="progress_bg" canvas-id="canvasProgressbg3"> </canvas>
           <canvas class="progress_canvas" canvas-id="canvasProgress3"> </canvas>
-          <view class='progress_text'>
-            <view class='h7 text-center' style='color:#B4B4B4'>平均</view>
-            <view style='color:#B71B93' class="text-center">{{yd}}</view>
-          </view>
-        </view>
-      </view>
+          <div class='progress_text'>
+            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+            <div style='color:#B71B93' class="text-center">{{yd}}</div>
+          </div>
+        </div>
+      </div>
 
 
-      <view class='  h5'>题目易懂性</view>
-    </view>
+      <div class='  h5'>题目易懂性</div>
+    </div>
 
-    <view class='flex-1'></view>
-  </view>
+    <div class='flex-1'></div>
+  </div>
 
-</view>
+</div>
 
 
-<view class='bottom-block bg-white padding-20 radius-8'>
+<div class='bottom-block bg-white padding-20 radius-8'>
 
-  <view class='flex-row flex-center'>
-    <view class='huangtiao'></view>
-    <view class='h5 txt-bold margin-left-16'>测评须知</view>
-  </view>
+  <div class='flex-row flex-center'>
+    <div class='huangtiao'></div>
+    <div class='h5 txt-bold margin-left-16'>测评须知</div>
+  </div>
 
   <text class='margin-top-14 h6 txt-6' style=''>{{info.xuzhi}}</text>
  
-</view>
+</div>
 
-<view class='height-126'></view>
+<div class='height-126'></div>
 
-<view class='flex-row flex-center' bindtap='todati' data-pc_id="{{info.id}}" id="{{memberinfo.id}}">
-  <view class='flex-1'></view>
-  <view class='ceshi text-center txt-white'>立即测试</view>
-  <view class='flex-1'></view>
-</view>
+<div class='flex-row flex-center' bindtap='todati' data-pc_id="{{info.id}}" id="{{memberinfo.id}}">
+  <div class='flex-1'></div>
+  <div class='ceshi text-center txt-white'>立即测试</div>
+  <div class='flex-1'></div>
+</div>
 
-<view class='height-52'></view>
-
-
+<div class='height-52'></div>
 
 
 
 
 
-<view class='UD' hidden='{{true}}'>
+
+
+<div class='UD' hidden='{{true}}'>
 
 
 
-  <view class="container">
-    <view class='progress_box '>
+  <div class="container">
+    <div class='progress_box '>
       <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
       <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
-      <view class='progress_text'>
-        <view class=''>455</view>
-        <view>455</view>
-      </view>
-    </view>
-  </view>
+      <div class='progress_text'>
+        <div class=''>455</div>
+        <view>455</div>
+      </div>
+    </div>
+  </div>
 
 
 
-</view>
+</div>
 
 
 

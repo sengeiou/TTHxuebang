@@ -13,75 +13,75 @@
 
 
 <!--pages/jifenshouzhi/jifenshouzhi.wxml-->
-<back-component></back-component>
-<view class=' to_top' >
- <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
-</view>
-<view class="flex-row flex-center title bg-white" style="">
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class=' to_top' >
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+</div>
+<div class="flex-row flex-center title bg-white" style="">
 
-  <view class="flex-row flex-column flex-1 margin-left-20" bindtap="xuanze" id="shouru">
-    <view class="h5 {{show==1?'txt-bold':''}}">收入</view>
-    <view class="tiao  {{show==1?'bg-orange':'bg-white'}}"></view>
-  </view>
+  <div class="flex-row flex-column flex-1 margin-left-20" bindtap="xuanze" id="shouru">
+    <div class="h5 {{show==1?'txt-bold':''}}">收入</div>
+    <div class="tiao  {{show==1?'bg-orange':'bg-white'}}"></div>
+  </div>
 
-  <view class="flex-row flex-column flex-1 margin-right-20" bindtap="xuanze" id="zhichu">
-    <view class="h5 {{show==2?'txt-bold':''}}">支出</view>
-    <view class="tiao {{show==2?'bg-orange':'bg-white'}}"></view>
-  </view>
+  <div class="flex-row flex-column flex-1 margin-right-20" bindtap="xuanze" id="zhichu">
+    <div class="h5 {{show==2?'txt-bold':''}}">支出</div>
+    <div class="tiao {{show==2?'bg-orange':'bg-white'}}"></div>
+  </div>
 
-</view>
-
-
-
-<view wx:if='{{show==1}}' >
-
-  <view style="height:52rpx" class="flex-row flex-center">
-    <view class="h6 txt9 margin-left-20 flex-1">2019年</view>
-    <view class="h6 txt9">增加</view>
-    <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
-    <view class=" txt9 h6 margin-right-30">{{shousum}}</view>
-  </view>
-
-  <view class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}"   wx:for='{{jilulist}}' wx:key='k' wx:if='{{item.type=="B"}}' wx:for-index='idx'>
-
-    <view class="flex-row column flex-1">
-      <view class="h5">{{item.name}}</view>
-      <view class="txt9" style="font-size:20rpx;">{{item.created_date}}</view>
-    </view>
-
-    <view class="flex-row flex-center">
-      <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
-      <view class="txt-bold txt9  margin-right-30 margin-left-10" style="color:#FFC22F">+{{item.jifen}}</view>
-    </view>
-
-  </view>
-
-</view>
+</div>
 
 
-<view wx:if='{{show==2}}'>
 
-  <view style="height:52rpx" class="flex-row flex-center">
-    <view class="h6 txt9 margin-left-20 flex-1">2019年</view>
-    <view class="h6 txt9">支出</view>
-    <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
-    <view class=" txt9 h6 margin-right-30">{{zhisum}}</view>
-  </view>
+<div **ngIf'{{show==1}}' >
 
-  <view class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" wx:for-index='idx' style="border-top:2rpx solid #E5E5E5"  wx:for='{{jilulist}}' wx:key='l' wx:if='{{item.type=="A"}}'>
+  <div style="height:52rpx" class="flex-row flex-center">
+    <div class="h6 txt9 margin-left-20 flex-1">2019年</div>
+    <div class="h6 txt9">增加</div>
+    <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10" />
+    <div class=" txt9 h6 margin-right-30">{{shousum}}</div>
+  </div>
 
-    <view class="flex-row column flex-1">
-      <view class="h5">{{item.name}}</view>
-      <view class="txt9" style="font-size:20rpx;">{{item.created_date}}</view>
-    </view>
+  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}"   **ngFor'{{jilulist}}' wx:key='k' **ngIf'{{item.type=="B"}}' wx:for-index='idx'>
 
-    <view class="flex-row flex-center">
-      <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
-      <view class=" txt-bold   margin-right-30" >{{item.jifen}}</view>
-    </view>
+    <div class="flex-row column flex-1">
+      <div class="h5">{{item.name}}</div>
+      <div class="txt9" style="font-size:20rpx;">{{item.created_date}}</div>
+    </div>
 
-  </view>
+    <div class="flex-row flex-center">
+      <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10" />
+      <div class="txt-bold txt9  margin-right-30 margin-left-10" style="color:#FFC22F">+{{item.jifen}}</div>
+    </div>
 
-</view>
+  </div>
+
+</div>
+
+
+<div **ngIf'{{show==2}}'>
+
+  <div style="height:52rpx" class="flex-row flex-center">
+    <div class="h6 txt9 margin-left-20 flex-1">2019年</div>
+    <div class="h6 txt9">支出</div>
+    <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10" />
+    <div class=" txt9 h6 margin-right-30">{{zhisum}}</div>
+  </div>
+
+  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" wx:for-index='idx' style="border-top:2rpx solid #E5E5E5"  **ngFor'{{jilulist}}' wx:key='l' **ngIf'{{item.type=="A"}}'>
+
+    <div class="flex-row column flex-1">
+      <div class="h5">{{item.name}}</div>
+      <div class="txt9" style="font-size:20rpx;">{{item.created_date}}</div>
+    </div>
+
+    <div class="flex-row flex-center">
+      <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10" />
+      <div class=" txt-bold   margin-right-30" >{{item.jifen}}</div>
+    </div>
+
+  </div>
+
+</div>
 
   </ion-content>

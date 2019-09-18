@@ -14,119 +14,119 @@
 
 <!--pages/xuanzedizhi/xuanzedizhi.wxml-->
 
-<back-component></back-component>
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
 
-<view class="{{addresslist.length==0?'page':''}}">
+<div class="{{addresslist.length==0?'page':''}}">
 
 
-  <view class='margin-20'>
-    <view wx:if='{{addresslist.length>0}}' class='margin-left-14 h5' style='color:#999999'>我的地址</view>
+  <div class='margin-20'>
+    <div **ngIf'{{addresslist.length>0}}' class='margin-left-14 h5' style='color:#999999'>我的地址</div>
 
 
-    <view wx:if='{{addresslist.length==0}}' class="flex-row flex-column">
-      <view style="height:100rpx;"></view>
-      <image src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170 "></image>
-      <!-- <view class="txt-9 margin-top-10">您还没有添加地址哦</view>
-    <view class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</view> -->
-    </view>
+    <div **ngIf'{{addresslist.length==0}}' class="flex-row flex-column">
+      <div style="height:100rpx;"></div>
+      <img src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170 " />
+      <!-- <div class="txt-9 margin-top-10">您还没有添加地址哦</div>
+    <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
+    </div>
 
-    <view wx:for='{{addresslist}}' wx:key='k'>
-      <view class='hezi' bindtap="bindcheck" id="{{item.id}}">
-        <view class='flex-row flex-center'>
+    <div **ngFor'{{addresslist}}' wx:key='k'>
+      <div class='hezi' bindtap="bindcheck" id="{{item.id}}">
+        <div class='flex-row flex-center'>
 
-          <view wx:if='{{type==""||type==undefined}}'>
-            <image src="{{uploadpath}}resource/{{res.weixuan}}" wx:if='{{check!=item.id}}' class="icon-12"></image>
-            <image src="{{uploadpath}}resource/{{res.xuanzhong}}" wx:if='{{check==item.id}}' class="icon-12"></image>
-          </view>
+          <div **ngIf'{{type==""||type==undefined}}'>
+            <img src="{{uploadpath}}resource/{{res.weixuan}}" **ngIf'{{check!=item.id}}' class="icon-12" />
+            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" **ngIf'{{check==item.id}}' class="icon-12" />
+          </div>
 
-          <view class=" ">
+          <div class=" ">
 
-            <view class='flex-row'>
-              <view class='flex-row flex-center'>
-                <view class='txt-bold f15' style='color:#222222'>{{item.name}}</view>
-                <view class='margin-left-20 f15' style='color:#222222'>{{item.phonenumber}}</view>
-              </view>
-            </view>
+            <div class='flex-row'>
+              <div class='flex-row flex-center'>
+                <div class='txt-bold f15' style='color:#222222'>{{item.name}}</div>
+                <div class='margin-left-20 f15' style='color:#222222'>{{item.phonenumber}}</div>
+              </div>
+            </div>
 
-            <view class='margin-top-20 f13 chaochu' style='color:#666666;width:400rpx'>{{item.region}}{{item.address}}</view>
-          </view>
+            <div class='margin-top-20 f13 chaochu' style='color:#666666;width:400rpx'>{{item.region}}{{item.address}}</div>
+          </div>
 
-          <view class='flex-1'></view>
+          <div class='flex-1'></div>
 
-          <view bindtap='addressmanage' class="  padding-40" id="{{item.id}}">
-            <image class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}'></image>
-          </view>
+          <div bindtap='addressmanage' class="  padding-40" id="{{item.id}}">
+            <img class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}' />
+          </div>
 
-        </view>
+        </div>
 
-      </view>
-    </view>
-
-
-    <view class="add margin-top-20 flex-row flex-center" wx:if='{{type==""||type==undefined}}'  bindtap="addnew">
-      <view class="flex-1"></view>
-      <image src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15"></image>
-      <view class="h5 margin-left-10" style="color:#999999" bindtap="addnew">添加新地址</view>
-      <view class="flex-1"></view>
-    </view>
-
-    <view style="height:150rpx;"></view>
-
-    <button class='but txt-white' wx:if='{{type==""||type==undefined}}' bindtap="queren">确认</button>
-    <button class='but txt-white' wx:if='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
-
-  </view>
+      </div>
+    </div>
 
 
-  <view wx:if='{{show==true}}'>
-    <view class='block_black'></view>
+    <div class="add margin-top-20 flex-row flex-center" **ngIf'{{type==""||type==undefined}}'  bindtap="addnew">
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15" />
+      <div class="h5 margin-left-10" style="color:#999999" bindtap="addnew">添加新地址</div>
+      <div class="flex-1"></div>
+    </div>
 
-    <view class="white_black" wx:if="{{kong==false}}">
-      <view class="flex-row flex-column">
-        <view style="height:80rpx;"></view>
-        <!-- <image src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120"></image> -->
-         <view class="txt-bold">兑换失败</view>
-        <view class="flex-row flex-center margin-top-34">
-          <view class="f30">使用</view>
-          <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-15 margin-left-20"></image>
-          <view class="margin-left-10" style="font-size:40rpx;color:#FF6600">{{xiaofei}}</view>
-          <view class="f30 margin-left-20">进行兑换</view>
-        </view>
+    <div style="height:150rpx;"></div>
 
-        <view class="" style="height:60rpx;"></view>
+    <button class='but txt-white' **ngIf'{{type==""||type==undefined}}' bindtap="queren">确认</button>
+    <button class='but txt-white' **ngIf'{{type=="Y"}}' bindtap="addnew">添加新地址</button>
 
-        <view class="flex-row flex-center">
-          <view class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao">取消</view>
-          <view class="shu"></view>
-          <view class="f30 padding-30" bindtap="quedin" id="{{memberinfo.integral}}" style="color:#FF6600">确认</view>
-        </view>
+  </div>
 
-      </view>
-    </view>
 
-    <view class="white_black" wx:if="{{kong==true}}">
-      <view class="flex-row flex-column">
-        <view style="height:100rpx;"></view>
+  <div **ngIf'{{show==true}}'>
+    <div class='block_black'></div>
+
+    <div class="white_black" **ngIf"{{kong==false}}">
+      <div class="flex-row flex-column">
+        <div style="height:80rpx;"></div>
+        <!-- <img src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120" /> -->
+         <div class="txt-bold">兑换失败</div>
+        <div class="flex-row flex-center margin-top-34">
+          <div class="f30">使用</div>
+          <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-15 margin-left-20" />
+          <div class="margin-left-10" style="font-size:40rpx;color:#FF6600">{{xiaofei}}</div>
+          <div class="f30 margin-left-20">进行兑换</div>
+        </div>
+
+        <div class="" style="height:60rpx;"></div>
+
+        <div class="flex-row flex-center">
+          <div class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao">取消</div>
+          <div class="shu"></div>
+          <div class="f30 padding-30" bindtap="quedin" id="{{memberinfo.integral}}" style="color:#FF6600">确认</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="white_black" **ngIf"{{kong==true}}">
+      <div class="flex-row flex-column">
+        <div style="height:100rpx;"></div>
          
-         <view class="txt-bold">兑换失败</view>
+         <div class="txt-bold">兑换失败</div>
 
-        <view class="  margin-top-34">
-          <view>您的积分数不足，无法兑换</view>
-        </view>
+        <div class="  margin-top-34">
+          <view>您的积分数不足，无法兑换</div>
+        </div>
 
-        <view class="" style="height:60rpx;"></view>
+        <div class="" style="height:60rpx;"></div>
 
-        <view class="flex-row flex-center" style="border-top:2rpx solid #F5F5F5">
-          <view class="f30 padding-30" style="color:#FF6600" bindtap="quxiao">我知道了</view>
-        </view>
+        <div class="flex-row flex-center" style="border-top:2rpx solid #F5F5F5">
+          <div class="f30 padding-30" style="color:#FF6600" bindtap="quxiao">我知道了</div>
+        </div>
 
 
-      </view>
-    </view>
+      </div>
+    </div>
 
-  </view>
+  </div>
 
-</view>
+</div>
 
     </ion-content>

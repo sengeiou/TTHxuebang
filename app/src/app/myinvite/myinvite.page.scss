@@ -3,19 +3,19 @@
 }
 
 .noopt{
-    margin-left:20rpx;
+    margin-left:rpx(20);
   color: rgba(153, 153, 153, 1);
   background: rgba(245, 246, 248, 1);
-  padding: 10rpx 30rpx 10rpx 30rpx;
-  border-radius: 30rpx;
-  font-size: 24rpx;
+  padding: rpx(10) rpx(30) rpx(10) rpx(30);
+  border-radius: rpx(30);
+  font-size: rpx(24);
   
   }
   .opt{
-    margin-left:20rpx;
+    margin-left:rpx(20);
   color: rgba(34, 34, 34, 1);
   background: rgba(255, 186, 18, 1);
-  padding: 10rpx 30rpx 10rpx 30rpx;
-  border-radius: 30rpx;
-  font-size: 24rpx;
+  padding: rpx(10) rpx(30) rpx(10) rpx(30);
+  border-radius: rpx(30);
+  font-size: rpx(24);
   }

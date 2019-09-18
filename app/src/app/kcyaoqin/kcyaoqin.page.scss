@@ -9,17 +9,17 @@
     }
     .anniu{
     
-    padding:20rpx 70rpx 20rpx 70rpx;
+    padding:rpx(20) rpx(70) rpx(20) rpx(70);
     background: rgba(255, 255, 255, 1);
-    border-radius: 100rpx;
+    border-radius: rpx(100);
     
     }
     .zi{
       color:rgba(34, 34, 34, 1);
-    font-size:30rpx;
+    font-size:rpx(30);
     }
     .sp{
-      margin-top:20rpx;
+      margin-top:rpx(20);
     width: 70vw;
     height: 20vh;
     

@@ -4,15 +4,15 @@
 
 /* pages/mypingce/mypingce.wxss */
 .ceshi {
-    width: 680rpx;
-    height: 206rpx;
-    margin: 34rpx;
-    border-radius: 8rpx;
+    width: rpx(680);
+    height: rpx(206);
+    margin: rpx(34);
+    border-radius: rpx(8);
     /* background: #5db982; */
   }
   .opa{
     opacity: 0.5;
   }
   .margin-left-12 {
-    margin-left: 12rpx;
+    margin-left: rpx(12);
   }

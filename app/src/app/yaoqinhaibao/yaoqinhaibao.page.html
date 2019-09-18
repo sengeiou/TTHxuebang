@@ -11,55 +11,55 @@
 
     <ion-content >
 
-        <back-component></back-component>
-        <view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqindebeijin}});background-size: 100vw 100vh;">
-        <view class="flex-row  " style="padding-top:40rpx">
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+        <div style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqindebeijin}});background-size: 100vw 100vh;">
+        <div class="flex-row  " style="padding-top:40rpx">
         
-        <view class="flex-1"></view>
-        <image class="bggg" mode="widthFix" src="{{lujin}}"  >
+        <div class="flex-1"></div>
+        <img class="bggg" mode="widthFix" src="{{lujin}}"  >
         
         </image>
-        <view class="flex-1"></view>
-        </view>
+        <div class="flex-1"></div>
+        </div>
         
-          <!-- <view class="flex-row tx flex-center">
-            <view class="flex-1"></view>
-            <view class="flex-row flex-column">
-              <image class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}"></image>
-              <view class="text-center">{{memberinfo.nickName}}</view>
-            </view>
-            <view class="flex-1"></view>
-          </view>
+          <!-- <div class="flex-row tx flex-center">
+            <div class="flex-1"></div>
+            <div class="flex-row flex-column">
+              <img class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}" />
+              <div class="text-center">{{memberinfo.nickName}}</div>
+            </div>
+            <div class="flex-1"></div>
+          </div>
         
         
-          <view class="flex-row ewm flex-center">
-            <view class="flex-1"></view>
+          <div class="flex-row ewm flex-center">
+            <div class="flex-1"></div>
             <view>
-              <image class="icon-100 radius-50 " src="{{erweima}}"></image>
+              <img class="icon-100 radius-50 " src="{{erweima}}" />
         
-            </view>
-            <view class="flex-1"></view>
-          </view> -->
+            </div>
+            <div class="flex-1"></div>
+          </div> -->
         
         
         
-          <view class="flex-row fd">
-            <view class="flex-1"></view>
-            <view class="anniu  flex-row flex-center" bindtap="baocun">
-              <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
-              <view class="zi margin-left-10">保存海报</view>
-            </view>
-            <view class="flex-1"></view>
+          <div class="flex-row fd">
+            <div class="flex-1"></div>
+            <div class="anniu  flex-row flex-center" bindtap="baocun">
+              <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
+              <div class="zi margin-left-10">保存海报</div>
+            </div>
+            <div class="flex-1"></div>
         
             <button class="anniu clear-button flex-row flex-center" open-type='share'>
-              <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}"></image>
-              <view class="zi margin-left-10">发给好友</view>
+              <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}" />
+              <div class="zi margin-left-10">发给好友</div>
             </button>
-            <view class="flex-1"></view>
-          </view>
+            <div class="flex-1"></div>
+          </div>
         
           
-        </view>
+        </div>
 
 
     </ion-content>

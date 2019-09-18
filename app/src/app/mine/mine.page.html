@@ -16,183 +16,183 @@
 
 
 
-        <view class='orangeblock'>
+        <div class='orangeblock'>
 
 
-            <view style="position: absolute;right: 14rpx;top: 24rpx;">
+            <div style="position: absolute;right: 14rpx;top: 24rpx;">
           
               <button class='clear-button' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style='width:120rpx;height:50rpx;position: absolute;z-index: 10;'>
               </button>
           
-              <view class='gengxin '>
-                <view class="flex-row flex-center">
-                  <image src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10'></image>
-                  <view class='txt-white h7 margin-left-4'>更新资料</view>
-                </view>
-              </view>
+              <div class='gengxin '>
+                <div class="flex-row flex-center">
+                  <img src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10' />
+                  <div class='txt-white h7 margin-left-4'>更新资料</div>
+                </div>
+              </div>
           
-            </view>
-          
-          
-            <view class='flex-row flex-center'>
-          
-              <view class='flex-row column flex-1'>
-                <view class='f48 txt-bold txt-white chaochu'>Hi,{{memberinfo.nickName}}</view>
-                <view wx:if='{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</view>
-                <view wx:if='{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</view>
-          
-                <view class='bianji flex-row flex-center margin-top-20'>
-                  <view class='flex-1'></view>
-                  <view bindtap="gotohaizi" class='txt-orange h6'>孩子信息编辑</view>
-                  <image src='{{uploadpath}}resource/{{res.youjiaobiao}}' class='icon-10 margin-left-4'></image>
-                  <view class='flex-1'></view>
-                </view>
-          
-              </view>
-          
-              <image class='tx radius-50  ' style=' ' src='{{memberinfo.avatarUrl}}'></image>
-          
-            </view>
-          </view>
+            </div>
           
           
-          <view class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
-            <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-            <view class="h6 margin-left-10">可用积分：</view>
-            <view class="flex-1 f18 " style="color:#FFA822">{{memberinfo.integral}}</view>
-            <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-            <view class="h6 margin-left-10">积分商城</view>
-            <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}'></image>
-          </view>
+            <div class='flex-row flex-center'>
+          
+              <div class='flex-row column flex-1'>
+                <div class='f48 txt-bold txt-white chaochu'>Hi,{{memberinfo.nickName}}</div>
+                <div **ngIf'{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
+                <div **ngIf'{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>
+          
+                <div class='bianji flex-row flex-center margin-top-20'>
+                  <div class='flex-1'></div>
+                  <div bindtap="gotohaizi" class='txt-orange h6'>孩子信息编辑</div>
+                  <img src='{{uploadpath}}resource/{{res.youjiaobiao}}' class='icon-10 margin-left-4' />
+                  <div class='flex-1'></div>
+                </div>
+          
+              </div>
+          
+              <img class='tx radius-50  ' style=' ' src='{{memberinfo.avatarUrl}}' />
+          
+            </div>
+          </div>
           
           
+          <div class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
+            <img class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}' />
+            <div class="h6 margin-left-10">可用积分：</div>
+            <div class="flex-1 f18 " style="color:#FFA822">{{memberinfo.integral}}</div>
+            <img class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}' />
+            <div class="h6 margin-left-10">积分商城</div>
+            <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}' />
+          </div>
           
           
           
-          <view class='bg-white radius-8 margin-20'>
-          
-            <view class='flex-row flex-center padd-order bor_bot' data-name='dd' bindtap='todetails'>
-              <view class='flex-1 txt-black f-26 txt-bold'>我的订单</view>
-              <view class='f22'>全部订单</view>
-              <image class='icon-15 margin-left-4' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
-          
-            <view class='padd-order-under flex-row flex-center'>
-          
-              <view bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
-                <view wx:if="{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</view>
-                <image class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}'></image>
-                <view class='h6 margin-top-10'>待付款</view>
-              </view>
-          
-              <view bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
-                <view wx:if="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</view>
-                <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}'></image>
-                <view class='h6 margin-top-10'>待拼班</view>
-              </view>
-          
-              <view bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
-                <view wx:if="{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</view>
-                <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}'></image>
-                <view class='h6 margin-top-10'>待评价</view>
-              </view>
-          
-              <view bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
-                <view wx:if="{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</view>
-                <image class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}'></image>
-                <view class='h6 margin-top-10'>待收货</view>
-              </view>
-          
-              <view bindtap="tuikuan" class='flex-row flex-column flex-1'>
-                <image class='icon-48' src='{{uploadpath}}resource/{{res.shouhuo}}'></image>
-                <view class='h6 margin-top-10'>退款/售后</view>
-              </view>
-          
-            </view>
           
           
+          <div class='bg-white radius-8 margin-20'>
           
-          </view>
+            <div class='flex-row flex-center padd-order bor_bot' data-name='dd' bindtap='todetails'>
+              <div class='flex-1 txt-black f-26 txt-bold'>我的订单</div>
+              <div class='f22'>全部订单</div>
+              <img class='icon-15 margin-left-4' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
           
+            <div class='padd-order-under flex-row flex-center'>
           
-          <view class='bg-white margin-20 radius-8'>
+              <div bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
+                <div **ngIf"{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</div>
+                <img class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}' />
+                <div class='h6 margin-top-10'>待付款</div>
+              </div>
           
-            <view data-name='ketan' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.yigouketan}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>已购课堂</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
+              <div bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
+                <div **ngIf"{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</div>
+                <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}' />
+                <div class='h6 margin-top-10'>待拼班</div>
+              </div>
           
+              <div bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
+                <div **ngIf"{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</div>
+                <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}' />
+                <div class='h6 margin-top-10'>待评价</div>
+              </div>
           
-            <view data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>我的消息</view>
-              <view wx:if="{{xiaoxi>0}}" class="hondian margin-right-20"></view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
+              <div bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
+                <div **ngIf"{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</div>
+                <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}' />
+                <div class='h6 margin-top-10'>待收货</div>
+              </div>
           
-            <view data-name='dizhi' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.myaddress}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>地址管理</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
+              <div bindtap="tuikuan" class='flex-row flex-column flex-1'>
+                <img class='icon-48' src='{{uploadpath}}resource/{{res.shouhuo}}' />
+                <div class='h6 margin-top-10'>退款/售后</div>
+              </div>
+          
+            </div>
           
           
           
-            <view data-name='pc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.mypingce}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>我的评测</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
+          </div>
+          
+          
+          <div class='bg-white margin-20 radius-8'>
+          
+            <div data-name='ketan' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.yigouketan}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>已购课堂</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+          
+            <div data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>我的消息</div>
+              <div **ngIf"{{xiaoxi>0}}" class="hondian margin-right-20"></div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+            <div data-name='dizhi' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.myaddress}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>地址管理</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
           
           
           
-            <view data-name='wt' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.chanjian}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>常见问题</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
-          
-          
-            <view data-name='sc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.myfav}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>我的收藏</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
-          
-            <view data-name='kf' bindtap='todetails' class=' margin-30   pd'>
-          
-              <view class='flex-row flex-center'>
-                <image class='icon-24' src='{{uploadpath}}resource/{{res.lianxikefu}}'></image>
-                <view class='margin-left-20  txt-black h '>联系客服</view>
-                <view class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{instinfo.openning}}</view>
-                <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-              </view>
-          
-            </view>
-          
-          
-            <view data-name='wm' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.us}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>关于我们</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
-          
-          
-            <view data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
-              <image class='icon-24' src='{{uploadpath}}resource/{{res.ruzhu}}'></image>
-              <view class='margin-left-20  txt-black  flex-1 h'>机构入驻</view>
-              <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
-            </view>
+            <div data-name='pc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.mypingce}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>我的评测</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
           
           
           
-            <view class='margin-top padding' wx:if="{{memberinfo.canhexiao=='Y'}}">
+            <div data-name='wt' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.chanjian}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>常见问题</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+          
+            <div data-name='sc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.myfav}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>我的收藏</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+            <div data-name='kf' bindtap='todetails' class=' margin-30   pd'>
+          
+              <div class='flex-row flex-center'>
+                <img class='icon-24' src='{{uploadpath}}resource/{{res.lianxikefu}}' />
+                <div class='margin-left-20  txt-black h '>联系客服</div>
+                <div class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{instinfo.openning}}</div>
+                <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+              </div>
+          
+            </div>
+          
+          
+            <div data-name='wm' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.us}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>关于我们</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+          
+            <div data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+              <img class='icon-24' src='{{uploadpath}}resource/{{res.ruzhu}}' />
+              <div class='margin-left-20  txt-black  flex-1 h'>机构入驻</div>
+              <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
+            </div>
+          
+          
+          
+            <div class='margin-top padding' **ngIf"{{memberinfo.canhexiao=='Y'}}">
               <button bindtap='startscan'>核销</button>
-            </view>
+            </div>
           
-          </view>
+          </div>
           
-          <view class='height-60'></view>
+          <div class='height-60'></div>
 
     </ion-content>

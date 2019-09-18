@@ -13,20 +13,20 @@ Page {
   }
   
   .block {
-    padding-left: 20rpx;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
+    padding-left: rpx(20);
+    padding-top: rpx(20);
+    padding-bottom: rpx(20);
   }
   
   /* .icon{
-    height: 168rpx;
-    width: 168rpx;
+    height: rpx(168);
+    width: rpx(168);
   } */
   
   .icon2 {
-    height: 224rpx;
-    width: 228rpx;
-  border-radius:8rpx;
+    height: rpx(224);
+    width: rpx(228);
+  border-radius:rpx(8);
   }
   
   .bor_bot {
@@ -34,17 +34,17 @@ Page {
   }
   
   .org_block {
-    padding-left: 5rpx;
-    padding-right: 15rpx;
-    padding-top: 6rpx;
-    padding-bottom: 6rpx;
+    padding-left: rpx(5);
+    padding-right: rpx(15);
+    padding-top: rpx(6);
+    padding-bottom: rpx(6);
   }
   
   .title {
     position: absolute;
     width: 50%;
-    top: 24rpx;
-    left: 32rpx;
+    top: rpx(24);
+    left: rpx(32);
     z-index: 10;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -52,8 +52,8 @@ Page {
   }
   
   .img {
-    width: 220rpx;
-    height: 252rpx;
+    width: rpx(220);
+    height: rpx(252);
   }
   
   .dizhi {
@@ -66,7 +66,7 @@ Page {
     position: absolute;
     width: 85.5%;
     z-index: 10;
-    height: 190rpx;
+    height: rpx(190);
     bottom: 0%;
     /* opacity: 0.8; */
     box-shadow: 1px 1px 5px #dfdfdf;
@@ -75,53 +75,53 @@ Page {
   
   
   .biaoqian {
-    min-width: 56rpx;
-    height: 38rpx;
-    line-height: 38rpx;
-    padding-left: 10rpx;
-    padding-right: 10rpx;
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
   }
   
   .kt_block {
-    width: 712rpx;
-    height: 250rpx;
-    margin: 20rpx;
+    width: rpx(712);
+    height: rpx(250);
+    margin: rpx(20);
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
-    border-radius: 8rpx;
+    box-shadow: rpx(0) rpx(4) rpx(12) rpx(0) rgba(0, 0, 0, 0.1);
+    border-radius: rpx(8);
   }
   .margin-left-28{
-    margin-left: 28rpx;
+    margin-left: rpx(28);
   }
   .margin-top-32{
-    margin-top: 32rpx;
+    margin-top: rpx(32);
   }
   .margin-top-6{
-    margin-top: 6rpx;
+    margin-top: rpx(6);
   }
   .margin-left-26{
-    margin-left: 26rpx;
+    margin-left: rpx(26);
   }
   .margin-right-12{
-    margin-right: 12rpx;
+    margin-right: rpx(12);
   }
   .kt_img {
-    width: 296rpx;
-    height: 220rpx;
-    margin-left: 16rpx;
+    width: rpx(296);
+    height: rpx(220);
+    margin-left: rpx(16);
   }
   .f20 {
-    font-size: 20rpx;
+    font-size: rpx(20);
   }
   .icon-16 {
-    width: 16rpx;
-    height: 16rpx;
+    width: rpx(16);
+    height: rpx(16);
   }
   .margin-16{
-    margin: 8rpx;
+    margin: rpx(8);
   }
   .biaoqian {
-    width: 116rpx;
-    height: 38rpx;
-    line-height: 38rpx;
+    width: rpx(116);
+    height: rpx(38);
+    line-height: rpx(38);
   }

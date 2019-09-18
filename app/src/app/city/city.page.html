@@ -13,49 +13,49 @@
 
 
 <!--pages/city/city.wxml-->
-<view class='flex-row flex-center top'>
-    <view class='h5 txt-bold txt-black'>当前：</view>
-    <view class='h5 txt-bold txt-black'>{{CurrentName}}</view>
-  </view>
+<div class='flex-row flex-center top'>
+    <div class='h5 txt-bold txt-black'>当前：</div>
+    <div class='h5 txt-bold txt-black'>{{CurrentName}}</div>
+  </div>
   
   
   
   
   
-  <view class='flex-row column mid '>
+  <div class='flex-row column mid '>
   
-    <view class='h5 txt-bold txt-black margin-20' style=''>定位/最近访问</view>
+    <div class='h5 txt-bold txt-black margin-20' style=''>定位/最近访问</div>
   
-    <view class='flex-row flex-center  flex-wrap'>
+    <div class='flex-row flex-center  flex-wrap'>
   
-      <view wx:if="{{item.city_name!=''}}" style='' class='block flex-row flex-column  radius-10' wx:for="{{usecitylist}}" wx:key="k" wx:for-index='idx'>
-        <view class='flex-row  flex-center'  bindtap='setCity' id='{{item.city_id}}' >
-          <image src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' wx:if="{{idx==0}}"></image>
-          <view class='h5 txt-black margin-left-5'>{{item.city_name}}</view>
-        </view>
-      </view>
-  
-  
-    </view>
-  
-  </view>
+      <div **ngIf"{{item.city_name!=''}}" style='' class='block flex-row flex-column  radius-10' **ngFor"{{usecitylist}}" wx:key="k" wx:for-index='idx'>
+        <div class='flex-row  flex-center'  bindtap='setCity' id='{{item.city_id}}' >
+          <img src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' **ngIf"{{idx==0}}" />
+          <div class='h5 txt-black margin-left-5'>{{item.city_name}}</div>
+        </div>
+      </div>
   
   
-  <view class='flex-row column mid '>
+    </div>
   
-    <view class='h5 txt-bold txt-black margin-20'>已开放城市</view>
-  
-    <view class='flex-row flex-center flex-wrap'>
-  
-      <view class='flex-row flex-center ' wx:for="{{memberinfo.citylist}}">
-        <view bindtap='setCity' id='{{item.id}}' style='' class='block flex-row flex-column radius-10 text-center'>
-          <view class='h5 txt-black margin-left-5 '>{{item.name}}</view>
-        </view>
-      </view>
+  </div>
   
   
-    </view>
+  <div class='flex-row column mid '>
   
-  </view>
+    <div class='h5 txt-bold txt-black margin-20'>已开放城市</div>
+  
+    <div class='flex-row flex-center flex-wrap'>
+  
+      <div class='flex-row flex-center ' **ngFor"{{memberinfo.citylist}}">
+        <div bindtap='setCity' id='{{item.id}}' style='' class='block flex-row flex-column radius-10 text-center'>
+          <div class='h5 txt-black margin-left-5 '>{{item.name}}</div>
+        </div>
+      </div>
+  
+  
+    </div>
+  
+  </div>
 
     </ion-content>

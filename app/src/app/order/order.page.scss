@@ -12,91 +12,91 @@ Page {
     background: white;
   }
   .icon-34 {
-    width: 34rpx;
-    height: 34rpx;
+    width: rpx(34);
+    height: rpx(34);
   }
   .icon-80 {
-    width: 80rpx;
-    height: 80rpx;
+    width: rpx(80);
+    height: rpx(80);
   }
   .qxdd{
   
-  width: 200rpx;
-  height: 60rpx;
+  width: rpx(200);
+  height: rpx(60);
   background: #CCCCCC;
-  font-size: 28rpx;
+  font-size: rpx(28);
   color:#FFFFFF;
   text-align: center;
-  line-height: 60rpx;
-  border-radius: 10rpx;
+  line-height: rpx(60);
+  border-radius: rpx(10);
   
   }
   
   .qzf{
   
-  width: 200rpx;
-  height: 60rpx;
+  width: rpx(200);
+  height: rpx(60);
   background: #50B674;
-  font-size: 28rpx;
+  font-size: rpx(28);
   color:#FFFFFF;
   text-align: center;
-  line-height: 60rpx;
-  border-radius: 10rpx;
+  line-height: rpx(60);
+  border-radius: rpx(10);
   }
   .height-60{
-    height: 60rpx
+    height: rpx(60)
   }
   .ddd{
-    width: 200rpx;
+    width: rpx(200);
   }
   .hexiaoma{
   
   color:white;
   background: #50B674;
-  padding: 10rpx 20rpx 10rpx 20rpx;
-  border-radius: 10rpx;
+  padding: rpx(10) rpx(20) rpx(10) rpx(20);
+  border-radius: rpx(10);
   text-align: center;
   }
   .saoma{
-   padding: 10rpx;
-   border-radius: 10rpx;
-  font-size: 16rpx;
+   padding: rpx(10);
+   border-radius: rpx(10);
+  font-size: rpx(16);
   color:#999999;
   background:white;
   
   }
   .erweimaban{
-    width:60rpx;
-    height: 60rpx;
+    width:rpx(60);
+    height: rpx(60);
   }
   .erweimade{
-    width: 440rpx;
-    height: 440rpx;
+    width: rpx(440);
+    height: rpx(440);
   }
   /* .height-66{
-    height: 66rpx;
+    height: rpx(66);
   } */
   .fz {
-    padding: 5rpx 10rpx 5rpx 10rpx;
+    padding: rpx(5) rpx(10) rpx(5) rpx(10);
     border: 1px solid white;
-    border-radius: 10rpx;
-    font-size: 20rpx;
+    border-radius: rpx(10);
+    font-size: rpx(20);
     color: white;
   }
   
   .xxxx {
     position: absolute;
-    margin-top: -18rpx;
-    margin-left: -50rpx;
+    margin-top: -rpx(18);
+    margin-left: -rpx(50);
   }
   
   margin-top-10 {
-    margin-top: 20rpx;
+    margin-top: rpx(20);
   }
   
   .xian1 {
-    width: 340rpx;
-    height: 1rpx;
+    width: rpx(340);
+    height: rpx(1);
     background-color: #2f9a55;
   }
   
@@ -108,15 +108,15 @@ Page {
   
   .quan {
     background: #2f9a55;
-    width: 35rpx;
-    height: 35rpx;
+    width: rpx(35);
+    height: rpx(35);
     border-radius: 50%;
     z-index: 9999;
   }
   
   .nr {
-    padding-top: 60rpx;
-   padding-bottom:40rpx;
+    padding-top: rpx(60);
+   padding-bottom:rpx(40);
   }
   
   .bor_bot {
@@ -132,26 +132,26 @@ Page {
   }
   
   .pd {
-    padding-top: 20rpx;
+    padding-top: rpx(20);
     padding-right: 20rxp;
-    padding-bottom: 20rpx;
-    padding-left: 10rpx;
+    padding-bottom: rpx(20);
+    padding-left: rpx(10);
   }
   .margin-left-18 {
-    margin-left: 18rpx;
+    margin-left: rpx(18);
   }
   .btn {
-    width: 312rpx;
-    height: 84rpx;
-    border-radius: 56rpx;
-    border: 2rpx solid #FF6600;
+    width: rpx(312);
+    height: rpx(84);
+    border-radius: rpx(56);
+    border: rpx(2) solid #FF6600;
     background-color: #FF6600;
   }
   .fbtn {
-    width: 140rpx;
-    height: 48rpx;
-    line-height: 48rpx;
-    border-radius: 40rpx;
+    width: rpx(140);
+    height: rpx(48);
+    line-height: rpx(48);
+    border-radius: rpx(40);
   }
   
   .btm {
@@ -159,7 +159,7 @@ Page {
     bottom: 0;
     width: 95%;
     z-index: 100;
-    border-top: 2rpx solid #e5e5e5;
+    border-top: rpx(2) solid #e5e5e5;
   }
   
   
@@ -177,15 +177,15 @@ Page {
   }
   
   .modal-dialog {
-    width: 680rpx;
+    width: rpx(680);
     overflow: hidden;
     position: fixed;
     top: 10%;
     left: 0;
     z-index: 9999;
     background: #f9f9f9;
-    margin: 50rpx 35rpx;
-    border-radius: 10rpx;
+    margin: rpx(50) rpx(35);
+    border-radius: rpx(10);
   }
   .baocunhexiao{
   
@@ -196,22 +196,22 @@ Page {
     left: 25vw;
     z-index: 9999;
     background: #f9f9f9;
-    margin-top: 850rpx ;
-    border-radius: 100rpx;
-  padding:20rpx 60rpx 20rpx 60rpx;
+    margin-top: rpx(850) ;
+    border-radius: rpx(100);
+  padding:rpx(20) rpx(60) rpx(20) rpx(60);
   background: rgba(255, 255, 255, 1);
   
   
   }
   .modal-title {
-    padding: 40rpx;
+    padding: rpx(40);
    
-    font-size: 32rpx;
+    font-size: rpx(32);
     color: #030303;
     text-align: center;
   }
   
   .modal-content {
-    padding: 50rpx 32rpx;
+    padding: rpx(50) rpx(32);
   }
   

@@ -9,13 +9,13 @@ Page {
   }
   
   .search {
-    border-radius: 30rpx;
+    border-radius: rpx(30);
     background-color: white;
   }
   
   .gongao {
-    border-top-right-radius: 10rpx;
-    border-bottom-right-radius: 10rpx;
+    border-top-right-radius: rpx(10);
+    border-bottom-right-radius: rpx(10);
     background: #dfc767;
   }
   
@@ -24,48 +24,48 @@ Page {
   }
   
   .red_block {
-    height: 130rpx;
-    width: 140rpx;
+    height: rpx(130);
+    width: rpx(140);
   }
   
   .jx {
-    padding-left: 7rpx;
-    padding-right: 7rpx;
-    padding-top: 3rpx;
-    padding-bottom: 3rpx;
+    padding-left: rpx(7);
+    padding-right: rpx(7);
+    padding-top: rpx(3);
+    padding-bottom: rpx(3);
   }
   
   .toutiao {
-    padding-left: 40rpx;
-    padding-right: 40rpx;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
+    padding-left: rpx(40);
+    padding-right: rpx(40);
+    padding-top: rpx(20);
+    padding-bottom: rpx(20);
   }
   
   .weizhi {
-    padding-left: 40rpx;
-    /* padding-right: 40rpx; */
-    margin-bottom: 20rpx;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
+    padding-left: rpx(40);
+    /* padding-right: rpx(40); */
+    margin-bottom: rpx(20);
+    margin-left: rpx(20);
+    margin-right: rpx(20);
   }
   
   .border_top{
-    border-top: 2rpx solid #e5e5e5; 
+    border-top: rpx(2) solid #e5e5e5; 
   }
   
   .type {
-    padding-left: 17rpx;
-    padding-right: 17rpx;
-    padding-top: 4rpx;
-    padding-bottom: 4rpx;
+    padding-left: rpx(17);
+    padding-right: rpx(17);
+    padding-top: rpx(4);
+    padding-bottom: rpx(4);
   }
   
   .kecheng {
-    margin-left: 20rpx;
-    margin-right: 20rpx;
-    margin-top: 20rpx;
-    /* margin-bottom: 4rpx; */
+    margin-left: rpx(20);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
+    /* margin-bottom: rpx(4); */
   }
   
   .simg{
@@ -78,8 +78,8 @@ Page {
     background-size:100% 100%;
   }
   .kc_icon {
-    width: 228rpx;
-    height: 224rpx;
+    width: rpx(228);
+    height: rpx(224);
   }
   
   .SX {
@@ -92,8 +92,8 @@ Page {
   }
   
   .margin_L_T {
-    margin-left: 20rpx;
-    margin-top: 20rpx;
+    margin-left: rpx(20);
+    margin-top: rpx(20);
   }
   
   
@@ -127,24 +127,24 @@ Page {
     position: fixed;
     right: 0px;
     top:60%;
-    width:360rpx;
+    width:rpx(360);
     background-color: rgba(150, 150, 150, 0.6);
-    border-top-left-radius: 8rpx;
-    border-bottom-left-radius: 8rpx;
+    border-top-left-radius: rpx(8);
+    border-bottom-left-radius: rpx(8);
   }
   .tipsshow {
     
-    padding: 8rpx 46rpx 8rpx 14rpx;
+    padding: rpx(8) rpx(46) rpx(8) rpx(14);
   }
   
   .tipsshow image {
-    width: 40rpx;
-    height: 40rpx;
+    width: rpx(40);
+    height: rpx(40);
     border-radius: 50%;
   }
   
   .tipsshow view {
-    font-size: 24rpx;
+    font-size: rpx(24);
     color: white;
   }
   
@@ -152,54 +152,54 @@ Page {
     position: fixed;
     z-index: 100;
     width: 100vw;
-    height: calc( 100vh - 238rpx );
+    height: calc( 100vh - rpx(238) );
     background: black;
-    top: 238rpx;
+    top: rpx(238);
     bottom: 0;
-    /* height: 500rpx; */
+    /* height: rpx(500); */
     opacity:0.7;
   }
   
   .list {
     position: fixed;
-    width: 230rpx;
+    width: rpx(230);
     z-index: 200;
     
   }
   .list2 {
     position: fixed;
-    width: 188rpx;
+    width: rpx(188);
     z-index: 200;
-    top: 142rpx;
+    top: rpx(142);
   }
   .list3 {
     position: fixed;
-    width: 188rpx;
+    width: rpx(188);
     z-index: 200;
     right: 0;
-    top: 74rpx;
+    top: rpx(74);
   }
   .img{
-    width: 220rpx;
-    height: 252rpx;
+    width: rpx(220);
+    height: rpx(252);
   }
   .midt{
     position: absolute;
     
     width: 100vw;
-    margin-top: -130rpx;
+    margin-top: -rpx(130);
   }
   .icon13{
-    height: 26rpx;
-    width: 26rpx;
+    height: rpx(26);
+    width: rpx(26);
   }
   .midtm{
     
   }
   .mid{
     width: 85.5%;
-    height: 196rpx;
-    margin-top: 30rpx;
+    height: rpx(196);
+    margin-top: rpx(30);
     /* opacity: 0.8; */
     box-shadow: 1px 1px 5px #dfdfdf;
   }
@@ -209,26 +209,26 @@ Page {
     width: 100%;
   }
   .xb_bg{
-    height: 42rpx;
-    width: 154rpx;
+    height: rpx(42);
+    width: rpx(154);
   }
   .bt{
     position: absolute;
-    bottom: 54rpx;
+    bottom: rpx(54);
     
   }
   .search_icon {
-    width: 35rpx;
-    height: 30rpx;
+    width: rpx(35);
+    height: rpx(30);
   }
   .biaoqian {
-    width: 116rpx;
-    height: 38rpx;
-    line-height: 38rpx;
+    width: rpx(116);
+    height: rpx(38);
+    line-height: rpx(38);
   }
   .btm{
     position: absolute;
     right: 10vw;
-    bottom: 40rpx;
+    bottom: rpx(40);
   }
   

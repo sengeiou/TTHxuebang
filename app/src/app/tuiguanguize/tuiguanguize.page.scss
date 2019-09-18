@@ -8,27 +8,27 @@ page{
     }
     .bg{
       background: white;
-      border-radius: 5rpx;
+      border-radius: rpx(5);
     }
     
     .xian{
       border-bottom: 1px solid #F5F5F5;
-      padding-bottom:40rpx;
+      padding-bottom:rpx(40);
     }
     .xian1{
-    padding-bottom:40rpx;
+    padding-bottom:rpx(40);
     }
     .sbb{
-      padding-bottom:0rpx;
+      padding-bottom:rpx(0);
     }
     .lijishenqin{
     
     
-      font-size: 26rpx;
-      padding: 6rpx 20rpx 6rpx 20rpx;
+      font-size: rpx(26);
+      padding: rpx(6) rpx(20) rpx(6) rpx(20);
       color: rgba(255, 255, 255, 1);
       background: -webkit-linear-gradient(left, rgba(254, 215, 164, 1), rgba(235, 186, 124, 1));
-      border-radius: 26rpx;
+      border-radius: rpx(26);
     
     
     }

@@ -14,90 +14,90 @@
 
 <!--pages/pingjialist/pingjialist.wxml-->
 
-<view class='h5 bg-gray height30'>精彩评论</view>
+<div class='h5 bg-gray height30'>精彩评论</div>
 
-<view wx:if='{{pingjialist.length==0}}' class='flex-row flex-center'>
-  <view class='flex-1'></view>
-  <view>暂无评论</view>
-  <view class='flex-1'></view>
-</view>
+<div **ngIf'{{pingjialist.length==0}}' class='flex-row flex-center'>
+  <div class='flex-1'></div>
+  <view>暂无评论</div>
+  <div class='flex-1'></div>
+</div>
 
-<view wx:for='{{pingjialist}}' wx:key='k' wx:for-index='idx'>
-  <view class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
+<div **ngFor'{{pingjialist}}' wx:key='k' wx:for-index='idx'>
+  <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
 
-    <image src='{{item.member_avatarUrl}}' class='tx radius-50'></image>
+    <img src='{{item.member_avatarUrl}}' class='tx radius-50' />
 
-    <view class=' flex-1 ' style='margin-left:16rpx;'>
+    <div class=' flex-1 ' style='margin-left:16rpx;'>
 
-      <view class='h6 txt-black' wx:if='{{item.niming_value!="Y"}}'>{{item.member_id_name}}</view>
-      <view class='h6 txt-black' wx:if='{{item.niming_value=="Y"}}'>匿名用户</view>
+      <div class='h6 txt-black' **ngIf'{{item.niming_value!="Y"}}'>{{item.member_id_name}}</div>
+      <div class='h6 txt-black' **ngIf'{{item.niming_value=="Y"}}'>匿名用户</div>
 
-      <view class='flex-row flex-center margin-top-4'>
-        <view class='h7 txt9'>{{item.created_date}}</view>
-        <view style='width:39rpx;'></view>
+      <div class='flex-row flex-center margin-top-4'>
+        <div class='h7 txt9'>{{item.created_date}}</div>
+        <div style='width:39rpx;'></div>
 
-        <view wx:if='{{item.pingfen==1}}'>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' wx:for='{{4}}'></image>
-        </view>
+        <div **ngIf'{{item.pingfen==1}}'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor'{{4}}' />
+        </div>
 
-        <view wx:if='{{item.pingfen==2}}'>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' wx:for='{{2}}'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' wx:for='{{3}}'></image>
-        </view>
+        <div **ngIf'{{item.pingfen==2}}'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor'{{2}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor'{{3}}' />
+        </div>
 
-        <view wx:if='{{item.pingfen==3}}'>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' wx:for='{{2}}'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' wx:for='{{3}}'></image>
-        </view>
+        <div **ngIf'{{item.pingfen==3}}'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor'{{2}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor'{{3}}' />
+        </div>
 
-        <view wx:if='{{item.pingfen==4}}'>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' wx:for='{{3}}'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' wx:for='{{2}}'></image>
-        </view>
+        <div **ngIf'{{item.pingfen==4}}'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor'{{3}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor'{{2}}' />
+        </div>
 
-        <view wx:if='{{item.pingfen==5}}'>
-          <image src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' wx:for='{{4}}'></image>
-          <image src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5'></image>
-        </view>
+        <div **ngIf'{{item.pingfen==5}}'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor'{{4}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
+        </div>
 
 
-      </view>
+      </div>
 
-    </view>
+    </div>
 
-    <view class='flex-row flex-center padding-20' bindtap="dianzan" id='{{idx}}'>
+    <div class='flex-row flex-center padding-20' bindtap="dianzan" id='{{idx}}'>
      
-      <image wx:if='{{item.kcl!=""}}' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4'></image>
-      <image wx:if='{{item.kcl==""}}' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4'></image>
-       <view class='h6 margin-left-4'>{{item.count}}</view>
-    </view>
+      <img **ngIf'{{item.kcl!=""}}' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4' />
+      <img **ngIf'{{item.kcl==""}}' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4' />
+       <div class='h6 margin-left-4'>{{item.count}}</div>
+    </div>
 
-  </view>
-<view class="pinlun">
+  </div>
+<div class="pinlun">
   <text class=' h5 txt-black'>
     {{item.content}}
   </text>
-</view>
-  <view class='img flex-row flex-center flex-wrap'>
+</div>
+  <div class='img flex-row flex-center flex-wrap'>
 
-    <image wx:if='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}'></image>
+    <img **ngIf'{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}' />
 
-    <image wx:if='{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}'></image>
+    <img **ngIf'{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}' />
 
-    <image wx:if='{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}'></image>
+    <img **ngIf'{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}' />
 
-    <image wx:if='{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}'></image>
+    <img **ngIf'{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}' />
 
-    <image wx:if='{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}'></image>
+    <img **ngIf'{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}' />
 
-    <image wx:if='{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}'></image>
+    <img **ngIf'{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}' />
 
 
-  </view>
+  </div>
 
-</view>
+</div>
 
-<view class='height-100'></view>
+<div class='height-100'></div>
 
     </ion-content>

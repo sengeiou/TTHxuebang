@@ -12,18 +12,18 @@
     background: #FFFFFF;
   }
   .nannv{
-    width: 150rpx;
-    height: 40rpx;
+    width: rpx(150);
+    height: rpx(40);
   }
   .tuan_btn{
      position: fixed;
   width: 85%;
-  padding-top:20rpx;
-  padding-bottom:20rpx;
+  padding-top:rpx(20);
+  padding-bottom:rpx(20);
   background-color: #FF6600;
   color: white;
-  border-radius: 40rpx;
-  bottom:30rpx;
+  border-radius: rpx(40);
+  bottom:rpx(30);
   left:8vw;
   
   }
@@ -34,10 +34,10 @@
   .ipt1
   {
     text-align: right;
-    width:350rpx;
+    width:rpx(350);
   
   }
   .ff{
-    min-height: 40rpx;
+    min-height: rpx(40);
     
   }

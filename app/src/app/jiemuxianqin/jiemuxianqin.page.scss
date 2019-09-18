@@ -8,66 +8,66 @@
     }
     .psq{
     position: absolute;
-    margin-top:-160rpx;
+    margin-top:-rpx(160);
     width: 100vw;
-    height: 160rpx;
+    height: rpx(160);
     background-color: rgba(255, 194, 0, 0.9);
     }
     .xian{
     
-    width: 2rpx;
-    height: 100rpx;
+    width: rpx(2);
+    height: rpx(100);
     background: #979797;
     opacity: 0.6;
     }
     .jgtupian{
       width:100%;
-      height: 360rpx;
-      margin-top:20rpx;
+      height: rpx(360);
+      margin-top:rpx(20);
     }
     .toupiao{
     
-      width:600rpx;
-      height: 84rpx;
+      width:rpx(600);
+      height: rpx(84);
       color:#FFFFFF;
       background:#FF6600;
-      line-height: 84rpx;
+      line-height: rpx(84);
       text-align: center;
     
-      border-radius: 80rpx;
+      border-radius: rpx(80);
     }
     .fanhui{
     
-     width:240rpx;
-      height: 84rpx;
+     width:rpx(240);
+      height: rpx(84);
       color:#FF6600;
       background:white;
-      line-height: 84rpx;
+      line-height: rpx(84);
       text-align: center;
       border:1px solid #FF6600;
-      border-radius: 80rpx;
+      border-radius: rpx(80);
     }
     .tijiao{
     
-     width:360rpx;
-      height: 84rpx;
+     width:rpx(360);
+      height: rpx(84);
       color:#FFFFFF;
       background:#FF6600;
-      line-height: 84rpx;
+      line-height: rpx(84);
       text-align: center;
-       margin-left:20rpx;
-      border-radius: 80rpx;
+       margin-left:rpx(20);
+      border-radius: rpx(80);
     }
     .toupiaochengon{
     
-      width:600rpx;
-      height: 84rpx;
+      width:rpx(600);
+      height: rpx(84);
       color:#FFFFFF;
       background:#999999;
-      line-height: 84rpx;
+      line-height: rpx(84);
       text-align: center;
     
-      border-radius: 80rpx;
+      border-radius: rpx(80);
     }
     .gudin{
       position: fixed;

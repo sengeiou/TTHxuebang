@@ -6,32 +6,32 @@
 
 .menu-padding {
   
-    padding-top: 28rpx;
+    padding-top: rpx(28);
    
   }
   
   /* .gd{
-    padding-left: 32rpx;
-     padding-right: 32rpx;
-    height: 70rpx;
+    padding-left: rpx(32);
+     padding-right: rpx(32);
+    height: rpx(70);
   } */
   
   .margin-top-12 {
-    margin-top: 12rpx;
+    margin-top: rpx(12);
   }
   
   .icon-50 {
-    width: 100rpx;
-    height: 100rpx;
+    width: rpx(100);
+    height: rpx(100);
   }
   
   .kecheng-block {
-    width: 330rpx;
+    width: rpx(330);
     background: rgba(255, 255, 255, 1);
-    box-shadow: 0rpx 4rpx 12rpx 0rpx rgba(0, 0, 0, 0.1);
-    border-radius: 8rpx;
-    margin-left: 30rpx;
-    margin-top: 30rpx;
+    box-shadow: rpx(0) rpx(4) rpx(12) rpx(0) rgba(0, 0, 0, 0.1);
+    border-radius: rpx(8);
+    margin-left: rpx(30);
+    margin-top: rpx(30);
   }
   
   .xhx {
@@ -39,52 +39,52 @@
   }
   
   .padding-bottom-40 {
-    padding-bottom: 40rpx;
+    padding-bottom: rpx(40);
   }
   
   .height-30 {
-    height: 30rpx;
+    height: rpx(30);
   }
   
   .kecheng-img {
-    height: 330rpx;
+    height: rpx(330);
     width: 100%;
-    border-radius: 8rpx;
-    /* border: 1rpx solid black; *//* background: rgba(216, 216, 216, 1); */
+    border-radius: rpx(8);
+    /* border: rpx(1) solid black; *//* background: rgba(216, 216, 216, 1); */
   }
   
   .padding-12 {
-    padding: 12rpx;
-    padding-bottom: 5rpx;
+    padding: rpx(12);
+    padding-bottom: rpx(5);
   }
   
   .f-16 {
-    font-size: 16rpx;
+    font-size: rpx(16);
   }
   
   .margin-top-8 {
-    margin-top: 8rpx;
+    margin-top: rpx(8);
   }
   
   .margin-top-14 {
-    margin-top: 14rpx;
+    margin-top: rpx(14);
   }
   
   .margin-top-12 {
-    margin-top: 0rpx;
+    margin-top: rpx(0);
   }
   
   .f20 {
-    font-size: 20rpx;
+    font-size: rpx(20);
   }
   
   .xg {
-    padding-right: 15rpx;
+    padding-right: rpx(15);
   }
   
   .dd {
-    margin: 15rpx;
-    margin-top: 5rpx;
+    margin: rpx(15);
+    margin-top: rpx(5);
   }
   
   .txt-gray {
@@ -92,20 +92,20 @@
   }
   
   .icon-16 {
-    width: 30rpx;
-    height: 30rpx;
+    width: rpx(30);
+    height: rpx(30);
   }
   
   .margin-left-6 {
-    margin-left: 6rpx;
+    margin-left: rpx(6);
   }
   
   .margin-left-10 {
-    margin-left: 10rpx;
+    margin-left: rpx(10);
   }
   
   .margin-left-26 {
-    margin-left: 26rpx;
+    margin-left: rpx(26);
   }
   
   .txt-red {
@@ -113,69 +113,69 @@
   }
   
   .h11 {
-    font-size: 22rpx;
+    font-size: rpx(22);
   }
   
   .margin-top-4 {
-    margin-top: 4rpx;
+    margin-top: rpx(4);
   }
   
   .henxian {
     background-color: #ffc200;
     height: 3px;
-    width: 50rpx;
-    margin-top: 5rpx;
-    margin-bottom: 30rpx;
-    border-radius: 5rpx;
+    width: rpx(50);
+    margin-top: rpx(5);
+    margin-bottom: rpx(30);
+    border-radius: rpx(5);
   }
   
   .nohenxian {
     height: 3px;
-    width: 50rpx;
-    margin-top: 5rpx;
-    margin-bottom: 30rpx;
-    border-radius: 5rpx;
+    width: rpx(50);
+    margin-top: rpx(5);
+    margin-bottom: rpx(30);
+    border-radius: rpx(5);
   }
   
   .mianfei {
-    font-size: 24rpx;
+    font-size: rpx(24);
     color: white;
     background-color: #ffc200;
-    padding: 15rpx;
-    padding-left: 30rpx;
-    border-top-left-radius: 30rpx;
+    padding: rpx(15);
+    padding-left: rpx(30);
+    border-top-left-radius: rpx(30);
     font-weight: bolder;
   }
   
   .yigou {
-    font-size: 24rpx;
+    font-size: rpx(24);
     color: white;
     background-color: #ccc;
     font-weight: bolder;
-    padding: 15rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-    border-top-left-radius: 30rpx;
+    padding: rpx(15);
+    padding-left: rpx(20);
+    padding-right: rpx(20);
+    border-top-left-radius: rpx(30);
   }
   
   .lb {
     width: 100vw;
-    height: 200rpx;
+    height: rpx(200);
   }
   
   .dibude {
-    height: 150rpx;
+    height: rpx(150);
     width: 100vw;
   }
   
   .xian {
-    width: 100rpx;
-    height: 1rpx;
+    width: rpx(100);
+    height: rpx(1);
     background: white;
   }
   
   .daodile {
     width: 60vw;
-    height: 80rpx;
+    height: rpx(80);
   }
   

@@ -11,32 +11,32 @@
 
     <ion-content >
 
-        <view class="flex-row flex-center">
-            <view class="flex-1"></view>
+        <div class="flex-row flex-center">
+            <div class="flex-1"></div>
           
             <view>
-              <view wx:for="{{huodonlist}}" wx:key='k' bindtap="listclick" data-id="{{item.id}}" style="width:95vw" class="margin-top-10 margin-bottom-10">
+              <div **ngFor"{{huodonlist}}" wx:key='k' bindtap="listclick" data-id="{{item.id}}" style="width:95vw" class="margin-top-10 margin-bottom-10">
           
           
-                <image class="activityCover" src='{{uploadpath}}activity/{{item.activityCover}}'></image>
+                <img class="activityCover" src='{{uploadpath}}activity/{{item.activityCover}}' />
           
-                <view class="activitycontent flex-row flex-center">
-                  <view class="center">
-                    <view  style="height:90rpx" class="txt-bold margin-left-40 margin-right-20 margin-top-10 chaochu2">{{item.activityName}}</view>
+                <div class="activitycontent flex-row flex-center">
+                  <div class="center">
+                    <div  style="height:90rpx" class="txt-bold margin-left-40 margin-right-20 margin-top-10 chaochu2">{{item.activityName}}</div>
           
-                    <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-10">活动时间:{{item.activityTime}} </view>
-                    <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-5">活动地点:{{item.activitySite}} </view>
+                    <div style="color:#4C4C4C" class="h6 margin-left-20 margin-top-10">活动时间:{{item.activityTime}} </div>
+                    <div style="color:#4C4C4C" class="h6 margin-left-20 margin-top-5">活动地点:{{item.activitySite}} </div>
           
           
           
-                  </view>
-                </view>
-                <view class='height-160'></view>
-              </view>
+                  </div>
+                </div>
+                <div class='height-160'></div>
+              </div>
           
-            </view>
-            <view class="flex-1"></view>
-          </view>
+            </div>
+            <div class="flex-1"></div>
+          </div>
 
 
     </ion-content>

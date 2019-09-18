@@ -3,68 +3,68 @@
 }
 
 .member_icon {
-    width: 65rpx;
-    height: 65rpx;
+    width: rpx(65);
+    height: rpx(65);
     border-radius: 50%;
   }
   .aaa{
   
-    line-height: 56rpx;
+    line-height: rpx(56);
     overflow: hidden;
     
   }
   .label {
-    width: 100rpx;
-    height: 40rpx;
-    line-height: 40rpx;
+    width: rpx(100);
+    height: rpx(40);
+    line-height: rpx(40);
     text-align: center;
     color: #ff9834;
     border: 1px solid #ff9834;
-    border-radius: 20rpx;
-    font-size: 20rpx;
-    margin-left: 20rpx;
-    margin-top: 5rpx;
+    border-radius: rpx(20);
+    font-size: rpx(20);
+    margin-left: rpx(20);
+    margin-top: rpx(5);
     
   }
   .jinbi{
   
-    width:60rpx;
-    height: 60rpx;
+    width:rpx(60);
+    height: rpx(60);
   }
   
   .content_bg {
     width: 100%;
-    border-radius: 10rpx;
+    border-radius: rpx(10);
     background: -webkit-linear-gradient(left, rgba(232, 180, 116, 1), rgba(247, 198, 136, 1), rgba(255, 218, 167, 1));
   }
   
   .tixian {
-    font-size: 26rpx;
-    padding: 6rpx 20rpx 6rpx 20rpx;
+    font-size: rpx(26);
+    padding: rpx(6) rpx(20) rpx(6) rpx(20);
     color: rgba(255, 255, 255, 1);
     background: -webkit-linear-gradient(left, rgba(97, 97, 97, 1), rgba(57, 57, 57, 1));
-    border-radius: 26rpx;
+    border-radius: rpx(26);
   }
   .xian{
-    margin:0 20rpx 0 20rpx;
+    margin:0 rpx(20) 0 rpx(20);
     background: rgba(255, 218, 168, 1);
    
-    height: 2rpx;
+    height: rpx(2);
   }
   .fenge{
-    width: 2rpx;
-    height: 104rpx;
+    width: rpx(2);
+    height: rpx(104);
     background: rgba(255, 218, 168, 1);
   }
   .content_bottom{
-    padding :40rpx 0 40rpx 0;
+    padding :rpx(40) 0 rpx(40) 0;
   }
   .yaoqin_icon{
-    width: 80rpx;
-    height: 80rpx;
+    width: rpx(80);
+    height: rpx(80);
   }
   .h11{
-    font-size: 22rpx;
+    font-size: rpx(22);
   }
   .modal-mask {
     width: 100%;
@@ -83,14 +83,14 @@
     overflow: hidden;
     position: fixed;
     bottom:0;
-    height: 700rpx;
+    height: rpx(700);
     z-index: 9999;
     background: #f9f9f9;
   
   
   }
   .jl{
-    width: 150rpx;
+    width: rpx(150);
   }
   .ysl{
     color: rgba(204, 204, 204, 1);
@@ -98,17 +98,17 @@
   .yz_btm{
     color:rgba(255, 255, 255, 1);
     background: rgba(255, 102, 0, 1);
-    padding:10rpx 20rpx 10rpx 20rpx;
-    font-size: 24rpx;
-    border-radius: 10rpx;
+    padding:rpx(10) rpx(20) rpx(10) rpx(20);
+    font-size: rpx(24);
+    border-radius: rpx(10);
   }
   .tuan_btn{
   width: 85%;
-  padding-top:20rpx;
-  padding-bottom:20rpx;
+  padding-top:rpx(20);
+  padding-bottom:rpx(20);
   background-color: rgba(255, 102, 0, 1);
   color: white;
-  border-radius: 40rpx;
+  border-radius: rpx(40);
   
   }
   

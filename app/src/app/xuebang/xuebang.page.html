@@ -14,44 +14,44 @@
 <!--pages/jgdetails/jgdetails.wxml-->
 
 
-<back-component></back-component>
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-<view class=' to_top'>
-  <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
-</view>
+<div class=' to_top'>
+  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+</div>
 
 
 
-<view style="" class="{{tanchuang==true?'tanchuang':''}}">
-  <view class='' style='background:{{jginfo.bgcolor}}'>
+<div style="" class="{{tanchuang==true?'tanchuang':''}}">
+  <div class='' style='background:{{jginfo.bgcolor}}'>
 
-    <view style='position:relative;'>
-      <view style=' ' class=''>
+    <div style='position:relative;'>
+      <div style=' ' class=''>
         <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
           <swiper-item>
             <view>
               <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-              <image src='{{uploadpath}}mechanism/{{jginfo.jg_img}}?x-oss-process=style/test_img' bindtap='viewPhoto' id='{{uploadpath}}mechanism/{{jginfo.jg_img}}' style='width:750rpx;height:444rpx;'></image>
-            </view>
+              <img src='{{uploadpath}}mechanism/{{jginfo.jg_img}}?x-oss-process=style/test_img' bindtap='viewPhoto' id='{{uploadpath}}mechanism/{{jginfo.jg_img}}' style='width:750rpx;height:444rpx;' />
+            </div>
           </swiper-item>
         </swiper>
-      </view>
-    </view>
+      </div>
+    </div>
 
 
     <!-- {{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "?"mid2":"mid"}} -->
 
-    <view class="flex-row flex-column">
+    <div class="flex-row flex-column">
 
 
       <view>
-        <cover-view wx:if='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+        <cover-view **ngIf'{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
           <cover-view class='padding-10 '>
             <cover-view class='flex-row flex-center'>
               <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
-              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
+              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" **ngIf'{{jginfo.renzhen_value=="Y"}}'></cover-image>
             </cover-view>
 
 
@@ -89,7 +89,7 @@
             <cover-view class='flex-row flex-center  '>
 
               <cover-view class='flex-row flex-1'>
-                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
+                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' **ngFor"{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
               </cover-view>
 
 
@@ -98,7 +98,7 @@
             <cover-view class='flex-row flex-center margin-top-5 padding-10'>
 
               <cover-view class='flex-row flex-column flex-1'>
-                <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
+                <!-- <img src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13" /> -->
                 <cover-view class="txt-gray h6">适合年龄</cover-view>
                 <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
               </cover-view>
@@ -120,205 +120,205 @@
                 <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
               </cover-view>
               <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
-              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
+              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' **ngIf"{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
             </cover-view> -->
 
           </cover-view>
 
         </cover-view>
-      </view>
-    </view>
+      </div>
+    </div>
 
 
-    <view class='margin-20 bg-white radius-10 shadow' wx:if='{{jginfo.novideosummary_value!="Y"}}'>
+    <div class='margin-20 bg-white radius-10 shadow' **ngIf'{{jginfo.novideosummary_value!="Y"}}'>
 
-      <view class='flex-row flex-center  radius-10 padding-20'>
-        <image src="{{uploadpath}}resource/{{res.jg_jianjie}}" class="icon_jianjie"></image>
-        <view class='margin-left-10 txt-bold'>机构简介</view>
-      </view>
+      <div class='flex-row flex-center  radius-10 padding-20'>
+        <img src="{{uploadpath}}resource/{{res.jg_jianjie}}" class="icon_jianjie" />
+        <div class='margin-left-10 txt-bold'>机构简介</div>
+      </div>
 
-      <view class='padding-20'>
+      <div class='padding-20'>
 
-        <video class='pos' bindfullscreenchange='bindfullscreenchange' wx:if='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
+        <video class='pos' bindfullscreenchange='bindfullscreenchange' **ngIf'{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
         </video>
 
-        <image style='width:100%;height:300rpx;' mode='widthFix' wx:if='{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img'></image>
+        <img style='width:100%;height:300rpx;' mode='widthFix' **ngIf'{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img' />
 
-        <!-- <view style='width:100%;height:300rpx; ' class='bg-primary '>视频</view> -->
-      </view>
+        <!-- <div style='width:100%;height:300rpx; ' class='bg-primary '>视频</div> -->
+      </div>
 
-      <view class="" style="margin-top:-30rpx;">
+      <div class="" style="margin-top:-30rpx;">
 
-        <view style="padding:20rpx 40rpx 40rpx 40rpx;">
+        <div style="padding:20rpx 40rpx 40rpx 40rpx;">
           <text decode="{{true}}" space="ensp" class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}' style="">{{jginfo.jieshao}}</text>
-        </view>
-        <view class="flex-row flex-column">
-          <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
-          <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
-        </view>
-      </view>
+        </div>
+        <div class="flex-row flex-column">
+          <div class="txt-blue h5 margin-bottom-20 margin-top-10" **ngIf'{{more==false}}' bindtap="showmore">查看更多</div>
+          <div class="txt-blue h5 margin-bottom-20" **ngIf'{{more==true}}' bindtap="shouqi">收起</div>
+        </div>
+      </div>
 
 
-    </view>
+    </div>
 
-    <!-- <image src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw'></image> -->
-
-
-    <image src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw'></image>
+    <!-- <img src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw' /> -->
 
 
-    <!-- <view class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
-
-      <image src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;"></image>
-
-    </view>   -->
+    <img src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw' />
 
 
+    <!-- <div class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
 
-    <view class='margin-20 margin-bottom-10 '>
-      <view class='padding-20 flex-row radius-10  margin-top-20  mk' wx:for='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
+      <img src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;" />
 
-        <image class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img'></image>
-        <view class='flex-row column   margin-left-20 flex-1'>
-          <view class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</view>
-
-          <view class='flex-row flex-center'>
-
-            <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
-              <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-            </view>
-
-            <view wx:if="{{item.scoring==4}}" class='flex-row flex-center '>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              <image src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-            </view>
-
-            <view wx:if="{{item.scoring==3}}" class='flex-row flex-center '>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-            </view>
-
-            <view wx:if="{{item.scoring==2}}" class='flex-row flex-center '>
-              <image wx:for='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              <image wx:for='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-            </view>
-
-            <view wx:if="{{item.scoring==1}}" class='flex-row flex-center '>
-              <image src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-              <image wx:for='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
-            </view>
-
-
-            <view class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</view>
-          </view>
-
-          <view class='flex-row flex-center flex-1' style=''>
-
-
-            <view class='flex-row flex-center flex-1'>
-              <image src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10'></image>
-              <view class='h6  margin-left-5' style='color:#000000'>{{item.age_name}}</view>
-            </view>
-
-
-            <view class='flex-row flex-center flex-1'>
-              <image src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10'></image>
-              <view class='h6  margin-left-5' style='color:#000000'>{{item.class_hours}}节课</view>
-            </view>
-
-
-            <view class='flex-row flex-center flex-1'>
-              <image src='{{uploadpath}}resource/{{res.time}}' class='icon-10'></image>
-              <view class='h6  margin-left-5' style='color:#000000'>{{item.duration}}/节</view>
-            </view>
-
-          </view>
-
-          <view class='flex-row flex-center flex-1'>
-            <image class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}'></image>
-            <view class='h6 flex-1 txt-white margin-left-5 chaochu' style='color:#AAAAAA'>{{item.JG_jigou}}</view>
-            <view class=' txt-red txt-bold'>￥{{item.zuidijia}}</view>
-          </view>
-
-          <view class='flex-row flex-center'>
-            <view class='h6  flex-1 chaochu' style='color:#AAAAAA'>{{item.JG_showaddress}}</view>
-            <view class='h6  txt-bold ' style=' '>{{item.miletxt}}</view>
-          </view>
-
-        </view>
-
-
-      </view>
-    </view>
+    </div>   -->
 
 
 
+    <div class='margin-20 margin-bottom-10 '>
+      <div class='padding-20 flex-row radius-10  margin-top-20  mk' **ngFor'{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
 
-    <view style="height:50rpx;"></view>
+        <img class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' />
+        <div class='flex-row column   margin-left-20 flex-1'>
+          <div class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</div>
+
+          <div class='flex-row flex-center'>
+
+            <div **ngIf"{{item.scoring==5}}" class='flex-row flex-center '>
+              <img **ngFor'{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            </div>
+
+            <div **ngIf"{{item.scoring==4}}" class='flex-row flex-center '>
+              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            </div>
+
+            <div **ngIf"{{item.scoring==3}}" class='flex-row flex-center '>
+              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            </div>
+
+            <div **ngIf"{{item.scoring==2}}" class='flex-row flex-center '>
+              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            </div>
+
+            <div **ngIf"{{item.scoring==1}}" class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            </div>
+
+
+            <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>
+          </div>
+
+          <div class='flex-row flex-center flex-1' style=''>
+
+
+            <div class='flex-row flex-center flex-1'>
+              <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+              <div class='h6  margin-left-5' style='color:#000000'>{{item.age_name}}</div>
+            </div>
+
+
+            <div class='flex-row flex-center flex-1'>
+              <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+              <div class='h6  margin-left-5' style='color:#000000'>{{item.class_hours}}节课</div>
+            </div>
+
+
+            <div class='flex-row flex-center flex-1'>
+              <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+              <div class='h6  margin-left-5' style='color:#000000'>{{item.duration}}/节</div>
+            </div>
+
+          </div>
+
+          <div class='flex-row flex-center flex-1'>
+            <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
+            <div class='h6 flex-1 txt-white margin-left-5 chaochu' style='color:#AAAAAA'>{{item.JG_jigou}}</div>
+            <div class=' txt-red txt-bold'>￥{{item.zuidijia}}</div>
+          </div>
+
+          <div class='flex-row flex-center'>
+            <div class='h6  flex-1 chaochu' style='color:#AAAAAA'>{{item.JG_showaddress}}</div>
+            <div class='h6  txt-bold ' style=' '>{{item.miletxt}}</div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
 
 
 
 
-    <!-- <view class='flex-row flex-center flex-wrap'>
-      <view bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' wx:for='{{ketang}}' wx:key='k'>
-
-        <view style=''>
-          <image class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}'></image>
-        </view>
-
-        <view class='padding-12'>
-          <view class=' txt-bold chaochu'>{{item.name}}</view>
-          <view class='flex-row flex-center margin-top-14'>
-            <view class='flex-row flex-center'>
-              <image src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 '></image>
-              <view class=' f20 margin-left-10'>{{item.age_name}}</view>
-            </view>
-
-            <view class='flex-row flex-center margin-left-26'>
-              <image src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 '></image>
-              <view class=' f20 margin-left-10'>共{{item.chapter_num}}集</view>
-            </view>
-          </view>
+    <div style="height:50rpx;"></div>
 
 
 
-        </view>
 
-        <view class='margin-left-10 dd flex-row flex-center margin-top-12'>
-          <view class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</view>
-          <view class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</view>
-          <view class='margin-top-4 h6 txt-red margin-left-6'>￥</view>
-          <view class=' txt-red xg' style=''>{{item.price}}</view>
-        </view>
+    <!-- <div class='flex-row flex-center flex-wrap'>
+      <div bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' **ngFor'{{ketang}}' wx:key='k'>
+
+        <div style=''>
+          <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}' />
+        </div>
+
+        <div class='padding-12'>
+          <div class=' txt-bold chaochu'>{{item.name}}</div>
+          <div class='flex-row flex-center margin-top-14'>
+            <div class='flex-row flex-center'>
+              <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
+              <div class=' f20 margin-left-10'>{{item.age_name}}</div>
+            </div>
+
+            <div class='flex-row flex-center margin-left-26'>
+              <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
+              <div class=' f20 margin-left-10'>共{{item.chapter_num}}集</div>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class='margin-left-10 dd flex-row flex-center margin-top-12'>
+          <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</div>
+          <div class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</div>
+          <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
+          <div class=' txt-red xg' style=''>{{item.price}}</div>
+        </div>
  
-      </view>
-    </view> -->
+      </div>
+    </div> -->
 
-    <!-- <view class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
-      <view class="flex-1"></view>
-      <view class="more text-center txt-bold txt-white" bindtap="seemore">
+    <!-- <div class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
+      <div class="flex-1"></div>
+      <div class="more text-center txt-bold txt-white" bindtap="seemore">
         查看更多
-      </view>
-      <view class="flex-1"></view>
-    </view> -->
+      </div>
+      <div class="flex-1"></div>
+    </div> -->
 
-    <!-- <view class='height-100 '></view> -->
+    <!-- <div class='height-100 '></div> -->
 
-    <view class="flex-row flex-center padding-T-B-28">
-      <view class="flex-1"></view>
-      <image src='{{uploadpath}}resource/{{res.under_icon}} ' class=' ' style='width:150rpx;height:60rpx; margin-bottom:-10rpx;'></image>
+    <div class="flex-row flex-center padding-T-B-28">
+      <div class="flex-1"></div>
+      <img src='{{uploadpath}}resource/{{res.under_icon}} ' class=' ' style='width:150rpx;height:60rpx; margin-bottom:-10rpx;' />
 
-      <view class="flex-1"></view>
-    </view>
+      <div class="flex-1"></div>
+    </div>
 
-    <view style="height:50rpx;"></view>
-
-
-  </view>
+    <div style="height:50rpx;"></div>
 
 
+  </div>
 
-</view>
+
+
+</div>
 
 
     </ion-content>

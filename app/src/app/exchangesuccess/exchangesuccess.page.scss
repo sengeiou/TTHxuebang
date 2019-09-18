@@ -8,82 +8,82 @@ Page {
   }
   
   .top {
-    height: 82rpx;
+    height: rpx(82);
     background: linear-gradient(110deg, rgba(255, 190, 49, 1) 0%, rgba(255, 139, 15, 1) 100%);
   }
   
   .padding-60 {
-    padding: 60rpx;
+    padding: rpx(60);
   }
   
   .padding-mid {
-    padding: 32rpx 0rpx 26rpx 0rpx;
+    padding: rpx(32) rpx(0) rpx(26) rpx(0);
   }
   
   .margin-left-32 {
-    margin-left: 32rpx;
+    margin-left: rpx(32);
   }
   
   .margin-left-28 {
-    margin-left: 28rpx;
+    margin-left: rpx(28);
   }
   
   .icon-12 {
-    height: 24rpx;
-    width: 14rpx;
-    margin-left: 20rpx;
+    height: rpx(24);
+    width: rpx(14);
+    margin-left: rpx(20);
   }
   
   .icon-24 {
-    width: 48rpx;
-    height: 48rpx;
+    width: rpx(48);
+    height: rpx(48);
   }
   
   .margin-right-26 {
-    margin-right: 26rpx;
+    margin-right: rpx(26);
   }
   
   .border-1 {
-    border-bottom: 2rpx solid #f5f5f5;
+    border-bottom: rpx(2) solid #f5f5f5;
   }
   
   .padding-28 {
-    padding: 28rpx;
+    padding: rpx(28);
   }
   
   .padding-detail {
-    padding: 28rpx 28rpx 28rpx 0rpx;
+    padding: rpx(28) rpx(28) rpx(28) rpx(0);
   }
   
   .icon-160 {
-    height: 160rpx;
-    width: 160rpx;
+    height: rpx(160);
+    width: rpx(160);
   }
   
   .width-112 {
-    width: 112rpx;
+    width: rpx(112);
   }
   
   .margin-left-52 {
-    margin-left: 52rpx;
+    margin-left: rpx(52);
   }
   
   .wuliu {
     position: fixed;
     width: 100vw;
-    height: 100rpx; 
+    height: rpx(100); 
     bottom: 0;
   }
   
   .btn {
-    width: 146rpx;
-    height: 48rpx;
-    margin-top: 26rpx;
-    margin-right: 24rpx;
-    line-height: 48rpx;
+    width: rpx(146);
+    height: rpx(48);
+    margin-top: rpx(26);
+    margin-right: rpx(24);
+    line-height: rpx(48);
     background: rgba(255, 255, 255, 1);
-    border-radius: 30rpx;
-    border: 2rpx solid rgba(102, 102, 102, 1);
+    border-radius: rpx(30);
+    border: rpx(2) solid rgba(102, 102, 102, 1);
   }
   
   

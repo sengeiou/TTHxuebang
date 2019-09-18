@@ -3,16 +3,16 @@
 }
 
 .center{
-    margin-left:80rpx;
-    margin-right: 80rpx;
+    margin-left:rpx(80);
+    margin-right: rpx(80);
     text-align: center;
-    margin-top:20rpx;
+    margin-top:rpx(20);
   }
   .btn{
-    margin-top:80rpx;
-    padding:20rpx 60rpx 20rpx 60rpx;
+    margin-top:rpx(80);
+    padding:rpx(20) rpx(60) rpx(20) rpx(60);
     background: rgba(255, 102, 0, 1);
     color:rgba(255, 255, 255, 1);
-    font-size: 30rpx;
-    border-radius: 60rpx;
+    font-size: rpx(30);
+    border-radius: rpx(60);
   }

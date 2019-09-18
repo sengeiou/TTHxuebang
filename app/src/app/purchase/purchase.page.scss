@@ -10,13 +10,13 @@ Page{
     color: #FFC200;
   }
   .block{
-    padding-left: 20rpx;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
+    padding-left: rpx(20);
+    padding-top: rpx(20);
+    padding-bottom: rpx(20);
   }
   .icon{
-    height: 168rpx;
-    width: 168rpx;
+    height: rpx(168);
+    width: rpx(168);
   }
   
   .bor_top{
@@ -30,10 +30,10 @@ Page{
     width: 100vw;
   }
   .phone_btn{
-    width: 160rpx;
+    width: rpx(160);
     background: red;
-    height: 50rpx;
-    line-height: 50rpx;
+    height: rpx(50);
+    line-height: rpx(50);
   }
   .modal-mask {
     width: 100%;
@@ -60,28 +60,28 @@ Page{
   }.nande{
   color:#FFFFFF;
   background-color: #4FB5E6;
-  padding: 5rpx 20rpx 5rpx 20rpx;
-  border-radius: 20rpx;
-  margin-left: 20rpx;
-  font-size: 20rpx;
+  padding: rpx(5) rpx(20) rpx(5) rpx(20);
+  border-radius: rpx(20);
+  margin-left: rpx(20);
+  font-size: rpx(20);
   }
   .nvde{
   color:#FFFFFF;
   background-color: #FF8686;
-  padding: 5rpx 20rpx 5rpx 20rpx;
-  border-radius: 20rpx;
-  margin-left: 20rpx;
-  font-size: 20rpx;
+  padding: rpx(5) rpx(20) rpx(5) rpx(20);
+  border-radius: rpx(20);
+  margin-left: rpx(20);
+  font-size: rpx(20);
   
   }
   .tuan_btn{
      
   width: 85%;
-  padding-top:20rpx;
-  padding-bottom:20rpx;
+  padding-top:rpx(20);
+  padding-bottom:rpx(20);
   background-color: #FF6600;
   color: white;
-  border-radius: 40rpx;
+  border-radius: rpx(40);
   
   
   

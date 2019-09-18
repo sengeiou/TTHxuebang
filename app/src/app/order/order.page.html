@@ -12,451 +12,451 @@
     <ion-content >
 
 <!--pages/order/order.wxml-->
-<back-component></back-component>
-<view class="bg_top">
-<view class="flex-row flex-center ">
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class="bg_top">
+<div class="flex-row flex-center ">
 
-  <view class="flex-1"></view>
+  <div class="flex-1"></div>
 
-  <view wx:if="{{info.pstatus!='W'}}" class="flex-row flex-center nr">
+  <div **ngIf"{{info.pstatus!='W'}}" class="flex-row flex-center nr">
 
-    <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
-    <view class=' margin-left-20'>
-      <view class="txt-bold">购买成功,获得{{info.jifen}}积分</view>
-      <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
-    </view>
-  </view>
+    <img src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80' />
+    <div class=' margin-left-20'>
+      <div class="txt-bold">购买成功,获得{{info.jifen}}积分</div>
+      <div class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</div>
+    </div>
+  </div>
   
-  <view class="flex-1"></view>
+  <div class="flex-1"></div>
 
-</view>
-<view wx:if="{{info.pstatus!='W'}}" style="padding-bottom:60rpx" class='flex-row flex-center'>
-  <view class='flex-1'></view>
+</div>
+<div **ngIf"{{info.pstatus!='W'}}" style="padding-bottom:60rpx" class='flex-row flex-center'>
+  <div class='flex-1'></div>
 
-  <view class='flex-row flex-center btn ' bindtap='tohome'>
-    <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>返回首页</view>
-    <view class='flex-1'></view>
-  </view>
+  <div class='flex-row flex-center btn ' bindtap='tohome'>
+    <div class='flex-1'></div>
+    <img src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34' />
+    <div class='txt-white h5 margin-left-18'>返回首页</div>
+    <div class='flex-1'></div>
+  </div>
 
-  <view style='width:24rpx'></view>
+  <div style='width:24rpx'></div>
 
-  <view bindtap="todetails" class='flex-row flex-center btn '>
-    <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.jixugouke}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>继续购课</view>
-    <view class='flex-1'></view>
-  </view>
+  <div bindtap="todetails" class='flex-row flex-center btn '>
+    <div class='flex-1'></div>
+    <img src='{{uploadpath}}resource/{{res.jixugouke}}' class='icon-34' />
+    <div class='txt-white h5 margin-left-18'>继续购课</div>
+    <div class='flex-1'></div>
+  </div>
 
-  <view class='flex-1'></view>
+  <div class='flex-1'></div>
 
-</view>
-</view>
-<view class='flex-row flex-column ' style='background-color:#FFFFFF' wx:if="{{info.pstatus=='W'}}">
-  <view class='height-60'></view>
+</div>
+</div>
+<div class='flex-row flex-column ' style='background-color:#FFFFFF' **ngIf"{{info.pstatus=='W'}}">
+  <div class='height-60'></div>
 
-  <view style='' class='txt-bold  h4'>待支付</view>
+  <div style='' class='txt-bold  h4'>待支付</div>
 
-  <view class='flex-row flex-center margin-top-10'>
-    <image src='{{uploadpath}}resource/{{res.heishijian}}' class='icon'></image>
-    <view style='' class='h6  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</view>
-  </view>
-  <view class="flex-row flex-center margin-top-20">
+  <div class='flex-row flex-center margin-top-10'>
+    <img src='{{uploadpath}}resource/{{res.heishijian}}' class='icon' />
+    <div style='' class='h6  margin-left-20'>请在{{mMinute}}分{{mSecond}}秒内完成支付,过时订单将会取消</div>
+  </div>
+  <div class="flex-row flex-center margin-top-20">
 
-    <view bindtap='colseorder' id='{{info.id}} ' class="qxdd">取消订单</view>
-    <view bindtap='bindpay' class="qzf margin-left-20">去支付</view>
-  </view>
+    <div bindtap='colseorder' id='{{info.id}} ' class="qxdd">取消订单</div>
+    <div bindtap='bindpay' class="qzf margin-left-20">去支付</div>
+  </div>
 
-  <!-- <view style='' class=' bg-white flex-row flex-column padding-20 radius-10  margin-top-20'>
-    <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:320rpx;'>
-
-     
+  <!-- <div style='' class=' bg-white flex-row flex-column padding-20 radius-10  margin-top-20'>
+    <div class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:320rpx;'>
 
      
-      <view class=" padding-top-10 flex-row flex-center " style="width:100%;">
-        <view bindtap="kefu" class="padding-left-20">
-          <image src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban'></image>
-        </view>
-        <view class="padding-left-20" style="height:68rpx;">
-          <view bindtap="kefu" class="saoma">扫码添加客服</view>
-        </view>
 
-        <view class="flex-1"></view>
-      </view>
+     
+      <div class=" padding-top-10 flex-row flex-center " style="width:100%;">
+        <div bindtap="kefu" class="padding-left-20">
+          <img src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban' />
+        </div>
+        <div class="padding-left-20" style="height:68rpx;">
+          <div bindtap="kefu" class="saoma">扫码添加客服</div>
+        </div>
+
+        <div class="flex-1"></div>
+      </div>
        
-         <view class=" txt-bold " style="color:#FFFFFF;width:450rpx;font-size:26rpx;">苹果手机用户暂时无法在平台完成支付 因为平台ios端系统在更新维护中~</view>
+         <div class=" txt-bold " style="color:#FFFFFF;width:450rpx;font-size:26rpx;">苹果手机用户暂时无法在平台完成支付 因为平台ios端系统在更新维护中~</div>
 
-      <view style='width:100% ' class="margin-top-10">
-        <view class='flex-row flex-center ' style='width:100% '>
+      <div style='width:100% ' class="margin-top-10">
+        <div class='flex-row flex-center ' style='width:100% '>
 
-          <view class=' flex-row flex-center   flex-1  '>
-            <view class="flex-1"></view>
-            <view class="txt-white quan h6 text-center ">1</view>
-            <view class="flex-1 "></view>
+          <div class=' flex-row flex-center   flex-1  '>
+            <div class="flex-1"></div>
+            <div class="txt-white quan h6 text-center ">1</div>
+            <div class="flex-1 "></div>
 
-          </view>
-          <view class=' flex-row flex-center   flex-1  '>
-            <view class="flex-1"></view>
-            <view class="txt-white quan h6 text-center ">2</view>
-            <view class="flex-1"></view>
-          </view>
+          </div>
+          <div class=' flex-row flex-center   flex-1  '>
+            <div class="flex-1"></div>
+            <div class="txt-white quan h6 text-center ">2</div>
+            <div class="flex-1"></div>
+          </div>
      
-        </view>
-        <view class='flex-row flex-center xxxx ' style='width:100% '>
-          <view class="flex-1"></view>
+        </div>
+        <div class='flex-row flex-center xxxx ' style='width:100% '>
+          <div class="flex-1"></div>
 
-          <view class=" xian1"></view>
-          <view class="flex-1"></view>
-        </view>
+          <div class=" xian1"></div>
+          <div class="flex-1"></div>
+        </div>
 
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
 
-          <view class=' txt-white flex-1 h5 text-center'>添加微信号 </view>
-          <view class=' txt-white flex-1 h5 text-center'>联系学榜客服 </view>
+          <div class=' txt-white flex-1 h5 text-center'>添加微信号 </div>
+          <div class=' txt-white flex-1 h5 text-center'>联系学榜客服 </div>
       
-        </view>
+        </div>
 
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
        
-        <view class="flex-row flex-1 margin-left-10">
-          <view class=' txt-white  h7 text-center '>
-            {{courseinfo.teacherwechatid}} </view>
-             <view class="fz margin-left-10" id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>复制微信号</view>
-             </view>
-          <view class=' txt-white flex-1 h7 text-center'>完成课程购买 </view>
+        <div class="flex-row flex-1 margin-left-10">
+          <div class=' txt-white  h7 text-center '>
+            {{courseinfo.teacherwechatid}} </div>
+             <div class="fz margin-left-10" id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>复制微信号</div>
+             </div>
+          <div class=' txt-white flex-1 h7 text-center'>完成课程购买 </div>
        
-        </view>
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
+        </div>
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
 
-          <view class=' flex-row  flex-1 flex-center '>
-            <view class="flex-1"></view>
+          <div class=' flex-row  flex-1 flex-center '>
+            <div class="flex-1"></div>
          
-            <view class="flex-1"></view>
-          </view>
-          <view class=' txt-white flex-1 h7 text-center'> </view>
-          <view class=' txt-white flex-1 h7 text-center'></view>
-        </view>
-      </view>
+            <div class="flex-1"></div>
+          </div>
+          <div class=' txt-white flex-1 h7 text-center'> </div>
+          <div class=' txt-white flex-1 h7 text-center'></div>
+        </div>
+      </div>
 
 
 
 
-    </view>
+    </div>
 
 
 
 
 
 
-  </view> -->
+  </div> -->
   <!-- <view>
     <button bindtap='bindpay'>支付</button>
-  </view> -->
-  <view class='height-60'></view>
-</view>
-<view class="height-20"></view>
-<view class='flex-row flex-column ' wx:if="{{info.pstatus=='P'||info.pstatus=='PJ'}}">
-  <view style='height:38rpx;'></view>
-  <view style='color:#999999' class='h6'>请勿随意将此页面分享给陌生人，保证订单有效性</view>
+  </div> -->
+  <div class='height-60'></div>
+</div>
+<div class="height-20"></div>
+<div class='flex-row flex-column ' **ngIf"{{info.pstatus=='P'||info.pstatus=='PJ'}}">
+  <div style='height:38rpx;'></div>
+  <div style='color:#999999' class='h6'>请勿随意将此页面分享给陌生人，保证订单有效性</div>
 
-  <view class='height-20'></view>
+  <div class='height-20'></div>
 
-  <view class='height-20'></view>
-
-
-  <view style='' class=' bg-white flex-row flex-column padding-20 radius-10 '>
-    <view class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:290rpx;'>
-
-      <!-- <view class='height-20'></view>
-      <view class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</view>
-      <view style='height:10'></view>
-      <view class='flex-row flex-center ' style='width:100% '>
-        <view class='flex-2 '></view>
-        <view style='width:50rpx;height:10rpx;'></view>
-        <view class=' txt-bold txt-white   text-center'>{{courseinfo.teacherwechatid}}</view>
-        <view style='width:36rpx;'></view>
-        <view class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</view>
-        <view class='flex-1 '></view>
-      </view> -->
-
-      <!-- <view class='height-66 '></view> -->
-      <view class=" padding-top-10 flex-row flex-center " style="width:100%;">
-        <view bindtap="kefu" class="padding-left-20">
-          <image src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban'></image>
-        </view>
-        <view class="padding-left-20" style="height:68rpx;">
-          <view bindtap="kefu" class="saoma">扫码添加客服</view>
-        </view>
-
-        <view class="flex-1"></view>
-      </view>
-
-      <view style='width:100% '>
-        <view class='flex-row flex-center ' style='width:100% '>
-
-          <view class=' flex-row flex-center   flex-1  '>
-            <view class="flex-1"></view>
-            <view class="txt-white quan h6 text-center ">1</view>
-            <view class="flex-1 "></view>
-
-          </view>
-          <view class=' flex-row flex-center   flex-1  '>
-            <view class="flex-1"></view>
-            <view class="txt-white quan h6 text-center ">2</view>
-            <view class="flex-1"></view>
-          </view>
-          <view class=' flex-row flex-center   flex-1  '>
-            <view class="flex-1"></view>
-            <view class="txt-white quan h6 text-center ">3</view>
-            <view class="flex-1"></view>
-          </view>
-        </view>
-        <view class='flex-row flex-center xxxx ' style='width:100% '>
-          <view class="flex-1"></view>
-
-          <view class=" xian1"></view>
-          <view class="flex-1"></view>
-        </view>
-
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
-
-          <view class=' txt-white flex-1 h5 text-center'>添加微信号 </view>
-          <view class=' txt-white flex-1 h5 text-center'>联系学榜客服 </view>
-          <view class=' txt-white flex-1 h5 text-center'>确定上课时间 </view>
-        </view>
-
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
-
-          <view class=' txt-white flex-1 h7 text-center '>
-            {{courseinfo.teacherwechatid}} </view>
-          <view class=' txt-white flex-1 h7 text-center'>确认课程信息 </view>
-          <view class=' txt-white flex-1 h7 text-center'>准备上课啦！ </view>
-        </view>
-        <view class='flex-row flex-center margin-top-5 ' style='width:100% '>
-
-          <view class=' flex-row  flex-1 flex-center '>
-            <view class="flex-1"></view>
-            <view class="fz" id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>复制微信号</view>
-            <view class="flex-1"></view>
-          </view>
-          <view class=' txt-white flex-1 h7 text-center'> </view>
-          <view class=' txt-white flex-1 h7 text-center'></view>
-        </view>
-      </view>
+  <div class='height-20'></div>
 
 
+  <div style='' class=' bg-white flex-row flex-column padding-20 radius-10 '>
+    <div class=' flex-row flex-column  radius-10' style='background:#50B674;width:680rpx;height:290rpx;'>
 
+      <!-- <div class='height-20'></div>
+      <div class='txt-white ' style='font-size:30rpx;'>学榜客服微信号</div>
+      <div style='height:10'></div>
+      <div class='flex-row flex-center ' style='width:100% '>
+        <div class='flex-2 '></div>
+        <div style='width:50rpx;height:10rpx;'></div>
+        <div class=' txt-bold txt-white   text-center'>{{courseinfo.teacherwechatid}}</div>
+        <div style='width:36rpx;'></div>
+        <div class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</div>
+        <div class='flex-1 '></div>
+      </div> -->
 
-    </view>
+      <!-- <div class='height-66 '></div> -->
+      <div class=" padding-top-10 flex-row flex-center " style="width:100%;">
+        <div bindtap="kefu" class="padding-left-20">
+          <img src='{{uploadpath}}resource/{{res.erweimaban}}' class='erweimaban' />
+        </div>
+        <div class="padding-left-20" style="height:68rpx;">
+          <div bindtap="kefu" class="saoma">扫码添加客服</div>
+        </div>
+
+        <div class="flex-1"></div>
+      </div>
+
+      <div style='width:100% '>
+        <div class='flex-row flex-center ' style='width:100% '>
+
+          <div class=' flex-row flex-center   flex-1  '>
+            <div class="flex-1"></div>
+            <div class="txt-white quan h6 text-center ">1</div>
+            <div class="flex-1 "></div>
+
+          </div>
+          <div class=' flex-row flex-center   flex-1  '>
+            <div class="flex-1"></div>
+            <div class="txt-white quan h6 text-center ">2</div>
+            <div class="flex-1"></div>
+          </div>
+          <div class=' flex-row flex-center   flex-1  '>
+            <div class="flex-1"></div>
+            <div class="txt-white quan h6 text-center ">3</div>
+            <div class="flex-1"></div>
+          </div>
+        </div>
+        <div class='flex-row flex-center xxxx ' style='width:100% '>
+          <div class="flex-1"></div>
+
+          <div class=" xian1"></div>
+          <div class="flex-1"></div>
+        </div>
+
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
+
+          <div class=' txt-white flex-1 h5 text-center'>添加微信号 </div>
+          <div class=' txt-white flex-1 h5 text-center'>联系学榜客服 </div>
+          <div class=' txt-white flex-1 h5 text-center'>确定上课时间 </div>
+        </div>
+
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
+
+          <div class=' txt-white flex-1 h7 text-center '>
+            {{courseinfo.teacherwechatid}} </div>
+          <div class=' txt-white flex-1 h7 text-center'>确认课程信息 </div>
+          <div class=' txt-white flex-1 h7 text-center'>准备上课啦！ </div>
+        </div>
+        <div class='flex-row flex-center margin-top-5 ' style='width:100% '>
+
+          <div class=' flex-row  flex-1 flex-center '>
+            <div class="flex-1"></div>
+            <div class="fz" id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>复制微信号</div>
+            <div class="flex-1"></div>
+          </div>
+          <div class=' txt-white flex-1 h7 text-center'> </div>
+          <div class=' txt-white flex-1 h7 text-center'></div>
+        </div>
+      </div>
 
 
 
-    <!-- <view style='height:28rpx;'></view>
 
-    <view class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</view>
-    <image class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindtap='viewPhoto'></image>
-    <view class=' ' style='color:black;font-size:28rpx;'>如机构需要验证，请出示核销码</view> -->
+    </div>
 
 
-  </view>
-  <view class='height-20'></view>
-  <view class='height-20'></view>
 
-  <!-- <view class='flex-row flex-center padding-30; '>
+    <!-- <div style='height:28rpx;'></div>
+
+    <div class=' ' style='color:#AAAAAA;font-size:24rpx;'>*长按二维码，保存电子凭证到手机</div>
+    <img class='txt-white h3 ' style='width:356rpx;height:356rpx' mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindtap='viewPhoto' />
+    <div class=' ' style='color:black;font-size:28rpx;'>如机构需要验证，请出示核销码</div> -->
+
+
+  </div>
+  <div class='height-20'></div>
+  <div class='height-20'></div>
+
+  <!-- <div class='flex-row flex-center padding-30; '>
 
 
     <button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-      <view style='width:320rpx;height:80rpx;line-height:80rpx; ' class='bg-primary radius-10 txt-white text-center h6 '>联系学榜客服</view>
+      <div style='width:320rpx;height:80rpx;line-height:80rpx; ' class='bg-primary radius-10 txt-white text-center h6 '>联系学榜客服</div>
     </button>
 
 
-    <view style='width:20rpx;height:20rpx; '></view>
+    <div style='width:20rpx;height:20rpx; '></div>
     <navigator url='/pages/seek/seek?type=kc' style='width:320rpx;height:80rpx;line-height:80rpx; ' class='bg-primary radius-10 txt-white text-center h6 '>继续购课</navigator>
-  </view> -->
+  </div> -->
 
-</view>
+</div>
 
 
-<!-- <view class='flex-row flex-column ' wx:if="{{info.pstatus=='C '}}">
+<!-- <div class='flex-row flex-column ' **ngIf"{{info.pstatus=='C '}}">
   15分钟未支付已取消
-</view> -->
+</div> -->
 
 
 
-<view class='flex-row flex-column ' style='background-color:#FFC200 ' wx:if="{{info.pstatus=='C '}}">
-  <view class='height-100 '></view>
+<div class='flex-row flex-column ' style='background-color:#FFC200 ' **ngIf"{{info.pstatus=='C '}}">
+  <div class='height-100 '></div>
 
-  <view style=' ' class='txt-bold txt-white h4 '>15分钟未支付已取消</view>
+  <div style=' ' class='txt-bold txt-white h4 '>15分钟未支付已取消</div>
 
   <!-- <view>
     <button bindtap='bindpay '>支付</button>
-  </view> -->
-  <view class='height-100 '></view>
-</view>
+  </div> -->
+  <div class='height-100 '></div>
+</div>
 
 
 
-<view class='flex-row flex-column ' wx:if="{{info.pstatus=='U '}}">
+<div class='flex-row flex-column ' **ngIf"{{info.pstatus=='U '}}">
   核销码已使用
-</view>
+</div>
 
 
 
-<view class='flex-row flex-column ' wx:if="{{info.pstatus=='R '}}">
+<div class='flex-row flex-column ' **ngIf"{{info.pstatus=='R '}}">
   申请退款中
-</view>
+</div>
 
 
-<view class='flex-row flex-column ' wx:if="{{info.pstatus=='F '}}">
+<div class='flex-row flex-column ' **ngIf"{{info.pstatus=='F '}}">
   退款成功
-</view>
+</div>
 
-<view class='flex-row flex-column ' wx:if="{{info.pstatus=='S '}}">
+<div class='flex-row flex-column ' **ngIf"{{info.pstatus=='S '}}">
   完成购买
-</view>
+</div>
 
 
-<view class=' '>
-  <view class=' padding-left-20 bg-white bor_bot bor_top ' style=' '>
-    <view class='flex-row flex-center padding-20 bor_bot ' style=' '>
+<div class=' '>
+  <div class=' padding-left-20 bg-white bor_bot bor_top ' style=' '>
+    <div class='flex-row flex-center padding-20 bor_bot ' style=' '>
 
-      <view class='txt-black '>订单信息</view>
-    </view>
+      <div class='txt-black '>订单信息</div>
+    </div>
 
-    <view class='flex-row flex-center padding-20 bor_bot ' bindtap='todetails' style=' '>
+    <div class='flex-row flex-center padding-20 bor_bot ' bindtap='todetails' style=' '>
 
-      <image class='icon-50 radius-10 ' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}} '></image>
+      <img class='icon-50 radius-10 ' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}} ' />
 
-      <view class='flex-1 flex-row column margin-left-20 '>
-        <view class='flex-row flex-center '>
-          <view class=' txt-black txt-bold '>{{courseinfo.name}}</view>
-        </view>
-        <view class='margin-top-5 txt-gray h5 '>{{courseinfo.JG_jigou}}</view>
-      </view>
+      <div class='flex-1 flex-row column margin-left-20 '>
+        <div class='flex-row flex-center '>
+          <div class=' txt-black txt-bold '>{{courseinfo.name}}</div>
+        </div>
+        <div class='margin-top-5 txt-gray h5 '>{{courseinfo.JG_jigou}}</div>
+      </div>
       <view>
-        <view class='txt-black  text-right'>￥{{info.amount}}</view>
-        <view wx:if="{{info.pstatus!='W'}}" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</view>
-      </view>
+        <div class='txt-black  text-right'>￥{{info.amount}}</div>
+        <div **ngIf"{{info.pstatus!='W'}}" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</div>
+      </div>
 
-    </view>
+    </div>
 
-    <view class='flex-row flex-center padding-20 bor_bot ' style=' '>
-      <view class='flex-1 '>实付款</view>
-      <view class='txt-black txt-bold margin-left-20 '>￥ {{info.amount}}</view>
-    </view>
+    <div class='flex-row flex-center padding-20 bor_bot ' style=' '>
+      <div class='flex-1 '>实付款</div>
+      <div class='txt-black txt-bold margin-left-20 '>￥ {{info.amount}}</div>
+    </div>
 
 
-    <!-- <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class='h5 flex-1 '>订单号</view>
-      <view class='txt-black h5 flex-4 '>{{info.orderno}}</view>
+    <!-- <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class='h5 flex-1 '>订单号</div>
+      <div class='txt-black h5 flex-4 '>{{info.orderno}}</div>
      
-    </view>
+    </div>
 
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class=' h5 flex-1 '>支付方式</view>
-      <view class='txt-black flex-4 h5 '>线上支付</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view>
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class=' h5 flex-1 '>支付方式</div>
+      <div class='txt-black flex-4 h5 '>线上支付</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div>
 
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class=' h5 flex-1 '>下单时间</view>
-      <view class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view>
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class=' h5 flex-1 '>下单时间</div>
+      <div class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div>
 
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class=' h5 flex-1 '>联系人</view>
-      <view class='txt-black flex-4 h5 '>{{info.name}}</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view>
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class=' h5 flex-1 '>联系人</div>
+      <div class='txt-black flex-4 h5 '>{{info.name}}</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div>
 
-    <view class='flex-row flex-center pd  ' style=' '>
-      <view class=' h5 flex-1 '>电话</view>
-      <view class='txt-black flex-4 h5 '>{{info.phone}}</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view> -->
+    <div class='flex-row flex-center pd  ' style=' '>
+      <div class=' h5 flex-1 '>电话</div>
+      <div class='txt-black flex-4 h5 '>{{info.phone}}</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div> -->
 
-  </view>
+  </div>
 
-  <view class='margin-top-20  padding-left-20 bg-white bor_bot bor_top ' style=' '>
-
-
-
-
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class='h5 flex-1 ddd '>订单号</view>
-      <view class='txt-black h5 flex-4 '>{{info.orderno}}</view>
-
-    </view>
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class=' h5 flex-1 ddd '>支付方式</view>
-      <view class='txt-black flex-4 h5 '>线上支付</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view>
-
-    <view class='flex-row flex-center pd bor_bot ' style=' '>
-      <view class=' h5 flex-1 ddd '>下单时间</view>
-      <view class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</view>
-      <view class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></view>
-    </view>
-
-  </view>
-  <view class=' text-center ' style='font-size:24rpx;height:100rpx;line-height:100rpx;color:#A1A1A1'>您购买的课程，购买后不支持退订、转让、退换。</view>
-</view>
+  <div class='margin-top-20  padding-left-20 bg-white bor_bot bor_top ' style=' '>
 
 
 
 
-<!-- <view class='flex-row flex-center padding-20 bg-white btm ' wx:if="{{info.pstatus=='W'}}" style=' '>
-  <view class='flex-1 '></view>
-  <view class='txt-gray text-center h6 fbtn ' style='border:1px solid #AAAAAA; ' id='{{info.id}} ' bindtap='colseorder'>取消订单</view>
-  <view class='txt-red text-center margin-left-20 h6 fbtn ' bindtap='bindpay' style='border:1px solid #FF5252; '>付款</view>
-</view> -->
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class='h5 flex-1 ddd '>订单号</div>
+      <div class='txt-black h5 flex-4 '>{{info.orderno}}</div>
+
+    </div>
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class=' h5 flex-1 ddd '>支付方式</div>
+      <div class='txt-black flex-4 h5 '>线上支付</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div>
+
+    <div class='flex-row flex-center pd bor_bot ' style=' '>
+      <div class=' h5 flex-1 ddd '>下单时间</div>
+      <div class='txt-black flex-4 h5 '>{{info.submit_time_formatting}}</div>
+      <div class='radius-10 h7 text-center margin-right-40 ' style='height:48rpx;width:10rpx; '></div>
+    </div>
+
+  </div>
+  <div class=' text-center ' style='font-size:24rpx;height:100rpx;line-height:100rpx;color:#A1A1A1'>您购买的课程，购买后不支持退订、转让、退换。</div>
+</div>
 
 
 
-<view wx:if="{{info.pstatus!='W'}}" class='height-50 '></view>
-<view wx:if="{{info.pstatus=='W'}}" class='height-100 '></view>
+
+<!-- <div class='flex-row flex-center padding-20 bg-white btm ' **ngIf"{{info.pstatus=='W'}}" style=' '>
+  <div class='flex-1 '></div>
+  <div class='txt-gray text-center h6 fbtn ' style='border:1px solid #AAAAAA; ' id='{{info.id}} ' bindtap='colseorder'>取消订单</div>
+  <div class='txt-red text-center margin-left-20 h6 fbtn ' bindtap='bindpay' style='border:1px solid #FF5252; '>付款</div>
+</div> -->
 
 
 
-<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{erweima}}"></view>
+<div **ngIf"{{info.pstatus!='W'}}" class='height-50 '></div>
+<div **ngIf"{{info.pstatus=='W'}}" class='height-100 '></div>
 
-<view class="modal-dialog" wx:if="{{erweima}}">
-  <view class="padding-20">
-    <view class="flex-row flex-center">
-      <view class="flex-1"></view>
-      <image src="{{uploadpath}}resource/{{res.heicha}}" bindtap="hideModal" class="icon-15"></image>
-    </view>
-    <view class="padding-top-20  text-center" style="color:#999999">
+
+
+<div class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" **ngIf"{{erweima}}"></div>
+
+<div class="modal-dialog" **ngIf"{{erweima}}">
+  <div class="padding-20">
+    <div class="flex-row flex-center">
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.heicha}}" bindtap="hideModal" class="icon-15" />
+    </div>
+    <div class="padding-top-20  text-center" style="color:#999999">
 
       *点击二维码，长按保存电子凭证到手机
-    </view>
+    </div>
 
-    <view class="flex-row flex-center margin-top">
-      <view class="flex-1"></view>
-      <image wx:if="{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{instinfo.kefuerweima}}" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade"></image>
-      <image wx:if="{{type=='hexiao'}}" bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai"></image>
-      <view class="flex-1"></view>
-    </view>
+    <div class="flex-row flex-center margin-top">
+      <div class="flex-1"></div>
+      <img **ngIf"{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{instinfo.kefuerweima}}" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade" />
+      <img **ngIf"{{type=='hexiao'}}" bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai" />
+      <div class="flex-1"></div>
+    </div>
 
-    <view class="margin-top  text-center" style="color:#222222 ">
+    <div class="margin-top  text-center" style="color:#222222 ">
 
       {{type=='hexiao'?'如需要验证，请出示此核销码':'扫描二维码添加客服微信'}}
-    </view>
-    <view class="height-50"></view>
-  </view>
+    </div>
+    <div class="height-50"></div>
+  </div>
 
-</view>
+</div>
 
 
-<view class="baocunhexiao  flex-row flex-center" wx:if="{{erweima}}" data-id="erweima" bindtap="xiazai">
-  <view class="flex-1"></view>
-  <image class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}"></image>
-  <view class="zi margin-left-10">保存{{type=='hexiao'?'核销码':'二维码'}}</view>
-  <view class="flex-1"></view>
-</view>
+<div class="baocunhexiao  flex-row flex-center" **ngIf"{{erweima}}" data-id="erweima" bindtap="xiazai">
+  <div class="flex-1"></div>
+  <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
+  <div class="zi margin-left-10">保存{{type=='hexiao'?'核销码':'二维码'}}</div>
+  <div class="flex-1"></div>
+</div>
 
 
     </ion-content>

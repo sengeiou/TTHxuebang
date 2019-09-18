@@ -18,17 +18,17 @@ Page {
   }
   
   .block {
-    padding-left: 20rpx;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
+    padding-left: rpx(20);
+    padding-top: rpx(20);
+    padding-bottom: rpx(20);
   }
   .margin-24{
-    margin:24rpx;
+    margin:rpx(24);
   }
   .order{
   
   background: #FFFFFF;
-  border-radius: 10rpx;
+  border-radius: rpx(10);
   
   
   }
@@ -36,23 +36,23 @@ Page {
     color: #FF5733;
   }
   .hkg{
-  height: 80rpx;
+  height: rpx(80);
   
   }
   .xian{
    border-top:1px solid #F5F5F5;
   }
   .pt{
-  font-size: 20rpx;
+  font-size: rpx(20);
   background: #FF5252;
   color:#FFFFFF;
-  padding:3rpx 4rpx 3rpx 4rpx;
-  border-radius: 1rpx;
+  padding:rpx(3) rpx(4) rpx(3) rpx(4);
+  border-radius: rpx(1);
   
   }
   .icon {
-    height: 168rpx;
-    width: 168rpx;
+    height: rpx(168);
+    width: rpx(168);
   }
   
   .bor_bot {
@@ -60,9 +60,9 @@ Page {
   }
   
   .fbtn {
-  padding:10rpx 30rpx 10rpx 30rpx;
+  padding:rpx(10) rpx(30) rpx(10) rpx(30);
    
-    border-radius: 40rpx;
+    border-radius: rpx(40);
    
   }
   
@@ -71,10 +71,10 @@ Page {
     
       position: absolute;
     
-    width: 140rpx;
-    height: 100rpx;
-    right:20rpx;
-    margin-top:20rpx;
+    width: rpx(140);
+    height: rpx(100);
+    right:rpx(20);
+    margin-top:rpx(20);
   }
   .cktxq{
   
@@ -88,12 +88,12 @@ Page {
   }
   .waitpay{
     background: #FD4963;
-    font-size: 32rpx;
+    font-size: rpx(32);
     color:white;
     border-radius: 50%;
-    min-width: 40rpx;
+    min-width: rpx(40);
   
-    min-height: 40rpx;line-height: 40rpx;
+    min-height: rpx(40);line-height: rpx(40);
     text-align: center;
   }
   .xiaoxi{

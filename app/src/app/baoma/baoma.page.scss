@@ -8,28 +8,28 @@ ion-content {
 }
   
   .block {
-    padding-top: 10rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-    padding-bottom: 15rpx;
-    margin-top:20rpx;
+    padding-top: rpx(10);
+    padding-left: rpx(20);
+    padding-right: rpx(20);
+    padding-bottom: rpx(15);
+    margin-top:rpx(20);
   }
   
   .img {
-    height: 300rpx;
-    width: 710rpx;
+    height: rpx(300);
+    width: rpx(710);
   }
   
   title_font{
-    font-size: 30rpx;
+    font-size: rpx(30);
   }
   .jiaoyu{
-    border:2rpx solid red;
-    height: 26rpx;
-    line-height: 26rpx;
-    min-width: 56rpx;
-    padding:4rpx;
-    border-radius:10rpx;
-    font-size: 21rpx;
+    border:rpx(2) solid red;
+    height: rpx(26);
+    line-height: rpx(26);
+    min-width: rpx(56);
+    padding:rpx(4);
+    border-radius:rpx(10);
+    font-size: rpx(21);
   }
   

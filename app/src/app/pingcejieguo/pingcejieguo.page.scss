@@ -4,11 +4,11 @@
 
 /* pages/pingcejieguo/pingcejieguo.wxss */
 .again {
-    width: 200rpx;
-    height: 64rpx;
-    line-height: 64rpx;
-    border-radius: 42rpx;
-    border: 2rpx solid black ;
+    width: rpx(200);
+    height: rpx(64);
+    line-height: rpx(64);
+    border-radius: rpx(42);
+    border: rpx(2) solid black ;
   }
   
   .txt-9 {
@@ -16,47 +16,47 @@
   }
   
   .top-block {
-    height: 408rpx;
-    padding: 40rpx;
+    height: rpx(408);
+    padding: rpx(40);
   }
   
   .yuan {
-    width: 284rpx;
-    height: 284rpx;
-    /* border: 2rpx solid black; */
+    width: rpx(284);
+    height: rpx(284);
+    /* border: rpx(2) solid black; */
   }
   .bottom-block {
-    margin: 12rpx 24rpx 0rpx 24rpx;
+    margin: rpx(12) rpx(24) rpx(0) rpx(24);
   }
   .huangtiao {
-    width: 8rpx;
-    height: 28rpx;
+    width: rpx(8);
+    height: rpx(28);
     background: rgba(255, 194, 0, 1);
   }
   .margin-top-14 {
-    margin-top: 14rpx;
+    margin-top: rpx(14);
   }
   .margin-left-16 {
-    margin-left: 16rpx;
+    margin-left: rpx(16);
   }
   .margin-top-32{
-    margin-top: 32rpx;
+    margin-top: rpx(32);
   }
   .margin-left-24{
-    margin-left: 24rpx;
+    margin-left: rpx(24);
   }
   .margin-right-24{
-    margin-right: 24rpx;
+    margin-right: rpx(24);
   }
   .icon-24{
-    height: 24rpx;
-    width: 24rpx;
+    height: rpx(24);
+    width: rpx(24);
   }
   .mk {
     background-color: white;
   }
   .kc_icon {
-    width: 228rpx;
-    height: 224rpx;
+    width: rpx(228);
+    height: rpx(224);
   }
   

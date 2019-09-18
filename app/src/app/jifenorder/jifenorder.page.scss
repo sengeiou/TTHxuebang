@@ -5,7 +5,7 @@
 /* pages/jifenorder/jifenorder.wxss */
 
 .bor_bot {
-    border-bottom: 2rpx solid #f5f5f5;
+    border-bottom: rpx(2) solid #f5f5f5;
   }
   
   .txt {
@@ -20,52 +20,52 @@
   
   .block {
     position: relative;
-    width: 702rpx;
-    height: 306rpx;
+    width: rpx(702);
+    height: rpx(306);
     background: rgba(255, 255, 255, 1);
-    border-radius: 8rpx;
-    margin: 24rpx;
+    border-radius: rpx(8);
+    margin: rpx(24);
   }
   
   .margin-24 {
-    margin: 24rpx;
+    margin: rpx(24);
   }
   .margin-left-14 {
-    margin-left: 14rpx;
+    margin-left: rpx(14);
   }
   .margin-left-24 {
-    margin-left: 24rpx;
+    margin-left: rpx(24);
   }
   
   .margin-top-24 {
-    margin-top: 24rpx;
+    margin-top: rpx(24);
   }
   .iconwc{
     position: absolute;
-    width:140rpx;
-    height: 110rpx; 
+    width:rpx(140);
+    height: rpx(110); 
     top: 0;
     right: 0;
   }
   .margin-right-24 {
-    margin-right: 24rpx;
+    margin-right: rpx(24);
   }
   
   .margin-top-8 {
-    margin-top: 8rpx;
+    margin-top: rpx(8);
   }
   
   .margin-top-6{
-    margin-top:6rpx;
+    margin-top:rpx(6);
   }
   .icon-img {
-    width: 168rpx;
-    height: 168rpx;
-    border-radius: 8rpx;
+    width: rpx(168);
+    height: rpx(168);
+    border-radius: rpx(8);
   }
   .icon_shan{
-    width:52rpx;
-  height:52rpx;
+    width:rpx(52);
+  height:rpx(52);
   }
   
   .txt-red {
@@ -73,19 +73,19 @@
   }
   
   .icon-36 {
-    height: 36rpx;
-    width: 36rpx;
+    height: rpx(36);
+    width: rpx(36);
   }
   .txt-22{
-    font-size:22rpx;
+    font-size:rpx(22);
   }
   .lianxi {
-    width: 148rpx;
-    height: 52rpx;
-    font-size:22rpx;
-    line-height: 52rpx;
+    width: rpx(148);
+    height: rpx(52);
+    font-size:rpx(22);
+    line-height: rpx(52);
     background: rgba(255, 255, 255, 1);
-    border-radius: 30rpx;
+    border-radius: rpx(30);
     border: 1px solid rgba(204, 204, 204, 1);
   }
   

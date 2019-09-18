@@ -5,74 +5,74 @@
 /* pages/shopmall/shopmall.wxss */
 
 .toubu {
-    width: 750rpx;
-    height: 300rpx;
+    width: rpx(750);
+    height: rpx(300);
     /* opacity: 0.5167; */
   }
   
   .sz {
-    width: 286rpx;
-    height: 72rpx;
+    width: rpx(286);
+    height: rpx(72);
     background: white;
-    border-radius: 36rpx;
+    border-radius: rpx(36);
   }
   
   .lingjifen{
-      width: 184rpx;
-    height: 72rpx;
+      width: rpx(184);
+    height: rpx(72);
   }
   
   .margin-left-66 {
-    margin-left: 66rpx;
+    margin-left: rpx(66);
   }
   
   .margin-left-46 {
-    margin-left: 46rpx;
+    margin-left: rpx(46);
   }
   .margin-top-6 {
-    margin-top: 6rpx;
+    margin-top: rpx(6);
   }
   .margin-top-32 {
-    margin-top: 32rpx;
+    margin-top: rpx(32);
   }
   
   .szmx-icon {
-    width: 28rpx;
-    height: 22rpx;
+    width: rpx(28);
+    height: rpx(22);
   }
   
   .zjf-icon {
-    width: 28rpx;
-    height: 26rpx;
+    width: rpx(28);
+    height: rpx(26);
   }
   
   .jf-icon {
-    width: 60rpx;
-    height: 60rpx;
+    width: rpx(60);
+    height: rpx(60);
   }
   
   .f60 {
-    font-size: 80rpx;
+    font-size: rpx(80);
   }
   
   .margin-top-36 {
-    margin-top: 36rpx;
+    margin-top: rpx(36);
   }
   
   .hezi {
-    margin-top: 24rpx;
-    margin-left: 24rpx;
-    border-radius: 8rpx;
+    margin-top: rpx(24);
+    margin-left: rpx(24);
+    border-radius: rpx(8);
     background-color: white;
-    box-shadow:0rpx 4rpx 8rpx 0rpx rgba(0,0,0,0.1);
+    box-shadow:rpx(0) rpx(4) rpx(8) rpx(0) rgba(0,0,0,0.1);
   }
   
   .img {
-    width: 340rpx;
-    height: 340rpx;
-    border-radius: 8rpx;
+    width: rpx(340);
+    height: rpx(340);
+    border-radius: rpx(8);
   }
   .padding{
-    padding: 0rpx 20rpx 20rpx 20rpx;
+    padding: rpx(0) rpx(20) rpx(20) rpx(20);
   }
   
