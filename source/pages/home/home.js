@@ -71,6 +71,7 @@ class Content extends AppBase {
       currentItemId: 2,
       mylat: 0,
       mylng: 0,
+      indexcurrent:0,
       currectcityid: 0,
       signNum: 0, //签到数
       signState: false, //签到状态
@@ -346,6 +347,7 @@ class Content extends AppBase {
         }
       }
       this.Base.setMyData({
+        indexcurrent:0,
         indexbanner: bn
       });
     });
