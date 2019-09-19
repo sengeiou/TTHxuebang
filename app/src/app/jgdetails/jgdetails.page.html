@@ -27,7 +27,7 @@
     <div style='position:relative;'>
       <div style=' ' class=''>
         <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:750rpx;height:444rpx;'>
-          <swiper-item **ngFor"{{jigouimg}}" wx:key="k">
+          <swiper-item **ngFor="{{jigouimg}}" wx:key="k">
             <view>
               <!-- mode="aspectFill"  bindtap='viewPhoto' -->
               <img src='{{uploadpath}}jigouimg/{{item.img}}?x-oss-process=style/test_img' bindtap='viewPhoto' id='{{uploadpath}}jigouimg/{{item.img}}' style='width:750rpx;height:444rpx;' />
@@ -42,13 +42,13 @@
 
     <div class="flex-row flex-column">
 
-      <div **ngIf'{{tanchuang==true}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+      <div **ngIf='{{tanchuang==true}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
         <div class='padding-10 '>
           <div class='flex-row flex-center'>
             <div class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</div>
-            <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" **ngIf'{{jginfo.renzhen_value=="Y"}}' />
+            <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" **ngIf='{{jginfo.renzhen_value=="Y"}}' />
           </div>
 
           <div class="starbox text-right margin-top-10">
@@ -78,12 +78,12 @@
           <div class='flex-row flex-center margin-top-10'>
 
             <div class='flex-row flex-1'>
-              <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' **ngFor"{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+              <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' **ngFor="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
             </div>
 
 
-            <!-- <div bindtap='fav' id='Y' **ngIf"{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</div>
-            <div bindtap='fav' id='N' **ngIf"{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</div> -->
+            <!-- <div bindtap='fav' id='Y' **ngIf="{{isfav=='N'}}" class='txt-primary  text-center  h6 padding-bottom-5' style='width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;border:2rpx solid #FFCD22;'>收藏</div>
+            <div bindtap='fav' id='N' **ngIf="{{isfav=='Y'}}" class='bg-primary text-center txt-white  h6' style='height:48rpx;width:156rpx;line-height:48rpx;border-radius:35rpx;font-size:24rpx;'>取消收藏</div> -->
 
 
 
@@ -118,21 +118,21 @@
               <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
             </div>
             <div class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</div>
-            <div class='h6 txt-black txt-right txt-bold' style='width:150rpx;' **ngIf"{{miletxt!=undefined}}">距你{{miletxt}}</div>
+            <div class='h6 txt-black txt-right txt-bold' style='width:150rpx;' **ngIf="{{miletxt!=undefined}}">距你{{miletxt}}</div>
           </div>
 
         </div>
 
       </div>
 
-      <div **ngIf'{{trunoff==false}}'>
-        <cover-view **ngIf'{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+      <div **ngIf='{{trunoff==false}}'>
+        <cover-view **ngIf='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
           <cover-view class='padding-10 '>
             <cover-view class='flex-row flex-center'>
               <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
-              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" **ngIf'{{jginfo.renzhen_value=="Y"}}'></cover-image>
+              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" **ngIf='{{jginfo.renzhen_value=="Y"}}'></cover-image>
             </cover-view>
 
 
@@ -170,7 +170,7 @@
             <cover-view class='flex-row flex-center  '>
 
               <cover-view class='flex-row flex-1'>
-                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' **ngFor"{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
+                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' **ngFor="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
               </cover-view>
 
 
@@ -207,7 +207,7 @@
                 <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
               </cover-view>
               <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
-              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' **ngIf"{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
+              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' **ngIf="{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
             </cover-view>
 
           </cover-view>
@@ -216,13 +216,13 @@
       </div>
     </div>
 
-    <!-- <div **ngIf'{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></div>
+    <!-- <div **ngIf='{{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "}}' style='height:280rpx;'></div>
 
-    <div **ngIf'{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:340rpx;'></div> -->
+    <div **ngIf='{{model=="iPhone X "||model=="iPhone XR "||model=="iPhone XS "||model=="iPhone XS Max "}}' style='height:340rpx;'></div> -->
 
     <!-- <div class="margin-top-20">a{{model}}b</div> -->
 
-    <div class='margin-20 bg-white radius-10 shadow' **ngIf'{{jginfo.novideosummary_value!="Y"}}'>
+    <div class='margin-20 bg-white radius-10 shadow' **ngIf='{{jginfo.novideosummary_value!="Y"}}'>
 
       <div class='flex-row flex-center  radius-10 padding-20'>
         <!-- <div class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></div> -->
@@ -232,10 +232,10 @@
 
       <div class='padding-20'>
 
-        <video class='pos' bindfullscreenchange='bindfullscreenchange' **ngIf'{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
+        <video class='pos' bindfullscreenchange='bindfullscreenchange' **ngIf='{{jginfo.jg_video!=""}}' style='width:100%;height:300rpx;' object-fit="contain" autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
         </video>
 
-        <img style='width:100%;height:300rpx;' mode='widthFix' **ngIf'{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img' />
+        <img style='width:100%;height:300rpx;' mode='widthFix' **ngIf='{{jginfo.jg_video==""&&jginfo.waitimg!=""}}' src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img' />
 
         <!-- <div style='width:100%;height:300rpx; ' class='bg-primary '>视频</div> -->
       </div>
@@ -246,8 +246,8 @@
           <text decode="{{true}}" space="ensp" class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}' style="">{{jginfo.jieshao}}</text>
         </div>
         <div class="flex-row flex-column">
-          <div class="txt-blue h5 margin-bottom-20 margin-top-10" **ngIf'{{more==false}}' bindtap="showmore">查看更多</div>
-          <div class="txt-blue h5 margin-bottom-20" **ngIf'{{more==true}}' bindtap="shouqi">收起</div>
+          <div class="txt-blue h5 margin-bottom-20 margin-top-10" **ngIf='{{more==false}}' bindtap="showmore">查看更多</div>
+          <div class="txt-blue h5 margin-bottom-20" **ngIf='{{more==true}}' bindtap="shouqi">收起</div>
         </div>
       </div>
 
@@ -260,7 +260,7 @@
     <img src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix' style='width:100vw' />
 
     <div class='margin-20 margin-bottom-10 '>
-      <div class='padding-20 flex-row radius-10  margin-top-20  mk' **ngFor'{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
+      <div class='padding-20 flex-row radius-10  margin-top-20  mk' **ngFor='{{courselist}}' wx:key='k' id='{{item.id}}' bindtap='tokcdetails' style='border:1rpx solid white '>
 
         <img class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' />
         <div class='flex-row column   margin-left-20 flex-1'>
@@ -268,28 +268,28 @@
 
           <div class='flex-row flex-center'>
 
-            <div **ngIf"{{item.scoring==5}}" class='flex-row flex-center '>
-              <img **ngFor'{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==5}}" class='flex-row flex-center '>
+              <img **ngFor='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==4}}" class='flex-row flex-center '>
-              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==4}}" class='flex-row flex-center '>
+              <img **ngFor='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
               <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==3}}" class='flex-row flex-center '>
-              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==3}}" class='flex-row flex-center '>
+              <img **ngFor='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==2}}" class='flex-row flex-center '>
-              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==2}}" class='flex-row flex-center '>
+              <img **ngFor='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==1}}" class='flex-row flex-center '>
+            <div **ngIf="{{item.scoring==1}}" class='flex-row flex-center '>
               <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
 
@@ -341,7 +341,7 @@
       <img src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;" />
     </div>
     <div class='flex-row flex-center flex-wrap'>
-      <div bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' **ngFor'{{ketang}}' wx:key='k'>
+      <div bindtap='kechenxianqin' data-id='{{item.id}}' class='kecheng-block' **ngFor='{{ketang}}' wx:key='k'>
 
         <div style=''>
           <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}' />
@@ -403,7 +403,7 @@
 
   <div style='height:96rpx;'></div>
 
-  <cover-view style='' class='buy-block' **ngIf'{{trunoff==false}}'>
+  <cover-view style='' class='buy-block' **ngIf='{{trunoff==false}}'>
 
     <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
       <cover-view class='flex-1'></cover-view>
@@ -428,8 +428,8 @@
 
         <cover-view class='flex-1 flex-row flex-column'>
           <!-- <img src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20' /> -->
-          <cover-image bindtap='fav' id='Y' **ngIf"{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></cover-image>
-          <cover-image bindtap='fav' id='N' **ngIf"{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></cover-image>
+          <cover-image bindtap='fav' id='Y' **ngIf="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></cover-image>
+          <cover-image bindtap='fav' id='N' **ngIf="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></cover-image>
           <cover-view class='h7 margin-top-8'>收藏</cover-view>
         </cover-view>
 
@@ -444,13 +444,13 @@
 
 
 
-      <cover-view class=' flex-row flex-center' **ngIf'{{nogroup=="Y"}}'>
+      <cover-view class=' flex-row flex-center' **ngIf='{{nogroup=="Y"}}'>
         <cover-view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
         <cover-view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</cover-view>
       </cover-view>
 
 
-      <cover-view **ngIf'{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
+      <cover-view **ngIf='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
 
 
 
@@ -465,7 +465,7 @@
 
 
 
-<div class='buy' **ngIf'{{tanchuang==true}}'>
+<div class='buy' **ngIf='{{tanchuang==true}}'>
 
   <div class="black" catchtouchmove="{{true}}"></div>
 
@@ -498,21 +498,21 @@
           </div>
 
 
-          <div class='margin-top-20' **ngIf'{{xuanzhong==0}}' style='color:#FF4444'>￥{{minprice}}</div>
+          <div class='margin-top-20' **ngIf='{{xuanzhong==0}}' style='color:#FF4444'>￥{{minprice}}</div>
 
 
-          <div **ngIf'{{xuanzhong!=0}}'>
-            <div **ngIf'{{pin==0}}'>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</div>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</div>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</div>
+          <div **ngIf='{{xuanzhong!=0}}'>
+            <div **ngIf='{{pin==0}}'>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.price}}</div>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.price}}</div>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.expeprice}}</div>
             </div>
 
 
-            <div **ngIf'{{pin==1}}'>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</div>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</div>
-              <div class='margin-top-20' **ngIf'{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.isgroup_tiyan}}</div>
+            <div **ngIf='{{pin==1}}'>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==1}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</div>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==0}}' style='color:#FF4444'>￥{{courseinfo.isgroup}}</div>
+              <div class='margin-top-20' **ngIf='{{xuanzhong==2}}' style='color:#FF4444'>￥{{courseinfo.isgroup_tiyan}}</div>
             </div>
           </div>
 
@@ -539,7 +539,7 @@
           <div class="flex-row ">
             <div class='flex-row flex-center flex-wrap margin-top-10'>
 
-              <div class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' **ngFor'{{clist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</div>
+              <div class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}' **ngFor='{{clist}}' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y" bindtap='check'>{{item.name}}</div>
 
             </div>
 
@@ -547,14 +547,14 @@
 
           <div class='margin-top-10 h6' style='color:#666666'>课程规格</div>
 
-          <div class="flex-row flex-center" **ngIf'{{pin==1}}'>
-            <div **ngIf'{{courseinfo.isgroup>0}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</div>
-            <div **ngIf'{{courseinfo.isgroup_tiyan>0}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</div>
+          <div class="flex-row flex-center" **ngIf='{{pin==1}}'>
+            <div **ngIf='{{courseinfo.isgroup>0}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</div>
+            <div **ngIf='{{courseinfo.isgroup_tiyan>0}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</div>
           </div>
 
-          <div class="flex-row flex-center" **ngIf'{{pin==0}}'>
-            <div **ngIf'{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</div>
-            <div **ngIf'{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</div>
+          <div class="flex-row flex-center" **ngIf='{{pin==0}}'>
+            <div **ngIf='{{courseinfo.price!="0.00"}}' class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}' bindtap="xuan" id='A'>系列课</div>
+            <div **ngIf='{{courseinfo.expeprice!="0.00"}}' class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y' bindtap="xuan" id='B'>体验课</div>
           </div>
 
         </div>
@@ -590,8 +590,8 @@
 
 
         <div class='flex-row flex-column'>
-          <div **ngIf'{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
-          <div **ngIf'{{xuanzhong==0}}' class='next2 text-center txt-white'>下一步</div>
+          <div **ngIf='{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
+          <div **ngIf='{{xuanzhong==0}}' class='next2 text-center txt-white'>下一步</div>
         </div>
 
       </div>

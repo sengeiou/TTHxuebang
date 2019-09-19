@@ -12,7 +12,7 @@
     <ion-content >
 
         <div class=" margin-20 ">
-            <div **ngFor"{{myxiaoxi}}" wx:key='k'>
+            <div **ngFor="{{myxiaoxi}}" wx:key='k'>
               <div class="xxq  bg-white padding-20">
                 <div class="flex-row flex-center">
                   <img class="icon-30" mode="widthFix" src="{{uploadpath}}resource/{{res.tuiguangxiaoxi}}" />
@@ -28,8 +28,8 @@
           
                   <div class="h6" style="color:#999999">{{item.xiaoxi_date}}</div>
                   <div class="flex-1"></div>
-                  <div **ngIf"{{item.zhuantai=='成功'}}" bindtap="zhuqnaian" class="xq1">去推广</div>
-                  <div **ngIf"{{item.zhuantai!='成功'}}" bindtap="chakanxianqin" class="xq">查看详情</div>
+                  <div **ngIf="{{item.zhuantai=='成功'}}" bindtap="zhuqnaian" class="xq1">去推广</div>
+                  <div **ngIf="{{item.zhuantai!='成功'}}" bindtap="chakanxianqin" class="xq">查看详情</div>
                 </div>
           
           
