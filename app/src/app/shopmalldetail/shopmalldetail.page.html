@@ -32,11 +32,11 @@
 </div>
 
 <div class="flex-row flex-center padding-L-R" style="height:92rpx;">
-  <div class="txt-9 h6 flex-1 " **ngIf'{{info.freight!=0}}'>运费：免运费</div>
+  <div class="txt-9 h6 flex-1 " **ngIf='{{info.freight!=0}}'>运费：免运费</div>
   <!-- {{info.freight}}元 -->
-  <div class="txt-9 h6 flex-1 " **ngIf'{{info.freight==0}}'>运费：免运费</div>
+  <div class="txt-9 h6 flex-1 " **ngIf='{{info.freight==0}}'>运费：免运费</div>
   <div class="txt-9 h6">配送方式：{{info.peison}}</div>
-  <div class="txt-9 h6" **ngIf'{{info.peison==""}}'>配送方式：快递</div>
+  <div class="txt-9 h6" **ngIf='{{info.peison==""}}'>配送方式：快递</div>
 </div>
 
 <div style="height:20rpx;background:#F5F5F5"></div>
@@ -53,7 +53,7 @@
   </div>
 </div>
 
-<div **ngIf'{{show==1}}' class="bottom_block">
+<div **ngIf='{{show==1}}' class="bottom_block">
   <div class="black_block"></div>
   <div class="white_block  ">
 
@@ -92,8 +92,8 @@
 
     <div class="flex-row flex-center margin-top">
       <div class="flex-1"></div>
-      <div class="duihuan txt-bold txt-white text-center" **ngIf'{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
-      <div class="wukucun txt-bold txt-white text-center" **ngIf'{{info.inventory<=0}}'>暂无库存</div>
+      <div class="duihuan txt-bold txt-white text-center" **ngIf='{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
+      <div class="wukucun txt-bold txt-white text-center" **ngIf='{{info.inventory<=0}}'>暂无库存</div>
       <div class="flex-1"></div>
     </div>
 

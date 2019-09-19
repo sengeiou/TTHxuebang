@@ -20,9 +20,9 @@
   
   <!-- <swiper indicator-dots='{{false}}'  autoplay='{{false}}' previous-margin='12rpx' next-margin='374rpx'   duration='200' circular='{{false}}' style='width:750rpx;height:600rpx;margin-top:-58rpx; '>
   
-      <div **ngFor"{{5}}" >
+      <div **ngFor="{{5}}" >
         <swiper-item>
-          <div class='block' style='margin-left:12rpx;margin-right:12rpx;' **ngFor"{{2}}">风光带</div>
+          <div class='block' style='margin-left:12rpx;margin-right:12rpx;' **ngFor="{{2}}">风光带</div>
         </swiper-item>
       </div>
   
@@ -35,7 +35,7 @@
   
       <div class='flex-row flex-center' style='display: inline-block;'>
   
-        <div class='{{idx==0?"firstblock":"block"}} bg-white' **ngFor'{{list}}' wx:key='k' wx:for-index='idx' style=' '>
+        <div class='{{idx==0?"firstblock":"block"}} bg-white' **ngFor='{{list}}' wx:key='k' wx:for-index='idx' style=' '>
   
           <div class='jiage'>
   
@@ -53,13 +53,13 @@
               <div class='flex-1'> </div>
             </div>
   
-            <img **ngIf'{{item.tuijian_value=="Y"}}' src='{{uploadpath}}resource/{{res.tuijian}}' class='tuijian' />
+            <img **ngIf='{{item.tuijian_value=="Y"}}' src='{{uploadpath}}resource/{{res.tuijian}}' class='tuijian' />
   
           </div>
   
           <div class='quanyi '>
   
-            <div class='flex-row flex-center {{idx>0?"margin-top-12":""}}' **ngFor'{{item.showcase}}' wx:key='e' wx:for-index='idx'>
+            <div class='flex-row flex-center {{idx>0?"margin-top-12":""}}' **ngFor='{{item.showcase}}' wx:key='e' wx:for-index='idx'>
               <img src='{{uploadpath}}resource/{{res.quanyi_icon}}' class='icon-20' />
               <div class='h7 txt-6 margin-left-20'>{{item.content}}</div>
             </div>

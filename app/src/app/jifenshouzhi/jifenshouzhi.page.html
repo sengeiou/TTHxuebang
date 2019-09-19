@@ -33,7 +33,7 @@
 
 
 
-<div **ngIf'{{show==1}}' >
+<div **ngIf='{{show==1}}' >
 
   <div style="height:52rpx" class="flex-row flex-center">
     <div class="h6 txt9 margin-left-20 flex-1">2019年</div>
@@ -42,7 +42,7 @@
     <div class=" txt9 h6 margin-right-30">{{shousum}}</div>
   </div>
 
-  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}"   **ngFor'{{jilulist}}' wx:key='k' **ngIf'{{item.type=="B"}}' wx:for-index='idx'>
+  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}"   **ngFor='{{jilulist}}' wx:key='k' **ngIf='{{item.type=="B"}}' wx:for-index='idx'>
 
     <div class="flex-row column flex-1">
       <div class="h5">{{item.name}}</div>
@@ -59,7 +59,7 @@
 </div>
 
 
-<div **ngIf'{{show==2}}'>
+<div **ngIf='{{show==2}}'>
 
   <div style="height:52rpx" class="flex-row flex-center">
     <div class="h6 txt9 margin-left-20 flex-1">2019年</div>
@@ -68,7 +68,7 @@
     <div class=" txt9 h6 margin-right-30">{{zhisum}}</div>
   </div>
 
-  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" wx:for-index='idx' style="border-top:2rpx solid #E5E5E5"  **ngFor'{{jilulist}}' wx:key='l' **ngIf'{{item.type=="A"}}'>
+  <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" wx:for-index='idx' style="border-top:2rpx solid #E5E5E5"  **ngFor='{{jilulist}}' wx:key='l' **ngIf='{{item.type=="A"}}'>
 
     <div class="flex-row column flex-1">
       <div class="h5">{{item.name}}</div>

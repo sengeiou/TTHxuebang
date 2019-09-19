@@ -73,22 +73,22 @@
         
               <div class="flex-row flex-center flex-wrap">
         
-                <div **ngFor"{{huodoninfo.jiemu}}" wx:key='k' wx:for-index='idx' class='kecheng-block'>
+                <div **ngFor="{{huodoninfo.jiemu}}" wx:key='k' wx:for-index='idx' class='kecheng-block'>
                   <img bindtap="jiemuinfo" id="{{item.id}}" data-id='{{idx}}' src="{{uploadpath}}jiemu/{{item.fenmian}}" style="width:40vw;height:40vw" />
-                  <div **ngIf"{{idx+1>=4}}" class="shuzi">{{idx+1}}</div>
+                  <div **ngIf="{{idx+1>=4}}" class="shuzi">{{idx+1}}</div>
         
-                  <div **ngIf"{{idx+1<4}}" class="qianjimin">
-                    <img **ngIf"{{idx==0}}" src="{{uploadpath}}resource/{{res.yi}}" mode="widthFix" style="width:50rpx" />
-                    <img **ngIf"{{idx==1}}" src="{{uploadpath}}resource/{{res.er}}" mode="widthFix" style="width:50rpx" />
-                    <img **ngIf"{{idx==2}}" src="{{uploadpath}}resource/{{res.san}}" mode="widthFix" style="width:50rpx" />
+                  <div **ngIf="{{idx+1<4}}" class="qianjimin">
+                    <img **ngIf="{{idx==0}}" src="{{uploadpath}}resource/{{res.yi}}" mode="widthFix" style="width:50rpx" />
+                    <img **ngIf="{{idx==1}}" src="{{uploadpath}}resource/{{res.er}}" mode="widthFix" style="width:50rpx" />
+                    <img **ngIf="{{idx==2}}" src="{{uploadpath}}resource/{{res.san}}" mode="widthFix" style="width:50rpx" />
                   </div>
                   <div class="text-center f15 margin-top-5">{{item.name}}</div>
                   <div class="text-center f-22" style="color:#555555">{{item.piaoshu}}票</div>
                   <div class="flex-row flex-center">
                     <div class="flex-1"></div>
         
-                    <div **ngIf"{{item.mypiao==0}}" bindtap="toupiao" id="{{item.id}}" data-id='{{idx}}' class="tp">投票</div>
-                    <div **ngIf"{{item.mypiao>0}}" class="tpcg">投票成功</div>
+                    <div **ngIf="{{item.mypiao==0}}" bindtap="toupiao" id="{{item.id}}" data-id='{{idx}}' class="tp">投票</div>
+                    <div **ngIf="{{item.mypiao>0}}" class="tpcg">投票成功</div>
                     <div class="flex-1"></div>
                   </div>
                 </div>
@@ -111,8 +111,8 @@
           <img class="hsbg" style="height:{{gaodu+25}}px" src="{{uploadpath}}resource/{{res.huodonbg}}" />
         </div>
         
-        <div **ngIf'{{guize==true}}' catchtouchmove="true" class="block_black"></div>
-        <div class=' gz ' **ngIf'{{guize==true}}'>
+        <div **ngIf='{{guize==true}}' catchtouchmove="true" class="block_black"></div>
+        <div class=' gz ' **ngIf='{{guize==true}}'>
           <div class='guize bg-white flex-row flex-column'>
         
             <div class='txt-bold margin-top' style='font-size:40rpx'>投票规则</div>

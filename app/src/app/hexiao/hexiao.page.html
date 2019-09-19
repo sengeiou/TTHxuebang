@@ -15,11 +15,11 @@
 
 <!--pages/hexiao/hexiao.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div **ngIf"{{info.id=='0'}}">
+<div **ngIf="{{info.id=='0'}}">
   无法获取订单数据，你可能是不是该机构的核销员{{usecode}}
 </div>
 
-<div  **ngIf"{{info.id!='0'}}">
+<div  **ngIf="{{info.id!='0'}}">
 
 <div class=''>
   <div class=' padding-left-20 bg-white bor_bot bor_top' style=''>
@@ -88,7 +88,7 @@
 订单状态：{{info.pstatus_name}}
 </div>
 
-<div **ngIf"{{info.pstatus=='P'}}" class='padding margin-top'>
+<div **ngIf="{{info.pstatus=='P'}}" class='padding margin-top'>
 <button bindtap='startscan'>核销</button>
 </div>
 

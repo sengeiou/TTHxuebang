@@ -37,7 +37,7 @@
     <!-- <div class='padding-30  bg-white' style=''>
       <div class='flex-row flex-center '>
         <div class='font-30 flex-1 txt-black txt-bold'>昵称</div>
-        <input class=' flex-2' name='name' style='' placeholder-style='color:#C8C8C8' maxlength='15' value='{{memberinfo.name}}' placeholder='请填写昵称'> />
+        <input class=' flex-2' name='name' style='' placeholder-style='color:#C8C8C8' maxlength='15' value='{{memberinfo.name}}' placeholder='请填写昵称' />
       </div>
     
     </div>
@@ -48,7 +48,7 @@
     <div class='padding-30 bg-white' style=''>
       <div class='flex-row flex-center '>
         <div class='font-30 flex-1 txt-black txt-bold'>手机号：</div>
-        <input class=' flex-2' type='number' placeholder-style='color:#C8C8C8' style='' name='mobile' value='{{memberinfo.mobile}}' placeholder='请填写联系电话'> />
+        <input class=' flex-2' type='number' placeholder-style='color:#C8C8C8' style='' name='mobile' value='{{memberinfo.mobile}}' placeholder='请填写联系电话' />
       </div>
       <!--bor_bak -->
     </div>
@@ -63,16 +63,16 @@
         <div class='flex-2 flex-row flex-center'>
   
           <div class='flex-row flex-center '>
-            <img **ngIf'{{show==1}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sex='M' class='icon-15' />
-            <img **ngIf'{{show==2}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sex='M' class='icon-15' />
+            <img **ngIf='{{show==1}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sex='M' class='icon-15' />
+            <img **ngIf='{{show==2}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sex='M' class='icon-15' />
             <div class='h5 margin-left-10'>先生</div>
           </div>
   
           <div class='icon-30' style=''></div>
   
           <div class='flex-row flex-center'>
-            <img **ngIf'{{show==2}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sex='W' class='icon-15' />
-            <img **ngIf'{{show==1}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sex='W' class='icon-15' />
+            <img **ngIf='{{show==2}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sex='W' class='icon-15' />
+            <img **ngIf='{{show==1}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15' data-sex='W' class='icon-15' />
             <div class='h5 margin-left-10'>女士</div>
           </div>
   
@@ -89,9 +89,9 @@
       <div class='flex-row flex-center '>
         <div class='font-30 flex-1 txt-black txt-bold'>地址：</div>
         <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-          <div class="picker" style='color:#C8C8C8' **ngIf"{{region.length==0}}" >请填写地址
+          <div class="picker" style='color:#C8C8C8' **ngIf="{{region.length==0}}" >请填写地址
           </div>
-          <div class="picker"  **ngIf"{{region.length>0}}" >{{region[0]}} {{region[1]}} {{region[2]}}</div>
+          <div class="picker"  **ngIf="{{region.length>0}}" >{{region[0]}} {{region[1]}} {{region[2]}}</div>
         </picker>
       </div>
       <!--bor_bak -->
@@ -101,13 +101,13 @@
     <div class='padding-30 bg-white' style=''>
       <div class='flex-row flex-center '>
         <div class='font-30 flex-1 txt-black txt-bold'>门牌号：</div>
-        <input class=' flex-2' style='' placeholder-style='color:#C8C8C8' name='housenum' value='{{mydata.house_num}}' placeholder='请填写门牌号'> />
+        <input class=' flex-2' style='' placeholder-style='color:#C8C8C8' name='housenum' value='{{mydata.house_num}}' placeholder='请填写门牌号' />
       </div>
       <!--bor_bak -->
     </div>
     <div class='height-80' style=''></div>
   
-    <!-- <button class='dis margin-40 txt-white' **ngIf'{{show==1}}' hover-class='dis_hov'>保存</button> -->
+    <!-- <button class='dis margin-40 txt-white' **ngIf='{{show==1}}' hover-class='dis_hov'>保存</button> -->
     <button class='btn_bg margin-40 txt-white' form-type='submit' hover-class='bg_hov'>保存</button>
   
   </form>

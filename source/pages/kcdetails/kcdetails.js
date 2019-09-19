@@ -309,12 +309,23 @@ class Content extends AppBase {
   }
 
   opengroup() {
-
+    var expeprice = this.Base.getMyData().courseinfo.expeprice;
+    if (expeprice <= 0)
+    {
+      this.Base.setMyData({
+        tanchuang: true,
+        ppp: 1,
+        pppp: 0,
+      })
+    }
+    else{
     this.Base.setMyData({
       tanchuang: true,
       ppp: 1,
       pppp:1,
     })
+    }
+
 
     return
 

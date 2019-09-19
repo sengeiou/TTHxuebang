@@ -27,7 +27,7 @@
           <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
             共{{youxiao.length}}个邀请
           </div>
-          <div **ngFor"{{youxiao}}" wx:key="k"  bindtap="kehuinfo" class="padding-20  bg-white flex-row flex-center">
+          <div **ngFor="{{youxiao}}" wx:key="k"  bindtap="kehuinfo" class="padding-20  bg-white flex-row flex-center">
             <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
             <div class="margin-left-20">
               <div class="flex-row flex-center">

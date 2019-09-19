@@ -53,14 +53,6 @@
           <div class='font-30   txt-black margin-left-10 width-210'>机构地址：</div>
           <input class='  ' style='' placeholder-class='pc'   [(ngModel)]="formdata.region"  type="text"  name='region'
             placeholder='请输入所在城市' />
-          <!--todo-->
-          <!-- <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}"
-            custom-item="{{customItem}}">
-            <div class="flex-row flex-center">
-              <div class="picker flex-1" **ngIf"{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</div>
-              <img src="{{uploadpath}}resource/{{res.address_right}}" class="icon" />
-            </div>
-          </picker> -->
         </div>
       </div>
 
@@ -75,7 +67,6 @@
             <div class='' style='color:#FF5252'>*</div>
             <div class='font-30   txt-black margin-left-10 width-210'>详细地址：</div>
           </div>
-
           <textarea *ngIf='tc!=true' class=' font-30 margin-top-20 height-80 pl-20' 
             placeholder-class='pc'    [(ngModel)]="formdata.fulladdress"  name='fulladdress' placeholder='街道、门牌号等'></textarea>
 
