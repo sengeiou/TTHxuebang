@@ -465,4 +465,7 @@ export class AppBase implements OnInit {
     uploadImage(module,aa){
 
     }
+    backtotop(){
+        //var bid=
+    }
 }
