@@ -100,7 +100,8 @@
 
               <view class='flex-1  flex-column  flex-row  '>
                 <view class="h6 txt-gray">适合年龄</view>
-                <view class='h5  txt-bold margin-top-15  ' style='color:#222222'>{{courseinfo.min_age}}{{courseinfo.max_age==100?'岁以上':'-'+courseinfo.max_age+'岁'}}</view>
+                <view class='h5  txt-bold margin-top-15  ' style='color:#222222'>{{courseinfo.age_name}}</view>
+                <!-- {{courseinfo.min_age}}{{courseinfo.max_age==100?'岁以上':'-'+courseinfo.max_age+'岁'}} -->
               </view>
 
 
