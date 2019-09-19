@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutusPageModule' },
   { path: 'ketaninfo', loadChildren: './ketaninfo/ketaninfo.module#KetaninfoPageModule' },
   { path: 'addmechanism', loadChildren: './addmechanism/addmechanism.module#AddmechanismPageModule' },
-  { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
   { path: 'addressmanage', loadChildren: './addressmanage/addressmanage.module#AddressmanagePageModule' },
   { path: 'baoma', loadChildren: './baoma/baoma.module#BaomaPageModule' },
   { path: 'baomainfo', loadChildren: './baomainfo/baomainfo.module#BaomainfoPageModule' },
