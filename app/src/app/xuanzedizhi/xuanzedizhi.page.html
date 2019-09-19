@@ -21,23 +21,23 @@
 
 
   <div class='margin-20'>
-    <div **ngIf'{{addresslist.length>0}}' class='margin-left-14 h5' style='color:#999999'>我的地址</div>
+    <div **ngIf='{{addresslist.length>0}}' class='margin-left-14 h5' style='color:#999999'>我的地址</div>
 
 
-    <div **ngIf'{{addresslist.length==0}}' class="flex-row flex-column">
+    <div **ngIf='{{addresslist.length==0}}' class="flex-row flex-column">
       <div style="height:100rpx;"></div>
       <img src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170 " />
       <!-- <div class="txt-9 margin-top-10">您还没有添加地址哦</div>
     <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
     </div>
 
-    <div **ngFor'{{addresslist}}' wx:key='k'>
+    <div **ngFor='{{addresslist}}' wx:key='k'>
       <div class='hezi' bindtap="bindcheck" id="{{item.id}}">
         <div class='flex-row flex-center'>
 
-          <div **ngIf'{{type==""||type==undefined}}'>
-            <img src="{{uploadpath}}resource/{{res.weixuan}}" **ngIf'{{check!=item.id}}' class="icon-12" />
-            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" **ngIf'{{check==item.id}}' class="icon-12" />
+          <div **ngIf='{{type==""||type==undefined}}'>
+            <img src="{{uploadpath}}resource/{{res.weixuan}}" **ngIf='{{check!=item.id}}' class="icon-12" />
+            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" **ngIf='{{check==item.id}}' class="icon-12" />
           </div>
 
           <div class=" ">
@@ -64,7 +64,7 @@
     </div>
 
 
-    <div class="add margin-top-20 flex-row flex-center" **ngIf'{{type==""||type==undefined}}'  bindtap="addnew">
+    <div class="add margin-top-20 flex-row flex-center" **ngIf='{{type==""||type==undefined}}'  bindtap="addnew">
       <div class="flex-1"></div>
       <img src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15" />
       <div class="h5 margin-left-10" style="color:#999999" bindtap="addnew">添加新地址</div>
@@ -73,16 +73,16 @@
 
     <div style="height:150rpx;"></div>
 
-    <button class='but txt-white' **ngIf'{{type==""||type==undefined}}' bindtap="queren">确认</button>
-    <button class='but txt-white' **ngIf'{{type=="Y"}}' bindtap="addnew">添加新地址</button>
+    <button class='but txt-white' **ngIf='{{type==""||type==undefined}}' bindtap="queren">确认</button>
+    <button class='but txt-white' **ngIf='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
 
   </div>
 
 
-  <div **ngIf'{{show==true}}'>
+  <div **ngIf='{{show==true}}'>
     <div class='block_black'></div>
 
-    <div class="white_black" **ngIf"{{kong==false}}">
+    <div class="white_black" **ngIf="{{kong==false}}">
       <div class="flex-row flex-column">
         <div style="height:80rpx;"></div>
         <!-- <img src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120" /> -->
@@ -105,7 +105,7 @@
       </div>
     </div>
 
-    <div class="white_black" **ngIf"{{kong==true}}">
+    <div class="white_black" **ngIf="{{kong==true}}">
       <div class="flex-row flex-column">
         <div style="height:100rpx;"></div>
          

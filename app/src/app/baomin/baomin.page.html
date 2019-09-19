@@ -57,28 +57,28 @@
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>节目名称：</div>
-                    <input class='  ' placeholder-class='pc' name='jigou' bindinput="minchen"  style='' placeholder='请填写节目名称'> />
+                    <input class='  ' placeholder-class='pc' name='jigou' bindinput="minchen"  style='' placeholder='请填写节目名称' />
                   </div>
                 </div>
                 <div class='padding-mid' style=''>
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>节目人数：</div>
-                    <input class=' ' type='number' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数'> />
+                    <input class=' ' type='number' placeholder-class='pc' bindinput="renshu" name='jigou' style='' placeholder='请填写节目人数' />
                   </div>
                 </div>
                 <div class='padding-mid' style=''>
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>带队老师：</div>
-                    <input class='  ' placeholder-class='pc' bindinput="laoshi" name='jigou' style='' placeholder='请填写带队老师'> />
+                    <input class='  ' placeholder-class='pc' bindinput="laoshi" name='jigou' style='' placeholder='请填写带队老师' />
                   </div>
                 </div>
                 <div class='padding-mid' style=''>
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>联系方式：</div>
-                    <input class='  ' type='number' maxlength='11' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式'> />
+                    <input class='  ' type='number' maxlength='11' placeholder-class='pc' name='jigou' bindinput="lianxifanshi" style='' placeholder='请填写联系方式' />
                   </div>
                 </div>
         
@@ -88,7 +88,7 @@
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>报名赛区：</div>
-                    <div **ngIf"{{index==undefined}}" class="pc">请选择赛区</div>
+                    <div **ngIf="{{index==undefined}}" class="pc">请选择赛区</div>
                      <div class="">{{saiqu[index].name}}</div>
                      <div class="flex-1"></div>
                        <img src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10" />
@@ -99,10 +99,10 @@
                   <div class='flex-row flex-center '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>所属机构：</div>
-                    <input class='  ' placeholder-class='pc' bindinput="jigou" name='jigou' style='' placeholder='请输入机构名称'> />
+                    <input class='  ' placeholder-class='pc' bindinput="jigou" name='jigou' style='' placeholder='请输入机构名称' />
                   </div>
                 </div>
-                <div **ngIf'{{guize!=true}}' class='padding-mid' style=''>
+                <div **ngIf='{{guize!=true}}' class='padding-mid' style=''>
                   <div class='flex-row  '>
                     <div class='jl' style='color:#FF5252'>*</div>
                     <div class='font-30   txt-black margin-left-10 width-210'>参赛宣言：</div>
@@ -117,9 +117,9 @@
         
                   </div>
         
-                  <img src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg' **ngIf"{{fenmian==''}}" class='icon-img' />
+                  <img src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg' **ngIf="{{fenmian==''}}" class='icon-img' />
         
-                  <img mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' bindtap='jguploadimg' **ngIf"{{fenmian!=''}}" class='icon-img' />
+                  <img mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' bindtap='jguploadimg' **ngIf="{{fenmian!=''}}" class='icon-img' />
         
         
                 </div>
@@ -142,8 +142,8 @@
                     </div>
         
                   <div class="flex-row flex-center flex-wrap">
-                    <div class=' ' **ngFor"{{jgimages}}" wx:key="k" wx:for-index="idx">
-                      <img mode="aspectFill" src='{{uploadpath}}jiemutupian/{{item}}' **ngIf'{{idx<20}}' id="{{uploadpath}}jiemutupian/{{item}}" data-id="{{idx}}" bindtap='viewPhoto' bindlongpress="deleteimg" class='icon-img' />
+                    <div class=' ' **ngFor="{{jgimages}}" wx:key="k" wx:for-index="idx">
+                      <img mode="aspectFill" src='{{uploadpath}}jiemutupian/{{item}}' **ngIf='{{idx<20}}' id="{{uploadpath}}jiemutupian/{{item}}" data-id="{{idx}}" bindtap='viewPhoto' bindlongpress="deleteimg" class='icon-img' />
                     </div>
                     <img src='{{uploadpath}}resource/{{res.addimgs}}' bindtap='jguploadimg1' class='icon-img' />
                   </div>
@@ -154,8 +154,8 @@
         
                 <div class="padding-40 flex-row flex-center ">
         
-                  <img **ngIf"{{xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
-                  <img **ngIf"{{!xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
+                  <img **ngIf="{{xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
+                  <img **ngIf="{{!xuanzhon}}" bindtap="gou" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
                   <div class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</div>
                   <div bindtap="baomin" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</div>
         
@@ -191,8 +191,8 @@
         </div>
         
         
-        <div **ngIf'{{guize==true}}' catchtouchmove="true" class="block_black"></div>
-        <div   class=' gz ' **ngIf'{{guize==true}}'>
+        <div **ngIf='{{guize==true}}' catchtouchmove="true" class="block_black"></div>
+        <div   class=' gz ' **ngIf='{{guize==true}}'>
           <div class='guize bg-white flex-row flex-column'>
         
             <div class='txt-bold margin-top' style='font-size:40rpx'>报名条款</div>

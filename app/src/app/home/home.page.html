@@ -12,9 +12,9 @@
     <ion-content >
 
 
-<!-- **ngIf'{{nocity==1}}' -->
+<!-- **ngIf='{{nocity==1}}' -->
 
-<div class="tishikuang flex-row flex-center" **ngIf'{{nocity==1}}'>
+<div class="tishikuang flex-row flex-center" **ngIf='{{nocity==1}}'>
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
     <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
     <div class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</div>
@@ -23,18 +23,18 @@
   
   
   
-  <div **ngIf'{{pd==1}}'>
+  <div **ngIf='{{pd==1}}'>
     <img src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg" />
   </div>
   
   
   
   <!-- 用户首次进入引导图 -->
-  <!-- <div catchtouchmove="{{true}}" **ngIf'{{yd==1}}'>
-    <img src="{{uploadpath}}resource/{{res.home01}}" **ngIf'{{img==1}}' class="homeimage" />
-    <div class="bot" **ngIf'{{img==1}}' bindtap="qiehuan"></div>
-    <div class="bot" **ngIf'{{img==2}}' bindtap="closeimage"></div>
-    <img src="{{uploadpath}}resource/{{res.home02}}" **ngIf'{{img==2}}' class="homeimage" />
+  <!-- <div catchtouchmove="{{true}}" **ngIf='{{yd==1}}'>
+    <img src="{{uploadpath}}resource/{{res.home01}}" **ngIf='{{img==1}}' class="homeimage" />
+    <div class="bot" **ngIf='{{img==1}}' bindtap="qiehuan"></div>
+    <div class="bot" **ngIf='{{img==2}}' bindtap="closeimage"></div>
+    <img src="{{uploadpath}}resource/{{res.home02}}" **ngIf='{{img==2}}' class="homeimage" />
   </div> -->
   
   
@@ -43,12 +43,12 @@
     <div class='padding-15  bg-primary'>
       <div bindtap='tocity' class='flex-row flex-center'>
         <div class='txt-black h40 txt-bold'>{{cityname}}</div>
-        <div class='txt-black h40 txt-bold' **ngIf'{{cityname==null}}'>深圳市</div>
+        <div class='txt-black h40 txt-bold' **ngIf='{{cityname==null}}'>深圳市</div>
         <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
   
         <div catchtap="xiaoxiliebiao">
-          <div catchtap="xiaoxiliebiao" **ngIf"{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</div>
+          <div catchtap="xiaoxiliebiao" **ngIf="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</div>
           <img class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}' />
         </div>
   
@@ -72,7 +72,7 @@
   </div>
   
   
-  <div class="topblock" **ngIf'{{nocity==2&&cityname!=address.address_component.city}}'>
+  <div class="topblock" **ngIf='{{nocity==2&&cityname!=address.address_component.city}}'>
   
     <div class="flex-row flex-center " style="margin-top:30rpx;">
   
@@ -92,13 +92,13 @@
     <div class='   ' style="margin-left:20rpx;margin-right:20rpx">
   
       <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
-      <swiper-item **ngFor"{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
+      <swiper-item **ngFor="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
         <img  bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}' />
       </swiper-item>
     </swiper> -->
   
       <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:710rpx;height:354rpx;'>
-        <swiper-item **ngFor"{{indexbanner}}" wx:key="k">
+        <swiper-item **ngFor="{{indexbanner}}" wx:key="k">
        
           <img src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}"  class='lb {{item}} {{currentItemId == index ? "selected" : ""}}' />
         </swiper-item>
@@ -142,7 +142,7 @@
         <div class="h6">找课程</div>
       </div>
   
-      <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' **ngFor'{{filtercoursetype}}' wx:key='s' wx:for-index='idx' **ngIf'{{idx<8}}'>
+      <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' **ngFor='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' **ngIf='{{idx<8}}'>
         <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
         <div class="h6">{{item.typename}}</div>
       </div>
@@ -151,12 +151,12 @@
   
     <swiper-item class=" flex-row flex-center flex-wrap">
   
-      <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" **ngFor'{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' **ngIf'{{idx>=8}}'>
+      <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" **ngFor='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' **ngIf='{{idx>=8}}'>
         <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
         <div class="h6">{{item.typename}}</div>
       </div>
   
-      <div class="flex-row flex-column lesson-width" style="height:92rpx" **ngFor'{{10-((filtercoursetype.length)-8)}}'>
+      <div class="flex-row flex-column lesson-width" style="height:92rpx" **ngFor='{{10-((filtercoursetype.length)-8)}}'>
       <div class="icon26"></div>
         <div class="h6"> </div>
       </div>
@@ -197,7 +197,7 @@
   <div class='scv'>
     <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
   
-      <div **ngFor'{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
+      <div **ngFor='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
         <!-- <div class='txt-white h5 chaochu'>{{item.pingce_name}}</div> -->
         <div class=' ' style='height:68rpx;'></div>
         <div class='flex-row flex-center'>
@@ -300,23 +300,23 @@
   
                   </div>
   
-                  <div class='daka radius-50 text-center f15 txt-black tx t-bold' **ngIf'{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</div>
+                  <div class='daka radius-50 text-center f15 txt-black tx t-bold' **ngIf='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</div>
   
-                  <div class='yidaka radius-50 text-center f15 txt-black txt-bold' **ngIf'{{daka==true}}' bindtap='showtc'>已打卡</div>
+                  <div class='yidaka radius-50 text-center f15 txt-black txt-bold' **ngIf='{{daka==true}}' bindtap='showtc'>已打卡</div>
   
                 </div>
   
   
                 <div class='flex-row flex-center margin-top-16'>
                   <div class='flex-row flex-center '>
-                    <img **ngFor'{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' **ngIf'{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
+                    <img **ngFor='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' **ngIf='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
                   </div>
                   <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
                 </div>
   
-                <div **ngIf'{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></div>
+                <div **ngIf='{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></div>
   
-                <div class=' gz ' **ngIf'{{guize==true}}'>
+                <div class=' gz ' **ngIf='{{guize==true}}'>
                   <div class='guize bg-white flex-row flex-column'>
   
                     <div class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</div>
@@ -333,14 +333,14 @@
                 </div>
   
   
-                <div **ngIf'{{dakashow==true}}' class='chengong'>
+                <div **ngIf='{{dakashow==true}}' class='chengong'>
   
                   <div class='flex-row flex-center'>
                     <div class='flex-1'></div>
                     <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;' class='dakawc flex-row flex-column'>
                       <div style='height:376rpx;'></div>
-                      <div class='txt_jifen txt-bold txt-white' **ngIf'{{jf==25}}'>+25积分</div>
-                      <div class='txt_jifen txt-bold txt-white' **ngIf'{{jf==5}}'>+5积分</div>
+                      <div class='txt_jifen txt-bold txt-white' **ngIf='{{jf==25}}'>+25积分</div>
+                      <div class='txt_jifen txt-bold txt-white' **ngIf='{{jf==5}}'>+5积分</div>
                       <div class='tuhuang margin-top-10'>签到成功</div>
                       <div style='height:84rpx;'></div>
                       <div class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</div>
@@ -364,7 +364,7 @@
   
                 </div>
   
-                <div **ngIf'{{tangchuan==true}}' class='tangchuan'>
+                <div **ngIf='{{tangchuan==true}}' class='tangchuan'>
   
                   <div class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
   
@@ -394,9 +394,9 @@
   
   
                     <div class="zhong margin-top-46">
-                      <div class=' ' **ngFor'{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
+                      <div class=' ' **ngFor='{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
   
-                        <div class='bg-tuhuang gun' **ngIf'{{idx>0}}' style=''></div>
+                        <div class='bg-tuhuang gun' **ngIf='{{idx>0}}' style=''></div>
   
                         <div class='flex-row flex-center'>
   
@@ -406,10 +406,10 @@
   
                           <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</div>
   
-                          <div class='h6 txt-white' **ngIf'{{num<=7}}'>+{{idx
+                          <div class='h6 txt-white' **ngIf='{{num<=7}}'>+{{idx
                             <6?5:25}}</div>
   
-                              <div class='h6 txt-white' **ngIf'{{num>7}}'>+25</div>
+                              <div class='h6 txt-white' **ngIf='{{num>7}}'>+25</div>
   
                           </div>
                         </div>
@@ -419,7 +419,7 @@
   
                       <div class='flex-row flex-center'>
                         <div class='flex-1'></div>
-                        <div class='daka-btn text-center' **ngIf'{{daka==true}}' style='color:#FFC200'>已签到</div>
+                        <div class='daka-btn text-center' **ngIf='{{daka==true}}' style='color:#FFC200'>已签到</div>
                         <div class='flex-1'></div>
                       </div>
   
@@ -544,7 +544,7 @@
                   </div>
   
   
-                  <div hidden='{{jgvteach.length==0}}' **ngFor'{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
+                  <div hidden='{{jgvteach.length==0}}' **ngFor='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
                     <div class=' padding-20' style=''>
                       <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx' />
                     </div>
@@ -561,7 +561,7 @@
   
                                 <div class="flex-row flex-center flex-1 ">
                                   <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
-                                  <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" **ngIf"{{item.renzhen=='是'}}" />
+                                  <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" **ngIf="{{item.renzhen=='是'}}" />
                                 </div>
   
                                 <div class="starbox text-right">
@@ -593,7 +593,7 @@
   
                               <div class='flex-row flex-center margin-top-5'>
                                 <div class='flex-row flex-1'>
-                                  <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor"{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' **ngIf'{{idx<3}}'>{{litem.name}}</div>
+                                  <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' **ngIf='{{idx<3}}'>{{litem.name}}</div>
                                 </div>
                                 <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
                               </div>
@@ -633,22 +633,22 @@
   
   
   
-                <!-- **ngIf"{{showlastnotice==true&&noticebanner.length>0}}" -->
-                <div class='backmu' **ngIf"{{showlastnotice==true&&noticebanner.length>0}}">
+                <!-- **ngIf="{{showlastnotice==true&&noticebanner.length>0}}" -->
+                <div class='backmu' **ngIf="{{showlastnotice==true&&noticebanner.length>0}}">
                   <div class='flex-row flex-center' style='height:100vh'>
                     <div class='flex-1'></div>
                     <div class='width:500rpx;height:766rpx;'>
   
-                      <!-- **ngIf"{{noticebanner.length==1}}" -->
-                      <div **ngIf"{{noticebanner.length==1}}" **ngFor"{{noticebanner}}">
+                      <!-- **ngIf="{{noticebanner.length==1}}" -->
+                      <div **ngIf="{{noticebanner.length==1}}" **ngFor="{{noticebanner}}">
                         <div bindtap='bannerGo2' id="{{item.id}}">
                           <img src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;' />
                         </div>
                       </div>
   
-                      <!-- **ngIf"{{noticebanner.length>1}}" -->
-                      <swiper **ngIf"{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
-                        <swiper-item **ngFor"{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
+                      <!-- **ngIf="{{noticebanner.length>1}}" -->
+                      <swiper **ngIf="{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+                        <swiper-item **ngFor="{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
                           <div bindtap='bannerGo2' id="{{item.id}}">
                             <img src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;' />
                           </div>

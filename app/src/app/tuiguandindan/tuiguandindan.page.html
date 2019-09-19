@@ -27,7 +27,7 @@
           <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
             共{{quanbu.length}}笔订单
           </div>
-          <div **ngFor"{{quanbu}}" wx:key="k">
+          <div **ngFor="{{quanbu}}" wx:key="k">
             <div class="bg-white margin-top-20">
               <div class="margin-20 bg flex-row flex-center">
                 <div class="h5">买家：{{item.membername}}</div>
@@ -43,12 +43,12 @@
                 </div>
               </div>
               <div class="margin-20 flex-row bg">
-                <img **ngIf"{{item.course_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}curriculum/{{item.kcimg}}" />
-                <img **ngIf"{{item.onlineclassroom_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}onlineclassroom/{{item.zxkcimg}}" />
+                <img **ngIf="{{item.course_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}curriculum/{{item.kcimg}}" />
+                <img **ngIf="{{item.onlineclassroom_id!=0}}" class="icon-100 dd" mode="widthFix" src="{{uploadpath}}onlineclassroom/{{item.zxkcimg}}" />
                 <div class="margin-left-20">
                   <div class="flex-row">
-                    <div **ngIf"{{item.course_id!=0}}" class="h5" style="width:400rpx">{{item.kcname}}</div>
-                    <div **ngIf"{{item.onlineclassroom_id!=0}}" class="h5" style="width:400rpx">{{item.zxkcname}}</div>
+                    <div **ngIf="{{item.course_id!=0}}" class="h5" style="width:400rpx">{{item.kcname}}</div>
+                    <div **ngIf="{{item.onlineclassroom_id!=0}}" class="h5" style="width:400rpx">{{item.zxkcname}}</div>
                     <div class="margin-left-20 h5">x1</div>
                   </div>
           

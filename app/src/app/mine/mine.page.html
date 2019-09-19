@@ -38,8 +38,8 @@
           
               <div class='flex-row column flex-1'>
                 <div class='f48 txt-bold txt-white chaochu'>Hi,{{memberinfo.nickName}}</div>
-                <div **ngIf'{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
-                <div **ngIf'{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>
+                <div **ngIf='{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
+                <div **ngIf='{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>
           
                 <div class='bianji flex-row flex-center margin-top-20'>
                   <div class='flex-1'></div>
@@ -80,25 +80,25 @@
             <div class='padd-order-under flex-row flex-center'>
           
               <div bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
-                <div **ngIf"{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</div>
+                <div **ngIf="{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</div>
                 <img class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}' />
                 <div class='h6 margin-top-10'>待付款</div>
               </div>
           
               <div bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
-                <div **ngIf"{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</div>
+                <div **ngIf="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}' />
                 <div class='h6 margin-top-10'>待拼班</div>
               </div>
           
               <div bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
-                <div **ngIf"{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</div>
+                <div **ngIf="{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}' />
                 <div class='h6 margin-top-10'>待评价</div>
               </div>
           
               <div bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
-                <div **ngIf"{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</div>
+                <div **ngIf="{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}' />
                 <div class='h6 margin-top-10'>待收货</div>
               </div>
@@ -127,7 +127,7 @@
             <div data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>我的消息</div>
-              <div **ngIf"{{xiaoxi>0}}" class="hondian margin-right-20"></div>
+              <div **ngIf="{{xiaoxi>0}}" class="hondian margin-right-20"></div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
@@ -187,7 +187,7 @@
           
           
           
-            <div class='margin-top padding' **ngIf"{{memberinfo.canhexiao=='Y'}}">
+            <div class='margin-top padding' **ngIf="{{memberinfo.canhexiao=='Y'}}">
               <button bindtap='startscan'>核销</button>
             </div>
           

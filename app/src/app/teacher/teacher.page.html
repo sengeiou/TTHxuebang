@@ -16,9 +16,9 @@
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
    </div>
    
-   <div class='bg-white margin-bottom-20 qqq' style='' **ngFor'{{vteach}}' wx:key='k' **ngIf'{{teachlist.length>0&&item.id!=null}}'>
+   <div class='bg-white margin-bottom-20 qqq' style='' **ngFor='{{vteach}}' wx:key='k' **ngIf='{{teachlist.length>0&&item.id!=null}}'>
    
-     <div **ngIf"{{item.play=='Y'}}">
+     <div **ngIf="{{item.play=='Y'}}">
        <video bindtap='play'  class='pos' style='width:100vw; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
          <cover-view class='title txt-white  txt-bold'>{{item.title}}</cover-view>
        </video>
@@ -47,27 +47,27 @@
    
        
    
-         <!-- <img src='{{uploadpath}}resource/{{res.video_null}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' **ngIf"{{item.isfav=='N'}}" />
-         <img src='{{uploadpath}}resource/{{res.video_coll}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' **ngIf"{{item.isfav!='N'}}" />
+         <!-- <img src='{{uploadpath}}resource/{{res.video_null}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' **ngIf="{{item.isfav=='N'}}" />
+         <img src='{{uploadpath}}resource/{{res.video_coll}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' **ngIf="{{item.isfav!='N'}}" />
    
-         <div **ngIf"{{item.isfav=='N'}}" class='h5  ' bindtap='fav' id='{{item.id}}_Y' style='color:#FF9393'></div>
-         <div **ngIf"{{item.isfav!='N'}}" class='h5 ' bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'></div> -->
+         <div **ngIf="{{item.isfav=='N'}}" class='h5  ' bindtap='fav' id='{{item.id}}_Y' style='color:#FF9393'></div>
+         <div **ngIf="{{item.isfav!='N'}}" class='h5 ' bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'></div> -->
         
        <!-- </div>  -->
      </div>
    </div>
    
    
-   <div **ngIf"{{nomore!=1&&teachlist.length>0&&item.id!=null}}" class='h1'>
+   <div **ngIf="{{nomore!=1&&teachlist.length>0&&item.id!=null}}" class='h1'>
    <img style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
    </div>
    
    
-   <!-- <div class='tishi' **ngIf'{{show==1}}'>
+   <!-- <div class='tishi' **ngIf='{{show==1}}'>
    <img src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon' />
    </div>
    
-   <div class='tishi' **ngIf'{{show==2}}'>
+   <div class='tishi' **ngIf='{{show==2}}'>
    <img src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon' />
    </div> -->
 

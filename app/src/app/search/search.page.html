@@ -19,7 +19,7 @@
   <div class='search flex-row flex-center padding-5'>
     <div style='width:20rpx;'></div>
     <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-    <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您想要的' bindinput='search'> />
+    <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您想要的' bindinput='search' />
 
     <div class='padding-left-20 padding-right-10' bindtap=''>
       <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
@@ -29,7 +29,7 @@
 </div> -->
 
 
-<!-- <div bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' **ngFor"{{result}}" wx:key="k" wx:for-index='idx'>
+<!-- <div bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' **ngFor="{{result}}" wx:key="k" wx:for-index='idx'>
   <view>{{item.name}}</div>
   <div class='h6 txt-red margin-left-20'></div>
 </div> -->
@@ -44,29 +44,29 @@
 
   <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程</div>
-    <div **ngIf'{{shows=="finished"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf'{{shows!="finished"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows=="finished"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows!="finished"}}' class='' style='width:80rpx;height:6rpx;'></div>
   </div>
 
   <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构</div>
-    <div **ngIf'{{shows=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf'{{shows!="wait"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows!="wait"}}' class='' style='width:80rpx;height:6rpx;'></div>
   </div>
 
   <!-- <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='mv'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="video"?"txt":""}} txt-black'>视频</div>
-    <div **ngIf'{{shows=="video"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf'{{shows!="video"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows=="video"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
+    <div **ngIf='{{shows!="video"}}' class='' style='width:80rpx;height:6rpx;'></div>
   </div> -->
 
 </div>
 
 
 
-<div class='padding-bottom-20' **ngIf'{{shows=="finished"}}'>
+<div class='padding-bottom-20' **ngIf='{{shows=="finished"}}'>
 
-  <div **ngIf"{{coursevlist.length==0}}">
+  <div **ngIf="{{coursevlist.length==0}}">
     <div class='flex-row text-center'>
       <div class='flex-1'>
 
@@ -90,7 +90,7 @@
 
 
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor'{{coursevlist}}' wx:key='k'>
+  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor='{{coursevlist}}' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
@@ -168,9 +168,9 @@
 
 </div>
 
-<div class='' **ngIf'{{shows=="wait"}}'>
+<div class='' **ngIf='{{shows=="wait"}}'>
 
-  <div **ngIf"{{jgvlist.length==0}}">
+  <div **ngIf="{{jgvlist.length==0}}">
     <div class='flex-row text-center'>
       <div class='flex-1'>
 
@@ -193,7 +193,7 @@
 
 
 
-  <div hidden='{{jgvlist.length==0}}' **ngFor'{{jgvlist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+  <div hidden='{{jgvlist.length==0}}' **ngFor='{{jgvlist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx' />
     </div>
@@ -208,7 +208,7 @@
 
             <div class="flex-row flex-center flex-1 ">
               <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
-              <img  **ngIf"{{item.renzhen=='是'}}" src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" />
+              <img  **ngIf="{{item.renzhen=='是'}}" src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" />
             </div>
 
               <div class="starbox text-right">
@@ -239,7 +239,7 @@
 
           <div class='flex-row flex-center margin-top-5'>
             <div class='flex-row flex-1'>
-              <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor"{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+              <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
             </div>
             <div class='f20 txt-gray'>已预约{{item.people_num}}人</div>
           </div>
@@ -269,9 +269,9 @@
 
 </div>
 
-<!-- <div class='' **ngIf'{{shows=="video"}}'>
+<!-- <div class='' **ngIf='{{shows=="video"}}'>
 
-  <div **ngIf"{{teachlist.length==0}}">
+  <div **ngIf="{{teachlist.length==0}}">
     <div class='flex-row text-center'>
       <div class='flex-1'>
 
@@ -297,7 +297,7 @@
 
 
 
-  <div class='bg-white margin-bottom-20 ' **ngIf"{{teachlist.length>0}}" style='position:relative;width:100%' **ngFor'{{teachlist}}' wx:key='k'>
+  <div class='bg-white margin-bottom-20 ' **ngIf="{{teachlist.length>0}}" style='position:relative;width:100%' **ngFor='{{teachlist}}' wx:key='k'>
     <div class='title txt-white  txt-bold'>{{item.title}}</div>
 
     <video class='pos' object-fit="fill" style='width:100%; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}} '>
@@ -316,11 +316,11 @@
       <div class='margin-left-20 flex-row flex-center'>
       
 
-        <img src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' **ngIf"{{item.isfav=='N'}}" />
-        <img src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' **ngIf"{{item.isfav!='N'}}" />
+        <img src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' **ngIf="{{item.isfav=='N'}}" />
+        <img src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' **ngIf="{{item.isfav!='N'}}" />
 
-        <div **ngIf"{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>收藏</div>
-        <div **ngIf"{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>收藏</div>
+        <div **ngIf="{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>收藏</div>
+        <div **ngIf="{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>收藏</div>
       
       </div>
     </div>

@@ -23,10 +23,10 @@
       <div class='flex-1 '></div>
       <div class='  h6'>测试结果</div>
 
-      <div class=' text-center ' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeA}}'>{{item.character}}</div>
-      <div class=' text-center ' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeB}}'>{{item.character}}</div>
-      <div class=' text-center ' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeC}}'>{{item.character}}</div>
-      <div class=' text-center ' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeD}}'>{{item.character}}</div>
+      <div class=' text-center ' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeA}}'>{{item.character}}</div>
+      <div class=' text-center ' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeB}}'>{{item.character}}</div>
+      <div class=' text-center ' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeC}}'>{{item.character}}</div>
+      <div class=' text-center ' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeD}}'>{{item.character}}</div>
 
       <div class='flex-1 '></div>
 
@@ -55,10 +55,10 @@
   </text> -->
 
   <div class='margin-top-14'>
-    <text class=' h6 txt-6' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeA}}'>{{item.jielun}}</text>
-    <text class=' h6 txt-6' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeB}}'>{{item.jielun}}</text>
-    <text class=' h6 txt-6' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeC}}'>{{item.jielun}}</text>
-    <text class=' h6 txt-6' **ngFor'{{pingcejieguo}}' wx:key='k' **ngIf'{{item.options==typeD}}'>{{item.jielun}}</text>
+    <text class=' h6 txt-6' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeA}}'>{{item.jielun}}</text>
+    <text class=' h6 txt-6' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeB}}'>{{item.jielun}}</text>
+    <text class=' h6 txt-6' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeC}}'>{{item.jielun}}</text>
+    <text class=' h6 txt-6' **ngFor='{{pingcejieguo}}' wx:key='k' **ngIf='{{item.options==typeD}}'>{{item.jielun}}</text>
   </div>
 
 
@@ -69,7 +69,7 @@
 
 
 
-<div **ngIf'{{xianshilist.length>0}}'>
+<div **ngIf='{{xianshilist.length>0}}'>
   <div class='margin-top-32 margin-left-24 flex-row flex-center'>
     <div class='huangtiao'></div>
     <div class='h5 txt-bold margin-left-16 flex-1'>推荐课程</div>
@@ -79,7 +79,7 @@
     </div>
   </div>
 
-  <div class='bottom-block  radius-8 ' **ngFor'{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails'>
+  <div class='bottom-block  radius-8 ' **ngFor='{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails'>
 
     <div class=' margin-top-10 '>
       <div class='padding-20 flex-row radius-10  mk' style='border:1rpx solid white '>
@@ -90,28 +90,28 @@
           <div class='flex-row flex-center'>
 
 
-            <div **ngIf"{{item.scoring==5}}" class='flex-row flex-center '>
-              <img **ngFor'{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==5}}" class='flex-row flex-center '>
+              <img **ngFor='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==4}}" class='flex-row flex-center '>
-              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==4}}" class='flex-row flex-center '>
+              <img **ngFor='{{4}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
               <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==3}}" class='flex-row flex-center '>
-              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==3}}" class='flex-row flex-center '>
+              <img **ngFor='{{3}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{2}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==2}}" class='flex-row flex-center '>
-              <img **ngFor'{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+            <div **ngIf="{{item.scoring==2}}" class='flex-row flex-center '>
+              <img **ngFor='{{2}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{3}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
-            <div **ngIf"{{item.scoring==1}}" class='flex-row flex-center '>
+            <div **ngIf="{{item.scoring==1}}" class='flex-row flex-center '>
               <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
-              <img **ngFor'{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
+              <img **ngFor='{{4}}' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5' style='height:20rpx;width:20rpx;' />
             </div>
 
             <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>
