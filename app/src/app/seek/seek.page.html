@@ -1,0 +1,540 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+<!--pages/seek/seek.wxml  **ngIf'{{type=="jg"}}'-->
+<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<div class=' to_top'>
+  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+</div>
+
+<div **ngIf'{{type=="jg"}}'>
+  <div class='fixedtop'>
+    <div class='bg-primary'>
+      <div class='padding-left-20 padding-right-20 padding-top-20 '>
+        <navigator url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
+          <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
+          <div class='h5 txt-gray margin-left'>搜索机构名字</div>
+        </navigator>
+      </div>
+
+      <div class=' flex-row flex-center margin-top-10' bindtap='yingcang' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});height:70rpx;background-size:100% 100%;'>
+
+        <div class='flex-1  flex-row flex-center '>
+          <div class='flex-1'></div>
+          <img src='{{uploadpath}}resource/{{res.xuebangtoutiao}}' class='xb_bg margin-right-20' />
+        </div>
+
+        <div class='flex-2 flex-row flex-center '>
+          <div style='width:50rpx;'></div>
+          <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
+          <swiper vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' style='width:324rpx;height:30rpx;'>
+            <swiper-item **ngFor"{{gongaolist}}" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+              {{item.content}}
+            </swiper-item>
+          </swiper>
+        </div>
+
+      </div>
+
+      <div class='flex-row flex-center margin-top-5' style=''>
+
+        <div class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
+          <div class='txt-black h5 txt-bold margin-top-5' **ngIf"{{'0'==fdistrict_id}}">全{{cityname}}</div>
+
+
+          <div class='txt-black h5 txt-bold margin-top-5' **ngFor"{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" **ngIf"{{ditem.id==fdistrict_id}}">{{ditem.name}}</div>
+
+
+          <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
+        </div>
+
+        <div class='flex-1 flex-row flex-center'>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</div>
+            <div **ngIf'{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</div>
+            <div **ngIf'{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</div>
+            <div **ngIf'{{show=="hp"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div style='height:240rpx;'></div>
+
+
+  <div **ngFor'{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
+
+    <div class=' padding-20' style=''>
+      <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx' />
+    </div>
+
+    <div class='flex-row flex-column midt {{xiala=="xs"?"midtm":""}}'>
+      <div class='radius-10 bg-white mid margin-bottom-10'>
+
+        <div class='padding-20 '>
+
+          <div class='flex-row flex-center'>
+
+            <div class="flex-row flex-center flex-1 ">
+              <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
+              <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" **ngIf"{{item.renzhen=='是'}}" />
+            </div>
+
+            <div class="starbox text-right">
+              <div class="stars" style="width: 100%;">
+                <div class=" ims">
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                </div>
+              </div>
+
+              <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                <div class="ims">
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class='flex-row flex-center margin-top-5'>
+
+            <div class='flex-row flex-1'>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor"{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' **ngIf'{{idx<3}}'>{{litem.name}}</div>
+            </div>
+
+            <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
+          </div>
+
+          <div class='flex-row flex-center margin-top-5'>
+            <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
+            <div class='flex-1 h6 margin-left-10 txt-black chaochu'>{{item.showaddress}}</div>
+            <div class='h6 margin-left-10'>{{item.miletxt}}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='height-100'></div>
+
+  </div>
+
+
+  <div style='height:70rpx;'></div>
+</div>
+
+
+
+<div **ngIf'{{type=="kc"}}' class='' style=''>
+
+  <div class='fixedtop'>
+    <div class='bg-primary'>
+
+      <div class='padding-left-20 padding-right-20 padding-top-20 flex-row flex-center'>
+
+        <navigator url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 flex-1' style="width: 564rpx;">
+          <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
+          <div class='h6 txt-gray margin-left'>搜索课程</div>
+        </navigator>
+
+        <!-- 修改后 -->
+        <div class=' flex-row flex-center margin-left-15' bindtap='bindxialaage' style='width:150rpx;'>
+        <div class="flex-1"></div>
+          <div class='txt-black h6 txt-bold' **ngIf"{{ageid==-1}}">全年龄</div>
+          <div class='txt-black h6 txt-bold' **ngFor"{{filtercourseage}}"   wx:key="dfkey" **ngIf"{{item.id==ageid}}">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+          <img class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.gengduo}}' />
+        </div>
+
+      </div>
+
+      <div class=' flex-row flex-center margin-top-20'>
+
+  
+
+        <div class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
+          <div class='txt-black h5 txt-bold margin-top-5' **ngIf"{{'0'==fdistrict_id}}">全{{cityname}}</div>
+
+          <div class='txt-black h5 txt-bold margin-top-5' **ngFor"{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" **ngIf"{{ditem.id==fdistrict_id}}"  >{{ditem.name}}</div>
+          
+          <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
+        </div>
+
+        <!-- <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTDistrict'>全部</div>
+          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' **ngFor"{{filterdistrict}}" wx:key="k" id="{{item.id}}" bindtap='setTDistrict'>{{item.name}}</div> -->
+        
+
+
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
+          <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</div>
+          <div **ngIf'{{options=="j_x"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></div>
+          <div **ngIf'{{options!="j_x"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></div>
+        </div>
+
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
+          <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</div>
+          <div **ngIf'{{options=="h_p"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></div>
+          <div **ngIf'{{options!="h_p"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></div>
+        </div>
+
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
+          <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</div>
+          <div **ngIf'{{options=="x_s"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></div>
+          <div **ngIf'{{options!="x_s"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></div>
+        </div>
+
+        <!-- <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='bm_za'>
+          <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="bm_za"?"txt-bold f13":""}} txt-black txt-bold'>宝妈最爱</div>
+          <div **ngIf'{{options=="bm_za"}}' class='bg-black margin-top-5' style='width:80rpx;height:6rpx;'></div>
+          <div **ngIf'{{options!="bm_za"}}' class='margin-top-5' style='width:80rpx;height:6rpx;'></div>
+        </div> -->
+
+
+
+        <!-- <div class='margin-bottom-10' style='width:4rpx;height:40rpx;background:#F9A700'></div>
+
+        <div class='flex-1 flex-row flex-column' bindtap='bindScreening'>
+
+          <div class='flex-row flex-center'>
+            <img src='{{uploadpath}}resource/{{res.shaixuan}}' class='icon-15' />
+            <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="s_x"?"txt-white":""}}  txt-black txt-bold '>筛选</div>
+          </div>
+
+          <div class='margin-top-5' style='width:80rpx;height:6rpx;'></div>
+        </div> -->
+
+      </div>
+
+
+      <!-- 修改后 -->
+      <!-- <div class='flex-row flex-center margin-top-5' style=''>
+
+        <div class='flex-row flex-center weizhi' bindtap='bindxialakc' style=''>
+          <div class='txt-black h5 txt-bold margin-top-5' **ngIf"{{'0'==fdistrict_id}}">全{{cityname}}</div>
+
+
+          <div class='txt-black h5 txt-bold margin-top-5' **ngFor"{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" **ngIf"{{ditem.id==fdistrict_id}}">{{ditem.name}}</div>
+
+
+          <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
+        </div>
+
+        <div class='flex-1 flex-row flex-center'>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</div>
+            <div **ngIf'{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</div>
+            <div **ngIf'{{show=="hp"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="hp"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
+            <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</div>
+            <div **ngIf'{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></div>
+            <div **ngIf'{{show!="xs"}}' class='' style='width:80rpx;height:6rpx;'></div>
+          </div>
+        </div>
+
+      </div> -->
+
+    </div>
+  </div>
+
+
+  <div style='height:180rpx;'></div>
+
+
+  <div **ngIf"{{vteach.length==0}}">
+    <div class='flex-row text-center'>
+      <div class='flex-1'>
+      </div>
+
+      <view>
+        <div class='nofound-img'>
+          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nokecheng}}' />
+        </div>
+        <div class='h5 txt-gray'>
+          未找到您需要的课程
+        </div>
+      </div>
+
+
+      <div class='flex-1'>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor'{{vteach}}' wx:key='k'>
+    <img class='kc_icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' />
+    <div class='flex-row column   margin-left-20 flex-1'>
+      <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.name}}</div>
+
+      <div class="starbox text-right">
+        <div class="stars" style="width: 100%;">
+          <div class=" ims">
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          </div>
+        </div>
+
+        <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+          <div class="ims">
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class='flex-row flex-center flex-1' style=''>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.min_age}}{{item.max_age==100?'岁以上':'-'+item.max_age+'岁'}}</div>
+        </div>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+        </div>
+
+
+        <div class='flex-row flex-center flex-1'>
+          <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+          <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+        </div>
+
+
+      </div>
+
+
+      <div class='flex-row flex-center flex-1'>
+        <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
+        <div class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</div>
+        <div class=' txt-red h6 padding-top-10'>￥</div>
+        <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
+
+
+
+      </div>
+
+      <div class='flex-row flex-center'>
+        <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
+        <div class='h6 txt-black txt-bold'>{{item.miletxt}}</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- <div **ngIf"{{nomore!=1}}" class='h1'>
+<img style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
+</div> -->
+
+  <div style='height:40rpx;'></div>
+
+
+
+  <div class='SX flex-row flex-center' **ngIf'{{options_show==true}}'>
+
+    <div class='' bindtap='hideFilter' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></div>
+
+    <div class='bg-white' style='width:74.6%;height:100%;'>
+
+      <div class='height-30'></div>
+
+      <div class='flex-row column padding-bottom-20'>
+        <div class='margin_L_T txt-black  h5'>区域</div>
+
+        <div class='flex-row flex-center  flex-wrap'>
+
+          <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTDistrict'>全部</div>
+          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_T' style='width:160rpx;height:60rpx;line-height:60rpx;' **ngFor"{{filterdistrict}}" wx:key="k" id="{{item.id}}" bindtap='setTDistrict'>{{item.name}}</div>
+        </div>
+      </div>
+
+      <div class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></div>
+
+
+      <div class='flex-row column padding-bottom-20'>
+        <div class='margin_L_T txt-black h5'>类型</div>
+        <div class='flex-row flex-center  flex-wrap'>
+          <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTType'>全部</div>
+          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' **ngFor"{{filtercoursetype}}" wx:key="k" id="{{item.id}}" bindtap='setTType'>{{item.typename}}</div>
+        </div>
+      </div>
+
+      <div class='margin-left-20 ' style='height:2rpx;width:93%;background:#E5E5E5'></div>
+
+
+      <!-- <div class='flex-row column padding-bottom-20'>
+        <div class='margin_L_T txt-black h5'>年龄</div>
+        <div class='flex-row flex-center  flex-wrap'>
+          <div class='{{tage_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' id="0" bindtap='setTAge'>全部</div>
+          <div class='{{tage_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochu' style='width:160rpx;height:60rpx;line-height:60rpx;' **ngFor"{{filtercourseage}}" wx:key="k" id="{{item.id}}" bindtap='setTAge'>{{item.name}}</div>
+        </div>
+      </div> -->
+
+
+
+      <div class='btm'>
+        <div class='flex-row flex-column '>
+
+          <div class='flex-1'></div>
+
+          <div class='flex-row flex-center  '>
+            <div class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' bindtap='resetFilter'>重置</div>
+            <div class='' style='width:19rpx;'></div>
+            <div class='ximg txt-white  radius-20  text-center  h5' style='height:62rpx;width:180rpx;line-height:62rpx;' data-qd='ok' bindtap='bindScreening'>确定</div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<swiper **ngIf"{{type=='kc'&&options_show==false}}" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='height:60rpx; ' class='tipsshowfull'>
+  <swiper-item wx:for-index="idx" style="width:360rpx;" **ngFor"{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
+    <div class='flex-row'>
+      <div class='flex-1'></div>
+      <div class='tipsshow'>
+        <div class='flex-row flex-center'>
+          <div class='line-height-0'>
+            <img src='{{showitem.member_avatarUrl}}' />
+          </div>
+
+          <div style='width:250rpx;' class='flex-row flex-center'>
+
+            <div style='overflow: hidden;text-overflow:ellipsis;white-space: nowrap;'>{{showitem.member_nickName}}预约了{{showitem.course_name}}</div>
+
+            <!-- <div style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;'>
+              {{showitem.course_name}}
+            </div> -->
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- <div  **ngIf"{{idx%2!=0}}" class='flex-row'>
+     
+       <div  class='tipsshow'>
+      <div class='flex-row flex-center'>
+
+
+        <div class='flex-row flex-center'>
+
+          <div style='overflow:hidden;text-overflow:ellipsis;white-space: nowrap;margin-top:5rpx'>
+            {{showitem.course_name}}
+          </div>
+
+        </div>
+
+      </div>
+    </div> -->
+
+
+
+
+  </swiper-item>
+</swiper>
+
+<!-- <div **ngIf'{{xiala=="xs"}}' class='xiala' bindtap='yincang'>
+
+</div> -->
+
+
+
+<div **ngIf'{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}};top:{{type=="kc"?"194rpx":"244rpx"}}'>
+
+  <scroll-view scroll-y>
+    <div bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
+    <div bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' **ngFor'{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</div>
+  </scroll-view>
+
+</div>
+
+<!-- **ngIf'{{xialakc=="xs"}}' -->
+
+<!-- <div  class='bg-white list2' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}}'>
+
+  <scroll-view scroll-y>
+    <div bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
+    <div bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' **ngFor'{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</div>
+  </scroll-view>
+
+</div> -->
+
+<div **ngIf'{{xialaage=="xs"}}' class='bg-white list3' style='height:{{43*((filtercourseage.length>7)?7:filtercourseage.length)}}'>
+
+  <scroll-view scroll-y>
+    <div bindtap='changeage' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
+
+    <div bindtap='changeage' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' **ngFor'{{filtercourseage}}' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+  </scroll-view>
+
+</div>
+
+
+    </ion-content>

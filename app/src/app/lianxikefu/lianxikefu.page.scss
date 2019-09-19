@@ -1,0 +1,28 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/lianxikefu/lianxikefu.wxss */
+Page{
+    background: #F5F6F8;
+  }
+  .weixin {
+    width: rpx(702);
+    height: rpx(224);
+    margin: rpx(24);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(8);
+  }
+  .icon-42{
+    width: rpx(98);
+    height: rpx(88);
+  }
+   .icon-50{
+    width: rpx(94);
+    height: rpx(94);
+  }
+   
+  .icon-right{
+    width:rpx(12);
+  height:rpx(20);
+  }

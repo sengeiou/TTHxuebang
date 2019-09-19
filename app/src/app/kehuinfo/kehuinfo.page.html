@@ -1,0 +1,60 @@
+<ion-header>
+    <ion-toolbar  color='primary'>
+        <ion-buttons slot="start">
+          <ion-button (click)='back()'>
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>{{heading}}</ion-title>
+      </ion-toolbar>
+</ion-header>
+
+  <ion-content >
+
+
+      <div class="padding-40 bg-white flex-row flex-center">
+          <img class="icon-60 radius-50" src="{{member.avatarUrl}}" />
+          <div class="margin-left-20">
+            <div class="flex-row flex-center">
+              <div class="h6">{{member.nickName}}</div>
+        
+            </div>
+            <div class="flex-row flex-center margin-top-20">
+              <div class="h6">绑定时间</div>
+              <div class="h6 margin-left-10">{{member.bandin_date}}</div>
+            </div>
+        
+          </div>
+          <div class="flex-1"></div>
+        
+        </div>
+        <div class="height-20"></div>
+        <div class="padding-40 bg-white" style="padding-top:0rpx">
+          <div class="flex-row flex-center margin-top xian1">
+        
+            <view>订单数量</div>
+            <div class="flex-1"></div>
+            <view>{{member.order.length}}</div>
+          </div>
+        
+        
+          <div class="flex-row flex-center margin-top xian">
+        
+            <view>成交金额</div>
+            <div class="flex-1"></div>
+            <img class="icon-15 margin-right-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
+            <view>{{member.jiner}}</div>
+          </div>
+          <div class="flex-row flex-center margin-top  ">
+        
+            <view>我的收益</div>
+            <div class="flex-1"></div>
+            <img class="icon-15 margin-right-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
+            <view>{{member.shouyijiner}}</div>
+          </div>
+        
+        
+        
+        </div>
+
+  </ion-content>

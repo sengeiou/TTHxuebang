@@ -1,0 +1,20 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+.img {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    bottom: 0;
+    top: 0; 
+  }
+  .nostyle view,navigator,input,text,textarea{
+  color:unset;
+  font-size:unset;
+  word-break: normal;
+  }
+  .nostyle image{
+    width:100vw !important;
+  }

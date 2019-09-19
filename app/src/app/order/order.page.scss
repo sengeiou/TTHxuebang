@@ -1,0 +1,217 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/order/order.wxss */
+
+Page {
+    background: #f5f5f5;
+  }
+  
+  .bg_top {
+    background: white;
+  }
+  .icon-34 {
+    width: rpx(34);
+    height: rpx(34);
+  }
+  .icon-80 {
+    width: rpx(80);
+    height: rpx(80);
+  }
+  .qxdd{
+  
+  width: rpx(200);
+  height: rpx(60);
+  background: #CCCCCC;
+  font-size: rpx(28);
+  color:#FFFFFF;
+  text-align: center;
+  line-height: rpx(60);
+  border-radius: rpx(10);
+  
+  }
+  
+  .qzf{
+  
+  width: rpx(200);
+  height: rpx(60);
+  background: #50B674;
+  font-size: rpx(28);
+  color:#FFFFFF;
+  text-align: center;
+  line-height: rpx(60);
+  border-radius: rpx(10);
+  }
+  .height-60{
+    height: rpx(60)
+  }
+  .ddd{
+    width: rpx(200);
+  }
+  .hexiaoma{
+  
+  color:white;
+  background: #50B674;
+  padding: rpx(10) rpx(20) rpx(10) rpx(20);
+  border-radius: rpx(10);
+  text-align: center;
+  }
+  .saoma{
+   padding: rpx(10);
+   border-radius: rpx(10);
+  font-size: rpx(16);
+  color:#999999;
+  background:white;
+  
+  }
+  .erweimaban{
+    width:rpx(60);
+    height: rpx(60);
+  }
+  .erweimade{
+    width: rpx(440);
+    height: rpx(440);
+  }
+  /* .height-66{
+    height: rpx(66);
+  } */
+  .fz {
+    padding: rpx(5) rpx(10) rpx(5) rpx(10);
+    border: 1px solid white;
+    border-radius: rpx(10);
+    font-size: rpx(20);
+    color: white;
+  }
+  
+  .xxxx {
+    position: absolute;
+    margin-top: -rpx(18);
+    margin-left: -rpx(50);
+  }
+  
+  margin-top-10 {
+    margin-top: rpx(20);
+  }
+  
+  .xian1 {
+    width: rpx(340);
+    height: rpx(1);
+    background-color: #2f9a55;
+  }
+  
+  .xian {
+    height: 1prx;
+    width: 100%;
+    background: #2f9a55;
+  }
+  
+  .quan {
+    background: #2f9a55;
+    width: rpx(35);
+    height: rpx(35);
+    border-radius: 50%;
+    z-index: 9999;
+  }
+  
+  .nr {
+    padding-top: rpx(60);
+   padding-bottom:rpx(40);
+  }
+  
+  .bor_bot {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .borbot {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .bor_top {
+    border-top: 1px solid #e5e5e5;
+  }
+  
+  .pd {
+    padding-top: rpx(20);
+    padding-right: 20rxp;
+    padding-bottom: rpx(20);
+    padding-left: rpx(10);
+  }
+  .margin-left-18 {
+    margin-left: rpx(18);
+  }
+  .btn {
+    width: rpx(312);
+    height: rpx(84);
+    border-radius: rpx(56);
+    border: rpx(2) solid #FF6600;
+    background-color: #FF6600;
+  }
+  .fbtn {
+    width: rpx(140);
+    height: rpx(48);
+    line-height: rpx(48);
+    border-radius: rpx(40);
+  }
+  
+  .btm {
+    position: fixed;
+    bottom: 0;
+    width: 95%;
+    z-index: 100;
+    border-top: rpx(2) solid #e5e5e5;
+  }
+  
+  
+  .modal-mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+    z-index: 9000;
+    color: #fff;
+  }
+  
+  .modal-dialog {
+    width: rpx(680);
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    left: 0;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin: rpx(50) rpx(35);
+    border-radius: rpx(10);
+  }
+  .baocunhexiao{
+  
+  width: 30vw;
+    overflow: hidden;
+    position: fixed;
+    top: 10%;
+    left: 25vw;
+    z-index: 9999;
+    background: #f9f9f9;
+    margin-top: rpx(850) ;
+    border-radius: rpx(100);
+  padding:rpx(20) rpx(60) rpx(20) rpx(60);
+  background: rgba(255, 255, 255, 1);
+  
+  
+  }
+  .modal-title {
+    padding: rpx(40);
+   
+    font-size: rpx(32);
+    color: #030303;
+    text-align: center;
+  }
+  
+  .modal-content {
+    padding: rpx(50) rpx(32);
+  }
+  

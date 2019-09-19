@@ -1,0 +1,55 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.tz{
+
+    color:#FF2734;
+    border:rpx(1) solid #FF2734;
+    padding-left:rpx(5);
+    padding-right: rpx(5);
+    padding-top:rpx(3);
+    padding-bottom:rpx(3);
+    position: absolute;
+    background-color: white;
+    border-radius: rpx(10);
+    
+    left:rpx(60);
+    top:rpx(70);
+    }
+    .margin-top-30{
+      margin-top: rpx(30);
+    }
+    .bg{
+     background:  #FFFFFF;
+     border-radius: rpx(10);
+    }
+    .djs{
+    background-color: black;
+    color: white;
+    padding:rpx(20);
+    border-radius: rpx(10);
+    }
+    .tuan_btn{
+    width: 85%;
+    padding-top:rpx(20);
+    padding-bottom:rpx(20);
+    background-color: #FF5252;
+    color: white;
+    border-radius: rpx(40);
+    
+    }
+    .tuan_btn1{
+    width: 85%;
+    padding-top:rpx(20);
+    padding-bottom:rpx(20);
+    background-color: white;
+    border:1px solid #FF5252;
+    color: #FF5252;
+    border-radius: rpx(40);
+    
+    }
+    .quan{
+    
+      border:1px dashed  #999999;
+    }

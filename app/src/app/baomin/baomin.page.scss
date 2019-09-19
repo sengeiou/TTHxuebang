@@ -1,0 +1,159 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.gz {
+    position: fixed;
+    z-index: 999;
+    left: rpx(100);
+    right: rpx(100);
+    bottom: 20%;
+    border-radius: rpx(8);
+  }
+  .ts{
+    color:#CCCCCC;
+    font-size: rpx(22);
+  }
+  .block_black {
+    background: black;
+    opacity: 0.6;
+    position: fixed;
+    z-index: 998;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .guize {
+    width: rpx(540);
+    
+    border-radius: rpx(8);
+    opacity: 1;
+  }
+  .conten {
+    width: 93vw;
+    background: white;
+    margin-top: rpx(30);
+    z-index: 500;
+    border-radius: rpx(20);
+  }
+  
+  .tmbg {
+    position: absolute;
+  }
+  
+  .bmcs {
+    width: rpx(200);
+    height: rpx(56);
+    background: #f60;
+    border-radius: rpx(50);
+    line-height: rpx(56);
+    text-align: center;
+    color: white;
+  }
+  .toupiao{
+  background: #FEF4F2;
+  color:#F5555D;
+  font-size: rpx(22);
+  padding:rpx(27);
+  
+  }
+  .tpgz{
+    width: rpx(140);
+    height: rpx(50);
+    line-height: rpx(50);
+    text-align: center;
+    font-size: rpx(22);
+    border-radius: rpx(50);
+    background: white;
+    color:#FF6600;
+    border:1px solid #FF6600;
+  
+  }
+  .kecheng-block {
+    width: 40vw;
+    background: rgba(255, 255, 255, 1);
+   
+    margin-left: rpx(35);
+    margin-top: rpx(30);
+  }
+  .tp{
+   margin-top:rpx(20);
+   margin-bottom: rpx(40);
+  width:rpx(180);
+  height: rpx(64);
+  line-height: rpx(64);
+    text-align: center;
+   color:white;
+   background: #FF6600;
+   border-radius: rpx(64);
+  }
+  .padding-mid {
+    padding-top: rpx(30);
+     margin-right: rpx(20);
+    padding-bottom: rpx(30);
+    margin-left: rpx(20);
+    border-bottom:rpx(2) solid #F5F5F5;
+  }
+  .icon-img {
+    width: rpx(160);
+    height: rpx(160);
+    margin:rpx(20);
+  }
+  .addjigou {
+    width: rpx(160);
+    height: rpx(160);
+    margin: rpx(20);
+    border: rpx(2) dashed rgba(204, 204, 204, 1);
+  }
+  .jl{
+    width:rpx(20);
+  }
+  textarea{
+  width: rpx(320);
+   
+  height: rpx(120);
+  }
+  .pc {
+    color: #c8c8c8;
+  }
+  .width-210{
+    width: rpx(180);
+  }
+  .shuzi{
+  position: absolute;
+  margin-left:rpx(10);
+  margin-top:-rpx(60);
+  color:#FF6600;
+  font-size: rpx(26);
+  width: rpx(45);
+  height: rpx(45);
+  line-height: rpx(45);
+  text-align: center;
+  background: #FFC200;
+  border-radius: 50%;
+  }
+  .yulan{
+  
+    width:rpx(600);
+    height: rpx(84);
+    color:#FF6600;
+    background: white;
+    line-height: rpx(84);
+    text-align: center;
+    border: 1px solid #FF6600;
+    border-radius: rpx(80);
+  }
+  
+  .tijiao{
+  
+    width:rpx(600);
+    height: rpx(84);
+    color:#FFFFFF;
+    background:#FF6600;
+    line-height: rpx(84);
+    text-align: center;
+  
+    border-radius: rpx(80);
+  }

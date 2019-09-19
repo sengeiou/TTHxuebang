@@ -1,0 +1,38 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/jifenshouzhi/jifenshouzhi.wxss */
+
+.tiao {
+    width: rpx(120);
+    height: rpx(6);
+  }
+  
+  .bg-orange {
+    background: #ffba12;
+  }
+  
+  .title {
+    height: rpx(80);
+    line-height: rpx(72);
+  }
+  .margin-left-20{
+    margin-left: rpx(40);
+  }
+  .margin-right-20{
+    margin-right: rpx(40);
+  }
+  .margin-right-30{
+    margin-right: rpx(30);
+  }
+  .txt9{
+    color: #999999
+  }
+  .shouru{
+    padding:rpx(24) rpx(30) rpx(28) rpx(38);
+  }
+  .border-top{
+    border-top:rpx(2) solid #E5E5E5
+  }
+  

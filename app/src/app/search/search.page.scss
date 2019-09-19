@@ -1,0 +1,90 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/search/search.wxss */
+Page{
+    background: #f5f5f5;
+  }
+  .search{
+    width:rpx(620);
+    border-radius: rpx(50);
+    background-color: rgb(240, 240, 240);
+  }
+  .search_icon{
+    height:rpx(40);
+    width:rpx(40);
+  }
+  .prohibit_icon{
+    height:rpx(30);
+    width:rpx(30);
+  }
+  .shadow {
+    box-shadow: 1px 1px 5px #d1d1d1;
+  }
+  .kc_icon {
+    width: rpx(228);
+    height: rpx(224);
+  }
+  .kecheng {
+    margin-left: rpx(20);
+    margin-right: rpx(20);
+    margin-top: rpx(20);
+    /* margin-bottom: rpx(4); */
+  }
+  .address{
+  
+  }
+  
+  .icon13{
+    height: rpx(26);
+    width: rpx(26);
+  }
+  .f20{
+    font-size: rpx(20);
+  }
+  .img{
+    width: rpx(220);
+    height: rpx(252);
+  }
+  .mid{
+    position: absolute;
+    width: 85.5%;
+    z-index: 10;
+    height: rpx(190);
+    bottom:0%;
+    /* opacity: 0.8; */
+    box-shadow: 1px 1px 5px #dfdfdf;
+  }
+  .org_block {
+    padding-left: rpx(5);
+    padding-right: rpx(15);
+    padding-top: rpx(6);
+    padding-bottom: rpx(6);
+  }
+  
+  .dizhi {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .title {
+    position: absolute;
+    width: 50%;
+    top: rpx(24);
+    left: rpx(32);
+    z-index: 10;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .biaoqian {
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
+  }
+  
+  

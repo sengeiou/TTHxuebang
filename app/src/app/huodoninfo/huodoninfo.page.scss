@@ -1,0 +1,138 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.gz {
+    position: fixed;
+    z-index: 999;
+    left: rpx(100);
+    right: rpx(100);
+    bottom: 30%;
+    border-radius: rpx(8);
+  }
+  
+  .block_black {
+    background: black;
+    opacity: 0.6;
+    position: fixed;
+    z-index: 998;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .guize {
+    width: rpx(540);
+    border-radius: rpx(8);
+    opacity: 1;
+  }
+  
+  .conten {
+    width: 93vw;
+    background: white;
+    margin-top: rpx(50);
+    z-index: 500;
+    border-radius: rpx(20);
+  }
+  
+  .tmbg {
+    position: absolute;
+    z-index: 2;
+  }
+  
+  .cc {
+    z-index: 50;
+    position: absolute;
+    margin-bottom:rpx(20);
+    width: 100vw;
+  }
+  
+  .hsbg {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+  }
+  
+  .bmcs {
+    width: rpx(200);
+    height: rpx(56);
+    background: #f60;
+    border-radius: rpx(50);
+    line-height: rpx(56);
+    text-align: center;
+    color: white;
+  }
+  
+  .toupiao {
+    background: #fef4f2;
+    color: #f5555d;
+    font-size: rpx(22);
+    padding: rpx(27);
+  }
+  
+  .tpgz {
+    width: rpx(140);
+    height: rpx(50);
+    line-height: rpx(50);
+    text-align: center;
+    font-size: rpx(22);
+    border-radius: rpx(50);
+    background: white;
+    color: #f60;
+    border: 1px solid #f60;
+  }
+  
+  .kecheng-block {
+    width: 40vw;
+    background: rgba(255, 255, 255, 1);
+    margin-left: rpx(35);
+    margin-top: rpx(30);
+  }
+  
+  .tp {
+    margin-top: rpx(20);
+    margin-bottom: rpx(40);
+    width: rpx(180);
+    height: rpx(64);
+    line-height: rpx(64);
+    text-align: center;
+    color: white;
+    background: #f60;
+    border-radius: rpx(64);
+  }
+  
+  .tpcg {
+    margin-top: rpx(20);
+    margin-bottom: rpx(40);
+    width: rpx(180);
+    height: rpx(64);
+    line-height: rpx(64);
+    text-align: center;
+    color: white;
+    background: #999;
+    border-radius: rpx(64);
+  }
+  
+  .shuzi {
+    position: absolute;
+    margin-left: rpx(10);
+    margin-top: -rpx(60);
+    color: #f60;
+    font-size: rpx(26);
+    width: rpx(45);
+    height: rpx(45);
+    line-height: rpx(45);
+    text-align: center;
+    background: #ffc200;
+    border-radius: 50%;
+  }
+  
+  .qianjimin {
+    position: absolute;
+    margin-left: rpx(10);
+    margin-top: -rpx(60);
+  }
+  

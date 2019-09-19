@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+
+
+
+
+  <!--pages/addmechanism/addmechanism.wxml-->
+
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+
+    <div class='height-72 txt-6'>
+      机构信息
+    </div>
+
+    <div class='mid bg-white'>
+
+
+      <div class='padding-mid' style=''>
+        <div class='flex-row flex-center '>
+          <div class='' style='color:#FF5252'>*</div>
+          <div class='font-30   txt-black margin-left-10 width-210'>机构名称：</div>
+          <input class='  ' placeholder-class='pc' name='jigou' style='' placeholder='请填写机构名称'> />
+        </div>
+      </div>
+
+      <div class='margin-left-20 height-2' style='background:#f5f5f5; '></div>
+
+      <div class='padding-mid' style=''>
+        <div class='flex-row flex-center '>
+          <div class='' style='color:#FF5252'>*</div>
+          <div class='font-30   txt-black margin-left-10 width-210'>机构联系方式：</div>
+          <input class='  ' style='' placeholder-class='pc' type="number" value='{{contacttel}}' name='mobile'
+            placeholder='请填写联系电话'> />
+        </div>
+      </div>
+      <div class='margin-left-20 height-2' style='background:#f5f5f5; '></div>
+
+      <div class='padding-mid  ' style=''>
+        <div class='flex-row flex-center '>
+          <div class='' style='color:#FF5252'>*</div>
+          <div class='font-30   txt-black margin-left-10 width-210'>机构地址：</div>
+          <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}"
+            custom-item="{{customItem}}">
+            <!-- <div class="picker" style='color:#C8C8C8' **ngIf"{{region.length==0}}">{{region}}</div> -->
+            <div class="flex-row flex-center">
+              <div class="picker flex-1" **ngIf"{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</div>
+              <img src="{{uploadpath}}resource/{{res.address_right}}" class="icon" />
+            </div>
+          </picker>
+        </div>
+      </div>
+
+
+      <div class='height-2' style='background:#f5f5f5; '></div>
+
+
+      <div class='padding-mid' style=''>
+        <div class='flex-row column '>
+
+          <div class="flex-row flex-center">
+            <div class='' style='color:#FF5252'>*</div>
+            <div class='font-30   txt-black margin-left-10 width-210'>详细地址：</div>
+          </div>
+
+          <textarea **ngIf'{{tc!=true}}' class=' font-30 margin-top-20 height-80 pl-20' 
+            placeholder-class='pc' value='{{}}' name='fulladdress' placeholder='街道、门牌号等'></textarea>
+
+        </div>
+      </div>
+     
+
+    </div>
+
+
+
+
+
+    <div class='padding-30 ' style=''>
+      <div class='flex-row flex-center '>
+        <div class='flex-1'></div>
+
+        <img **ngIf'{{show==1}}' src='{{uploadpath}}resource/{{res.weixuan}}' bindtap='bindcheck' data-sf='N'
+          class='icon-15' />
+        <img **ngIf'{{show==2}}' src='{{uploadpath}}resource/{{res.xuanzhong}}' bindtap='bindcheck' class='icon-15'
+          data-sf='Y' class='icon-15' />
+
+        <div class='font-30 txt-black margin-left-10' **ngIf'{{show==1}}' bindtap='bindcheck' data-sf='N'>我已详细阅读并同意
+        </div>
+        <div class='font-30 txt-black margin-left-10' **ngIf'{{show==2}}' bindtap='bindcheck' data-sf='Y'>我已详细阅读并同意
+        </div>
+
+        <div class='font-30 txt-blue margin-left-5' bindtap='tocontent'>《学榜用户协议》</div>
+        <div class='flex-1'></div>
+      </div>
+      <!--bor_bak  disabled='{{show==1}}' -->
+    </div>
+
+    <div class='flex-row flex-center'>
+      <div class='felx-1'></div>
+      <button class='dis  margin-top-40  txt-white' **ngIf'{{show==1}}' hover-class='dis_hov'>提交</button>
+      <button class='btn_bg   txt-white' **ngIf'{{show==2}}' form-type='submit' hover-class='bg_hov'>提交</button>
+      <div class='felx-1'></div>
+    </div>
+
+  </form>
+
+  <div class='height-100'></div>
+
+  <div class='height-20 '></div>
+
+  <div class='flex-row flex-column '>
+    <div class='flex-row flex-center'>
+      <div class='ft-color h5'>关于对公付款，请查看</div>
+      <navigator url='/pages/liucheng/liucheng' class='txt-blue h5 margin-left-5 txt-bold'>付款流程</navigator>
+    </div>
+
+
+    <div class='flex-row flex-center'>
+      <div class='ft-color h5 '>如有疑问请咨询</div>
+      <div class='ft-color h5 txt-bold margin-left-10'> 学榜客服热线：{{instinfo.kf}}</div>
+    </div>
+
+    <div class='flex-row flex-center'>
+      <div class='ft-color h5'>工作时间：</div>
+      <div class='ft-color h5'>工作日9:00-18:30</div>
+    </div>
+
+    <div class='height-50'></div>
+
+  </div>
+
+  <div class="height-90"></div>
+
+
+  <div class="black_block" **ngIf'{{tc==true}}'></div>
+
+  <div class="white_block" **ngIf'{{tc==true}}'>
+
+    <div class="flex-row flex-center height-280" style="">
+      <div class="flex-1"></div>
+      <div class="">信息已完成提交</div>
+      <div class="flex-1"></div>
+    </div>
+
+    <div bindtap="bindshowtoast" class="bg-red txt-white h4-5 txt-bold text-center hh120"
+      style="background:#FFC200;">
+      确认
+    </div>
+
+  </div>
+</ion-content>

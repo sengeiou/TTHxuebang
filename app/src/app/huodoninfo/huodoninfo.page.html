@@ -1,0 +1,130 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+
+
+        <img class="tmbg" mode="widthFix" style="width:100vw" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}" />
+        
+        <div id='gdd'>
+          <div class="flex-row   flex-center">
+        
+            <div class="flex-1"></div>
+        
+            <div class="conten">
+        
+              <div class="padding-20 flex-row  ">
+        
+                <img src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}" style="width:280rpx;height:280rpx" />
+        
+                <div class="padding-40">
+                  <div class="flex-1"></div>
+                  <div class="txt-bold " style="width:330rpx;">{{huodoninfo.activityName}}</div>  
+                </div>
+        
+        
+              </div>
+        
+             <div class="padding-20">
+                <div class="flex-row  flex-center">
+                  <div class="f-22" style="color:#555555">报名截止时间</div>
+                  <div class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.apply_endTime}} 23:59</div>
+                  <div class="flex-1"></div>
+                   <div bindtap="baomin" class="bmcs ">报名参赛</div>
+                </div>
+        
+                <div class="flex-row  flex-center  margin-top-5">
+                  <div class="f-22" style="color:#555555">时间:</div>
+                  <div class="f-26 txt-bold margin-left-10" style="color:#555555"> {{huodoninfo.activityTime}}</div>
+                </div>
+        
+                <div class="flex-row  flex-center margin-top-20">
+                  <div class="f-22" style="color:#555555">地址:</div>
+                  <div class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.activitySite}}</div>
+                </div>
+        
+              </div>
+        
+              <div class="toupiao">节目投票时间：{{huodoninfo.vote_startTime}} 至 {{huodoninfo.vote_endTime}}</div>
+        
+              <div class="padding-20 flex-row flex-center margin-top-20">
+                <div class="txt-bold " style="color:#555555">节目排行榜</div>
+                <div class="f-22 margin-left-20" style="color:#555555">每日一次投票机会</div>
+                <div class="flex-1"></div>
+                <div bindtap="guize" class="tpgz">投票规则</div>
+        
+              </div>
+        
+              <div class="padding-20 f-26" style="padding-top:0rpx;padding-bottom:0rpx;color:#FF6600">点击图片可查看节目详情</div>
+        
+        
+        
+        
+              <div class="flex-row flex-center flex-wrap">
+        
+                <div **ngFor"{{huodoninfo.jiemu}}" wx:key='k' wx:for-index='idx' class='kecheng-block'>
+                  <img bindtap="jiemuinfo" id="{{item.id}}" data-id='{{idx}}' src="{{uploadpath}}jiemu/{{item.fenmian}}" style="width:40vw;height:40vw" />
+                  <div **ngIf"{{idx+1>=4}}" class="shuzi">{{idx+1}}</div>
+        
+                  <div **ngIf"{{idx+1<4}}" class="qianjimin">
+                    <img **ngIf"{{idx==0}}" src="{{uploadpath}}resource/{{res.yi}}" mode="widthFix" style="width:50rpx" />
+                    <img **ngIf"{{idx==1}}" src="{{uploadpath}}resource/{{res.er}}" mode="widthFix" style="width:50rpx" />
+                    <img **ngIf"{{idx==2}}" src="{{uploadpath}}resource/{{res.san}}" mode="widthFix" style="width:50rpx" />
+                  </div>
+                  <div class="text-center f15 margin-top-5">{{item.name}}</div>
+                  <div class="text-center f-22" style="color:#555555">{{item.piaoshu}}票</div>
+                  <div class="flex-row flex-center">
+                    <div class="flex-1"></div>
+        
+                    <div **ngIf"{{item.mypiao==0}}" bindtap="toupiao" id="{{item.id}}" data-id='{{idx}}' class="tp">投票</div>
+                    <div **ngIf"{{item.mypiao>0}}" class="tpcg">投票成功</div>
+                    <div class="flex-1"></div>
+                  </div>
+                </div>
+        
+        
+              </div>
+              <div class="padding-20 txt-bold" style="color:#555555">演出详情</div>
+              <div class="padding-20">
+                <img bindload="jiazaiwanle" mode="widthFix" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_bot}}" style="width:100%" />
+              </div>
+              <div class="height-40"></div>
+            </div>
+        
+            <div class="flex-1"></div>
+          </div>
+        
+          <div   class="margin-top h5 txt-bold text-center cc">本活动由学榜提供支持</div>
+          <div class="height-70"></div>
+        
+          <img class="hsbg" style="height:{{gaodu+25}}px" src="{{uploadpath}}resource/{{res.huodonbg}}" />
+        </div>
+        
+        <div **ngIf'{{guize==true}}' catchtouchmove="true" class="block_black"></div>
+        <div class=' gz ' **ngIf'{{guize==true}}'>
+          <div class='guize bg-white flex-row flex-column'>
+        
+            <div class='txt-bold margin-top' style='font-size:40rpx'>投票规则</div>
+         <div style="height:500rpx;padding:0rpx 60rpx 0rpx 60rpx;">
+            <text  style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+               {{guizezon}} 
+              </text>
+        </div>
+            <div class='' style='color:#FF6600' bindtap='closetanchuang'>我知道了</div>
+            <div class="height-40"></div>
+          </div>
+        
+        </div>
+
+    </ion-content>

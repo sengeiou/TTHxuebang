@@ -1,0 +1,44 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/teacher/teacher.wxss */
+
+Page {
+    background: #f5f5f5;
+  }
+  
+  .org_block {
+    padding-left: rpx(5);
+    padding-right: rpx(15);
+    padding-top: rpx(6);
+    padding-bottom: rpx(6);
+  }
+  
+  .title {
+    /* position: absolute;
+    width: 50%; */
+    margin-top: rpx(24);
+    margin-left: rpx(32);
+    /* z-index: 100; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .tishi{
+    position: fixed;
+    z-index: 10;
+    top: 40%;
+    right: 37%; 
+  }
+  .qqq{
+    position: relative;
+    /* z-index: 5; */
+    width: 100%;
+  }
+  .ts_icon{
+    width: rpx(240);
+    height: rpx(260);
+  }
+  

@@ -1,0 +1,41 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+        <div class="1" style="background-image: url({{bg}}); width:100vw;height:100vh;background-size:100vw 100vh; ">
+        
+          <div class="flex-row flex-center margin-top-60">
+            <div class="flex-1"></div>
+            <img mode="scaleToFill" src='{{lujin}}' class='zp' />
+            <div class="flex-1"></div>
+          </div>
+        
+          <div class="flex-row fd">
+            <div class="flex-1"></div>
+            <div class="anniu  flex-row flex-center" data-id="erweima" bindtap="baocun">
+              <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.saoma}}" />
+              <div class="zi margin-left-10">保存二维码</div>
+            </div>
+            <div class="flex-1"></div>
+        
+            <div class="anniu  flex-row flex-center" data-id="haibao" bindtap="baocun">
+              <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
+              <div class="zi margin-left-10">保存海报</div>
+            </div>
+            <div class="flex-1"></div>
+          </div>
+        </div>
+
+    </ion-content>

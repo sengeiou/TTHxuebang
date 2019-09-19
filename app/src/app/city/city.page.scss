@@ -1,0 +1,35 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/city/city.wxss */
+.top{
+    margin-top: rpx(30);
+    margin-left: rpx(20);
+    margin-right: rpx(20);
+    padding-bottom: rpx(30);
+    border-bottom: 1px solid #e5e5e5;
+  }
+  /* .block{
+    border:1px solid #e5e5e5;
+    padding-top: rpx(10);
+    padding-left: rpx(55);
+    padding-right: rpx(55);
+    padding-bottom: rpx(10);
+    margin-top:rpx(28);
+  } */
+  .mid{
+    /* margin-top: rpx(30);
+    margin-left: rpx(20);
+    margin-right: rpx(20); */
+    /* padding-bottom: rpx(10); */
+  }
+  
+  .block{
+    border:1px solid #e5e5e5;
+    width: rpx(196);
+    height: rpx(60);
+    line-height: rpx(60);
+    margin: rpx(20);
+    /* margin-top:rpx(28); */
+  }

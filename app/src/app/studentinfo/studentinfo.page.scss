@@ -1,0 +1,43 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+
+.pc {
+    color: #c8c8c8;
+     text-align: right;
+   
+  }
+  .qq{
+    background: #FFFFFF;
+  }
+  .nannv{
+    width: rpx(150);
+    height: rpx(40);
+  }
+  .tuan_btn{
+     position: fixed;
+  width: 85%;
+  padding-top:rpx(20);
+  padding-bottom:rpx(20);
+  background-color: #FF6600;
+  color: white;
+  border-radius: rpx(40);
+  bottom:rpx(30);
+  left:8vw;
+  
+  }
+  .ipt{
+  
+    text-align: right
+  }
+  .ipt1
+  {
+    text-align: right;
+    width:rpx(350);
+  
+  }
+  .ff{
+    min-height: rpx(40);
+    
+  }

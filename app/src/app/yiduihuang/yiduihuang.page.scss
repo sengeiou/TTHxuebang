@@ -1,0 +1,30 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/yiduihuang/yiduihuang.wxss */
+
+.icon {
+    height: rpx(220);
+    width: rpx(240);
+  }
+  
+  .margin-top-54 {
+    margin-top: rpx(54);
+  }
+  
+  .btn {
+    width: rpx(320);
+    height: rpx(80);
+    margin: rpx(10);
+    line-height: rpx(80);
+    background: rgba(255, 102, 0, 1);
+    border-radius: rpx(8);
+  }
+  .margin-top-54{
+    margin-top: rpx(54);
+  }
+  .margin-top-74{
+    margin-top: rpx(74);
+  }
+  

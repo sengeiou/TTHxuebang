@@ -1,0 +1,133 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+        <div class="margin-20">
+        
+          <div class="flex-row ">
+            <div class="flex-1"></div>
+            <div **ngIf"{{niubi==1}}" bindtap="shanchu" class=" h15" style="color:#4FB5E6">删除</div>
+          </div>
+          <div class="flex-row ">
+            <div class="flex-1"></div>
+        
+            <img **ngIf"{{sex=='nv'}}" class="radius-50 icon-120" src="{{uploadpath}}resource/{{res.nvtou}}" />
+        
+            <img **ngIf"{{sex=='nan'}}" class="radius-50 icon-120" src="{{uploadpath}}resource/{{res.nantou}}" />
+        
+            <div class="flex-1"></div>
+          </div>
+        
+          <div class="margin-top-20 qq">
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15 " style="color:#FF5252;width:20rpx">*</div>
+              <div class="h15 margin-left-10" style="color:#222222">孩子姓名</div>
+              <div class="flex-1"></div>
+              <input class='ipt' bindinput="name" placeholder-class='pc' value='{{name}}' name='hangye' placeholder='点击输入'> />
+        
+            </div>
+        
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15" style="color:#FF5252;width:20rpx"></div>
+              <div class="h15 margin-left-10" style="color:#222222">性别 </div>
+              <div class="flex-1"></div>
+              <img bindtap="sex" data-id="nan" **ngIf"{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.xuannan}} ' class='nannv' mode='widthFix' />
+              <img bindtap="sex" data-id="nan" **ngIf"{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.weixuannan}} ' class='nannv' mode='widthFix' />
+              <img bindtap="sex" data-id="nv" **ngIf"{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.xuannv}} ' class=' margin-left-10 nannv' mode='widthFix' />
+              <img bindtap="sex" data-id="nv" **ngIf"{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.weixuannv}} ' class='margin-left-10 nannv ' mode='widthFix' />
+        
+            </div>
+        
+            <picker class="" mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
+              <div class="padding-20 flex-row flex-center">
+        
+                <div class="h15" style="color:#FF5252;width:20rpx">*</div>
+                <div class="h15 margin-left-10" style="color:#222222">孩子生日</div>
+                <div class="flex-1"></div>
+        
+        
+                <div class="section__title">{{xssj}} </div>
+        
+                <div **ngIf"{{xssj==''}}" class="margin-right-10" style="color:#CCCCCC">请输入</div>
+                <img src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10" />
+        
+        
+        
+              </div>
+        
+            </picker>
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15 " style="color:#FF5252;width:20rpx"></div>
+              <div class="h15 margin-left-10" style="color:#222222">年级</div>
+              <div class="flex-1"></div>
+              <input class='  ipt' bindinput="nianji" placeholder-class='pc' value='{{nianji}}' name='hangye' placeholder='学员在读年级'> />
+        
+            </div>
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15 " style="color:#FF5252;width:20rpx">*</div>
+              <div class="h15 margin-left-10" style="color:#222222">手机号码</div>
+              <div class="flex-1"></div>
+              <input class=' ipt ' maxlength="11" bindinput="shouji" placeholder-class='pc' value='{{shouji}}' name='hangye' placeholder='用于接受预约确认'> />
+        
+            </div>
+            <!-- <div class="padding-20 flex-row flex-center">
+              <div class="h15 " style="color:#FF5252;width:20rpx"></div>
+              <div class="h15 margin-left-10" style="color:#222222">微信号</div>
+              <div class="flex-1"></div>
+              <input class=' ipt ' bindinput="weixin" placeholder-class='pc' value='{{weixin}}' name='hangye' placeholder='xiaobaobao'> />
+        
+            </div> -->
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15" style="color:#FF5252;width:20rpx"></div>
+              <div class="h15 margin-left-10" style="color:#222222">所在区域</div>
+              <div class="flex-1"></div>
+        
+        
+              <div class="section__title"> </div>
+              <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <div class="picker ipt" style='color:#C8C8C8' **ngIf"{{region.length==0}}">请填写地址</div>
+                <div class="picker ipt" **ngIf"{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</div>
+              </picker>
+        
+        
+            </div>
+            <!-- <div class="padding-20 flex-row flex-center">
+              <div class="h15 " style="color:#FF5252;width:20rpx"></div>
+              <div class="h15 margin-left-10" style="color:#222222">详细地址</div>
+              <div class="flex-1"></div>
+              <input style="width:500rpx;" class="ipt" bindinput="menpai" placeholder-class='pc' value='{{menpai}}' name='hangye' placeholder='如道路,门牌号,小区,楼栋号.单元室'> />
+        
+            </div> -->
+        
+          </div>
+        
+        
+        </div>
+        
+        <div bindtap="baocun" class="flex-row">
+          <div class="flex-1"></div>
+          <div class="tuan_btn  text-center  ">
+            保存
+        
+          </div>
+        
+          <div class="flex-1"></div>
+        </div>
+
+    </ion-content>

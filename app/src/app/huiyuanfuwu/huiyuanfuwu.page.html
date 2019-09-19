@@ -1,0 +1,149 @@
+<ion-header>
+      <ion-toolbar  color='primary'>
+          <ion-buttons slot="start">
+            <ion-button (click)='back()'>
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-title>{{heading}}</ion-title>
+        </ion-toolbar>
+  </ion-header>
+
+    <ion-content >
+
+
+<!--pages/huiyuanfuwu/huiyuanfuwu.wxml-->
+<div class='top-block'>
+    <div class='h20 txt-bold margin-left-58 margin-top-86'>尊敬的机构用户</div>
+    <div class='h13 margin-top-4 margin-left-58'>欢迎使用VIP服务</div>
+  </div>
+  
+  <!-- <swiper indicator-dots='{{false}}'  autoplay='{{false}}' previous-margin='12rpx' next-margin='374rpx'   duration='200' circular='{{false}}' style='width:750rpx;height:600rpx;margin-top:-58rpx; '>
+  
+      <div **ngFor"{{5}}" >
+        <swiper-item>
+          <div class='block' style='margin-left:12rpx;margin-right:12rpx;' **ngFor"{{2}}">风光带</div>
+        </swiper-item>
+      </div>
+  
+  </swiper> -->
+  
+  
+  
+  <div style='margin-top:-58rpx; '>
+    <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
+  
+      <div class='flex-row flex-center' style='display: inline-block;'>
+  
+        <div class='{{idx==0?"firstblock":"block"}} bg-white' **ngFor'{{list}}' wx:key='k' wx:for-index='idx' style=' '>
+  
+          <div class='jiage'>
+  
+  
+            <div class='flex-row flex-center'>
+              <div class='flex-1'> </div>
+              <div class='h15 txt-white'>{{item.title_name}}</div>
+              <div class='h13 margin-left-6 txt-white'>{{item.vip_date}}</div>
+              <div class='flex-1'> </div>
+            </div>
+  
+            <div class='flex-row flex-center margin-top-20'>
+              <div class='flex-1'> </div>
+              <div class='txt-white h20 txt-bold'>￥{{item.price}}</div>
+              <div class='flex-1'> </div>
+            </div>
+  
+            <img **ngIf'{{item.tuijian_value=="Y"}}' src='{{uploadpath}}resource/{{res.tuijian}}' class='tuijian' />
+  
+          </div>
+  
+          <div class='quanyi '>
+  
+            <div class='flex-row flex-center {{idx>0?"margin-top-12":""}}' **ngFor'{{item.showcase}}' wx:key='e' wx:for-index='idx'>
+              <img src='{{uploadpath}}resource/{{res.quanyi_icon}}' class='icon-20' />
+              <div class='h7 txt-6 margin-left-20'>{{item.content}}</div>
+            </div>
+   
+  
+          </div>
+  
+          <div class='flex-row flex-center margin-top-20'>
+            <div class='flex-1'></div>
+            <div class='h7 ' style='color:#999999'>查看所有权益</div>
+            <img src='{{uploadpath}}resource/{{res.to}}' class='icon-20 margin-left-6' />
+            <div class='flex-1'></div>
+          </div>
+  
+  
+          <div class='flex-row flex-center margin-top-20' bindtap='tokaitong'>
+            <div class='flex-1'></div>
+            <div class='lianxikefu text-center h6'>
+              联系客服开通
+            </div>
+            <div class='flex-1'></div>
+          </div>
+  
+        </div>
+  
+        <!-- <div class='block' style=' '>
+          <div class='jiage'></div>
+        </div> -->
+  
+      </div>
+  
+    </scroll-view>
+  </div>
+  
+  <div class='text-center h5 txt-bold ' style='margin-top:40rpx'>
+    功能服务对比
+  </div>
+  
+  
+  
+  
+  
+  
+  <div class='duibi'>
+  
+    <div class='title flex-row flex-center' style=''>
+      <div class='flex-1 h6 txt-bold text-center' style=''>功能</div>
+      <div class='flex-1 h6 txt-bold text-center'>免费版</div>
+      <div class='flex-1 h6 txt-bold text-center'>正式版</div>
+      <div style='width:56rpx;'></div>
+    </div>
+  
+  
+    <div class=' '>
+  
+      <div class='flex-row flex-center ' style='height:80rpx;'>
+        <div class='flex-1 h6 text-center'>价格</div>
+        <div class='flex-1 h6 txt-bold text-center'>{{info.mianfei_price}}元</div>
+        <div class='flex-1 h6 txt-bold text-center'>{{info.zhengshi_price}}元</div>
+        <div style='width:56rpx' class=''></div>
+      </div>
+  
+  
+      <div class='flex-row flex-center border-top-bottom' style='height:80rpx;'>
+        <div class='flex-1 h6 text-center'>期限</div>
+        <div class='flex-1 h6 txt-bold text-center'>{{info.mianfeiqixian}}</div>
+        <div class='flex-1 h6 txt-bold text-center'>{{info.zhengshiqixian}}</div>
+        <div style='width:56rpx' class=''></div>
+      </div>
+  
+  
+      <div class='flex-row flex-center ' style='height:80rpx;'>
+        <div class='flex-1 h6 text-center'>活动</div>
+        <div class='flex-1 h6 txt-bold text-center'>/</div>
+        <div class='flex-1 h6 txt-bold text-center'>/</div>
+        <div style='width:56rpx' class=''></div>
+      </div>
+  
+    </div>
+  
+  
+  
+  
+  
+  </div>
+
+    </ion-content>

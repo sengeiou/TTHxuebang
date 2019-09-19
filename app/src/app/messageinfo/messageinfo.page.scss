@@ -1,0 +1,12 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/messageinfo/messageinfo.wxss */
+.bor_bot {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .icon {
+    height: rpx(168);
+    width: rpx(168);
+  }

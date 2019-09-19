@@ -1,0 +1,25 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.activityCover{
+
+    width:100%;
+    height:rpx(300);
+    border-radius: rpx(10);
+   }
+   .activitycontent{
+   
+    position: absolute;
+   margin-top:-rpx(20);
+   }
+   .center{
+    width:95vw;
+    background: white;
+    height: rpx(220);
+    border-radius: rpx(10);
+   
+   }
+   .height-160{
+     height: rpx(210);
+   }

@@ -1,0 +1,91 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/jifenorder/jifenorder.wxss */
+
+.bor_bot {
+    border-bottom: rpx(2) solid #f5f5f5;
+  }
+  
+  .txt {
+    color: #ffc200;
+  }
+  
+  .top {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+  }
+  
+  .block {
+    position: relative;
+    width: rpx(702);
+    height: rpx(306);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(8);
+    margin: rpx(24);
+  }
+  
+  .margin-24 {
+    margin: rpx(24);
+  }
+  .margin-left-14 {
+    margin-left: rpx(14);
+  }
+  .margin-left-24 {
+    margin-left: rpx(24);
+  }
+  
+  .margin-top-24 {
+    margin-top: rpx(24);
+  }
+  .iconwc{
+    position: absolute;
+    width:rpx(140);
+    height: rpx(110); 
+    top: 0;
+    right: 0;
+  }
+  .margin-right-24 {
+    margin-right: rpx(24);
+  }
+  
+  .margin-top-8 {
+    margin-top: rpx(8);
+  }
+  
+  .margin-top-6{
+    margin-top:rpx(6);
+  }
+  .icon-img {
+    width: rpx(168);
+    height: rpx(168);
+    border-radius: rpx(8);
+  }
+  .icon_shan{
+    width:rpx(52);
+  height:rpx(52);
+  }
+  
+  .txt-red {
+    color: #ff5252;
+  }
+  
+  .icon-36 {
+    height: rpx(36);
+    width: rpx(36);
+  }
+  .txt-22{
+    font-size:rpx(22);
+  }
+  .lianxi {
+    width: rpx(148);
+    height: rpx(52);
+    font-size:rpx(22);
+    line-height: rpx(52);
+    background: rgba(255, 255, 255, 1);
+    border-radius: rpx(30);
+    border: 1px solid rgba(204, 204, 204, 1);
+  }
+  

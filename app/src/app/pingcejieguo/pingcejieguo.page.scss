@@ -1,0 +1,62 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/pingcejieguo/pingcejieguo.wxss */
+.again {
+    width: rpx(200);
+    height: rpx(64);
+    line-height: rpx(64);
+    border-radius: rpx(42);
+    border: rpx(2) solid black ;
+  }
+  
+  .txt-9 {
+    color: #999;
+  }
+  
+  .top-block {
+    height: rpx(408);
+    padding: rpx(40);
+  }
+  
+  .yuan {
+    width: rpx(284);
+    height: rpx(284);
+    /* border: rpx(2) solid black; */
+  }
+  .bottom-block {
+    margin: rpx(12) rpx(24) rpx(0) rpx(24);
+  }
+  .huangtiao {
+    width: rpx(8);
+    height: rpx(28);
+    background: rgba(255, 194, 0, 1);
+  }
+  .margin-top-14 {
+    margin-top: rpx(14);
+  }
+  .margin-left-16 {
+    margin-left: rpx(16);
+  }
+  .margin-top-32{
+    margin-top: rpx(32);
+  }
+  .margin-left-24{
+    margin-left: rpx(24);
+  }
+  .margin-right-24{
+    margin-right: rpx(24);
+  }
+  .icon-24{
+    height: rpx(24);
+    width: rpx(24);
+  }
+  .mk {
+    background-color: white;
+  }
+  .kc_icon {
+    width: rpx(228);
+    height: rpx(224);
+  }
+  
