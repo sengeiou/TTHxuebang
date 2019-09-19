@@ -35,12 +35,14 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = { h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "", h5openid: "", unionid: "" };
+    public InstInfo = {  h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = { id:0, avatarUrl: "", nickName: "", h5openid: "", unionid: "" };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
     public params: Params = null;
+
+    public formdata=null;
 
     public keyt = "memberinfo99";
     public stat = "stat9";
@@ -83,6 +85,8 @@ export class AppBase implements OnInit {
             AppBase.MemberInfo = JSON.parse(memberinfo);
         }
         console.log("rdw", AppBase.MemberInfo);
+
+        this.formdata={};
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -457,5 +461,8 @@ export class AppBase implements OnInit {
     backHome() {
         this.navCtrl.navigateBack('tabs/home');
         return;
+    }
+    uploadImage(module,aa){
+
     }
 }
