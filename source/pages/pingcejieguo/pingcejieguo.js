@@ -112,13 +112,14 @@ class Content extends AppBase {
         console.log("ff");
         //return;
         jigouapi.courselist({
-          type: type
+          type: type,
+          city_id: AppBase.CITYID,
+          orderby:'distance desc'
         }, (courselist) => {
           for (var i = 0; i < courselist.length && i < 50; i++) {
 
-            courselist[i]["zuidijia"] = ApiUtil.zuidijia(
+              courselist[i]["zuidijia"] = ApiUtil.zuidijia(
               courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
-
 
           }
 
