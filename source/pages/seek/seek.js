@@ -753,7 +753,7 @@ class Content extends AppBase {
     console.log('haha');
     var url = "/pages/seek/seek?type=" + this.Base.options.type +
       "&fage_id=" + data.fage_id +
-      "&fdistrict_id=" + data.fdistrict_id;
+      "&fdistrict_id=" + data.fdistrict_id +'&typename='+this.Base.options.typename;
     //"&keyword=" + this.Base.options.keyword +
     
     if (this.Base.options.keyword!=undefined){
