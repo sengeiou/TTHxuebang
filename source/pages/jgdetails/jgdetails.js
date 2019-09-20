@@ -100,7 +100,7 @@ class Content extends AppBase {
           console.log("miletxt=" + miletxt);
           courselist[i]["miletxt"] = miletxt;
 
-        } 
+        }
 
        
 

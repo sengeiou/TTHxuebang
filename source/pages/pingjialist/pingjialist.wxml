@@ -8,6 +8,8 @@
   <view class='flex-1'></view>
 </view>
 
+
+
 <view wx:for='{{pingjialist}}' wx:key='k' wx:for-index='idx'>
   <view class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
 

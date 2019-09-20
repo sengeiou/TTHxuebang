@@ -33,7 +33,7 @@
 
   <view class='flex-row flex-center'>
     <view class='huangtiao'></view>
-    <view class='h5 txt-bold margin-left-16'>综合结论</view>
+    <view class='h5 txt-bold margin-left-16'>综合结论{{city}}</view>
   </view>
 
   <!-- <text class='margin-top-14 h6 txt-6' style=''>
