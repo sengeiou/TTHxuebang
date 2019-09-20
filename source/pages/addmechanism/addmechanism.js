@@ -83,7 +83,9 @@ class Content extends AppBase {
     var that = this;
     this.Base.uploadImage("jgmentou", (ret) => {
       var jgimages = that.Base.getMyData().jgimages;
+      
       jgimages.push(ret);
+      
       that.Base.setMyData({
         jgimages
       });
