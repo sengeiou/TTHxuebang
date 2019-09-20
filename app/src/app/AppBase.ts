@@ -466,6 +466,7 @@ export class AppBase implements OnInit {
 
     }
     backtotop(){
-        //var bid=
+        var ioncontent=document.querySelector("ion-header");
+        ioncontent.scrollIntoView(true);
     }
 }
