@@ -77,7 +77,6 @@
     "pages/teacher/teacher",
     "pages/addmechanism/addmechanism",
     "pages/mine/mine",
-    "pages/address/address",
     "pages/addressmanage/addressmanage",
     "pages/shopmall/shopmall",
     "components/back"

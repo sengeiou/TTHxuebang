@@ -1,6 +1,7 @@
 <!--pages/address/address.wxml-->
 <view class='margin-20'>
   <view class='margin-left-14 h5' style='color:#999999'>我的地址</view>
+  
   <view class='hezi' bindtap='addressmanage'>
     <view class='flex-row flex-center'>
       <view>

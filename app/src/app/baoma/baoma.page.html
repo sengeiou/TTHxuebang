@@ -1,39 +1,40 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
+  <div id="totop"></div>
+  
+  <div class=' to_top' [class.hidden]='!floorstatus'>
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
+  </div>
 
-        <div class=' to_top' hidden='{{!floorstatus}}' >
-            <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
-           </div>
-           
-           <div **ngFor='{{baomalist}}' wx:key='k' class='bg-white block' id='{{item.id}}' bindtap='binddetails' style=''>
-             <img src='{{uploadpath}}baoma/{{item.img}}' lazy-load='{{true}}' style='' class='img' />
-             <div class='title_font txt-bold ' style='color:#4C4C4C'>
-               {{item.title}}
-             </div>
-           
-             <div class='flex-row flex-center margin-top-5'>
-               <div class='jiaoyu  text-center txt-red'>{{item.type}} </div>
-               <div class='txt-gray h6 flex-1 margin-left-10'>{{item.faburen}} </div>
-               <div class='txt-gray h6'>{{item.up_time_timespan_d}} </div>
-           
-               <div class='flex-row flex-center margin-left-20'>
-                 <img src='{{uploadpath}}resource/{{res.eyes}}' class='icon' />
-                 <div class='txt-gray h6 margin-left-5 margin-right-5'>{{item.count}} </div>
-               </div>
-           
-             </div>
-           
-           </div>
+  <div **ngFor='{{baomalist}}' wx:key='k' class='bg-white block' id='{{item.id}}' bindtap='binddetails' style=''>
+    <img src='{{uploadpath}}baoma/{{item.img}}' lazy-load='{{true}}' style='' class='img' />
+    <div class='title_font txt-bold ' style='color:#4C4C4C'>
+      {{item.title}}
+    </div>
+
+    <div class='flex-row flex-center margin-top-5'>
+      <div class='jiaoyu  text-center txt-red'>{{item.type}} </div>
+      <div class='txt-gray h6 flex-1 margin-left-10'>{{item.faburen}} </div>
+      <div class='txt-gray h6'>{{item.up_time_timespan_d}} </div>
+
+      <div class='flex-row flex-center margin-left-20'>
+        <img src='{{uploadpath}}resource/{{res.eyes}}' class='icon' />
+        <div class='txt-gray h6 margin-left-5 margin-right-5'>{{item.count}} </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
-    </ion-content>
+</ion-content>
