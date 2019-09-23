@@ -36,6 +36,23 @@ class Content extends AppBase {
     huodonapi.huodoninfo({
       id: this.Base.options.id
     }, (huodoninfo) => {
+
+
+      var date = Date.parse(new Date()) / 1000;
+     
+      console.log(date);
+      console.log(parseInt(huodoninfo.apply_endTime_timespan) + 86400);
+      if (date > parseInt(huodoninfo.apply_endTime_timespan) + 86400) {
+         this.Base.setMyData({
+              
+             yiguoqi:true
+         })
+      }
+
+
+
+
+
       this.Base.setMyData({
         huodoninfo
       });
@@ -78,7 +95,8 @@ class Content extends AppBase {
   var that=this;
     var date = Date.parse(new Date()) / 1000;
     var huodoninfo = this.Base.getMyData().huodoninfo;
-
+        console.log(date);
+    console.log(parseInt(huodoninfo.apply_endTime_timespan) + 86400);
     if (date < huodoninfo.apply_startTime_timespan) {
       wx.showToast({
         title: '报名未开始',
@@ -88,7 +106,7 @@ class Content extends AppBase {
     }
 
 
-    if (date > huodoninfo.apply_endTime_timespan + 86400) {
+    if (date > parseInt(huodoninfo.apply_endTime_timespan) + 86400) {
       wx.showToast({
         title: '报名已结束',
         icon: 'none',
@@ -123,7 +141,7 @@ class Content extends AppBase {
       return
     }
 
-    if (date > huodoninfo.vote_endTime_timespan + 86400) {
+    if (date > parseInt(huodoninfo.vote_endTime_timespan) + 86400) {
       wx.showToast({
         title: '投票已结束',
         icon: 'none',
