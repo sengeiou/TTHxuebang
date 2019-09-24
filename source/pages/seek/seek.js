@@ -19,6 +19,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+
   courselist = [];
   jglist = [];
 
