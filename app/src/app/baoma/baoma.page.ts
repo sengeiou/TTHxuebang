@@ -6,12 +6,14 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { InstApi } from 'src/providers/inst.api';
+import { BaomaApi } from 'src/providers/baoma.api';
 
 @Component({
   selector: 'app-baoma',
   templateUrl: './baoma.page.html',
   styleUrls: ['./baoma.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,InstApi,BaomaApi]
 })
 export class BaomaPage  extends AppBase {
 
@@ -22,7 +24,9 @@ export class BaomaPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public instApi:InstApi,
+    public baomaApi:BaomaApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
@@ -32,7 +36,22 @@ export class BaomaPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  baomalist=[];
+  onMyShow() {
+    var that = this;
+    var instapi = this.instApi;
+    var baomaapi = this.baomaApi;
+    baomaapi.baomalist({}).then((baomalist) => {
+      for(var i=0;i<baomalist.length;i++){
+        baomalist[i].up_time_timespan_d = AppUtil.TimeAgo(baomalist[i].up_time_timespan);
+      }
+      this.baomalist=baomalist;
+    });
+  }
+
+  binddetails(e){
+    var id=e.currentTarget.id;
+    this.navigate("baomainfo",{id});
 
   }
 }
