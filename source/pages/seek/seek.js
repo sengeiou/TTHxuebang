@@ -118,7 +118,7 @@ class Content extends AppBase {
     
     if (options.type == 'kc') {
 
-      console.log("啦啦啦啦")
+      //console.log("啦啦啦啦")
       
       var title = typename;
     } 
@@ -340,9 +340,11 @@ class Content extends AppBase {
     if (data.fdistrict_id != "0") {
       opt.district_id = data.fdistrict_id;
     }
-    // if (data.ftype_id != "0") {
-    //opt.type = this.Base.options.typeid;
-
+    
+    if (data.typeid != "0") {
+      opt.type = this.Base.options.typeid;
+       
+    }
     if (this.Base.options.keyword!=undefined){
       opt.searchkeyword = this.Base.options.keyword;
     }
