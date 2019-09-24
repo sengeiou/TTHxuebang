@@ -932,10 +932,18 @@ class Content extends AppBase {
   }
 
   bindtokc(e){
-   var typeid=e.currentTarget.id;
+   var typeid=parseInt(e.currentTarget.id);
+
     var typename = e.currentTarget.dataset.name;
+
+    var url = '/pages/seek/seek?type=kc&typeid=0';
+    url += '&typename=' + typename;
+    if (typeid>0){
+      url += '&keyword=' + typename;
+    }
+
     wx.navigateTo({
-      url: '/pages/seek/seek?type=kc&typeid=' + typeid + '&typename=' + typename
+      url: url
     })
 
   }
