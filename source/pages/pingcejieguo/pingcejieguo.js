@@ -117,10 +117,8 @@ class Content extends AppBase {
           orderby:'distance desc'
         }, (courselist) => {
           for (var i = 0; i < courselist.length && i < 50; i++) {
-
               courselist[i]["zuidijia"] = ApiUtil.zuidijia(
               courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
-
           }
 
           this.Base.setMyData({
