@@ -62,6 +62,16 @@
   color: white;
 }
 
+.nobmcs {
+  width: 200rpx;
+  height: 56rpx;
+  background: #4D4D4D;
+  border-radius: 50rpx;
+  line-height: 56rpx;
+  text-align: center;
+  color: white;
+}
+
 .toupiao {
   background: #fef4f2;
   color: #f5555d;
