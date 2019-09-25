@@ -50,7 +50,7 @@ export class BaomaPage  extends AppBase {
   }
 
   binddetails(e){
-    var id=e.currentTarget.id;
+    var id=e.target.id;
     this.navigate("baomainfo",{id});
 
   }
