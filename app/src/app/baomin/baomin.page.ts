@@ -8,12 +8,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { InstApi } from 'src/providers/inst.api';
 import { BaomaApi } from 'src/providers/baoma.api';
+import { HuodonApi } from 'src/providers/huodon.api';
 
 @Component({
   selector: 'app-baomin',
   templateUrl: './baomin.page.html',
   styleUrls: ['./baomin.page.scss'],
-  providers: [MemberApi, InstApi, BaomaApi]
+  providers: [MemberApi, InstApi, BaomaApi, HuodonApi]
 })
 export class BaominPage extends AppBase {
 
@@ -26,10 +27,11 @@ export class BaominPage extends AppBase {
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi,
     public instApi: InstApi,
-    public baomaApi: BaomaApi) {
+    public baomaApi: BaomaApi,
+    public huodonApi: HuodonApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+    this.huodoninfo = {};
   }
 
   xuanzhon = false;
@@ -44,25 +46,25 @@ export class BaominPage extends AppBase {
   xuanyan = '';
 
   guize = false;
+  guizezon = "";
 
-  
 
-
+  huodoninfo = null;
 
   onMyShow() {
     var that = this;
-    var huodonapi = new HuodonApi();
-    var instapi = new InstApi();
-    huodonapi.huodoninfo({ id: this.Base.options.id }, (huodoninfo) => {
-      this.Base.setMyData({ huodoninfo });
+    var huodonapi = this.huodonApi;
+    var instapi = this.instApi;
+    huodonapi.huodoninfo({ id: this.params.id }).then((huodoninfo) => {
+      this.huodoninfo = huodoninfo;
     })
-    instapi.saiqu({ huodon_id: this.Base.options.id }, (saiqu) => {
-      this.Base.setMyData({ saiqu });
+    instapi.saiqu({ huodon_id: this.params.id }).then((saiqu) => {
+      this.saiqu = saiqu;
 
     })
     instapi.guize({
-      type: 'K', activity_id: this.Base.options.id
-    }, (guize) => {
+      type: 'K', activity_id: this.params.id
+    }).then((guize) => {
       var guizezon = '';
       guize.map((item) => {
 
@@ -70,10 +72,9 @@ export class BaominPage extends AppBase {
 
       })
 
-      this.Base.setMyData({
-        guize,
-        guizezon
-      })
+      this.guize = guize;
+      this.guizezon = guizezon;
+
 
 
 
@@ -82,111 +83,108 @@ export class BaominPage extends AppBase {
   }
 
   jguploadimg() {
-    alert("todo");  
+    alert("todo");
 
   }
 
+  index = 0;
+
   jguploadimg1() {
     var that = this;
-    this.Base.uploadImage("jiemutupian", (ret) => {
+    //todo
+    // this.uploadImage("jiemutupian").then((ret) => {
 
-      var jgimages = that.Base.getMyData().jgimages;
-      jgimages.push(ret);
-      that.Base.setMyData({
-        jgimages
-      });
+    //   var jgimages = that.jgimages;
+    //   jgimages.push(ret);
+    //   that.Base.setMyData({
+    //     jgimages
+    //   });
 
-    }, 9, undefined);
+    // }, 9, undefined);
 
 
   }
   closetanchuang() {
-    this.Base.setMyData({
-      guize: false
-    })
+    this.guize = false;
   }
-  deleteimg(e) {
 
-    var jgimages = this.Base.getMyData().jgimages;
+  //todo
+  // deleteimg(e) {
+
+  //   var jgimages = this.jgimages;
 
 
-    jgimages = jgimages.filter((item, idx) => {
-      return idx != e.currentTarget.dataset.id;
-    })
+  //   jgimages = jgimages.filter((item, idx) => {
+  //     return idx != e.currentTarget.dataset.id;
+  //   })
 
-    this.Base.setMyData({ jgimages })
+  //   this.jgimages=jgimages;
 
-  }
+  // }
   gou() {
 
-    var xuanzhon = this.Base.getMyData().xuanzhon;
-    this.Base.setMyData({ xuanzhon: !xuanzhon })
+    var xuanzhon = this.xuanzhon;
+    this.xuanzhon = !this.xuanzhon;
 
-  }
-  bindsaiquChange(e) {
-
-    this.Base.setMyData({
-      index: e.detail.value
-    })
   }
 
   tijiao() {
-    var minchen = this.Base.getMyData().minchen;
-    var renshu = this.Base.getMyData().renshu;
-    var laoshi = this.Base.getMyData().laoshi;
-    var lianxifanshi = this.Base.getMyData().lianxifanshi;
-    var index = this.Base.getMyData().index;
-    var saiqu = this.Base.getMyData().saiqu;
-    var jigou = this.Base.getMyData().jigou;
-    var xuanyan = this.Base.getMyData().xuanyan;
-    var fenmian = this.Base.getMyData().fenmian;
-    var zhaopiao = this.Base.getMyData().jgimages;
-    var xuanzhon = this.Base.getMyData().xuanzhon;
+    var minchen = this.minchen;
+    var renshu = this.renshu;
+    var laoshi = this.laoshi;
+    var lianxifanshi = this.lianxifanshi;
+    var index = this.index;
+    var saiqu = this.saiqu;
+    var jigou = this.jigou;
+    var xuanyan = this.xuanyan;
+    var fenmian = this.fenmian;
+    var zhaopiao = this.jgimages;
+    var xuanzhon = this.xuanzhon;
 
     if (minchen == '') {
-      this.Base.info("请填写节目名称");
+      this.showAlert("请填写节目名称");
       return
     }
     if (renshu == '') {
-      this.Base.info("请填写节目人数");
+      this.showAlert("请填写节目人数");
       return
     }
     if (laoshi == '') {
-      this.Base.info("请填写带队老师");
+      this.showAlert("请填写带队老师");
       return
     }
     if (lianxifanshi == '') {
-      this.Base.info("请填写联系方式");
+      this.showAlert("请填写联系方式");
       return
     }
     if (xuanyan == '') {
-      this.Base.info("请填写参赛宣言");
+      this.showAlert("请填写参赛宣言");
       return
 
     }
     if (index == undefined) {
-      this.Base.info("请填写报名赛区");
+      this.showAlert("请填写报名赛区");
       return
     }
     if (jigou == '') {
-      this.Base.info("请填写所属机构");
+      this.showAlert("请填写所属机构");
       return
     }
     if (minchen == '') {
-      this.Base.info("请填写节目名称");
+      this.showAlert("请填写节目名称");
       return
     }
     if (zhaopiao.length == 0) {
-      this.Base.info("请上传照片");
+      this.showAlert("请上传照片");
       return
     }
     if (xuanzhon == false) {
-      this.Base.info("请勾选报名相关条款");
+      this.showAlert("请勾选报名相关条款");
       return
     }
 
     var json = {
-      huodon_id: this.Base.options.id,
+      huodon_id: this.params.id,
       name: minchen,
       renshu: renshu,
       laoshi: laoshi,
@@ -197,28 +195,15 @@ export class BaominPage extends AppBase {
       fenmian: fenmian,
       tupian: zhaopiao,
     }
-    var huodonapi = new HuodonApi();
+    var huodonapi = this.huodonApi;
 
-    huodonapi.addjiemu(json, (res) => {
+    huodonapi.addjiemu(json).then((res) => {
 
       console.log(res);
       if (res.code == 0) {
-        wx.showModal({
-          title: '提示',
-          content: '报名成功,请等待管理员审核',
-          confirmText: "我知道了",
-          confirmColor: '#FF6600',
-          showCancel: false,
-          success(res) {
-            if (res.confirm) {
-              wx.navigateBack({
-
-              })
-            }
-
-          }
-        })
-
+        this.showAlert("报名成功,请等待管理员审核", () => {
+          this.back();
+        });
       }
 
 
@@ -230,57 +215,57 @@ export class BaominPage extends AppBase {
 
   }
   yulan() {
-    var minchen = this.Base.getMyData().minchen;
-    var renshu = this.Base.getMyData().renshu;
-    var laoshi = this.Base.getMyData().laoshi;
-    var lianxifanshi = this.Base.getMyData().lianxifanshi;
-    var index = this.Base.getMyData().index;
-    var saiqu = this.Base.getMyData().saiqu;
-    var jigou = this.Base.getMyData().jigou;
-    var xuanyan = this.Base.getMyData().xuanyan;
-    var fenmian = this.Base.getMyData().fenmian;
-    var zhaopiao = this.Base.getMyData().jgimages;
-    var xuanzhon = this.Base.getMyData().xuanzhon;
+    var minchen = this.minchen;
+    var renshu = this.renshu;
+    var laoshi = this.laoshi;
+    var lianxifanshi = this.lianxifanshi;
+    var index = this.index;
+    var saiqu = this.saiqu;
+    var jigou = this.jigou;
+    var xuanyan = this.xuanyan;
+    var fenmian = this.fenmian;
+    var zhaopiao = this.jgimages;
+    var xuanzhon = this.xuanzhon;
 
     if (minchen == '') {
-      this.Base.info("请填写节目名称");
+      this.showAlert("请填写节目名称");
       return
     }
     if (renshu == '') {
-      this.Base.info("请填写节目人数");
+      this.showAlert("请填写节目人数");
       return
     }
     if (laoshi == '') {
-      this.Base.info("请填写带队老师");
+      this.showAlert("请填写带队老师");
       return
     }
     if (lianxifanshi == '') {
-      this.Base.info("请填写联系方式");
+      this.showAlert("请填写联系方式");
       return
     }
     if (index == undefined) {
-      this.Base.info("请填写报名赛区");
+      this.showAlert("请填写报名赛区");
       return
     }
     if (jigou == '') {
-      this.Base.info("请填写所属机构");
+      this.showAlert("请填写所属机构");
       return
     }
     if (minchen == '') {
-      this.Base.info("请填写节目名称");
+      this.showAlert("请填写节目名称");
       return
     }
     if (zhaopiao.length == 0) {
-      this.Base.info("请上传照片");
+      this.showAlert("请上传照片");
       return
     }
     if (xuanzhon == false) {
-      this.Base.info("请勾选报名相关条款");
+      this.showAlert("请勾选报名相关条款");
       return
     }
 
     var json = {
-      huodon_id: this.Base.options.id,
+      huodon_id: this.params.id,
       name: minchen,
       renshu: renshu,
       laoshi: laoshi,
@@ -292,19 +277,13 @@ export class BaominPage extends AppBase {
       tupian: zhaopiao,
     }
 
-    wx.navigateTo({
-      url: '/pages/jiemuxianqin/jiemuxianqin?json=' + JSON.stringify(json),
-    })
+    this.navigate("jiemuxianqin", json);
+
 
   }
   baomin() {
 
-    this.Base.setMyData({ guize: true });
-
-    return
-    wx.navigateTo({
-      url: '/pages/tiaokuan/tiaokuan',
-    })
+    this.guize = true;
 
   }
 

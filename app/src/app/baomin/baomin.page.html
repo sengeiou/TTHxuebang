@@ -25,11 +25,11 @@
 
         <div class="padding-20 flex-row  ">
 
-          <img src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}" style="width:220rpx;height:220rpx" />
+          <img src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}" class="wh220" />
 
           <div class="padding-20">
             <div class="flex-1"></div>
-            <div class="txt-bold " style="width:350rpx;">{{huodoninfo.activityName}}</div>
+            <div class="txt-bold w350" >{{huodoninfo.activityName}}</div>
 
           </div>
 
@@ -94,8 +94,8 @@
               <div class='jl' style='color:#FF5252'>*</div>
               <div class='font-30   txt-black margin-left-10 width-210'>报名赛区：</div>
               <div class="pc">
-                <select >
-                  <option *ngFor="let item of saiqu">{{item.name}}</option>
+                <select [(ngModel)]='index'>
+                  <option *ngFor="let item of saiqu" [value]='item.id'>{{item.name}}</option>
                 </select>
               </div>
               <div *ngIf="index==undefined" class="pc">请选择赛区</div>
@@ -210,13 +210,13 @@
   <div class=' gz ' *ngIf='guize==true'>
     <div class='guize bg-white flex-row flex-column'>
 
-      <div class='txt-bold margin-top' style='font-size:40rpx'>报名条款</div>
-      <div style="height:500rpx;padding:0rpx 60rpx 0rpx 60rpx;">
-        <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+      <div class='txt-bold margin-top f40'>报名条款</div>
+      <div class="sp1">
+        <text class="sp2">
           {{guizezon}}
         </text>
       </div>
-      <div class='' style='color:#FF6600' bindtap='closetanchuang'>我知道了</div>
+      <div class='' style='color:#FF6600' (click)='closetanchuang()'>我知道了</div>
       <div class="height-40"></div>
     </div>
 

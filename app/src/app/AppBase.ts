@@ -17,6 +17,19 @@ declare let wx: any;
 export class AppBase implements OnInit {
     public needlogin = false;
 
+    static CITYID = 440300;
+    static CITYNAME = "深圳市";
+    static CITYSET = false;
+
+
+    static lastlat = 0;
+    static lastlng = 0;
+    static lastdistance = 0;
+    static lastaddress = {
+        address: { ad_info: { adcode: "", city: "" } }
+    };
+    address: { ad_info: { adcode: "", city: "" } }
+
     public static TABName = "";
     public static LASTTAB = null;
     public static CurrentRoute: Router = null;
@@ -35,14 +48,14 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = {  h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { id:0, avatarUrl: "", nickName: "", h5openid: "", unionid: "" };
+    public InstInfo = { h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = { id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "",citylist:[] };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
     public params: Params = null;
 
-    public formdata=null;
+    public formdata = null;
 
     public keyt = "memberinfo99";
     public stat = "stat9";
@@ -86,7 +99,7 @@ export class AppBase implements OnInit {
         }
         console.log("rdw", AppBase.MemberInfo);
 
-        this.formdata={};
+        this.formdata = {};
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -305,12 +318,18 @@ export class AppBase implements OnInit {
         });
         toast.present();
     }
-    async showAlert(msg) {
+    async showAlert(msg, callback = undefined) {
 
         const alert = await this.alertCtrl.create({
             header: "提示",
             subHeader: msg,
-            buttons: ["知道了"]
+            buttons: [{
+                text: "知道了", handler: (blah) => {
+                    if (callback != undefined) {
+                        callback();
+                    }
+                }
+            }]
         });
         alert.present();
     }
@@ -462,11 +481,11 @@ export class AppBase implements OnInit {
         this.navCtrl.navigateBack('tabs/home');
         return;
     }
-    uploadImage(module,aa){
+    uploadImage(module, aa) {
 
     }
-    backtotop(){
-        var ioncontent=document.querySelector("ion-header");
+    backtotop() {
+        var ioncontent = document.querySelector("ion-header");
         ioncontent.scrollIntoView(true);
     }
 }
