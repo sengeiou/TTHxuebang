@@ -6,12 +6,14 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { InstApi } from 'src/providers/inst.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.page.html',
   styleUrls: ['./content.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,InstApi,JigouApi]
 })
 export class ContentPage  extends AppBase {
 
@@ -22,17 +24,27 @@ export class ContentPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jigouapi:JigouApi
+    ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.xieyi={};
   }
 
   onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow(){
+  xieyi=null;
+
+  onMyShow() {
+    var that = this;
+    var jigouapi = this.jigouapi;
+
+    jigouapi.xieyi({ }).then((xieyi) => {
+      this.xieyi=xieyi;
+    });
 
   }
 }

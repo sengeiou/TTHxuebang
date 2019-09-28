@@ -29,6 +29,8 @@ export class AppBase implements OnInit {
         address: { ad_info: { adcode: "", city: "" } }
     };
     address: { ad_info: { adcode: "", city: "" } }
+    citycode=0;
+    lastdistance=0;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -48,7 +50,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = { h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public InstInfo = {personnumber:"0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = { id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "",citylist:[] };
     public static MYBABY = [];
     public mybaby = [];
@@ -487,5 +489,8 @@ export class AppBase implements OnInit {
     backtotop() {
         var ioncontent = document.querySelector("ion-header");
         ioncontent.scrollIntoView(true);
+    }
+    onShareAppMessage(){
+
     }
 }

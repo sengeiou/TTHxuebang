@@ -25,7 +25,7 @@ export class HexiaoPage  extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+    
   }
 
   onMyLoad(){

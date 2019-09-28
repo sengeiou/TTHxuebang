@@ -1,203 +1,164 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
 
-<!-- **ngIf='{{nocity==1}}' -->
 
-<div class="tishikuang flex-row flex-center" **ngIf='{{nocity==1}}'>
+  <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
     <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
     <div class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</div>
-    <img src="{{uploadpath}}resource/{{res.heicha}}" bindtap="closetop" class="icon15 margin-left-10" />
+    <img src="{{uploadpath}}resource/{{res.heicha}}" (click)="closetop()" class="icon15 margin-left-10" />
   </div>
-  
-  
-  
-  <div **ngIf='{{pd==1}}'>
+
+
+
+  <div *ngIf='pd==1'>
     <img src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg" />
   </div>
-  
-  
-  
-  <!-- 用户首次进入引导图 -->
-  <!-- <div catchtouchmove="{{true}}" **ngIf='{{yd==1}}'>
-    <img src="{{uploadpath}}resource/{{res.home01}}" **ngIf='{{img==1}}' class="homeimage" />
-    <div class="bot" **ngIf='{{img==1}}' bindtap="qiehuan"></div>
-    <div class="bot" **ngIf='{{img==2}}' bindtap="closeimage"></div>
-    <img src="{{uploadpath}}resource/{{res.home02}}" **ngIf='{{img==2}}' class="homeimage" />
-  </div> -->
-  
-  
-  
+
+
+
+
   <div class=' ' style='background:{{jginfo.bgcolor}}'>
     <div class='padding-15  bg-primary'>
-      <div bindtap='tocity' class='flex-row flex-center'>
+      <div (click)='tocity()' class='flex-row flex-center'>
         <div class='txt-black h40 txt-bold'>{{cityname}}</div>
-        <div class='txt-black h40 txt-bold' **ngIf='{{cityname==null}}'>深圳市</div>
+        <div class='txt-black h40 txt-bold' *ngIf='cityname==null'>深圳市</div>
         <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
-  
+
         <div catchtap="xiaoxiliebiao">
-          <div catchtap="xiaoxiliebiao" **ngIf="{{xiaoxishu>0}}" class="shuzi">{{xiaoxishu}}</div>
+          <div catchtap="xiaoxiliebiao" *ngIf="xiaoxishu>0" class="shuzi">{{xiaoxishu}}</div>
           <img class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}' />
         </div>
-  
+
       </div>
-  
-  
+
+
       <div class=' flex-row margin-top-20'>
-  
+
         <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
           <div class='flex-1' style='width:20rpx;margin-top:4rpx;'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</div>
           <div class='flex-1'></div>
         </navigator>
-  
+
       </div>
-  
-  
-  
+
+
+
     </div>
   </div>
-  
-  
-  <div class="topblock" **ngIf='{{nocity==2&&cityname!=address.address_component.city}}'>
-  
+
+
+  <div class="topblock" *ngIf='nocity==2&&cityname!=address.address_component.city'>
+
     <div class="flex-row flex-center " style="margin-top:30rpx;">
-  
+
       <div class="h6 txt-white margin-left-20">定位显示您的位置在“</div>
       <div class="h6" style="color:#3887DE">{{address.address_component.city}}</div>
       <div class="h6 txt-white flex-1">”</div>
-      <div class="btn text-center h6 txt-white margin-right-20" bindtap="setcity" data-name="{{address.address_component.city}}" id="{{address.ad_info.adcode}}">切换到{{address.address_component.city}}</div>
-      <img src="{{uploadpath}}resource/{{res.baicha}}" bindtap="closetop" class="icon15 margin-right-20" />
-  
+      <div class="btn text-center h6 txt-white margin-right-20" (click)="setcity()"
+        data-name="{{address.address_component.city}}" id="{{address.ad_info.adcode}}">
+        切换到{{address.address_component.city}}</div>
+      <img src="{{uploadpath}}resource/{{res.baicha}}" (click)="closetop()" class="icon15 margin-right-20" />
+
     </div>
-  
+
   </div>
-  
-  
-  
+
+
+
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class='   ' style="margin-left:20rpx;margin-right:20rpx">
-  
-      <!-- <swiper bindchange="swiperChange" indicator-dots='{{false}}' next-margin="75rpx" previous-margin="75rpx" autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:750rpx;height:310rpx;margin-top:20rpx'>
-      <swiper-item **ngFor="{{indexbanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}" class='li'>
-        <img  bindtap='bannerGo' id="{{item.id}}" src='{{uploadpath}}indexbanner/{{item.img}}' class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}' />
-      </swiper-item>
-    </swiper> -->
-  
-      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' style='width:710rpx;height:354rpx;'>
-        <swiper-item **ngFor="{{indexbanner}}" wx:key="k">
-       
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}"  class='lb {{item}} {{currentItemId == index ? "selected" : ""}}' />
+
+      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
+        style='width:710rpx;height:354rpx;'>
+        <swiper-item *ngFor="let item of indexbanner" wx:key="k">
+
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " (click)='bannerGo($event)'
+            id="{{item.id}}" class='lb {{item}} {{currentItemId == index ? "selected" : ""}}' />
         </swiper-item>
       </swiper>
-  
+
     </div>
   </div>
-  
-  
-  
-  <!-- <div class='flex-row flex-center margin-10 padding-top-10 '>
-  
-    <div class='flex-1 text-center' bindtap='totake' data-name='jg'>
-      <img src='{{uploadpath}}resource/{{res.home_2}}' mode='scaleToFill' class='img radius-10' style='' />
-    </div> -->
-  
-  <!--
-  <div class='flex-row flex-center margin-top-20' style=" ">
-    <div class="flex-1"></div>
-    <img src='{{uploadpath}}resource/{{res.zjg}}' bindtap='totake' data-name='jg' mode='scaleToFill' class='img2 radius-10' style='' />
-    <img src='{{uploadpath}}resource/{{res.home_3}}' bindtap='toketang' class='img2 radius-10' style='' /> 
-    <div class="flex-1"></div>
-    <img src='{{uploadpath}}resource/{{res.home_1}}' bindtap='totake' data-name='kc' class='img2 radius-10'  />
-    <div class="flex-1"></div>
-  </div>
-  -->
-  
-  <!-- 修改后 -->
-  
+
+
+
   <swiper indicator-dots='true' style="height: 300rpx" class=" ">
-  
+
     <swiper-item class=" flex-row flex-center flex-wrap">
-  
-      <div class="flex-row flex-column lesson-width " bindtap='totake' data-name='jg'>
+
+      <div class="flex-row flex-column lesson-width " (click)='totake($event)' data-name='jg'>
         <img src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26" />
         <div class="h6">找机构</div>
       </div>
-  
-      <div class="flex-row flex-column lesson-width " bindtap='bindtokc' data-name='找课程'>
+
+      <div class="flex-row flex-column lesson-width " (click)='bindtokc($event)' data-name='找课程'>
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
-  
-      <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' **ngFor='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' **ngIf='{{idx<8}}'>
-        <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
-        <div class="h6">{{item.typename}}</div>
+      <div *ngFor='let item filtercoursetype;let idx=index;'>
+        <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
+          data-name='{{item.typename}}' id='{{item.id}}' wx:key='s' wx:for-index='idx' *ngIf='idx<8'>
+          <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
+          <div class="h6">{{item.typename}}</div>
+        </div>
       </div>
-  
+
     </swiper-item>
-  
+
     <swiper-item class=" flex-row flex-center flex-wrap">
-  
-      <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" **ngFor='{{filtercoursetype}}' bindtap='bindtokc' id='{{item.id}}' wx:key='s' wx:for-index='idx' **ngIf='{{idx>=8}}'>
-        <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
-        <div class="h6">{{item.typename}}</div>
+      <div *ngFor='let item of filtercoursetype;let idx=index;'>
+        <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc($event)'
+          id='{{item.id}}' wx:key='s' wx:for-index='idx' *ngIf='idx>=8' data-name="='{{item.typename}}'">
+          <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
+          <div class="h6">{{item.typename}}</div>
+        </div>
       </div>
-  
-      <div class="flex-row flex-column lesson-width" style="height:92rpx" **ngFor='{{10-((filtercoursetype.length)-8)}}'>
-      <div class="icon26"></div>
+
+      <div class="flex-row flex-column lesson-width" style="height:92rpx" *ngFor='10-((filtercoursetype.length)-8)'>
+        <div class="icon26"></div>
         <div class="h6"> </div>
       </div>
-  
+
     </swiper-item>
-  
-  
+
+
   </swiper>
-  
-  
-  <!-- <div class="flex-row flex-center margin-10 padding-top-10 ">
-  
-    <div class="flex-1 text-center">
-      <img src='{{uploadpath}}resource/{{res.homejigou}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='totake' data-name='jg' />
-    </div>
-  
-    <div class="flex-1 text-center">
-      <img src='{{uploadpath}}resource/{{res.homebaoma}}' style="width: 342rpx; height: 136rpx;border-radius: 72rpx;" bindtap='tobaoma' />
-    </div>
-  
-  </div> -->
-  
-  <!-- </div> -->
-  
-  
+
+
+
+
   <div class='margin-20'>
     <div class='flex-row flex-center '>
       <div class='orange'></div>
       <div class='f18 margin-left-12 txt-black txt-bold'>家长测试</div>
       <div class='txt9 margin-left-20 flex-1'>更多了解自己，快快测一测</div>
-      <div class='txt9 margin-left-20 ' bindtap="toceshilist" style='color:#FFC200'>更多测试</div>
+      <div class='txt9 margin-left-20 ' (click)="toceshilist($event)" style='color:#FFC200'>更多测试</div>
       <img src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15' />
     </div>
   </div>
-  
-  
-  
+
+
+
   <div class='scv'>
-    <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
-  
-      <div **ngFor='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
+    <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
+
+      <div *ngFor='let item of indexlist' wx:key='k' (click)='toceshi($event)' id='{{item.id}}' class='ceshi flex-row column'
+        style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
         <!-- <div class='txt-white h5 chaochu'>{{item.pingce_name}}</div> -->
         <div class=' ' style='height:68rpx;'></div>
         <div class='flex-row flex-center'>
@@ -205,466 +166,400 @@
           <div class='h6 margin-left-12 txt-white opa' style=''>人参与测试</div>
         </div>
       </div>
-  
-  
-    </scroll-view>
+
+
+    </div>
   </div>
-  
+
   <!-- <div class='height-30'></div> -->
-  
-  
-  
+
+
+
   <div class='margin-20 padding-bottom-20'>
-  
-  
-  
+
+
+
     <div class='flex-row flex-center '>
       <div class='orange'></div>
       <div class='f18 margin-left-12 txt-black txt-bold'>每日打卡</div>
       <div class='txt9 margin-left-20'>已连续签到{{num==null||num==undefined?0:num}}天</div>
-      <div class='txt9 margin-left-20 flex-1' bindtap='guize' style='color:#589DE9'>规则说明</div>
-      <div class='txt9 margin-left-20 ' bindtap="toduihuan" style='color:#FFC200'>去兑换</div>
+      <div class='txt9 margin-left-20 flex-1' (click)='guizeclick()' style='color:#589DE9'>规则说明</div>
+      <div class='txt9 margin-left-20 ' (click)="toduihuan()" style='color:#FFC200'>去兑换</div>
       <img src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15' />
     </div>
-  
-  
+
+
     <div class='qiandao margin-top-30 flex-row flex-center'>
       <div class='margin-left-29  flex-1'>
-  
+
         <div class=' flex-row flex-center '>
-  
+
           <div class="  flex-row flex-center ">
-  
+
             <div class="flex-row flex-column width-46">
               <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num
                 <=7?5:25}}</div>
-                  <div class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
-                  <div class=' f8 '>{{week[0].daka_date}}</div>
-              </div>
-  
-              <div class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></div>
-  
-              <div class="flex-row flex-column width-46">
-                <div class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num
+              <div class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
+              <div class=' f8 '>{{week[0].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num
                   <=7?5:25}}</div>
-                    <div class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></div>
-                    <div class=' f8 '>{{week[1].daka_date}}</div>
-                </div>
-  
-                <div class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></div>
-  
-                <div class="flex-row flex-column width-46">
-                  <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num
+              <div class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></div>
+              <div class=' f8 '>{{week[1].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num
                     <=7?5:25}}</div>
-                      <div class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></div>
-                      <div class=' f8 '>{{week[2].daka_date}}</div>
-                  </div>
-  
-                  <div class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></div>
-  
-                  <div class="flex-row flex-column width-46">
-                    <div class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num
+              <div class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></div>
+              <div class=' f8 '>{{week[2].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num
                       <=7?5:25}}</div>
-                        <div class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></div>
-                        <div class=' f8 '>{{week[3].daka_date}}</div>
-                    </div>
-  
-                    <div class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></div>
-  
-                    <div class="flex-row flex-column width-46">
-                      <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num
+              <div class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></div>
+              <div class=' f8 '>{{week[3].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num
                         <=7?5:25}}</div>
-                          <div class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></div>
-                          <div class=' f8 '>{{week[4].daka_date}}</div>
-                      </div>
-  
-                      <div class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></div>
-  
-                      <div class="flex-row flex-column width-46">
-                        <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num
+              <div class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></div>
+              <div class=' f8 '>{{week[4].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num
                           <=7?5:25}}</div>
-                            <div class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></div>
-                            <div class=' f8 '>{{week[5].daka_date}}</div>
-                        </div>
-  
-                        <div class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></div>
-  
-                        <div class="flex-row flex-column width-46">
-                          <div class='h6    {{min>6?"txthuang":"txt-9"}}'>+25</div>
-                          <div class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></div>
-                          <div class=' f8 '>{{week[6].daka_date}}</div>
-                        </div>
-  
-                      </div>
-                    </div>
-  
-                  </div>
-  
-                  <div class='daka radius-50 text-center f15 txt-black tx t-bold' **ngIf='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</div>
-  
-                  <div class='yidaka radius-50 text-center f15 txt-black txt-bold' **ngIf='{{daka==true}}' bindtap='showtc'>已打卡</div>
-  
-                </div>
-  
-  
-                <div class='flex-row flex-center margin-top-16'>
-                  <div class='flex-row flex-center '>
-                    <img **ngFor='{{resultArr}}' wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' **ngIf='{{idx<5}}' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
-                  </div>
-                  <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
-                </div>
-  
-                <div **ngIf='{{tangchuan==true||dakashow==true||guize==true}}' class='block_black'></div>
-  
-                <div class=' gz ' **ngIf='{{guize==true}}'>
-                  <div class='guize bg-white flex-row flex-column'>
-  
-                    <div class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</div>
-  
-                    <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
-         1.登录用户每天可签到1次，并自动领取相应积分；
-         2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
-         3.活动最终解释权归学榜所有。
-        </text>
-  
-                    <div class='margin-top-20' style='color:#FF6600' bindtap='closetanchuang'>我知道了</div>
-                  </div>
-  
-                </div>
-  
-  
-                <div **ngIf='{{dakashow==true}}' class='chengong'>
-  
-                  <div class='flex-row flex-center'>
-                    <div class='flex-1'></div>
-                    <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;' class='dakawc flex-row flex-column'>
-                      <div style='height:376rpx;'></div>
-                      <div class='txt_jifen txt-bold txt-white' **ngIf='{{jf==25}}'>+25积分</div>
-                      <div class='txt_jifen txt-bold txt-white' **ngIf='{{jf==5}}'>+5积分</div>
-                      <div class='tuhuang margin-top-10'>签到成功</div>
-                      <div style='height:84rpx;'></div>
-                      <div class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</div>
-                      <div style='height:32rpx'></div>
-  
-                      <div class='h6 margin-top-20'>连续签到7天额外领取20积分</div>
-  
-                      <div class='h6 margin-top-20' bindtap='chakanjilu'>签到记录</div>
-                      <img src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-10 margin-top-10' bindtap='chakanjilu' />
-                    </div>
-                    <div class='flex-1'></div>
-                  </div>
-  
-  
-  
-                  <div class='flex-row flex-center'>
-                    <div class='flex-1'></div>
-                    <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang' />
-                    <div class='flex-1'></div>
-                  </div>
-  
-                </div>
-  
-                <div **ngIf='{{tangchuan==true}}' class='tangchuan'>
-  
-                  <div class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
-  
-                    <div class='flex-row  '>
-  
-                      <div class='icon-75  flex-row flex-center '>
-                        <div class='flex-1'></div>
-                        <div class='flex-row flex-column'>
-                          <div class='h6 txt-white'>总积分</div>
-                          <div class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</div>
-                        </div>
-                        <div class='flex-1'></div>
-                      </div>
-  
-                      <div class='flex-row column margin-left-26'>
-                        <div class='flex-1'></div>
-                        <div class='h6'>累计签到{{dakalist.length}}天</div>
-                        <div class='flex-1'></div>
-                        <div class='h6'>已连续签到{{num}}天</div>
-                        <div class='flex-1'></div>
-                        <div class='h6'>连续签到7天额外领取20积分</div>
-                        <div class='flex-1'></div>
-                      </div>
-  
-                    </div>
-  
-  
-  
-                    <div class="zhong margin-top-46">
-                      <div class=' ' **ngFor='{{week}}' style="margin-top:-10rpx" wx:key='' wx:for-index='idx'>
-  
-                        <div class='bg-tuhuang gun' **ngIf='{{idx>0}}' style=''></div>
-  
-                        <div class='flex-row flex-center'>
-  
-                          <div class='{{num>idx?"txt-white":"tuhuang"}} h6'>{{num>idx? "已签": "未签"}}</div>
-  
-                          <div class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></div>
-  
-                          <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</div>
-  
-                          <div class='h6 txt-white' **ngIf='{{num<=7}}'>+{{idx
-                            <6?5:25}}</div>
-  
-                              <div class='h6 txt-white' **ngIf='{{num>7}}'>+25</div>
-  
-                          </div>
-                        </div>
-                      </div>
-  
-  
-  
-                      <div class='flex-row flex-center'>
-                        <div class='flex-1'></div>
-                        <div class='daka-btn text-center' **ngIf='{{daka==true}}' style='color:#FFC200'>已签到</div>
-                        <div class='flex-1'></div>
-                      </div>
-  
-                      <div style='height:12rpx;'></div>
-                    </div>
-  
-                    <div class='flex-row flex-center'>
-                      <div class='flex-1'></div>
-                      <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang' />
-                      <div class='flex-1'></div>
-                    </div>
-                  </div>
-  
-  
-  
-                </div>
-  
-  
-                <!-- <div class='height-30'></div> -->
-  
-                <!-- <div class='margin-20'>
-    <div class='flex-row flex-center '>
-      <div class='orange'></div>
-      <div class='f18 margin-left-12 txt-black txt-bold flex-1'>精彩视频</div>
-      <div class='txt9 margin-left-20 ' style='color:#FFC200'>查看更多</div>
-      <img src='{{uploadpath}}resource/{{res.duihuan}}' class='icon15' />
+              <div class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></div>
+              <div class=' f8 '>{{week[5].daka_date}}</div>
+            </div>
+
+            <div class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></div>
+
+            <div class="flex-row flex-column width-46">
+              <div class='h6    {{min>6?"txthuang":"txt-9"}}'>+25</div>
+              <div class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></div>
+              <div class=' f8 '>{{week[6].daka_date}}</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class='daka radius-50 text-center f15 txt-black tx t-bold' *ngIf='daka==false' (click)='bindSignIn($event)'
+        data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}"
+        data-weeks="{{weeks}}" data-be="{{be}}">打卡</div>
+
+      <div class='yidaka radius-50 text-center f15 txt-black txt-bold' *ngIf='daka==true' (click)='showtc($event)'>已打卡
+      </div>
+
     </div>
+
+
+    <div class='flex-row flex-center margin-top-16'>
+      <div class='flex-row flex-center '>
+        <div *ngFor='let item of resultArr;let idx=index;'>
+          <img wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' *ngIf='idx<5'
+            class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
+        </div>
+      </div>
+      <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
+    </div>
+
+    <div *ngIf='tangchuan==true||dakashow==true||guize==true' class='block_black'></div>
+
+    <div class=' gz ' *ngIf='guize==true'>
+      <div class='guize bg-white flex-row flex-column'>
+
+        <div class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</div>
+
+        <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+          1.登录用户每天可签到1次，并自动领取相应积分；
+          2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
+          3.活动最终解释权归学榜所有。
+        </text>
+
+        <div class='margin-top-20' style='color:#FF6600' (click)='closetanchuang($event)'>我知道了</div>
+      </div>
+
+    </div>
+
+
+    <div *ngIf='dakashow==true' class='chengong'>
+
+      <div class='flex-row flex-center'>
+        <div class='flex-1'></div>
+        <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;'
+          class='dakawc flex-row flex-column'>
+          <div style='height:376rpx;'></div>
+          <div class='txt_jifen txt-bold txt-white' *ngIf='jf==25'>+25积分</div>
+          <div class='txt_jifen txt-bold txt-white' *ngIf='jf==5'>+5积分</div>
+          <div class='tuhuang margin-top-10'>签到成功</div>
+          <div style='height:84rpx;'></div>
+          <div class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</div>
+          <div style='height:32rpx'></div>
+
+          <div class='h6 margin-top-20'>连续签到7天额外领取20积分</div>
+
+          <div class='h6 margin-top-20' (click)='chakanjilu()'>签到记录</div>
+          <img src='{{uploadpath}}resource/{{res.gengduo}}' class='icon-10 margin-top-10' (click)='chakanjilu()' />
+        </div>
+        <div class='flex-1'></div>
+      </div>
+
+
+
+      <div class='flex-row flex-center'>
+        <div class='flex-1'></div>
+        <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' (click)='closetanchuang()' />
+        <div class='flex-1'></div>
+      </div>
+
+    </div>
+
+    <div *ngIf='tangchuan==true' class='tangchuan'>
+
+      <div class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
+
+        <div class='flex-row  '>
+
+          <div class='icon-75  flex-row flex-center '>
+            <div class='flex-1'></div>
+            <div class='flex-row flex-column'>
+              <div class='h6 txt-white'>总积分</div>
+              <div class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</div>
+            </div>
+            <div class='flex-1'></div>
+          </div>
+
+          <div class='flex-row column margin-left-26'>
+            <div class='flex-1'></div>
+            <div class='h6'>累计签到{{dakalist.length}}天</div>
+            <div class='flex-1'></div>
+            <div class='h6'>已连续签到{{num}}天</div>
+            <div class='flex-1'></div>
+            <div class='h6'>连续签到7天额外领取20积分</div>
+            <div class='flex-1'></div>
+          </div>
+
+        </div>
+
+
+
+        <div class="zhong margin-top-46">
+          <div class=' ' *ngFor='let item of week;let idx=index;' style="margin-top:-10rpx">
+
+            <div class='bg-tuhuang gun' *ngIf='idx>0' style=''></div>
+
+            <div class='flex-row flex-center'>
+
+              <div class='{{num>idx?"txt-white":"tuhuang"}} h6'>{{num>idx? "已签": "未签"}}</div>
+
+              <div class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></div>
+
+              <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}
+              </div>
+
+              <div class='h6 txt-white' *ngIf='num<=7'>+{{idx
+                            <6?5:25}}</div>
+
+              <div class='h6 txt-white' *ngIf='num>7'>+25</div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class='flex-row flex-center'>
+          <div class='flex-1'></div>
+          <div class='daka-btn text-center' *ngIf='daka==true' style='color:#FFC200'>已签到</div>
+          <div class='flex-1'></div>
+        </div>
+
+        <div style='height:12rpx;'></div>
+      </div>
+
+      <div class='flex-row flex-center'>
+        <div class='flex-1'></div>
+        <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' (click)='closetanchuang()' />
+        <div class='flex-1'></div>
+      </div>
+    </div>
+
+
+
   </div>
-  
-  <div class='scv'>
-    <scroll-view scroll-x style=" " class='sp' bindscroll="scroll">
-  
-      <div class='shipin flex-row column' style=''>
-  
-        <div class=' ' style='height:146rpx;'></div>
-        <div class='txt-white h5'>#活动汇演</div>
-  
-        <div class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</div>
-  
-        <div class='flex-row flex-center margin-top-20'>
-        
-          <div class='flex-row flex-center'>
-            <img src='{{uploadpath}}resource/{{res.unfav}}' class='icon15' />
-            <div class='f20 margin-left-10 txt-white ' style=''>1294</div>
-          </div>
-  
-          <div class='flex-row flex-center margin-left-40'>
-            <img src='{{uploadpath}}resource/{{res.problem}}' class='icon15' />
-            <div class='margin-left-10 txt-white  f20' style=''>12w</div>
-          </div>
-        </div>
-  
+
+
+
+
+
+
+
+  <div class=''>
+
+    <div class='flex-row flex-center'>
+      <div class='flex-1'></div>
+      <img src='{{uploadpath}}resource/{{res.diz}}' class='icon' />
+      <div class=' h4 txt-bold txt-black margin-left-16'>离我最近</div>
+      <div class='flex-1'></div>
+    </div>
+
+
+    <div hidden='{{jgvteach.length>0}}'>
+
+      <img style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
+
+    </div>
+
+
+    <div hidden='{{jgvteach.length==0}}' *ngFor='let item of jgvteach;' wx:key='k' id='{{item.id}}'
+    (click)='tojgdetails($event)' style='position: relative;height:564rpx ;' class=''>
+      <div class=' padding-20' style=''>
+        <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
+          class=' radius-10 ' style='width:100%;height:390rpx' />
       </div>
-  
-  
-  
-      <div class='shipin flex-row column' style=''>
-  
-        <div class=' ' style='height:146rpx;'></div>
-        <div class='txt-white h5'>#活动汇演</div>
-  
-        <div class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</div>
-  
-  
-        <div class='flex-row flex-center margin-top-20'>
-          <div class='flex-row flex-center'>
-            <img src='{{uploadpath}}resource/{{res.unfav}}' class='icon15' />
-            <div class='f20 margin-left-10 txt-white ' style=''>1294</div>
-          </div>
-  
-          <div class='flex-row flex-center margin-left-40'>
-            <img src='{{uploadpath}}resource/{{res.problem}}' class='icon15' />
-            <div class='margin-left-10 txt-white  f20' style=''>12w</div>
-          </div>
-        </div>
-  
-      </div>
-  
-      <div class='shipin flex-row column' style=''>
-  
-        <div class=' ' style='height:146rpx;'></div>
-        <div class='txt-white h5'>#活动汇演</div>
-  
-        <div class='f8  txt-white flex-row  flex-wrap margin-top-10' style='height:20rpx '>这小伙子动作，太玄了要学做菜吗？ 老师收学徒噢，打字打字打字打字…</div>
-  
-  
-        <div class='flex-row flex-center margin-top-20'>
-          <div class='flex-row flex-center'>
-            <img src='{{uploadpath}}resource/{{res.unfav}}' class='icon15' />
-            <div class='f20 margin-left-10 txt-white ' style=''>1294</div>
-          </div>
-  
-          <div class='flex-row flex-center margin-left-40'>
-            <img src='{{uploadpath}}resource/{{res.problem}}' class='icon15' />
-            <div class='margin-left-10 txt-white  f20' style=''>12w</div>
-          </div>
-        </div>
-  
-      </div>
-  
-    </scroll-view>
-  </div> -->
-  
-  
-  
-  
-  
-                <div class=''>
-  
-                  <div class='flex-row flex-center'>
-                    <div class='flex-1'></div>
-                    <img src='{{uploadpath}}resource/{{res.diz}}' class='icon' />
-                    <div class=' h4 txt-bold txt-black margin-left-16'>离我最近</div>
-                    <div class='flex-1'></div>
+      <div class='midt flex-row'>
+        <div class='flex-1'></div>
+        <div class='mid radius-10'>
+          <div class=''>
+            <div class=' bg-white   margin-bottom-10'>
+
+              <div class='padding-20 '>
+
+                <div class='flex-row flex-center'>
+                  <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
+
+                  <div class="flex-row flex-center flex-1 ">
+                    <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
+                    <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
+                      *ngIf="item.renzhen=='是'" />
                   </div>
-  
-  
-                  <div hidden='{{jgvteach.length>0}}'>
-  
-                    <img style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
-  
-                  </div>
-  
-  
-                  <div hidden='{{jgvteach.length==0}}' **ngFor='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
-                    <div class=' padding-20' style=''>
-                      <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx' />
-                    </div>
-                    <div class='midt flex-row'>
-                      <div class='flex-1'></div>
-                      <div class='mid radius-10'>
-                        <div class=''>
-                          <div class=' bg-white   margin-bottom-10'>
-  
-                            <div class='padding-20 '>
-  
-                              <div class='flex-row flex-center'>
-                                <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
-  
-                                <div class="flex-row flex-center flex-1 ">
-                                  <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
-                                  <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" **ngIf="{{item.renzhen=='是'}}" />
-                                </div>
-  
-                                <div class="starbox text-right">
-                                  <div class="stars" style="width: 100%;">
-                                    <div class=" ims">
-                                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                                    </div>
-                                  </div>
-  
-                                  <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
-                                    <div class="ims">
-                                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                                    </div>
-                                  </div>
-  
-                                </div>
-  
-  
-                              </div>
-  
-  
-                              <div class='flex-row flex-center margin-top-5'>
-                                <div class='flex-row flex-1'>
-                                  <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' **ngIf='{{idx<3}}'>{{litem.name}}</div>
-                                </div>
-                                <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
-                              </div>
-  
-  
-                              <div class='flex-row flex-center margin-top-5'>
-                                <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
-                                <div class='flex-1 h5 margin-left-10 txt-black dizhi'>{{item.showaddress}}</div>
-                                <div class='h6 '>{{item.miletxt}}</div>
-                              </div>
-  
-  
-  
-                            </div>
-  
-                          </div>
-                        </div>
+
+                  <div class="starbox text-right">
+                    <div class="stars" style="width: 100%;">
+                      <div class=" ims">
+                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
                       </div>
-                      <div class='flex-1'></div>
                     </div>
-  
-  
-                  </div>
-  
-  
-  
-                </div>
-  
-                <div class='height-70' style=''></div>
-  
-  
-                <div class=' to_top' hidden='{{!floorstatus}}'>
-                  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
-                </div>
-  
-  
-  
-  
-  
-                <!-- **ngIf="{{showlastnotice==true&&noticebanner.length>0}}" -->
-                <div class='backmu' **ngIf="{{showlastnotice==true&&noticebanner.length>0}}">
-                  <div class='flex-row flex-center' style='height:100vh'>
-                    <div class='flex-1'></div>
-                    <div class='width:500rpx;height:766rpx;'>
-  
-                      <!-- **ngIf="{{noticebanner.length==1}}" -->
-                      <div **ngIf="{{noticebanner.length==1}}" **ngFor="{{noticebanner}}">
-                        <div bindtap='bannerGo2' id="{{item.id}}">
-                          <img src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;' />
-                        </div>
+
+                    <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                      <div class="ims">
+                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                       </div>
-  
-                      <!-- **ngIf="{{noticebanner.length>1}}" -->
-                      <swiper **ngIf="{{noticebanner.length>1}}" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
-                        <swiper-item **ngFor="{{noticebanner}}" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
-                          <div bindtap='bannerGo2' id="{{item.id}}">
-                            <img src='{{uploadpath}}indexbanner/{{item.img}}' bindtap='' id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' style='width:500rpx;height:766rpx;' />
-                          </div>
-                        </swiper-item>
-                      </swiper>
-  
-                      <!-- position:absolute;margin-top:-746rpx;margin-left:450rpx; -->
-                      <div class="flex-row flex-center margin-top-20">
-                        <div class="flex-1"></div>
-                        <img bindtap='closenotice' src='{{uploadpath}}resource/{{res.close_icon}}' style='width:40rpx;height:40rpx;' />
-                        <div class="flex-1"></div>
-                      </div>
-  
                     </div>
-                    <div class='flex-1'></div>
+
                   </div>
+
+
                 </div>
 
-    </ion-content>
+
+                <div class='flex-row flex-center margin-top-5'>
+                  <div class='flex-row flex-1'>
+                    <div *ngFor="let litem of item.labels;let idx=index;">
+
+                      <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
+                        style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:key="k"  *ngIf='idx<3'>{{litem.name}}</div>
+                    </div>
+                  </div>
+                  <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
+                </div>
+
+
+                <div class='flex-row flex-center margin-top-5'>
+                  <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
+                  <div class='flex-1 h5 margin-left-10 txt-black dizhi'>{{item.showaddress}}</div>
+                  <div class='h6 '>{{item.miletxt}}</div>
+                </div>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class='flex-1'></div>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+  <div class='height-70' style=''></div>
+
+
+  <div class=' to_top' hidden='{{!floorstatus}}'>
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
+  </div>
+
+
+
+
+
+  <div class='backmu' *ngIf="showlastnotice==true&&noticebanner.length>0">
+    <div class='flex-row flex-center' style='height:100vh'>
+      <div class='flex-1'></div>
+      <div class='width:500rpx;height:766rpx;'>
+
+        <div *ngIf="noticebanner.length==1" *ngFor="let item of noticebanner;">
+          <div (click)='bannerGo2($event)' id="{{item.id}}">
+            <img src='{{uploadpath}}indexbanner/{{item.img}}' 
+              id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img'
+              style='width:500rpx;height:766rpx;' />
+          </div>
+        </div>
+
+        <swiper *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
+          duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+          <swiper-item *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
+            <div (click)='bannerGo2($event)' id="{{item.id}}">
+              <img src='{{uploadpath}}indexbanner/{{item.img}}' 
+                id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img'
+                style='width:500rpx;height:766rpx;' />
+            </div>
+          </swiper-item>
+        </swiper>
+
+        <!-- position:absolute;margin-top:-746rpx;margin-left:450rpx; -->
+        <div class="flex-row flex-center margin-top-20">
+          <div class="flex-1"></div>
+          <img (click)='closenotice()' src='{{uploadpath}}resource/{{res.close_icon}}'
+            style='width:40rpx;height:40rpx;' />
+          <div class="flex-1"></div>
+        </div>
+
+      </div>
+      <div class='flex-1'></div>
+    </div>
+  </div>
+
+</ion-content>
