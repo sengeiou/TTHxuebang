@@ -48,9 +48,9 @@
       <div class=' flex-row margin-top-20'>
 
         <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
-          <div class='flex-1' style='width:20rpx;margin-top:4rpx;'></div>
+          <div class='flex-1 sp1'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
-          <div class='h6 txt-gray margin-left-20' style='margin-bottom:3rpx;margin-top:4rpx'>快速搜索你要找的机构、课程 如“美术”</div>
+          <div class='h6 txt-gray margin-left-20 sp2'>快速搜索你要找的机构、课程 如“美术”</div>
           <div class='flex-1'></div>
         </navigator>
 
@@ -64,7 +64,7 @@
 
   <div class="topblock" *ngIf='nocity==2&&cityname!=address.address_component.city'>
 
-    <div class="flex-row flex-center " style="margin-top:30rpx;">
+    <div class="flex-row flex-center m30">
 
       <div class="h6 txt-white margin-left-20">定位显示您的位置在“</div>
       <div class="h6" style="color:#3887DE">{{address.address_component.city}}</div>
@@ -81,14 +81,13 @@
 
 
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
-    <div class='   ' style="margin-left:20rpx;margin-right:20rpx">
+    <div class=' sp3  ' style="">
 
-      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
-        style='width:710rpx;height:354rpx;'>
+      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
         <swiper-item *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " (click)='bannerGo($event)'
-            id="{{item.id}}" class='lb {{item}} {{currentItemId == index ? "selected" : ""}}' />
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
+            class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
         </swiper-item>
       </swiper>
 
@@ -97,7 +96,7 @@
 
 
 
-  <swiper indicator-dots='true' style="height: 300rpx" class=" ">
+  <swiper indicator-dots='true' class="h300 ">
 
     <swiper-item class=" flex-row flex-center flex-wrap">
 
@@ -129,7 +128,7 @@
         </div>
       </div>
 
-      <div class="flex-row flex-column lesson-width" style="height:92rpx" *ngFor='10-((filtercoursetype.length)-8)'>
+      <div class="flex-row flex-column lesson-width h92" style="" *ngFor='10-((filtercoursetype.length)-8)'>
         <div class="icon26"></div>
         <div class="h6"> </div>
       </div>
@@ -157,10 +156,11 @@
   <div class='scv'>
     <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
 
-      <div *ngFor='let item of indexlist' wx:key='k' (click)='toceshi($event)' id='{{item.id}}' class='ceshi flex-row column'
+      <div *ngFor='let item of indexlist' wx:key='k' (click)='toceshi($event)' id='{{item.id}}'
+        class='ceshi flex-row column'
         style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
         <!-- <div class='txt-white h5 chaochu'>{{item.pingce_name}}</div> -->
-        <div class=' ' style='height:68rpx;'></div>
+        <div class=' h68 ' style=''></div>
         <div class='flex-row flex-center'>
           <div class='txt-white h6'>{{item.peoplenum}}</div>
           <div class='h6 margin-left-12 txt-white opa' style=''>人参与测试</div>
@@ -286,9 +286,9 @@
     <div class=' gz ' *ngIf='guize==true'>
       <div class='guize bg-white flex-row flex-column'>
 
-        <div class='txt-bold margin-top' style='font-size:40rpx'>打卡规则</div>
+        <div class='txt-bold margin-top f40' style=''>打卡规则</div>
 
-        <text style='padding:0rpx 60rpx 0rpx 60rpx;line-height:48rpx;'>
+        <text class="pdd">
           1.登录用户每天可签到1次，并自动领取相应积分；
           2.连续签到7天，则额外获取20积分；若连续签到中断，则重新计算天数；
           3.活动最终解释权归学榜所有。
@@ -306,13 +306,13 @@
         <div class='flex-1'></div>
         <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;'
           class='dakawc flex-row flex-column'>
-          <div style='height:376rpx;'></div>
+          <div class='h376'></div>
           <div class='txt_jifen txt-bold txt-white' *ngIf='jf==25'>+25积分</div>
           <div class='txt_jifen txt-bold txt-white' *ngIf='jf==5'>+5积分</div>
           <div class='tuhuang margin-top-10'>签到成功</div>
-          <div style='height:84rpx;'></div>
+          <div class='h84'></div>
           <div class=' txt-bold' style='color:#FFC200'>已连续签到{{num}}天</div>
-          <div style='height:32rpx'></div>
+          <div class="h32"></div>
 
           <div class='h6 margin-top-20'>连续签到7天额外领取20积分</div>
 
@@ -362,7 +362,7 @@
 
 
         <div class="zhong margin-top-46">
-          <div class=' ' *ngFor='let item of week;let idx=index;' style="margin-top:-10rpx">
+          <div class=' mf' *ngFor='let item of week;let idx=index;'>
 
             <div class='bg-tuhuang gun' *ngIf='idx>0' style=''></div>
 
@@ -392,7 +392,7 @@
           <div class='flex-1'></div>
         </div>
 
-        <div style='height:12rpx;'></div>
+        <div class='h12'></div>
       </div>
 
       <div class='flex-row flex-center'>
@@ -424,16 +424,16 @@
 
     <div hidden='{{jgvteach.length>0}}'>
 
-      <img style='width:750rpx' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
+      <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
 
     </div>
 
 
     <div hidden='{{jgvteach.length==0}}' *ngFor='let item of jgvteach;' wx:key='k' id='{{item.id}}'
-    (click)='tojgdetails($event)' style='position: relative;height:564rpx ;' class=''>
+      (click)='tojgdetails($event)' style='' class='wpc3'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
-          class=' radius-10 ' style='width:100%;height:390rpx' />
+          class=' radius-10 wpc4' style='' />
       </div>
       <div class='midt flex-row'>
         <div class='flex-1'></div>
@@ -447,7 +447,7 @@
                   <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
 
                   <div class="flex-row flex-center flex-1 ">
-                    <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
+                    <div class='txt-black txt-bold  chaochu mw400' style="">{{item.jigou}}</div>
                     <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
                       *ngIf="item.renzhen=='是'" />
                   </div>
@@ -484,7 +484,8 @@
                     <div *ngFor="let litem of item.labels;let idx=index;">
 
                       <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
-                        style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:key="k"  *ngIf='idx<3'>{{litem.name}}</div>
+                        style='border:1px solid {{litem.color}};color:{{litem.color}}' wx:key="k" *ngIf='idx<3'>
+                        {{litem.name}}</div>
                     </div>
                   </div>
                   <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
@@ -528,32 +529,28 @@
   <div class='backmu' *ngIf="showlastnotice==true&&noticebanner.length>0">
     <div class='flex-row flex-center' style='height:100vh'>
       <div class='flex-1'></div>
-      <div class='width:500rpx;height:766rpx;'>
+      <div class='wpc'>
 
         <div *ngIf="noticebanner.length==1" *ngFor="let item of noticebanner;">
           <div (click)='bannerGo2($event)' id="{{item.id}}">
-            <img src='{{uploadpath}}indexbanner/{{item.img}}' 
-              id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img'
-              style='width:500rpx;height:766rpx;' />
+            <img src='{{uploadpath}}indexbanner/{{item.img}}'
+              id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
           </div>
         </div>
 
         <swiper *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
-          duration='1000' circular='{{true}}' style='width:500rpx;height:766rpx;'>
+          duration='1000' circular='{{true}}' class='wpc'>
           <swiper-item *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2($event)' id="{{item.id}}">
-              <img src='{{uploadpath}}indexbanner/{{item.img}}' 
-                id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img'
-                style='width:500rpx;height:766rpx;' />
+              <img src='{{uploadpath}}indexbanner/{{item.img}}'
+                id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
             </div>
           </swiper-item>
         </swiper>
 
-        <!-- position:absolute;margin-top:-746rpx;margin-left:450rpx; -->
         <div class="flex-row flex-center margin-top-20">
           <div class="flex-1"></div>
-          <img (click)='closenotice()' src='{{uploadpath}}resource/{{res.close_icon}}'
-            style='width:40rpx;height:40rpx;' />
+          <img (click)='closenotice()' src='{{uploadpath}}resource/{{res.close_icon}}' class="wh40" />
           <div class="flex-1"></div>
         </div>
 
