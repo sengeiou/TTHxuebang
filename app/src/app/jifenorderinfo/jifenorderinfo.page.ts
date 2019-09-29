@@ -1,19 +1,20 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JifenApi } from 'src/providers/jifen.api';
 
 @Component({
   selector: 'app-jifenorderinfo',
   templateUrl: './jifenorderinfo.page.html',
   styleUrls: ['./jifenorderinfo.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi, JifenApi]
 })
-export class JifenorderinfoPage  extends AppBase {
+export class JifenorderinfoPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,17 +23,43 @@ export class JifenorderinfoPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi,
+    public jifenApi: JifenApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+    this.info = {};
   }
 
-  onMyLoad(){
+  onMyLoad() {
     //参数
     this.params;
   }
-  onMyShow(){
+  info = null;
+  onMyShow() {
+    var that = this;
+    var jifenapi = this.jifenApi;
+    jifenapi.jifenorderinfo({ id: this.params.id }).then((info) => {
+      this.info = info;
+    })
+  }
+  towuliu() {
+    var id = this.info.id;
+    this.navigate("wuliu", { id });
+  }
+  shouhuo = null;
+  shouhuoclick(e) {
+    var that = this;
+    var id = e.target.id;
+    var jifenapi = this.jifenApi;
 
+    this.showConfirm("确认收货？", (ret) => {
+      if (ret) {
+        jifenapi.shouhuo({ id: id }).then((shouhuo) => {
+          that.shouhuo = shouhuo;
+          that.toast("确认收货成功");
+          that.onMyShow();
+        })
+      }
+    })
   }
 }

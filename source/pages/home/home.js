@@ -526,7 +526,7 @@ class Content extends AppBase {
           if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine') {
             console.log("试试")
             wx.reLaunch({
-              url: indexbanner[i].url
+              url: url indexbanner[i].url
             })
           } else {
             console.log("不杀死hi")
