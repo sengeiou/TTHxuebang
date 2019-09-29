@@ -10,11 +10,11 @@ import { ReturnStatement } from "@angular/compiler";
 import { ViewController } from '@ionic/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 
 declare let wx: any;
 
-export class AppBase implements OnInit {
+export class AppBase implements OnInit,OnDestroy {
     public needlogin = false;
 
     static CITYID = 440300;
@@ -495,5 +495,11 @@ export class AppBase implements OnInit {
     }
     onShareAppMessage(){
 
+    }
+    onUnload(){
+        console.log("on unload");
+    }
+    ngOnDestroy(){
+        this.onUnload();
     }
 }

@@ -15,16 +15,16 @@
   <!--pages/jifenshouzhi/jifenshouzhi.wxml-->
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
   <div class=' to_top'>
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
   <div class="flex-row flex-center title bg-white" style="">
 
-    <div class="flex-row flex-column flex-1 margin-left-20" bindtap="xuanze" id="shouru">
+    <div class="flex-row flex-column flex-1 margin-left-20" (click)="xuanze($event)" id="shouru">
       <div class="h5 {{show==1?'txt-bold':''}}">收入</div>
       <div class="tiao  {{show==1?'bg-orange':'bg-white'}}"></div>
     </div>
 
-    <div class="flex-row flex-column flex-1 margin-right-20" bindtap="xuanze" id="zhichu">
+    <div class="flex-row flex-column flex-1 margin-right-20" (click)="xuanze($event)" id="zhichu">
       <div class="h5 {{show==2?'txt-bold':''}}">支出</div>
       <div class="tiao {{show==2?'bg-orange':'bg-white'}}"></div>
     </div>
