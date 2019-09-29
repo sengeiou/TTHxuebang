@@ -130,30 +130,44 @@ export class AppUtil {
     static Rad(d) {
         return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
     }
+    static zuidijia(a, b, c, d) {
+        var list = [];
+        list.push(a, b, c, d);
+        list = list.filter((item) => {
+            return item > 0;
+        })
+        var min = Math.min.apply(null, list)
+        console.log(list);
+        console.log(min);
+        console.log("hahdadhsadhasdhasdhas");
 
 
-  static GetNowFormatDate() {
-    var date = new Date();
-    var seperator1 = "-";
-    var year = date.getFullYear();
-    var month = date.getMonth() + 1;
-    var vmonty="";
-    var strDate = date.getDate();
-    var vstrDate="";
-    if (month >= 1 && month <= 9) {
-        vmonty = "0" + month;
+        return min.toFixed(2);
+
     }
-    if (strDate >= 0 && strDate <= 9) {
-        vstrDate = "0" + strDate;
+
+    static GetNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var vmonty = "";
+        var strDate = date.getDate();
+        var vstrDate = "";
+        if (month >= 1 && month <= 9) {
+            vmonty = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            vstrDate = "0" + strDate;
+        }
+        var nowdate = year + seperator1 + vmonty + seperator1 + vstrDate;
+        return nowdate;
     }
-    var nowdate = year + seperator1 + vmonty + seperator1 + vstrDate;
-    return nowdate;
-  }
 
     //param：传入时间：dates: "2018-04-02", later: 往后多少天
     static DateLater(dates, later) {
         let dateObj = null;
-        dateObj={};
+        dateObj = {};
         let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
         let date = new Date(dates.replace(/-/g, '/'));
         console.log("hahahah");

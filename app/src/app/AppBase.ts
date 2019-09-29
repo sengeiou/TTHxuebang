@@ -21,6 +21,9 @@ export class AppBase implements OnInit {
     static CITYNAME = "深圳市";
     static CITYSET = false;
 
+    mylat=0;
+    mylng=0;
+
 
     static lastlat = 0;
     static lastlng = 0;

@@ -14,86 +14,83 @@
 <!--pages/jifenorder/jifenorder.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top' >
-<img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+<img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 <div class=' flex-row flex-center  bg-white bor_bot top'>
 
-<div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='all'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</div>
-  <div **ngIf='{{show=="all"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></div>
-  <div **ngIf='{{show!="all"}}' class='' style='width:50rpx;height:6rpx;'></div>
+  <div *ngIf='show=="all"' class='bg-primary sp1' style=''></div>
+  <div *ngIf='show!="all"' class='sp1' style=''></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='ok'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='ok'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成</div>
-  <div **ngIf='{{show=="wc"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></div>
-  <div **ngIf='{{show!="wc"}}' class='' style='width:50rpx;height:6rpx;'></div>
+  <div *ngIf='show=="wc"' class='bg-primary sp1' ></div>
+  <div *ngIf='show!="wc"' class='sp1' ></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='wc'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>待发货</div>
-  <div **ngIf='{{show=="finished"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></div>
-  <div **ngIf='{{show!="finished"}}' class='' style='width:50rpx;height:6rpx;'></div>
+  <div *ngIf='show=="finished"' class='bg-primary sp1' ></div>
+  <div *ngIf='show!="finished"' class='sp1' ></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='df'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>待收货</div>
-  <div **ngIf='{{show=="wait"}}' class='bg-primary' style='width:50rpx;height:6rpx;'></div>
-  <div **ngIf='{{show!="wait"}}' class='' style='width:50rpx;height:6rpx;'></div>
+  <div *ngIf='show=="wait"' class='bg-primary sp1' ></div>
+  <div *ngIf='show!="wait"' class=' sp1' ></div>
 </div>
 
-<!-- <div class='xiaoxi'>
-  <div **ngIf="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</div>
-</div> -->
 
 </div>
 
-<div style="height:88rpx;"></div>
+<div class="h88"></div>
 
 <!-- 全部订单-->
-<div class="" **ngIf='{{show=="all"}}'>
+<div class="" *ngIf='show=="all"'>
 
-<div class="block  " **ngFor='{{alllist}}' wx:key='k'>
+<div class="block  " *ngFor='let item of alllist' wx:key='k'>
 
-  <div class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
 
       <div class="flex-row flex-center">
         <div class="h5 flex-1">{{item.name}}</div>
-        <div class="txt-red h6 txt-bold  margin-right-24" **ngIf='{{item.orderstatus!="C"}}'>
+        <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
           {{item.orderstatus_name}}
         </div>
 
-        <img **ngIf='{{item.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24" />
+        <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24" />
       </div>
 
       <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
 
-      <div style="height:60rpx"></div>
+      <div class="h60"></div>
 
       <div class="flex-row flex-center">
         <div class="flex-1"></div>
-        <div class="" style="font-size:22rpx">扣除积分：</div>
+        <div class="f22" >扣除积分：</div>
         <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
       </div>
     </div>
   </div>
 
-  <div style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
 
   <div class="flex-row flex-center margin-top-8">
     <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
 
     <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
     <div class="flex-1 margin-left-24">
-      <img src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" **ngIf='{{item.orderstatus=="C"}}' class="icon_shan" />
+      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick()' id="{{item.id}}" *ngIf='item.orderstatus=="C"' class="icon_shan" />
     </div>
 
 
-    <div **ngIf='{{item.orderstatus=="B"||item.orderstatus=="C"}}'  bindtap='wuliu' id="{{item.id}}" class="lianxi text-center   txt-6" style="margin-right:20rpx">物流详情</div>
-    <div **ngIf='{{item.orderstatus=="B"}}' bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
+    <div *ngIf='item.orderstatus=="B"||item.orderstatus=="C"'  (click)='wuliu($event)' id="{{item.id}}" class="lianxi text-center   txt-6 mr20" >物流详情</div>
+    <div *ngIf='item.orderstatus=="B"' (click)='shouhuoclick($event)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
 
 
   </div>
@@ -103,11 +100,11 @@
 </div>
 
 <!-- 待发货订单-->
-<div class="" **ngIf='{{show=="finished"}}'>
+<div class="" *ngIf='show=="finished"'>
 
-<div class="block  " **ngFor='{{daifalist}}' wx:key='k'>
+<div class="block  " *ngFor='let item of daifalist' wx:key='k'>
 
-  <div class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -121,17 +118,17 @@
 
       <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
 
-      <div style="height:60rpx"></div>
+      <div class="h60"></div>
 
       <div class="flex-row flex-center">
         <div class="flex-1"></div>
-        <div class="" style="font-size:22rpx">扣除积分：</div>
+        <div class="f22" >扣除积分：</div>
         <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
       </div>
     </div>
   </div>
 
-  <div style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
 
   <div class="flex-row flex-center margin-top-10">
 
@@ -147,11 +144,11 @@
 </div>
 
 <!-- 待收货订单-->
-<div class="" **ngIf='{{show=="wait"}}'>
+<div class="" *ngIf='show=="wait"'>
 
-<div class="block  " **ngFor='{{daishoulist}}' wx:key='k'>
+<div class="block  " ngFor='let item of daishoulist' wx:key='k'>
 
-  <div class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -165,25 +162,25 @@
 
       <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
 
-      <div style="height:60rpx"></div>
+      <div class="h60"></div>
 
       <div class="flex-row flex-center">
         <div class="flex-1"></div>
-        <div class="" style="font-size:22rpx">扣除积分：</div>
+        <div class="f22" >扣除积分：</div>
         <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
       </div>
     </div>
   </div>
 
-  <div style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
 
   <div class="flex-row flex-center margin-top-8">
     <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
 
     <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
     <div class="flex-1"></div>
-    <div class="lianxi text-center  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</div>
-    <div bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
+    <div class="lianxi text-center  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
+    <div (click)='shouhuoclick($event)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
 
   </div>
 
@@ -192,11 +189,11 @@
 </div>
 
 <!-- 已完成订单-->
-<div class="" **ngIf='{{show=="wc"}}'>
+<div class="" *ngIf='show=="wc"'>
 
-<div class="block  " **ngFor='{{wanchenlist}}' wx:key='k'>
+<div class="block  " *ngFor='let item of wanchenlist' wx:key='k'>
 
-  <div class="flex-row" bindtap='bindtodetails' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -214,25 +211,25 @@
 
 
 
-      <div style="height:60rpx"></div>
+      <div class="h60"></div>
 
       <div class="flex-row flex-center">
         <div class="flex-1"></div>
-        <div class="" style="font-size:22rpx">扣除积分：</div>
+        <div class="f22" >扣除积分：</div>
         <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
       </div>
     </div>
   </div>
 
-  <div style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
 
   <div class="flex-row flex-center margin-top-6">
     <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
     <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
     <div class="flex-1 margin-left-24 ">
-      <img src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" class="icon_shan" />
+      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick($event)' id="{{item.id}}" class="icon_shan" />
     </div>
-    <div class="lianxi text-center margin-right-24  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</div>
+    <div class="lianxi text-center margin-right-24  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
   </div>
 
 </div>

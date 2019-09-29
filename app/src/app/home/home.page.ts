@@ -513,7 +513,7 @@ export class HomePage extends AppBase {
 
   //打卡部分
   daka = false;
-  week=[];
+  week = [];
   timetwo() {
     console.log('卡路里')
 
@@ -588,12 +588,12 @@ export class HomePage extends AppBase {
         }
       }
       if (num % 7 > 0) {
-        this.week= week
-        this.min= num % 7;
+        this.week = week
+        this.min = num % 7;
       }
       if (num % 7 == 0) {
-        this.week= week
-        this.min= 7;
+        this.week = week
+        this.min = 7;
       }
     } else {
       console.log("昨天无记录,重新计算天数")
@@ -612,14 +612,14 @@ export class HomePage extends AppBase {
           week[i].daka_date = "今天"
         }
       }
-      this.week= week
-      this.min= 0;
+      this.week = week
+      this.min = 0;
 
     }
 
   }
-  jifen=5;
-  addjifen=null;
+  jifen = 5;
+  addjifen = null;
   //打卡部分
   bindSignIn(e) {
 
@@ -630,19 +630,19 @@ export class HomePage extends AppBase {
 
     if (this.daka == false) {
 
-      
-      this.dakashow= true;
-      this.tangchuan= false;
-      this.daka= true;
-      this.signState= true;
+
+      this.dakashow = true;
+      this.tangchuan = false;
+      this.daka = true;
+      this.signState = true;
 
       var num = this.num;
 
 
       if (this.num < 7) {
-        this.jifen= 5;
+        this.jifen = 5;
       } else {
-        this.jifen= 25;
+        this.jifen = 25;
       }
 
       var jifenapi = this.jifenApi;
@@ -655,19 +655,19 @@ export class HomePage extends AppBase {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "meiridaka"
-          }).then( (addjifen) => {
-            this.addjifen=addjifen;
+          }).then((addjifen) => {
+            this.addjifen = addjifen;
           })
         }
         if (this.jifen == 25) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "lianxvdaka"
-          }).then( (addjifen) => {
-            this.addjifen=addjifen;
+          }).then((addjifen) => {
+            this.addjifen = addjifen;
           })
         }
-        this.daka=daka;
+        this.daka = daka;
         this.onMyShow();
       })
     }
@@ -689,17 +689,17 @@ export class HomePage extends AppBase {
   }
 
   guizeclick() {
-    this.guize=true;
+    this.guize = true;
   }
 
-  zong="";
-  resultArr=[];
+  zong = "";
+  resultArr = [];
 
   jisuanrenshu() {
     var jifenapi = this.jifenApi;
     jifenapi.dakalist({
 
-    }).then(  (dakalist) => {
+    }).then((dakalist) => {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
@@ -727,8 +727,8 @@ export class HomePage extends AppBase {
       } else {
         var zong = ((number) + personnumber).toString()
       }
-      this.zong=zong;
-      this.resultArr=resultArr;
+      this.zong = zong;
+      this.resultArr = resultArr;
 
     })
 
@@ -741,19 +741,19 @@ export class HomePage extends AppBase {
 
   }
 
-  bindtokc(e){
-    var typeid=parseInt(e.target.id);
- 
-     var typename = e.target.dataset.name;
-     var json=null;
-     json={type:"kc",typeid:0,typename:typename};
- 
-     if (typeid>0){
-       json.keyword=typename;
-     }
- 
-     this.navigate("seek")
- 
-   }
+  bindtokc(e) {
+    var typeid = parseInt(e.target.id);
+
+    var typename = e.target.dataset.name;
+    var json = null;
+    json = { type: "kc", typeid: 0, typename: typename };
+
+    if (typeid > 0) {
+      json.keyword = typename;
+    }
+
+    this.navigate("seek")
+
+  }
 
 }
