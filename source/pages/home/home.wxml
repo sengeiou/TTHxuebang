@@ -286,9 +286,9 @@
 
                 </view>
 
-                <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==false}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
+                <view class='daka radius-50 text-center f15 txt-black tx t-bold' wx:if='{{daka==true}}' bindtap='bindSignIn' data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}" data-weeks="{{weeks}}" data-be="{{be}}">打卡</view>
 
-                <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==true}}' bindtap='showtc'>已打卡</view>
+                <view class='yidaka radius-50 text-center f15 txt-black txt-bold' wx:if='{{daka==false}}' bindtap='showtc'>已打卡</view>
 
               </view>
 
