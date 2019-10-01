@@ -44,9 +44,6 @@ class Content extends AppBase {
     // console.log(eval(str));
     //console.log(aa)
     // var qeqe = wx.getStorageSync(jintian);
-
-
-
     // var jintian = ApiUtil.FormatDate(new Date);
     // console.log(jintian, "滴滴")
     var san = wx.getStorageSync('first');
@@ -115,6 +112,7 @@ class Content extends AppBase {
       for (var i = dakalist.length - 1; i >= 0; i--) {
         days.push(dakalist[i].daka_date_dateformat)
       }
+
       this.Base.setMyData({
         dakalist,
         days
@@ -140,13 +138,10 @@ class Content extends AppBase {
 
     })
 
-
     // this.btn();
-
     //this.jifen();
 
     var instapi = new InstApi();
-
 
     // wx.showLoading({
     //   title: '加载中...',
@@ -526,7 +521,7 @@ class Content extends AppBase {
           if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine') {
             console.log("试试")
             wx.reLaunch({
-              url: url indexbanner[i].url
+              url: indexbanner[i].url
             })
           } else {
             console.log("不杀死hi")
@@ -674,20 +669,13 @@ class Content extends AppBase {
     console.log('卡路里')
 
     var days = this.Base.getMyData().days;
-
     var nowtime = new Date();
-
     var now = this.Base.util.FormatDate(nowtime);
-
     var leg = days.length;
 
-
     var time1 = (new Date(now)).getTime(); //当前日期时间戳
-
     var time2 = (new Date(this.Base.util.FormatDate(new Date(days[leg - 1])))).getTime(); //数组中倒数第一天日期时间戳
-
     var time3 = (new Date(this.Base.util.FormatDate(new Date(days[leg - 2])))).getTime(); //数组中倒数第二天日期时间戳
-
     var num = 0; //该变量用以计算连续天数
 
     if (time1 - time2 == 0) {
@@ -787,6 +775,7 @@ class Content extends AppBase {
           week[i].daka_date = "今天"
         }
       }
+
       this.Base.setMyData({
         min: 0,
         week: week
@@ -798,10 +787,7 @@ class Content extends AppBase {
   //打卡部分
   bindSignIn(e) {
      
-     
-      
     var that = this;
-
 
     if (this.Base.getMyData().daka==false){
 
@@ -814,17 +800,18 @@ class Content extends AppBase {
 
       var num = this.Base.getMyData().num;
 
+    console.log(num,"理论");
 
-      if (this.Base.getMyData().num < 7) {
-        this.Base.setMyData({
-          jifen: 5
-        })
-      } else {
+      if (this.Base.getMyData().num >= 7) {
         this.Base.setMyData({
           jifen: 25
         })
+      } else {
+        this.Base.setMyData({
+          jifen: 5
+        })
       }
-
+//return;
       var jifenapi = new JifenApi();
       jifenapi.daka({
         member_id: this.Base.getMyData().memberinfo.id,
@@ -834,7 +821,7 @@ class Content extends AppBase {
         if (this.Base.getMyData().jifen == 5) {
           jifenapi.addjifen({
             member_id: this.Base.getMyData().memberinfo.id,
-            unicode: "meiridaka"
+            unicode: "lianxvdaka"
           }, (addjifen) => {
             this.Base.setMyData({
               addjifen
@@ -856,12 +843,7 @@ class Content extends AppBase {
         })
         this.onMyShow();
       })
-}
-
-
-   
-
-
+    }
 
   }
 
