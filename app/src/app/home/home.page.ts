@@ -146,8 +146,8 @@ export class HomePage extends AppBase {
     });
 
 
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
 
     var citycode = this.citycode;
 
@@ -209,8 +209,8 @@ export class HomePage extends AppBase {
     var that = this;
     var id = (e.target.id).substr(0, 4) + "00";
     var name = e.target.dataset.name;
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
 
     for (var i = 0; i < citylist.length; i++) {
       if (id == citylist[i].id) {

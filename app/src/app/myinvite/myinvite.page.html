@@ -1,45 +1,46 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>我的邀请</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
 
-        <div class="padding-20 bg-white flex-row flex-center">
-            <div data-val="yesterday" bindtap="binddate" class="{{date=='yesterday'?'opt':'noopt'}}">昨天</div>
-            <div data-val="7days" bindtap="binddate" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
-            <div data-val="all" bindtap="binddate" class="{{date=='all'?'opt':'noopt'}}">全部</div>
-            <div class="flex-1"></div>
-            <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
-              <div class="flex-row flex-center">
-                <div class="h6">自定义时间</div>
-                <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}" />
-              </div>
-            </picker>
-          </div>
-          <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
-            共{{youxiao.length}}个邀请
-          </div>
-          <div **ngFor="{{youxiao}}" wx:key="k"  bindtap="kehuinfo" class="padding-20  bg-white flex-row flex-center">
-            <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
-            <div class="margin-left-20">
-              <div class="flex-row flex-center">
-                <div class="h5 chaochu " style="width:200rpx">{{item.nickName}}</div>
-            
-              </div>
-            
-            </div>
-            <div class="flex-1"></div>
-            <div class="h6">我的收益: {{item.shouru}}</div>
-          
-          </div>
-          
+  <div class="padding-20 bg-white flex-row flex-center">
+    <div data-val="yesterday" (click)="binddate($event)" class="{{date=='yesterday'?'opt':'noopt'}}">昨天</div>
+    <div data-val="7days" (click)="binddate($event)" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
+    <div data-val="all" (click)="binddate($event)" class="{{date=='all'?'opt':'noopt'}}">全部</div>
+    <div class="flex-1"></div>
+    <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" (change)="bindDateChange($event)">
+      <div class="flex-row flex-center">
+        <div class="h6">自定义时间</div>
+        <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}" />
+      </div>
+    </picker>
+  </div>
+  <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
+    共{{youxiao.length}}个邀请
+  </div>
+  <div *ngFor="let item of youxiao" wx:key="k" (click)="kehuinfo($event)"
+    class="padding-20  bg-white flex-row flex-center">
+    <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
+    <div class="margin-left-20">
+      <div class="flex-row flex-center">
+        <div class="h5 chaochu w200" style="">{{item.nickName}}</div>
 
-    </ion-content>
+      </div>
+
+    </div>
+    <div class="flex-1"></div>
+    <div class="h6">我的收益: {{item.shouru}}</div>
+
+  </div>
+
+
+</ion-content>

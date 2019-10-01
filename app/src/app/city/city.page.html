@@ -49,7 +49,7 @@
   
     <div class='flex-row flex-center flex-wrap'>
   
-      <div class='flex-row flex-center ' *ngFor="let item of memberinfo.citylist">
+      <div class='flex-row flex-center ' *ngFor="let item of MemberInfo.citylist">
         <div (click)='setCity($event)' id='{{item.id}}' style='' class='block flex-row flex-column radius-10 text-center'>
           <div class='h5 txt-black margin-left-5 '>{{item.name}}</div>
         </div>

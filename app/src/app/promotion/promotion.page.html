@@ -14,8 +14,8 @@
 
         <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
         <div class="padding-30 padding-bottom-20 flex-row flex-center">
-          <img class='member_icon' src='{{memberinfo.avatarUrl}}' />
-          <div class='margin-left-10 chaochu' >{{memberinfo.nickName}}</div>
+          <img class='member_icon' src='{{MemberInfo.avatarUrl}}' />
+          <div class='margin-left-10 chaochu' >{{MemberInfo.nickName}}</div>
           <div **ngIf="{{!showModal&&tuiguaninfo[0].status=='S'}}" class="label">学榜大使</div>
           <div class="flex-1"></div>
           <div class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</div>
@@ -34,7 +34,7 @@
                     
                   <img class="icon-25  margin-right-10  " src='{{uploadpath}}resource/{{res.qiandai}}' />
           
-                <div class=" h2" style="color:rgba(255, 255, 255, 1);">{{memberinfo.tuiguanshouyi}}</div>
+                <div class=" h2" style="color:rgba(255, 255, 255, 1);">{{MemberInfo.tuiguanshouyi}}</div>
                 <div class="flex-1"></div>
                 <div bindtap='lijitixian' class="tixian">立即提现</div>
               </div>

@@ -176,7 +176,7 @@
         <div style='width:50rpx;height:10rpx;'></div>
         <div class=' txt-bold txt-white   text-center'>{{courseinfo.teacherwechatid}}</div>
         <div style='width:36rpx;'></div>
-        <div class='radius-10 h7 txt-white text-center ' style='border:2rpx solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</div>
+        <div class='radius-10 h7 txt-white text-center ' style='border:1px solid white;height:44rpx;width:116rpx;line-height:44rpx; ' id='{{courseinfo.teacherwechatid}} ' bindtap='copytext'>点击复制</div>
         <div class='flex-1 '></div>
       </div> -->
 
@@ -436,7 +436,7 @@
 
     <div class="flex-row flex-center margin-top">
       <div class="flex-1"></div>
-      <img **ngIf="{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{instinfo.kefuerweima}}" src="{{uploadpath}}inst/{{instinfo.kefuerweima}}" class="erweimade" />
+      <img **ngIf="{{type=='kefu'}}" bindlongtap="xiazai" bindtap="viewPhoto" id="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="erweimade" />
       <img **ngIf="{{type=='hexiao'}}" bindtap="viewPhoto" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' bindlongtap="xiazai" />
       <div class="flex-1"></div>
     </div>

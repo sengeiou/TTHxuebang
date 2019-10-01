@@ -16,7 +16,7 @@
   <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
     <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
-    <div class="f20 margin-left-10" style="color:#589DE9">{{instinfo.slogen}}</div>
+    <div class="f20 margin-left-10" style="color:#589DE9">{{InstInfo.slogen}}</div>
     <img src="{{uploadpath}}resource/{{res.heicha}}" (click)="closetop()" class="icon15 margin-left-10" />
   </div>
 
@@ -342,7 +342,7 @@
             <div class='flex-1'></div>
             <div class='flex-row flex-column'>
               <div class='h6 txt-white'>总积分</div>
-              <div class='f36 txt-white margin-top-10'>{{memberinfo.integral}}</div>
+              <div class='f36 txt-white margin-top-10'>{{MemberInfo.integral}}</div>
             </div>
             <div class='flex-1'></div>
           </div>

@@ -56,8 +56,8 @@ export class CityPage extends AppBase {
   }
   setCity(e) {
     var id = e.currentTarget.id;
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
     for (var i = 0; i < citylist.length; i++) {
       if (id == citylist[i].id) {
         AppBase.CITYID = citylist[i].id;

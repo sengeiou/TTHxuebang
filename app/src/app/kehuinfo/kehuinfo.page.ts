@@ -25,14 +25,49 @@ export class KehuinfoPage  extends AppBase {
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+    this.member={};
   }
 
   onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow(){
+  jisuanchaoshi(a, b) {
+    var date1 = new Date();
+    var date2 = new Date(a);
+    var date3 = date1.getTime() - date2.getTime();
+    var days = Math.floor(date3 / (24 * 3600 * 1000));
+    console.log(days);
+    return [days < b, b - days];
 
+  }
+  member=null;
+  onMyShow() {
+    var that = this;
+    var shijian = this.InstInfo.xiajishijian;
+     var memberapi=this.memberApi;
+    var quanbu = [];
+    var youxiao = [];
+    var shixiao = [];
+    memberapi.chakanxiaji({}).then( (xiaji) => {
+      console.log(xiaji);
+      console.log("adasdsa");
+      for (var i = 0; i < xiaji.length; i++) {
+        xiaji[i].jieshushijian = this.jisuanchaoshi(xiaji[i].bandin_date, 0)[1];
+       
+        quanbu.push(xiaji[i]);
+      }
+      console.log("数据");
+      console.log(quanbu);
+      console.log(youxiao);
+      console.log(shixiao);
+      var member = quanbu.filter((item) => {
+        return item.id == this.params.id;
+      })
+      this.member=member[0];
+    })
+       
+ 
+ 
   }
 }

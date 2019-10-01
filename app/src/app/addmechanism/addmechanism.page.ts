@@ -343,7 +343,7 @@ export class AddmechanismPage  extends AppBase {
     var show = this.show;
     var region = this.region;
 
-    //console.log(this.memberinfo.id);
+    //console.log(this.MemberInfo.id);
     //return;
 
     //return;

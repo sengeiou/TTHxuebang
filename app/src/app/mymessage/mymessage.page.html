@@ -1,66 +1,71 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
-        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-        <div class=' to_top' >
-         <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
-        </div>
-        
-        <div class="page">
-        <div **ngIf='{{xiaoxilist.length==0}}' class="flex-row flex-column">
-            <div style="height:200rpx;"></div>
-            <img src="{{uploadpath}}resource/{{res.xiaoxiweikon}}" class="icon-170 " />
-        
-          </div>
-        
-        
-          <div **ngFor="{{xiaoxilist}}" wx:key="k"  data-idd="{{item.order_id}}" data-id='{{item.id}}' bindtap="xianqin" class="page__bd padding-20">
-        
-        
-        
-            <wux-cell-group>
-              <wux-swipe-action  bind:click="onClick" autoClose id="123" right="{{ item.youhua }}">
-                <div class="bg padding-20">
-                  <div class="bg-white " style="border-radius:4rpx">
-                    <div class="xiaoxi flex-row flex-center">
-                      <img **ngIf="{{item.type=='A'}}" class='icon-30' mode='scaleToFill' src='{{uploadpath}}resource/{{res.jiaoyixiaoxi}}' />
-                      <img **ngIf="{{item.type=='C'}}" class='icon-30' mode='scaleToFill' src='{{uploadpath}}resource/{{res.tuiguanxiaoxi}}' />
-                       <img **ngIf="{{item.type=='B'}}" class='icon-30' mode='scaleToFill' src='{{uploadpath}}resource/{{res.wuliuxiaoxi}}' />
-                      <img **ngIf="{{item.type=='E'}}" class='icon-30' mode='scaleToFill' src='{{uploadpath}}resource/{{res.xitonxiaoxi}}' />
-                      <div class="margin-left-20 flex-1">
-        
-                        <div class="" style="color:#222222">{{item.type_name}}</div>
-        
-                       <div class="flex-row  margin-top-20 flex-center">
-                        <div class="h6 chaochu flex-1" style="color:#999999">{{item.content}}</div>
-                          
-                          <div **ngIf="{{item.isread_value=='N'}}" class="hondian"></div>
-                       
-                       </div>
-        
-        
-                      </div>
-        
-                    </div>
+  <div class=' to_top'>
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
+  </div>
+
+  <div class="page">
+    <div *ngIf='xiaoxilist.length==0' class="flex-row flex-column">
+      <div class="h200"></div>
+      <img src="{{uploadpath}}resource/{{res.xiaoxiweikon}}" class="icon-170 " />
+
+    </div>
+
+
+    <div *ngFor="let item of xiaoxilist" wx:key="k" data-idd="{{item.order_id}}" data-id='{{item.id}}'
+      (click)="xianqin($event)" class="page__bd padding-20">
+
+
+
+      <div>
+        <div autoClose id="123" right="{{ item.youhua }}">
+          <div class="bg padding-20">
+            <div class="bg-white " style="border-radius:2px">
+              <div class="xiaoxi flex-row flex-center">
+                <img *ngIf="item.type=='A'" class='icon-30' mode='scaleToFill'
+                  src='{{uploadpath}}resource/{{res.jiaoyixiaoxi}}' />
+                <img *ngIf="item.type=='C'" class='icon-30' mode='scaleToFill'
+                  src='{{uploadpath}}resource/{{res.tuiguanxiaoxi}}' />
+                <img *ngIf="item.type=='B'" class='icon-30' mode='scaleToFill'
+                  src='{{uploadpath}}resource/{{res.wuliuxiaoxi}}' />
+                <img *ngIf="item.type=='E'" class='icon-30' mode='scaleToFill'
+                  src='{{uploadpath}}resource/{{res.xitonxiaoxi}}' />
+                <div class="margin-left-20 flex-1">
+
+                  <div class="" style="color:#222222">{{item.type_name}}</div>
+
+                  <div class="flex-row  margin-top-20 flex-center">
+                    <div class="h6 chaochu flex-1" style="color:#999999">{{item.content}}</div>
+
+                    <div *ngIf="item.isread_value=='N'" class="hondian"></div>
+
                   </div>
-        
+
+
                 </div>
-              </wux-swipe-action>
-            </wux-cell-group>
+
+              </div>
+            </div>
+
           </div>
-        
         </div>
+      </div>
+    </div>
+
+  </div>
 
 
-    </ion-content>
+</ion-content>

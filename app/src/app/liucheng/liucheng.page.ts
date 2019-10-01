@@ -6,12 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-liucheng',
   templateUrl: './liucheng.page.html',
   styleUrls: ['./liucheng.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,JigouApi]
 })
 export class LiuchengPage  extends AppBase {
 
@@ -22,17 +23,25 @@ export class LiuchengPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jigouApi:JigouApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.liuchen={};
   }
 
   onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow(){
+  liuchen=null;
+  onMyShow() {
+    var that = this;
+    var jigouapi = this.jigouApi;
+
+    jigouapi.liuchen({}).then((liuchen) => {
+      this.liuchen=liuchen;
+    });
 
   }
 }
