@@ -104,15 +104,9 @@ export class MymessagePage extends AppBase {
     console.log(xiaoxilist);
     if (xiaoxilist[0].type == 'A') {
       this.navigate("jiaoyixinxi",{id:e.target.dataset.id});
-      wx.navigateTo({
-        url: '/pages/jiaoyixinxi/jiaoyixinxi?id=' + e.target.dataset.id,
-      })
     }
     if (xiaoxilist[0].type == 'C') {
       this.navigate("tuiguanxiaoxi",{id:e.target.dataset.id});
-      wx.navigateTo({
-        url: '/pages/tuiguanxiaoxi/tuiguanxiaoxi?id=' + e.target.dataset.id,
-      })
     }
     if (xiaoxilist[0].type == 'B') {
 
@@ -124,7 +118,6 @@ export class MymessagePage extends AppBase {
       this.navigate("wuliu",{id:e.target.dataset.id});
     }
     if (xiaoxilist[0].type == 'E') {
-
       this.navigate("xiton",{id:e.target.dataset.id});
     }
   }
