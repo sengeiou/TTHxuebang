@@ -79,8 +79,8 @@ export class PersonaldataPage extends AppBase {
     var name = data.name;
     var show = this.show;
     var region = this.region;
-    var memberinfo = this.MemberInfo;
-    //console.log(memberinfo.id)
+    var MemberInfo = this.MemberInfo;
+    //console.log(MemberInfo.id)
     console.log(data.name);
     // if (data.name == "") {
     //   this.Base.info("请填写昵称");
