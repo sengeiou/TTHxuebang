@@ -53,7 +53,7 @@ export class AppBase implements OnInit, OnDestroy {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = {xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public InstInfo = {kefuerweima:"",xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
     public MemberInfo = {mobile:"",  id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "", citylist: [] };
     public static MYBABY = [];
     public mybaby = [];
