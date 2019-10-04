@@ -78,7 +78,7 @@ export class KetanPage extends AppBase {
   }
 
   bindshow(e) {
-    var type = e.currentTarget.dataset.type;
+    var type = e.target.dataset.type;
     console.log(type);
     if (type == "all") {
       this.show="all";

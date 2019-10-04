@@ -32,7 +32,29 @@ export class XianxiaPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+ 
+  onMyShow() {
+    var that = this;
+    var huodonapi = new HuodonApi();
+    huodonapi.huodonlist({}).then( (huodonlist) => {
+      this.Base.setMyData({ huodonlist });
+
+    })
+
+    console.log("牛逼了");
+
+
+
 
   }
+
+  listclick(e){
+    console.log(e);
+   
+   this.navigateTo({
+     url: '/pages/huodoninfo/huodoninfo?id=' + e.target.dataset.id,
+   })
+    
+  }
+
 }

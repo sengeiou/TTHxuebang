@@ -55,7 +55,7 @@ export class CityPage extends AppBase {
     });
   }
   setCity(e) {
-    var id = e.currentTarget.id;
+    var id = e.target.id;
     var MemberInfo = this.MemberInfo;
     var citylist = MemberInfo.citylist;
     for (var i = 0; i < citylist.length; i++) {

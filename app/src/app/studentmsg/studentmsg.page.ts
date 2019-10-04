@@ -32,7 +32,36 @@ export class StudentmsgPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  onMyShow() {
+    var that = this;
+  var api=this.jigouApi;;
+  var nian=new Date();
+    nian = nian.getFullYear();
+
+  console.log("哈哈哈哈");
+    api.xueyuanlist({}).then( (xueyuan)=>{
+      xueyuan.map((item)=>{
+        console.log(Number(item.shengri.substring(0, 4)));
+        console.log(Number(nian))
+        item.sui = Number(nian) - Number(item.shengri.substring(0,4))+1;
+        item.sj0 = item.shouji.substring(0,3);
+        item.sj1 = item.shouji.substring(3,7);
+        item.sj2 = item.shouji.substring(7,11);
+      })
+      this.Base.setMyData({ xueyuanlist: xueyuan})
+    })
+
+  }
+  studentinfo(e){
+   
+    this.navigateTo({
+      url: '/pages/studentinfo/studentinfo?id=' + e.target.dataset.id,
+    })
+  }
+  tianjia(){
+    this.navigateTo({
+      url: '/pages/studentinfo/studentinfo',
+    })
 
   }
 }

@@ -31,8 +31,41 @@ export class WuliuPage  extends AppBase {
   onMyLoad(){
     //参数
     this.params;
-  }
-  onMyShow(){
+}
+onMyShow() {
+  var that = this;
+  var jifenapi = this.jifenApi;;
 
-  }
+  jifenapi.jifenorderinfo({ id: this.params.id }).then( (info) => {
+
+    jifenapi.wuliu({ type: info.wuliu_company_type,no:info.airwaybill}).then( (wuliu) => {
+      var wuliulist = wuliu.result.list;
+      var wllist = [];
+      
+      for (var i = wuliulist.length - 1; i >= 0; i--) {
+        wllist.push(wuliulist[i]);
+      }
+
+      this.Base.setMyData({
+        wuliu, wllist
+      })
+
+    })
+
+
+    this.Base.setMyData({ info })
+
+
+  })
+
+  
+}
+
+onclick() {
+  wx.request({
+    url: '',
+  })
+}
+
+
 }

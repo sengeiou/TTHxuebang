@@ -31,8 +31,47 @@ export class ShopmallPage  extends AppBase {
   onMyLoad(){
     //参数
     this.params;
-  }
-  onMyShow(){
+    this.Base.setMyData({
+      kf:0
+  });
+}
+onMyShow() {
+  var that = this;
+  var jifenapi = this.jifenApi;;
+  jifenapi.commoditylist({orderby:'r_main.seq'}).then( (list)=>{
+    this.Base.setMyData({ list })
+  })
 
-  }
+}
+ss(e){
+ this.Base.setMyData({kf:1})
+}
+onUnload(){
+  console.log("1321")
+}
+toshouzhi(e){
+  this.onUnload();
+  console.log("看来大家");
+  this.navigateTo({
+    url: '/pages/jifenshouzhi/jifenshouzhi'
+  })
+}
+todetails(e){
+  var id=e.target.id;
+  this.navigateTo({
+    url: '/pages/shopmalldetail/shopmalldetail?id='+id
+  })
+}
+
+toorder(e){
+  this.navigateTo({
+    url: '/pages/jifenorder/jifenorder'
+  })
+}
+showtoset(e){
+ wx.showToast({
+   title: '暂未开放，敬请期待',
+   icon:'none'
+ })
+}
 }

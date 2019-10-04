@@ -504,4 +504,23 @@ export class AppBase implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.onUnload();
     }
+
+    navigateTo(obj){
+        var url=obj.url.toString();
+        var pagename=url.split("/")[1];
+        var json=null;
+        json={};
+        if(url.indexOf("?")>0){
+            let vk=url.substr(url.indexOf("?")+1);
+            let vk2=vk.split("&");
+            for(let vk2 of vk){
+                var vk3=vk2.split("=");
+                json[vk3[0]]=vk3[1];
+            }
+        }
+        this.navigate(pagename,json);
+    }
+    navigateBack(obj=undefined){
+        this.back();
+    }
 }

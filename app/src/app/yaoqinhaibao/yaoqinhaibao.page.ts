@@ -32,7 +32,37 @@ export class YaoqinhaibaoPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  onMyShow() {
+    var that = this;
+    if (this.params.id != undefined) {
+      var yaoqinren = this.params.id;
+      if (yaoqinren != this.MemberInfo.id) {
+        wx.reLaunch({
+          url: '/pages/home/home?id=' + yaoqinren,
+        })
+        return
+      }
+
+    }
+
+
+
+    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
+    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+ "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.MemberInfo.id })
+  }
+  baocun() {
+    this.download(this.lujin);
+  }
+  onShareAppMessage(e) {
+    return {
+
+      title: this.InstInfo.zhuanfatishi,
+
+      desc: '分享页面的内容',
+
+      path: '/pages/home/home?id=' + this.MemberInfo.id
+
+    }
 
   }
 }

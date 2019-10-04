@@ -32,7 +32,21 @@ export class YiduihuangPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
-
+  onMyShow() {
+    var that = this;
+    var jifenapi = this.jifenApi;;
+    jifenapi.commodityinfo({ id: this.params.shopid }).then( (info) => {
+      this.Base.setMyData({ info })
+    })
+  }
+  back(e){
+   this.navigateBack({
+    delta:2
+   })
+  }
+  order(e){
+    this.navigateTo({
+      url: '/pages/jifenorderinfo/jifenorderinfo?id='+this.params.id,
+    })
   }
 }

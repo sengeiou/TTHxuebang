@@ -61,7 +61,7 @@ export class PersonaldataPage extends AppBase {
 
 
   bindcheck(e) {
-    var check = e.currentTarget.dataset.sex;
+    var check = e.target.dataset.sex;
     console.log(check)
     if (check == 'M') {
       this.show = 2;

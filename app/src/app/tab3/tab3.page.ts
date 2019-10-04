@@ -41,7 +41,7 @@ export class Tab3Page extends AppBase {
       pagename="shopmall";
     }
     // if (name == "yhq") {
-    //   wx.navigateTo({
+    //   this.navigateTo({
     //     url: '/pages/myorder/myorder',
     //   })
     // }

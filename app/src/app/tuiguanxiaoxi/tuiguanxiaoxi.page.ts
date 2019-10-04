@@ -32,7 +32,44 @@ export class TuiguanxiaoxiPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  onMyShow() {
+    var that = this;
+    var api = this.jigouApi;;
+
+    api.xiaoxiinfo({ id: this.params.id }).then( (xiaoxi) => {
+
+      
+
+    })
+
+    api.myxiaoxi({ type: 'C' }).then( (myxiaoxi) => {
+      for (var i = 0; i < myxiaoxi.length; i++) {
+        if (myxiaoxi[i].content.substr(0, 2) == '恭喜') {
+          console.log(myxiaoxi[0]);
+          console.log("牛逼了1");
+          myxiaoxi[i].zhuantai = "成功";
+        }
+        else {
+          myxiaoxi[i].zhuantai = "失败";
+        }
+
+      }
+
+
+      this.Base.setMyData({ myxiaoxi: myxiaoxi });
+      console.log("123132");
+    })
+  }
+  zhuqnaian(){
+    this.navigateTo({
+      url: '/pages/review/review',
+    })
+
+  }
+  chakanxianqin(){
+  this.navigateTo({
+    url: '/pages/review/review',
+  })
 
   }
 }

@@ -106,7 +106,7 @@ export class KetangdetailsPage extends AppBase {
       return
 
     }
-    // if ((mulu[e.currentTarget.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '') && this.tanguole) {
+    // if ((mulu[e.target.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '') && this.tanguole) {
     //   this.setMyData({
     //     tanguole: false
     //   })

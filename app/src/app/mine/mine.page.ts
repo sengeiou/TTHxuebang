@@ -87,7 +87,7 @@ export class MinePage  extends AppBase {
     //       that.Base.info("扫码内容不正确~" + result);
     //       return;
     //     }
-    //     wx.navigateTo({
+    //     this.navigateTo({
     //       url: '/pages/hexiao/hexiao?usecode=' + result,
     //     })
     //   }
@@ -99,9 +99,9 @@ export class MinePage  extends AppBase {
   }
 
   todetails(e) {
-    var name = e.currentTarget.dataset.name;
+    var name = e.target.dataset.name;
     // if (name == "cj") {
-    //   wx.navigateTo({
+    //   this.navigateTo({
     //     url: '/pages/myorder/myorder',
     //   })
     // }
@@ -109,7 +109,7 @@ export class MinePage  extends AppBase {
       this.navigate("shopmall");
     }
     // if (name == "yhq") {
-    //   wx.navigateTo({
+    //   this.navigateTo({
     //     url: '/pages/myorder/myorder',
     //   })
     // }

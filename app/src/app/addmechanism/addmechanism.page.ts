@@ -271,7 +271,7 @@ export class AddmechanismPage  extends AppBase {
   }
 
   tohuiyuan(e) {
-    // wx.navigateTo({
+    // this.navigateTo({
     //   url: '/pages/huiyuanfuwu/huiyuanfuwu'
     // })
     // wx.showToast({

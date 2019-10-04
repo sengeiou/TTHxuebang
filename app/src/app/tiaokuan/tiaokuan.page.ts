@@ -32,7 +32,17 @@ export class TiaokuanPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+ 
+  onMyShow() {
+    var that = this;
+    var huodonapi = new HuodonApi();
+    var jigouapi = this.jigouApi;;
+
+    jigouapi.tiaokuan({}).then( (tiaokuan) => {
+      this.Base.setMyData({ tiaokuan });
+    });
+
+
 
   }
 }

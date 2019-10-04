@@ -65,7 +65,7 @@ export class ShipingoumaiPage extends AppBase {
           api.create(json).then((ret) => {
             if (ret.code == '0') {
               if (ret.return.pstatus == 'P') {
-                // wx.navigateTo({
+                // this.navigateTo({
                 //   url: '/pages/order/order' + ret.return.id,
                 // })
                 this.showAlert(ret.result);

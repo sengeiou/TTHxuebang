@@ -32,7 +32,29 @@ export class ReviewPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  onMyShow() {
+    var that = this;
+    var api = this.jigouApi;;
+    api.fenxiaoinfo({}).then( (res) => {
+
+      this.Base.setMyData({ shenhe: res })
+
+    })
+  }
+  tuiguan(){
+    // this.navigateBack({
+      
+    // })
+
+    this.navigateTo({
+      url: '/pages/promotion/promotion',
+    })
+  }
+  chonxintijiao(){
+   this.navigateTo({
+     url: '/pages/promotion/promotion',
+   })
 
   }
+
 }

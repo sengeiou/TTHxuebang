@@ -115,7 +115,7 @@ export class BaominPage extends AppBase {
 
 
   //   jgimages = jgimages.filter((item, idx) => {
-  //     return idx != e.currentTarget.dataset.id;
+  //     return idx != e.target.dataset.id;
   //   })
 
   //   this.jgimages=jgimages;

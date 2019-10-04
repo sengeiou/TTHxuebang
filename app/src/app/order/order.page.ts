@@ -116,7 +116,7 @@ export class OrderPage extends AppBase {
   }
 
   bindshow(e) {
-    var type = e.currentTarget.dataset.type;
+    var type = e.target.dataset.type;
     console.log(type);
     if (type == "wc") {
       this.show = "finished";
@@ -158,7 +158,7 @@ export class OrderPage extends AppBase {
   }
   colseorder(e) {
     var that = this;
-    var id = e.currentTarget.id;
+    var id = e.target.id;
 
     this.showConfirm("确认取消订单？", (ret) => {
       if (ret) {

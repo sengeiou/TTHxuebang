@@ -411,7 +411,7 @@ export class HomePage extends AppBase {
             //todo
           } else {
             console.log("不杀死hi")
-            // wx.navigateTo({
+            // this.navigateTo({
             //   url: indexbanner[i].url
             // })
             //todo
@@ -440,7 +440,7 @@ export class HomePage extends AppBase {
           this.navigate("jgdetails", { id: indexbanner[i].jg_id });
         }
         // if (indexbanner[i].type == 'SF') {
-        //   wx.navigateTo({
+        //   this.navigateTo({
         //     url: indexbanner[i].url
         //   })
         // }
