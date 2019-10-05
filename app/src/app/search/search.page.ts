@@ -1,19 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { InstApi } from 'src/providers/inst.api';
+import { JigouApi } from 'src/providers/jigou.api';
+import { TeacherApi } from 'src/providers/teacher.api';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
   styleUrls: ['./search.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi,InstApi,TeacherApi,JigouApi]
 })
-export class SearchPage  extends AppBase {
+export class SearchPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,42 +25,42 @@ export class SearchPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi,
+    public instApi:InstApi,
+    public teacherApi:TeacherApi,
+    public jigouApi:JigouApi
+    ) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
-  }
 
-  onMyLoad(){
+  }
+  keyword = "";
+  tp = "";
+  shows = "finished";
+  onMyLoad() {
     //参数
     this.params;
     var json = {
       searchrecomm: ""
     };
 
-    if (this.options.tp == undefined) {
-      this.options.tp = "kc";
+    if (this.params.tp == undefined) {
+      this.params.tp = "kc";
     }
     //this.options.keyword="%E8%8B%B1%E8%AF%AD";
-    this.options.keyword = decodeURI(this.options.keyword);
+    this.params.keyword = decodeURI(this.params.keyword);
 
-    this.Base.setMyData({
-      keyword: this.options.keyword,
-      shows: "finished",
-      tp: this.options.tp
-    });
+    this.keyword = this.params.keyword;
+    this.shows = "finished";
+    this.keyword = this.params.tp;
 
 
     var tp = this.tp;
     if (tp == "kc") {
-      this.Base.setMyData({
-        shows: "finished"
-      })
+      this.shows = "finished";
     }
     if (tp == "jg") {
-      this.Base.setMyData({
-        shows: "wait"
-      })
+      this.shows = "wait";
     }
 
     // if (options.new != undefined) {
@@ -68,25 +71,24 @@ export class SearchPage  extends AppBase {
 
   }
 
-  jglist=[];
-  courselist=[];
-
-
+  jglist = [];
+  courselist = [];
+  jgvlist=[];
+  coursevlist=[];
 
   onMyShow() {
     var that = this;
-    var instapi = this.instApi;;
-    var show = this.show;
-    var teacherapi = new TeacherApi();
     var jigouapi = this.jigouApi;;
-
-    var json = {
+    var json=null;
+    var kc=null;
+    var video=null;
+    json = {
       city_id: AppBase.CITYID
     };
-    var kc = {
+    kc = {
       city_id: AppBase.CITYID
     };
-    var video = {
+    video = {
       city_id: AppBase.CITYID
     };
     json.searchkeyword = this.keyword;
@@ -100,18 +102,16 @@ export class SearchPage  extends AppBase {
     json.mylat = mylat;
     json.mylng = mylng;
     json.orderby = "distance";
-    jigouapi.jglist(json, (jglist) => {
+    jigouapi.jglist(json).then( (jglist) => {
       console.log("jglist", jglist);
       var jgvlist = [];
       for (var i = 0; i < 7 && i < jglist.length; i++) {
         jgvlist.push(jglist[i]);
       }
 
-      this.Base.jglist = jglist;
-      this.Base.setMyData({
-        jgvlist
-      });
-      
+      this.jglist = jglist;
+      this.jgvlist=jgvlist;
+
     });
 
 
@@ -119,7 +119,7 @@ export class SearchPage  extends AppBase {
     kc.mylng = mylng;
     kc.orderby = "distance";
 
-    jigouapi.courselist(kc, (courselist) => {
+    jigouapi.courselist(kc).then( (courselist) => {
       var coursevlist = [];
       for (var i = 0; i < 7 && i < courselist.length; i++) {
 
@@ -131,18 +131,9 @@ export class SearchPage  extends AppBase {
 
       }
 
-      this.Base.courselist = courselist;
-      this.Base.setMyData({
-        coursevlist
-      });
+      this.courselist = courselist;
+      this.coursevlist=coursevlist;
     });
-
-
-    // teacherapi.teachlist(video, (teachlist) => {
-    //   this.Base.setMyData({
-    //     teachlist
-    //   });
-    // });
 
 
   }
@@ -152,90 +143,28 @@ export class SearchPage  extends AppBase {
   skey(e) {
     var keyword = e.detail.value;
     console.log(keyword);
-    this.Base.setMyData({
-      keyword: e.detail.value
-    })
+    this.keyword=keyword;
   }
 
 
-  //  search(e) {
-
-  //    this.Base.setMyData({ show: 1 });
-  //    wx.showLoading({
-  //      title: '加载中...',
-  //    })
-
-  //      var json = {};
-  //      var data = e.detail.value;
-
-  //      this.Base.setMyData({ value: data });
-
-  //    json.searchkeyword = data;
-
-  //    var teacherapi = new TeacherApi();
-  //    var jigouapi = this.jigouApi;;
-
-  //    jigouapi.courselist(json, (courselist) => {
-  //      this.Base.setMyData({
-  //        courselist
-  //      });
-  //    });
-  //    jigouapi.jglist(json, (jglist) => {
-  //      this.Base.setMyData({
-  //        jglist
-  //      });
-  //    });
-  //    teacherapi.teachlist(json, (teachlist) => {
-  //      this.Base.setMyData({ teachlist });
-  //    });
-
-
-
-  //     //  var bookapi = new BookApi();
-  //     //  bookapi.keywordlist(json, (result) => {
-  //     //    this.Base.setMyData({ result });
-  //     //   
-  //     //  });
-  //    wx.hideLoading();
-
-  //  }
 
   tosearch(e) {
-    //  var word = this.value;
-    //  if (word != null) {
-    //    this.navigateTo({
-    //      url: '/pages/searchbook/searchbook?keyword=' + word,
-    //    })
-    //  }
     this.navigateBack({
 
     })
   }
 
-  // todetails(e) {
-  //   var name = e.target.id;
-  //   this.navigateTo({
-  //     url: '/pages/searchbook/searchbook?keyword=' + name,
-  //   })
-  // }
-
   bindshow(e) {
     var type = e.target.dataset.type;
     console.log(type);
     if (type == "wc") {
-      this.Base.setMyData({
-        shows: "finished"
-      })
+      this.shows="finished";
     }
     if (type == "df") {
-      this.Base.setMyData({
-        shows: "wait"
-      })
+      this.shows="wait";
     }
     if (type == "mv") {
-      this.Base.setMyData({
-        shows: "video"
-      })
+      this.shows="video";
     }
 
   }
@@ -254,9 +183,6 @@ export class SearchPage  extends AppBase {
 
   onReachBottom() {
     console.log("???kk");
-    wx.showLoading({
-      title: '加载中...'
-    })
 
 
     var mylat = this.mylat;
@@ -264,14 +190,14 @@ export class SearchPage  extends AppBase {
 
     var jgvlist = this.jgvlist;
     var coursevlist = this.coursevlist;
-    var courselist = this.Base.courselist;
-    var jglist = this.Base.jglist;
+    var courselist = this.courselist;
+    var jglist = this.jglist;
     var count = 0;
     var cs = 0;
 
     if (this.shows == "finished") {
       for (var i = coursevlist.length; i < courselist.length; i++) {
-       
+
 
         courselist[i]["zuidijia"] = this.util.zuidijia(
           courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
@@ -285,27 +211,20 @@ export class SearchPage  extends AppBase {
       console.log(count + "AAA")
       if (count == 0) {
         console.log("diaoni2");
-        wx.hideLoading();
-        wx.showToast({
-          title: '已经没有了',
-          icon: 'none'
-        })
+        return;
       }
 
       if (count != 0) {
         console.log("diaoni1");
         setTimeout(() => {
           console.log("llll");
-          this.Base.setMyData({
-            coursevlist
-          });
-          wx.hideLoading()
+          this.coursevlist=coursevlist;
         }, 500);
       }
 
     }
 
-    
+
 
     if (this.shows == "wait") {
       for (var j = jgvlist.length; j < jglist.length; j++) {
@@ -315,23 +234,15 @@ export class SearchPage  extends AppBase {
           break;
         }
       }
-      console.log("diaoni2",cs);
+      console.log("diaoni2", cs);
       if (cs == 0) {
-        console.log("diaoni2");
-        wx.hideLoading();
-        wx.showToast({
-          title: '已经没有了',
-          icon: 'none'
-        });
+        return;
       }
       if (cs != 0) {
         setTimeout(() => {
           console.log("llll");
           console.log("diaoni1");
-          this.Base.setMyData({
-            jgvlist
-          });
-          wx.hideLoading()
+          this.jgvlist=jgvlist;
         }, 500);
       }
     }

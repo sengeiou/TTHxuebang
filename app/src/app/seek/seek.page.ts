@@ -6,12 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-seek',
   templateUrl: './seek.page.html',
   styleUrls: ['./seek.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,JigouApi]
 })
 export class SeekPage  extends AppBase {
 
@@ -22,7 +23,9 @@ export class SeekPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jigouApi:JigouApi
+    ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
@@ -30,117 +33,83 @@ export class SeekPage  extends AppBase {
 
   courselist = [];
   jglist = [];
+  xiala= "yc";
+  xialakc= "yc";
+  xialaage= "yc";
+ //type= "kc";
+  show= "jx";
+  ageid=-1;
+  mylat= 0;
+  mylng= 0;
+  filtercoursetype= [];
+  ttype_id= "0";
+  filtercourseage= [];
+  tage_id= "0";
+  filterdistrict= [];
+  tdistrict_id= "0";
+  params_show= false;
+  buyshow= [];
+  vteach= [];
+  type= "";
+  fdistrict_id= "0";
+  fage_id= "0";
+  ftype_id= "0";
+  gongaolist=[];
 
-
-  onLoad(options) {
-    this.Base.Page = this;
-    if (options.keyword != undefined) {
-      options.keyword = decodeURI(options.keyword);
+  onLoad() {
+    if (this.params.keyword != undefined) {
+      this.params.keyword = decodeURI(this.params.keyword);
     }
-    super.onLoad(options);
-    //this.options.type="jg";
+    //this.this.params.type="jg";
  
-    if (options.type == undefined) {
-      options.type = 'kc';
+    if (this.params.type == undefined) {
+      this.params.type = 'kc';
     }
 
 
-    if (options.ftype_id == undefined) {
-      options.ftype_id = "0";
+    if (this.params.ftype_id == undefined) {
+      this.params.ftype_id = "0";
     }
 
-    if (options.fage_id == undefined) {
-      options.fage_id = "0";
+    if (this.params.fage_id == undefined) {
+      this.params.fage_id = "0";
     }
 
-    if (options.fdistrict_id == undefined) {
-      options.fdistrict_id = "0";
+    if (this.params.fdistrict_id == undefined) {
+      this.params.fdistrict_id = "0";
     }
 
-    this.Base.setMyData({
-      type: options.type,
-      xiala: "yc",
-      xialakc: "yc",
-      xialaage: "yc",
-      //type: "kc",
-      show: "jx",
-      ageid:-1,
-      options: "j_x",
-      mylat: 0,
-      mylng: 0,
-      filtercoursetype: [],
-      ftype_id: options.ftype_id,
-      ttype_id: "0",
-      filtercourseage: [],
-      fage_id: options.fage_id,
-      tage_id: "0",
-      filterdistrict: [],
-      fdistrict_id: options.fdistrict_id,
-      tdistrict_id: "0",
-      options_show: false,
-      buyshow: [],
-      vteach: []
-    });
+    this.type= this.params.type;
+    this.fdistrict_id= this.params.fdistrict_id;
+    this.fage_id= this.params.fage_id;
+    this.ftype_id= this.params.ftype_id;
 
-    //  console.log(this.options.type);
+    //  console.log(this.this.params.type);
 
-    this.setPageTitle(options);
+    this.setPageTitle(this.params);
 
     var jigouapi = this.jigouApi;;
     jigouapi.gongaolist({
       orderby: " rand() "
     }).then( (gongaolist) => {
-
-      this.Base.setMyData({
-        gongaolist
-      });
+this.gongaolist=gongaolist;
     });
 
     jigouapi.coursetype({}).then( (filtercoursetype) => {
-      this.Base.setMyData({
-        filtercoursetype
-      });
+      this.filtercoursetype=filtercoursetype;
     });
     jigouapi.courseage({}).then( (filtercourseage) => {
-      this.Base.setMyData({
-        filtercourseage
-      });
+      this.filtercourseage=filtercourseage;
     });
     jigouapi.buyshow({
       limit: '20'
     }).then( (buyshow) => {
-
-      var lunbolist = [];
-
-      this.Base.setMyData({
-        buyshow: buyshow
-      });
+      this.buyshow=buyshow;
     });
 
   }
 
-  setPageTitle(options) {
-
-    console.log(options,"来来来")
-     
-    var typename = options.typename;
-    
-    if (options.type == 'kc') {
-
-      //console.log("啦啦啦啦")
-      
-      var title = typename;
-    } 
-    if (options.type == 'jg'){
-      console.log("换个哈哈哈")
-      var  title='找机构 ';
-    }
-
-    wx.setNavigationBarTitle({
-      title: title
-    });
-  }
-
+  timerStart;
 
   onUnload() {
     var timerStart = this.timerStart;
@@ -255,31 +224,31 @@ export class SeekPage  extends AppBase {
   }
 
   bindxuanxiang(e) {
-    var options = e.target.dataset.options;
-    console.log(options);
-    if (options == "j_x") {
+    var this.params = e.target.dataset.this.params;
+    console.log(this.params);
+    if (this.params == "j_x") {
       this.Base.setMyData({
-        options: "j_x"
+        this.params: "j_x"
       })
 
     }
-    if (options == "x_s") {
+    if (this.params == "x_s") {
       this.Base.setMyData({
-        options: "x_s"
-      })
-
-
-    }
-    if (options == "bm_za") {
-      this.Base.setMyData({
-        options: "bm_za"
+        this.params: "x_s"
       })
 
 
     }
-    if (options == "h_p") {
+    if (this.params == "bm_za") {
       this.Base.setMyData({
-        options: "h_p"
+        this.params: "bm_za"
+      })
+
+
+    }
+    if (this.params == "h_p") {
+      this.Base.setMyData({
+        this.params: "h_p"
       })
 
     }
@@ -370,16 +339,16 @@ export class SeekPage  extends AppBase {
     if (data.fage_id != "0") {
       opt.age = data.fage_id;
     }
-    if (data.options == "j_x") {
+    if (data.this.params == "j_x") {
       opt.orderby = "jxrate,distance";
     }
-    if (data.options == "x_s") {
+    if (data.this.params == "x_s") {
       opt.orderby = "up_time desc,distance";
     }
-    if (data.options == "bm_za") {
+    if (data.this.params == "bm_za") {
       opt.orderby = "people_num desc,distance";
     }
-    if (data.options == "h_p") {
+    if (data.this.params == "h_p") {
       opt.orderby = "scoring desc,distance";
     }
 
@@ -539,7 +508,7 @@ export class SeekPage  extends AppBase {
     var ttype_id = data.ftype_id;
     var tage_id = data.fage_id;
     this.Base.setMyData({
-      options_show: false,
+      this.params_show: false,
       tdistrict_id,
       ttype_id,
       tage_id
@@ -555,7 +524,7 @@ export class SeekPage  extends AppBase {
       var ftype_id = data.ttype_id;
       var fage_id = data.tage_id;
       this.Base.setMyData({
-        options_show: false,
+        this.params_show: false,
         fdistrict_id,
         ftype_id,
         fage_id
@@ -567,8 +536,8 @@ export class SeekPage  extends AppBase {
       var ttype_id = data.ftype_id;
       var tage_id = data.fage_id;
       this.Base.setMyData({
-        // options: "s_x",
-        options_show: true,
+        // this.params: "s_x",
+        this.params_show: true,
         tdistrict_id,
         ttype_id,
         tage_id
@@ -726,7 +695,7 @@ export class SeekPage  extends AppBase {
 
 
     this.Base.setMyData({
-      options_show: false,
+      this.params_show: false,
       fdistrict_id
     });
     this.loadcourse();
