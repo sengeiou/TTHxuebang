@@ -209,6 +209,7 @@ export class HomePage extends AppBase {
   cityname = "";
   setcity(e) {
     var that = this;
+    //alert((e.target.id));
     var id = (e.target.id).substr(0, 4) + "00";
     var name = e.target.dataset.name;
     var MemberInfo = this.MemberInfo;
@@ -234,6 +235,7 @@ export class HomePage extends AppBase {
   }
 
   tojgdetails(e) {
+    console.log("akc",e);
     var id = e.target.id;
     this.navigate("jgdetails", { id: id });
   }
@@ -268,6 +270,9 @@ export class HomePage extends AppBase {
     });
 
     var cacheid = window.localStorage.getItem("homenoticecacheid");
+    if(cacheid==null){
+      cacheid="";
+    }
 
     instapi.lasthomenotice({
       orderby: 'r_main.seq',
@@ -569,14 +574,16 @@ export class HomePage extends AppBase {
       } else {
         console.log("饭饭")
         if (time1 - time2 == 0) {
-          var daysago = new Date((new Date(AppUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
+          var daysago = new Date((new Date()).getTime() - (num - 1) * 86400000);
         } else {
-          var daysago = new Date((new Date(AppUtil.GetNowFormatDate()).getTime()) - num * 86400000);
+          var daysago = new Date((new Date()).getTime() - num * 86400000);
         }
 
-        var begindate = this.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
+        var begindate = this.util.FormatDate(
+          new Date(daysago.getFullYear() ,
+        daysago.getMonth(), daysago.getDate()));
       }
-
+      console.log("akb1",daysago,begindate);
 
       var week = AppUtil.GetDates(7, begindate);
 
@@ -589,6 +596,7 @@ export class HomePage extends AppBase {
           week[i].daka_date = "今天"
         }
       }
+      console.log("aak2",week);
       if (num % 7 > 0) {
         this.week = week
         this.min = num % 7;
@@ -614,7 +622,8 @@ export class HomePage extends AppBase {
           week[i].daka_date = "今天"
         }
       }
-      this.week = week
+      console.log("aak",week);
+      this.week = week;
       this.min = 0;
 
     }

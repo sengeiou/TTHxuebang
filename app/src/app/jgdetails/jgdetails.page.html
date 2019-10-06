@@ -26,7 +26,7 @@
 
       <div style='position:relative;'>
         <div style=' ' class=''>
-          <ion-slides indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
+          <ion-slides  [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
             class="sp2">
             <ion-slide *ngFor="let item of jigouimg;" wx:key="k">
               <div>

@@ -37,7 +37,7 @@
         <div class='flex-2 flex-row flex-center '>
           <div class="w50"></div>
           <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
-          <ion-slides vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
+          <ion-slides  [options]='mySwiperOption' vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
             <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
               {{item.content}}
             </ion-slide>
@@ -381,7 +381,7 @@
 </div>
 
 
-<ion-slides *ngIf="type=='kc'&&options_show==false" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='' class='tipsshowfull h60'>
+<ion-slides  [options]='mySwiperOption' *ngIf="type=='kc'&&options_show==false" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='' class='tipsshowfull h60'>
   <ion-slide  class="w360" *ngFor="let showitem of buyshow;let idx=index;" wx:key="k" catchtouchmove='catchTouchMove'>
     <div class='flex-row'>
       <div class='flex-1'></div>

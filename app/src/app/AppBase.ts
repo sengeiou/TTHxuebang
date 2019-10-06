@@ -90,6 +90,22 @@ export class AppBase implements OnInit, OnDestroy {
     static STATICRAND = "";
 
 
+    mySwiperOption = {
+        autoplay: {
+            delay: 5000,
+        },
+        zoom: {
+            enabled: false
+        },
+        loop: true
+    }
+    mySwiperOption2 = {
+        zoom: {
+            enabled: false
+        }
+    }
+
+
     public constructor(
         public router: Router,
         public navCtrl: NavController,

@@ -83,7 +83,7 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <ion-slides indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
+      <ion-slides  [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
           <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
@@ -96,7 +96,7 @@
 
 
 
-  <ion-slides indicator-dots='true' class="h300 ">
+  <ion-slides  [options]='mySwiperOption2' indicator-dots='true' class="h300 ">
 
     <ion-slide class=" flex-row flex-center flex-wrap">
 
@@ -109,12 +109,10 @@
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
-      <div *ngFor='let item of filtercoursetype;let idx=index;'>
-        <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
-          data-name='{{item.typename}}' id='{{item.id}}'  *ngIf='idx<8'>
+        <div *ngFor='let item of filtercoursetype;let idx=index;' class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
+          [data-name]='item.typename' [id]='item.id'  [class.hidden]='!(idx<8)'>
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
-        </div>
       </div>
 
     </ion-slide>
@@ -158,7 +156,8 @@
 
       <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi($event)' id='{{item.id}}'
         class='ceshi flex-row column'
-        style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
+        [ngStyle]="{'background-image': 'url('+uploadpath+'pingceindex/'+item.listimg+')' }"
+        style='background-size:100% 100%;'>
         <!-- <div class='txt-white h5 chaochu'>{{item.pingce_name}}</div> -->
         <div class=' h68 ' style=''></div>
         <div class='flex-row flex-center'>
@@ -194,11 +193,10 @@
 
         <div class=' flex-row flex-center '>
 
-          <div class="  flex-row flex-center ">
+          <div class="  flex-row flex-center " *ngIf='week.length>6'>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num
-                <=7?5:25}}</div>
+              <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
               <div class=' f8 '>{{week[0].daka_date}}</div>
             </div>
@@ -206,8 +204,7 @@
             <div class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num
-                  <=7?5:25}}</div>
+              <div class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></div>
               <div class=' f8 '>{{week[1].daka_date}}</div>
             </div>
@@ -215,8 +212,7 @@
             <div class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num
-                    <=7?5:25}}</div>
+              <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></div>
               <div class=' f8 '>{{week[2].daka_date}}</div>
             </div>
@@ -224,8 +220,7 @@
             <div class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num
-                      <=7?5:25}}</div>
+              <div class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></div>
               <div class=' f8 '>{{week[3].daka_date}}</div>
             </div>
@@ -233,8 +228,7 @@
             <div class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num
-                        <=7?5:25}}</div>
+              <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></div>
               <div class=' f8 '>{{week[4].daka_date}}</div>
             </div>
@@ -242,8 +236,7 @@
             <div class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num
-                          <=7?5:25}}</div>
+              <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
               <div class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></div>
               <div class=' f8 '>{{week[5].daka_date}}</div>
             </div>
@@ -429,7 +422,7 @@
     </div>
 
 
-    <div [class.hidden]='jgvteach.length==0' *ngFor='let item of jgvteach;' wx:key='k' id='{{item.id}}'
+    <div [class.hidden]='jgvteach.length==0' *ngFor='let item of jgvteach;' wx:key='k' [id]='item.id'
       (click)='tojgdetails($event)' style='' class='wpc3'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
@@ -538,7 +531,7 @@
           </div>
         </div>
 
-        <ion-slides *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
+        <ion-slides  [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
           duration='1000' circular='{{true}}' class='wpc'>
           <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2($event)' id="{{item.id}}">

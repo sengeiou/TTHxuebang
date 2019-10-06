@@ -25,7 +25,7 @@
 
     <div class="h140"></div>
 
-    <ion-slides indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
+    <ion-slides  [options]='mySwiperOption' indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
       <ion-slide *ngFor="let item of kechenlunbo" wx:key="k">
         <div>
           <img *ngIf='item.video==""' src='{{uploadpath}}kecheng/{{item.img}}' (click)='viewPhoto($event)' id='{{uploadpath}}kecheng/{{item.img}}' class="sp1" />
