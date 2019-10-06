@@ -35,7 +35,7 @@
 
     <div class='height-40'></div>
 
-    <div class=' again text-center  ' bindtap='again'>重新测试</div>
+    <div class=' again text-center  ' bindtap='again($event)'>重新测试</div>
 
   </div>
 
@@ -73,13 +73,13 @@
   <div class='margin-top-32 margin-left-24 flex-row flex-center'>
     <div class='huangtiao'></div>
     <div class='h5 txt-bold margin-left-16 flex-1'>推荐课程</div>
-    <div bindtap='bindhuan' class='flex-row flex-center'>
+    <div bindtap='bindhuan($event)' class='flex-row flex-center'>
       <img src='{{uploadpath}}resource/{{res.huanyihuan}}' class='icon-24' />
       <div class=' h6 margin-left-10 margin-right-24' style='color:#589DE9'>换一换</div>
     </div>
   </div>
 
-  <div class='bottom-block  radius-8 ' **ngFor===='{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails'>
+  <div class='bottom-block  radius-8 ' **ngFor===='{{xianshilist}}' wx:key='a' id='{{item.id}}' wx:for-index='idx' bindtap='tokcdetails($event)'>
 
     <div class=' margin-top-10 '>
       <div class='padding-20 flex-row radius-10  mk' style='border:1px solid white '>

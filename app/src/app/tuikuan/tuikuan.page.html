@@ -33,7 +33,7 @@
 
   </div>
 
-  <div bindtap="kechenxianqin" data-id="{{item.onlineclassroom_id}}" class="margin-24 order" **ngFor===="{{wclist}}"
+  <div bindtap="kechenxianqin($event)" data-id="{{item.onlineclassroom_id}}" class="margin-24 order" **ngFor===="{{wclist}}"
     **ngIf===="{{item.pstatus=='PT'}}" wx:key='k'>
 
 

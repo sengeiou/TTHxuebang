@@ -14,7 +14,7 @@
 
 <!--pages/shopmalldetail/shopmalldetail.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<img src="{{uploadpath}}shop/{{info.top_img}}" bindtap="viewPhoto" id="{{uploadpath}}shop/{{info.top_img}}" class="top-img" />
+<img src="{{uploadpath}}shop/{{info.top_img}}" bindtap="viewPhoto($event)" id="{{uploadpath}}shop/{{info.top_img}}" class="top-img" />
 
 <div class="padding-20" style="border-bottom:1px solid #F5F5F5">
   <div class="txt-bold">{{info.name}}</div>
@@ -48,7 +48,7 @@
 <div class="bottom-btn">
   <div class="flex-row flex-center">
     <div class="flex-1"></div>
-    <div class="duihuan txt-bold txt-white text-center" bindtap="toduihuan">立即兑换</div>
+    <div class="duihuan txt-bold txt-white text-center" bindtap="toduihuan($event)">立即兑换</div>
     <div class="flex-1"></div>
   </div>
 </div>
@@ -60,7 +60,7 @@
     <div class="flex-row padding-T-B-28 " style="border-bottom:1px solid #f5f5f5">
 
       <div class="flex-row flex-center margin-left-28 flex-1 pt28" style="">
-        <img src="{{uploadpath}}shop/{{info.imgs}}" bindtap="viewPhoto" id="{{uploadpath}}shop/{{info.imgs}}" class="icon160" />
+        <img src="{{uploadpath}}shop/{{info.imgs}}" bindtap="viewPhoto($event)" id="{{uploadpath}}shop/{{info.imgs}}" class="icon160" />
 
         <div class="margin-left-20">
           <div class="txt-bold">{{info.name}}</div>
@@ -72,7 +72,7 @@
 
       </div>
 
-      <div class=" icon-30 sp1" style=""  bindtap="close">
+      <div class=" icon-30 sp1" style=""  bindtap="close($event)">
         <img src="{{uploadpath}}resource/{{res.close}}" class="icon-15 " />
       </div>
 
@@ -81,18 +81,18 @@
     <div style=" border-bottom:1px solid #f5f5f5" class="flex-row flex-center padding-T-B-28 padding-top-28">
       <div class="h6 flex-1 margin-left-28 txt-6">购买数量</div>
 
-      <img style="border:1px solid #F5F5F5;padding:3px;border-radius:2px;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian" />
+      <img style="border:1px solid #F5F5F5;padding:3px;border-radius:2px;" src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " bindtap="jian($event)" />
 
       <div class="h6  text-center w100" style="">{{shuliang}}</div>
 
-      <img style="border:1px solid #F5F5F5;padding:3px;border-radius:2px;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" />
+      <img style="border:1px solid #F5F5F5;padding:3px;border-radius:2px;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia($event)" />
     </div>
 
     <div class="h40"></div>
 
     <div class="flex-row flex-center margin-top">
       <div class="flex-1"></div>
-      <div class="duihuan txt-bold txt-white text-center" **ngIf===='{{info.inventory>0}}' bindtap="next" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
+      <div class="duihuan txt-bold txt-white text-center" **ngIf===='{{info.inventory>0}}' bindtap="next($event)" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
       <div class="wukucun txt-bold txt-white text-center" **ngIf===='{{info.inventory<=0}}'>暂无库存</div>
       <div class="flex-1"></div>
     </div>

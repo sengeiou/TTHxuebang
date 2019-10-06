@@ -14,7 +14,7 @@
 <!--pages/seek/seek.wxml  **ngIf===='{{type=="jg"}}'-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top'>
-  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
 </div>
 
 <div **ngIf===='{{type=="jg"}}'>
@@ -27,7 +27,7 @@
         </navigator>
       </div>
 
-      <div class=' flex-row flex-center margin-top-10 h70' bindtap='yingcang' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
+      <div class=' flex-row flex-center margin-top-10 h70' bindtap='yingcang($event)' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
 
         <div class='flex-1  flex-row flex-center '>
           <div class='flex-1'></div>
@@ -48,7 +48,7 @@
 
       <div class='flex-row flex-center margin-top-5' style=''>
 
-        <div class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
+        <div class='flex-row flex-center  weizhi' bindtap='bindxiala($event)' style=''>
           <div class='txt-black h5 txt-bold margin-top-5' **ngIf===="{{'0'==fdistrict_id}}">全{{cityname}}</div>
 
 
@@ -60,19 +60,19 @@
 
         <div class='flex-1 flex-row flex-center'>
 
-          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='jx'>
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='jx'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</div>
             <div **ngIf===='{{show=="jx"}}' class='bg-black sp2 '></div>
             <div **ngIf===='{{show!="jx"}}' class=' sp2 '></div>
           </div>
 
-          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='xs'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</div>
             <div **ngIf===='{{show=="xs"}}' class='bg-black sp2 '></div>
             <div **ngIf===='{{show!="xs"}}' class=' sp2 '></div>
           </div>
 
-          <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='hp'>
+          <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='hp'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</div>
             <div **ngIf===='{{show=="hp"}}' class='bg-black sp2 '></div>
             <div **ngIf===='{{show!="hp"}}' class=' sp2 '></div>
@@ -90,7 +90,7 @@
   <div class="h240"></div>
 
 
-  <div **ngFor===='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
+  <div **ngFor===='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails($event)' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
 
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 sp3' style='' />
@@ -175,7 +175,7 @@
         </navigator>
 
         <!-- 修改后 -->
-        <div class=' flex-row flex-center margin-left-15 w150' bindtap='bindxialaage' >
+        <div class=' flex-row flex-center margin-left-15 w150' bindtap='bindxialaage($event)' >
         <div class="flex-1"></div>
           <div class='txt-black h6 txt-bold' **ngIf===="{{ageid==-1}}">全年龄</div>
           <div class='txt-black h6 txt-bold' **ngFor===="{{filtercourseage}}"   wx:key="dfkey" **ngIf===="{{item.id==ageid}}">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
@@ -188,7 +188,7 @@
 
   
 
-        <div class='flex-row flex-center  weizhi' bindtap='bindxiala' style=''>
+        <div class='flex-row flex-center  weizhi' bindtap='bindxiala($event)' style=''>
           <div class='txt-black h5 txt-bold margin-top-5' **ngIf===="{{'0'==fdistrict_id}}">全{{cityname}}</div>
 
           <div class='txt-black h5 txt-bold margin-top-5' **ngFor===="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" **ngIf===="{{ditem.id==fdistrict_id}}"  >{{ditem.name}}</div>
@@ -198,19 +198,19 @@
 
 
 
-        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='j_x'>
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang($event)' data-options='j_x'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</div>
           <div **ngIf===='{{options=="j_x"}}' class='bg-black margin-top-5 sp2 '></div>
           <div **ngIf===='{{options!="j_x"}}' class='margin-top-5 sp2 '></div>
         </div>
 
-        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='h_p'>
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang($event)' data-options='h_p'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</div>
           <div **ngIf===='{{options=="h_p"}}' class='bg-black margin-top-5 sp2 '></div>
           <div **ngIf===='{{options!="h_p"}}' class='margin-top-5 sp2 '></div>
         </div>
 
-        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang' data-options='x_s'>
+        <div class='flex-1 flex-row flex-column' bindtap='bindxuanxiang($event)' data-options='x_s'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</div>
           <div **ngIf===='{{options=="x_s"}}' class='bg-black margin-top-5 sp2 '></div>
           <div **ngIf===='{{options!="x_s"}}' class='margin-top-5 sp2 '></div>
@@ -250,7 +250,7 @@
   </div>
 
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor===='{{vteach}}' wx:key='k'>
+  <div bindtap='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor===='{{vteach}}' wx:key='k'>
     <img class='kc_icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu w400'>{{item.name}}</div>
@@ -327,7 +327,7 @@
 
   <div class='SX flex-row flex-center' **ngIf===='{{options_show==true}}'>
 
-    <div class='' bindtap='hideFilter' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></div>
+    <div class='' bindtap='hideFilter($event)' style='width:25.4%;height:100%;background:black;opacity: 0.7;'></div>
 
     <div class='bg-white' style='width:74.6%;height:100%;'>
 
@@ -339,7 +339,7 @@
         <div class='flex-row flex-center  flex-wrap'>
 
           <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_Tsp6'  id="0" bindtap='setTDistrict'>全部</div>
-          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  **ngFor===="{{filterdistrict}}" wx:key="k" id="{{item.id}}" bindtap='setTDistrict'>{{item.name}}</div>
+          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  **ngFor===="{{filterdistrict}}" wx:key="k" id="{{item.id}}" bindtap='setTDistrict($event)'>{{item.name}}</div>
         </div>
       </div>
 
@@ -349,8 +349,8 @@
       <div class='flex-row column padding-bottom-20'>
         <div class='margin_L_T txt-black h5'>类型</div>
         <div class='flex-row flex-center  flex-wrap'>
-          <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  id="0" bindtap='setTType'>全部</div>
-          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  **ngFor===="{{filtercoursetype}}" wx:key="k" id="{{item.id}}" bindtap='setTType'>{{item.typename}}</div>
+          <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  id="0" bindtap='setTType($event)'>全部</div>
+          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  **ngFor===="{{filtercoursetype}}" wx:key="k" id="{{item.id}}" bindtap='setTType($event)'>{{item.typename}}</div>
         </div>
       </div>
 
@@ -364,9 +364,9 @@
           <div class='flex-1'></div>
 
           <div class='flex-row flex-center  '>
-            <div class='ximg txt-white  radius-20  text-center  h5 sp7' bindtap='resetFilter'>重置</div>
+            <div class='ximg txt-white  radius-20  text-center  h5 sp7' bindtap='resetFilter($event)'>重置</div>
             <div class='w19'></div>
-            <div class='ximg txt-white  radius-20  text-center  h5 sp7' data-qd='ok' bindtap='bindScreening'>确定</div>
+            <div class='ximg txt-white  radius-20  text-center  h5 sp7' data-qd='ok' bindtap='bindScreening($event)'>确定</div>
           </div>
 
         </div>
@@ -414,8 +414,8 @@
 <div **ngIf===='{{xiala=="xs"}}' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}};top:{{type=="kc"?"97px":"122px"}}'>
 
   <scroll-view scroll-y>
-    <div bindtap='changeDistrict' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
-    <div bindtap='changeDistrict' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' **ngFor===='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</div>
+    <div bindtap='changeDistrict($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
+    <div bindtap='changeDistrict($event)' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' **ngFor===='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</div>
   </scroll-view>
 
 </div>
@@ -423,9 +423,9 @@
 <div **ngIf===='{{xialaage=="xs"}}' class='bg-white list3' style='height:{{43*((filtercourseage.length>7)?7:filtercourseage.length)}}'>
 
   <scroll-view scroll-y>
-    <div bindtap='changeage' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
+    <div bindtap='changeage($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
 
-    <div bindtap='changeage' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' **ngFor===='{{filtercourseage}}' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+    <div bindtap='changeage($event)' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' **ngFor===='{{filtercourseage}}' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
   </scroll-view>
 
 </div>

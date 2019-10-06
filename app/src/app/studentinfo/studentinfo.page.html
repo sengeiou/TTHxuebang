@@ -17,7 +17,7 @@
         
           <div class="flex-row ">
             <div class="flex-1"></div>
-            <div **ngIf===="{{niubi==1}}" bindtap="shanchu" class=" h15" style="color:#4FB5E6">删除</div>
+            <div **ngIf===="{{niubi==1}}" bindtap="shanchu($event)" class=" h15" style="color:#4FB5E6">删除</div>
           </div>
           <div class="flex-row ">
             <div class="flex-1"></div>
@@ -44,10 +44,10 @@
               <div class="h15 sp2"></div>
               <div class="h15 margin-left-10" style="color:#222222">性别 </div>
               <div class="flex-1"></div>
-              <img bindtap="sex" data-id="nan" **ngIf===="{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.xuannan}} ' class='nannv' mode='widthFix' />
-              <img bindtap="sex" data-id="nan" **ngIf===="{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.weixuannan}} ' class='nannv' mode='widthFix' />
-              <img bindtap="sex" data-id="nv" **ngIf===="{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.xuannv}} ' class=' margin-left-10 nannv' mode='widthFix' />
-              <img bindtap="sex" data-id="nv" **ngIf===="{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.weixuannv}} ' class='margin-left-10 nannv ' mode='widthFix' />
+              <img bindtap="sex($event)" data-id="nan" **ngIf===="{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.xuannan}} ' class='nannv' mode='widthFix' />
+              <img bindtap="sex($event)" data-id="nan" **ngIf===="{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.weixuannan}} ' class='nannv' mode='widthFix' />
+              <img bindtap="sex($event)" data-id="nv" **ngIf===="{{sex=='nv'}}" src='{{uploadpath}}resource/{{res.xuannv}} ' class=' margin-left-10 nannv' mode='widthFix' />
+              <img bindtap="sex($event)" data-id="nv" **ngIf===="{{sex=='nan'}}" src='{{uploadpath}}resource/{{res.weixuannv}} ' class='margin-left-10 nannv ' mode='widthFix' />
         
             </div>
         
@@ -85,13 +85,6 @@
               <input class=' ipt ' maxlength="11" bindinput="shouji" placeholder-class='pc' value='{{shouji}}' name='hangye' placeholder='用于接受预约确认' />
         
             </div>
-            <!-- <div class="padding-20 flex-row flex-center">
-              <div class="h15 sp1"></div>
-              <div class="h15 margin-left-10" style="color:#222222">微信号</div>
-              <div class="flex-1"></div>
-              <input class=' ipt ' bindinput="weixin" placeholder-class='pc' value='{{weixin}}' name='hangye' placeholder='xiaobaobao' />
-        
-            </div> -->
             <div class="padding-20 flex-row flex-center">
         
               <div class="h15 sp2"></div>
@@ -100,7 +93,7 @@
         
         
               <div class="section__title"> </div>
-              <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+              <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange($event)" value="{{region}}" custom-item="{{customItem}}">
                 <div class="picker ipt" style='color:#C8C8C8' **ngIf===="{{region.length==0}}">请填写地址</div>
                 <div class="picker ipt" **ngIf===="{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</div>
               </picker>
@@ -113,7 +106,7 @@
         
         </div>
         
-        <div bindtap="baocun" class="flex-row">
+        <div bindtap="baocun($event)" class="flex-row">
           <div class="flex-1"></div>
           <div class="tuan_btn  text-center  ">
             保存

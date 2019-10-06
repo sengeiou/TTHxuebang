@@ -16,12 +16,12 @@
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div class=' to_top'>
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
   </div>
 
   <div class=' flex-row flex-center  bg-white bor_bot'>
 
-    <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+    <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='wc'>
       <div
         class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程
       </div>
@@ -29,7 +29,7 @@
       <div **ngIf===='{{shows!="finished"}}' class=' sp2' style=''></div>
     </div>
 
-    <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+    <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='df'>
       <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构
       </div>
       <div **ngIf===='{{shows=="wait"}}' class='bg-primary sp1' style=''></div>
@@ -67,7 +67,7 @@
 
 
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
+  <div bindtap='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
     **ngFor===='{{coursevlist}}' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
@@ -173,7 +173,7 @@
 
 
   <div hidden='{{jgvlist.length==0}}' **ngFor===='{{jgvlist}}' 
-  wx:key='k' id='{{item.id}}' bindtap='tojgdetails'
+  wx:key='k' id='{{item.id}}' bindtap='tojgdetails($event)'
     style='position: relative; ' class='h564'>
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class='h390 radius-10 '

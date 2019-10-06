@@ -66,7 +66,7 @@
 
     </div>
 
-    <div class='flex-row flex-center padding-20' bindtap="dianzan" id='{{idx}}'>
+    <div class='flex-row flex-center padding-20' bindtap="dianzan($event)" id='{{idx}}'>
      
       <img **ngIf===='{{item.kcl!=""}}' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4' />
       <img **ngIf===='{{item.kcl==""}}' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4' />
@@ -81,17 +81,17 @@
 </div>
   <div class='img flex-row flex-center flex-wrap'>
 
-    <img **ngIf===='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}' />
+    <img **ngIf===='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img1}}' />
 
-    <img **ngIf===='{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}' />
+    <img **ngIf===='{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img2}}' />
 
-    <img **ngIf===='{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}' />
+    <img **ngIf===='{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img3}}' />
 
-    <img **ngIf===='{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}' />
+    <img **ngIf===='{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img4}}' />
 
-    <img **ngIf===='{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}' />
+    <img **ngIf===='{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img5}}' />
 
-    <img **ngIf===='{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}' />
+    <img **ngIf===='{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img6}}' />
 
 
   </div>

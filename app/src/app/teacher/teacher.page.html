@@ -13,18 +13,18 @@
 
 <!--pages/teacher/teacher.wxml-->
 <div class=' to_top'  hidden='{{!floorstatus}}' >
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
    </div>
    
    <div class='bg-white margin-bottom-20 qqq' style='' **ngFor===='{{vteach}}' wx:key='k' **ngIf===='{{teachlist.length>0&&item.id!=null}}'>
    
      <div **ngIf===="{{item.play=='Y'}}">
-       <video bindtap='play'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
+       <video bindtap='play($event)'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
          <cover-view class='title txt-white  txt-bold'>{{item.title}}</cover-view>
        </video>
      </div>
      <div wx:else>
-       <div bindtap="play"  id='c_{{item.id}}'>
+       <div bindtap="play($event)"  id='c_{{item.id}}'>
        <img  class='pos h400' style='width:100vw; background:black;' lazy-load='{{true}}'  src='{{uploadpath}}famousteacher/{{item.fm_bg}}'>
        </image>
        <div class="sp1">
@@ -39,21 +39,8 @@
          <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
          <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
        </div>
-       <!-- <div bindtap='tojgdetails' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>{{item.mechanism_id_name}}</div> -->
-       <div bindtap='tojgdetails' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
-       <!-- <img src='{{uploadpath}}resource/{{res.shipin}}' class='icon margin-right-10' /> -->
-       <!-- <div class='h5'>{{item.count}}次</div>
-       <!-- <div class='margin-left-20 flex-row flex-center'> -->
-   
-       
-   
-         <!-- <img src='{{uploadpath}}resource/{{res.video_null}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_Y' **ngIf===="{{item.isfav=='N'}}" />
-         <img src='{{uploadpath}}resource/{{res.video_coll}}' class='margin-right-10 icon-25' bindtap='fav' id='{{item.id}}_N' **ngIf===="{{item.isfav!='N'}}" />
-   
-         <div **ngIf===="{{item.isfav=='N'}}" class='h5  ' bindtap='fav' id='{{item.id}}_Y' style='color:#FF9393'></div>
-         <div **ngIf===="{{item.isfav!='N'}}" class='h5 ' bindtap='fav' id='{{item.id}}_N' style='color:#FF9393'></div> -->
-        
-       <!-- </div>  -->
+       <div bindtap='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
+
      </div>
    </div>
    

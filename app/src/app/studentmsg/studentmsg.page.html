@@ -20,7 +20,7 @@
           <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
   </div>
 
-  <div **ngFor===="{{xueyuanlist}}" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" bindtap="studentinfo">
+  <div **ngFor===="{{xueyuanlist}}" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" bindtap="studentinfo($event)">
     <div class="flex-row flex-center padding-40">
 
 
@@ -47,7 +47,7 @@
 
   <div class="height-100"></div>
 
-  <div bindtap='tianjia' class="flex-row">
+  <div bindtap='tianjia($event)' class="flex-row">
     <div class="flex-1"></div>
 
     <div class="tuan_btn  text-center  ">

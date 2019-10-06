@@ -32,7 +32,7 @@
     </div>
 
     <div **ngFor===='{{addresslist}}' wx:key='k'>
-      <div class='hezi' bindtap="bindcheck" id="{{item.id}}">
+      <div class='hezi' bindtap="bindcheck($event)" id="{{item.id}}">
         <div class='flex-row flex-center'>
 
           <div **ngIf===='{{type==""||type==undefined}}'>
@@ -54,7 +54,7 @@
 
           <div class='flex-1'></div>
 
-          <div bindtap='addressmanage' class="  padding-40" id="{{item.id}}">
+          <div bindtap='addressmanage($event)' class="  padding-40" id="{{item.id}}">
             <img class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}' />
           </div>
 
@@ -64,17 +64,17 @@
     </div>
 
 
-    <div class="add margin-top-20 flex-row flex-center" **ngIf===='{{type==""||type==undefined}}'  bindtap="addnew">
+    <div class="add margin-top-20 flex-row flex-center" **ngIf===='{{type==""||type==undefined}}'  bindtap="addnew($event)">
       <div class="flex-1"></div>
       <img src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15" />
-      <div class="h5 margin-left-10" style="color:#999999" bindtap="addnew">添加新地址</div>
+      <div class="h5 margin-left-10" style="color:#999999" bindtap="addnew($event)">添加新地址</div>
       <div class="flex-1"></div>
     </div>
 
     <div class="h150"></div>
 
-    <button class='but txt-white' **ngIf===='{{type==""||type==undefined}}' bindtap="queren">确认</button>
-    <button class='but txt-white' **ngIf===='{{type=="Y"}}' bindtap="addnew">添加新地址</button>
+    <button class='but txt-white' **ngIf===='{{type==""||type==undefined}}' bindtap="queren($event)">确认</button>
+    <button class='but txt-white' **ngIf===='{{type=="Y"}}' bindtap="addnew($event)">添加新地址</button>
 
   </div>
 
@@ -97,9 +97,9 @@
         <div class="h60" style=""></div>
 
         <div class="flex-row flex-center">
-          <div class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao">取消</div>
+          <div class="f30 padding-30" style="color:#CCCCCC" bindtap="quxiao($event)">取消</div>
           <div class="shu"></div>
-          <div class="f30 padding-30" bindtap="quedin" id="{{MemberInfo.integral}}" style="color:#FF6600">确认</div>
+          <div class="f30 padding-30" bindtap="quedin($event)" id="{{MemberInfo.integral}}" style="color:#FF6600">确认</div>
         </div>
 
       </div>
@@ -118,7 +118,7 @@
         <div class="h60" ></div>
 
         <div class="flex-row flex-center" style="border-top:1px solid #F5F5F5">
-          <div class="f30 padding-30" style="color:#FF6600" bindtap="quxiao">我知道了</div>
+          <div class="f30 padding-30" style="color:#FF6600" bindtap="quxiao($event)">我知道了</div>
         </div>
 
 

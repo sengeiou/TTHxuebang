@@ -1,45 +1,43 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
-<!--pages/wuliu/wuliu.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
- <div class="flex-row flex-center padding_top">
-  <img src="{{wuliu.result.logo}}" class="icon_logo" />
-  <div class="flex-row column margin-left-20">
-    <div class="flex-row flex-center">
-      <div class="h5">物流状态：</div>
-      <div class="h5" style="color:#FF0000">已发货</div>
+  <!--pages/wuliu/wuliu.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class="flex-row flex-center padding_top">
+    <img src="{{wuliu.result.logo}}" class="icon_logo" />
+    <div class="flex-row column margin-left-20">
+      <div class="flex-row flex-center">
+        <div class="h5">物流状态：</div>
+        <div class="h5" style="color:#FF0000">已发货</div>
+      </div>
+
+      <div class="h6 txt-9 margin-top-6">共1件商品，由【{{wuliu.result.expName}}】承运</div>
+
+      <div class="h6 txt-9 margin-top-6">运单编号：{{wuliu.result.number}}</div>
+
     </div>
-
-    <div class="h6 txt-9 margin-top-6">共1件商品，由【{{wuliu.result.expName}}】承运</div>
-
-    <div class="h6 txt-9 margin-top-6">运单编号：{{wuliu.result.number}}</div>
-
   </div>
-</div>
 
-<div style="background:#F5F6F8" class="h16" ></div>
+  <div style="background:#F5F6F8" class="h16"></div>
 
-<div class="h5 txt-bold margin-left-34 padding-22">物流跟踪</div>
+  <div class="h5 txt-bold margin-left-34 padding-22">物流跟踪</div>
 
-<div class=" margin-40 " **ngFor===='{{wllist}}' wx:key='k'>
-  <div class="h6 txt-9"> {{item.status}}</div>
-  <div class="h6 txt-6 margin-top-6"> {{item.time}}</div>
-</div>
-
- <!-- <button class="bg-red icon-100"  bindtap="onclick">
- 
- </button> -->
+  <div class=" margin-40 " **ngFor===='{{wllist}}' wx:key='k'>
+    <div class="h6 txt-9"> {{item.status}}</div>
+    <div class="h6 txt-6 margin-top-6"> {{item.time}}</div>
+  </div>
 
 
-    </ion-content>
+
+
+</ion-content>
