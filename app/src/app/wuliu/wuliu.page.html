@@ -32,7 +32,7 @@
 
   <div class="h5 txt-bold margin-left-34 padding-22">物流跟踪</div>
 
-  <div class=" margin-40 " **ngFor='{{wllist}}' wx:key='k'>
+  <div class=" margin-40 " *ngFor='let item of wllist' wx:key='k'>
     <div class="h6 txt-9"> {{item.status}}</div>
     <div class="h6 txt-6 margin-top-6"> {{item.time}}</div>
   </div>

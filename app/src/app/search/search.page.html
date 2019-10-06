@@ -68,7 +68,7 @@
 
 
   <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
-    **ngFor='{{coursevlist}}' wx:key='k'>
+    *ngFor='let item of coursevlist;let idx=index;' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
@@ -172,7 +172,7 @@
 
 
 
-  <div hidden='{{jgvlist.length==0}}' **ngFor='{{jgvlist}}' 
+  <div [class.hidden]='jgvlist.length==0' *ngFor='let item of jgvlist' 
   wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)'
     style='position: relative; ' class='h564'>
     <div class=' padding-20' style=''>
@@ -223,8 +223,8 @@
           <div class='flex-row flex-center margin-top-5'>
             <div class='flex-row flex-1'>
               <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
-                style='border:1px solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k"
-                wx:for-item='litem'>{{litem.name}}</div>
+                style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"
+                >{{litem.name}}</div>
             </div>
             <div class='f20 txt-gray'>已预约{{item.people_num}}人</div>
           </div>

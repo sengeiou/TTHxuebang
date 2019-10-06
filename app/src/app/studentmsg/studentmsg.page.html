@@ -20,7 +20,7 @@
           <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
   </div>
 
-  <div **ngFor="{{xueyuanlist}}" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" (click)="studentinfo($event)">
+  <div *ngFor="let item of xueyuanlist" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" (click)="studentinfo($event)">
     <div class="flex-row flex-center padding-40">
 
 

@@ -129,7 +129,7 @@
     <div class="flex-1"></div>
     <div (click)="hideModal($event)" class='h5' style="color:#AAAAAA">x</div>
   </div>
-  <div **ngFor="{{xueyuanlist}}" wx:for-index='idx' data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" (click)="xuanze($event)">
+  <div *ngFor="let item of xueyuanlist;let idx=index;"  data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" (click)="xuanze($event)">
     <div class="flex-row flex-center padding-40">
       <img *ngIf="xuanzexueyuan.id!=item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
       <img *ngIf="xuanzexueyuan.id==item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />

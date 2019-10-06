@@ -60,7 +60,7 @@
 
 
   <div class='flex-row flex-wrap'>
-    <div **ngFor='{{list}}' wx:key='k'>
+    <div *ngFor='let item of list' wx:key='k'>
       <div class='hezi' (click)="todetails($event)" id="{{item.id}}">
         <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
 

@@ -38,7 +38,7 @@
           <div class="w50"></div>
           <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
           <swiper vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
-            <swiper-item **ngFor="{{gongaolist}}" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+            <swiper-item *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
               {{item.content}}
             </swiper-item>
           </swiper>
@@ -52,7 +52,7 @@
           <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{cityname}}</div>
 
 
-          <div class='txt-black h5 txt-bold margin-top-5' **ngFor="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" *ngIf="ditem.id==fdistrict_id">{{ditem.name}}</div>
+          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" *ngIf="ditem.id==fdistrict_id">{{ditem.name}}</div>
 
 
           <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
@@ -90,7 +90,7 @@
   <div class="h240"></div>
 
 
-  <div **ngFor='{{jgvteach}}' wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)' style='' wx:for-index='idx' class='{{idx>0?"margin-top":""}}'>
+  <div *ngFor='let item of jgvteach;let idx=index;' wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)' style=''  class='{{idx>0?"margin-top":""}}'>
 
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 sp3' style='' />
@@ -136,7 +136,7 @@
           <div class='flex-row flex-center margin-top-5'>
 
             <div class='flex-row flex-1'>
-              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1px solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' *ngIf='idx<3'>{{litem.name}}</div>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"  *ngIf='idx<3'>{{litem.name}}</div>
             </div>
 
             <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
@@ -178,7 +178,7 @@
         <div class=' flex-row flex-center margin-left-15 w150' (click)='bindxialaage($event)' >
         <div class="flex-1"></div>
           <div class='txt-black h6 txt-bold' *ngIf="ageid==-1">全年龄</div>
-          <div class='txt-black h6 txt-bold' **ngFor="{{filtercourseage}}"   wx:key="dfkey" *ngIf="item.id==ageid">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+          <div class='txt-black h6 txt-bold' *ngFor="let item of filtercourseage"   wx:key="dfkey" *ngIf="item.id==ageid">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
           <img class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.gengduo}}' />
         </div>
 
@@ -191,7 +191,7 @@
         <div class='flex-row flex-center  weizhi' (click)='bindxiala($event)' style=''>
           <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{cityname}}</div>
 
-          <div class='txt-black h5 txt-bold margin-top-5' **ngFor="{{filterdistrict}}" wx:for-item='ditem' wx:key="dfkey" *ngIf="ditem.id==fdistrict_id"  >{{ditem.name}}</div>
+          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" *ngIf="ditem.id==fdistrict_id"  >{{ditem.name}}</div>
           
           <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
         </div>
@@ -250,7 +250,7 @@
   </div>
 
 
-  <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor='{{vteach}}' wx:key='k'>
+  <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' *ngFor='let item of vteach' wx:key='k'>
     <img class='kc_icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu w400'>{{item.name}}</div>
@@ -339,7 +339,7 @@
         <div class='flex-row flex-center  flex-wrap'>
 
           <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_Tsp6'  id="0" (click)='setTDistrict'>全部</div>
-          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  **ngFor="{{filterdistrict}}" wx:key="k" id="{{item.id}}" (click)='setTDistrict($event)'>{{item.name}}</div>
+          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  *ngFor="let item of filterdistrict" wx:key="k" id="{{item.id}}" (click)='setTDistrict($event)'>{{item.name}}</div>
         </div>
       </div>
 
@@ -350,7 +350,7 @@
         <div class='margin_L_T txt-black h5'>类型</div>
         <div class='flex-row flex-center  flex-wrap'>
           <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  id="0" (click)='setTType($event)'>全部</div>
-          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  **ngFor="{{filtercoursetype}}" wx:key="k" id="{{item.id}}" (click)='setTType($event)'>{{item.typename}}</div>
+          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  *ngFor="let item of filtercoursetype" wx:key="k" id="{{item.id}}" (click)='setTType($event)'>{{item.typename}}</div>
         </div>
       </div>
 
@@ -382,7 +382,7 @@
 
 
 <swiper *ngIf="type=='kc'&&options_show==false" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='' class='tipsshowfull h60'>
-  <swiper-item wx:for-index="idx" class="w360" **ngFor="{{buyshow}}" wx:key="k" wx:for-item="showitem" catchtouchmove='catchTouchMove'>
+  <swiper-item  class="w360" *ngFor="let showitem of buyshow;let idx=index;" wx:key="k" catchtouchmove='catchTouchMove'>
     <div class='flex-row'>
       <div class='flex-1'></div>
       <div class='tipsshow'>
@@ -415,7 +415,7 @@
 
   <scroll-view scroll-y>
     <div (click)='changeDistrict($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
-    <div (click)='changeDistrict($event)' class='margin-20 padding-top-20 h6 text-center border_top' wx:for-index='i' id='{{i}}' **ngFor='{{filterdistrict}}' wx:key='k' style=''>{{item.name}}</div>
+    <div (click)='changeDistrict($event)' class='margin-20 padding-top-20 h6 text-center border_top'  [id]='i' *ngFor='let item of filterdistrict;let i=index;' wx:key='k' style=''>{{item.name}}</div>
   </scroll-view>
 
 </div>
@@ -425,7 +425,7 @@
   <scroll-view scroll-y>
     <div (click)='changeage($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
 
-    <div (click)='changeage($event)' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' **ngFor='{{filtercourseage}}' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+    <div (click)='changeage($event)' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' *ngFor='let item of filtercourseage' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
   </scroll-view>
 
 </div>

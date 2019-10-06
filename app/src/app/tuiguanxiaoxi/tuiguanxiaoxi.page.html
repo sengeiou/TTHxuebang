@@ -12,7 +12,7 @@
     <ion-content >
 
         <div class=" margin-20 ">
-            <div **ngFor="{{myxiaoxi}}" wx:key='k'>
+            <div *ngFor="let item of myxiaoxi" wx:key='k'>
               <div class="xxq  bg-white padding-20">
                 <div class="flex-row flex-center">
                   <img class="icon-30" mode="widthFix" src="{{uploadpath}}resource/{{res.tuiguangxiaoxi}}" />

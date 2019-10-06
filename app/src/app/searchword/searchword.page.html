@@ -32,7 +32,7 @@
     <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)' id='{{item.name}}'>取消</div>
   </div>
   <div (click)='todetails($event)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
-    **ngFor="{{result}}" wx:key="k" wx:for-index='idx'>
+    *ngFor="let item of result;let idx=index;" >
     <view>{{item.name}}
   </div>
   <div class='h6 txt-red margin-left-20'></div>
@@ -45,7 +45,7 @@
       <div class="bg-white">
         <div class='keywordtitle txt-9'>热门搜索</div>
         <div class='flex-row pl30' style='flex-wrap: wrap;'>
-          <div **ngFor="{{hotest}}" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails($event)'>
+          <div *ngFor="let item of hotest;" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails($event)'>
             {{item.keyword}}</div>
         </div>
         <div class="h40"></div>
@@ -63,7 +63,7 @@
         </div>
 
         <div class='sp2 ' style=''>
-          <div **ngFor="{{history}}" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails($event)'>
+          <div *ngFor="let item of history;" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails($event)'>
             <div style="height:2px;background:#F5F5F5"></div>
             <div class="h6 sp1" style="">{{item.keyword}}</div>
           </div>

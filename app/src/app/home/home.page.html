@@ -111,7 +111,7 @@
       </div>
       <div *ngFor='let item filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
-          data-name='{{item.typename}}' id='{{item.id}}' wx:key='s' wx:for-index='idx' *ngIf='idx<8'>
+          data-name='{{item.typename}}' id='{{item.id}}'  *ngIf='idx<8'>
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
         </div>
@@ -122,7 +122,7 @@
     <swiper-item class=" flex-row flex-center flex-wrap">
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc($event)'
-          id='{{item.id}}' wx:key='s' wx:for-index='idx' *ngIf='idx>=8' data-name="='{{item.typename}}'">
+          id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
         </div>
@@ -156,7 +156,7 @@
   <div class='scv'>
     <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
 
-      <div *ngFor='let item of indexlist' wx:key='k' (click)='toceshi($event)' id='{{item.id}}'
+      <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi($event)' id='{{item.id}}'
         class='ceshi flex-row column'
         style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
         <!-- <div class='txt-white h5 chaochu'>{{item.pingce_name}}</div> -->
@@ -274,7 +274,7 @@
     <div class='flex-row flex-center margin-top-16'>
       <div class='flex-row flex-center '>
         <div *ngFor='let item of resultArr;let idx=index;'>
-          <img wx:key='s' wx:for-index='idx' src='{{item.member_avatarUrl}}' *ngIf='idx<5'
+          <img   src='{{item.member_avatarUrl}}' *ngIf='idx<5'
             class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
         </div>
       </div>
@@ -422,14 +422,14 @@
     </div>
 
 
-    <div hidden='{{jgvteach.length>0}}'>
+    <div [class.hidden]='jgvteach.length>0'>
 
       <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
 
     </div>
 
 
-    <div hidden='{{jgvteach.length==0}}' *ngFor='let item of jgvteach;' wx:key='k' id='{{item.id}}'
+    <div [class.hidden]='jgvteach.length==0' *ngFor='let item of jgvteach;' wx:key='k' id='{{item.id}}'
       (click)='tojgdetails($event)' style='' class='wpc3'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
@@ -518,7 +518,7 @@
   <div class='height-70' style=''></div>
 
 
-  <div class=' to_top' hidden='{{!floorstatus}}'>
+  <div class=' to_top' [class.hidden]='!floorstatus'>
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 

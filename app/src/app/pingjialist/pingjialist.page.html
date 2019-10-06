@@ -22,7 +22,7 @@
   <div class='flex-1'></div>
 </div>
 
-<div **ngFor='{{pingjialist}}' wx:key='k' wx:for-index='idx'>
+<div *ngFor='let item of pingjialist;let idx=index;' wx:key='k' wx:for-index='idx'>
   <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
 
     <img src='{{item.member_avatarUrl}}' class='tx radius-50' />
@@ -38,26 +38,26 @@
 
         <div *ngIf='item.pingfen==1'>
           <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{4}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='4' />
         </div>
 
         <div *ngIf='item.pingfen==2'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
         </div>
 
         <div *ngIf='item.pingfen==3'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
         </div>
 
         <div *ngIf='item.pingfen==4'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{3}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{2}}' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='3' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='2' />
         </div>
 
         <div *ngIf='item.pingfen==5'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{4}}' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='4' />
           <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
         </div>
 

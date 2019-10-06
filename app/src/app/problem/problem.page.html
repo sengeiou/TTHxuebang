@@ -12,7 +12,7 @@
 <ion-content>
   <!--pages/problem/problem.wxml-->
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-  <div class='flex-row bg-white    shadow mt18' style='' **ngFor='{{problemlist}}' wx:key='k'>
+  <div class='flex-row bg-white    shadow mt18' style='' *ngFor='let item of problemlist;let idx=index;' wx:key='k'>
 
     <div class='flex-row column flex-1 '>
 

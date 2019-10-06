@@ -34,7 +34,7 @@
         
         </div>
          <div class="margin-20 bg">
-           <div **ngFor="{{problemlist}}" wx:for-index='idx'  wx:key='k' class="padding-40   sbb">
+           <div *ngFor="let item of problemlist;let idx=index;" class="padding-40   sbb">
            <div class=" {{problemlist.length-1!=idx?'xian':'xian1'}}">
             <div class="f15">{{item.title}}</div>
             <div class="margin-top-10 flex-row flex-center">

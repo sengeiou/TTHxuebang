@@ -47,7 +47,7 @@
 </div>
 
 <!--课程收藏-->
-<div class='' hidden='{{show!="t1"}}'>
+<div class='' [class.hidden]='show!="t1"'>
   <div *ngIf="kclist.length==0">
     <div class='flex-row text-center'>
       <div class='flex-1'>
@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <navigator url='/pages/kcdetails/kcdetails?id={{item.course_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' *ngFor="let item kclist" wx:key='k'>
+  <navigator url='/pages/kcdetails/kcdetails?id={{item.course_id}}' class='margin-top-20 padding-left-20 bg-white bor_bot' style='' *ngFor="let item of kclist" wx:key='k'>
 
 
     <div class='flex-row  padding-20 ' style=''>
@@ -175,7 +175,7 @@
 
 
 <!--机构收藏-->
-<div class='' hidden='{{show!="t2"}}'>
+<div class='' [class.hidden]='show!="t2"'>
 
   <div *ngIf="jglist.length==0">
     <div class='flex-row text-center'>
@@ -195,7 +195,7 @@
   </div>
 
 
-  <div hidden='{{jglist.length==0}}' *ngFor='let item of jglist' wx:key='k' id='{{item.jg_id}}' (click)='tojgdetails($event)' style='' class='sp5'>
+  <div [class.hidden]='jglist.length==0' *ngFor='let item of jglist' wx:key='k' id='{{item.jg_id}}' (click)='tojgdetails($event)' style='' class='sp5'>
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' lazy-load='{{true}}' class=' radius-10 sp6' style='' />
     </div>
@@ -237,7 +237,7 @@
           <div class='flex-row flex-center margin-top-5'>
 
             <div class='flex-row flex-1'>
-              <div class=' biaoqian text-center radius-10 txt-green h6 margin-16' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-16' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels" wx:key="k">{{litem.name}}</div>
             </div>
 
             <div class='f20 txt-9'>已预约{{item.jg_people_num}}人</div>
@@ -266,7 +266,7 @@
 
 
 <!--在线课堂收藏-->
-<div class='' hidden='{{show!="t3"}}'>
+<div class='' [class.hidden]='show!="t3"'>
 
   <div ngIf="ketangshoucanglist.length==0">
     <div class='flex-row text-center'>
@@ -288,7 +288,7 @@
     </div>
   </div>
 
-  <div class="kt_block flex-row flex-center" *ngFor='{{ketangshoucanglist}}' wx:key='k' id="{{item.onlineclassroom_id}}" (click)="todetails($event)">
+  <div class="kt_block flex-row flex-center" *ngFor='let item of ketangshoucanglist' wx:key='k' id="{{item.onlineclassroom_id}}" (click)="todetails($event)">
 
     <img src="{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}" class="kt_img" />
 
@@ -336,7 +336,7 @@
 </div>
 
 <!--宝妈必看-->
-<div class='' hidden='{{show!="t4"}}'>
+<div class='' [class.hidden]='show!="t4"'>
 
   <div class='flex-row text-center'>
     <div class='flex-1'>

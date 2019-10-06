@@ -80,7 +80,7 @@
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
                   style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels"
-                  wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+                  wx:key="k" >{{litem.name}}</div>
               </div>
 
 
@@ -168,7 +168,7 @@
               <cover-view class='flex-row flex-1'>
                 <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
                   style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels;"
-                  wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
+                  wx:key="k">{{litem.name}}</cover-view>
               </cover-view>
 
             </cover-view>
@@ -333,52 +333,6 @@
     </div>
 
 
-    <!-- 猜你喜欢，在线课堂推荐,勿删 -->
-    <!-- <div class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
-      <img src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;" />
-    </div>
-    <div class='flex-row flex-center flex-wrap'>
-      <div (click)='kechenxianqin($event)' data-id='{{item.id}}' class='kecheng-block' *ngFor='let item of ketang' wx:key='k'>
-
-        <div style=''>
-          <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}' />
-        </div>
-
-        <div class='padding-12'>
-          <div class=' txt-bold chaochu'>{{item.name}}</div>
-          <div class='flex-row flex-center margin-top-14'>
-            <div class='flex-row flex-center'>
-              <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
-              <div class=' f20 margin-left-10'>{{item.age_name}}</div>
-            </div>
-
-            <div class='flex-row flex-center margin-left-26'>
-              <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
-              <div class=' f20 margin-left-10'>共{{item.chapter_num}}集</div>
-            </div>
-          </div>
-
-
-
-        </div>
-
-        <div class='margin-left-10 dd flex-row flex-center margin-top-12'>
-          <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</div>
-          <div class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</div>
-          <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
-          <div class=' txt-red xg' style=''>{{item.price}}</div>
-        </div>
-  
-      </div>
-    </div>
-    <div class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
-      <div class="flex-1"></div>
-      <div class="more text-center txt-bold txt-white" (click)="seemore()">
-        查看更多
-      </div>
-      <div class="flex-1"></div>
-    </div> -->
-
 
     <div class="flex-row flex-center padding-T-B-28">
       <div class="flex-1"></div>
@@ -402,14 +356,14 @@
 
   <cover-view style='' class='buy-block' *ngIf='trunoff==false'>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+    <cover-view class='huang_block  flex-row flex-center' [class.hidden]='true'>
       <cover-view class='flex-1'></cover-view>
       <cover-view class='txt_orange h6'>等待付款，</cover-view>
       <cover-view class='txt_lan h6'>点击这里立即付款</cover-view>
       <cover-view class='flex-1'></cover-view>
     </cover-view>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+    <cover-view class='huang_block  flex-row flex-center' [class.hidden]='true'>
       <cover-view class='flex-1'></cover-view>
       <cover-view class='txt_orange h6'>此机构课程预约已满</cover-view>
       <cover-view class='flex-1'></cover-view>
@@ -534,7 +488,7 @@
             <div class='flex-row flex-center flex-wrap margin-top-10'>
 
               <div class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}'
-                *ngFor='let item of clist' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y"
+                *ngFor='let item of clist;let idx=index;'  id='{{item.id}}' data-check="Y"
                 (click)='check()'>{{item.name}}</div>
 
             </div>

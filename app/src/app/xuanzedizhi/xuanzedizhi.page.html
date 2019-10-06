@@ -31,7 +31,7 @@
     <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
     </div>
 
-    <div **ngFor='{{addresslist}}' wx:key='k'>
+    <div *ngFor='let item of addresslist' wx:key='k'>
       <div class='hezi' (click)="bindcheck($event)" id="{{item.id}}">
         <div class='flex-row flex-center'>
 

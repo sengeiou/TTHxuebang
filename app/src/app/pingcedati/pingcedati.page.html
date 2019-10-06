@@ -15,11 +15,10 @@
 
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-  <div hidden="{{gif==true}}">
+  <div [class.hidden]="gif==true">
     <swiper indicator-dots='{{false}}' disable='{{false}}' current='{{qie}}' autoplay='{{false}}' duration='200'
       circular='{{false}}' class="sp1">
-      <swiper-item catchtouchmove='stoptouch' *ngFor="let item of pingcelist" wx:key="k" wx:for-index='idx'
-        class="sp1">
+      <swiper-item catchtouchmove='stoptouch' *ngFor="let item of pingcelist;let idx=index;" wx:key="k"   class="sp1">
         <div class=''>
 
           <div class='top-padding'>

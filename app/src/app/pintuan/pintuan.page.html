@@ -33,7 +33,7 @@
 
 
 
-<div (click)="kechenxianqin($event)" data-id="{{item.spellgroup_id}}" class="margin-24 order" **ngFor="{{wclist}}" *ngIf="item.pstatus=='PT'" wx:key='k'>
+<div (click)="kechenxianqin($event)" data-id="{{item.spellgroup_id}}" class="margin-24 order" *ngFor="let item of wclist;let idx=index;" *ngIf="item.pstatus=='PT'" wx:key='k'>
   <div class="padding-20 flex-row ">
 
     <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />

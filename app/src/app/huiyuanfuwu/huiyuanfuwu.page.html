@@ -47,8 +47,7 @@
 
           <div class='quanyi '>
 
-            <div class='flex-row flex-center {{idx>0?"margin-top-12":""}}' *ngFor='item.showcase' wx:key='e'
-              wx:for-index='idx'>
+            <div class='flex-row flex-center {{idx>0?"margin-top-12":""}}' *ngFor='let item of item.showcase;let idx=index;' >
               <img src='{{uploadpath}}resource/{{res.quanyi_icon}}' class='icon-20' />
               <div class='h7 txt-6 margin-left-20'>{{item.content}}</div>
             </div>

@@ -12,11 +12,11 @@
     <ion-content >
 
 <!--pages/teacher/teacher.wxml-->
-<div class=' to_top'  hidden='{{!floorstatus}}' >
+<div class=' to_top'  [class.hidden]='!floorstatus' >
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
    </div>
    
-   <div class='bg-white margin-bottom-20 qqq' style='' **ngFor='{{vteach}}' wx:key='k' *ngIf='teachlist.length>0&&item.id!=null'>
+   <div class='bg-white margin-bottom-20 qqq' style='' *ngFor='let item of vteach' wx:key='k' *ngIf='teachlist.length>0&&item.id!=null'>
    
      <div *ngIf="item.play=='Y'">
        <video (click)='play($event)'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">

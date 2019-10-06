@@ -73,7 +73,7 @@
 
 
         <div class="flex-row flex-center flex-wrap">
-          <div *ngFor="let item of huodoninfo.jiemu;let idx=index;" wx:key='k' wx:for-index='idx' class='kecheng-block'>
+          <div *ngFor="let item of huodoninfo.jiemu;let idx=index;" wx:key='k' class='kecheng-block'>
             <img (click)="jiemuinfo($event)" id="{{item.id}}" data-id='{{idx}}' src="{{uploadpath}}jiemu/{{item.fenmian}}"
               style="width:40vw;height:40vw" />
             <div *ngIf="idx+1>=4" class="shuzi">{{idx+1}}</div>

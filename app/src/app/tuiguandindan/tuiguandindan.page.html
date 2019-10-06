@@ -22,7 +22,7 @@
   <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
     共{{quanbu.length}}笔订单
   </div>
-  <div **ngFor="{{quanbu}}" wx:key="k">
+  <div *ngFor="let item of quanbu" wx:key="k">
     <div class="bg-white margin-top-20">
       <div class="margin-20 bg flex-row flex-center">
         <div class="h5">买家：{{item.membername}}</div>

@@ -33,7 +33,7 @@
 
   </div>
 
-  <div (click)="kechenxianqin($event)" data-id="{{item.onlineclassroom_id}}" class="margin-24 order" **ngFor="{{wclist}}"
+  <div (click)="kechenxianqin($event)" data-id="{{item.onlineclassroom_id}}" class="margin-24 order" *ngFor="let item of wclist"
     *ngIf="item.pstatus=='PT'" wx:key='k'>
 
 

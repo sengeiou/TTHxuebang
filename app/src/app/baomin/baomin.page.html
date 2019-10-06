@@ -155,7 +155,7 @@
             </div>
 
             <div class="flex-row flex-center flex-wrap">
-              <div class=' ' *ngFor="jgimages" wx:key="k" wx:for-index="idx">
+              <div class=' ' *ngFor="let item of jgimages;let idx=index;" wx:key="k">
                 <img mode="aspectFill" src='{{uploadpath}}jiemutupian/{{item}}' *ngIf='idx<20'
                   id="{{uploadpath}}jiemutupian/{{item}}" data-id="{{idx}}" (click)='viewPhoto($event)'
                   todobindlongpress="deleteimg" class='icon-img' />

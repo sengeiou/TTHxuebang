@@ -86,7 +86,7 @@
 
             <div class='flex-row margin-top-5 padding-left-20'>
               <div class="flex-row flex-1">
-                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let item of courseinfo.labels" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of courseinfo.labels" wx:key="k">{{litem.name}}</div>
               </div>
 
 
@@ -529,8 +529,7 @@
           <div class="margin-left-20">
             <div class="h6 text-center">还差
               <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
-            <div class="h7 text-center">剩余{{sjlist[idx][1]
-              <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
+            <div class="h7 text-center">剩余{{sjlist[idx][1] <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
             </div>
             <div class="flex-1"></div>
             <div *ngIf="item.type=='T'" class="margin-right-10 " style="color:#FF4444">￥{{item.group_course_group_expeprice}}</div>
