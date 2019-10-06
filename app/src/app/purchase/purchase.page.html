@@ -92,10 +92,10 @@
 
     <div class="height-20"></div>
 
-    <div bindtap="xueyuan($event)" class='flex-row flex-center   padding-20  pb30' style="">
+    <div (click)="xueyuan($event)" class='flex-row flex-center   padding-20  pb30' style="">
       <div class='h5 txt-black '>学员</div>
-      <div **ngIf===="{{xuanzexueyuan==''}}" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
-      <div **ngIf===="{{xuanzexueyuan!=''}}" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
+      <div *ngIf="xuanzexueyuan==''" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
+      <div *ngIf="xuanzexueyuan!=''" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
       <div class="flex-1"></div>
       <img src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 ' />
 
@@ -114,34 +114,34 @@
   <div class='flex-row flex-center bg-white ' style='border-top:1px solid #e5e5e5'>
     <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{courseinfo.price}}</div>
     <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' bindtap='bindtoorder($event)'>提交订单</div>
+    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' (click)='bindtoorder($event)'>提交订单</div>
   </div>
 
 </div>
 
 
 
-<div class="modal-mask" bindtap="hideModal($event)" **ngIf===="{{isxueyuan}}" catchtouchmove="preventTouchMove"></div>
-<div class="modal-dialog" **ngIf===="{{isxueyuan}}">
+<div class="modal-mask" (click)="hideModal($event)" *ngIf="isxueyuan" catchtouchmove="preventTouchMove"></div>
+<div class="modal-dialog" *ngIf="isxueyuan">
   <div class="padding-20 margin-left-20 flex-row flex-center">
     <div class="flex-1"></div>
     <div class="h5 txt-bold " style="color:#222222">选择学员</div>
     <div class="flex-1"></div>
-    <div bindtap="hideModal($event)" class='h5' style="color:#AAAAAA">x</div>
+    <div (click)="hideModal($event)" class='h5' style="color:#AAAAAA">x</div>
   </div>
-  <div **ngFor===="{{xueyuanlist}}" wx:for-index='idx' data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" bindtap="xuanze($event)">
+  <div **ngFor="{{xueyuanlist}}" wx:for-index='idx' data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" (click)="xuanze($event)">
     <div class="flex-row flex-center padding-40">
-      <img **ngIf===="{{xuanzexueyuan.id!=item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
-      <img **ngIf===="{{xuanzexueyuan.id==item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />
-      <img **ngIf===="{{item.sex=='nv'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
+      <img *ngIf="xuanzexueyuan.id!=item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
+      <img *ngIf="xuanzexueyuan.id==item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />
+      <img *ngIf="item.sex=='nv'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
 
-      <img **ngIf===="{{item.sex=='nan'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
+      <img *ngIf="item.sex=='nan'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
 
       <div class="margin-left-20">
         <div class="flex-row flex-center">
           <div class="f15 txt-bold">{{item.name}}</div>
-          <div **ngIf===="{{item.sex=='nan'}}" class="nande">{{item.sui}}岁</div>
-          <div **ngIf===="{{item.sex=='nv'}}" class="nvde">{{item.sui}}岁</div>
+          <div *ngIf="item.sex=='nan'" class="nande">{{item.sui}}岁</div>
+          <div *ngIf="item.sex=='nv'" class="nvde">{{item.sui}}岁</div>
         </div>
         <div class="h6 margin-top-20" style="color:#999999">{{item.shouji}}</div>
       </div>
@@ -153,7 +153,7 @@
 
   </div>
 
-  <div bindtap='tianjia($event)' class="flex-row margin-top-20">
+  <div (click)='tianjia($event)' class="flex-row margin-top-20">
     <div class="flex-1"></div>
     <div class="tuan_btn  text-center  ">
       添加孩子

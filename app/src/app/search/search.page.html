@@ -16,33 +16,33 @@
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div class=' to_top'>
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
   <div class=' flex-row flex-center  bg-white bor_bot'>
 
-    <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='wc'>
+    <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='wc'>
       <div
         class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程
       </div>
-      <div **ngIf===='{{shows=="finished"}}' class='bg-primary sp1' style=''></div>
-      <div **ngIf===='{{shows!="finished"}}' class=' sp2' style=''></div>
+      <div *ngIf='shows=="finished"' class='bg-primary sp1' style=''></div>
+      <div *ngIf='shows!="finished"' class=' sp2' style=''></div>
     </div>
 
-    <div class='flex-1 flex-row flex-column' bindtap='bindshow($event)' data-type='df'>
+    <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='df'>
       <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构
       </div>
-      <div **ngIf===='{{shows=="wait"}}' class='bg-primary sp1' style=''></div>
-      <div **ngIf===='{{shows!="wait"}}' class=' sp2' style=''></div>
+      <div *ngIf='shows=="wait"' class='bg-primary sp1' style=''></div>
+      <div *ngIf='shows!="wait"' class=' sp2' style=''></div>
     </div>
 
   </div>
 
 
 
-  <div class='padding-bottom-20' **ngIf===='{{shows=="finished"}}'>
+  <div class='padding-bottom-20' *ngIf='shows=="finished"'>
 
-    <div **ngIf===="{{coursevlist.length==0}}">
+    <div *ngIf="coursevlist.length==0">
       <div class='flex-row text-center'>
         <div class='flex-1'>
 
@@ -67,8 +67,8 @@
 
 
 
-  <div bindtap='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
-    **ngFor===='{{coursevlist}}' wx:key='k'>
+  <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
+    **ngFor='{{coursevlist}}' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
@@ -146,9 +146,9 @@
 
   </div>
 
-  <div class='' **ngIf===='{{shows=="wait"}}'>
+  <div class='' *ngIf='shows=="wait"'>
 
-    <div **ngIf===="{{jgvlist.length==0}}">
+    <div *ngIf="jgvlist.length==0">
       <div class='flex-row text-center'>
         <div class='flex-1'>
 
@@ -172,8 +172,8 @@
 
 
 
-  <div hidden='{{jgvlist.length==0}}' **ngFor===='{{jgvlist}}' 
-  wx:key='k' id='{{item.id}}' bindtap='tojgdetails($event)'
+  <div hidden='{{jgvlist.length==0}}' **ngFor='{{jgvlist}}' 
+  wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)'
     style='position: relative; ' class='h564'>
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class='h390 radius-10 '
@@ -190,7 +190,7 @@
 
             <div class="flex-row flex-center flex-1 ">
               <div class='txt-black txt-bold  chaochu mw400' style="">{{item.jigou}}</div>
-              <img **ngIf===="{{item.renzhen=='是'}}" src="{{uploadpath}}resource/{{res.renzheng}}"
+              <img *ngIf="item.renzhen=='是'" src="{{uploadpath}}resource/{{res.renzheng}}"
                 class="icon13 margin-left-10" />
             </div>
 
@@ -223,7 +223,7 @@
           <div class='flex-row flex-center margin-top-5'>
             <div class='flex-row flex-1'>
               <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
-                style='border:1px solid {{litem.color}};color:{{litem.color}}' **ngFor===="{{item.labels}}" wx:key="k"
+                style='border:1px solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k"
                 wx:for-item='litem'>{{litem.name}}</div>
             </div>
             <div class='f20 txt-gray'>已预约{{item.people_num}}人</div>

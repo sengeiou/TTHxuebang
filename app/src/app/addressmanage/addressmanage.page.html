@@ -20,7 +20,7 @@
       <div class='flex-row'>
         <div class='margin-left-14 h5' style='color:#999999'>填写详细地址方便直接送货上门</div>
         <div class='flex-1'></div>
-        <div class='delete' *ngIf='id>0' bindtap="binddeleted">删除</div>
+        <div class='delete' *ngIf='id>0' (click)="binddeleted">删除</div>
       </div>
       <div class='hezi'>
         <div class='flex-row flex-center'>

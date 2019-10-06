@@ -15,37 +15,37 @@
   <!--pages/searchword/searchword.wxml-->
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
   <div class=' to_top'>
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
   <div class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
     <div class='search flex-row flex-center padding-5 '>
       <div class="w20"></div>
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
       <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true'
-        placeholder='搜索您要找的机构、课程' bindinput='search' />
+        placeholder='搜索您要找的机构、课程' [(ngModel)]='search' />
 
       <div class='padding-left-20 padding-right-10' >
         <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
       </div>
     </div>
 
-    <div class='text-right flex-1 h5 txt-white' style='' bindtap='quxiao($event)' id='{{item.name}}'>取消</div>
+    <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)' id='{{item.name}}'>取消</div>
   </div>
-  <div bindtap='todetails($event)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
-    **ngFor===="{{result}}" wx:key="k" wx:for-index='idx'>
+  <div (click)='todetails($event)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
+    **ngFor="{{result}}" wx:key="k" wx:for-index='idx'>
     <view>{{item.name}}
   </div>
   <div class='h6 txt-red margin-left-20'></div>
   </div>
 
-  <div **ngIf===="{{result.length==0}}">
+  <div *ngIf="result.length==0">
 
 
-    <div **ngIf===="{{hotest.length>0}}">
+    <div *ngIf="hotest.length>0">
       <div class="bg-white">
         <div class='keywordtitle txt-9'>热门搜索</div>
         <div class='flex-row pl30' style='flex-wrap: wrap;'>
-          <div **ngFor===="{{hotest}}" wx:key="k" class='keyword' id="{{item.keyword}}" bindtap='todetails($event)'>
+          <div **ngFor="{{hotest}}" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails($event)'>
             {{item.keyword}}</div>
         </div>
         <div class="h40"></div>
@@ -53,17 +53,17 @@
     </div>
 
 
-    <div **ngIf===="{{history.length>0}}">
+    <div *ngIf="history.length>0">
 
       <div class="bg-white mt12" style=''>
         <div class='flex-row flex-center'>
           <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
-          <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' bindtap='clearrecord($event)' />
+          <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord($event)' />
           <div class="w40"></div>
         </div>
 
         <div class='sp2 ' style=''>
-          <div **ngFor===="{{history}}" wx:key="k" class='' id="{{item.keyword}}" bindtap='todetails($event)'>
+          <div **ngFor="{{history}}" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails($event)'>
             <div style="height:2px;background:#F5F5F5"></div>
             <div class="h6 sp1" style="">{{item.keyword}}</div>
           </div>

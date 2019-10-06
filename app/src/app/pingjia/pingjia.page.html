@@ -24,52 +24,52 @@
           <div class='margin-left-40 txt-black h5'>课程评分</div>
           <div class='flex-row flex-center margin-top-24 margin-left-30 '>
   
-            <div **ngIf===='{{pingfen==0}}'>
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==0'>
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
-            <div **ngIf===='{{pingfen==1}}'>
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==1'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
-            <div **ngIf===='{{pingfen==2}}'>
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==2'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
-            <div **ngIf===='{{pingfen==3}}'>
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==3'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
-            <div **ngIf===='{{pingfen==4}}'>
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==4'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
-            <div **ngIf===='{{pingfen==5}}'>
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='1' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='2' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='3' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='4' />
-              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindkcpingfen($event)' id='5' />
+            <div *ngIf='pingfen==5'>
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='1' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='2' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='3' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='4' />
+              <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindkcpingfen($event)' id='5' />
             </div>
   
           </div>
@@ -80,7 +80,7 @@
   
       <div class='mid  '>
   
-        <div class="" bindtap="show($event)">
+        <div class="" (click)="show($event)">
           <textarea class='write h5 txt-black' focus='{{focus}}' name='text' contenteditable="{{true}}" auto-height="{{true}}" placeholder='分享您的上课心得，让其他宝妈更好了解哟' style='width:92vw' placeholder-style='color:#CCCCCC' maxlength='-1'></textarea>
   
           <div class='height-150'></div>
@@ -89,11 +89,11 @@
   
         <div class='flex-row flex-center flex-wrap img'>
   
-          <div class=' ' **ngFor===="{{images}}" wx:key="k" wx:for-index="idx">
-            <img src='{{uploadpath}}pingjia/{{item}}' class='imgbg' bindtap='minusImg($event)' id="{{idx}}" />
+          <div class=' ' **ngFor="{{images}}" wx:key="k" wx:for-index="idx">
+            <img src='{{uploadpath}}pingjia/{{item}}' class='imgbg' (click)='minusImg($event)' id="{{idx}}" />
           </div>
   
-          <div class='addimg' bindtap='uploadimg($event)'>
+          <div class='addimg' (click)='uploadimg($event)'>
             <img src='{{uploadpath}}resource/{{res.jiatu}}' class='icon56' />
           </div>
   
@@ -111,52 +111,52 @@
         <div class='flex-row flex-center margin-top-40'>
           <div class=' txt-black flex-1 h5'>综合评分</div>
   
-          <div **ngIf===='{{jgpingfen==0}}'>
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==0'>
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
-          <div **ngIf===='{{jgpingfen==1}}'>
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==1'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
-          <div **ngIf===='{{jgpingfen==2}}'>
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==2'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
-          <div **ngIf===='{{jgpingfen==3}}'>
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==3'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
-          <div **ngIf===='{{jgpingfen==4}}'>
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==4'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
-          <div **ngIf===='{{jgpingfen==5}}'>
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='1' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='2' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='3' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='4' />
-            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' bindtap='bindjgpingfen($event)' id='5' />
+          <div *ngIf='jgpingfen==5'>
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='1' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='2' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='3' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='4' />
+            <img src='{{uploadpath}}resource/{{res.star}}' class='icon margin-10' (click)='bindjgpingfen($event)' id='5' />
           </div>
   
   
@@ -170,13 +170,13 @@
   
     <div class='submit flex-row bg-white'>
   
-      <div class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check($event)' data-ck='nm' **ngIf===='{{check==true}}'>
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='check($event)' data-ck='nm' *ngIf='check==true'>
         <img src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon' />
   
         <div class='txt-black h6 margin-left-10'>匿名评价</div>
       </div>
   
-      <div class='bg-white flex-row flex-center flex-1 padding-left-28' bindtap='check($event)' data-ck='bnm' **ngIf===='{{check==false}}'>
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='check($event)' data-ck='bnm' *ngIf='check==false'>
   
         <img src='{{uploadpath}}resource/{{res.weixuan}}' class='icon' />
   

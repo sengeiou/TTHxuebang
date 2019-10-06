@@ -13,18 +13,18 @@
 
 <!--pages/teacher/teacher.wxml-->
 <div class=' to_top'  hidden='{{!floorstatus}}' >
-    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
    </div>
    
-   <div class='bg-white margin-bottom-20 qqq' style='' **ngFor===='{{vteach}}' wx:key='k' **ngIf===='{{teachlist.length>0&&item.id!=null}}'>
+   <div class='bg-white margin-bottom-20 qqq' style='' **ngFor='{{vteach}}' wx:key='k' *ngIf='teachlist.length>0&&item.id!=null'>
    
-     <div **ngIf===="{{item.play=='Y'}}">
-       <video bindtap='play($event)'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
+     <div *ngIf="item.play=='Y'">
+       <video (click)='play($event)'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
          <cover-view class='title txt-white  txt-bold'>{{item.title}}</cover-view>
        </video>
      </div>
      <div wx:else>
-       <div bindtap="play($event)"  id='c_{{item.id}}'>
+       <div (click)="play($event)"  id='c_{{item.id}}'>
        <img  class='pos h400' style='width:100vw; background:black;' lazy-load='{{true}}'  src='{{uploadpath}}famousteacher/{{item.fm_bg}}'>
        </image>
        <div class="sp1">
@@ -39,13 +39,13 @@
          <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
          <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
        </div>
-       <div bindtap='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
+       <div (click)='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
 
      </div>
    </div>
    
    
-   <div **ngIf===="{{nomore!=1&&teachlist.length>0&&item.id!=null}}" class='h1'>
+   <div *ngIf="nomore!=1&&teachlist.length>0&&item.id!=null" class='h1'>
    <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
    </div>
    

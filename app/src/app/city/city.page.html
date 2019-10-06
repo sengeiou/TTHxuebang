@@ -31,7 +31,7 @@
       <div *ngFor="let item of usecitylist;let idx=index;" >
         <div  *ngIf="item.city_name!=''" style='' class='block flex-row flex-column  radius-10'>
             <div class='flex-row  flex-center'  (click)='setCity($event)' id='{{item.city_id}}' >
-                <img src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' **ngIf==="{{idx==0}}" />
+                <img src='{{uploadpath}}resource/{{res.zuobiao}}' class='icon-15' *ngIf="idx==0" />
                 <div class='h5 txt-black margin-left-5'>{{item.city_name}}</div>
               </div>
         </div>

@@ -14,7 +14,7 @@
 <!--pages/shopmall/shopmall.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop($event)' />
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
 </div>
 <view>
   <div class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jifen_bg}});background-size:100% 100%;'>
@@ -22,7 +22,7 @@
 
     <div class="flex-row flex-center">
       <div class="flex-1"></div>
-      <img class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset($event)" />
+      <img class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' (click)="showtoset($event)" />
     </div>
 
     <div class='flex-row '>
@@ -38,7 +38,7 @@
 
     <div class='flex-row margin-left-66 margin-top-32'>
 
-      <div class='sz flex-row _center' bindtap="toshouzhi($event)">
+      <div class='sz flex-row _center' (click)="toshouzhi($event)">
         <div class='flex-row'>
           <view>
             <img class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}' />
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class='sz flex-row _center margin-left-46' bindtap="toorder($event)">
+      <div class='sz flex-row _center margin-left-46' (click)="toorder($event)">
         <view>
           <img class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}' />
         </div>
@@ -60,8 +60,8 @@
 
 
   <div class='flex-row flex-wrap'>
-    <div **ngFor===='{{list}}' wx:key='k'>
-      <div class='hezi' bindtap="todetails($event)" id="{{item.id}}">
+    <div **ngFor='{{list}}' wx:key='k'>
+      <div class='hezi' (click)="todetails($event)" id="{{item.id}}">
         <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
 
         <div class="padding">
