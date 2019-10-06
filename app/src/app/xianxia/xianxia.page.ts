@@ -6,12 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { HuodonApi } from 'src/providers/huodon.api';
 
 @Component({
   selector: 'app-xianxia',
   templateUrl: './xianxia.page.html',
   styleUrls: ['./xianxia.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,HuodonApi]
 })
 export class XianxiaPage  extends AppBase {
 
@@ -22,7 +23,9 @@ export class XianxiaPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public huodonApi:HuodonApi
+    ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
@@ -32,20 +35,13 @@ export class XianxiaPage  extends AppBase {
     //参数
     this.params;
   }
- 
+  huodonlist=[];
   onMyShow() {
     var that = this;
-    var huodonapi = new HuodonApi();
+    var huodonapi =this.huodonApi;
     huodonapi.huodonlist({}).then( (huodonlist) => {
-      this.Base.setMyData({ huodonlist });
-
+      this.huodonlist=huodonlist;
     })
-
-    console.log("牛逼了");
-
-
-
-
   }
 
   listclick(e){

@@ -151,7 +151,7 @@
               <div class="margin-left-10 flex-1">{{item.commander_id_name}}</div>
               <view>
                 <div class="h6 text-center">还差
-                  <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</div>
+                  <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
                 <div class="h7 text-center">剩余{{sjlist[idx][1]
                   <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
                 </div>
@@ -334,9 +334,9 @@
         <div *ngIf="(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)" class=' flex-4 flex-row flex-center  buy padding-15' (click)='bindtopurchase()'>
           <div class="flex-1"></div>
           <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h4'>
-            <text class="txt-white">￥</text>{{courseinfo.price}}</div>
+            <p class="txt-white">￥</p>{{courseinfo.price}}</div>
           <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h4'>
-            <text class="txt-white">￥</text>{{courseinfo.expeprice}}</div>
+            <p class="txt-white">￥</p>{{courseinfo.expeprice}}</div>
 
 
 
@@ -528,7 +528,7 @@
           <img src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30' />
           <div class="margin-left-20">
             <div class="h6 text-center">还差
-              <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</div>
+              <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
             <div class="h7 text-center">剩余{{sjlist[idx][1]
               <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
             </div>

@@ -29,9 +29,9 @@ export class AppBase implements OnInit, OnDestroy {
     static lastlng = 0;
     static lastdistance = 0;
     static lastaddress = {
-        address: { ad_info: { adcode: "", city: "" } }
+        address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
     };
-    address: { ad_info: { adcode: "", city: "" } }
+    address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
     citycode = 0;
     lastdistance = 0;
 
@@ -53,8 +53,8 @@ export class AppBase implements OnInit, OnDestroy {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = {kefuerweima:"",xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = {mobile:"",  id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "", citylist: [] };
+    public InstInfo = { kefuerweima: "", xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = {tuiguanshouyi:0, mobile: "", id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "", citylist: [] };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -62,7 +62,7 @@ export class AppBase implements OnInit, OnDestroy {
 
     public formdata = null;
 
-    public static jump=true;
+    public static jump = true;
 
     public keyt = "MemberInfo99";
     public stat = "stat9";
@@ -504,23 +504,34 @@ export class AppBase implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.onUnload();
     }
-
-    navigateTo(obj){
-        var url=obj.url.toString();
-        var pagename=url.split("/")[1];
-        var json=null;
-        json={};
-        if(url.indexOf("?")>0){
-            let vk=url.substr(url.indexOf("?")+1);
-            let vk2=vk.split("&");
-            for(let vk2 of vk){
-                var vk3=vk2.split("=");
-                json[vk3[0]]=vk3[1];
+    redirectTo(obj){
+        this.navigateTo(obj);
+    }
+    navigateTo(obj) {
+        var url = obj.url.toString();
+        var pagename = url.split("/")[1];
+        var json = null;
+        json = {};
+        if (url.indexOf("?") > 0) {
+            let vk = url.substr(url.indexOf("?") + 1);
+            let vk2 = vk.split("&");
+            for (let vk2 of vk) {
+                var vk3 = vk2.split("=");
+                json[vk3[0]] = vk3[1];
             }
         }
-        this.navigate(pagename,json);
+        this.navigate(pagename, json);
     }
-    navigateBack(obj=undefined){
+    navigateBack(obj = undefined) {
         this.back();
+    }
+    showToast(obj){
+        this.toast(obj.title);
+    }
+    download(url){
+        window.open(url);
+    }
+    reLaunch(obj){
+        window.location.href=obj.url;
     }
 }

@@ -32,8 +32,9 @@ export class XitonPage  extends AppBase {
     //参数
     this.params;
   }
+  xiaoxi="";
   onMyShow() {
     var that = this;
-    this.Base.setMyData({xiaoxi:this.params.id});
+    this.xiaoxi=this.params.id;
   }
 }

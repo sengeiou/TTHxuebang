@@ -1,19 +1,21 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { TeacherApi } from 'src/providers/teacher.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-teacher',
   templateUrl: './teacher.page.html',
   styleUrls: ['./teacher.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi, TeacherApi, JigouApi]
 })
-export class TeacherPage  extends AppBase {
+export class TeacherPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,37 +24,35 @@ export class TeacherPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi,
+    public teacherApi: TeacherApi,
+    public jigouApi: JigouApi
+  ) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
-  }
 
-  onMyLoad(){
+  }
+  vteach = [];
+  teachlist = [];
+  onMyLoad() {
     //参数
     this.params;
-    this.Base.setMyData({
-      vteach: []
-    });
-    
   }
-  onMyShow(){
-    var teacherapi = new TeacherApi();
+  onMyShow() {
+    var teacherapi = this.teacherApi;
     teacherapi.teachlist({
       status: "A",
       orderby: 'r_main.seq'
-    }).then( (teachlist) => {
+    }).then((teachlist) => {
       var vteach = [];
       vteach.push(teachlist[0]);
       vteach.push(teachlist[1]);
       vteach.push(teachlist[2]);
-      this.Base.setMyData({
-        teachlist,
-        vteach
-      });
+      this.teachlist = teachlist;
+      this.vteach = vteach;
     });
   }
-
+  nomore = 0;
 
   onReachBottom() {
     console.log("???kk");
@@ -66,23 +66,18 @@ export class TeacherPage  extends AppBase {
         break;
       }
     }
-    
+
     if (count == 0) {
 
-      wx.showToast({
+      this.showToast({
         title: '已经没有了',
-        icon:'none'
+        icon: 'none'
       });
-      this.Base.setMyData({
-        nomore: 1,
-      });
-    }else{
+      this.nomore = 1;
+    } else {
       setTimeout(() => {
-        console.log("llll");
-        this.Base.setMyData({
-          vteach
-        });
-      }, 1000);
+        this.vteach = vteach;
+      }, 500);
     }
   }
 
@@ -92,7 +87,7 @@ export class TeacherPage  extends AppBase {
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-
+  show = 0;
   fav(e) {
     var that = this;
 
@@ -110,104 +105,62 @@ export class TeacherPage  extends AppBase {
     }
 
     if (status == "N") {
-      this.Base.setMyData({
-        show: 1
-      });
+      this.show = 1;
     }
     if (status == "Y") {
-      this.Base.setMyData({
-        show: 2
-      });
+      this.show = 2;
     }
     var totop = this.res.totop;
     console.log(totop);
-    //return;
-    // wx.showToast({
-    //   title: '收藏成功',
-    //   icon: 'none'
-    //   //image: "http://applinkupload.oss-cn-shenzhen.aliyuncs.com/alucard263096/tthxb/resource/766e8ff191a9ac7409e308f3c203e824_19040417026.png"
-    // })
     var jigouapi = this.jigouApi;;
     jigouapi.videofav({
       video_id: id,
       status
-    }).then( (ret) => {
-      //this.showAlert(ret.result);
-
-      this.Base.setMyData({
-        vteach:teachlist
-      });
-
+    }).then((ret) => {
+      this.vteach = teachlist;
     });
 
 
     setTimeout(() => {
-      this.Base.setMyData({
-        show: 0
-      })
+      this.show = 0;
       // clearTimeout(timeoutId);
     }, 1000);
 
 
   }
+  nowplaying_id = 0;
   play(e) {
-	  var that=this;
+    var that = this;
     var id = e.target.id;
-    id=id.split("_");
+    id = id.split("_");
     id = id[1];
     console.log("bindplay");
     console.log(id);
     var teachlist = this.vteach;
-    var nowplaying_id=this.nowplaying_id;
+    var nowplaying_id = this.nowplaying_id;
+    var videoContext = null;
     for (var i = 0; i < teachlist.length; i++) {
       if (id != teachlist[i].id) {
-        try{
-          
-          var videoContext = wx.createVideoContext("v_" + teachlist[i].id);
+        try {
+
+          videoContext = document.querySelector("#v_" + teachlist[i].id);
           videoContext.pause();
-        }catch(ex){
+        } catch (ex) {
 
         }
-      }else{
-        teachlist[i].play="Y";
-        this.Base.setMyData({ vteach: teachlist });
-        console.log("play");
-        console.log(id);
-        var videoContext = wx.createVideoContext("v_" + id);
-        if (nowplaying_id==id){
-			
+      } else {
+        teachlist[i].play = "Y";
+        this.vteach = teachlist;
+        videoContext = document.querySelector("#v_" + id);
+        if (nowplaying_id == id) {
           videoContext.pause();
-		  that.Base.setMyData({nowplaying_id:0});
-        }else{
+          this.nowplaying_id = 0;
+        } else {
 
           videoContext.play();
-		  that.Base.setMyData({nowplaying_id:id});
+          this.nowplaying_id = id;
         }
       }
-    }
-  }
-  onPageScroll(e) {
-    console.log(e)
-    //this.Base.setMyData({ scrolltop: e.scrollTop})
-    if (e.scrollTop > 100) {
-      this.setData({
-        floorstatus: true
-      });
-    }
-    if (e.scrollTop > 520) {
-      this.setData({
-        sco: 1
-      });
-    }
-    if (e.scrollTop <= 520) {
-      this.setData({
-        sco: 2
-      });
-    }
-    if (e.scrollTop <= 100) {
-      this.setData({
-        floorstatus: false
-      });
     }
   }
 }

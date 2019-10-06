@@ -28,6 +28,9 @@ export class AppUtil {
         return s;
     }
 
+    public static zhenze(str) {
+        return (str.length == 11 && str[0] == "1")
+    }
 
     public static FormatDateTime(date) {
         console.log("FormatDateTime" + date);
@@ -243,31 +246,31 @@ export class AppUtil {
 
     static Updatetime(str) {
         var timestamp = Date.parse(str);
-    
+
         //返回当前时间毫秒数
         timestamp = timestamp / 1000;
         //获取当前时间
         var n = timestamp *
-          1000;
+            1000;
         console.log(n, "啊啊啊")
-    
+
         var date = new Date(n);
-    
-    
-        console.log(date,"啊啊")
+
+
+        console.log(date, "啊啊")
         //年
         var Y =
-          date.getFullYear();
-          
+            date.getFullYear();
+
         //月
         var M = date.getMonth()
-          + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+            + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
         //日
         var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    
+
         return (Y + "年" + M + "月" + D + "日")
-      }
+    }
 
 
-      
+
 }

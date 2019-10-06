@@ -50,14 +50,14 @@
           <div class='h6 txt-black margin-left-5'>{{courseinfo.age_name}}</div>
         </div>
 
-        <div style='width:20rpx;'></div>
+        <div class='w20'></div>
 
         <div class='flex-row flex-center '>
           <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
           <div class='h6 txt-black margin-left-5'>{{courseinfo.class_hours}}节课</div>
         </div>
 
-        <div style='width:20rpx;'></div>
+        <div class='w20'></div>
 
 
         <div class='flex-row flex-center '>
@@ -91,13 +91,11 @@
 
 
     <div class="height-20"></div>
-    <!-- <textarea class='txt-black h5' maxlength='-1' placeholder='添加备注...' style='width:100%;max-height:160rpx;' value='{{usercomment}}' name='usercomment' bindinput='changeUsercomment'>
-      </textarea> -->
 
-    <div bindtap="xueyuan" class='flex-row flex-center   padding-20  ' style="padding-bottom:30rpx;">
+    <div bindtap="xueyuan" class='flex-row flex-center   padding-20  pb30' style="">
       <div class='h5 txt-black '>学员</div>
-      <div **ngIf="{{xuanzexueyuan==''}}" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
-      <div **ngIf="{{xuanzexueyuan!=''}}" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
+      <div **ngIf===="{{xuanzexueyuan==''}}" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
+      <div **ngIf===="{{xuanzexueyuan!=''}}" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
       <div class="flex-1"></div>
       <img src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 ' />
 
@@ -105,21 +103,10 @@
 
 
 
-    <!-- <div class='flex-row flex-center  padding-20 '>
-        <div class='h5 txt-black '>电话：</div>
-        <input class='radius-10  margin-left-10 txt-black' value='{{mobile}}' style='' name='phone' bindinput='changephone' />
-         <button bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber' class='phone_btn h6 txt-white'>获取手机</button>
-      </div> -->
-
-    <!-- <button bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button> -->
-
-
-
-
   </div>
 
   <div style="width:100%;color:#999999" class="text-center h6 margin-top">您将购买的课程，购买后不支持退订、转让、退换。</div>
-  <div style='height:120rpx;'></div>
+  <div class="h120"></div>
 </div>
 
 <div class='fixedbottom'>
@@ -127,34 +114,34 @@
   <div class='flex-row flex-center bg-white ' style='border-top:1px solid #e5e5e5'>
     <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{courseinfo.price}}</div>
     <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center' style='width:276rpx;' bindtap='bindtoorder'>提交订单</div>
+    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' bindtap='bindtoorder'>提交订单</div>
   </div>
 
 </div>
 
 
 
-<div class="modal-mask" bindtap="hideModal" **ngIf="{{isxueyuan}}" catchtouchmove="preventTouchMove"></div>
-<div class="modal-dialog" **ngIf="{{isxueyuan}}">
+<div class="modal-mask" bindtap="hideModal" **ngIf===="{{isxueyuan}}" catchtouchmove="preventTouchMove"></div>
+<div class="modal-dialog" **ngIf===="{{isxueyuan}}">
   <div class="padding-20 margin-left-20 flex-row flex-center">
     <div class="flex-1"></div>
     <div class="h5 txt-bold " style="color:#222222">选择学员</div>
     <div class="flex-1"></div>
     <div bindtap="hideModal" class='h5' style="color:#AAAAAA">x</div>
   </div>
-  <div **ngFor="{{xueyuanlist}}" wx:for-index='idx' data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" bindtap="xuanze">
+  <div **ngFor===="{{xueyuanlist}}" wx:for-index='idx' data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" bindtap="xuanze">
     <div class="flex-row flex-center padding-40">
-      <img **ngIf="{{xuanzexueyuan.id!=item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
-      <img **ngIf="{{xuanzexueyuan.id==item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />
-      <img **ngIf="{{item.sex=='nv'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
+      <img **ngIf===="{{xuanzexueyuan.id!=item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
+      <img **ngIf===="{{xuanzexueyuan.id==item.id}}" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />
+      <img **ngIf===="{{item.sex=='nv'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
 
-      <img **ngIf="{{item.sex=='nan'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
+      <img **ngIf===="{{item.sex=='nan'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
 
       <div class="margin-left-20">
         <div class="flex-row flex-center">
           <div class="f15 txt-bold">{{item.name}}</div>
-          <div **ngIf="{{item.sex=='nan'}}" class="nande">{{item.sui}}岁</div>
-          <div **ngIf="{{item.sex=='nv'}}" class="nvde">{{item.sui}}岁</div>
+          <div **ngIf===="{{item.sex=='nan'}}" class="nande">{{item.sui}}岁</div>
+          <div **ngIf===="{{item.sex=='nv'}}" class="nvde">{{item.sui}}岁</div>
         </div>
         <div class="h6 margin-top-20" style="color:#999999">{{item.shouji}}</div>
       </div>

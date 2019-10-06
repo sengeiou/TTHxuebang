@@ -1,19 +1,20 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { ApiConfig } from '../api.config';
 
 @Component({
   selector: 'app-yaoqinhaibao',
   templateUrl: './yaoqinhaibao.page.html',
   styleUrls: ['./yaoqinhaibao.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi]
 })
-export class YaoqinhaibaoPage  extends AppBase {
+export class YaoqinhaibaoPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,23 +23,26 @@ export class YaoqinhaibaoPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+
   }
 
-  onMyLoad(){
+  onMyLoad() {
     //参数
     this.params;
   }
+  lujin = "";
+  erweima = "";
   onMyShow() {
     var that = this;
     if (this.params.id != undefined) {
       var yaoqinren = this.params.id;
       if (yaoqinren != this.MemberInfo.id) {
-        wx.reLaunch({
-          url: '/pages/home/home?id=' + yaoqinren,
+
+        this.reLaunch({
+          url: '/tabs/home/home?id=' + yaoqinren,
         })
         return
       }
@@ -46,23 +50,22 @@ export class YaoqinhaibaoPage  extends AppBase {
     }
 
 
-
-    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
-    this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+ "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.MemberInfo.id })
+    this.lujin = ApiConfig.getUploadPath() + this.options.name;
+    this.erweima = ApiConfig.getApiUrl() + "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.MemberInfo.id;
   }
   baocun() {
     this.download(this.lujin);
   }
-  onShareAppMessage(e) {
-    return {
+  // onShareAppMessage(e) {
+  //   return {
 
-      title: this.InstInfo.zhuanfatishi,
+  //     title: this.InstInfo.zhuanfatishi,
 
-      desc: '分享页面的内容',
+  //     desc: '分享页面的内容',
 
-      path: '/pages/home/home?id=' + this.MemberInfo.id
+  //     path: '/pages/home/home?id=' + this.MemberInfo.id
 
-    }
+  //   }
 
-  }
+  // }
 }

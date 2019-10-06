@@ -12,21 +12,21 @@
     <ion-content >
 
         <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-        <div **ngIf="{{tishi1}}" class="padding-20 flex-row flex-center jingao">
+        <div **ngIf===="{{tishi1}}" class="padding-20 flex-row flex-center jingao">
           <div class="flex-1"></div>
           <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
           <div class="h6 margin-left-10">不能超过可提现金额 5000元</div>
           <div class="flex-1"></div>
         </div>
         
-        <div **ngIf="{{tishi2}}" class="padding-20 flex-row flex-center jingao">
+        <div **ngIf===="{{tishi2}}" class="padding-20 flex-row flex-center jingao">
           <div class="flex-1"></div>
           <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
           <div class="h6 margin-left-10">提现金额不能为空</div>
           <div class="flex-1"></div>
         </div>
         
-        <div **ngIf="{{tishi3}}" class="padding-20 flex-row flex-center jingao">
+        <div **ngIf===="{{tishi3}}" class="padding-20 flex-row flex-center jingao">
           <div class="flex-1"></div>
           <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
           <div class="h6 margin-left-10">提现金额不能大于余额</div>
@@ -58,17 +58,10 @@
         <div class="flex-row flex-center margin-top-10">
           <div class="flex-1"></div>
           <div bindtap='mingxi' class="h6" style='color:rgba(88, 157, 233, 1)'>收支明细</div>
-          <img style='width:10rpx;heigth:10rpx' class=" margin-left-10" mode='widthFix' src='{{uploadpath}}resource/{{res.right_icon}}' />
+          <img style='' class=" margin-left-10 sp1" mode='widthFix' src='{{uploadpath}}resource/{{res.right_icon}}' />
           <div class="flex-1"></div>
         </div>
         
         
-        <!-- <div class="padding-40">
-          <div class="h6" style="color:#999999;line-height:42rpx">提现说明:</div>
-          <div **ngFor="{{problemlist}}" wx:key='k' class="h6" style="color:#999999;line-height:42rpx">{{item.seq}}.{{item.content}}</div>
-        
-        
-        </div> -->
-
 
     </ion-content>

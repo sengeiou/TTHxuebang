@@ -6,12 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JifenApi } from 'src/providers/jifen.api';
 
 @Component({
   selector: 'app-yiduihuang',
   templateUrl: './yiduihuang.page.html',
   styleUrls: ['./yiduihuang.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,JifenApi]
 })
 export class YiduihuangPage  extends AppBase {
 
@@ -22,7 +23,9 @@ export class YiduihuangPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jifenApi:JifenApi
+    ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
@@ -32,17 +35,13 @@ export class YiduihuangPage  extends AppBase {
     //参数
     this.params;
   }
+  info;
   onMyShow() {
     var that = this;
     var jifenapi = this.jifenApi;;
     jifenapi.commodityinfo({ id: this.params.shopid }).then( (info) => {
-      this.Base.setMyData({ info })
+      this.info=info;
     })
-  }
-  back(e){
-   this.navigateBack({
-    delta:2
-   })
   }
   order(e){
     this.navigateTo({

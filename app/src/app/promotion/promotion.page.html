@@ -16,9 +16,9 @@
         <div class="padding-30 padding-bottom-20 flex-row flex-center">
           <img class='member_icon' src='{{MemberInfo.avatarUrl}}' />
           <div class='margin-left-10 chaochu' >{{MemberInfo.nickName}}</div>
-          <div **ngIf="{{!showModal&&tuiguaninfo[0].status=='S'}}" class="label">学榜大使</div>
+          <div **ngIf===="{{!showModal&&tuiguaninfo[0].status=='S'}}" class="label">学榜大使</div>
           <div class="flex-1"></div>
-          <div class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</div>
+          <div class="h5 w150" style='color:#666666'  bindtap='tuiguanguize'>推广规则</div>
         </div>
         
         
@@ -28,7 +28,7 @@
           <div class="content_bg ">
             <div class="padding-40">
               <div class="h5" style='color:rgba(161, 111, 47, 1)'>累计金币收益</div>
-              <div style="height:70rpx" class="flex-row flex-bottom margin-top-20">
+              <div style="" class="flex-row flex-bottom margin-top-20 h70">
              
                     
                     
@@ -94,8 +94,8 @@
         
         </div>
         
-        <div class="modal-mask" bindtap="hideModal" **ngIf="{{showModal}}" catchtouchmove="preventTouchMove"></div>
-        <div class="modal-dialog" **ngIf="{{showModal}}">
+        <div class="modal-mask" bindtap="hideModal" **ngIf===="{{showModal}}" catchtouchmove="preventTouchMove"></div>
+        <div class="modal-dialog" **ngIf===="{{showModal}}">
           <div class="padding-20 margin-left-20">填写信息申请成为推广员</div>
         
           <div class="padding-20 flex-row flex-center">
@@ -111,10 +111,10 @@
           <div class="padding-20 flex-row flex-center">
             <div style='color:rgba(255, 82, 82, 1)'>*</div>
             <div class="margin-left-5 jl">验证码:</div>
-            <input  style="width:300rpx" value='{{yanzhenma}}'maxlength="4" bindinput='yanzhenma' placeholder="输入验证码" placeholder-class="ysl" />
-            <div **ngIf="{{shijian==0}}" bindtap="fason" class="yz_btm">获取验证码</div>
+            <input  class="w300" value='{{yanzhenma}}'maxlength="4" bindinput='yanzhenma' placeholder="输入验证码" placeholder-class="ysl" />
+            <div **ngIf===="{{shijian==0}}" bindtap="fason" class="yz_btm">获取验证码</div>
             
-            <div class="h5" **ngIf="{{shijian>0}}" >{{shijian}}秒后重新发送</div>
+            <div class="h5" **ngIf===="{{shijian>0}}" >{{shijian}}秒后重新发送</div>
         
         
           </div>

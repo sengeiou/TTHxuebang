@@ -1,19 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JifenApi } from 'src/providers/jifen.api';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-shopmalldetail',
   templateUrl: './shopmalldetail.page.html',
   styleUrls: ['./shopmalldetail.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi, JifenApi]
 })
-export class ShopmalldetailPage  extends AppBase {
+export class ShopmalldetailPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,24 +25,27 @@ export class ShopmalldetailPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi,
+    public jifenApi: JifenApi
+  ) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+    this.info = {};
   }
 
-  onMyLoad(){
+  show = 0;
+  shuliang = 1;
+  sl = 1;
+  info = null;
+  onMyLoad() {
     //参数
     this.params;
-    this.Base.setMyData({
-      show: 0,shuliang:1,sl:1
-    });
   }
   onMyShow() {
     var that = this;
     var jifenapi = this.jifenApi;;
-    jifenapi.commodityinfo({id:this.params.id}).then( (info) => {
-      this.Base.setMyData({ info })
+    jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
+      this.info = info;
     })
 
   }
@@ -48,41 +54,29 @@ export class ShopmalldetailPage  extends AppBase {
       url: '/pages/jifenshouzhi/jifenshouzhi'
     })
   }
-
-jia(e){
-  var shuliang=this.shuliang;
-  shuliang++
-  this.Base.setMyData({ shuliang})
-}
-jian(e){
-  var shuliang = this.shuliang;
-  shuliang--
-  if (shuliang<=0){
-    wx.showToast({
-      title: '至少兑换一个',
-      icon: 'none',
-    })
-    return;
-
+  jia(e) {
+    var shuliang = this.shuliang;
+    shuliang++
+    this.shuliang = shuliang;
   }
-  this.Base.setMyData({ shuliang })
-}
+  jian(e) {
+    var shuliang = this.shuliang;
+    shuliang--
+    if (shuliang <= 0) {
+      this.toast("至少兑换一个");
+      return;
+    }
+    this.shuliang = shuliang;
+  }
 
   toduihuan(e) {
-    
-    this.Base.setMyData({
-      show: 1
-    })
-    //return;
-    
+    this.show = 1;
 
   }
   close(e) {
-    this.Base.setMyData({
-      show: 0
-    })
+    this.show = 0;
   }
-  next(e){
+  next(e) {
     var inventory = e.target.id;
     var interral = e.target.dataset.jifen;
     var shuliang = this.shuliang;
@@ -91,11 +85,8 @@ jian(e){
     console.log(inventory - 1 + "库存");
     console.log(interral + "积分");
     //return;
-    if (inventory <= 0 || inventory < shuliang){
-      wx.showToast({
-        title: '库存不足，无法兑换',
-        icon:'none'
-      })
+    if (inventory <= 0 || inventory < shuliang) {
+      this.toast("库存不足，无法兑换");
       return;
     }
 

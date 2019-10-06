@@ -1,19 +1,22 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { PurchaseApi } from 'src/providers/purchase.api';
+import { WechatApi } from 'src/providers/wechat.api';
+import { BatchApi } from 'src/providers/batch.api';
 
 @Component({
   selector: 'app-tuikuan',
   templateUrl: './tuikuan.page.html',
   styleUrls: ['./tuikuan.page.scss'],
-  providers:[MemberApi]
+  providers: [MemberApi, PurchaseApi, WechatApi, BatchApi]
 })
-export class TuikuanPage  extends AppBase {
+export class TuikuanPage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,71 +25,58 @@ export class TuikuanPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi,
+    public purchaseApi: PurchaseApi,
+    public wechatApi: WechatApi,
+    public batchApi: BatchApi
+  ) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
+
   }
 
-  onMyLoad(){
+  show = "all";
+  wclist = [];
+  dflist = [];
+  onMyLoad() {
     //参数
     this.params;
-    this.Base.setMyData({
-      show: "all",
-      wclist: [],
-      dflist: []
-    })
     var type = this.params.type;
     console.log("那真的牛批" + type);
     if (type != undefined) {
+      var show = "";
       if (type == 'ygm') {
-        var show = 'wc';
+        show = 'wc';
       }
       if (type == 'dfk') {
-        var show = 'wait'
+        show = 'wait'
       }
       if (type == 'dsh') {
-        var show = 'dsh';
+        show = 'dsh';
       }
       if (type == 'dpj') {
-        var show = 'dpj';
+        show = 'dpj';
       }
       console.log("那真的牛批");
-      this.Base.setMyData({
-        show: show
-      })
+      this.show = show;
     }
-
-
   }
-  // kechenxianqin(e) {
-  //   console.log(e);
-  //   this.navigateTo({
-  //     url: '/pages/ketangdetails/ketangdetails?id=' + e.target.dataset.id,
-  //   })
-
-  // }
 
   onMyShow() {
     var that = this;
     var api = this.purchaseApi;;
 
     api.purchaselist({
-      sppp: 1, pstatus:'R,F'
-    }).then( (wclist) => {
-
-      this.Base.setMyData({
-        wclist
-      });
+      sppp: 1, pstatus: 'R,F'
+    }).then((wclist) => {
+      this.wclist = wclist;
     });
 
- 
+
     api.purchaselist({
       pstatus: 'W'
-    }).then( (dflist) => {
-      this.Base.setMyData({
-        dflist
-      });
+    }).then((dflist) => {
+      this.dflist = dflist;
     });
 
   }
@@ -95,42 +85,33 @@ export class TuikuanPage  extends AppBase {
     var type = e.target.dataset.type;
     console.log(type);
     if (type == "all") {
-      this.Base.setMyData({
-        show: "all"
-      })
+      this.show = "all";
     }
     if (type == "wc") {
-      this.Base.setMyData({
-        show: "wc"
-      })
+      this.show = "wc";
     }
     if (type == "df") {
-      this.Base.setMyData({
-        show: "wait"
-      })
+      this.show = "wait";
     }
     if (type == "dsh") {
-      this.Base.setMyData({
-        show: "dsh"
-      })
+      this.show = "dsh";
     }
     if (type == "dpj") {
-      this.Base.setMyData({
-        show: "dpj"
-      })
+      this.show = "dpj";
     }
   }
 
   bindpay(e) {
     var that = this;
     var id = e.target.id;
-    var wechatapi = new WechatApi();
-    wechatapi.prepay({ id: id }).then( (payret) => {
+    var wechatapi = this.wechatApi;
+    wechatapi.prepay({ id: id }).then((payret) => {
       payret.complete = function (e) {
         that.onMyShow();
       }
       console.log(payret);
-      wx.requestPayment(payret)
+      //todo
+      //wx.requestPayment(payret)
     });
   }
   toorder(e) {
@@ -144,24 +125,14 @@ export class TuikuanPage  extends AppBase {
     var that = this;
     var id = e.target.id;
 
-    wx.showModal({
-      title: '',
-      content: '确认取消订单？',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#EE2222',
-      confirmText: '确定',
-      confirmColor: '#2699EC',
-      success: function (res) {
-        if (res.confirm) {
-          var batchapi = this.batchApi;;
-          batchapi.closeorder({ id: id }).then( (colseorder) => {
-            that.Base.setMyData({ colseorder })
-            that.onMyShow();
-          })
-        }
+    this.showConfirm("",(ret)=>{
+      if(ret){
+        var batchapi = this.batchApi;;
+        batchapi.closeorder({ id: id }).then((colseorder) => {
+          that.onMyShow();
+        })
       }
-    });
+    })
 
 
   }

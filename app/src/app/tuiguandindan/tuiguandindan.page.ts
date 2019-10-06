@@ -27,15 +27,10 @@ export class TuiguandindanPage  extends AppBase {
     this.headerscroptshow = 480;
       
   }
-
+  date="all";
   onMyLoad(){
     //参数
     this.params;
-    this.Base.setMyData({
-
-      date: "all",
-
-    })
   }
   jisuanchaoshi(a, b) {
     var date1 = new Date();
@@ -46,6 +41,8 @@ export class TuiguandindanPage  extends AppBase {
     return [days < b, b - days];
 
   }
+  quanbu=[];
+  xiaji=[];
   onMyShow() {
     var that = this;
     var quanbu = [];
@@ -62,24 +59,17 @@ export class TuiguandindanPage  extends AppBase {
         quanbu.push(xiaji[i]);
       }
       quanbu = this.zhuandindan(quanbu);
-      console.log("那真的牛批");
-      console.log(quanbu);
       for(let i=0;i<quanbu.length;i++)
       {
-        quanbu[i].jieshushijian = this.jisuanchaoshi(quanbu[i].pay_time, 0)[1]
-
+        quanbu[i].jieshushijian = this.jisuanchaoshi(quanbu[i].pay_time, 0)[1];
       }
-    
-      console.log("数据");
-      
-      this.Base.setMyData({ quanbu: quanbu,  xiaji: quanbu })
+      this.quanbu=quanbu;
+      this.xiaji=quanbu;
     })
   }
   zhuandindan(quanbu){
      var dindan=[];
-
      quanbu.map((item)=>{
-
      item.dindan.map((item1)=>{
        console.log(46546546);
        console.log(item1);
@@ -88,60 +78,47 @@ export class TuiguandindanPage  extends AppBase {
        })  
 
      })
-     console.log("嚯嚯嚯");
-     console.log(dindan);
     return dindan;
 
   }
+  show;
   bindshow(e) {
     var type = e.target.dataset.type;
-    this.Base.setMyData({ show: type })
+    this.show=type;
   }
   binddate(e,b) {
+    var type = "111";
     if (b == undefined) {
-      var type = e.target.dataset.val;
-
+      type = e.target.dataset.val;
     }
-    else {
-      var type = 111;
-    }
-    this.Base.setMyData({ date: type });
+    this.date=type;
     var xiaji = this.xiaji;
     var quanbu = [];
     var youxiao = [];
     var shixiao = [];
     if (type == '111') {
       quanbu = xiaji.filter(quanbu => quanbu.pay_time.substring(0, 10) == b);
-      this.Base.setMyData({ quanbu: quanbu });
- 
+      this.quanbu=quanbu;
     }
 
 
     if (type == 'all') {
       console.log(quanbu);
       quanbu = xiaji.filter(quanbu => quanbu);
-      this.Base.setMyData({ quanbu:quanbu });
-
-     
+      this.quanbu=quanbu;
     }
     if (type == "7days") {
-      console.log(xiaji);
       quanbu = xiaji.filter(quanbu => quanbu.jieshushijian >-6);
-      console.log('哈哈哈');
-      console.log(quanbu);
-      this.Base.setMyData({ quanbu: quanbu });
+      this.quanbu=quanbu;
      
     }
     if (type == "yesterday") {
-
-
       quanbu = xiaji.filter(item => item.jieshushijian ==1);
-
-      this.Base.setMyData({ quanbu: quanbu });
-     
+      this.quanbu=quanbu;
     }
 
   }
+  xssj="";
   bindDateChange(e) {
     console.log(e);
 
@@ -151,8 +128,6 @@ export class TuiguandindanPage  extends AppBase {
     var shijians = shijian.split("-");
     var xssj = (shijians[0] + '-' + shijians[1] + '-' + shijians[2]);
     this.binddate(1, xssj)
-    this.Base.setMyData({
-      xssj: xssj
-    })
+    this.xssj=xssj;
   }
 }
