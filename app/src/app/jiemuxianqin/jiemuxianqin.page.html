@@ -55,9 +55,9 @@
     <div class="txt-bold" style="color:#555555">图片展示</div>
 
     <div class="height-40"></div>
-    <img *ngIf="yulan!=0" (click)="viewPhoto($event)" id="{{uploadpath}}jiemutupian/{{item.tupian}}" class="jgtupian"
+    <img [class.hidden]="yulan==0" (click)="viewPhoto($event)" id="{{uploadpath}}jiemutupian/{{item.tupian}}" class="jgtupian"
       mode="widthFix" *ngFor="let item of jiemuinfo.tupian" src="{{uploadpath}}jiemutupian/{{item.tupian}}" />
-    <img *ngIf="yulan==0" (click)="viewPhoto($event)" id="{{uploadpath}}jiemutupian/{{item}}" class="jgtupian"
+    <img [class.hidden]="yulan!=0" (click)="viewPhoto($event)" id="{{uploadpath}}jiemutupian/{{item}}" class="jgtupian"
       mode="widthFix" *ngFor="let item of jiemuinfo.tupian" src="{{uploadpath}}jiemutupian/{{item}}" />
   </div>
 

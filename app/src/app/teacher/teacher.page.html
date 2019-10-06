@@ -1,53 +1,58 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
-<!--pages/teacher/teacher.wxml-->
-<div class=' to_top'  [class.hidden]='!floorstatus' >
+  <!--pages/teacher/teacher.wxml-->
+  <div class=' to_top'>
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
-   </div>
-   
-   <div class='bg-white margin-bottom-20 qqq' style='' *ngFor='let item of vteach' wx:key='k' *ngIf='teachlist.length>0&&item.id!=null'>
-   
-     <div *ngIf="item.play=='Y'">
-       <video (click)='play($event)'  class='pos h400' style='width:100vw; ' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill"  id='v_{{item.id}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
-         <div class='title txt-white  txt-bold'>{{item.title}}</div>
-       </video>
-     </div>
-     <div wx:else>
-       <div (click)="play($event)"  id='c_{{item.id}}'>
-       <img  class='pos h400' style='width:100vw; background:black;' lazy-load='{{true}}'  src='{{uploadpath}}famousteacher/{{item.fm_bg}}' />
-       <div class="sp1">
-       <img class="sp2" src='{{uploadpath}}resource/{{res.play}}' />
-       </div>
-       </div>
-     </div>
-   
-   
-     <div class='flex-row flex-center padding-30'>
-       <div class='bg-primary radius-30 org_block flex-row flex-center'>
-         <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
-         <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
-       </div>
-       <div (click)='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
+  </div>
 
-     </div>
-   </div>
-   
-   
-   <div *ngIf="nomore!=1&&teachlist.length>0&&item.id!=null" class='h1'>
-   <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
-   </div>
-   
-   
+  <div class='bg-white margin-bottom-20 qqq' style='' *ngFor='let item of vteach' wx:key='k'
+    [class.hidden]='!(teachlist.length>0&&item.id!=null)'>
 
-    </ion-content>
+    <div *ngIf="item.play=='Y'">
+      <video (click)='play($event)' class='pos h400' style='width:100vw; '
+        poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" id='v_{{item.id}}'
+        loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
+        <div class='title txt-white  txt-bold'>{{item.title}}</div>
+      </video>
+    </div>
+    <div wx:else>
+      <div (click)="play($event)" id='c_{{item.id}}'>
+        <img class='pos h400' style='width:100vw; background:black;' lazy-load='{{true}}'
+          src='{{uploadpath}}famousteacher/{{item.fm_bg}}' />
+        <div class="sp1">
+          <img class="sp2" src='{{uploadpath}}resource/{{res.play}}' />
+        </div>
+      </div>
+    </div>
+
+
+    <div class='flex-row flex-center padding-30'>
+      <div class='bg-primary radius-30 org_block flex-row flex-center'>
+        <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
+        <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
+      </div>
+      <div (click)='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9'
+        class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
+
+    </div>
+  </div>
+
+
+  <div *ngIf="nomore!=1&&teachlist.length>0" class='h1'>
+    <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
+  </div>
+
+
+
+</ion-content>

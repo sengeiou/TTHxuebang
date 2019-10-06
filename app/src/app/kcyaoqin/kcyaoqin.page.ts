@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,14 +31,14 @@ export class KcyaoqinPage extends AppBase {
       this.kcinfo={};
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   lujin="";
   erweima="";
   kcinfo=null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var api = this.jigouApi;
     var that = this;
     if (this.params.id != undefined) {
@@ -61,7 +61,7 @@ export class KcyaoqinPage extends AppBase {
       this.kcinfo=kcinfo;
     })
   }
-  baocun() {
+  baocun(e=undefined) {
     //todo
     //this.download(this.lujin);
   }

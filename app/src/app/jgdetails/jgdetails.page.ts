@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -58,7 +58,7 @@ export class JgdetailsPage extends AppBase {
   arr2=[];
   arr1=[];
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     this.arr5=this.getArray(5);
     this.arr4=this.getArray(4);
     this.arr3=this.getArray(3);
@@ -70,7 +70,7 @@ export class JgdetailsPage extends AppBase {
   }
   more = false;
   ketanglist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;
 

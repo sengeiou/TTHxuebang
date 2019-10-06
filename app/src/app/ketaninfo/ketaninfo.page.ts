@@ -33,7 +33,7 @@ export class KetaninfoPage extends AppBase {
 
   }
   kecheninfo=null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var api = this.puchaseApi;
     api.purchaseinfo({ id: this.params.id }).then((info) => {
       console.log(info);
@@ -42,7 +42,7 @@ export class KetaninfoPage extends AppBase {
     })
     var that = this;
   }
-  shipininfo() {
+  shipininfo(e=undefined) {
     this.navigate("ketangdetails",{id:this.kecheninfo.onlineclassroom_id})
 
   }

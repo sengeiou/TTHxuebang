@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -35,7 +35,7 @@ export class PintuanPage extends AppBase {
   show="all";
   wclist= [];
   dflist= [];
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     var type = this.params.type;
@@ -67,7 +67,7 @@ export class PintuanPage extends AppBase {
 
   }
   alllist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.purchaseApi;;
 

@@ -64,7 +64,7 @@ export class KetanPage extends AppBase {
     this.navigate("ketangdetails",{id})
   }
   alllist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.puchaseApi;
 

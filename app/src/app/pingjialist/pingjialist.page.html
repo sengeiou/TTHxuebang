@@ -38,26 +38,26 @@
 
         <div *ngIf='item.pingfen==1'>
           <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='4' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr4' />
         </div>
 
         <div *ngIf='item.pingfen==2'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
         </div>
 
         <div *ngIf='item.pingfen==3'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
         </div>
 
         <div *ngIf='item.pingfen==4'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='3' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='2' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr3' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr2' />
         </div>
 
         <div *ngIf='item.pingfen==5'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='4' />
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr4' />
           <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
         </div>
 

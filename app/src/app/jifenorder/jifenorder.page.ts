@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -42,7 +42,7 @@ export class JifenorderPage  extends AppBase {
   daifalist=[];
   daishoulist=[];
   wanchenlist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenapi;
     jifenapi.jifenorderlist({ }).then( (alllist) => {

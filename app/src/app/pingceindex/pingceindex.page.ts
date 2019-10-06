@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -30,7 +30,7 @@ export class PingceindexPage extends AppBase {
 
   }
   check=false;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
 
@@ -83,7 +83,7 @@ export class PingceindexPage extends AppBase {
   sy="0";
   mypingcelist=[];
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     this.count= 0;
@@ -125,7 +125,7 @@ export class PingceindexPage extends AppBase {
   }
 
 
-  drawProgressbg() {
+  drawProgressbg(e=undefined) {
     //todo
     // 使用 wx.createContext 获取绘图上下文 context
     // var ctx = wx.createCanvasContext('canvasProgressbg')
@@ -164,7 +164,7 @@ export class PingceindexPage extends AppBase {
     // context.draw()
   }
   data={count:0,count2:0,count3:0};
-  countInterval() {
+  countInterval(e=undefined) {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
     var pingceapi = this.pingceApi;
     pingceapi.indexinfo({
@@ -194,7 +194,7 @@ export class PingceindexPage extends AppBase {
     });
   }
 
-  drawProgressbg2() {
+  drawProgressbg2(e=undefined) {
     //todo
     // console.log("顶1");
     // // 使用 wx.createContext 获取绘图上下文 context
@@ -234,7 +234,7 @@ export class PingceindexPage extends AppBase {
     // context2.draw()
   }
 
-  countInterval2() {
+  countInterval2(e=undefined) {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
     var pingceapi = this.pingceApi;
     pingceapi.indexinfo({
@@ -265,7 +265,7 @@ export class PingceindexPage extends AppBase {
   }
 
 
-  drawProgressbg3() {
+  drawProgressbg3(e=undefined) {
     //todo
     // console.log("顶1");
     // // 使用 wx.createContext 获取绘图上下文 context
@@ -305,7 +305,7 @@ export class PingceindexPage extends AppBase {
     // context3.draw()
   }
   progress_txt="";
-  countInterval3() {
+  countInterval3(e=undefined) {
     // 设置倒计时 定时器 每100毫秒执行一次，计数器count+1 ,耗时6秒绘一圈
 
     var pingceapi = this.pingceApi;

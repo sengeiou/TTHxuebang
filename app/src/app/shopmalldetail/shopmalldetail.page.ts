@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -7,8 +7,6 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { JifenApi } from 'src/providers/jifen.api';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-shopmalldetail',
@@ -37,11 +35,11 @@ export class ShopmalldetailPage extends AppBase {
   shuliang = 1;
   sl = 1;
   info = null;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenApi;;
     jifenapi.commodityinfo({ id: this.params.id }).then((info) => {

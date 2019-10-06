@@ -52,7 +52,7 @@
           <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{cityname}}</div>
 
 
-          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" *ngIf="ditem.id==fdistrict_id">{{ditem.name}}</div>
+          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" [class.hidden]="ditem.id!=fdistrict_id">{{ditem.name}}</div>
 
 
           <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
@@ -136,7 +136,7 @@
           <div class='flex-row flex-center margin-top-5'>
 
             <div class='flex-row flex-1'>
-              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"  *ngIf='idx<3'>{{litem.name}}</div>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"  [class.hidden]='idx>=3'>{{litem.name}}</div>
             </div>
 
             <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
@@ -178,7 +178,7 @@
         <div class=' flex-row flex-center margin-left-15 w150' (click)='bindxialaage($event)' >
         <div class="flex-1"></div>
           <div class='txt-black h6 txt-bold' *ngIf="ageid==-1">全年龄</div>
-          <div class='txt-black h6 txt-bold' *ngFor="let item of filtercourseage"   wx:key="dfkey" *ngIf="item.id==ageid">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+          <div class='txt-black h6 txt-bold' *ngFor="let item of filtercourseage"   wx:key="dfkey" [class.hidden]="item.id!=ageid">{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
           <img class='icon-15 margin-left-5' src='{{uploadpath}}resource/{{res.gengduo}}' />
         </div>
 
@@ -191,7 +191,7 @@
         <div class='flex-row flex-center  weizhi' (click)='bindxiala($event)' style=''>
           <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{cityname}}</div>
 
-          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" *ngIf="ditem.id==fdistrict_id"  >{{ditem.name}}</div>
+          <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;"  wx:key="dfkey" [class.hidden]="ditem.id!=fdistrict_id"  >{{ditem.name}}</div>
           
           <img class='icon-15 margin-left-5 margin-top-5' src='{{uploadpath}}resource/{{res.bottom}}' />
         </div>

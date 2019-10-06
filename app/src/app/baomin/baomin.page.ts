@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -51,7 +51,7 @@ export class BaominPage extends AppBase {
 
   huodoninfo = null;
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var huodonapi = this.huodonApi;
     var instapi = this.instApi;
@@ -82,14 +82,14 @@ export class BaominPage extends AppBase {
 
   }
 
-  jguploadimg() {
+  jguploadimg(e=undefined) {
     alert("todo");
 
   }
 
   index = 0;
 
-  jguploadimg1() {
+  jguploadimg1(e) {
     var that = this;
     //todo
     // this.uploadImage("jiemutupian").then((ret) => {
@@ -104,7 +104,7 @@ export class BaominPage extends AppBase {
 
 
   }
-  closetanchuang() {
+  closetanchuang(e=undefined) {
     this.guize = false;
   }
 
@@ -121,14 +121,14 @@ export class BaominPage extends AppBase {
   //   this.jgimages=jgimages;
 
   // }
-  gou() {
+  gou(e=undefined) {
 
     var xuanzhon = this.xuanzhon;
     this.xuanzhon = !this.xuanzhon;
 
   }
 
-  tijiao() {
+  tijiao(e) {
     var minchen = this.minchen;
     var renshu = this.renshu;
     var laoshi = this.laoshi;
@@ -214,7 +214,7 @@ export class BaominPage extends AppBase {
 
 
   }
-  yulan() {
+  yulan(e) {
     var minchen = this.minchen;
     var renshu = this.renshu;
     var laoshi = this.laoshi;
@@ -281,7 +281,7 @@ export class BaominPage extends AppBase {
 
 
   }
-  baomin() {
+  baomin(e) {
 
     this.guize = true;
 

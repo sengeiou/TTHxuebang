@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -59,7 +59,7 @@ export class SeekPage extends AppBase {
   gongaolist = [];
   options_show=false;
 
-  onLoad() {
+  onLoad(e=undefined) {
     if (this.params.keyword != undefined) {
       this.params.keyword = decodeURI(this.params.keyword);
     }
@@ -113,12 +113,12 @@ export class SeekPage extends AppBase {
 
   timerStart;
 
-  onUnload() {
+  onUnload(e=undefined) {
     var timerStart = this.timerStart;
     clearInterval(timerStart);
   }
   isload = false;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     var jigouapi = this.jigouApi;;
@@ -196,7 +196,7 @@ export class SeekPage extends AppBase {
   }
   jgvteach=[];
 
-  loadjg() {
+  loadjg(e=undefined) {
     var jigouapi = this.jigouApi;;
     var mylat = this.mylat;
     var mylng = this.mylng;
@@ -242,7 +242,7 @@ export class SeekPage extends AppBase {
   ages=0;
   minage:0;
   maxage:0;
-  loadcourse() {
+  loadcourse(e=undefined) {
     var jigouapi = this.jigouApi;;
     var mylat = this.mylat;
     var mylng = this.mylng;
@@ -313,7 +313,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  onReachBottom() {
+  onReachBottom(e=undefined) {
 
 
     var mylat = this.mylat;
@@ -384,7 +384,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  hideFilter() {
+  hideFilter(e=undefined) {
     var tdistrict_id = this.fdistrict_id;
     var ttype_id = this.ftype_id;
     var tage_id = this.fage_id;
@@ -486,7 +486,7 @@ export class SeekPage extends AppBase {
     var id = e.target.id;
     this.tage_id=id;
   }
-  resetFilter() {
+  resetFilter(e=undefined) {
     var that = this;
 
     this.showConfirm("确认重置？",(ret)=>{
@@ -533,12 +533,12 @@ export class SeekPage extends AppBase {
     this.xialaage= "yc";
   }
 
-  catchTouchMove() {
+  catchTouchMove(e=undefined) {
     return false;
   }
 
 
-  onShareAppMessage() {
+  onShareAppMessage(e=undefined) {
     console.log('haha');
     var url = "/pages/seek/seek?type=" + this.params.type +
       "&fage_id=" + this.fage_id +

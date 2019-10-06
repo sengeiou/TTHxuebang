@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -33,12 +33,12 @@ export class TiaokuanPage extends AppBase {
     this.tiaokuan = {};
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   tiaokuan = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;;
     jigouapi.tiaokuan({}).then((tiaokuan) => {

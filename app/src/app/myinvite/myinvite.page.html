@@ -17,7 +17,7 @@
     <div data-val="7days" (click)="binddate($event)" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
     <div data-val="all" (click)="binddate($event)" class="{{date=='all'?'opt':'noopt'}}">全部</div>
     <div class="flex-1"></div>
-    <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" (change)="bindDateChange($event)">
+    <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" (change)="bindDateChange($event)">
       <div class="flex-row flex-center">
         <div class="h6">自定义时间</div>
         <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}" />

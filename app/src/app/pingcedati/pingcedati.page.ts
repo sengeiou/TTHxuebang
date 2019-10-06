@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -35,13 +35,13 @@ export class PingcedatiPage extends AppBase {
   qie = 0;
   pingce = [];
   gif = false;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
 
   }
   pingcelist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     //this.onLoad();
 
@@ -115,7 +115,7 @@ export class PingcedatiPage extends AppBase {
   }
 
 
-  tijiao() {
+  tijiao(e=undefined) {
     this.gif = true;
 
     var pingcelist = this.pingcelist;

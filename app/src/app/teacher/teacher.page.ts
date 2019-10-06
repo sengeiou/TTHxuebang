@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -34,11 +34,11 @@ export class TeacherPage extends AppBase {
   }
   vteach = [];
   teachlist = [];
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var teacherapi = this.teacherApi;
     teacherapi.teachlist({
       status: "A",
@@ -54,7 +54,7 @@ export class TeacherPage extends AppBase {
   }
   nomore = 0;
 
-  onReachBottom() {
+  onReachBottom(e=undefined) {
     console.log("???kk");
     var vteach = this.vteach;
     var teachlist = this.teachlist;

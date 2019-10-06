@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -39,7 +39,7 @@ export class MypingcePage  extends AppBase {
   type="";
   header2="";
   mypingcelist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     if (this.type == "A") {
       this.header2="评测列表";

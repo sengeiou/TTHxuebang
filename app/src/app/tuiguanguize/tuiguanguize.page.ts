@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,12 +31,12 @@ export class TuiguanguizePage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   problemlist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var api = this.jigouApi;;
     var that = this;
 
@@ -47,7 +47,7 @@ export class TuiguanguizePage extends AppBase {
 
 
   }
-  lijishenqin() {
+  lijishenqin(e=undefined) {
     var api = this.jigouApi;;
     api.fenxiaoinfo({}).then((res) => {
       console.log(res.length);

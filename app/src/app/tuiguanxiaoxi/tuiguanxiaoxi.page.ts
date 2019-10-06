@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,12 +31,12 @@ export class TuiguanxiaoxiPage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   myxiaoxi = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;;
 
@@ -62,13 +62,13 @@ export class TuiguanxiaoxiPage extends AppBase {
       console.log("123132");
     })
   }
-  zhuqnaian() {
+  zhuqnaian(e=undefined) {
     this.navigateTo({
       url: '/pages/review/review',
     })
 
   }
-  chakanxianqin() {
+  chakanxianqin(e=undefined) {
     this.navigateTo({
       url: '/pages/review/review',
     })

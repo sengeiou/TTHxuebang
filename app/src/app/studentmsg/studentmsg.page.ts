@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,12 +31,12 @@ export class StudentmsgPage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   xueyuanlist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;;
     var nian = new Date();
@@ -61,7 +61,7 @@ export class StudentmsgPage extends AppBase {
       url: '/pages/studentinfo/studentinfo?id=' + e.target.dataset.id,
     })
   }
-  tianjia() {
+  tianjia(e=undefined) {
     this.navigateTo({
       url: '/pages/studentinfo/studentinfo',
     })

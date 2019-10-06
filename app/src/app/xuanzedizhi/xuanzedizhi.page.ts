@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -36,7 +36,7 @@ export class XuanzedizhiPage extends AppBase {
   jifen;
   kong;
   type;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     this.show = false;
@@ -45,7 +45,7 @@ export class XuanzedizhiPage extends AppBase {
     this.type = this.params.type
   }
   addresslist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var addressapi = this.addressApi;
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -41,11 +41,11 @@ export class PingjiaPage extends AppBase {
   focus = false;
   kcinfo = null;
   jg_id = 0;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     var api = this.jigouApi;;
@@ -67,7 +67,7 @@ export class PingjiaPage extends AppBase {
     }
   }
 
-  uploadimg() {
+  uploadimg(e) {
     //todo
     // var that = this;
     // this.Base.uploadImage("pingjia", (ret) => {

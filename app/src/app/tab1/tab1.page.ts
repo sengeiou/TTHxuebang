@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -34,7 +34,7 @@ export class Tab1Page  extends AppBase {
   name="热门课程";
   lunbolist=[];
   zuixin=[];
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     var that = this;
 
     var jigouapi = this.jigouApi;
@@ -54,7 +54,7 @@ export class Tab1Page  extends AppBase {
   
   }
   xzlist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     this.getKechenList();
   }
 

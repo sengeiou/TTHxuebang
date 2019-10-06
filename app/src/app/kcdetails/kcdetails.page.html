@@ -184,7 +184,7 @@
 
 
 
-          <div *ngFor='let item of pingjialist;let idx=index;' wx:key='k' wx:for-index='idx' *ngIf='idx==0'>
+          <div *ngFor='let item of pingjialist;let idx=index;' wx:key='k'  [class.hidden]='idx!=0'>
             <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
               <img src='{{item.member_avatarUrl}}' class='tx radius-50' />
               <div class=' flex-1 ml16' >
@@ -196,26 +196,26 @@
 
                 <div *ngIf='item.pingfen==1'>
                   <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='4' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr4' />
                 </div>
 
                 <div *ngIf='item.pingfen==2'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
                 </div>
 
                 <div *ngIf='item.pingfen==3'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='2' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='3' />
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
                 </div>
 
                 <div *ngIf='item.pingfen==4'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='3' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='2' />
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr3' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr2' />
                 </div>
 
                 <div *ngIf='item.pingfen==5'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='4' />
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr4' />
                   <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
                 </div>
 
@@ -274,7 +274,7 @@
 
     <div *ngIf="(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0" class='height-20 bg-gray'></div>
 
-    <div class='flex-row bg-white {{sco==1?"top":""}}' style=''>
+    <div class='flex-row bg-white ' style=''>
       <div class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' (click)='bindcut($event)' data-type='kcxq'>课程详情</div>
       <div class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' (click)='gotoBottom($event)' data-type='gmxz'>购买须知</div>
     </div>

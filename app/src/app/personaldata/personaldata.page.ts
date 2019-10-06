@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -34,11 +34,11 @@ export class PersonaldataPage extends AppBase {
   show = 2;
   region = "";
   mydata = null;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
     var mineapi = this.mineApi;
@@ -83,7 +83,7 @@ export class PersonaldataPage extends AppBase {
     //console.log(MemberInfo.id)
     console.log(data.name);
     // if (data.name == "") {
-    //   this.Base.info("请填写昵称");
+    //   this.showAlert("请填写昵称");
     //   return;
     // }
     if (data.mobile == "") {
@@ -91,7 +91,7 @@ export class PersonaldataPage extends AppBase {
       return;
     }
     // if (data.sex == "") {
-    //   this.Base.info("请选择性别");
+    //   this.showAlert("请选择性别");
     //   return;
     // }
     if (region.length == 0) {

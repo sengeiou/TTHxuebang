@@ -88,7 +88,7 @@
     <div class='padding-30 bg-white' style=''>
       <div class='flex-row flex-center '>
         <div class='font-30 flex-1 txt-black txt-bold'>地址：</div>
-        <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+        <picker class='flex-2' mode="region" bindchange="bindRegionChange" value="{{region}}" >
           <div class="picker" style='color:#C8C8C8' *ngIf="region.length==0" >请填写地址
           </div>
           <div class="picker"  *ngIf="region.length>0" >{{region[0]}} {{region[1]}} {{region[2]}}</div>

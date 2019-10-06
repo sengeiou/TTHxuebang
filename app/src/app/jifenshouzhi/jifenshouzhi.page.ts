@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -29,7 +29,7 @@ export class JifenshouzhiPage extends AppBase {
 
   }
   show = 1;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
@@ -37,7 +37,7 @@ export class JifenshouzhiPage extends AppBase {
   shousum = 0;
   zhisum = 0;
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenApi;
     var shousum = 0;

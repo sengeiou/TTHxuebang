@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -35,7 +35,7 @@ export class MingxiPage  extends AppBase {
     this.params;
   }
   tgjilu=[];
-  shouru="";
+  shouru="0";
   onMyShow(){
     var api = this.jigouApi;
     api.tgjilu({}).then((tgjilu)=>{
@@ -47,5 +47,8 @@ export class MingxiPage  extends AppBase {
        this.shouru=Number(shouru).toFixed(2);
 
     })
+  }
+  pnum(s){
+    return Number(s);
   }
 }

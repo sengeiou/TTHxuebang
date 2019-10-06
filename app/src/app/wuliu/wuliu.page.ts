@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,7 +31,7 @@ export class WuliuPage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     this.wuliu = {};
@@ -39,7 +39,7 @@ export class WuliuPage extends AppBase {
   wuliu = null;
   wllist = [];
   info = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenApi;;
 

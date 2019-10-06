@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -36,19 +36,19 @@ export class PingcejieguoPage extends AppBase {
   typeB = "";
   typeC = "";
   typeD = "";
-  
-  arr5=[];
-  arr4=[];
-  arr3=[];
-  arr2=[];
-  arr1=[];
 
-  onMyLoad() {
-    this.arr5=this.getArray(5);
-    this.arr4=this.getArray(4);
-    this.arr3=this.getArray(3);
-    this.arr2=this.getArray(2);
-    this.arr1=this.getArray(1);
+  arr5 = [];
+  arr4 = [];
+  arr3 = [];
+  arr2 = [];
+  arr1 = [];
+
+  onMyLoad(e=undefined) {
+    this.arr5 = this.getArray(5);
+    this.arr4 = this.getArray(4);
+    this.arr3 = this.getArray(3);
+    this.arr2 = this.getArray(2);
+    this.arr1 = this.getArray(1);
     //参数
     this.params;
 
@@ -75,7 +75,7 @@ export class PingcejieguoPage extends AppBase {
   pingcejieguo = null;
   info = null;
   courselist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
 
     var that = this;
     var pingceapi = this.pingceApi;;
@@ -160,7 +160,7 @@ export class PingcejieguoPage extends AppBase {
       this.check = true;
     }
   }
-  again() {
+  again(e) {
 
     if (this.params.pd == 1) {
 
@@ -180,7 +180,7 @@ export class PingcejieguoPage extends AppBase {
   }
   xh;
   xianshilist = [];
-  bindhuan() {
+  bindhuan(e=undefined) {
     console.log(5555555555555);
     var courselist = this.courselist;
     var xianshilist = [];

@@ -60,7 +60,7 @@ export class HomePage extends AppBase {
   fapk=[];
   nocity = 0;
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
@@ -70,7 +70,7 @@ export class HomePage extends AppBase {
   mypingcelist = [];
   indexlist = [];
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     var jigouapi = this.jigouApi;
@@ -197,13 +197,13 @@ export class HomePage extends AppBase {
 
   }
   yd = -1;
-  qiehuan() {
+  qiehuan(e=undefined) {
     this.img = 2;
   }
-  closeimage() {
+  closeimage(e=undefined) {
     this.yd = 0;
   }
-  closetop() {
+  closetop(e=undefined) {
     this.nocity = 0;
   }
   cityname = "";
@@ -237,7 +237,7 @@ export class HomePage extends AppBase {
     var id = e.target.id;
     this.navigate("jgdetails", { id: id });
   }
-  toduihuan(e) {
+  toduihuan(e=undefined) {
     this.navigate("shopmall");
   }
 
@@ -251,7 +251,7 @@ export class HomePage extends AppBase {
   indexbanner = [];
   noticebanner = [];
   showlastnotice = false;
-  loadBanner() {
+  loadBanner(e=undefined) {
     var instapi = this.instApi;
     // console.log()
     instapi.indexbanner({
@@ -293,7 +293,7 @@ export class HomePage extends AppBase {
 
   }
 
-  closenotice() {
+  closenotice(e=undefined) {
     this.showlastnotice = false;
   }
 
@@ -308,7 +308,7 @@ export class HomePage extends AppBase {
 
   }
 
-  onPullDownRefresh() {
+  onPullDownRefresh(e=undefined) {
     //todo
   }
 
@@ -320,7 +320,7 @@ export class HomePage extends AppBase {
   }
   jglist = [];
   jgvteach = [];
-  loadjg() {
+  loadjg(e=undefined) {
     var jigouapi = this.jigouApi;
     var mylat = this.mylat;
     var mylng = this.mylng;
@@ -349,7 +349,7 @@ export class HomePage extends AppBase {
 
   jgnomore = 0;
 
-  onReachBottom() {
+  onReachBottom(e=undefined) {
     var mylat = this.mylat;
     var mylng = this.mylng;
     console.log("???kk");
@@ -452,7 +452,7 @@ export class HomePage extends AppBase {
     }
   }
 
-  tocity(e) {
+  tocity(e=undefined) {
     this.navigate("city");
   }
 
@@ -516,7 +516,7 @@ export class HomePage extends AppBase {
   //打卡部分
   daka = false;
   week = [];
-  timetwo() {
+  timetwo(e=undefined) {
     console.log('卡路里')
 
     var days = this.days;
@@ -690,14 +690,14 @@ export class HomePage extends AppBase {
     return dateArry;
   }
 
-  guizeclick() {
+  guizeclick(e=undefined) {
     this.guize = true;
   }
 
   zong = "";
   resultArr = [];
 
-  jisuanrenshu() {
+  jisuanrenshu(e=undefined) {
     var jifenapi = this.jifenApi;
     jifenapi.dakalist({
 
@@ -738,7 +738,7 @@ export class HomePage extends AppBase {
 
   }
 
-  xiaoxiliebiao() {
+  xiaoxiliebiao(e=undefined) {
     this.navigate("mymessage");
 
   }

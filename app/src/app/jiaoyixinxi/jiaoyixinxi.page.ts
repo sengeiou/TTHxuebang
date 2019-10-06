@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -30,13 +30,13 @@ export class JiaoyixinxiPage extends AppBase {
     this.xiaoxi = {};
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
 
   xiaoxi = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;
     api.xiaoxiinfo({ id: this.params.id }).then((xiaoxi) => {
@@ -46,7 +46,7 @@ export class JiaoyixinxiPage extends AppBase {
     })
 
   }
-  kecheninfo() {
+  kecheninfo(e=undefined) {
     var xioaoxi = this.xiaoxi;
 
     console.log(xioaoxi);

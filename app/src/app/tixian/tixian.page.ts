@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -34,13 +34,13 @@ export class TixianPage extends AppBase {
   }
   jiner = 0;
   name = '';
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   problemlist = [];
   fenixaoinfo = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;;
     api.problemlist({ chanjin: 'tx' }).then((problemlist) => {
@@ -51,21 +51,21 @@ export class TixianPage extends AppBase {
       this.fenixaoinfo = fenixaoinfo;
     })
   }
-  mingxi() {
+  mingxi(e=undefined) {
 
     this.navigateTo({
       url: '/pages/mingxi/mingxi',
     })
 
   }
-  quanbu() {
+  quanbu(e=undefined) {
     console.log(123132);
     this.jiner = this.MemberInfo.tuiguanshouyi;
   }
   tishi1 = false;
   tishi2 = false;
   tishi3 = false;
-  tixian() {
+  tixian(e=undefined) {
     var api = this.wechatApi;
     this.tishi1 = false;
     this.tishi2 = false;

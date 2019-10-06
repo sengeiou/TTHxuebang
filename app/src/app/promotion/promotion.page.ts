@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -39,7 +39,7 @@ export class PromotionPage extends AppBase {
   yanzhenma = "";
   dizhi = "";
   shijian = 0;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
@@ -61,7 +61,7 @@ export class PromotionPage extends AppBase {
   showModal;
   leijikehu= 0;
   xiajituiguan= 0;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var api = this.jigouApi;;
     var that = this;
     this.dianle = false;
@@ -96,15 +96,15 @@ export class PromotionPage extends AppBase {
 
 
   }
-  tuiguanguize() {
+  tuiguanguize(e) {
     this.navigateTo({
       url: '/pages/tuiguanguize/tuiguanguize',
     })
   }
-  hideModal() {
+  hideModal(e) {
     this.showModal=false;
   }
-  queren() {
+  queren(e) {
     var that = this;
     var api = this.jigouApi;;
     var name = this.name;
@@ -157,14 +157,14 @@ export class PromotionPage extends AppBase {
 
 
   }
-  lijitixian() {
+  lijitixian(e=undefined) {
 
     this.navigateTo({
       url: '/pages/tixian/tixian',
     })
 
   }
-  mykehu() {
+  mykehu(e=undefined) {
 
     if (this.leijikehu == 0) {
       this.showAlert("暂无邀请的好友，快去邀请好友吧")
@@ -175,7 +175,7 @@ export class PromotionPage extends AppBase {
     })
   }
 
-  myinvite() {
+  myinvite(e=undefined) {
     if (this.xiajituiguan == 0) {
       this.showAlert("暂无成功邀请的推广员，请先邀请好友成为推广员。")
       return
@@ -194,7 +194,7 @@ export class PromotionPage extends AppBase {
     })
 
   }
-  yaoqin() {
+  yaoqin(e=undefined) {
     var api = this.haibaoApi;
 
     if (this.dianle == true) {
@@ -235,7 +235,7 @@ export class PromotionPage extends AppBase {
     return dindan;
 
   }
-  fason() {
+  fason(e=undefined) {
 
     var shouji = this.photo;
 

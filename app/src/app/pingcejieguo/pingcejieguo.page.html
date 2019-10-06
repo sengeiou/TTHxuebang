@@ -23,10 +23,10 @@
       <div class='flex-1 '></div>
       <div class='  h6'>测试结果</div>
 
-      <div class=' text-center ' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeA'>{{item.character}}</div>
-      <div class=' text-center ' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeB'>{{item.character}}</div>
-      <div class=' text-center ' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeC'>{{item.character}}</div>
-      <div class=' text-center ' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeD'>{{item.character}}</div>
+      <div class=' text-center hidden ' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeA'>{{item.character}}</div>
+      <div class=' text-center hidden ' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeB'>{{item.character}}</div>
+      <div class=' text-center hidden ' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeC'>{{item.character}}</div>
+      <div class=' text-center hidden ' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeD'>{{item.character}}</div>
 
       <div class='flex-1 '></div>
 
@@ -55,10 +55,10 @@
   </p> -->
 
   <div class='margin-top-14'>
-    <p class=' h6 txt-6' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeA'>{{item.jielun}}</p>
-    <p class=' h6 txt-6' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeB'>{{item.jielun}}</p>
-    <p class=' h6 txt-6' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeC'>{{item.jielun}}</p>
-    <p class=' h6 txt-6' *ngFor='let item of pingcejieguo' wx:key='k' *ngIf='item.options==typeD'>{{item.jielun}}</p>
+    <p class=' h6 txt-6 hidden' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeA'>{{item.jielun}}</p>
+    <p class=' h6 txt-6 hidden' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeB'>{{item.jielun}}</p>
+    <p class=' h6 txt-6 hidden' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeC'>{{item.jielun}}</p>
+    <p class=' h6 txt-6 hidden' *ngFor='let item of pingcejieguo' wx:key='k' [class.shown]='item.options==typeD'>{{item.jielun}}</p>
   </div>
 
 

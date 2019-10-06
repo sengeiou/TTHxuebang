@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -32,11 +32,11 @@ export class ShopmallPage extends AppBase {
   }
   kf = 0;
   list=[];
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenApi;;
     jifenapi.commoditylist({ orderby: 'r_main.seq' }).then((list) => {
@@ -47,7 +47,7 @@ export class ShopmallPage extends AppBase {
   ss(e) {
     this.kf=1;
   }
-  onUnload() {
+  onUnload(e=undefined) {
     console.log("1321")
   }
   toshouzhi(e) {

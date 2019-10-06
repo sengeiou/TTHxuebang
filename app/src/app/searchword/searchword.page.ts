@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,7 +31,7 @@ export class SearchwordPage extends AppBase {
   }
   show = 0;
   result = [];
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     var json = {
@@ -44,7 +44,7 @@ export class SearchwordPage extends AppBase {
 
   history = [];
   hotest = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.memberApi;;
     instapi.searchkeyword({}).then((ret) => {
@@ -87,7 +87,7 @@ export class SearchwordPage extends AppBase {
 
   }
 
-  tosearch() {
+  tosearch(e=undefined) {
     var word = this.value;
 
     var instapi = this.memberApi;;

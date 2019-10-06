@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -35,12 +35,12 @@ export class MymessagePage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   xiaoxilist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -90,7 +90,7 @@ export class MymessagePage extends AppBase {
 
 
   }
-  onShare() {
+  onShare(e=undefined) {
     console.log('onShare')
   }
   xianqin(e) {

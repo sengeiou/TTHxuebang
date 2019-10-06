@@ -53,8 +53,19 @@ export class AppBase implements OnInit, OnDestroy {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = { kefuerweima: "", xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = {tuiguanshouyi:0, mobile: "", id: 0, avatarUrl: "", nickName: "", h5openid: "", unionid: "", citylist: [] };
+    public InstInfo = {
+        fenxiaobili: 0, intotel: "", worktime: "", kefuerweima: "",
+        xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "",
+        h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "",
+        orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0,
+        shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: ""
+    };
+    public MemberInfo = {
+        integral: 0, dfkorder: 0, ypborder: 0,
+        dpjorder: 0, dshorder: 0, canhexiao: "N",
+        tuiguanshouyi: 0, mobile: "", id: 0, avatarUrl: "", nickName: "",
+        h5openid: "", unionid: "", citylist: []
+    };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -245,7 +256,7 @@ export class AppBase implements OnInit, OnDestroy {
         // }, 1000);
     }
     isbacking = false;
-    back() {
+    back(e = undefined) {
         if (this.isbacking == true) {
             return;
         }
@@ -484,14 +495,14 @@ export class AppBase implements OnInit, OnDestroy {
         });
     }
 
-    backHome() {
+    backHome(e = undefined) {
         this.navCtrl.navigateBack('tabs/home');
         return;
     }
     uploadImage(module, aa) {
 
     }
-    backtotop() {
+    backtotop(e = undefined) {
         var ioncontent = document.querySelector("ion-header");
         ioncontent.scrollIntoView(true);
     }
@@ -504,10 +515,10 @@ export class AppBase implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.onUnload();
     }
-    redirectTo(obj){
+    redirectTo(obj) {
         this.navigateTo(obj);
     }
-    gonavigator(obj){
+    gonavigator(obj) {
         console.log(obj);
         this.navigateTo(obj);
     }
@@ -529,20 +540,29 @@ export class AppBase implements OnInit, OnDestroy {
     navigateBack(obj = undefined) {
         this.back();
     }
-    showToast(obj){
+    showToast(obj) {
         this.toast(obj.title);
     }
-    download(url){
+    download(url) {
         window.open(url);
     }
-    reLaunch(obj){
-        window.location.href=obj.url;
+    reLaunch(obj) {
+        window.location.href = obj.url;
     }
-    getArray(t){
-        var ret=[];
-        for(var i=0;i<t;i++){
+    getArray(t) {
+        var ret = [];
+        for (var i = 0; i < t; i++) {
             ret.push(i);
         }
         return ret;
+    }
+    openMap(e) {
+
+    }
+    phoneCall(e) {
+
+    }
+    viewPhoto(e) {
+
     }
 }

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -36,13 +36,13 @@ export class HuodoninfoPage extends AppBase {
   yiguoqi = true;
   huodoninfo = null;
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
 
   guizezon = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var huodonapi = this.huodonApi;
     var instapi = this.instApi;
@@ -75,13 +75,13 @@ export class HuodoninfoPage extends AppBase {
     })
 
   }
-  guizeclick() {
+  guizeclick(e=undefined) {
     this.guize = true;
   }
-  closetanchuang() {
+  closetanchuang(e=undefined) {
     this.guize = false;
   }
-  baomin() {
+  baomin(e=undefined) {
     var that = this;
     var date = (new Date().getTime()) / 1000;
     var huodoninfo = this.huodoninfo;
@@ -147,9 +147,9 @@ export class HuodoninfoPage extends AppBase {
 
 
   }
-
+  gaodu=0;
   // todo
-  // jiazaiwanle() {
+  // jiazaiwanle(e=undefined) {
   //   var that = this;
   //   var query = wx.createSelectorQuery();
   //   query.select('#gdd').boundingClientRect();

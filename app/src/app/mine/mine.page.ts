@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -41,7 +41,7 @@ export class MinePage  extends AppBase {
   }
   xiaoxi=0;
   reminderpay=0;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -76,7 +76,7 @@ export class MinePage  extends AppBase {
       this.reminderpay=wclist.length;
     });
   }
-  startscan() {
+  startscan(e=undefined) {
     var that = this;
     //todo
     // wx.scanCode({
@@ -153,7 +153,7 @@ export class MinePage  extends AppBase {
 
 
   }
-  gotohaizi() {
+  gotohaizi(e=undefined) {
     this.navigate("studentmsg");
   }
   showtoast(e) {
@@ -165,11 +165,11 @@ export class MinePage  extends AppBase {
     this.navigate("myorder",{type:e.target.dataset.id});
 
   }
-  pintuan() {
+  pintuan(e) {
     this.navigate("pintuan");
   }
 
-  tuikuan() {
+  tuikuan(e) {
     this.showAlert("暂未开放");
   }
 
@@ -193,7 +193,7 @@ export class MinePage  extends AppBase {
   // }
 
   
-  update() {
+  update(e=undefined) {
     var data = this;
     
 

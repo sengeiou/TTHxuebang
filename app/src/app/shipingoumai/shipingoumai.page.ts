@@ -36,10 +36,10 @@ export class ShipingoumaiPage extends AppBase {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
 
   }
-  onMyLoad() {
+  onMyLoad(e=undefined) {
   }
   kecheninfo = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;
     jigouapi.zaixiankecheninfo({ id: this.params.id }).then((kecheninfo) => {
@@ -47,10 +47,10 @@ export class ShipingoumaiPage extends AppBase {
 
     })
   }
-  youhuijuan() {
+  youhuijuan(e=undefined) {
     this.showAlert("该功能暂未开放");
   }
-  tijiao() {
+  tijiao(e=undefined) {
 
     var json = {
       onlineclassroom_id: this.params.id, type: "SP"

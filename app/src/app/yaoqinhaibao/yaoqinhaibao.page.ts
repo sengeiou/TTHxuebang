@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -29,13 +29,13 @@ export class YaoqinhaibaoPage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   lujin = "";
   erweima = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     if (this.params.id != undefined) {
       var yaoqinren = this.params.id;
@@ -53,7 +53,7 @@ export class YaoqinhaibaoPage extends AppBase {
     this.lujin = ApiConfig.getUploadPath() + this.options.name;
     this.erweima = ApiConfig.getApiUrl() + "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.MemberInfo.id;
   }
-  baocun() {
+  baocun(e=undefined) {
     this.download(this.lujin);
   }
   // onShareAppMessage(e) {

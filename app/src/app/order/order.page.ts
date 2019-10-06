@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -46,7 +46,7 @@ export class OrderPage extends AppBase {
   mMinute = "";
   mSecond = "";
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
 
@@ -73,13 +73,13 @@ export class OrderPage extends AppBase {
     this.info = {};
     this.courseinfo = {};
   }
-  onUnload() {
+  onUnload(e=undefined) {
     var timerid = this.timerid;
     clearInterval(timerid);
   }
   info = null;
   courseinfo = null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -129,7 +129,7 @@ export class OrderPage extends AppBase {
     this.back();
   }
 
-  bindpay() {
+  bindpay(e=undefined) {
     var that = this;
     var wechatapi = this.wechatApi;
 
@@ -189,18 +189,18 @@ export class OrderPage extends AppBase {
   }
   erweima=false;
   type="";
-  hexiaoma() {
+  hexiaoma(e=undefined) {
     this.erweima=true;
     this.type='hexiao';
   }
-  kefu() {
+  kefu(e=undefined) {
     this.erweima=true;
     this.type='kefu';
   }
-  hideModal() {
+  hideModal(e=undefined) {
     this.erweima=false;
   }
-  xiazai() {
+  xiazai(e=undefined) {
     var type = this.type;
     if (type == 'kefu') {
       window.open(this.uploadpath + 'inst/' + this.InstInfo.kefuerweima)
@@ -212,12 +212,12 @@ export class OrderPage extends AppBase {
 
 
   }
-  tohome() {
+  tohome(e=undefined) {
    this.backHome();
 
 
   }
-  pinjiagenduo() {
+  pinjiagenduo(e=undefined) {
     this.navigate("myorder",{type:"dpj"});
   }
 }

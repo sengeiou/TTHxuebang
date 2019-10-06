@@ -43,7 +43,7 @@
     </div>
 
     <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" *ngFor='let item of jilulist;let idx=index;' wx:key='k'
-      *ngIf='item.type=="B"' >
+      [class.hidden]='item.type!="B"' >
 
       <div class="flex-row column flex-1">
         <div class="h5">{{item.name}}</div>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="bg-white flex-row flex-center shouru {{idx>0?'border-top':''}}" wx:for-index='idx'
-      style="border-top:1px solid #E5E5E5" *ngFor='let item of jilulist;let idx=index' wx:key='l' *ngIf='item.type=="A"'>
+      style="border-top:1px solid #E5E5E5" *ngFor='let item of jilulist;let idx=index' wx:key='l' [class.hidden]='item.type!="A"'>
 
       <div class="flex-row column flex-1">
         <div class="h5">{{item.name}}</div>

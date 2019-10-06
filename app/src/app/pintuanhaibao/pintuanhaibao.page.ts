@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -31,7 +31,7 @@ export class PintuanhaibaoPage extends AppBase {
   lujin = "";
   bg = "";
   erweima = "";
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     this.lujin = ApiConfig.getUploadPath() + this.params.name;
@@ -39,7 +39,7 @@ export class PintuanhaibaoPage extends AppBase {
 
     this.erweima = ApiConfig.getApiUrl() + "inst/qrcode?inst_id=1&url=/pages/groupinfo/groupinfo?%26id=" + this.params.id
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
   }
   baocun(e) {

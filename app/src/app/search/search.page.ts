@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -37,7 +37,7 @@ export class SearchPage extends AppBase {
   keyword = "";
   tp = "";
   shows = "finished";
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     var json = {
@@ -76,7 +76,7 @@ export class SearchPage extends AppBase {
   jgvlist=[];
   coursevlist=[];
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;;
     var json=null;
@@ -181,7 +181,7 @@ export class SearchPage extends AppBase {
     })
   }
 
-  onReachBottom() {
+  onReachBottom(e=undefined) {
     console.log("???kk");
 
 

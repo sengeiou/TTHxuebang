@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -41,7 +41,7 @@ export class StudentinfoPage extends AppBase {
   shouji;
   xssj;
   niubi;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     var myDate = new Date();
@@ -83,7 +83,7 @@ export class StudentinfoPage extends AppBase {
   }
   region = [];
   dizhi = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     var address = this.address;
@@ -98,7 +98,7 @@ export class StudentinfoPage extends AppBase {
 
 
   }
-  studentinfo() {
+  studentinfo(e=undefined) {
     this.navigateTo({
       url: '/pages/studentinfo/studentinfo',
     })
@@ -114,7 +114,7 @@ export class StudentinfoPage extends AppBase {
     var xssj = (shijians[0] + ' 年 ' + shijians[1] + ' 月 ' + shijians[2] + ' 日 ');
     this.xssj = xssj;
   }
-  baocun() {
+  baocun(e=undefined) {
     var api = this.jigouApi;;
 
 
@@ -191,7 +191,7 @@ export class StudentinfoPage extends AppBase {
     })
 
   }
-  shanchu() {
+  shanchu(e=undefined) {
     var that = this;
     this.showConfirm("确认删除学员？",(ret)=>{
       if(ret){

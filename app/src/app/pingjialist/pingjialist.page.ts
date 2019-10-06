@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -30,12 +30,24 @@ export class PingjialistPage  extends AppBase {
       
   }
   check=true;
-  onMyLoad(){
+  
+  arr5=[];
+  arr4=[];
+  arr3=[];
+  arr2=[];
+  arr1=[];
+
+  onMyLoad(e=undefined) {
+    this.arr5=this.getArray(5);
+    this.arr4=this.getArray(4);
+    this.arr3=this.getArray(3);
+    this.arr2=this.getArray(2);
+    this.arr1=this.getArray(1);
     //参数
     this.params;
   }
   pingjialist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var pingjiaapi = this.pingjiaApi;;
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -43,7 +43,7 @@ export class TuiguandindanPage  extends AppBase {
   }
   quanbu=[];
   xiaji=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var quanbu = [];
     var youxiao = [];
@@ -86,7 +86,7 @@ export class TuiguandindanPage  extends AppBase {
     var type = e.target.dataset.type;
     this.show=type;
   }
-  binddate(e,b) {
+  binddate(e,b=undefined) {
     var type = "111";
     if (b == undefined) {
       type = e.target.dataset.val;

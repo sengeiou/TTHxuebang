@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -39,13 +39,13 @@ export class PurchasePage extends AppBase {
   usercomment = "";
   xuanzexueyuan = null;
   zhifuzhon = false;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   courseinfo;
   xueyuanlist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;;
     var jigouapi = this.jigouApi;;
@@ -308,10 +308,10 @@ export class PurchasePage extends AppBase {
 
   }
   isxueyuan;
-  xueyuan() {
+  xueyuan(e=undefined) {
     this.isxueyuan=true;
   }
-  hideModal() {
+  hideModal(e=undefined) {
     this.isxueyuan=false;
   }
   xuanze(e) {
@@ -326,7 +326,7 @@ export class PurchasePage extends AppBase {
       url: '/pages/studentinfo/studentinfo?id=' + e.target.dataset.id,
     })
   }
-  tianjia() {
+  tianjia(e=undefined) {
     this.navigateTo({
       url: '/pages/studentinfo/studentinfo',
     })
