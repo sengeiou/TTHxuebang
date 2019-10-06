@@ -55,7 +55,7 @@
 
 <div class="shangpin margin-top-20 ">
 
-  <navigator class="flex-row margin-left-28" url="/pages/shopmalldetail/shopmalldetail?id={{info.id}}" >
+  <div (click)='gonavigator($event)' class="flex-row margin-left-28" url="/pages/shopmalldetail/shopmalldetail?id={{info.id}}" >
     <img src="{{uploadpath}}shop/{{info.img}}" class="icon-img" />
 
     <div class="txt-bold flex-1 ml36" > {{info.name}}</div>
@@ -63,7 +63,7 @@
       <div class="h6">{{info.danjia}} 积分</div>
       <div class="h6 text-right" style="color:#B0B0B0">x{{info.shuliang}}</div>
     </div>
-  </navigator>
+  </div>
 
   <div class="flex-row flex-center margin-left-28 margin-top-10">
     <div class="h6 flex-1">运费（快递）</div>

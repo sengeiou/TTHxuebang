@@ -507,6 +507,10 @@ export class AppBase implements OnInit, OnDestroy {
     redirectTo(obj){
         this.navigateTo(obj);
     }
+    gonavigator(obj){
+        console.log(obj);
+        this.navigateTo(obj);
+    }
     navigateTo(obj) {
         var url = obj.url.toString();
         var pagename = url.split("/")[1];
@@ -533,5 +537,12 @@ export class AppBase implements OnInit, OnDestroy {
     }
     reLaunch(obj){
         window.location.href=obj.url;
+    }
+    getArray(t){
+        var ret=[];
+        for(var i=0;i<t;i++){
+            ret.push(i);
+        }
+        return ret;
     }
 }

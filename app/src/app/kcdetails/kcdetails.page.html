@@ -18,21 +18,21 @@
   <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 
-<view>
+<div>
 
 
   <div class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
 
     <div class="h140"></div>
 
-    <swiper indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
-      <swiper-item *ngFor="let item of kechenlunbo" wx:key="k">
-        <view>
+    <ion-slides indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
+      <ion-slide *ngFor="let item of kechenlunbo" wx:key="k">
+        <div>
           <img *ngIf='item.video==""' src='{{uploadpath}}kecheng/{{item.img}}' (click)='viewPhoto($event)' id='{{uploadpath}}kecheng/{{item.img}}' class="sp1" />
           <video *ngIf='item.video!=""' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' class="sp1" ></video>
         </div>
-      </swiper-item>
-    </swiper>
+      </ion-slide>
+    </ion-slides>
 
     <div class="h116"></div>
 
@@ -149,7 +149,7 @@
             <div *ngFor="let item of daojishilist;let idx=index;" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
               <img src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30' />
               <div class="margin-left-10 flex-1">{{item.commander_id_name}}</div>
-              <view>
+              <div>
                 <div class="h6 text-center">还差
                   <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
                 <div class="h7 text-center">剩余{{sjlist[idx][1]
@@ -454,7 +454,7 @@
         <img src='{{uploadpath}}curriculum/{{courseinfo.kc_img}}' style=' ' class='icon-img' />
 
         <div class=' flex-1 margin-left-20'>
-          <view>{{courseinfo.name}}</div>
+          <div>{{courseinfo.name}}</div>
 
           <div class='flex-row flex-center margin-top-10' style=''>
 

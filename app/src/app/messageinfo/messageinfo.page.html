@@ -18,7 +18,7 @@
   </div>
   
   <div class='' style='border-bottom:1px solid #E5E5E5' (click)='todetails()'>
-    <navigator class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
+    <div (click)='gonavigator($event)' class='margin-top-20 padding-left-20 bg-white bor_bot' style=''>
       <div class='padding-20 bor_bot' style=''>
   
         <div class='flex-row flex-center'>
@@ -85,7 +85,7 @@
         <div class='txt-black txt-bold margin-left-20'>实付金额：￥{{info.amount}}</div>
       </div>
   
-    </navigator>
+    </div>
   </div>
 
   </ion-content>

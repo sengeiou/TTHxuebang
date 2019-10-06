@@ -91,27 +91,27 @@
 
 
             <div *ngIf="item.scoring==5" class='flex-row flex-center '>
-              <img *ngFor='5' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr5' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
             </div>
 
             <div *ngIf="item.scoring==4" class='flex-row flex-center '>
-              <img *ngFor='4' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr4' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
               <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
             </div>
 
             <div *ngIf="item.scoring==3" class='flex-row flex-center '>
-              <img *ngFor='3' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
-              <img *ngFor='2' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr3' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr2' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
             </div>
 
             <div *ngIf="item.scoring==2" class='flex-row flex-center '>
-              <img *ngFor='2' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
-              <img *ngFor='3' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr2' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr3' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
             </div>
 
             <div *ngIf="item.scoring==1" class='flex-row flex-center '>
               <img src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 sp1'  />
-              <img *ngFor='4' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
+              <img *ngFor='let item of arr4' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 sp1'  />
             </div>
 
             <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>

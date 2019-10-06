@@ -21,10 +21,10 @@
   <div class='fixedtop'>
     <div class='bg-primary'>
       <div class='padding-left-20 padding-right-20 padding-top-20 '>
-        <navigator url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
           <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h5 txt-gray margin-left'>搜索机构名字</div>
-        </navigator>
+        </div>
       </div>
 
       <div class=' flex-row flex-center margin-top-10 h70' (click)='yingcang($event)' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
@@ -37,11 +37,11 @@
         <div class='flex-2 flex-row flex-center '>
           <div class="w50"></div>
           <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
-          <swiper vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
-            <swiper-item *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+          <ion-slides vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
+            <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
               {{item.content}}
-            </swiper-item>
-          </swiper>
+            </ion-slide>
+          </ion-slides>
         </div>
 
       </div>
@@ -169,10 +169,10 @@
 
       <div class='padding-left-20 padding-right-20 padding-top-20 flex-row flex-center'>
 
-        <navigator url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 flex-1 w564' >
+        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?tp=kc' class='search  flex-row flex-center  padding-10 flex-1 w564' >
           <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h6 txt-gray margin-left'>搜索课程</div>
-        </navigator>
+        </div>
 
         <!-- 修改后 -->
         <div class=' flex-row flex-center margin-left-15 w150' (click)='bindxialaage($event)' >
@@ -231,7 +231,7 @@
       <div class='flex-1'>
       </div>
 
-      <view>
+      <div>
         <div class='nofound-img'>
           <img class="sp4" mode='widthFix' src='{{uploadpath}}resource/{{res.nokecheng}}' />
         </div>
@@ -381,8 +381,8 @@
 </div>
 
 
-<swiper *ngIf="type=='kc'&&options_show==false" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='' class='tipsshowfull h60'>
-  <swiper-item  class="w360" *ngFor="let showitem of buyshow;let idx=index;" wx:key="k" catchtouchmove='catchTouchMove'>
+<ion-slides *ngIf="type=='kc'&&options_show==false" vertical="{{true}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' style='' class='tipsshowfull h60'>
+  <ion-slide  class="w360" *ngFor="let showitem of buyshow;let idx=index;" wx:key="k" catchtouchmove='catchTouchMove'>
     <div class='flex-row'>
       <div class='flex-1'></div>
       <div class='tipsshow'>
@@ -407,8 +407,8 @@
     </div>
 
 
-  </swiper-item>
-</swiper>
+  </ion-slide>
+</ion-slides>
 
 
 <div *ngIf='xiala=="xs"' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}};top:{{type=="kc"?"97px":"122px"}}'>

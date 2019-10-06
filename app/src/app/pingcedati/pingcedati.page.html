@@ -16,9 +16,9 @@
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div [class.hidden]="gif==true">
-    <swiper indicator-dots='{{false}}' disable='{{false}}' current='{{qie}}' autoplay='{{false}}' duration='200'
+    <ion-slides indicator-dots='{{false}}' disable='{{false}}' current='{{qie}}' autoplay='{{false}}' duration='200'
       circular='{{false}}' class="sp1">
-      <swiper-item catchtouchmove='stoptouch' *ngFor="let item of pingcelist;let idx=index;" wx:key="k"   class="sp1">
+      <ion-slide catchtouchmove='stoptouch' *ngFor="let item of pingcelist;let idx=index;" wx:key="k"   class="sp1">
         <div class=''>
 
           <div class='top-padding'>
@@ -70,8 +70,8 @@
 
 
         </div>
-      </swiper-item>
-    </swiper>
+      </ion-slide>
+    </ion-slides>
   </div>
 
 

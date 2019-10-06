@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -57,6 +57,7 @@ export class HomePage extends AppBase {
   pd = 1;
   days = []
   filtercoursetype = [];
+  fapk=[];
   nocity = 0;
 
   onMyLoad() {
@@ -78,6 +79,7 @@ export class HomePage extends AppBase {
 
     jigouapi.coursetype({}).then((filtercoursetype) => {
       this.filtercoursetype = filtercoursetype;
+      this.fapk=this.getArray(10-((filtercoursetype.length)-8));
     });
 
 

@@ -29,7 +29,7 @@
 
           <div class="padding-20">
             <div class="flex-1"></div>
-            <div class="txt-bold w350" >{{huodoninfo.activityName}}</div>
+            <div class="txt-bold w350">{{huodoninfo.activityName}}</div>
 
           </div>
 
@@ -128,7 +128,7 @@
 
             </div>
 
-            <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg()' *ngIf="{{fenmian==''}}"
+            <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg()' *ngIf="fenmian==''"
               class='icon-img' />
 
             <img mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' (click)='jguploadimg()' *ngIf="fenmian!=''"
@@ -162,47 +162,47 @@
               </div>
               <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg1($event)' class='icon-img' />
             </div>
-            <view>
+            <div>
+
+            </div>
+          </div>
+
+          <div class="padding-40 flex-row flex-center ">
+
+            <img *ngIf="xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
+            <img *ngIf="!xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
+            <div class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</div>
+            <div (click)="baomin($event)" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</div>
 
           </div>
-        </div>
-
-        <div class="padding-40 flex-row flex-center ">
-
-          <img *ngIf="xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
-          <img *ngIf="!xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
-          <div class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</div>
-          <div (click)="baomin($event)" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</div>
 
         </div>
+
+
+
+
+
 
       </div>
 
+      <div class="flex-1"></div>
+    </div>
+    <div class="flex-row margin-top">
 
+      <div class="flex-1"></div>
+      <div (click)="yulan($event)" class="yulan">预览报名页面</div>
+      <div class="flex-1"></div>
+    </div>
+    <div class="flex-row margin-top-20">
 
+      <div class="flex-1"></div>
 
-
-
+      <div (click)="tijiao($event)" class="tijiao">提交信息</div>
+      <div class="flex-1"></div>
     </div>
 
-    <div class="flex-1"></div>
-  </div>
-  <div class="flex-row margin-top">
 
-    <div class="flex-1"></div>
-    <div (click)="yulan($event)" class="yulan">预览报名页面</div>
-    <div class="flex-1"></div>
-  </div>
-  <div class="flex-row margin-top-20">
-
-    <div class="flex-1"></div>
-
-    <div (click)="tijiao($event)" class="tijiao">提交信息</div>
-    <div class="flex-1"></div>
-  </div>
-
-
-  <div class="height-70"></div>
+    <div class="height-70"></div>
   </div>
 
 

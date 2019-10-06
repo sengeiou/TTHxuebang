@@ -17,7 +17,7 @@
   </div>
 
   <div *ngFor='let item of baomalist' wx:key='k' class='bg-white block' id='{{item.id}}' (click)='binddetails($event)' style=''>
-    <img src='{{uploadpath}}baoma/{{item.img}}' lazy-load='{{true}}' style='' class='img' />
+    <img src='{{uploadpath}}baoma/{{item.img}}'  style='' class='img' />
     <div class='title_font txt-bold ' style='color:#4C4C4C'>
       {{item.title}}
     </div>

@@ -47,12 +47,12 @@
 
       <div class=' flex-row margin-top-20'>
 
-        <navigator url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
           <div class='flex-1 sp1'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h6 txt-gray margin-left-20 sp2'>快速搜索你要找的机构、课程 如“美术”</div>
           <div class='flex-1'></div>
-        </navigator>
+        </div>
 
       </div>
 
@@ -62,16 +62,16 @@
   </div>
 
 
-  <div class="topblock" *ngIf='nocity==2&&cityname!=address.address_component.city'>
+  <div class="topblock" *ngIf='nocity==2&&cityname!=address.ad_info.city'>
 
     <div class="flex-row flex-center m30">
 
       <div class="h6 txt-white margin-left-20">定位显示您的位置在“</div>
-      <div class="h6" style="color:#3887DE">{{address.address_component.city}}</div>
+      <div class="h6" style="color:#3887DE">{{address.ad_info.city}}</div>
       <div class="h6 txt-white flex-1">”</div>
       <div class="btn text-center h6 txt-white margin-right-20" (click)="setcity()"
-        data-name="{{address.address_component.city}}" id="{{address.ad_info.adcode}}">
-        切换到{{address.address_component.city}}</div>
+        data-name="{{address.ad_info.city}}" id="{{address.ad_info.adcode}}">
+        切换到{{address.ad_info.city}}</div>
       <img src="{{uploadpath}}resource/{{res.baicha}}" (click)="closetop()" class="icon15 margin-right-20" />
 
     </div>
@@ -83,22 +83,22 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
-        <swiper-item *ngFor="let item of indexbanner" wx:key="k">
+      <ion-slides indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
+        <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
           <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
             class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
-        </swiper-item>
-      </swiper>
+        </ion-slide>
+      </ion-slides>
 
     </div>
   </div>
 
 
 
-  <swiper indicator-dots='true' class="h300 ">
+  <ion-slides indicator-dots='true' class="h300 ">
 
-    <swiper-item class=" flex-row flex-center flex-wrap">
+    <ion-slide class=" flex-row flex-center flex-wrap">
 
       <div class="flex-row flex-column lesson-width " (click)='totake($event)' data-name='jg'>
         <img src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26" />
@@ -109,7 +109,7 @@
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
-      <div *ngFor='let item filtercoursetype;let idx=index;'>
+      <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
           data-name='{{item.typename}}' id='{{item.id}}'  *ngIf='idx<8'>
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
@@ -117,9 +117,9 @@
         </div>
       </div>
 
-    </swiper-item>
+    </ion-slide>
 
-    <swiper-item class=" flex-row flex-center flex-wrap">
+    <ion-slide class=" flex-row flex-center flex-wrap">
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc($event)'
           id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
@@ -128,15 +128,15 @@
         </div>
       </div>
 
-      <div class="flex-row flex-column lesson-width h92" style="" *ngFor='10-((filtercoursetype.length)-8)'>
+      <div class="flex-row flex-column lesson-width h92" style="" *ngFor='let item of fapk'>
         <div class="icon26"></div>
         <div class="h6"> </div>
       </div>
 
-    </swiper-item>
+    </ion-slide>
 
 
-  </swiper>
+  </ion-slides>
 
 
 
@@ -531,22 +531,22 @@
       <div class='flex-1'></div>
       <div class='wpc'>
 
-        <div *ngIf="noticebanner.length==1" *ngFor="let item of noticebanner;">
+        <div [class.hidden]="noticebanner.length!=1" *ngFor="let item of noticebanner;">
           <div (click)='bannerGo2($event)' id="{{item.id}}">
             <img src='{{uploadpath}}indexbanner/{{item.img}}'
               id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
           </div>
         </div>
 
-        <swiper *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
+        <ion-slides *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
           duration='1000' circular='{{true}}' class='wpc'>
-          <swiper-item *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
+          <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2($event)' id="{{item.id}}">
               <img src='{{uploadpath}}indexbanner/{{item.img}}'
                 id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
             </div>
-          </swiper-item>
-        </swiper>
+          </ion-slide>
+        </ion-slides>
 
         <div class="flex-row flex-center margin-top-20">
           <div class="flex-1"></div>
