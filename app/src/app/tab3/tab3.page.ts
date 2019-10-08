@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -29,7 +29,7 @@ export class Tab3Page extends AppBase {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
       
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
 
@@ -41,7 +41,7 @@ export class Tab3Page extends AppBase {
       pagename="shopmall";
     }
     // if (name == "yhq") {
-    //   wx.navigateTo({
+    //   this.navigateTo({
     //     url: '/pages/myorder/myorder',
     //   })
     // }

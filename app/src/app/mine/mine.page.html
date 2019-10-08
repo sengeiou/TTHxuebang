@@ -19,9 +19,9 @@
         <div class='orangeblock'>
 
 
-            <div style="position: absolute;right: 14rpx;top: 24rpx;">
+            <div style="" class="sp1">
           
-              <button class='clear-button' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style='width:120rpx;height:50rpx;position: absolute;z-index: 10;'>
+              <button class='clear-button sp2' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
               </button>
           
               <div class='gengxin '>
@@ -37,29 +37,29 @@
             <div class='flex-row flex-center'>
           
               <div class='flex-row column flex-1'>
-                <div class='f48 txt-bold txt-white chaochu'>Hi,{{memberinfo.nickName}}</div>
-                <div **ngIf='{{memberinfo.mobile!=""&&memberinfo.mobile!="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
-                <div **ngIf='{{memberinfo.mobile==""||memberinfo.mobile=="undefined"}}' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>
+                <div class='f48 txt-bold txt-white chaochu'>Hi,{{MemberInfo.nickName}}</div>
+                <div *ngIf='MemberInfo.mobile!=""&&MemberInfo.mobile!="undefined"' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
+                <div *ngIf='MemberInfo.mobile==""||MemberInfo.mobile=="undefined"' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>
           
                 <div class='bianji flex-row flex-center margin-top-20'>
                   <div class='flex-1'></div>
-                  <div bindtap="gotohaizi" class='txt-orange h6'>孩子信息编辑</div>
+                  <div (click)="gotohaizi()" class='txt-orange h6'>孩子信息编辑</div>
                   <img src='{{uploadpath}}resource/{{res.youjiaobiao}}' class='icon-10 margin-left-4' />
                   <div class='flex-1'></div>
                 </div>
           
               </div>
           
-              <img class='tx radius-50  ' style=' ' src='{{memberinfo.avatarUrl}}' />
+              <img class='tx radius-50  ' style=' ' src='{{MemberInfo.avatarUrl}}' />
           
             </div>
           </div>
           
           
-          <div class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
+          <div class="flex-row flex-center margin-20 bg-white shop" (click)='todetails($event)' data-name='jfsc'>
             <img class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}' />
             <div class="h6 margin-left-10">可用积分：</div>
-            <div class="flex-1 f18 " style="color:#FFA822">{{memberinfo.integral}}</div>
+            <div class="flex-1 f18 " style="color:#FFA822">{{MemberInfo.integral}}</div>
             <img class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}' />
             <div class="h6 margin-left-10">积分商城</div>
             <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}' />
@@ -71,7 +71,7 @@
           
           <div class='bg-white radius-8 margin-20'>
           
-            <div class='flex-row flex-center padd-order bor_bot' data-name='dd' bindtap='todetails'>
+            <div class='flex-row flex-center padd-order bor_bot' data-name='dd' (click)='todetails($event)'>
               <div class='flex-1 txt-black f-26 txt-bold'>我的订单</div>
               <div class='f22'>全部订单</div>
               <img class='icon-15 margin-left-4' src='{{uploadpath}}resource/{{res.to}}' />
@@ -79,31 +79,31 @@
           
             <div class='padd-order-under flex-row flex-center'>
           
-              <div bindtap="orderlist" data-id='dfk' class='flex-row flex-column flex-1'>
-                <div **ngIf="{{memberinfo.dfkorder>0}}" class="shuzi">{{memberinfo.dfkorder}}</div>
+              <div (click)="orderlist($event)" data-id='dfk' class='flex-row flex-column flex-1'>
+                <div *ngIf="MemberInfo.dfkorder>0" class="shuzi">{{MemberInfo.dfkorder}}</div>
                 <img class='icon-48 ' src='{{uploadpath}}resource/{{res.dddaifukuan}}' />
                 <div class='h6 margin-top-10'>待付款</div>
               </div>
           
-              <div bindtap="pintuan" data-id='ygm' class='flex-row flex-column flex-1'>
-                <div **ngIf="{{memberinfo.ypborder>0}}" class="shuzi">{{memberinfo.ypborder}}</div>
+              <div (click)="pintuan($event)" data-id='ygm' class='flex-row flex-column flex-1'>
+                <div *ngIf="MemberInfo.ypborder>0" class="shuzi">{{MemberInfo.ypborder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinban}}' />
                 <div class='h6 margin-top-10'>待拼班</div>
               </div>
           
-              <div bindtap="orderlist" data-id='dpj' class='flex-row flex-column flex-1'>
-                <div **ngIf="{{memberinfo.dpjorder>0}}" class="shuzi">{{memberinfo.dpjorder}}</div>
+              <div (click)="orderlist($event)" data-id='dpj' class='flex-row flex-column flex-1'>
+                <div *ngIf="MemberInfo.dpjorder>0" class="shuzi">{{MemberInfo.dpjorder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaipinjia}}' />
                 <div class='h6 margin-top-10'>待评价</div>
               </div>
           
-              <div bindtap="orderlist" data-id='dsh' class='flex-row flex-column flex-1'>
-                <div **ngIf="{{memberinfo.dshorder>0}}" class="shuzi">{{memberinfo.dshorder}}</div>
+              <div (click)="orderlist($event)" data-id='dsh' class='flex-row flex-column flex-1'>
+                <div *ngIf="MemberInfo.dshorder>0" class="shuzi">{{MemberInfo.dshorder}}</div>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.dddaishouhuo}}' />
                 <div class='h6 margin-top-10'>待收货</div>
               </div>
           
-              <div bindtap="tuikuan" class='flex-row flex-column flex-1'>
+              <div (click)="tuikuan($event)" class='flex-row flex-column flex-1'>
                 <img class='icon-48' src='{{uploadpath}}resource/{{res.shouhuo}}' />
                 <div class='h6 margin-top-10'>退款/售后</div>
               </div>
@@ -117,21 +117,21 @@
           
           <div class='bg-white margin-20 radius-8'>
           
-            <div data-name='ketan' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='ketan($event)' (click)='todetails' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.yigouketan}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>已购课堂</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
           
-            <div data-name='xx' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='xx' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.myxiaoxi}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>我的消息</div>
-              <div **ngIf="{{xiaoxi>0}}" class="hondian margin-right-20"></div>
+              <div *ngIf="xiaoxi>0" class="hondian margin-right-20"></div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
-            <div data-name='dizhi' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='dizhi' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.myaddress}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>地址管理</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
@@ -139,7 +139,7 @@
           
           
           
-            <div data-name='pc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='pc' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.mypingce}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>我的评测</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
@@ -147,39 +147,39 @@
           
           
           
-            <div data-name='wt' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='wt' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.chanjian}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>常见问题</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
           
-            <div data-name='sc' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='sc' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.myfav}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>我的收藏</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
-            <div data-name='kf' bindtap='todetails' class=' margin-30   pd'>
+            <div data-name='kf' (click)='todetails($event)' class=' margin-30   pd'>
           
               <div class='flex-row flex-center'>
                 <img class='icon-24' src='{{uploadpath}}resource/{{res.lianxikefu}}' />
                 <div class='margin-left-20  txt-black h '>联系客服</div>
-                <div class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{instinfo.openning}}</div>
+                <div class='margin-left-40  txt-gray h6 flex-1 '>工作日 {{InstInfo.openning}}</div>
                 <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
               </div>
           
             </div>
           
           
-            <div data-name='wm' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='wm' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.us}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>关于我们</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
             </div>
           
           
-            <div data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+            <div data-name='jg' (click)='todetails($event)' class='flex-row flex-center margin-30   pd'>
               <img class='icon-24' src='{{uploadpath}}resource/{{res.ruzhu}}' />
               <div class='margin-left-20  txt-black  flex-1 h'>机构入驻</div>
               <img class='icon-15' src='{{uploadpath}}resource/{{res.to}}' />
@@ -187,8 +187,8 @@
           
           
           
-            <div class='margin-top padding' **ngIf="{{memberinfo.canhexiao=='Y'}}">
-              <button bindtap='startscan'>核销</button>
+            <div class='margin-top padding' *ngIf="MemberInfo.canhexiao=='Y'">
+              <button (click)='startscan()'>核销</button>
             </div>
           
           </div>

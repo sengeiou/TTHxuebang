@@ -1,82 +1,75 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>搜索</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
 
-<!--pages/searchword/searchword.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
-</div>
-<div class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
-  <div class='search flex-row flex-center padding-5 '>
-    <div style='width:20rpx;'></div>
-    <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-    <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true' placeholder='搜索您要找的机构、课程' bindinput='search' />
-
-    <div class='padding-left-20 padding-right-10' bindtap=''>
-      <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
-    </div>
+  <!--pages/searchword/searchword.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class=' to_top'>
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
+  <div class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
+    <div class='search flex-row flex-center padding-5 '>
+      <div class="w20"></div>
+      <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
+      <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true'
+        placeholder='搜索您要找的机构、课程' [(ngModel)]='search' />
 
-  <div class='text-right flex-1 h5 txt-white' style='' bindtap='quxiao' id='{{item.name}}'>取消</div>
-</div>
-<div bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' **ngFor="{{result}}" wx:key="k" wx:for-index='idx'>
-  <view>{{item.name}}</div>
+      <div class='padding-left-20 padding-right-10' >
+        <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
+      </div>
+    </div>
+
+    <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)'>取消</div>
+  </div>
+  <div (click)='todetails($event)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
+    *ngFor="let item of result;let idx=index;" >
+    <div>{{item.name}}
+  </div>
   <div class='h6 txt-red margin-left-20'></div>
-</div>
-
-
-<!-- <div style='height:95rpx;'></div> -->
-<div **ngIf="{{result.length==0}}">
-
-
-  <div **ngIf="{{hotest.length>0}}">
-    <div class="bg-white">
-      <div class='keywordtitle txt-9'>热门搜索</div>
-      <div class='flex-row' style='flex-wrap: wrap;padding-left:30rpx;'>
-        <div **ngFor="{{hotest}}" wx:key="k" class='keyword' id="{{item.keyword}}" bindtap='todetails'>{{item.keyword}}</div>
-      </div>
-      <div style="height:40rpx"></div>
-    </div>
   </div>
 
+  <div *ngIf="result.length==0">
 
-  <div **ngIf="{{history.length>0}}"  >
 
-  <div class="bg-white" style='margin-top:12rpx;' >
-    <div class='flex-row flex-center'>
-      <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
-      <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' bindtap='clearrecord' />
-      <div style='width:40rpx;'></div>
-      <!-- <div class='txt-gray h6 margin-right-10 flex-1 text-right' bindtap='clearrecord'>清空</div> -->
-    </div>
-
-    <div class=' ' style='padding-left:30rpx;padding-right:30rpx;'>
-      <div **ngFor="{{history}}" wx:key="k" class='' id="{{item.keyword}}" bindtap='todetails'>
-      <div style="height:4rpx;background:#F5F5F5"></div>
-
-      <div class="h6" style="margin-top:24rpx;margin-bottom:24rpx">{{item.keyword}}</div>
-      
+    <div *ngIf="hotest.length>0">
+      <div class="bg-white">
+        <div class='keywordtitle txt-9'>热门搜索</div>
+        <div class='flex-row pl30' style='flex-wrap: wrap;'>
+          <div *ngFor="let item of hotest;" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails($event)'>
+            {{item.keyword}}</div>
+        </div>
+        <div class="h40"></div>
       </div>
     </div>
 
-    <!-- <div style="height:40rpx"></div> -->
-</div>
 
+    <div *ngIf="history.length>0">
+
+      <div class="bg-white mt12" style=''>
+        <div class='flex-row flex-center'>
+          <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
+          <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord($event)' />
+          <div class="w40"></div>
+        </div>
+
+        <div class='sp2 ' style=''>
+          <div *ngFor="let item of history;" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails($event)'>
+            <div style="height:2px;background:#F5F5F5"></div>
+            <div class="h6 sp1" style="">{{item.keyword}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-
-
-</div>
-
-    </ion-content>
+</ion-content>

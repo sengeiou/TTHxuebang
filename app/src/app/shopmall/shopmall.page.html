@@ -14,15 +14,15 @@
 <!--pages/shopmall/shopmall.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
 </div>
-<view>
+<div>
   <div class='toubu' style='background-image:url({{uploadpath}}resource/{{res.jifen_bg}});background-size:100% 100%;'>
 
 
     <div class="flex-row flex-center">
       <div class="flex-1"></div>
-      <img class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset" />
+      <img class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' (click)="showtoset($event)" />
     </div>
 
     <div class='flex-row '>
@@ -30,7 +30,7 @@
 
       <div class='flex-row'>
         <img class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}' />
-        <div class='f60 txt-bold margin-left-10' style='color:#222222'>{{memberinfo.integral}}</div>
+        <div class='f60 txt-bold margin-left-10' style='color:#222222'>{{MemberInfo.integral}}</div>
       </div>
 
       <div class='flex-1'></div>
@@ -38,20 +38,20 @@
 
     <div class='flex-row margin-left-66 margin-top-32'>
 
-      <div class='sz flex-row _center' bindtap="toshouzhi">
+      <div class='sz flex-row _center' (click)="toshouzhi($event)">
         <div class='flex-row'>
-          <view>
+          <div>
             <img class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}' />
           </div>
           <div class='margin-left-10 h5' style=' '>收支明细</div>
         </div>
       </div>
 
-      <div class='sz flex-row _center margin-left-46' bindtap="toorder">
-        <view>
+      <div class='sz flex-row _center margin-left-46' (click)="toorder($event)">
+        <div>
           <img class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}' />
         </div>
-        <view>
+        <div>
           <div class='margin-left-10 h5' style=' '>我的兑换</div>
         </div>
       </div>
@@ -60,12 +60,12 @@
 
 
   <div class='flex-row flex-wrap'>
-    <div **ngFor='{{list}}' wx:key='k'>
-      <div class='hezi' bindtap="todetails" id="{{item.id}}">
+    <div *ngFor='let item of list' wx:key='k'>
+      <div class='hezi' (click)="todetails($event)" id="{{item.id}}">
         <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
 
         <div class="padding">
-          <div class='  txt-bold f13 chaochu' style="width:300rpx;max-height:85rpx;">{{item.name}}</div>
+          <div class='  txt-bold f13 chaochu sp1' style="">{{item.name}}</div>
           <div class='flex-row flex-center  margin-top-6'>
             <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 " />
             <div class=" txt9 h5 margin-left-10">{{item.interral}}</div>
@@ -80,7 +80,7 @@
 
 </div>
 
-<div style="height:40rpx"></div>
+<div class="h40"></div>
 
 
     </ion-content>

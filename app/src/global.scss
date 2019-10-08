@@ -292,6 +292,9 @@ textarea {
 .f15 {
     font-size: rpx(30) !important;
 }
+.f16 {
+    font-size: rpx(16) !important;
+}
 
 .f18 {
     font-size: rpx(36) !important;
@@ -863,4 +866,27 @@ a {
 
 .hidden{
     display: none;
+}
+
+.shown{
+    display: "";
+}
+
+.f40{
+    font-size:rpx(40);
+}
+.f22{
+    font-size:rpx(22);
+}
+.f20{
+    font-size:rpx(20);
+}
+
+.f36{
+    font-size:rpx(36);
+}
+
+.f30{
+    
+    font-size:rpx(30);
 }

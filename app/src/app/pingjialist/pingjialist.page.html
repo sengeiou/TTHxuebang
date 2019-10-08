@@ -5,7 +5,7 @@
               <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
             </ion-button>
           </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
+          <ion-title>评论</ion-title>
         </ion-toolbar>
   </ion-header>
 
@@ -16,48 +16,48 @@
 
 <div class='h5 bg-gray height30'>精彩评论</div>
 
-<div **ngIf='{{pingjialist.length==0}}' class='flex-row flex-center'>
+<div *ngIf='pingjialist.length==0' class='flex-row flex-center'>
   <div class='flex-1'></div>
-  <view>暂无评论</div>
+  <div>暂无评论</div>
   <div class='flex-1'></div>
 </div>
 
-<div **ngFor='{{pingjialist}}' wx:key='k' wx:for-index='idx'>
+<div *ngFor='let item of pingjialist;let idx=index;' wx:key='k' wx:for-index='idx'>
   <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
 
     <img src='{{item.member_avatarUrl}}' class='tx radius-50' />
 
-    <div class=' flex-1 ' style='margin-left:16rpx;'>
+    <div class=' flex-1 ml16 ' >
 
-      <div class='h6 txt-black' **ngIf='{{item.niming_value!="Y"}}'>{{item.member_id_name}}</div>
-      <div class='h6 txt-black' **ngIf='{{item.niming_value=="Y"}}'>匿名用户</div>
+      <div class='h6 txt-black' *ngIf='item.niming_value!="Y"'>{{item.member_id_name}}</div>
+      <div class='h6 txt-black' *ngIf='item.niming_value=="Y"'>匿名用户</div>
 
       <div class='flex-row flex-center margin-top-4'>
         <div class='h7 txt9'>{{item.created_date}}</div>
-        <div style='width:39rpx;'></div>
+        <div class="w39"></div>
 
-        <div **ngIf='{{item.pingfen==1}}'>
+        <div *ngIf='item.pingfen==1'>
           <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{4}}' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr4' />
         </div>
 
-        <div **ngIf='{{item.pingfen==2}}'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+        <div *ngIf='item.pingfen==2'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
         </div>
 
-        <div **ngIf='{{item.pingfen==3}}'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+        <div *ngIf='item.pingfen==3'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
         </div>
 
-        <div **ngIf='{{item.pingfen==4}}'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{3}}' />
-          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{2}}' />
+        <div *ngIf='item.pingfen==4'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr3' />
+          <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr2' />
         </div>
 
-        <div **ngIf='{{item.pingfen==5}}'>
-          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{4}}' />
+        <div *ngIf='item.pingfen==5'>
+          <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr4' />
           <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
         </div>
 
@@ -66,32 +66,32 @@
 
     </div>
 
-    <div class='flex-row flex-center padding-20' bindtap="dianzan" id='{{idx}}'>
+    <div class='flex-row flex-center padding-20' (click)="dianzan($event)" id='{{idx}}'>
      
-      <img **ngIf='{{item.kcl!=""}}' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4' />
-      <img **ngIf='{{item.kcl==""}}' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4' />
+      <img *ngIf='item.kcl!=""' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4' />
+      <img *ngIf='item.kcl==""' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4' />
        <div class='h6 margin-left-4'>{{item.count}}</div>
     </div>
 
   </div>
 <div class="pinlun">
-  <text class=' h5 txt-black'>
+  <p class=' h5 txt-black'>
     {{item.content}}
-  </text>
+  </p>
 </div>
   <div class='img flex-row flex-center flex-wrap'>
 
-    <img **ngIf='{{item.img1!=""&&item.img1!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}' />
+    <img *ngIf='item.img1!=""&&item.img1!="undefined"' src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img1}}' />
 
-    <img **ngIf='{{item.img2!=""&&item.img2!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}' />
+    <img *ngIf='item.img2!=""&&item.img2!="undefined"' src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img2}}' />
 
-    <img **ngIf='{{item.img3!=""&&item.img3!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}' />
+    <img *ngIf='item.img3!=""&&item.img3!="undefined"' src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img3}}' />
 
-    <img **ngIf='{{item.img4!=""&&item.img4!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}' />
+    <img *ngIf='item.img4!=""&&item.img4!="undefined"' src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img4}}' />
 
-    <img **ngIf='{{item.img5!=""&&item.img5!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}' />
+    <img *ngIf='item.img5!=""&&item.img5!="undefined"' src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img5}}' />
 
-    <img **ngIf='{{item.img6!=""&&item.img6!="undefined"}}' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}' />
+    <img *ngIf='item.img6!=""&&item.img6!="undefined"' src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img6}}' />
 
 
   </div>

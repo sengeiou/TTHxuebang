@@ -15,12 +15,12 @@
 <!--pages/yiduihuang/yiduihuang.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class="flex-row flex-column margin-top-74">
-  <div style="color:#FFC200;font-size:40rpx" class="txt-bold">兑换已完成</div>
+  <div style="color:#FFC200;" class="txt-bold f40">兑换已完成</div>
   <div class="margin-top-20">{{info.name}}</div>
   <img src="{{uploadpath}}resource/{{res.yigoumaiimg}}" class="icon margin-top-54" />
   <div class="flex-row flex-center margin-top-54">
-    <div class="btn text-center f13 txt-white txt-bold" bindtap="order">查看我的订单</div>
-    <div class="btn text-center f13 txt-white txt-bold" bindtap="back">继续兑换</div>
+    <div class="btn text-center f13 txt-white txt-bold" (click)="order($event)">查看我的订单</div>
+    <div class="btn text-center f13 txt-white txt-bold" (click)="back($event)">继续兑换</div>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -33,7 +33,7 @@ export class AddressmanagePage extends AppBase {
   type = "mine";
   xiugai = null;
   id = 0;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
 
@@ -51,7 +51,7 @@ export class AddressmanagePage extends AppBase {
       })
     }
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.addressApi;
 

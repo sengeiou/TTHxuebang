@@ -1,85 +1,62 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
-
-
-
-<!--pages/search/search.wxml-->
-
-<!-- <div class='Top padding-20 flex-row flex-center'>
-  <div class='search flex-row flex-center padding-5'>
-    <div style='width:20rpx;'></div>
-    <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-    <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您想要的' bindinput='search' />
-
-    <div class='padding-left-20 padding-right-10' bindtap=''>
-      <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
-    </div>
-  </div>
-  <div class='padding-left-10 h5 ' bindtap='tosearch' id='{{item.name}}'>取消</div>
-</div> -->
+<ion-content>
 
 
-<!-- <div bindtap='todetails' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}' **ngFor="{{result}}" wx:key="k" wx:for-index='idx'>
-  <view>{{item.name}}</div>
-  <div class='h6 txt-red margin-left-20'></div>
-</div> -->
 
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-<div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
-</div>
-
-<div class=' flex-row flex-center  bg-white bor_bot'>
-
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
-    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程</div>
-    <div **ngIf='{{shows=="finished"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{shows!="finished"}}' class='' style='width:80rpx;height:6rpx;'></div>
+  <div class=' to_top'>
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
-    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构</div>
-    <div **ngIf='{{shows=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{shows!="wait"}}' class='' style='width:80rpx;height:6rpx;'></div>
-  </div>
+  <div class=' flex-row flex-center  bg-white bor_bot'>
 
-  <!-- <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='mv'>
-    <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="video"?"txt":""}} txt-black'>视频</div>
-    <div **ngIf='{{shows=="video"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{shows!="video"}}' class='' style='width:80rpx;height:6rpx;'></div>
-  </div> -->
-
-</div>
-
-
-
-<div class='padding-bottom-20' **ngIf='{{shows=="finished"}}'>
-
-  <div **ngIf="{{coursevlist.length==0}}">
-    <div class='flex-row text-center'>
-      <div class='flex-1'>
-
+    <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='wc'>
+      <div
+        class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="finished"?"txt":""}} txt-black'>课程
       </div>
+      <div *ngIf='shows=="finished"' class='bg-primary sp1' style=''></div>
+      <div *ngIf='shows!="finished"' class=' sp2' style=''></div>
+    </div>
 
-      <view>
+    <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='df'>
+      <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{shows=="wait"?"txt":""}} txt-black'>机构
+      </div>
+      <div *ngIf='shows=="wait"' class='bg-primary sp1' style=''></div>
+      <div *ngIf='shows!="wait"' class=' sp2' style=''></div>
+    </div>
 
-        <div class='nofound-img'>
-          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+  </div>
+
+
+
+  <div class='padding-bottom-20' *ngIf='shows=="finished"'>
+
+    <div *ngIf="coursevlist.length==0">
+      <div class='flex-row text-center'>
+        <div class='flex-1'>
+
         </div>
-        <div class='h5 txt-gray'>
-          未找到您需要的课程
-        </div>
+
+        <div>
+
+          <div class='nofound-img'>
+            <img class='sp3' mode='widthFix'
+              src='{{uploadpath}}resource/{{res.nofound}}' />
+          </div>
+          <div class='h5 txt-gray'>
+            未找到您需要的课程
+          </div>
       </div>
       <div class='flex-1'>
 
@@ -90,36 +67,37 @@
 
 
 
-  <div bindtap='tokcdetails' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' **ngFor='{{coursevlist}}' wx:key='k'>
+  <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
+    *ngFor='let item of coursevlist;let idx=index;' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
 
       <div class='flex-row flex-center'>
 
-                  <div class="starbox text-right">
-                    <div class="stars" style="width: 100%;">
-                     <div class=" ims">
-                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                     </div>
-                    </div>
+        <div class="starbox text-right">
+          <div class="stars" style="width: 100%;">
+            <div class=" ims">
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+            </div>
+          </div>
 
-                    <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
-                     <div class="ims">
-                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      </div>
-                    </div>
+          <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+            <div class="ims">
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+              <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+            </div>
+          </div>
 
-                  </div>
-                
+        </div>
+
         <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>
       </div>
 
@@ -151,8 +129,8 @@
         <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
         <div class='h6 flex-1 margin-left-5 txt-gray'>{{item.JG_jigou}}</div>
         <div class=' txt-red h6 padding-top-10'>￥</div>
-       
-        <div   class=' txt-red txt-bold'>{{item.zuidijia}}</div>
+
+        <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
       </div>
 
       <div class='flex-row flex-center'>
@@ -166,24 +144,25 @@
 
 
 
-</div>
+  </div>
 
-<div class='' **ngIf='{{shows=="wait"}}'>
+  <div class='' *ngIf='shows=="wait"'>
 
-  <div **ngIf="{{jgvlist.length==0}}">
-    <div class='flex-row text-center'>
-      <div class='flex-1'>
+    <div *ngIf="jgvlist.length==0">
+      <div class='flex-row text-center'>
+        <div class='flex-1'>
 
-      </div>
-
-      <view>
-
-        <div class='nofound-img'>
-          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' lazy-load='{{true}}' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
         </div>
-        <div class='h5 txt-gray'>
-          未找到您需要的机构
-        </div>
+
+        <div>
+
+          <div class='nofound-img'>
+            <img class='sp3' lazy-load='{{true}}' mode='widthFix'
+              src='{{uploadpath}}resource/{{res.nofound}}' />
+          </div>
+          <div class='h5 txt-gray'>
+            未找到您需要的机构
+          </div>
       </div>
       <div class='flex-1'>
 
@@ -193,9 +172,12 @@
 
 
 
-  <div hidden='{{jgvlist.length==0}}' **ngFor='{{jgvlist}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ' class=''>
+  <div [class.hidden]='jgvlist.length==0' *ngFor='let item of jgvlist' 
+  wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)'
+    style='position: relative; ' class='h564'>
     <div class=' padding-20' style=''>
-      <img src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class=' radius-10 ' style='width:100%;height:390rpx' />
+      <img src='{{uploadpath}}mechanism/{{item.jg_img}}' lazy-load='{{true}}' class='h390 radius-10 '
+        style='width:100%;' />
     </div>
 
     <div class='flex-row flex-column '>
@@ -207,39 +189,42 @@
 
 
             <div class="flex-row flex-center flex-1 ">
-              <div class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</div>
-              <img  **ngIf="{{item.renzhen=='是'}}" src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" />
+              <div class='txt-black txt-bold  chaochu mw400' style="">{{item.jigou}}</div>
+              <img *ngIf="item.renzhen=='是'" src="{{uploadpath}}resource/{{res.renzheng}}"
+                class="icon13 margin-left-10" />
             </div>
 
-              <div class="starbox text-right">
-                <div class="stars" style="width: 100%;">
-                  <div class=" ims">
-                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                  </div>
+            <div class="starbox text-right">
+              <div class="stars" style="width: 100%;">
+                <div class=" ims">
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
                 </div>
-
-                <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
-                  <div class="ims">
-                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                    <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                  </div>
-                </div>
-
               </div>
+
+              <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                <div class="ims">
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                </div>
+              </div>
+
+            </div>
 
           </div>
 
 
           <div class='flex-row flex-center margin-top-5'>
             <div class='flex-row flex-1'>
-              <div class='  radius-10 txt-green h6 biaoqian text-center margin-5' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor="{{item.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+              <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
+                style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"
+                >{{litem.name}}</div>
             </div>
             <div class='f20 txt-gray'>已预约{{item.people_num}}人</div>
           </div>
@@ -267,66 +252,6 @@
 
 
 
-</div>
-
-<!-- <div class='' **ngIf='{{shows=="video"}}'>
-
-  <div **ngIf="{{teachlist.length==0}}">
-    <div class='flex-row text-center'>
-      <div class='flex-1'>
-
-      </div>
-
-      <view>
-
-        <div class='nofound-img'>
-          <img style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
-        </div>
-        <div class='h5 txt-gray'>
-          未找到您需要的视频
-        </div>
-      </div>
-      <div class='flex-1'>
-
-      </div>
-    </div>
   </div>
 
-
-
-
-
-
-  <div class='bg-white margin-bottom-20 ' **ngIf="{{teachlist.length>0}}" style='position:relative;width:100%' **ngFor='{{teachlist}}' wx:key='k'>
-    <div class='title txt-white  txt-bold'>{{item.title}}</div>
-
-    <video class='pos' object-fit="fill" style='width:100%; height:400rpx;' poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="contain" autoplay='{{false}}' loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}} '>
-    </video>
-
-    <div class='flex-row flex-center padding-30'>
-      <div class='bg-primary radius-30 org_block flex-row flex-center'>
-        <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
-        <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
-      </div>
-     
-      <div bindtap='tojgdetails' id='{{item.mechanism_id}}' style='color:#589DE9' class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
-
-
-      <div class='h5'>{{item.count}}次</div>
-      <div class='margin-left-20 flex-row flex-center'>
-      
-
-        <img src='{{uploadpath}}resource/{{res.video_coll}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_Y' **ngIf="{{item.isfav=='N'}}" />
-        <img src='{{uploadpath}}resource/{{res.video_null}}' style='width:32rpx;height:28rpx;' class='margin-right-10' bindtap='fav' id='{{item.id}}_N' **ngIf="{{item.isfav!='N'}}" />
-
-        <div **ngIf="{{item.isfav=='N'}}" class='h5  ' style='color:#FF9393'>收藏</div>
-        <div **ngIf="{{item.isfav!='N'}}" class='h5 ' style='color:#FF9393'>收藏</div>
-      
-      </div>
-    </div>
-  </div>
-
-
-
-</div> -->
-    </ion-content>
+</ion-content>

@@ -10,12 +10,30 @@ import { ReturnStatement } from "@angular/compiler";
 import { ViewController } from '@ionic/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit } from '@angular/core';
+import { OnInit, OnDestroy } from '@angular/core';
 
 declare let wx: any;
 
-export class AppBase implements OnInit {
+export class AppBase implements OnInit, OnDestroy {
     public needlogin = false;
+
+    static CITYID = 440300;
+    static CITYNAME = "深圳市";
+    static CITYSET = false;
+
+    mylat = 0;
+    mylng = 0;
+
+
+    static lastlat = 0;
+    static lastlng = 0;
+    static lastdistance = 0;
+    static lastaddress = {
+        address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
+    };
+    address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
+    citycode = 0;
+    lastdistance = 0;
 
     public static TABName = "";
     public static LASTTAB = null;
@@ -35,16 +53,29 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo = null;
-    public InstInfo = {  h5sharelogo: "", h5sharetitle: "", h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { id:0, avatarUrl: "", nickName: "", h5openid: "", unionid: "" };
+    public InstInfo = {
+        fenxiaobili: 0, intotel: "", worktime: "", kefuerweima: "",
+        xiajishijian: "", personnumber: "0", h5sharelogo: "", h5sharetitle: "",
+        h5sharedesc: "", tel: "", h5appid: "", kf: "", openning: "", successtips: "",
+        orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0,
+        shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: ""
+    };
+    public MemberInfo = {
+        integral: 0, dfkorder: 0, ypborder: 0,
+        dpjorder: 0, dshorder: 0, canhexiao: "N",
+        tuiguanshouyi: 0, mobile: "", id: 0, avatarUrl: "", nickName: "",
+        h5openid: "", unionid: "", citylist: []
+    };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
     public params: Params = null;
 
-    public formdata=null;
+    public formdata = null;
 
-    public keyt = "memberinfo99";
+    public static jump = true;
+
+    public keyt = "MemberInfo99";
     public stat = "stat9";
 
     public heading = "学榜";
@@ -57,6 +88,22 @@ export class AppBase implements OnInit {
     currentpage = "";
 
     static STATICRAND = "";
+
+
+    mySwiperOption = {
+        autoplay: {
+            delay: 5000,
+        },
+        zoom: {
+            enabled: false
+        },
+        loop: true
+    }
+    mySwiperOption2 = {
+        zoom: {
+            enabled: false
+        }
+    }
 
 
     public constructor(
@@ -79,14 +126,14 @@ export class AppBase implements OnInit {
         }
         AppBase.STATICRAND = stat;
 
-        var memberinfo = window.localStorage.getItem(this.keyt);
+        var MemberInfo = window.localStorage.getItem(this.keyt);
 
-        if (memberinfo != null) {
-            AppBase.MemberInfo = JSON.parse(memberinfo);
+        if (MemberInfo != null) {
+            AppBase.MemberInfo = JSON.parse(MemberInfo);
         }
         console.log("rdw", AppBase.MemberInfo);
 
-        this.formdata={};
+        this.formdata = {};
     }
     setStatusBar() {
         //  this.statusBar.styleLightContent();
@@ -103,10 +150,10 @@ export class AppBase implements OnInit {
     }
     getInstInfo() {
         if (AppBase.InstInfo == null) {
-            AppBase.instapi.info({}, false).then((instinfo) => {
-                AppBase.InstInfo = instinfo;
-                this.InstInfo = instinfo;
-                console.log(instinfo);
+            AppBase.instapi.info({}, false).then((InstInfo) => {
+                AppBase.InstInfo = InstInfo;
+                this.InstInfo = InstInfo;
+                console.log(InstInfo);
                 console.log("aaabbbccc", AppBase.STATICRAND);
                 if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
 
@@ -129,12 +176,12 @@ export class AppBase implements OnInit {
     }
     getMemberInfo() {
 
-        AppBase.memberapi.info({}).then((memberinfo) => {
-            if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
+        AppBase.memberapi.info({}).then((MemberInfo) => {
+            if (MemberInfo == null || MemberInfo.mobile == undefined || MemberInfo.mobile == "") {
                 //alert("?");
-                memberinfo = null;
+                MemberInfo = null;
             }
-            this.MemberInfo = memberinfo;
+            this.MemberInfo = MemberInfo;
 
         });
     }
@@ -167,16 +214,16 @@ export class AppBase implements OnInit {
             console.log("aaabbbccc", this.params.code != undefined && this.params.state == AppBase.STATICRAND);
             console.log("aaabbbccc", this.params.state);
             if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
-                AppBase.memberapi.getuserinfo({ h5: "Y", code: this.params.code, grant_type: "authorization_code" }).then((memberinfo) => {
-                    memberinfo.h5openid = memberinfo.openid;
-                    AppBase.MemberInfo = memberinfo;
-                    this.MemberInfo = memberinfo;
+                AppBase.memberapi.getuserinfo({ h5: "Y", code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
+                    MemberInfo.h5openid = MemberInfo.openid;
+                    AppBase.MemberInfo = MemberInfo;
+                    this.MemberInfo = MemberInfo;
 
                     window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
 
-                    ApiConfig.SetToken(memberinfo.h5openid);
-                    ApiConfig.SetTokenKey(memberinfo.unionid);
-                    AppBase.memberapi.updateh5(memberinfo).then((res) => {
+                    ApiConfig.SetToken(MemberInfo.h5openid);
+                    ApiConfig.SetTokenKey(MemberInfo.unionid);
+                    AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
                     });
                     //window.location.href="/tabs/tab1";
@@ -225,7 +272,7 @@ export class AppBase implements OnInit {
         // }, 1000);
     }
     isbacking = false;
-    back() {
+    back(e = undefined) {
         if (this.isbacking == true) {
             return;
         }
@@ -305,12 +352,18 @@ export class AppBase implements OnInit {
         });
         toast.present();
     }
-    async showAlert(msg) {
+    async showAlert(msg, callback = undefined) {
 
         const alert = await this.alertCtrl.create({
             header: "提示",
             subHeader: msg,
-            buttons: ["知道了"]
+            buttons: [{
+                text: "知道了", handler: (blah) => {
+                    if (callback != undefined) {
+                        callback();
+                    }
+                }
+            }]
         });
         alert.present();
     }
@@ -458,15 +511,74 @@ export class AppBase implements OnInit {
         });
     }
 
-    backHome() {
+    backHome(e = undefined) {
         this.navCtrl.navigateBack('tabs/home');
         return;
     }
-    uploadImage(module,aa){
+    uploadImage(module, aa) {
 
     }
-    backtotop(){
-        var ioncontent=document.querySelector("ion-header");
+    backtotop(e = undefined) {
+        var ioncontent = document.querySelector("ion-header");
         ioncontent.scrollIntoView(true);
+    }
+    onShareAppMessage() {
+
+    }
+    onUnload() {
+        console.log("on unload");
+    }
+    ngOnDestroy() {
+        this.onUnload();
+    }
+    redirectTo(obj) {
+        this.navigateTo(obj);
+    }
+    gonavigator(obj) {
+        console.log(obj);
+        this.navigateTo(obj);
+    }
+    navigateTo(obj) {
+        var url = obj.url.toString();
+        var pagename = url.split("/")[1];
+        var json = null;
+        json = {};
+        if (url.indexOf("?") > 0) {
+            let vk = url.substr(url.indexOf("?") + 1);
+            let vk2 = vk.split("&");
+            for (let vk2 of vk) {
+                var vk3 = vk2.split("=");
+                json[vk3[0]] = vk3[1];
+            }
+        }
+        this.navigate(pagename, json);
+    }
+    navigateBack(obj = undefined) {
+        this.back();
+    }
+    showToast(obj) {
+        this.toast(obj.title);
+    }
+    download(url) {
+        window.open(url);
+    }
+    reLaunch(obj) {
+        window.location.href = obj.url;
+    }
+    getArray(t) {
+        var ret = [];
+        for (var i = 0; i < t; i++) {
+            ret.push(i);
+        }
+        return ret;
+    }
+    openMap(e) {
+
+    }
+    phoneCall(e) {
+
+    }
+    viewPhoto(e) {
+
     }
 }

@@ -1,78 +1,96 @@
 @function rpx($px) {
-    @return ($px * 100vw) / 750;
+  @return ($px * 100vw) / 750;
 }
 
 /* pages/pingcedati/pingcedati.wxss */
 
-Page {
-    background: white;
-  }
-  .margin-top-4 {
-    margin-top: rpx(4);
-  }
-  .margin-top-6 {
-    margin-top: rpx(6);
-  }
-  
-  .margin-top-12 {
-    margin-top: rpx(12);
-  }
-  
-  .padding-top-10 {
-    padding-top: rpx(10);
-  }
-  
-  .padding-top-12 {
-    padding-top: rpx(12);
-  }
-  
-  .top-padding {
-    padding: rpx(40) rpx(34) rpx(40) rpx(34);
-  }
-  
-  .mid-padding {
-    padding: rpx(40) rpx(10) rpx(40) rpx(0);
-    margin-left: rpx(34);
-    border-bottom: rpx(2) solid #f5f5f5;
-  }
-  
-  .bg-gray {
-    background: #f5f6f8;
-  }
-  
-  .kon {
-    width: rpx(20);
-    height: rpx(20);
-    border: 1px solid #ffc200;
-  }
-  
-  .mang {
-    width: rpx(20);
-    height: rpx(20);
-    background: #ffc200;
-    border: 1px solid #ffc200;
-  }
-  
-  .next_one {
-    width: rpx(200);
-    height: rpx(84);
-    line-height: rpx(84);
-    background: rgba(255, 102, 0, 1);
-    border-radius: rpx(42);
-  }
-  .gif{
-    position: fixed;
-    z-index: 10;
-    width: 100vw;
-    bottom: 0;
-    top: 0;
-  }
-  .gifimg{
-    height: rpx(320);
-    width: 100vw;
-    margin-top: rpx(200);
-  
-  }
-  .width-650{
-    width: rpx(650);
-  }
+ion-content {
+  --background: #f5f5f5;
+}
+
+.margin-top-4 {
+  margin-top: rpx(4);
+}
+
+.margin-top-6 {
+  margin-top: rpx(6);
+}
+
+.margin-top-12 {
+  margin-top: rpx(12);
+}
+
+.padding-top-10 {
+  padding-top: rpx(10);
+}
+
+.padding-top-12 {
+  padding-top: rpx(12);
+}
+
+.top-padding {
+  padding: rpx(40) rpx(34) rpx(40) rpx(34);
+}
+
+.mid-padding {
+  padding: rpx(40) rpx(10) rpx(40) rpx(0);
+  margin-left: rpx(34);
+  border-bottom: rpx(2) solid #f5f5f5;
+}
+
+.bg-gray {
+  background: #f5f6f8;
+}
+
+.kon {
+  width: rpx(20);
+  height: rpx(20);
+  border: 1px solid #ffc200;
+}
+
+.mang {
+  width: rpx(20);
+  height: rpx(20);
+  background: #ffc200;
+  border: 1px solid #ffc200;
+}
+
+.next_one {
+  width: rpx(200);
+  height: rpx(84);
+  line-height: rpx(84);
+  background: rgba(255, 102, 0, 1);
+  border-radius: rpx(42);
+}
+
+.gif {
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  bottom: 0;
+  top: 0;
+}
+
+.gifimg {
+  height: rpx(320);
+  width: 100vw;
+  margin-top: rpx(200);
+
+}
+
+.width-650 {
+  width: rpx(650);
+}
+
+.sp1 {
+  width: rpx(750);
+  height: rpx(1150);
+}
+
+.h20 {
+  height: rpx(20)
+}
+
+.h180 {
+  height: rpx(180);
+}

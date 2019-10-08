@@ -1,66 +1,67 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
-<!--pages/liucheng/liucheng.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class='flex-row column margin-30 bg-white radius-10 shadow'>
+  <!--pages/liucheng/liucheng.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class='flex-row column margin-30 bg-white radius-10 shadow'>
 
-  <div class='bg flex-row flex-center padding-40'>
-    <img src='{{uploadpath}}resource/{{res.fukuanzhanghu	}}' class='' style='width:40rpx;height:30rpx;' />
-    <div class='txt-black txt-bold margin-left-20 txt'>付款账户</div>
+    <div class='bg flex-row flex-center padding-40'>
+      <img src='{{uploadpath}}resource/{{res.fukuanzhanghu	}}' class='sp1' style='' />
+      <div class='txt-black txt-bold margin-left-20 txt'>付款账户</div>
+    </div>
+
+    <div class=' flex-row flex-center padding-40'>
+      <div class='txt-black  txt'>付款账户:</div>
+      <div class='  margin-left-20 txt-hui txt'>{{liuchen.account}}</div>
+    </div>
+
+    <div style='width:93%;height:1px;background:#e5e5e5' class='margin-left-20'></div>
+
+    <div class=' flex-row flex-center padding-40'>
+      <div class='txt-black  txt'>开户行:</div>
+      <div class='  margin-left-20 txt-hui txt'>{{liuchen.bank}}</div>
+    </div>
+
+    <div style='width:93%;height:1px;background:#e5e5e5' class='margin-left-20'></div>
+
+    <div class=' flex-row flex-center padding-40'>
+      <div class='txt-black  txt'>账号:</div>
+      <div class='  margin-left-20 txt-hui txt'>{{liuchen.accountnumber}}</div>
+    </div>
+
   </div>
 
-  <div class=' flex-row flex-center padding-40'>
-    <div class='txt-black  txt'>付款账户:</div>
-    <div class='  margin-left-20 txt-hui txt'>{{liuchen.account}}</div>
+
+
+  <div style='' id="{{InstInfo.intotel}}" (click)='phoneCall($event)'
+    class='bg flex-row flex-column padding-30 margin-30 br50'>
+    <div class='flex-row flex-center'>
+      <img src='{{uploadpath}}resource/{{res.kefudianhua}}' class='icon' />
+      <div class='txt-black  margin-left-20' style=''>电话</div>
+    </div>
   </div>
 
-  <div style='width:93%;height:2rpx;background:#e5e5e5' class='margin-left-20'></div>
 
-  <div class=' flex-row flex-center padding-40'>
-    <div class='txt-black  txt'>开户行:</div>
-    <div class='  margin-left-20 txt-hui txt'>{{liuchen.bank}}</div>
+
+  <div class='flex-row flex-column'>
+    <div class='txt txt-bold'>付款步骤 </div>
+
+
+
+    <div class='h5 margin-top-10'>付款前，请先拨打客服电话，由客服人员引导您付费</div>
   </div>
 
-  <div style='width:93%;height:2rpx;background:#e5e5e5' class='margin-left-20'></div>
-
-  <div class=' flex-row flex-center padding-40'>
-    <div class='txt-black  txt'>账号:</div>
-    <div class='  margin-left-20 txt-hui txt'>{{liuchen.accountnumber}}</div>
-  </div>
-
-</div>
 
 
 
-<div style='border-radius:50rpx;'  id="{{instinfo.intotel}}" bindtap='phoneCall' class='bg flex-row flex-column padding-30 margin-30'>
-  <div class='flex-row flex-center'>
-    <img src='{{uploadpath}}resource/{{res.kefudianhua}}' class='icon' />
-    <div class='txt-black  margin-left-20' style='font-size:36rpx;'>电话</div>
-  </div>
-</div>
-
-
-
-<div class='flex-row flex-column'>
-<div class='txt txt-bold'>付款步骤 </div>
-
-
-
-<div class='h5 margin-top-10'>付款前，请先拨打客服电话，由客服人员引导您付费</div>
-</div>
-
-
-
-
-    </ion-content>
+</ion-content>

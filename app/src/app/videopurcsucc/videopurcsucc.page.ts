@@ -35,7 +35,7 @@ export class VideopurcsuccPage  extends AppBase {
   kechenlist=[];
   remenkechen=[];
   mianfeikechen=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
 
@@ -48,7 +48,7 @@ export class VideopurcsuccPage  extends AppBase {
       this.mianfeikechen=mianfeikechen;
     })
   }
-  tohome() {
+  tohome(e=undefined) {
     this.backToUrl("/tabs/tab1");
   }
   lijixuexi(){

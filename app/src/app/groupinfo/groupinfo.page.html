@@ -28,26 +28,26 @@
           </div>
         </div>
         <div style="" class="margin-20 bg">
-          <div bindtap="chakankechen" class="flex-row flex-center padding-20">
+          <div (click)="chakankechen()" class="flex-row flex-center padding-20">
         
             <img class="icon-150" src='{{uploadpath}}curriculum/{{pintuaninfo.kc_img}}' />
             <div class="margin-left-40">
               <div class="h5 txt-bold" style='color:#222222'>{{pintuaninfo.kcname}}</div>
               <div class="h6" style='color:#999999'>已预约{{pintuaninfo.yuyuerenshu}}人</div>
         
-              <div **ngIf="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top" style='color:#222222'>还差{{ pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</div>
-              <div **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团成功</div>
-              <div **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</div>
-              <div **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团失败</div>
-              <div **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</div>
-              <div **ngIf="{{pintuaninfo.status=='A'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{chajia}}
+              <div *ngIf="pintuaninfo.status=='A'" class="h5 txt-bold margin-top" style='color:#222222'>还差{{ pintuaninfo.group_course_group_number-pintuaninfo.danqianrenshu}}人</div>
+              <div *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团成功</div>
+              <div *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'" class="h5 txt-bold margin-top" style='color:#FF504D'>此团已满员</div>
+              <div *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团失败</div>
+              <div *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'" class="h5 txt-bold margin-top" style='color:#FF504D'>拼团活动已结束</div>
+              <div *ngIf="pintuaninfo.status=='A'" class="h5 txt-bold margin-top-20" style='color:#222222'>组队立省￥ {{chajia}}
               </div>
-              <div **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{chajia}}</div>
-              <div **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{chajia}}</div>
-              <div **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="h6" style='color:#999999'>支付退款将在1-15个工作日内 原路退还到您的账户</div>
+              <div *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'" class="h5 txt-bold margin-top-20" style='color:#222222'>已省￥{{chajia}}</div>
+              <div *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'" class="h5 txt-bold margin-top-20" style='color:#222222'>组团立省￥{{chajia}}</div>
+              <div *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'" class="h6" style='color:#999999'>支付退款将在1-15个工作日内 原路退还到您的账户</div>
             </div>
           </div>
-          <div **ngIf="{{pintuaninfo.status=='A'}}" class="padding-20 flex-row flex-center">
+          <div *ngIf="pintuaninfo.status=='A'" class="padding-20 flex-row flex-center">
         
             <div class="flex-1"></div>
         
@@ -69,7 +69,7 @@
                   </div>
         
         
-                  <button bindtap='laren' open-type="share" **ngIf="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class="flex-row clear-button">
+                  <button (click)='laren()' open-type="share" *ngIf="pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'" class="flex-row clear-button">
                     <div class="flex-1"></div>
                     <div class="tuan_btn  text-center  ">
                       邀请好友参团
@@ -79,7 +79,7 @@
                     <div class="flex-1"></div>
                   </button>
         
-                  <div bindtap="fenxian" **ngIf="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20    flex-row " >
+                  <div (click)="fenxian()" *ngIf="pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='true'" class=" text-center margin-top-20    flex-row " >
                       <div class="flex-1"></div>
                     <div class="tuan_btn1  flex-center  flex-row">
                     <div class="flex-1"></div>
@@ -91,7 +91,7 @@
                     <div class="flex-1"></div>
                   </div>
         
-                  <div bindtap='chakankechen' **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+                  <div (click)='chakankechen()' *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='true'" class="flex-row">
                     <div class="flex-1"></div>
                     <div class="tuan_btn  text-center   ">
                       查看课程
@@ -99,20 +99,20 @@
                     <div class="flex-1"></div>
                   </div>
         
-                  <div **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class="flex-row">
+                  <div *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'" class="flex-row">
                     <div class="flex-1"></div>
-                    <div class="tuan_btn  text-center " bindtap='kaigexintuan'>
+                    <div class="tuan_btn  text-center " (click)='kaigexintuan()'>
                       开个新团： ￥{{pintuaninfo.group_course_group_price}}
                     </div>
                     <div class="flex-1"></div>
                   </div>
         
-                  <div bindtap='yuanjiagoumai' **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                  <div (click)='yuanjiagoumai()' *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='true'" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
                     原价购买： ￥{{pintuaninfo.price}}
                   </div>
         
         
-                  <div bindtap='yuanjiagoumai' **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                  <div (click)='yuanjiagoumai()' *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'" class="flex-row">
                     <div class="flex-1"></div>
                     <div class="tuan_btn  text-center  ">
                       原价购买： ￥{{pintuaninfo.price}}
@@ -120,31 +120,31 @@
                     <div class="flex-1"></div>
                   </div>
         
-                  <div bindtap='chakankechen' **ngIf="{{pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                  <div (click)='chakankechen()' *ngIf="pintuaninfo.status=='C'&&pintuaninfo.iscantuan=='false'" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
                     查看课程
                   </div>
         
-                  <div **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                  <div *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'" class="flex-row">
                     <div class="flex-1"></div>
-                    <div class="tuan_btn  text-center" bindtap='kaigexintuan'>
+                    <div class="tuan_btn  text-center" (click)='kaigexintuan()'>
                       开个新团 ￥{{pintuaninfo.group_course_group_price}}
                     </div>
                     <div class="flex-1"></div>
                   </div>
         
-                  <div bindtap='chakankechen' **ngIf="{{pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                  <div (click)='chakankechen()' *ngIf="pintuaninfo.status=='B'&&pintuaninfo.iscantuan=='false'" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
                     查看课程
                   </div>
         
-                  <div **ngIf="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class="flex-row">
+                  <div *ngIf="pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'" class="flex-row">
                     <div class="flex-1"></div>
-                    <div bindtap='addgroup' class="tuan_btn  text-center  ">
+                    <div (click)='addgroup()' class="tuan_btn  text-center  ">
                       我要参团: ￥{{pintuaninfo.group_course_group_price}}
                     </div>
                     <div class="flex-1"></div>
                   </div>
         
-                  <div bindtap='yuanjiagoumai' **ngIf="{{pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'}}" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
+                  <div (click)='yuanjiagoumai()' *ngIf="pintuaninfo.status=='A'&&pintuaninfo.iscantuan=='false'" class=" text-center margin-top-20 " style='width:100%;color:#666666'>
                     原价购买：￥{{pintuaninfo.price}}
                   </div>
                   <div class="height-40"></div>
@@ -159,10 +159,9 @@
         
                   <div class="flex-row flex-center margin-top-30">
         
-                    <div **ngFor="{{pintuaninfo.group_course_group_number}}" wx:key="k" wx:for-index="idx">
-                      <img **ngIf="{{pintuaninfo.tuanlist[idx]!=undefide}}" src='{{pintuaninfo.tuanlist[idx].touxian}}' class='radius-50 icon-50 margin-right-10 ' />
-        
-                      <div **ngIf="{{pintuaninfo.tuanlist[idx]==undefide}}" class="quan radius-50 icon-50 margin-right-10  "></div>
+                    <div *ngFor="let item of pintuaninfo.group_course_group_number;let idx=index" >
+                      <img *ngIf="pintuaninfo.tuanlist[idx]!=undefide" src='{{pintuaninfo.tuanlist[idx].touxian}}' class='radius-50 icon-50 margin-right-10 ' />
+                      <div *ngIf="pintuaninfo.tuanlist[idx]==undefide" class="quan radius-50 icon-50 margin-right-10  "></div>
                     </div>
         
                   </div>

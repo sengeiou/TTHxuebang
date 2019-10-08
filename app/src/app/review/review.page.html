@@ -17,7 +17,7 @@
         </div>
         <div class="height-150"></div>
         
-        <div **ngIf="{{shenhe.length==0}}">
+        <div *ngIf="shenhe.length==0">
           <div class="flex-row  ">
             <div class="flex-1"></div>
         
@@ -29,11 +29,11 @@
           <div class="h4-5 center" style='color:rgba(153, 153, 153, 1);'>拒绝原因：您暂时不符合学榜大使的要求， 谢谢您的关注</div>
           <div class="flex-row ">
             <div class="flex-1"></div>
-            <div bindtap='chonxintijiao' class="btn">重新提交申请</div>
+            <div (click)='chonxintijiao($event)' class="btn">重新提交申请</div>
             <div class="flex-1"></div>
           </div>
         </div>
-        <div **ngIf="{{shenhe[0].status=='A'}}">
+        <div *ngIf="shenhe[0].status=='A'">
           <div class="flex-row  ">
             <div class="flex-1"></div>
         
@@ -45,11 +45,11 @@
           <div class="h4-5 center" style='color:rgba(153, 153, 153, 1);'>学榜需要审核您的申请，在此期间你可以把课程分享给好友但无法获得金币。</div>
           <div class="flex-row ">
             <div class="flex-1"></div>
-            <div bindtap='tuiguan' class="btn">前往大使中心</div>
+            <div (click)='tuiguan($event)' class="btn">前往大使中心</div>
             <div class="flex-1"></div>
           </div>
         </div>
-        <div **ngIf="{{shenhe[0].status=='S'}}">
+        <div *ngIf="shenhe[0].status=='S'">
           <div class="flex-row  ">
             <div class="flex-1"></div>
         
@@ -61,7 +61,7 @@
           <div class="h4-5 center" style='color:rgba(153, 153, 153, 1);'>现在邀请好友，即可赚取佣金</div>
           <div class="flex-row ">
             <div class="flex-1"></div>
-            <div bindtap='tuiguan' class="btn">前往大使中心</div>
+            <div (click)='tuiguan($event)' class="btn">前往大使中心</div>
             <div class="flex-1"></div>
           </div>
         </div>

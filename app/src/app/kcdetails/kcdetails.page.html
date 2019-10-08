@@ -14,57 +14,51 @@
 
 <!--pages/kcdetails/kcdetails.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-
 <div class=' to_top'>
-  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 
-<view>
+<div>
 
 
   <div class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
 
-    <div style='height:140rpx;'></div>
+    <div class="h140"></div>
 
-    <swiper indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' style='width:750rpx;height:400rpx;'>
-      <swiper-item **ngFor="{{kechenlunbo}}" wx:key="k">
-        <view>
-
-          <!-- mode="aspectFill"  bindtap='viewPhoto' -->
-
-          <img **ngIf='{{item.video==""}}' src='{{uploadpath}}kecheng/{{item.img}}' bindtap='viewPhoto' id='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;' />
-
-          <video **ngIf='{{item.video!=""}}' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' style='width:750rpx;height:400rpx;'></video>
+    <ion-slides  [options]='mySwiperOption' indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
+      <ion-slide *ngFor="let item of kechenlunbo" wx:key="k">
+        <div>
+          <img *ngIf='item.video==""' src='{{uploadpath}}kecheng/{{item.img}}' (click)='viewPhoto($event)' id='{{uploadpath}}kecheng/{{item.img}}' class="sp1" />
+          <video *ngIf='item.video!=""' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' class="sp1" ></video>
         </div>
-      </swiper-item>
-    </swiper>
+      </ion-slide>
+    </ion-slides>
 
-    <div style='height:116rpx;'></div>
+    <div class="h116"></div>
 
   </div>
 
 
 
-  <div style=' ' class=''>
+  <div >
 
     <div class='flex-row column '>
       <div class=' bg-white  '>
         <div class=' '>
           <div class="padding-10">
             <div class='flex-row flex-center'>
-              <div class='txt-black txt-bold padding-left-20  chaochu' style='font-size:36rpx;width:600rpx'>{{courseinfo.name}}</div>
+              <div class='txt-black txt-bold padding-left-20  chaochu sp2' style=''>{{courseinfo.name}}</div>
 
-              <div class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' **ngIf="{{isfav=='N'}}" bindtap='fav' id='Y'>
+              <div class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' *ngIf="isfav=='N'" (click)='fav($event)' id='Y'>
                 <img class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}' />
                 <div class='h6 txt-gray'>收藏</div>
               </div>
 
-              <div class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' **ngIf="{{isfav=='Y'}}" bindtap='fav' id='N'>
+              <div class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' *ngIf="isfav=='Y'" (click)='fav($event)' id='N'>
                 <img class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}' />
                 <div class='h6 txt-gray'>已收藏</div>
               </div>
-
-
+              
             </div>
 
             <div class="starbox text-right margin-left-20 margin-top-20">
@@ -92,12 +86,12 @@
 
             <div class='flex-row margin-top-5 padding-left-20'>
               <div class="flex-row flex-1">
-                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' **ngFor="{{courseinfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of courseinfo.labels" wx:key="k">{{litem.name}}</div>
               </div>
 
 
-              <div **ngIf="{{!tanchuang}}">
-                <div **ngIf="{{courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'}}" bindtap="yaoqin" class=" zhaunfa flex-row flex-center margin-bottom-10">
+              <div *ngIf="!tanchuang">
+                <div *ngIf="courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'" (click)="yaoqin($event)" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                   <div class='flex-1'></div>
                   <img src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon' />
@@ -126,42 +120,42 @@
 
               <div class='flex-1  flex-column  flex-row  '>
 
-                <div class='h6 txt-gray  ' **ngIf='{{courseinfo.appointment_value=="Y"}}'>需要预约</div>
-                <div class='h6 txt-gray    ' **ngIf='{{courseinfo.appointment_value=="N"}}'>无需预约</div>
-                <div class='h5 txt-bold  margin-top-15 ' **ngIf='{{courseinfo.appointment_value=="Y"}}'>{{courseinfo.people_num}}人已预约</div>
+                <div class='h6 txt-gray  ' *ngIf='courseinfo.appointment_value=="Y"'>需要预约</div>
+                <div class='h6 txt-gray    ' *ngIf='courseinfo.appointment_value=="N"'>无需预约</div>
+                <div class='h5 txt-bold  margin-top-15 ' *ngIf='courseinfo.appointment_value=="Y"'>{{courseinfo.people_num}}人已预约</div>
               </div>
 
             </div>
           </div>
           <div class='flex-row flex-center  padding-left-30  '>
             <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
-            <div class='h5 margin-left-10 txt-blue dizhi' style="width:500rpx" bindtap='openMap' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</div>
+            <div class='h5 margin-left-10 txt-blue dizhi w500'  (click)='openMap($event)' id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</div>
             <div class="flex-1"></div>
-            <div class='h6 txt-black margin-right-40 txt-bold ' **ngIf="{{miletxt!=undefined}}">距你{{miletxt}}</div>
+            <div class='h6 txt-black margin-right-40 txt-bold ' *ngIf="miletxt!=undefined">距你{{miletxt}}</div>
           </div>
           <div class="height-40"></div>
 
 
-          <div **ngIf="{{pintuanrenshu>=0}}" class='height-20 bg-gray'></div>
-          <div **ngIf="{{pintuanrenshu>0}}" class="padding-20 flex-row flex-center">
+          <div *ngIf="pintuanrenshu>=0" class='height-20 bg-gray'></div>
+          <div *ngIf="pintuanrenshu>0" class="padding-20 flex-row flex-center">
             {{pintuanrenshu}}人正在拼班，可直接参与
             <div class="flex-1 h5" style='color:#222222'></div>
-            <div class="h6" bindtap="chakangenduo" style='color:#999999'>查看更多</div>
+            <div class="h6" (click)="chakangenduo($event)" style='color:#999999'>查看更多</div>
             <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10' />
 
           </div>
 
-          <div class="xian" **ngIf="{{pintuanrenshu>0}}">
-            <div **ngFor="{{daojishilist}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
+          <div class="xian" *ngIf="pintuanrenshu>0">
+            <div *ngFor="let item of daojishilist;let idx=index;" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
               <img src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30' />
               <div class="margin-left-10 flex-1">{{item.commander_id_name}}</div>
-              <view>
+              <div>
                 <div class="h6 text-center">还差
-                  <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</div>
+                  <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
                 <div class="h7 text-center">剩余{{sjlist[idx][1]
                   <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
                 </div>
-                <div bindtap='qupinban' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
+                <div (click)='qupinban($event)' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
               </div>
             </div>
 
@@ -169,10 +163,10 @@
 
 
 
-            <div **ngIf="{{pintuanrenshu==0}}" class="padding-20 flex-row flex-center">
+            <div *ngIf="pintuanrenshu==0" class="padding-20 flex-row flex-center">
 
               <div class="flex-1 h5" style='color:#222222'>赶快发起拼班吧</div>
-              <div bindtap='opengroup' class="h6" style='color:#999999'>开始拼班</div>
+              <div (click)='opengroup($event)' class="h6" style='color:#999999'>开始拼班</div>
               <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10' />
 
             </div>
@@ -180,9 +174,9 @@
 
           </div>
 
-          <div **ngIf="{{pingjialist.length>0}}" class='height-20 bg-gray' style='margin-top:-10rpx'></div>
+          <div *ngIf="pingjialist.length>0" class='height-20 bg-gray mt-10' ></div>
 
-          <div **ngIf="{{pingjialist.length>0}}" class="padding-30 flex-row flex-center" style='border-bottom:2rpx solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
+          <div *ngIf="pingjialist.length>0" class="padding-30 flex-row flex-center" style='border-bottom:1px solid #F5F5F5' (click)='bindtolist($event)' id='{{courseinfo.id}}'>
             <div class="flex-1 h5" style='color:#222222'>课程评价({{pingjialist.length}})</div>
             <div class="h6" style='color:#999999'>查看更多</div>
             <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10' />
@@ -190,40 +184,38 @@
 
 
 
-          <div **ngFor='{{pingjialist}}' wx:key='k' wx:for-index='idx' **ngIf='{{idx==0}}'>
+          <div *ngFor='let item of pingjialist;let idx=index;' wx:key='k'  [class.hidden]='idx!=0'>
             <div class=' flex-row flex-center {{idx>0?"pinglunqu-1":"pinglunqu"}}'>
-
               <img src='{{item.member_avatarUrl}}' class='tx radius-50' />
-
-              <div class=' flex-1 ' style='margin-left:16rpx;'>
-                <div class='h6 txt-black' **ngIf='{{item.niming_value!="Y"}}'>{{item.member_id_name}}</div>
-                <div class='h6 txt-black' **ngIf='{{item.niming_value=="Y"}}'>匿名用户</div>
+              <div class=' flex-1 ml16' >
+                <div class='h6 txt-black' *ngIf='item.niming_value!="Y"'>{{item.member_id_name}}</div>
+                <div class='h6 txt-black' *ngIf='item.niming_value=="Y"'>匿名用户</div>
               </div>
 
               <div class='flex-row flex-center  '>
 
-                <div **ngIf='{{item.pingfen==1}}'>
+                <div *ngIf='item.pingfen==1'>
                   <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{4}}' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr4' />
                 </div>
 
-                <div **ngIf='{{item.pingfen==2}}'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+                <div *ngIf='item.pingfen==2'>
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
                 </div>
 
-                <div **ngIf='{{item.pingfen==3}}'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{2}}' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{3}}' />
+                <div *ngIf='item.pingfen==3'>
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr2' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr3' />
                 </div>
 
-                <div **ngIf='{{item.pingfen==4}}'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{3}}' />
-                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' **ngFor='{{2}}' />
+                <div *ngIf='item.pingfen==4'>
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr3' />
+                  <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' *ngFor='let item of arr2' />
                 </div>
 
-                <div **ngIf='{{item.pingfen==5}}'>
-                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' **ngFor='{{4}}' />
+                <div *ngIf='item.pingfen==5'>
+                  <img src='{{uploadpath}}resource/{{res.star}}' class='icon20 margin-5' *ngFor='let item of arr4' />
                   <img src='{{uploadpath}}resource/{{res.star_null}}' class='icon20 margin-5' />
                 </div>
 
@@ -239,22 +231,22 @@
 
             <div class='img flex-row flex-center flex-wrap'>
 
-              <img **ngIf='{{item.img1!=""&&item.img1!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img1}}' />
+              <img *ngIf='item.img1!=""&&item.img1!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img1}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img1}}' />
 
-              <img **ngIf='{{item.img2!=""&&item.img2!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img2}}' />
+              <img *ngIf='item.img2!=""&&item.img2!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img2}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img2}}' />
 
-              <img **ngIf='{{item.img3!=""&&item.img3!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img3}}' />
+              <img *ngIf='item.img3!=""&&item.img3!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img3}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img3}}' />
 
-              <img **ngIf='{{item.img4!=""&&item.img4!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img4}}' />
+              <img *ngIf='item.img4!=""&&item.img4!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img4}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img4}}' />
 
-              <img **ngIf='{{item.img5!=""&&item.img5!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img5}}' />
+              <img *ngIf='item.img5!=""&&item.img5!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img5}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img5}}' />
 
-              <img **ngIf='{{item.img6!=""&&item.img6!="undefined"}}' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' bindtap='viewPhoto' id='{{uploadpath}}pingjia/{{item.img6}}' />
+              <img *ngIf='item.img6!=""&&item.img6!="undefined"' mode="aspectFill" src='{{uploadpath}}pingjia/{{item.img6}}' class='pinlun-img  ' (click)='viewPhoto($event)' id='{{uploadpath}}pingjia/{{item.img6}}' />
 
 
             </div>
 
-            <div style='height:20rpx;'></div>
+            <div class="h20"></div>
 
           </div>
 
@@ -277,14 +269,14 @@
 
     </div>
 
-    <div **ngIf="{{pingjialist.length>0}}" class='height-20 bg-gray'></div>
+    <div *ngIf="pingjialist.length>0" class='height-20 bg-gray'></div>
 
 
-    <div **ngIf="{{(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0}}" class='height-20 bg-gray'></div>
+    <div *ngIf="(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0" class='height-20 bg-gray'></div>
 
-    <div class='flex-row bg-white {{sco==1?"top":""}}' style=''>
-      <div class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' bindtap='bindcut' data-type='kcxq'>课程详情</div>
-      <div class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' bindtap='gotoBottom' data-type='gmxz'>购买须知</div>
+    <div class='flex-row bg-white ' style=''>
+      <div class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' (click)='bindcut($event)' data-type='kcxq'>课程详情</div>
+      <div class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black' (click)='gotoBottom($event)' data-type='gmxz'>购买须知</div>
     </div>
 
 
@@ -292,44 +284,26 @@
       <img src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}} ' class=' ' mode='widthFix' style='width:100vw' />
     </div>
 
-    <!-- <div **ngIf='{{show=="gmxz"}}' class='margin-40 padding-20 radius-10 bg-gray txt-black'>
-    {{courseinfo.description}}
-  </div> -->
-
-    <!-- <div class='height-50 '></div>
-
-  <div class='margin-40 flex-row flex-column '>
-    <img src='{{uploadpath}}resource/{{res.details_icon}} ' class='icon-50 ' />
-  </div> -->
-
-    <!-- <div class='height-80 '></div> -->
 
     <div class='fixedbottom'>
 
-      <div class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' **ngIf="{{canbuy.code=='-1'}}">
+      <div class='txt-red txt-bold text-center h5 flex-row flex-center sp3'  *ngIf="canbuy.code=='-1'">
         <div class="flex-1"></div>
         <div class="h6" style="color:#FF976A">等待付款,</div>
-        <div bindtap="lifk" class="h6" style="color:#2A82E4">点击立即付款</div>
+        <div (click)="lifk()" class="h6" style="color:#2A82E4">点击立即付款</div>
         <div class="flex-1"></div>
       </div>
 
-      <!-- <div class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' **ngIf="{{canbuy.code=='-2'}}">
+      <div class='txt-red txt-bold text-center h5 flex-row flex-center sp4'  *ngIf="canbuy.code=='-3'">
         <div class="flex-1"></div>
         <div class="h6" style="color:#FF976A">等待付款,</div>
-        <div class="h6" style="color:#2A82E4">点击立即付款</div>
-        <div class="flex-1"></div>
-      </div> -->
-
-      <div class='txt-red txt-bold text-center h5 flex-row flex-center' style='  background:#FFEDCD;height:60rpx;line-height:60rpx;width:100%' **ngIf="{{canbuy.code=='-3'}}">
-        <div class="flex-1"></div>
-        <div class="h6" style="color:#FF976A">等待付款,</div>
-        <div bindtap="lifk" class="h6" style="color:#2A82E4">点击立即付款</div>
+        <div (click)="lifk()" class="h6" style="color:#2A82E4">点击立即付款</div>
         <div class="flex-1"></div>
       </div>
 
 
       <div style='' class='flex-row flex-1'>
-        <div bindtap="shouye" class='flex-1  bg-white padding-15'>
+        <div (click)="shouye()" class='flex-1  bg-white padding-15'>
 
           <div class='flex-row flex-column'>
             <img class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_shouye}}' />
@@ -339,7 +313,7 @@
         </div>
         <div class='flex-1  bg-white padding-15'>
 
-          <div bindtap="gotojigou" class='flex-row flex-column'>
+          <div (click)="gotojigou()" class='flex-row flex-column'>
             <img class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_jg}}' />
             <div class='h6 '>机构</div>
           </div>
@@ -357,16 +331,16 @@
 
 
 
-        <div **ngIf="{{(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)}}" class=' flex-4 flex-row flex-center  buy padding-15' bindtap='bindtopurchase'>
+        <div *ngIf="(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)" class=' flex-4 flex-row flex-center  buy padding-15' (click)='bindtopurchase()'>
           <div class="flex-1"></div>
-          <div **ngIf="{{courseinfo.price>0}}" class='txt-white txt-bold h4'>
-            <text class="txt-white">￥</text>{{courseinfo.price}}</div>
-          <div **ngIf="{{courseinfo.price<=0}}" class='txt-white txt-bold h4'>
-            <text class="txt-white">￥</text>{{courseinfo.expeprice}}</div>
+          <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h4'>
+            <p class="txt-white">￥</p>{{courseinfo.price}}</div>
+          <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h4'>
+            <p class="txt-white">￥</p>{{courseinfo.expeprice}}</div>
 
 
 
-          <div class='h5 txt-white margin-left-10' **ngIf="{{canbuy.code=='0'}}">立即购买</div>
+          <div class='h5 txt-white margin-left-10' *ngIf="canbuy.code=='0'">立即购买</div>
           <div class="flex-1"></div>
         </div>
 
@@ -375,66 +349,66 @@
 
 
 
-        <div **ngIf="{{!(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)}}" class="flex-row flex-4 ">
-          <div class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' **ngIf="{{canbuy.code=='0'}}">
+        <div *ngIf="!(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)" class="flex-row flex-4 ">
+          <div class='flex-2 flex-row flex-column buy padding-15' (click)='bindtopurchase()' *ngIf="canbuy.code=='0'">
 
 
-            <div **ngIf="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
+            <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
 
-            <div **ngIf="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='0'}}">立即购买</div>
-
-          </div>
-          <div class='flex-2 flex-row flex-column hon padding-15' bindtap='opengroup' **ngIf="{{canbuy.code=='0'}}">
-
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</div>
-
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</div>
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='0'}}">发起拼班</div>
+            <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='0'">立即购买</div>
 
           </div>
+          <div class='flex-2 flex-row flex-column hon padding-15' (click)='opengroup()' *ngIf="canbuy.code=='0'">
 
-          <div class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' **ngIf="{{canbuy.code=='-1'}}">
-            <div **ngIf="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup>0">￥{{courseinfo.isgroup}}</div>
 
-            <div **ngIf="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
-
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='-1'}}">立即购买</div>
-          </div>
-          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FFA2A4' **ngIf="{{canbuy.code=='-1'}}">
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</div>
-
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</div>
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='-1'}}">发起拼班</div>
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup<=0">￥{{courseinfo.isgroup_tiyan}}</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='0'">发起拼班</div>
 
           </div>
 
+          <div class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' (click)='bindtopurchase()' *ngIf="canbuy.code=='-1'">
+            <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
 
-          <div class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' bindtap='bindtopurchase' **ngIf="{{canbuy.code=='-2'}}">
-            <div **ngIf="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
+            <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
 
-            <div **ngIf="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='-2'}}">立即购买</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='-1'">立即购买</div>
           </div>
-          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' **ngIf="{{canbuy.code=='-2'}}">
+          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FFA2A4' *ngIf="canbuy.code=='-1'">
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup>0">￥{{courseinfo.isgroup}}</div>
+
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup<=0">￥{{courseinfo.isgroup_tiyan}}</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='-1'">发起拼班</div>
+
+          </div>
+
+
+          <div class='flex-2 flex-row flex-column padding-15' style='background:#FF6600' (click)='bindtopurchase()' *ngIf="canbuy.code=='-2'">
+            <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
+
+            <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='-2'">立即购买</div>
+          </div>
+          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' *ngIf="canbuy.code=='-2'">
             <!-- <div class='txt-white txt-bold h5'>￥{{courseinfo.isgroup}}</div> -->
-            <div bindtap="chakantuan" class='h6 txt-white margin-top-30' **ngIf="{{canbuy.code=='-2'}}">查看团详情</div>
+            <div (click)="chakantuan()" class='h6 txt-white margin-top-30' *ngIf="canbuy.code=='-2'">查看团详情</div>
 
           </div>
 
-          <div class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E' **ngIf="{{canbuy.code=='-3'}}">
-            <div **ngIf="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
+          <div class='flex-2 flex-row flex-column padding-15' style='background:#FFA86E' *ngIf="canbuy.code=='-3'">
+            <div *ngIf="courseinfo.price>0" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</div>
 
-            <div **ngIf="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
-            <div class='h6 txt-white' **ngIf="{{canbuy.code=='-3'}}">立即购买</div>
+            <div *ngIf="courseinfo.price<=0" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</div>
+            <div class='h6 txt-white' *ngIf="canbuy.code=='-3'">立即购买</div>
           </div>
-          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' bindtap='opengroup' **ngIf="{{canbuy.code=='-3'}}">
+          <div class='flex-2 flex-row flex-column hon padding-15' style='background:#FF4444' (click)='opengroup($event)' *ngIf="canbuy.code=='-3'">
 
 
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</div>
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup>0">￥{{courseinfo.isgroup}}</div>
 
-            <div class='txt-white txt-bold h5' **ngIf="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</div>
-            <div class='h6 txt-white ' **ngIf="{{canbuy.code=='-3'}}">发起拼班</div>
+            <div class='txt-white txt-bold h5' *ngIf="courseinfo.isgroup<=0">￥{{courseinfo.isgroup_tiyan}}</div>
+            <div class='h6 txt-white ' *ngIf="canbuy.code=='-3'">发起拼班</div>
 
           </div>
 
@@ -455,23 +429,23 @@
 
 
 
-  <div style='height:105rpx;'></div>
+  <div class="h105"></div>
 
 
 
 
 
 
-  <div class='tishi' **ngIf='{{tishi==1}}'>
+  <div class='tishi' *ngIf='tishi==1'>
     <img src='{{uploadpath}}resource/{{res.chengong}}' class='ts_icon' />
   </div>
 
-  <div class='tishi' **ngIf='{{tishi==2}}'>
+  <div class='tishi' *ngIf='tishi==2'>
     <img src='{{uploadpath}}resource/{{res.shibai}}' class='ts_icon' />
   </div>
 
 
-  <div class='bui' **ngIf='{{tanchuang==true}}'>
+  <div class='bui' *ngIf='tanchuang==true'>
     <div style='height:40vh;background:black;opacity:0.5'></div>
 
     <div style='height:55.6vh;background:white' class='padding-block'>
@@ -480,7 +454,7 @@
         <img src='{{uploadpath}}curriculum/{{courseinfo.kc_img}}' style=' ' class='icon-img' />
 
         <div class=' flex-1 margin-left-20'>
-          <view>{{courseinfo.name}}</div>
+          <div>{{courseinfo.name}}</div>
 
           <div class='flex-row flex-center margin-top-10' style=''>
 
@@ -501,40 +475,30 @@
 
           </div>
 
-          <div **ngIf="{{ppp==0}}" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.price:courseinfo.expeprice}}</div>
-          <div **ngIf="{{ppp==1}}" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.isgroup:courseinfo.isgroup_tiyan}}</div>
+          <div *ngIf="ppp==0" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.price:courseinfo.expeprice}}</div>
+          <div *ngIf="ppp==1" class='margin-top-20' style='color:#FF4444'>￥{{pppp==0?courseinfo.isgroup:courseinfo.isgroup_tiyan}}</div>
         </div>
 
-        <div bindtap='bindclose'>
+        <div (click)='bindclose()'>
           <img src='{{uploadpath}}resource/{{res.close}}' class='icon-15' />
         </div>
 
       </div>
 
-      <div style='height:2rpx;width:720rpx;background:#F5F5F5;' class='margin-top-20'></div>
+      <div style='' class='margin-top-20 sp5'></div>
 
       <div class='margin-top-10 h6' style='color:#666666'>课程</div>
 
       <div class='flex-row flex-center flex-wrap margin-top-10'>
 
-        <div **ngIf="{{courseinfo.expeprice>0}}" class='text-center h6  {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' bindtap='check'>体验课 {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</div>
+        <div *ngIf="courseinfo.expeprice>0" class='text-center h6  {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' (click)='check()'>体验课 {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</div>
 
 
-        <div **ngIf="{{courseinfo.price>0}}" class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' bindtap='check'>系列课 {{ppp==0?courseinfo.price:courseinfo.isgroup }}元</div>
+        <div *ngIf="courseinfo.price>0" class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' (click)='check()'>系列课 {{ppp==0?courseinfo.price:courseinfo.isgroup }}元</div>
       </div>
+      
 
-      <!-- 
-      <div class='margin-top-10 h6' style='color:#666666'>购买数量</div>
-      <div class="flex-row flex-center">
-        <div class="h6" style="color:#999999">剩余5个</div>
-        <div class="h7 margin-left-10" style="color:#FF4444">每人限购1个体验课程，课包不限</div>
-        <div class="flex-1"></div>
-        <div bindtap="jian" class="h4">-</div>
-        <div class="h4 margin-left-40 margin-right-40">{{shulian}}</div>
-        <div bindtap="jia" class="h4">+</div>
-      </div> -->
-
-      <div style='height:52rpx;'></div>
+      <div class="h52"></div>
 
 
 
@@ -542,7 +506,7 @@
       <div class='under'>
         <div class='flex-row flex-column'>
 
-          <div bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
+          <div (click)='tobuy()' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
 
         </div>
       </div>
@@ -554,24 +518,23 @@
   </div>
 
 
-  <div **ngIf='{{ispintuan}}' class='chengong'>
+  <div *ngIf='ispintuan' class='chengong'>
 
     <div class='flex-row flex-center'>
       <div class='flex-1'></div>
       <div class='dakawc  '>
         <div class="height-40 "></div>
-        <div **ngFor="{{daojishilistdd}}" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
+        <div *ngFor="let item of daojishilistdd" wx:for-index="idx" wx:key="k" class="padding-20 flex-row flex-center">
           <img src='{{item.t_member_avatarUrl}}' class='radius-50 icon-30' />
           <div class="margin-left-20">
             <div class="h6 text-center">还差
-              <text class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</text>拼成</div>
-            <div class="h7 text-center">剩余{{sjlist[idx][1]
-              <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
+              <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
+            <div class="h7 text-center">剩余{{sjlist[idx][1] <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
             </div>
             <div class="flex-1"></div>
-            <div **ngIf="{{item.type=='T'}}" class="margin-right-10 " style="color:#FF4444">￥{{item.group_course_group_expeprice}}</div>
-            <div class="margin-right-10 " **ngIf="{{item.type=='Z'}}" style="color:#FF4444">￥{{item.group_course_group_price}}</div>
-            <div bindtap='qupinban' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
+            <div *ngIf="item.type=='T'" class="margin-right-10 " style="color:#FF4444">￥{{item.group_course_group_expeprice}}</div>
+            <div class="margin-right-10 " *ngIf="item.type=='Z'" style="color:#FF4444">￥{{item.group_course_group_price}}</div>
+            <div (click)='qupinban()' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
           </div>
 
 
@@ -582,23 +545,14 @@
       </div>
       <div class='flex-row flex-center'>
         <div class='flex-1'></div>
-        <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' bindtap='closetanchuang' />
+        <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon close' (click)='closetanchuang()' />
         <div class='flex-1'></div>
       </div>
 
     </div>
 
 
-    <div class='block_black' **ngIf='{{ispintuan}}'>
+    <div class='block_black' *ngIf='ispintuan'>
     </div>
-    <!-- <div class="ptlist " **ngIf='{{ispintuan}}'>
-
-  </div>
-
-  <div class="close" class='flex-row flex-center' **ngIf='{{ispintuan}}'>
-    <div class='flex-1'></div>
-    <img src='{{uploadpath}}resource/{{res.close_icon}}' class='icon ' bindtap='closetanchuang' />
-    <div class='flex-1'></div>
-  </div> -->
 
     </ion-content>

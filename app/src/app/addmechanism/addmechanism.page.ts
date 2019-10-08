@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -61,7 +61,7 @@ export class AddmechanismPage  extends AppBase {
     );
     
   }
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -69,7 +69,7 @@ export class AddmechanismPage  extends AppBase {
 
   }
 
-  jguploadimg() {
+  jguploadimg(e=undefined) {
     var that = this;
 
     //todo
@@ -96,7 +96,7 @@ export class AddmechanismPage  extends AppBase {
   }
 
 
-  hjuploadimg() {
+  hjuploadimg(e=undefined) {
     var that = this;
     //todo
     // this.Base.uploadImage("huanjing", (ret) => {
@@ -121,7 +121,7 @@ export class AddmechanismPage  extends AppBase {
     this.hjimages=hjimgs;
   }
 
-  skuploadimg() {
+  skuploadimg(e=undefined) {
     var that = this;
     // this.Base.uploadImage("shangke", (ret) => {
     //   var skimages = that.skimages;
@@ -252,7 +252,7 @@ export class AddmechanismPage  extends AppBase {
     this.navigate("content");
   }
 
-  useaddress() {
+  useaddress(e=undefined) {
     alert("todo");
     // wx.chooseAddress({
     //   success: (res) => {
@@ -271,10 +271,10 @@ export class AddmechanismPage  extends AppBase {
   }
 
   tohuiyuan(e) {
-    // wx.navigateTo({
+    // this.navigateTo({
     //   url: '/pages/huiyuanfuwu/huiyuanfuwu'
     // })
-    // wx.showToast({
+    // this.showToast({
     //   title: '暂未开放，敬请期待',
     //   icon:'none'
     // })
@@ -343,7 +343,7 @@ export class AddmechanismPage  extends AppBase {
     var show = this.show;
     var region = this.region;
 
-    //console.log(this.memberinfo.id);
+    //console.log(this.MemberInfo.id);
     //return;
 
     //return;

@@ -1,61 +1,61 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content>
 
 
-        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-        <div **ngIf='{{xueyuanlist.length==0}}' class="flex-row flex-column">
-          <div style="height:100rpx;"></div>
-          <img src="{{uploadpath}}resource/{{res.xueyuannull}}" class="icon-170 " />
-          <!-- <div class="txt-9 margin-top-10">您还没有添加地址哦</div>
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div *ngIf='xueyuanlist.length==0' class="flex-row flex-column">
+    <div class="h100"></div>
+    <img src="{{uploadpath}}resource/{{res.xueyuannull}}" class="icon-170 " />
+    <!-- <div class="txt-9 margin-top-10">您还没有添加地址哦</div>
           <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
-        </div>
-      
-      <div **ngFor="{{xueyuanlist}}" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" bindtap="studentinfo">
-        <div class="flex-row flex-center padding-40">
-      
-      
-          <img **ngIf="{{item.sex=='nv'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
-      
-          <img **ngIf="{{item.sex=='nan'}}" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
-      
-          <div class="margin-left-20">
-            <div class="flex-row flex-center">
-              <div class="f15 txt-bold">{{item.name}}</div>
-              <div **ngIf="{{item.sex=='nan'}}" class="nande">{{item.sui}}岁</div>
-              <div **ngIf="{{item.sex=='nv'}}" class="nvde">{{item.sui}}岁</div>
-            </div>
-            <div class="h6 margin-top-20" style="color:#999999">{{item.sj0}}  {{item.sj1}}  {{item.sj2}}</div>
-          </div>
-          <div class="flex-1"></div>
-          <img src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10" />
-      
-        </div>
-      
-      
-      </div>
-      
-      
-      <div class="height-100"></div>
-      
-      <div bindtap='tianjia' class="flex-row">
-        <div class="flex-1"></div>
-        
-        <div class="tuan_btn  text-center  ">
-          添加孩子
-        </div>
-        
-        <div class="flex-1"></div>
-        
-      </div>
+  </div>
 
-    </ion-content>
+  <div *ngFor="let item of xueyuanlist" data-id="{{item.id}}" wx:key="k" class="margin-20 qqq" (click)="studentinfo($event)">
+    <div class="flex-row flex-center padding-40">
+
+
+      <img *ngIf="item.sex=='nv'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
+
+      <img *ngIf="item.sex=='nan'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
+
+      <div class="margin-left-20">
+        <div class="flex-row flex-center">
+          <div class="f15 txt-bold">{{item.name}}</div>
+          <div *ngIf="item.sex=='nan'" class="nande">{{item.sui}}岁</div>
+          <div *ngIf="item.sex=='nv'" class="nvde">{{item.sui}}岁</div>
+        </div>
+        <div class="h6 margin-top-20" style="color:#999999">{{item.sj0}} {{item.sj1}} {{item.sj2}}</div>
+      </div>
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10" />
+
+    </div>
+
+
+  </div>
+
+
+  <div class="height-100"></div>
+
+  <div (click)='tianjia($event)' class="flex-row">
+    <div class="flex-1"></div>
+
+    <div class="tuan_btn  text-center  ">
+      添加孩子
+    </div>
+
+    <div class="flex-1"></div>
+
+  </div>
+
+</ion-content>

@@ -14,7 +14,7 @@
         <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
         <div class=' to_top' >
-            <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+            <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
            </div>
            <img src='{{uploadpath}}baoma/{{baomainfo.content}}'  mode='widthFix' style='width:100vw' />
 

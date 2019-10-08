@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -6,12 +6,14 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { InstApi } from 'src/providers/inst.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-huiyuanfuwu',
   templateUrl: './huiyuanfuwu.page.html',
   styleUrls: ['./huiyuanfuwu.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,JigouApi]
 })
 export class HuiyuanfuwuPage  extends AppBase {
 
@@ -22,17 +24,42 @@ export class HuiyuanfuwuPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jigouApi:JigouApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
-      
+      this.info=null;
   }
 
   onMyLoad(){
     //参数
     this.params;
   }
-  onMyShow(){
+  list=[];
+  info=null;
+  onMyShow(e=undefined) {
+    var that = this;
+    var jigouapi = this.jigouApi;
+    jigouapi.huiyuan({}).then( (info) => {
 
+      jigouapi.quanyilist({ fuwu_id:info.id}).then( (list) => {
+        this.list=list;
+      });
+
+      this.info=info;
+    });
   }
+
+  check(e) {
+    var ck = e.target.dataset.ck;
+  
+ 
+  }
+  tokaitong(e){
+    this.navigate("liucheng");
+  }
+ 
+ 
+
+
 }

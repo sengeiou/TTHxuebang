@@ -5,7 +5,7 @@
               <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
             </ion-button>
           </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
+          <ion-title>推广海报</ion-title>
         </ion-toolbar>
   </ion-header>
 
@@ -16,9 +16,9 @@
           <div class="flex-row tx flex-center">
             <div class="flex-1"></div>
             <div class="flex-row flex-column">
-              <img class="icon-60 radius-50 " src="{{memberinfo.avatarUrl}}" />
-              <div class="text-center h5 margin-top-10">{{memberinfo.nickName}}邀请您一起学习</div>
-               <div class="text-center h4 margin-top-20 chaochu " style="width:500rpx">{{kcinfo .name}}</div>
+              <img class="icon-60 radius-50 " src="{{MemberInfo.avatarUrl}}" />
+              <div class="text-center h5 margin-top-10">{{MemberInfo.nickName}}邀请您一起学习</div>
+               <div class="text-center h4 margin-top-20 chaochu w500" >{{kcinfo .name}}</div>
                  <img  class="sp " src="{{uploadpath}}mechanism/{{kcinfo.JG_jg_img}}" />
             </div>
             <div class="flex-1"></div>
@@ -38,7 +38,7 @@
         
           <div class="flex-row fd">
             <div class="flex-1"></div>
-            <div class="anniu  flex-row flex-center" bindtap="baocun">
+            <div class="anniu  flex-row flex-center" (click)="baocun()">
              <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
             <div class="zi margin-left-10">保存海报</div>
             </div>
