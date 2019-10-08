@@ -44,11 +44,10 @@ export class XianxiaPage  extends AppBase {
     })
   }
 
-  listclick(e){
-    console.log(e);
+  listclick(id){
    
    this.navigateTo({
-     url: '/pages/huodoninfo/huodoninfo?id=' + e.target.dataset.id,
+     url: '/pages/huodoninfo/huodoninfo?id=' + id,
    })
     
   }

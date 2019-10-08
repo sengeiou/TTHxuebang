@@ -81,17 +81,15 @@ export class TeacherPage extends AppBase {
     }
   }
 
-  tojgdetails(e) {
-    var id = e.target.id;
+  tojgdetails(id) {
     this.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
   show = 0;
-  fav(e) {
+  fav(id) {
     var that = this;
 
-    var id = e.target.id;
     console.log(id);
     id = id.split("_");
     var status = id[1];
@@ -129,16 +127,15 @@ export class TeacherPage extends AppBase {
 
   }
   nowplaying_id = 0;
-  play(e) {
+  play(id) {
     var that = this;
-    var id = e.target.id;
     id = id.split("_");
     id = id[1];
     console.log("bindplay");
     console.log(id);
     var teachlist = this.vteach;
     var nowplaying_id = this.nowplaying_id;
-    var videoContext = null;
+    var videoContext:HTMLVideoElement = null;
     for (var i = 0; i < teachlist.length; i++) {
       if (id != teachlist[i].id) {
         try {

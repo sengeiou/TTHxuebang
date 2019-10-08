@@ -81,11 +81,6 @@ export class TuiguandindanPage  extends AppBase {
     return dindan;
 
   }
-  show;
-  bindshow(e) {
-    var type = e.target.dataset.type;
-    this.show=type;
-  }
   binddate(e,b=undefined) {
     var type = "111";
     if (b == undefined) {

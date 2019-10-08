@@ -20,14 +20,14 @@
     [class.hidden]='!(teachlist.length>0&&item.id!=null)'>
 
     <div *ngIf="item.play=='Y'">
-      <video (click)='play($event)' class='pos h400' style='width:100vw; '
+      <video (click)='play("v_"+item.id)' class='pos h400' style='width:100vw; '
         poster='{{uploadpath}}famousteacher/{{item.fm_bg}}' title='{{item.title}}' object-fit="fill" id='v_{{item.id}}'
         loop='{{false}}' src='{{uploadpath}}Teach/{{item.video}}' play-btn-position="center">
         <div class='title txt-white  txt-bold'>{{item.title}}</div>
       </video>
     </div>
-    <div wx:else>
-      <div (click)="play($event)" id='c_{{item.id}}'>
+    <div *ngIf="item.play!='Y'">
+      <div (click)="play('c_'+item.id)" id='c_{{item.id}}'>
         <img class='pos h400' style='width:100vw; background:black;' lazy-load='{{true}}'
           src='{{uploadpath}}famousteacher/{{item.fm_bg}}' />
         <div class="sp1">
@@ -42,7 +42,7 @@
         <img src='{{uploadpath}}resource/{{res.V}}' class='icon' />
         <div class='txt-white h5 margin-left-10 flex-1'>{{item.name}}</div>
       </div>
-      <div (click)='tojgdetails($event)' id='{{item.mechanism_id}}' style='color:#589DE9'
+      <div (click)='tojgdetails(item.mechanism_id)' id='{{item.mechanism_id}}' style='color:#589DE9'
         class='flex-1 txt-bold margin-left-20  h5'>点击这里跳转到机构</div>
 
     </div>

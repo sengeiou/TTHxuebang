@@ -152,29 +152,26 @@ export class SeekPage extends AppBase {
 
 
   }
-  tojgdetails(e) {
+  tojgdetails(id) {
     this.xiala = "yc";
     this.xialakc = "yc";
     this.xialaage = "yc";
-    var id = e.target.id;
 
     this.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
 
-  tokcdetails(e) {
-    var id = e.target.id;
+  tokcdetails(id) {
     this.navigateTo({
       url: '/pages/kcdetails/kcdetails?id=' + id,
     })
   }
 
-  bindshow(e) {
+  bindshow(type) {
     this.xiala = "yc";
     this.xialakc = "yc";
     this.xialaage = "yc";
-    var type = e.target.dataset.type;
     console.log(type);
     if (type == "jx") {
       this.show="jx";
@@ -189,8 +186,7 @@ export class SeekPage extends AppBase {
 
   }
   options="";
-  bindxuanxiang(e) {
-    var options = e.target.dataset.options; 
+  bindxuanxiang(options) {
     this.options=options;
     this.loadcourse();
   }
@@ -395,8 +391,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  bindScreening(e) {
-    var qd = e.target.dataset.qd;
+  bindScreening(qd) {
     if (qd == "ok") {
       var fdistrict_id = this.tdistrict_id;
       var ftype_id = this.ttype_id;
@@ -418,9 +413,7 @@ export class SeekPage extends AppBase {
     }
 
   }
-  changeDistrict(e) {
-    console.log(e);
-    var seq = parseInt(e.target.id);
+  changeDistrict(seq) {
     if (seq == -1) {
       this.fdistrict_id= "0";
       this.xiala= "yc";
@@ -442,16 +435,8 @@ export class SeekPage extends AppBase {
   }
 
 
-  changeage(e) {
-    var seq = parseInt(e.target.id);
+  changeage(seq,minage,maxage) {
 
-    console.log(seq, "各个")
-
-    var minage = e.target.dataset.minage;
-    var maxage = e.target.dataset.maxage;
-
-    console.log('最小值' + minage)
-    console.log('最大值' + maxage)
     if (seq == -1) {
       this.ages= 0;
       this.ageid= seq;
@@ -474,16 +459,13 @@ export class SeekPage extends AppBase {
   }
 
 
-  setTDistrict(e) {
-    var id = e.target.id;
+  setTDistrict(id) {
     this.tdistrict_id=id;
   }
-  setTType(e) {
-    var id = e.target.id;
+  setTType(id) {
     this.ttype_id=id;
   }
-  setTAge(e) {
-    var id = e.target.id;
+  setTAge(id) {
     this.tage_id=id;
   }
   resetFilter(e=undefined) {
@@ -505,14 +487,13 @@ export class SeekPage extends AppBase {
     this.xiala=xiala == "xs" ? "yc" : "xs";
   }
 
-  bindxialakc(e) {
+  bindxialakc(fdistrict_id) {
     // var xialakc = this.xialakc;
 
     // this.Base.setMyData({
     //   xialakc: xialakc == "xs" ? "yc" : "xs"
     // })
 
-    var fdistrict_id = e.target.id;
 
     this.options_show= false;
     this.fdistrict_id=fdistrict_id;

@@ -55,10 +55,10 @@ export class StudentmsgPage extends AppBase {
     })
 
   }
-  studentinfo(e) {
+  studentinfo(id) {
 
     this.navigateTo({
-      url: '/pages/studentinfo/studentinfo?id=' + e.target.dataset.id,
+      url: '/pages/studentinfo/studentinfo?id=' + id,
     })
   }
   tianjia(e=undefined) {

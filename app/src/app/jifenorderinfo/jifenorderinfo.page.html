@@ -114,7 +114,7 @@
   <div class="flex-row flex-center">
     <div class="flex-1"></div>
 
-    <div *ngIf='info.orderstatus!="C"' id="{{info.id}}" (click)="shouhuoclick()" class="btn text-center margin-top-10 margin-right-28">
+    <div *ngIf='info.orderstatus!="C"' id="{{info.id}}" (click)="shouhuoclick(info.id)" class="btn text-center margin-top-10 margin-right-28">
       确认收货
     </div>
 

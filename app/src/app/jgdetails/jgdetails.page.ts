@@ -173,10 +173,7 @@ export class JgdetailsPage extends AppBase {
     });
 
   }
-  kechenxianqin(e) {
-    console.log(e);
-    this.navigate("ketangdetails", { id: e.target.dataset.id });
-  }
+
   seemore(e) {
 
     var ketang = this.ketang;
@@ -221,8 +218,8 @@ export class JgdetailsPage extends AppBase {
   shouqi(e) {
     this.more = false;
   }
-  jia(e) {
-    var kucun = e.target.id;
+  jia(id) {
+    var kucun = id;
     var shuliang = this.shuliang;
     shuliang++
     if (shuliang > kucun) {
@@ -243,9 +240,7 @@ export class JgdetailsPage extends AppBase {
     this.shuliang = shuliang;
   }
   ck = "";
-  check(e) {
-    var id = e.target.id;
-    var ck = e.target.dataset.check;
+  check(id,ck) {
     var jigouapi = this.jigouApi;
 
     this.buy_id = id;
@@ -337,8 +332,7 @@ export class JgdetailsPage extends AppBase {
     this.xuanzhong = 1;
   }
 
-  xuan(e) {
-    var id = e.target.id;
+  xuan(id) {
     if (id == "A") {
       this.xuanzhong = 1;
     }
@@ -347,8 +341,7 @@ export class JgdetailsPage extends AppBase {
     }
   }
 
-  tobuy(e) {
-    var id = e.target.id;
+  tobuy(id) {
     var ck = this.xuanzhong;
     console.log(id + "电费");
     //return;
@@ -379,15 +372,12 @@ export class JgdetailsPage extends AppBase {
 
   }
 
-  tokcdetails(e) {
-    var id = e.target.id;
+  tokcdetails(id) {
     this.navigate("kcdetails",{id});
   }
   tishi=0;
 
-  fav(e) {
-    var status = e.target.id;
-
+  fav(status) {
 
     if (status == "Y") {
       this.toast("收藏成功");

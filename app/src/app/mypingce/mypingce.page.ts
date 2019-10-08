@@ -55,16 +55,15 @@ export class MypingcePage  extends AppBase {
 
   }
 
-  toceshi(e) {
+  toceshi(item) {
 
-    console.log(e);
     //return;
-    var id = e.target.id;
-    var pcid = e.target.dataset.pcid;
-    var tA = e.target.dataset.typea;
-    var tB = e.target.dataset.typeb;
-    var tC = e.target.dataset.typec;
-    var tD = e.target.dataset.typed;
+    var id = item.pingce_id;
+    var pcid = item.id;
+    var tA = item.typeA;
+    var tB = item.typeB;
+    var tC = item.typeC;
+    var tD = item.typeD;
     console.log(tA, tB, tC, tD,"事随时")
    // return;
     if (tA == "" && tB == "" && tC == "" && tD == "") {

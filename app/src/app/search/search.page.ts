@@ -154,8 +154,7 @@ export class SearchPage extends AppBase {
     })
   }
 
-  bindshow(e) {
-    var type = e.target.dataset.type;
+  bindshow(type) {
     console.log(type);
     if (type == "wc") {
       this.shows="finished";
@@ -168,14 +167,12 @@ export class SearchPage extends AppBase {
     }
 
   }
-  tojgdetails(e) {
-    var id = e.target.id;
+  tojgdetails(id) {
     this.navigateTo({
       url: '/pages/jgdetails/jgdetails?id=' + id,
     })
   }
-  tokcdetails(e) {
-    var id = e.target.id;
+  tokcdetails(id) {
     this.navigateTo({
       url: '/pages/kcdetails/kcdetails?id=' + id,
     })

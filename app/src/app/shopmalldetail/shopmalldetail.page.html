@@ -92,7 +92,7 @@
 
     <div class="flex-row flex-center margin-top">
       <div class="flex-1"></div>
-      <div class="duihuan txt-bold txt-white text-center" *ngIf='info.inventory>0' (click)="next($event)" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
+      <div class="duihuan txt-bold txt-white text-center" *ngIf='info.inventory>0' (click)="next(info)" id="{{info.inventory}}" data-jifen="{{info.interral}}" data-img='{{info.imgs}}' data-name='{{info.name}}'>下一步</div>
       <div class="wukucun txt-bold txt-white text-center" *ngIf='info.inventory<=0'>暂无库存</div>
       <div class="flex-1"></div>
     </div>

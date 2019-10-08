@@ -19,20 +19,20 @@
 </div>
 <div class=' flex-row flex-center  bg-white bor_bot'>
 
-  <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='t1'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("t1")' data-type='t1'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t1"?"txt":""}} txt-black'>课程</div>
     <div *ngIf='show=="t1"' class='bg-primary sp1' style=''></div>
     <div *ngIf='show!="t1"' class='sp2' style=''></div>
   </div>
 
-  <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='t2'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("t2")' data-type='t2'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t2"?"txt":""}} txt-black'>机构</div>
     <div *ngIf='show=="t2"' class='bg-primary sp1' ></div>
     <div *ngIf='show!="t2"' class='sp2' ></div>
   </div>
 
 
-  <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='t3'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("t3")' data-type='t3'>
     <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t3"?"txt":""}} txt-black'>在线课堂</div>
     <div *ngIf='show=="t3"' class='bg-primary sp1' ></div>
     <div *ngIf='show!="t3"' class='sp2' ></div>
@@ -195,7 +195,7 @@
   </div>
 
 
-  <div [class.hidden]='jglist.length==0' *ngFor='let item of jglist' wx:key='k' id='{{item.jg_id}}' (click)='tojgdetails($event)' style='' class='sp5'>
+  <div [class.hidden]='jglist.length==0' *ngFor='let item of jglist' wx:key='k' id='{{item.jg_id}}' (click)='tojgdetails(item.jg_id)' style='' class='sp5'>
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_jg_img}}' lazy-load='{{true}}' class=' radius-10 sp6' style='' />
     </div>
@@ -288,7 +288,7 @@
     </div>
   </div>
 
-  <div class="kt_block flex-row flex-center" *ngFor='let item of ketangshoucanglist' wx:key='k' id="{{item.onlineclassroom_id}}" (click)="todetails($event)">
+  <div class="kt_block flex-row flex-center" *ngFor='let item of ketangshoucanglist' wx:key='k' id="{{item.onlineclassroom_id}}" (click)="todetails(item.onlineclassroom_id)">
 
     <img src="{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}" class="kt_img" />
 

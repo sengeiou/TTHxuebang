@@ -115,16 +115,6 @@ export class OrderPage extends AppBase {
     });
   }
 
-  bindshow(e) {
-    var type = e.target.dataset.type;
-    console.log(type);
-    if (type == "wc") {
-      this.show = "finished";
-    }
-    if (type == "df") {
-      this.show = "wait";
-    }
-  }
   bindback(e) {
     this.back();
   }
@@ -156,15 +146,12 @@ export class OrderPage extends AppBase {
 
     }
   }
-  colseorder(e) {
+  colseorder(id) {
     var that = this;
-    var id = e.target.id;
-
     this.showConfirm("确认取消订单？", (ret) => {
       if (ret) {
         var batchapi = this.batchApi;
         batchapi.closeorder({ id: id }).then((colseorder) => {
-
           that.backHome();
         })
       }

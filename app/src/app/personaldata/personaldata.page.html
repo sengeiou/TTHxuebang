@@ -63,16 +63,16 @@
         <div class='flex-2 flex-row flex-center'>
   
           <div class='flex-row flex-center '>
-            <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck($event)' data-sex='M' class='icon-15' />
-            <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck($event)' class='icon-15' data-sex='M' class='icon-15' />
+            <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck("M")' data-sex='M' class='icon-15' />
+            <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck("M")' class='icon-15' data-sex='M' class='icon-15' />
             <div class='h5 margin-left-10'>先生</div>
           </div>
   
           <div class='icon-30' style=''></div>
   
           <div class='flex-row flex-center'>
-            <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck($event)' data-sex='W' class='icon-15' />
-            <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck($event)' class='icon-15' data-sex='W' class='icon-15' />
+            <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck("W")' data-sex='W' class='icon-15' />
+            <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck("W")' class='icon-15' data-sex='W' class='icon-15' />
             <div class='h5 margin-left-10'>女士</div>
           </div>
   

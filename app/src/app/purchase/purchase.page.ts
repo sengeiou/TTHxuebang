@@ -314,16 +314,15 @@ export class PurchasePage extends AppBase {
   hideModal(e=undefined) {
     this.isxueyuan=false;
   }
-  xuanze(e) {
+  xuanze(idx) {
     var xueyuanlist = this.xueyuanlist;
-    this.xuanzexueyuan=xueyuanlist[e.target.dataset.idx];
-    console.log(xueyuanlist[e.target.dataset.idx]);
+    this.xuanzexueyuan=xueyuanlist[idx];
     this.hideModal();
   }
-  xianqin(e) {
+  xianqin(id) {
 
     this.navigateTo({
-      url: '/pages/studentinfo/studentinfo?id=' + e.target.dataset.id,
+      url: '/pages/studentinfo/studentinfo?id=' + id,
     })
   }
   tianjia(e=undefined) {

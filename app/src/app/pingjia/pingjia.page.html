@@ -90,7 +90,7 @@
         <div class='flex-row flex-center flex-wrap img'>
   
           <div class=' ' *ngFor="let item of images;let idx=index;" wx:key="k" wx:for-index="idx">
-            <img src='{{uploadpath}}pingjia/{{item}}' class='imgbg' (click)='minusImg($event)' id="{{idx}}" />
+            <img src='{{uploadpath}}pingjia/{{item}}' class='imgbg' (click)='minusImg(idx)' id="{{idx}}" />
           </div>
   
           <div class='addimg' (click)='uploadimg($event)'>

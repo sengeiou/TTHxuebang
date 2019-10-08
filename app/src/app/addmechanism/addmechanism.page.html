@@ -84,14 +84,14 @@
       <div class='flex-row flex-center '>
         <div class='flex-1'></div>
 
-        <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck($event)' data-sf='N'
+        <img *ngIf='show==1' src='{{uploadpath}}resource/{{res.weixuan}}' (click)='bindcheck("N")' data-sf='N'
           class='icon-15' />
-        <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck($event)' class='icon-15'
+        <img *ngIf='show==2' src='{{uploadpath}}resource/{{res.xuanzhong}}' (click)='bindcheck("Y")' class='icon-15'
           data-sf='Y' class='icon-15' />
 
-        <div class='font-30 txt-black margin-left-10' *ngIf='show==1' (click)='bindcheck($event)' data-sf='N'>我已详细阅读并同意
+        <div class='font-30 txt-black margin-left-10' *ngIf='show==1' (click)='bindcheck("N")' data-sf='N'>我已详细阅读并同意
         </div>
-        <div class='font-30 txt-black margin-left-10' *ngIf='show==2' (click)='bindcheck($event)' data-sf='Y'>我已详细阅读并同意
+        <div class='font-30 txt-black margin-left-10' *ngIf='show==2' (click)='bindcheck("Y")' data-sf='Y'>我已详细阅读并同意
         </div>
 
         <div class='font-30 txt-blue margin-left-5' (click)='tocontent($event)'>《学榜用户协议》</div>

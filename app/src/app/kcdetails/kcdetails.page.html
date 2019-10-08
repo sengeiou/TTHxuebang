@@ -49,12 +49,12 @@
             <div class='flex-row flex-center'>
               <div class='txt-black txt-bold padding-left-20  chaochu sp2' style=''>{{courseinfo.name}}</div>
 
-              <div class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' *ngIf="isfav=='N'" (click)='fav($event)' id='Y'>
+              <div class=' kd flex-row flex-column margin-top-20 margin-right-20 bg-white' *ngIf="isfav=='N'" (click)='fav("Y")' id='Y'>
                 <img class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}' />
                 <div class='h6 txt-gray'>收藏</div>
               </div>
 
-              <div class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' *ngIf="isfav=='Y'" (click)='fav($event)' id='N'>
+              <div class=' kd flex-row flex-column margin-right-20 margin-top-20  bg-white' *ngIf="isfav=='Y'" (click)='fav("N")' id='N'>
                 <img class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}' />
                 <div class='h6 txt-gray'>已收藏</div>
               </div>
@@ -152,10 +152,9 @@
               <div>
                 <div class="h6 text-center">还差
                   <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>{{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
-                <div class="h7 text-center">剩余{{sjlist[idx][1]
-                  <10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
+                <div class="h7 text-center">剩余{{sjlist[idx][1] < 10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}</div>
                 </div>
-                <div (click)='qupinban($event)' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
+                <div (click)='qupinban(item.id)' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
               </div>
             </div>
 
@@ -176,7 +175,7 @@
 
           <div *ngIf="pingjialist.length>0" class='height-20 bg-gray mt-10' ></div>
 
-          <div *ngIf="pingjialist.length>0" class="padding-30 flex-row flex-center" style='border-bottom:1px solid #F5F5F5' (click)='bindtolist($event)' id='{{courseinfo.id}}'>
+          <div *ngIf="pingjialist.length>0" class="padding-30 flex-row flex-center" style='border-bottom:1px solid #F5F5F5' (click)='bindtolist(courseinfo.id)' id='{{courseinfo.id}}'>
             <div class="flex-1 h5" style='color:#222222'>课程评价({{pingjialist.length}})</div>
             <div class="h6" style='color:#999999'>查看更多</div>
             <img src='{{uploadpath}}resource/{{res.to}}' class='margin-left-5 icon-10' />
@@ -491,10 +490,10 @@
 
       <div class='flex-row flex-center flex-wrap margin-top-10'>
 
-        <div *ngIf="courseinfo.expeprice>0" class='text-center h6  {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' (click)='check()'>体验课 {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</div>
+        <div *ngIf="courseinfo.expeprice>0" class='text-center h6  {{pppp==0?"kcname_block":"kcname_block_check"}}   txt-white  ' data-id='1' (click)='check(1)'>体验课 {{ppp==0?courseinfo.expeprice:courseinfo.isgroup_tiyan }}元</div>
 
 
-        <div *ngIf="courseinfo.price>0" class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' (click)='check()'>系列课 {{ppp==0?courseinfo.price:courseinfo.isgroup }}元</div>
+        <div *ngIf="courseinfo.price>0" class=' text-center h6  {{pppp==1?" kcname_block":"kcname_block_check"}}  txt-white ' data-id='0' (click)='check(0)'>系列课 {{ppp==0?courseinfo.price:courseinfo.isgroup }}元</div>
       </div>
       
 

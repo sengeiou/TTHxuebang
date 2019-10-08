@@ -50,11 +50,6 @@ export class HuiyuanfuwuPage  extends AppBase {
     });
   }
 
-  check(e) {
-    var ck = e.target.dataset.ck;
-  
- 
-  }
   tokaitong(e){
     this.navigate("liucheng");
   }

@@ -74,12 +74,12 @@ export class ShopmalldetailPage extends AppBase {
   close(e) {
     this.show = 0;
   }
-  next(e) {
-    var inventory = e.target.id;
-    var interral = e.target.dataset.jifen;
+  next(info) {
+    var inventory = info.inventory;
+    var interral = info.interral;
     var shuliang = this.shuliang;
-    var img = e.target.dataset.img;
-    var name = e.target.dataset.name;
+    var img = info.imgs;
+    var name = info.name;
     console.log(inventory - 1 + "库存");
     console.log(interral + "积分");
     //return;

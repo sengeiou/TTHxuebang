@@ -26,7 +26,7 @@
 
 
     <div *ngFor="let item of xiaoxilist" wx:key="k" data-idd="{{item.order_id}}" data-id='{{item.id}}'
-      (click)="xianqin($event)" class="page__bd padding-20">
+      (click)="xianqin(item.id)" class="page__bd padding-20">
 
 
 

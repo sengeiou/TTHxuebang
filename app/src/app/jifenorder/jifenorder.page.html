@@ -18,25 +18,25 @@
 </div>
 <div class=' flex-row flex-center  bg-white bor_bot top'>
 
-<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='all'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow("all")' data-type='all'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</div>
   <div *ngIf='show=="all"' class='bg-primary sp1' style=''></div>
   <div *ngIf='show!="all"' class='sp1' style=''></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='ok'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow("ok")' data-type='ok'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成</div>
   <div *ngIf='show=="wc"' class='bg-primary sp1' ></div>
   <div *ngIf='show!="wc"' class='sp1' ></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='wc'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow("wc")' data-type='wc'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>待发货</div>
   <div *ngIf='show=="finished"' class='bg-primary sp1' ></div>
   <div *ngIf='show!="finished"' class='sp1' ></div>
 </div>
 
-<div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='df'>
+<div class='flex-1 flex-row flex-column' (click)='bindshow("df")' data-type='df'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>待收货</div>
   <div *ngIf='show=="wait"' class='bg-primary sp1' ></div>
   <div *ngIf='show!="wait"' class=' sp1' ></div>
@@ -52,7 +52,7 @@
 
 <div class="block  " *ngFor='let item of alllist' wx:key='k'>
 
-  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -89,7 +89,7 @@
     </div>
 
 
-    <div *ngIf='item.orderstatus=="B"||item.orderstatus=="C"'  (click)='wuliu($event)' id="{{item.id}}" class="lianxi text-center   txt-6 mr20" >物流详情</div>
+    <div *ngIf='item.orderstatus=="B"||item.orderstatus=="C"'  (click)='wuliu(item.id)' id="{{item.id}}" class="lianxi text-center   txt-6 mr20" >物流详情</div>
     <div *ngIf='item.orderstatus=="B"' (click)='shouhuoclick($event)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
 
 
@@ -180,7 +180,7 @@
     <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
     <div class="flex-1"></div>
     <div class="lianxi text-center  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
-    <div (click)='shouhuoclick($event)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
+    <div (click)='shouhuoclick(item.id)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
 
   </div>
 
@@ -227,7 +227,7 @@
     <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
     <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
     <div class="flex-1 margin-left-24 ">
-      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick($event)' id="{{item.id}}" class="icon_shan" />
+      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick(item.id)' id="{{item.id}}" class="icon_shan" />
     </div>
     <div class="lianxi text-center margin-right-24  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
   </div>

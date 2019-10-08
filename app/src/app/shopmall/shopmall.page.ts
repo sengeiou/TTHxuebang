@@ -57,8 +57,7 @@ export class ShopmallPage extends AppBase {
       url: '/pages/jifenshouzhi/jifenshouzhi'
     })
   }
-  todetails(e) {
-    var id = e.target.id;
+  todetails(id) {
     this.navigateTo({
       url: '/pages/shopmalldetail/shopmalldetail?id=' + id
     })

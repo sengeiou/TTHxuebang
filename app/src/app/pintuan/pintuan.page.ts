@@ -59,10 +59,10 @@ export class PintuanPage extends AppBase {
 
 
   }
-  kechenxianqin(e) {
+  kechenxianqin(id) {
 
     this.navigateTo({
-      url: '/pages/groupinfo/groupinfo?id=' + e.target.dataset.id,
+      url: '/pages/groupinfo/groupinfo?id=' + id,
     })
 
   }
@@ -91,51 +91,9 @@ export class PintuanPage extends AppBase {
 
   }
 
-  bindshow(e) {
-    var type = e.target.dataset.type;
-    console.log(type);
-    this.show=type;
-  }
-
-  bindpay(e) {
-    var that = this;
-    var id = e.target.id;
-    var wechatapi = this.wechatApi;
-    wechatapi.prepay({ id: id }).then((payret) => {
-      //todo
-      // payret.complete = function (e) {
-      //   that.onMyShow();
-      // }
-      // console.log(payret);
-      // wx.requestPayment(payret)
-    });
-  }
-  toorder(e) {
-    var that = this;
-    var id = e.target.id;
+  kantuan(pt) {
     this.navigateTo({
-      url: '/pages/order/order?id=' + id,
-    })
-  }
-  colseorder(e) {
-    var that = this;
-    var id = e.target.id;
-
-    this.showConfirm("确认取消订单？",(ret)=>{
-      if(ret){
-        var batchapi = this.batchApi;;
-        batchapi.closeorder({ id: id }).then((colseorder) => {
-          that.onMyShow();
-        })
-      }
-    });
-
-
-
-  }
-  kantuan(e) {
-    this.navigateTo({
-      url: '/pages/groupinfo/groupinfo?id=' + e.target.dataset.pt,
+      url: '/pages/groupinfo/groupinfo?id=' + pt,
     })
 
   }

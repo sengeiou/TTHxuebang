@@ -23,7 +23,7 @@
     <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
       共{{quanbu.length}}个客户
     </div>
-    <div *ngFor="let item of quanbu" wx:key='k' data-id="{{item.id}}" (click)="kehuinfo($event)"
+    <div *ngFor="let item of quanbu" wx:key='k' data-id="{{item.id}}" (click)="kehuinfo(item.id)"
       class="padding-20 bg-white flex-row flex-center">
       <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
       <div class="margin-left-20">

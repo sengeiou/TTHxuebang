@@ -37,8 +37,8 @@
         <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
 
-        <div catchtap="xiaoxiliebiao">
-          <div catchtap="xiaoxiliebiao" *ngIf="xiaoxishu>0" class="shuzi">{{xiaoxishu}}</div>
+        <div (click)="xiaoxiliebiao()">
+          <div  *ngIf="xiaoxishu>0" class="shuzi">{{xiaoxishu}}</div>
           <img class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}' />
         </div>
 
@@ -69,7 +69,7 @@
       <div class="h6 txt-white margin-left-20">定位显示您的位置在“</div>
       <div class="h6" style="color:#3887DE">{{address.ad_info.city}}</div>
       <div class="h6 txt-white flex-1">”</div>
-      <div class="btn text-center h6 txt-white margin-right-20" (click)="setcity()"
+      <div class="btn text-center h6 txt-white margin-right-20" (click)="setcity(address.ad_info.adcode,address.ad_info.city)"
         data-name="{{address.ad_info.city}}" id="{{address.ad_info.adcode}}">
         切换到{{address.ad_info.city}}</div>
       <img src="{{uploadpath}}resource/{{res.baicha}}" (click)="closetop()" class="icon15 margin-right-20" />
@@ -100,12 +100,12 @@
 
     <ion-slide class=" flex-row flex-center flex-wrap">
 
-      <div class="flex-row flex-column lesson-width " (click)='totake($event)' data-name='jg'>
+      <div class="flex-row flex-column lesson-width " (click)='totake("jg")' data-name='jg'>
         <img src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26" />
         <div class="h6">找机构</div>
       </div>
 
-      <div class="flex-row flex-column lesson-width " (click)='bindtokc($event)' data-name='找课程'>
+      <div class="flex-row flex-column lesson-width " (click)='bindtokc("0","找课程")' data-name='找课程'>
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
@@ -119,7 +119,7 @@
 
     <ion-slide class=" flex-row flex-center flex-wrap">
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
-        <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc($event)'
+        <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc(item.id,item.typename)'
           id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
@@ -154,7 +154,7 @@
   <div class='scv'>
     <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
 
-      <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi($event)' id='{{item.id}}'
+      <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi(item.id)' id='{{item.id}}'
         class='ceshi flex-row column'
         [ngStyle]="{'background-image': 'url('+uploadpath+'pingceindex/'+item.listimg+')' }"
         style='background-size:100% 100%;'>
@@ -423,7 +423,7 @@
 
 
     <div [class.hidden]='jgvteach.length==0' *ngFor='let item of jgvteach;' wx:key='k' [id]='item.id'
-      (click)='tojgdetails($event)' style='' class='wpc3'>
+      (click)='tojgdetails(item.id)' style='' class='wpc3' data-name='aab'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
           class=' radius-10 wpc4' style='' />
@@ -525,7 +525,7 @@
       <div class='wpc'>
 
         <div [class.hidden]="noticebanner.length!=1" *ngFor="let item of noticebanner;">
-          <div (click)='bannerGo2($event)' id="{{item.id}}">
+          <div (click)='bannerGo2(item.id)' id="{{item.id}}">
             <img src='{{uploadpath}}indexbanner/{{item.img}}'
               id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
           </div>
@@ -534,7 +534,7 @@
         <ion-slides  [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
           duration='1000' circular='{{true}}' class='wpc'>
           <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
-            <div (click)='bannerGo2($event)' id="{{item.id}}">
+            <div (click)='bannerGo2(item.id)' id="{{item.id}}">
               <img src='{{uploadpath}}indexbanner/{{item.img}}'
                 id='{{uploadpath}}indexbanner/{{item.img}}?x-oss-process=style/test_img' class='wpc' />
             </div>

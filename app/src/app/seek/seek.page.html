@@ -60,19 +60,19 @@
 
         <div class='flex-1 flex-row flex-center'>
 
-          <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='jx'>
+          <div class='flex-1 flex-row flex-column' (click)='bindshow("jx" )' data-type='jx'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="jx"?"txt-bold":""}} txt-black'>精选</div>
             <div *ngIf='show=="jx"' class='bg-black sp2 '></div>
             <div *ngIf='show!="jx"' class=' sp2 '></div>
           </div>
 
-          <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='xs'>
+          <div class='flex-1 flex-row flex-column' (click)='bindshow("xs")' data-type='xs'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</div>
             <div *ngIf='show=="xs"' class='bg-black sp2 '></div>
             <div *ngIf='show!="xs"' class=' sp2 '></div>
           </div>
 
-          <div class='flex-1 flex-row flex-column' (click)='bindshow($event)' data-type='hp'>
+          <div class='flex-1 flex-row flex-column' (click)='bindshow("hp")' data-type='hp'>
             <div class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="hp"?"txt-bold":""}} txt-black'>好评</div>
             <div *ngIf='show=="hp"' class='bg-black sp2 '></div>
             <div *ngIf='show!="hp"' class=' sp2 '></div>
@@ -90,7 +90,7 @@
   <div class="h240"></div>
 
 
-  <div *ngFor='let item of jgvteach;let idx=index;' wx:key='k' id='{{item.id}}' (click)='tojgdetails($event)' style=''  class='{{idx>0?"margin-top":""}}'>
+  <div *ngFor='let item of jgvteach;let idx=index;' wx:key='k' id='{{item.id}}' (click)='tojgdetails(item.id)' style=''  class='{{idx>0?"margin-top":""}}'>
 
     <div class=' padding-20' style=''>
       <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 sp3' style='' />
@@ -198,19 +198,19 @@
 
 
 
-        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang($event)' data-options='j_x'>
+        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang("j_x")' data-options='j_x'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="j_x"?"txt-bold f13":""}} txt-black '>精选</div>
           <div *ngIf='options=="j_x"' class='bg-black margin-top-5 sp2 '></div>
           <div *ngIf='options!="j_x"' class='margin-top-5 sp2 '></div>
         </div>
 
-        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang($event)' data-options='h_p'>
+        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang("h_p")' data-options='h_p'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="h_p"?"txt-bold f13":""}} txt-black txt-bold'>好评</div>
           <div *ngIf='options=="h_p"' class='bg-black margin-top-5 sp2 '></div>
           <div *ngIf='options!="h_p"' class='margin-top-5 sp2 '></div>
         </div>
 
-        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang($event)' data-options='x_s'>
+        <div class='flex-1 flex-row flex-column' (click)='bindxuanxiang("x_s")' data-options='x_s'>
           <div class='  flex-1 h5 padding-10 margin-bottom-5 {{options=="x_s"?"txt-bold f13":""}} txt-black txt-bold'>新上</div>
           <div *ngIf='options=="x_s"' class='bg-black margin-top-5 sp2 '></div>
           <div *ngIf='options!="x_s"' class='margin-top-5 sp2 '></div>
@@ -250,7 +250,7 @@
   </div>
 
 
-  <div (click)='tokcdetails($event)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' *ngFor='let item of vteach' wx:key='k'>
+  <div (click)='tokcdetails(item.id)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow' *ngFor='let item of vteach' wx:key='k'>
     <img class='kc_icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' />
     <div class='flex-row column   margin-left-20 flex-1'>
       <div class='txt-bold txt-black flex-1 chaochu w400'>{{item.name}}</div>
@@ -338,8 +338,8 @@
 
         <div class='flex-row flex-center  flex-wrap'>
 
-          <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_Tsp6'  id="0" (click)='setTDistrict'>全部</div>
-          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  *ngFor="let item of filterdistrict" wx:key="k" id="{{item.id}}" (click)='setTDistrict($event)'>{{item.name}}</div>
+          <div class='{{tdistrict_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_Tsp6'  id="0" (click)='setTDistrict(0)'>全部</div>
+          <div class='{{tdistrict_id==item.id?"simg":"bg-gray"}} bg-gray radius-10 text-center h6 margin_L_Tsp6'  *ngFor="let item of filterdistrict" wx:key="k" id="{{item.id}}" (click)='setTDistrict(item.id)'>{{item.name}}</div>
         </div>
       </div>
 
@@ -349,8 +349,8 @@
       <div class='flex-row column padding-bottom-20'>
         <div class='margin_L_T txt-black h5'>类型</div>
         <div class='flex-row flex-center  flex-wrap'>
-          <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  id="0" (click)='setTType($event)'>全部</div>
-          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  *ngFor="let item of filtercoursetype" wx:key="k" id="{{item.id}}" (click)='setTType($event)'>{{item.typename}}</div>
+          <div class='{{ttype_id=="0"?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  id="0" (click)='setTType(0)'>全部</div>
+          <div class='{{ttype_id==item.id?"simg":"bg-gray"}}  radius-10 text-center h6 margin_L_T chaochusp6'  *ngFor="let item of filtercoursetype" wx:key="k" id="{{item.id}}" (click)='setTType(item.id)'>{{item.typename}}</div>
         </div>
       </div>
 
@@ -366,7 +366,7 @@
           <div class='flex-row flex-center  '>
             <div class='ximg txt-white  radius-20  text-center  h5 sp7' (click)='resetFilter($event)'>重置</div>
             <div class='w19'></div>
-            <div class='ximg txt-white  radius-20  text-center  h5 sp7' data-qd='ok' (click)='bindScreening($event)'>确定</div>
+            <div class='ximg txt-white  radius-20  text-center  h5 sp7' data-qd='ok' (click)='bindScreening("ok")'>确定</div>
           </div>
 
         </div>
@@ -414,8 +414,8 @@
 <div *ngIf='xiala=="xs"' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}};top:{{type=="kc"?"97px":"122px"}}'>
 
   <scroll-view scroll-y>
-    <div (click)='changeDistrict($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
-    <div (click)='changeDistrict($event)' class='margin-20 padding-top-20 h6 text-center border_top'  [id]='i' *ngFor='let item of filterdistrict;let i=index;' wx:key='k' style=''>{{item.name}}</div>
+    <div (click)='changeDistrict(-1)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
+    <div (click)='changeDistrict(i)' class='margin-20 padding-top-20 h6 text-center border_top'  [id]='i' *ngFor='let item of filterdistrict;let i=index;' wx:key='k' style=''>{{item.name}}</div>
   </scroll-view>
 
 </div>
@@ -423,9 +423,9 @@
 <div *ngIf='xialaage=="xs"' class='bg-white list3' style='height:{{43*((filtercourseage.length>7)?7:filtercourseage.length)}}'>
 
   <scroll-view scroll-y>
-    <div (click)='changeage($event)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
+    <div (click)='changeage(-1,0,100)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>
 
-    <div (click)='changeage($event)' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' *ngFor='let item of filtercourseage' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
+    <div (click)='changeage(item.id,item.minage,item.maxage)' class='margin-20 padding-top-20 h6 text-center border_top'   id='{{item.id}}' *ngFor='let item of filtercourseage' data-minage="{{item.minage}}" data-maxage="{{item.maxage}}" wx:key='k' style=''>{{item.minage}}{{item.maxage==100?'岁以上':'-'+item.maxage+'岁'}}</div>
   </scroll-view>
 
 </div>

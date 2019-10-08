@@ -67,10 +67,6 @@ export class MykehuPage extends AppBase {
       this.xiaji = xiaji;
     })
   }
-  bindshow(e) {
-    var type = e.target.dataset.type;
-    this.show = type;
-  }
   binddate(e, b=undefined) {
     var type = "111";
     if (b == undefined) {
@@ -107,11 +103,8 @@ export class MykehuPage extends AppBase {
 
 
   }
-  kehuinfo(e) {
-    console.log(e);
-    console.log(e.target.dataset.id);
-    console.log("牛逼");
-    this.navigate("kehuinfo",{id:e.target.dataset.id});
+  kehuinfo(id) {
+    this.navigate("kehuinfo",{id:id});
   }
   xssj="";
   bindDateChange(e) {

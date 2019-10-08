@@ -57,8 +57,7 @@ export class PingjiaPage extends AppBase {
 
   }
 
-  checkclick(e) {
-    var ck = e.target.dataset.ck;
+  checkclick(ck) {
     console.log(ck);
     if (ck == "nm") {
       this.check = false;
@@ -79,9 +78,8 @@ export class PingjiaPage extends AppBase {
     // }, 6, undefined);
   }
 
-  minusImg(e) {
+  minusImg(seq) {
     var that = this;
-    var seq = e.target.id;
     var images = that.images;
     var imgs = [];
     for (var i = 0; i < images.length; i++) {

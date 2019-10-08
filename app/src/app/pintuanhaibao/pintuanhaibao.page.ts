@@ -42,8 +42,8 @@ export class PintuanhaibaoPage extends AppBase {
   onMyShow(e=undefined) {
     var that = this;
   }
-  baocun(e) {
-    if (e.target.dataset.id == 'erweima') {
+  baocun(id) {
+    if (id == 'erweima') {
       window.open(this.erweima + '.png');
     }
     else {

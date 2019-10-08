@@ -141,24 +141,13 @@ export class PingcejieguoPage extends AppBase {
   }
 
 
-  tokcdetails(e) {
-    var id = e.target.id;
+  tokcdetails(id) {
     this.navigateTo({
       url: '/pages/kcdetails/kcdetails?id=' + id,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
-  }
-  check = false;
-  checkclick(e) {
-    var ck = e.target.dataset.ck;
-    console.log(ck);
-    if (ck == "nm") {
-      this.check = false;
-    } else {
-      this.check = true;
-    }
   }
   again(e) {
 

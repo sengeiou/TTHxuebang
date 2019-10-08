@@ -66,7 +66,7 @@
 
     </div>
 
-    <div class='flex-row flex-center padding-20' (click)="dianzan($event)" id='{{idx}}'>
+    <div class='flex-row flex-center padding-20' (click)="dianzan(idx)" id='{{idx}}'>
      
       <img *ngIf='item.kcl!=""' src='{{uploadpath}}resource/{{res.dianzan}}' class=' icon24 margin-left-4' />
       <img *ngIf='item.kcl==""' src='{{uploadpath}}resource/{{res.nodianzan}}' class=' icon24 margin-left-4' />

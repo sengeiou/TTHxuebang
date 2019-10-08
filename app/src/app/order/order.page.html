@@ -64,7 +64,7 @@
   </div>
   <div class="flex-row flex-center margin-top-20">
 
-    <div (click)='colseorder($event)' id='{{info.id}} ' class="qxdd">取消订单</div>
+    <div (click)='colseorder(info.id)' id='{{info.id}} ' class="qxdd">取消订单</div>
     <div (click)='bindpay($event)' class="qzf margin-left-20">去支付</div>
   </div>
 
@@ -211,7 +211,7 @@
       </div>
       <div>
         <div class='txt-black  text-right'>￥{{info.amount}}</div>
-        <div *ngIf="info.pstatus!='W'" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</div>
+        <div *ngIf="info.pstatus!='W'" (click)="hexiaoma()" class="margin-top h6 hexiaoma">核销码</div>
       </div>
 
     </div>

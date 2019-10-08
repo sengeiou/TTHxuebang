@@ -98,8 +98,7 @@ export class MinePage  extends AppBase {
     this.onMyShow();
   }
 
-  todetails(e) {
-    var name = e.target.dataset.name;
+  todetails(name) {
     // if (name == "cj") {
     //   this.navigateTo({
     //     url: '/pages/myorder/myorder',
@@ -160,9 +159,9 @@ export class MinePage  extends AppBase {
     this.toast('暂未开放，敬请期待');
   }
 
-  orderlist(e) {
+  orderlist(type) {
 
-    this.navigate("myorder",{type:e.target.dataset.id});
+    this.navigate("myorder",{type});
 
   }
   pintuan(e) {

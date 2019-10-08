@@ -339,22 +339,12 @@ export class PingceindexPage extends AppBase {
   }
 
 
-  checkclick(e) {
-    var ck = e.target.dataset.ck;
-    console.log(ck);
-    if (ck == "nm") {
-      this.check=false;
-    } else {
-      this.check=true;
-    }
-  }
 
 
-
-  todati(e) {
-    var id = e.target.id;
+  todati(info) {
+    var id =this.MemberInfo.id;
     //console.log(id+"所属");
-    var pcid = e.target.dataset.pc_id;
+    var pcid = info.id;
     //console.log(pcid + "题目id");
     var pingceapi = this.pingceApi;
     var mypingcelist = this.mypingcelist;

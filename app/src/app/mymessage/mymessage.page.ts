@@ -93,32 +93,31 @@ export class MymessagePage extends AppBase {
   onShare(e=undefined) {
     console.log('onShare')
   }
-  xianqin(e) {
-    console.log(e);
+  xianqin(id) {
     var xiaoxilist = this.xiaoxilist;
     xiaoxilist = xiaoxilist.filter((item) => {
 
-      return item.id == e.target.dataset.id;
+      return item.id == id;
 
     })
     console.log(xiaoxilist);
     if (xiaoxilist[0].type == 'A') {
-      this.navigate("jiaoyixinxi",{id:e.target.dataset.id});
+      this.navigate("jiaoyixinxi",{id:id});
     }
     if (xiaoxilist[0].type == 'C') {
-      this.navigate("tuiguanxiaoxi",{id:e.target.dataset.id});
+      this.navigate("tuiguanxiaoxi",{id:id});
     }
     if (xiaoxilist[0].type == 'B') {
 
 
       var api = this.jigouApi;
       api.xiaoxiinfo({
-        id: e.target.dataset.id
+        id: id
       });
-      this.navigate("wuliu",{id:e.target.dataset.id});
+      this.navigate("wuliu",{id:id});
     }
     if (xiaoxilist[0].type == 'E') {
-      this.navigate("xiton",{id:e.target.dataset.id});
+      this.navigate("xiton",{id:id});
     }
   }
 }

@@ -61,8 +61,7 @@ export class JifenshouzhiPage extends AppBase {
       this.zhisum = zhisum;
     })
   }
-  xuanze(e) {
-    var type = e.target.id;
+  xuanze(type) {
     console.log(type);
     if (type == "shouru") {
       this.show = 1;

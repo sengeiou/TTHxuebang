@@ -79,7 +79,7 @@
     </div>
   </div>
 
-  <div class='bottom-block  radius-8 ' *ngFor='let item of xianshilist;let idx=index;' id='{{item.id}}'  (click)='tokcdetails($event)'>
+  <div class='bottom-block  radius-8 ' *ngFor='let item of xianshilist;let idx=index;' id='{{item.id}}'  (click)='tokcdetails(item.id)'>
 
     <div class=' margin-top-10 '>
       <div class='padding-20 flex-row radius-10  mk' style='border:1px solid white '>

@@ -47,9 +47,8 @@ export class JifenorderinfoPage extends AppBase {
     this.navigate("wuliu", { id });
   }
   shouhuo = null;
-  shouhuoclick(e) {
+  shouhuoclick(id) {
     var that = this;
-    var id = e.target.id;
     var jifenapi = this.jifenApi;
 
     this.showConfirm("确认收货？", (ret) => {

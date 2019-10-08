@@ -257,7 +257,7 @@
 
     <div class='margin-20 margin-bottom-10 '>
       <div class='padding-20 flex-row radius-10  margin-top-20  mk' *ngFor='let item of courselist' wx:key='k'
-        id='{{item.id}}' (click)='tokcdetails($event)' style='border:1px solid white '>
+        id='{{item.id}}' (click)='tokcdetails(item.id)' style='border:1px solid white '>
 
         <img class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' />
         <div class='flex-row column   margin-left-20 flex-1'>
@@ -379,9 +379,9 @@
 
         <div class='flex-1 flex-row flex-column'>
           <!-- <img src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20' /> -->
-          <img (click)='fav($event)' id='Y' *ngIf="isfav=='N'" class='icon-25'
+          <img (click)='fav("Y")' id='Y' *ngIf="isfav=='N'" class='icon-25'
             src='{{uploadpath}}resource/{{res.unfav}}' />
-          <img (click)='fav($event)' id='N' *ngIf="isfav=='Y'" class='icon-25'
+          <img (click)='fav("N")' id='N' *ngIf="isfav=='Y'" class='icon-25'
             src='{{uploadpath}}resource/{{res.fav}}' />
           <div class='h7 margin-top-8'>收藏</div>
         </div>
@@ -489,7 +489,7 @@
 
               <div class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}'
                 *ngFor='let item of clist;let idx=index;'  id='{{item.id}}' data-check="Y"
-                (click)='check()'>{{item.name}}</div>
+                (click)='check(item.id,"Y")'>{{item.name}}</div>
 
             </div>
 
@@ -500,19 +500,19 @@
           <div class="flex-row flex-center" *ngIf='pin==1'>
             <div *ngIf='courseinfo.isgroup>0'
               class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}'
-              (click)="xuan($event)" id='A'>系列课</div>
+              (click)="xuan('A')" id='A'>系列课</div>
             <div *ngIf='courseinfo.isgroup_tiyan>0'
               class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y'
-              (click)="xuan($event)" id='B'>体验课</div>
+              (click)="xuan('B')" id='B'>体验课</div>
           </div>
 
           <div class="flex-row flex-center" *ngIf='pin==0'>
             <div *ngIf='courseinfo.price!="0.00"'
               class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}'
-              (click)="xuan($event)" id='A'>系列课</div>
+              (click)="xuan('A')" id='A'>系列课</div>
             <div *ngIf='courseinfo.expeprice!="0.00"'
               class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y'
-              (click)="xuan($event)" id='B'>体验课</div>
+              (click)="xuan('B')" id='B'>体验课</div>
           </div>
 
       </div>
@@ -539,19 +539,19 @@
 
 
         <img class="sp1"
-          src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " (click)="jian" />
+          src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " (click)="jian($event)" />
 
         <div class="h6 margin-left-40 margin-right-40">{{shuliang}}</div>
 
         <img class="sp1"
-          src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" (click)="jia($event)"
+          src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" (click)="jia(courseinfo.kucun)"
           id="{{courseinfo.kucun}}" />
 
       </div>
 
 
       <div class='flex-row flex-column'>
-        <div *ngIf='xuanzhong!=0' (click)='tobuy($event)' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
+        <div *ngIf='xuanzhong!=0' (click)='tobuy(courseinfo.id)' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
         <div *ngIf='xuanzhong==0' class='next2 text-center txt-white'>下一步</div>
       </div>
 

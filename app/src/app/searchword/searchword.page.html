@@ -31,7 +31,7 @@
 
     <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)'>取消</div>
   </div>
-  <div (click)='todetails($event)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
+  <div (click)='todetails(item.name)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
     *ngFor="let item of result;let idx=index;" >
     <div>{{item.name}}
   </div>

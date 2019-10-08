@@ -57,10 +57,8 @@ export class PingcedatiPage extends AppBase {
 
   }
 
-  bindcheck(e) {
+  bindcheck(id,sx) {
 
-    var id = e.target.id;
-    var sx = e.target.dataset.sx;
 
     var pingcelist = this.pingcelist;
 

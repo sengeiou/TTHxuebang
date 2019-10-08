@@ -207,11 +207,9 @@ export class HomePage extends AppBase {
     this.nocity = 0;
   }
   cityname = "";
-  setcity(e) {
+  setcity(id,name) {
     var that = this;
-    //alert((e.target.id));
-    var id = (e.target.id).substr(0, 4) + "00";
-    var name = e.target.dataset.name;
+    id = (id).substr(0, 4) + "00";
     var MemberInfo = this.MemberInfo;
     var citylist = MemberInfo.citylist;
 
@@ -234,9 +232,7 @@ export class HomePage extends AppBase {
     //this.loadjg();
   }
 
-  tojgdetails(e) {
-    console.log("akc",e);
-    var id = e.target.id;
+  tojgdetails(id) {
     this.navigate("jgdetails", { id: id });
   }
   toduihuan(e=undefined) {
@@ -302,8 +298,7 @@ export class HomePage extends AppBase {
     this.showlastnotice = false;
   }
 
-  totake(e) {
-    var name = e.target.dataset.name;
+  totake(name) {
     console.log(name);
     if (name == "jg") {
       this.navigate("seek", { type: "jg" });
@@ -394,8 +389,7 @@ export class HomePage extends AppBase {
 
 
 
-  bannerGo(e) {
-    var id = e.target.id;
+  bannerGo(id) {
     var indexbanner = this.indexbanner;
     for (var i = 0; i < indexbanner.length; i++) {
       if (id == indexbanner[i].id) {
@@ -431,12 +425,10 @@ export class HomePage extends AppBase {
 
 
 
-  bannerGo2(e) {
+  bannerGo2(id) {
 
     this.showlastnotice = false;
 
-    var id = e.target.id;
-    console.log(id);
     var indexbanner = this.noticebanner;
     for (var i = 0; i < indexbanner.length; i++) {
       if (id == indexbanner[i].id) {
@@ -491,12 +483,8 @@ export class HomePage extends AppBase {
   //   }
   // }
 
-  toceshi(e) {
-    var id = e.target.id;
-
-    var pingceapi = this.pingceApi
+  toceshi(id) {
     this.navigate("pingceindex", { id: id, member_id: this.MemberInfo.id });
-
   }
 
 
@@ -749,13 +737,9 @@ export class HomePage extends AppBase {
 
   xiaoxiliebiao(e=undefined) {
     this.navigate("mymessage");
-
   }
 
-  bindtokc(e) {
-    var typeid = parseInt(e.target.id);
-
-    var typename = e.target.dataset.name;
+  bindtokc(typeid,typename) {
     var json = null;
     json = { type: "kc", typeid: 0, typename: typename };
 

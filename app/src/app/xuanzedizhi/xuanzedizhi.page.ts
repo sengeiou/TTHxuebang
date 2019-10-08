@@ -56,13 +56,11 @@ export class XuanzedizhiPage extends AppBase {
   }
 
   check;
-  bindcheck(e) {
-    var id = e.target.id;
+  bindcheck(id) {
     this.check = id;
   }
 
-  addressmanage(e) {
-    var id = e.target.id;
+  addressmanage(id) {
     this.navigateTo({
       url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
     })
@@ -100,7 +98,7 @@ export class XuanzedizhiPage extends AppBase {
 
   }
   tanchuan;
-  quedin(e) {
+  quedin(id) {
 
     console.log(this.info.inventory);
     //return;
@@ -122,7 +120,7 @@ export class XuanzedizhiPage extends AppBase {
     var jifen = this.params.interral;
     var shuliang = this.params.shuliang;
 
-    var myjifen = e.target.id;
+    var myjifen = id;
     var img = this.params.img;
 
     console.log(img);

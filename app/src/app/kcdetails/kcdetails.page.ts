@@ -289,9 +289,7 @@ export class KcdetailsPage extends AppBase {
 
   tishi=0;
 
-  fav(e) {
-
-    var status = e.target.id;
+  fav(status) {
 
 
 
@@ -330,14 +328,13 @@ export class KcdetailsPage extends AppBase {
     this.show="gmxz";
   }
 
-  qupinban(e) {
-    this.navigate("groupinfo",{id:e.target.dataset.id});
+  qupinban(id) {
+    this.navigate("groupinfo",{id:id});
 
   }
 
 
-  bindtolist(e) {
-    var id = e.target.id;
+  bindtolist(id) {
     this.navigate("pingjialist",{id:id});
   }
   jian(e=undefined) {
@@ -402,8 +399,8 @@ export class KcdetailsPage extends AppBase {
   lifk(e=undefined) {
     this.navigate("myorder");
   }
-  check(e) {
-    this.pppp=e.target.dataset.id;
+  check(id) {
+    this.pppp=id;
   }
   ispintuan=false;
   chakangenduo(e=undefined) {

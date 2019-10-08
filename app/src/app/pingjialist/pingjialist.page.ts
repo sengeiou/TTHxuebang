@@ -60,19 +60,9 @@ export class PingjialistPage  extends AppBase {
 
   }
 
-  checkclick(e) {
-    var ck = e.target.dataset.ck;
-    console.log(ck);
-    if (ck == "nm") {
-      this.check=false;
-    } else {
-      this.check=true;
-    }
-  }
 
-  dianzan(e) {
+  dianzan(id) {
     var that = this;
-    var id=e.target.id;
    // console.log(id,"哈哈");
     var pingjiaapi = this.pingjiaApi;;
     var memberinfo = this.MemberInfo;

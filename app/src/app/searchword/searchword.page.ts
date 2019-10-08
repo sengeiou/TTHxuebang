@@ -100,8 +100,7 @@ export class SearchwordPage extends AppBase {
     }
   }
 
-  todetails(e) {
-    var name = e.target.id;
+  todetails(name) {
 
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: name });
@@ -111,8 +110,7 @@ export class SearchwordPage extends AppBase {
     })
   }
   teachlist=[];
-  fav(e) {
-    var id = e.target.id;
+  fav(id) {
     console.log(id);
     id = id.split("_");
     var status = id[1];

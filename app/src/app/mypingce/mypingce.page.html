@@ -19,7 +19,7 @@
  <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 
-<div *ngFor='let item of mypingcelist' wx:key='k' (click)='toceshi($event)' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-image:url({{uploadpath}}pingceindex/{{item.pingce_listimg}});background-size:100% 100%;'>
+<div *ngFor='let item of mypingcelist' wx:key='k' (click)='toceshi(item)' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-image:url({{uploadpath}}pingceindex/{{item.pingce_listimg}});background-size:100% 100%;'>
 
   <div class="margin-left-40">
 

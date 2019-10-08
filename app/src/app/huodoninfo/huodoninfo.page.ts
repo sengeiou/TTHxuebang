@@ -101,16 +101,16 @@ export class HuodoninfoPage extends AppBase {
     this.navigate("baomin", { id: this.params.id });
 
   }
-  jiemuinfo(e) {
+  jiemuinfo(id,idx) {
     var huodoninfo = this.huodoninfo;
     this.navigate("jiemuxianqin", {
-      id: e.target.id,
-      idd: parseInt(e.target.dataset.id + 1),
+      id: id,
+      idd: parseInt(idx + 1),
       vote_startTime_timespan: huodoninfo.vote_startTime_timespan,
       vote_endTime_timespan: huodoninfo.endTime_timespan
     });
   }
-  toupiao(e) {
+  toupiao(id) {
     var that = this;
     var api = this.instApi;
     var date = (new Date().getTime()) / 1000;
@@ -128,7 +128,7 @@ export class HuodoninfoPage extends AppBase {
     api.jianchatoupiao({}).then((zige) => {
 
       if (zige.length == 0) {
-        api.toupiao({ jiemu_id: e.target.id }).then((res) => {
+        api.toupiao({ jiemu_id: id }).then((res) => {
 
           if (res.code == 0) {
             this.showAlert("投票成功");

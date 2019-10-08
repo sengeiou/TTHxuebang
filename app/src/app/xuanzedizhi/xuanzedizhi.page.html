@@ -32,7 +32,7 @@
     </div>
 
     <div *ngFor='let item of addresslist' wx:key='k'>
-      <div class='hezi' (click)="bindcheck($event)" id="{{item.id}}">
+      <div class='hezi' (click)="bindcheck(item.id)" id="{{item.id}}">
         <div class='flex-row flex-center'>
 
           <div *ngIf='type==""||type==undefined'>
@@ -54,7 +54,7 @@
 
           <div class='flex-1'></div>
 
-          <div (click)='addressmanage($event)' class="  padding-40" id="{{item.id}}">
+          <div (click)='addressmanage(item.id)' class="  padding-40" id="{{item.id}}">
             <img class='icon-32' src='{{uploadpath}}resource/{{res.fghy}}' />
           </div>
 
@@ -99,7 +99,7 @@
         <div class="flex-row flex-center">
           <div class="f30 padding-30" style="color:#CCCCCC" (click)="quxiao($event)">取消</div>
           <div class="shu"></div>
-          <div class="f30 padding-30" (click)="quedin($event)" id="{{MemberInfo.integral}}" style="color:#FF6600">确认</div>
+          <div class="f30 padding-30" (click)="quedin(MemberInfo.integral)" id="{{MemberInfo.integral}}" style="color:#FF6600">确认</div>
         </div>
 
       </div>
