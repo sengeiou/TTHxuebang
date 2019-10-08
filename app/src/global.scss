@@ -20,6 +20,18 @@
     right: rpx(6);
     z-index: 9999;
 }
+.to_top {
+    position: fixed;
+    bottom: 25%;
+    right: rpx(8);
+    z-index: 100;
+  }
+  .to_top .icon-50 {
+    width: rpx(132);
+    height:rpx(132);
+    
+    }
+
 
 .icon-50 {
     width: (132);

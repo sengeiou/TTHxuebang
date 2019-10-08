@@ -19,6 +19,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+
   courselist = [];
   jglist = [];
 
@@ -98,7 +99,7 @@ class Content extends AppBase {
       });
     });
     jigouapi.buyshow({
-      limit: '20'
+     
     }, (buyshow) => {
 
       var lunbolist = [];
@@ -304,6 +305,7 @@ class Content extends AppBase {
     if (data.show == "hp") {
       opt.orderby = "scoring desc,distance";
     }
+
     //opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {
