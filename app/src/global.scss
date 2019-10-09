@@ -940,7 +940,14 @@ a {
 
 
 
-
+.totop {
+    position: fixed;
+    bottom: 24%;
+    right: rpx(6);
+    z-index: 9999;
+    width: rpx(132);
+    height: rpx(132);
+}
 
 .backhome {
     position: fixed;

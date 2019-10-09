@@ -72,8 +72,8 @@ ion-content {
   padding-top: rpx(58);
   padding-bottom: rpx(48);
   padding-right: rpx(50);
-  width: rpx(612);
-  height: rpx(196);
+  width: rpx(612+100);
+  height: rpx(196+100);
   background: linear-gradient(130deg, rgba(255, 190, 49, 1) 0%, rgba(255, 140, 16, 1) 100%);
   border-radius: rpx(8);
 }
@@ -87,9 +87,10 @@ ion-content {
   height: rpx(154);
 }
 
+
 .gengxin {
-  width: rpx(110);
-  height: rpx(28);
+  width: rpx(110+40);
+  height: rpx(28+20);
   margin-top: rpx(16);
   padding-left: rpx(12);
   padding-right: rpx(6);
