@@ -35,13 +35,13 @@ export class PingcedatiPage extends AppBase {
   qie = 0;
   pingce = [];
   gif = false;
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     //参数
     this.params;
 
   }
   pingcelist = [];
-  onMyShow(e=undefined) {
+  onMyShow() {
     var that = this;
     //this.onLoad();
 
@@ -94,7 +94,7 @@ export class PingcedatiPage extends AppBase {
   }
 
 
-  last(e) {
+  last() {
     var ck = this.ck;
     var qie = this.qie;
 
@@ -108,12 +108,12 @@ export class PingcedatiPage extends AppBase {
 
   }
 
-  stoptouch(e) {
+  stoptouch() {
     console.log("禁止滑动")
   }
 
 
-  tijiao(e=undefined) {
+  tijiao() {
     this.gif = true;
 
     var pingcelist = this.pingcelist;

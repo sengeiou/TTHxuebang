@@ -33,14 +33,22 @@ export class AddressmanagePage extends AppBase {
   type = "mine";
   xiugai = null;
   id = 0;
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     //参数
     this.params;
-
-
-
-
-
+    // if (this.params.id != undefined) {
+    //   this.id = this.params.id;
+    //   var addressapi = this.addressApi;
+    //   addressapi.addressinfo({
+    //     id: this.params.id
+    //   }).then((info) => {
+    //     this.formdata = info;
+    //   })
+    // }
+  }
+  onMyShow() {
+    var that = this;
+    var instapi = this.addressApi;
     if (this.params.id != undefined) {
       this.id = this.params.id;
       var addressapi = this.addressApi;
@@ -50,10 +58,6 @@ export class AddressmanagePage extends AppBase {
         this.formdata = info;
       })
     }
-  }
-  onMyShow(e=undefined) {
-    var that = this;
-    var instapi = this.addressApi;
 
 
 
@@ -63,28 +67,29 @@ export class AddressmanagePage extends AppBase {
 
 
 
-  confirm(e) {
+  confirm() {
     var that = this;
     var data = this.formdata;
+    console.log(data)
     var member_id = this.MemberInfo.id;
     console.log(this.MemberInfo.id , "乐扣乐扣")
 
-    if (data.name == "") {
+    if (data.name == ""||data.name==null||data.name==undefined) {
       this.showAlert("请填写收件人姓名");
       return;
     }
 
-    if (data.mobile == "") {
+    if (data.mobile == ""||data.mobile==null||data.mobile==undefined) {
       this.showAlert("请填写手机号");
       return;
     }
 
-    if (data.region == "") {
+    if (data.region == ""||data.region==null||data.region==undefined) {
       this.showAlert("请选择地址");
       return;
     }
 
-    if (data.address == "") {
+    if (data.address == ""||data.address==null||data.address==undefined) {
       this.showAlert("请填写门牌号");
       return;
     }
@@ -98,10 +103,12 @@ export class AddressmanagePage extends AppBase {
         if (that.id>0) {
           addressapi.updateaddress({
             id: that.params.id,
+            member_id: member_id,
             name: data.name,
             phonenumber: data.mobile,
             region: data.region,
-            address: data.address
+            address: data.address,
+            status: "A"
           }).then((updateaddress) => {
             
             this.back();
@@ -109,15 +116,17 @@ export class AddressmanagePage extends AppBase {
           })
         } else {
           addressapi.addedaddress({
-            member_id: member_id,
+            member_id: 1,
             name: data.name,
             phonenumber: data.mobile,
             region: data.region,
             address: data.address,
             status: "A"
-          }).then( (addedaddress) => {
+          }).then( (res) => {
 
-            this.back();
+            // this.back();
+            console.log(res)
+            if (res.code == 0) {this.back();}
 
           })
         }
@@ -130,7 +139,7 @@ export class AddressmanagePage extends AppBase {
 
 
 
-  binddeleted(e) {
+  binddeleted() {
     var that = this;
     var addressapi = this.addressApi;
     this.showConfirm("确认删除该地址？",(ret)=>{

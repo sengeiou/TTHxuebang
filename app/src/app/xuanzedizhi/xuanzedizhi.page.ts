@@ -36,7 +36,7 @@ export class XuanzedizhiPage extends AppBase {
   jifen;
   kong;
   type;
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     //参数
     this.params;
     this.show = false;
@@ -45,12 +45,15 @@ export class XuanzedizhiPage extends AppBase {
     this.type = this.params.type
   }
   addresslist = [];
-  onMyShow(e=undefined) {
+  onMyShow() {
+
     var that = this;
     var addressapi = this.addressApi;
 
-    addressapi.addresslist({ member_id: this.MemberInfo.id }).then((addresslist) => {
+    addressapi.addresslist({member_id: 1}).then(
+      (addresslist) => {
       this.addresslist = addresslist;
+      console.log(addresslist)
     })
 
   }
@@ -61,143 +64,143 @@ export class XuanzedizhiPage extends AppBase {
   }
 
   addressmanage(id) {
-    this.navigateTo({
-      url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
-    })
+    this.navigate(
+      'addressmanage',{xiugai:1,id:id}
+    )
   }
 
-  addnew(e) {
+  addnew() {
 
-    this.navigateTo({
-      url: '/pages/addressmanage/addressmanage',
-    })
+    this.navigate(
+      'addressmanage'
+    )
   }
-  info;
-  xiaofei=0;
-  queren(e) {
-    var jifen = this.params.interral;
+  // info;
+  // xiaofei=0;
+  // queren() {
+  //   var jifen = this.params.interral;
 
 
-    var jifenapi = this.jifenApi;;
-    jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
+  //   var jifenapi = this.jifenApi;
+  //   jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
 
-      this.info=info;
+  //     this.info=info;
 
-    })
-
-
-
-
-    var shuliang = this.params.shuliang;
-    if (this.check == null) {
-      this.toast("请选择地址");
-      return;
-    }
-    this.show= true;
-    this.xiaofei= jifen * shuliang;
-
-  }
-  tanchuan;
-  quedin(id) {
-
-    console.log(this.info.inventory);
-    //return;
-
-    if (this.info.inventory == 0) {
-      this.showToast({
-        title: '库存不足，无法兑换',
-        icon: 'none'
-      })
-      this.show=false;
-      return;
-    }
-
-    console.log("成功");
-
-    //return;
-    var inventory = this.params.inventory;
-
-    var jifen = this.params.interral;
-    var shuliang = this.params.shuliang;
-
-    var myjifen = id;
-    var img = this.params.img;
-
-    console.log(img);
-    //return;
-
-    var shanpin = this.params.name;
-
-    var shengyu = myjifen - jifen * shuliang;
-
-    var zonger = jifen * shuliang;
+  //   })
 
 
 
-    console.log(shengyu + "剩余");
-    if (parseInt(jifen) > parseInt(myjifen)) {
-      this.kong=true;
-      return;
-    }
-    //return;
-    var jifenapi = this.jifenApi;;
 
-    var addressapi = this.addressApi;
+  //   var shuliang = this.params.shuliang;
+  //   if (this.check == null) {
+  //     this.toast("请选择地址");
+  //     return;
+  //   }
+  //   this.show= true;
+  //   this.xiaofei= jifen * shuliang;
 
-    addressapi.addressinfo({
-      id: this.check
-    }).then((info) => {
+  // }
+  // tanchuan;
+  // quedin(id) {
+
+  //   console.log(this.info.inventory);
+  //   //return;
+
+  //   if (this.info.inventory == 0) {
+  //     this.showToast({
+  //       title: '库存不足，无法兑换',
+  //       icon: 'none'
+  //     })
+  //     this.show=false;
+  //     return;
+  //   }
+
+  //   console.log("成功");
+
+  //   //return;
+  //   var inventory = this.params.inventory;
+
+  //   var jifen = this.params.interral;
+  //   var shuliang = this.params.shuliang;
+
+  //   var myjifen = id;
+  //   var img = this.params.img;
+
+  //   console.log(img);
+  //   //return;
+
+  //   var shanpin = this.params.name;
+
+  //   var shengyu = myjifen - jifen * shuliang;
+
+  //   var zonger = jifen * shuliang;
 
 
-      jifenapi.addjifenorder({
-        member_id: this.MemberInfo.id,
-        jifen: zonger,
-        danjia: jifen,
-        img: img,
-        shuliang: shuliang,
-        name: shanpin,
-        orderstatus: "A",
-        consignee: info.name,
-        mobile: info.phonenumber,
-        address: info.region + info.address,
-        orderid: '1234567891011',
-        status: "A"
-      }).then((addjifenorder) => {
+
+  //   console.log(shengyu + "剩余");
+  //   if (parseInt(jifen) > parseInt(myjifen)) {
+  //     this.kong=true;
+  //     return;
+  //   }
+  //   //return;
+  //   var jifenapi = this.jifenApi;;
+
+  //   var addressapi = this.addressApi;
+
+  //   addressapi.addressinfo({
+  //     id: this.check
+  //   }).then((info) => {
 
 
-        var jifenapi = this.jifenApi;;
+  //     jifenapi.addjifenorder({
+  //       member_id: this.MemberInfo.id,
+  //       jifen: zonger,
+  //       danjia: jifen,
+  //       img: img,
+  //       shuliang: shuliang,
+  //       name: shanpin,
+  //       orderstatus: "A",
+  //       consignee: info.name,
+  //       mobile: info.phonenumber,
+  //       address: info.region + info.address,
+  //       orderid: '1234567891011',
+  //       status: "A"
+  //     }).then((addjifenorder) => {
 
-        jifenapi.deduction({ member_id: this.MemberInfo.id, goods_id: this.params.id });
+
+  //       var jifenapi = this.jifenApi;;
+
+  //       jifenapi.deduction({ member_id: this.MemberInfo.id, goods_id: this.params.id });
 
 
-        //console.log(addjifenorder.return+"阿");
-        // return;
+  //       //console.log(addjifenorder.return+"阿");
+  //       // return;
 
-        jifenapi.updatekucun({ id: this.params.id, inventory: inventory - shuliang });
+  //       jifenapi.updatekucun({ id: this.params.id, inventory: inventory - shuliang });
 
-        jifenapi.updatejifen({ id: this.MemberInfo.id, integral: shengyu }).then((updatejifen) => {
+  //       jifenapi.updatejifen({ id: this.MemberInfo.id, integral: shengyu }).then((updatejifen) => {
         
-          this.tanchuan=2;
-          this.show=false;
-          //this.onMyShow();
-          this.redirectTo({
-            url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return + '&shopid=' + this.params.id,
-          })
-        })
+  //         this.tanchuan=2;
+  //         this.show=false;
+  //         //this.onMyShow();
+  //         this.redirectTo({
+  //           url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return + '&shopid=' + this.params.id,
+  //         })
+  //       })
 
-        //this.Base.setMyData({ addjifenorder })
+  //       //this.Base.setMyData({ addjifenorder })
 
-      })
+  //     })
 
-      // this.Base.setMyData({
-      //   info
-      // })
-    })
+  //     // this.Base.setMyData({
+  //     //   info
+  //     // })
+  //   })
 
 
 
-  }
-  quxiao(e) {
-    this.show=false;
-  }
+  // }
+  // quxiao() {
+  //   this.show=false;
+  // }
 }

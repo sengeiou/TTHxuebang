@@ -12,7 +12,7 @@
     <ion-content >
 <!--pages/pingceindex/pingceindex.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class='top-img' style='background-image:url({{uploadpath}}pingceindex/{{info.indeximg}});background-size:100% 100%;'>
+<div class='top-img' style='background-size:100% 100%;' [style.background-image]="'url('+uploadpath+'pingceindex/'+info.indeximg+')'">
   <div class='h178 ' ></div>
   <div class='flex-row flex-center'>
     <div class='h6  ml62' style='color:#B4B4B4; '>已有</div>

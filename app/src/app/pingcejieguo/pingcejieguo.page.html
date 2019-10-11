@@ -14,7 +14,7 @@
 
 <!--pages/pingcejieguo/pingcejieguo.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class='top-block  ' style='background-image:url({{uploadpath}}pingceindex/{{info.jieguotu}});background-size:100% 100%;'>
+<div class='top-block  ' style='background-size:100% 100%;'[style.background-image]="'url('+uploadpath+'pingceindex/'+info.jieguotu+')'">
 
 
   <div class='flex-row flex-column '>
@@ -35,7 +35,7 @@
 
     <div class='height-40'></div>
 
-    <div class=' again text-center  ' (click)='again($event)'>重新测试</div>
+    <div class=' again text-center  ' (click)='again()'>重新测试</div>
 
   </div>
 

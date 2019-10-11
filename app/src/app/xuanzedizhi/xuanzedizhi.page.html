@@ -17,7 +17,7 @@
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
 
-<div class="{{addresslist.length==0?'page':''}}">
+<!-- <div class="{{addresslist.length==0?'page':''}}"> -->
 
 
   <div class='margin-20'>
@@ -26,7 +26,7 @@
 
     <div *ngIf='addresslist.length==0' class="flex-row flex-column">
       <div class="h100"></div>
-      <img src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170 " />
+      <img src="{{uploadpath}}resource/{{res.addressnull}}" class="icon-170" />
       <!-- <div class="txt-9 margin-top-10">您还没有添加地址哦</div>
     <div class="h6 margin-top-8" style="color:#CCCCCC">点击下方添加吧~</div> -->
     </div>
@@ -63,29 +63,31 @@
       </div>
     </div>
 
-
-    <div class="add margin-top-20 flex-row flex-center" *ngIf='type==""||type==undefined'  (click)="addnew($event)">
+<!-- 
+    <div class="add margin-top-20 flex-row flex-center" *ngIf='type==""||type==undefined'  (click)="addnew()">
       <div class="flex-1"></div>
       <img src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15" />
-      <div class="h5 margin-left-10" style="color:#999999" (click)="addnew($event)">添加新地址</div>
+      <div class="h5 margin-left-10" style="color:#999999" (click)="addnew()">添加新地址</div>
       <div class="flex-1"></div>
-    </div>
+    </div> -->
 
-    <div class="h150"></div>
+    <!-- <div class="h150"> -->
 
-    <button class='but txt-white' *ngIf='type==""||type==undefined' (click)="queren($event)">确认</button>
-    <button class='but txt-white' *ngIf='type=="Y"' (click)="addnew($event)">添加新地址</button>
+    <!-- <button class='but txt-white' *ngIf='type==""||type==undefined' (click)="queren()">确认</button> -->
+    <button class='but txt-white h4-5' *ngIf='type=="Y"' (click)="addnew()">添加新地址</button>
 
+  <!-- </div> -->
   </div>
 
 
-  <div *ngIf='show==true'>
+
+  <!-- <div *ngIf='show==true'>
     <div class='block_black'></div>
 
     <div class="white_black" *ngIf="kong==false">
       <div class="flex-row flex-column">
         <div class="h80"></div>
-        <!-- <img src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120" /> -->
+        <img src="{{uploadpath}}resource/{{res.querenduihuan}}" class="icon-120" />
          <div class="txt-bold">兑换失败</div>
         <div class="flex-row flex-center margin-top-34">
           <div class="f30">使用</div>
@@ -97,7 +99,7 @@
         <div class="h60" style=""></div>
 
         <div class="flex-row flex-center">
-          <div class="f30 padding-30" style="color:#CCCCCC" (click)="quxiao($event)">取消</div>
+          <div class="f30 padding-30" style="color:#CCCCCC" (click)="quxiao()">取消</div>
           <div class="shu"></div>
           <div class="f30 padding-30" (click)="quedin(MemberInfo.integral)" id="{{MemberInfo.integral}}" style="color:#FF6600">确认</div>
         </div>
@@ -118,7 +120,7 @@
         <div class="h60" ></div>
 
         <div class="flex-row flex-center" style="border-top:1px solid #F5F5F5">
-          <div class="f30 padding-30" style="color:#FF6600" (click)="quxiao($event)">我知道了</div>
+          <div class="f30 padding-30" style="color:#FF6600" (click)="quxiao()">我知道了</div>
         </div>
 
 
@@ -127,6 +129,6 @@
 
   </div>
 
-</div>
+</div> -->
 
     </ion-content>

@@ -43,7 +43,7 @@ export class PingcejieguoPage extends AppBase {
   arr2 = [];
   arr1 = [];
 
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     this.arr5 = this.getArray(5);
     this.arr4 = this.getArray(4);
     this.arr3 = this.getArray(3);
@@ -75,11 +75,11 @@ export class PingcejieguoPage extends AppBase {
   pingcejieguo = null;
   info = null;
   courselist = [];
-  onMyShow(e=undefined) {
+  onMyShow() {
 
     var that = this;
-    var pingceapi = this.pingceApi;;
-    var jigouapi = this.jigouApi;;
+    var pingceapi = this.pingceApi;
+    var jigouapi = this.jigouApi;
     var typeA = this.options.typeA;
     var typeB = this.options.typeB;
     var typeC = this.options.typeC;
@@ -149,15 +149,15 @@ export class PingcejieguoPage extends AppBase {
       complete: function (res) { },
     })
   }
-  again(e) {
+  again() {
 
     if (this.params.pd == 1) {
 
       console.log(this.params.id);
       //return;
-      this.navigateTo({
-        url: '/pages/pingceindex/pingceindex?id=' + this.params.id,
-      })
+      this.navigate(
+        'pingceindex',{id:this.params.id} 
+      )
     } else {
       this.navigateBack({
         delta: 1
