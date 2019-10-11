@@ -79,7 +79,7 @@ export class AddressmanagePage extends AppBase {
       return;
     }
 
-    if (data.mobile == ""||data.mobile==null||data.mobile==undefined) {
+    if (data.phonenumber == ""||data.phonenumber==null||data.phonenumber==undefined) {
       this.showAlert("请填写手机号");
       return;
     }
@@ -105,7 +105,7 @@ export class AddressmanagePage extends AppBase {
             id: that.params.id,
             member_id: member_id,
             name: data.name,
-            phonenumber: data.mobile,
+            phonenumber: data.phonenumber,
             region: data.region,
             address: data.address,
             status: "A"
@@ -118,7 +118,7 @@ export class AddressmanagePage extends AppBase {
           addressapi.addedaddress({
             member_id: 1,
             name: data.name,
-            phonenumber: data.mobile,
+            phonenumber: data.phonenumber,
             region: data.region,
             address: data.address,
             status: "A"

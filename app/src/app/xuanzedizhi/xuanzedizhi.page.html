@@ -17,7 +17,7 @@
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
 
-<!-- <div class="{{addresslist.length==0?'page':''}}"> -->
+<div class="{{addresslist.length==0?'page':''}}">
 
 
   <div class='margin-20'>
@@ -63,25 +63,25 @@
       </div>
     </div>
 
-<!-- 
+
     <div class="add margin-top-20 flex-row flex-center" *ngIf='type==""||type==undefined'  (click)="addnew()">
       <div class="flex-1"></div>
       <img src="{{uploadpath}}resource/{{res.jiadizhi}}" class="icon-15" />
       <div class="h5 margin-left-10" style="color:#999999" (click)="addnew()">添加新地址</div>
       <div class="flex-1"></div>
-    </div> -->
+    </div>
 
-    <!-- <div class="h150"> -->
+    <div class="h150">
 
-    <!-- <button class='but txt-white' *ngIf='type==""||type==undefined' (click)="queren()">确认</button> -->
+    <button class='but txt-white' *ngIf='type==""||type==undefined' (click)="queren()">确认</button>
     <button class='but txt-white h4-5' *ngIf='type=="Y"' (click)="addnew()">添加新地址</button>
 
-  <!-- </div> -->
+  </div>
   </div>
 
 
 
-  <!-- <div *ngIf='show==true'>
+  <div *ngIf='show==true'>
     <div class='block_black'></div>
 
     <div class="white_black" *ngIf="kong==false">
@@ -129,6 +129,6 @@
 
   </div>
 
-</div> -->
+</div>
 
     </ion-content>
