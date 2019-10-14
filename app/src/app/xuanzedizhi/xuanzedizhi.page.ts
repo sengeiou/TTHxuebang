@@ -36,7 +36,7 @@ export class XuanzedizhiPage extends AppBase {
   jifen;
   kong;
   type;
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     //参数
     this.params;
     this.show = false;
@@ -45,12 +45,15 @@ export class XuanzedizhiPage extends AppBase {
     this.type = this.params.type
   }
   addresslist = [];
-  onMyShow(e=undefined) {
+  onMyShow() {
+
     var that = this;
     var addressapi = this.addressApi;
 
-    addressapi.addresslist({ member_id: this.MemberInfo.id }).then((addresslist) => {
+    addressapi.addresslist({member_id: 1}).then(
+      (addresslist) => {
       this.addresslist = addresslist;
+      console.log(addresslist)
     })
 
   }
@@ -61,24 +64,24 @@ export class XuanzedizhiPage extends AppBase {
   }
 
   addressmanage(id) {
-    this.navigateTo({
-      url: '/pages/addressmanage/addressmanage?xiugai=1&id=' + id,
-    })
+    this.navigate(
+      'addressmanage',{xiugai:1,id:id}
+    )
   }
 
-  addnew(e) {
+  addnew() {
 
-    this.navigateTo({
-      url: '/pages/addressmanage/addressmanage',
-    })
+    this.navigate(
+      'addressmanage'
+    )
   }
   info;
   xiaofei=0;
-  queren(e) {
+  queren() {
     var jifen = this.params.interral;
 
 
-    var jifenapi = this.jifenApi;;
+    var jifenapi = this.jifenApi;
     jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
 
       this.info=info;
@@ -197,7 +200,7 @@ export class XuanzedizhiPage extends AppBase {
 
 
   }
-  quxiao(e) {
+  quxiao() {
     this.show=false;
   }
 }

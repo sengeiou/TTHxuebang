@@ -38,7 +38,7 @@ export class BaomaPage  extends AppBase {
   }
   floorstatus=false;
   baomalist=[];
-  onMyShow(e=undefined) {
+  onMyShow() {
     var that = this;
     var instapi = this.instApi;
     var baomaapi = this.baomaApi;
@@ -51,7 +51,7 @@ export class BaomaPage  extends AppBase {
   }
 
   binddetails(id){
-    this.navigate("baomainfo",{id});
+    this.navigate("baomainfo",{id:id});
 
   }
 }

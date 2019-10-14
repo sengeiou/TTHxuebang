@@ -576,7 +576,7 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     phoneCall(e) {
-
+         
     }
     viewPhoto(e) {
 

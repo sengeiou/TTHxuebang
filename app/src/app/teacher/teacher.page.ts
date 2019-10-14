@@ -34,11 +34,11 @@ export class TeacherPage extends AppBase {
   }
   vteach = [];
   teachlist = [];
-  onMyLoad(e=undefined) {
+  onMyLoad() {
     //参数
     this.params;
   }
-  onMyShow(e=undefined) {
+  onMyShow() {
     var teacherapi = this.teacherApi;
     teacherapi.teachlist({
       status: "A",
@@ -54,7 +54,7 @@ export class TeacherPage extends AppBase {
   }
   nomore = 0;
 
-  onReachBottom(e=undefined) {
+  onReachBottom() {
     console.log("???kk");
     var vteach = this.vteach;
     var teachlist = this.teachlist;
@@ -82,9 +82,9 @@ export class TeacherPage extends AppBase {
   }
 
   tojgdetails(id) {
-    this.navigateTo({
-      url: '/pages/jgdetails/jgdetails?id=' + id,
-    })
+    this.navigate(
+      'jgdetails',{id:id}
+    )
   }
   show = 0;
   fav(id) {
@@ -156,6 +156,7 @@ export class TeacherPage extends AppBase {
 
           videoContext.play();
           this.nowplaying_id = id;
+          console.log("nihaoya")
         }
       }
     }
