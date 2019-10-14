@@ -127,6 +127,10 @@ class Content extends AppBase {
       console.log("换个哈哈哈")
       var  title='找机构 ';
     }
+    if (options.type == 'kc') {
+      console.log("换个哈哈哈")
+      var title = '找课程 ';
+    }
 
     wx.setNavigationBarTitle({
       title: title

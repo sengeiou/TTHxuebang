@@ -183,5 +183,6 @@ body.onMyShow = content.onMyShow;
 body.daojishi = content.daojishi;
 body.addgroup = content.addgroup;
 body.laren = content.laren;
+body.kaigexintuan = content.kaigexintuan;
 body.fenxian = content.fenxian;
 Page(body)

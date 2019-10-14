@@ -2,6 +2,14 @@
     @return ($px * 100vw) / 750;
 }
 
+ion-content{
+
+  --background :rbg(245,245,245) !important;
+
+}
+
+
+
 .activityCover{
 
     width:100%;
