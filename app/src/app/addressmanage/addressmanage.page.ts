@@ -67,7 +67,7 @@ export class AddressmanagePage extends AppBase {
 
 
 
-  confirm() {
+  confirm(e) {
     var that = this;
     var data = this.formdata;
     console.log(data)
