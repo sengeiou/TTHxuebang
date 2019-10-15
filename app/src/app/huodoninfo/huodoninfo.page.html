@@ -98,7 +98,7 @@
         </div>
         <div class="padding-20 txt-bold" style="color:#555555">演出详情</div>
         <div class="padding-20">
-          <img bindload="jiazaiwanle" mode="widthFix" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_bot}}"
+          <img  (load)="jiazaiwanle()" mode="widthFix" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_bot}}"
             style="width:100%" />
         </div>
         <div class="height-40"></div>
@@ -110,7 +110,7 @@
     <div class="margin-top h5 txt-bold text-center cc">本活动由学榜提供支持</div>
     <div class="height-70"></div>
 
-    <img class="hsbg" ngStyle='{height:gao+25}' src="{{uploadpath}}resource/{{res.huodonbg}}" />
+    <img class="hsbg"   [ngStyle]="{'height.px':gaodu+40}" src="{{uploadpath}}resource/{{res.huodonbg}}" />
   </div>
 
   <div *ngIf='guize==true' catchtouchmove="true" class="block_black"></div>

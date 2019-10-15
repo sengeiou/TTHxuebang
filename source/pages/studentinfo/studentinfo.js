@@ -161,6 +161,13 @@ class Content extends AppBase {
       return
 
     }
+    if (menpai=='')
+     {
+      this.Base.info("请输入详细地址");
+
+      return
+
+     }
     api.addxueyuan(json, (res) => {
       if (res.code == '0') {
         wx.navigateBack({

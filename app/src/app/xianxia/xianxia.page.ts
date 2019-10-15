@@ -45,10 +45,8 @@ export class XianxiaPage  extends AppBase {
   }
 
   listclick(id){
-   
-   this.navigateTo({
-     url: '/pages/huodoninfo/huodoninfo?id=' + id,
-   })
+      this.navigate("huodoninfo",{id:id});
+  
     
   }
 

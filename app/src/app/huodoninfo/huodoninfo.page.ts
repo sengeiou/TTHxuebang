@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { HuodonApi } from 'src/providers/huodon.api';
 import { InstApi } from 'src/providers/inst.api';
+import { nextTick } from 'q';
 
 @Component({
   selector: 'app-huodoninfo',
@@ -60,7 +61,10 @@ export class HuodoninfoPage extends AppBase {
       }
 
       this.huodoninfo = huodoninfo;
-
+        nextTick(()=>{
+       
+        
+        });
     })
 
     instapi.guize({
@@ -70,7 +74,7 @@ export class HuodoninfoPage extends AppBase {
       guize.map((item) => {
         guizezon += item.guize + '\n';
       })
-      this.guize = true;
+      this.guize = false;
       this.guizezon = "";
     })
 
@@ -148,18 +152,12 @@ export class HuodoninfoPage extends AppBase {
 
   }
   gaodu=0;
-  // todo
-  // jiazaiwanle(e=undefined) {
-  //   var that = this;
-  //   var query = wx.createSelectorQuery();
-  //   query.select('#gdd').boundingClientRect();
-  //   query.exec((res) => {
-  //     //res就是 所有标签为mjltest的元素的信息 的数组
-  //     console.log(res);
-  //     console.log("哈哈哈哈");
-  //     console.log(res[0].height);
-  //     console.log(AppBase.Model);
-  //     that.Base.setMyData({ gaodu: res[0].height });
-  //   })
-  // }
+   
+   jiazaiwanle() {
+    var obb=null;
+    obb=document.querySelector("#gdd");
+      this.gaodu=obb.offsetHeight;
+     console.log("加载完了");
+
+  }
 }

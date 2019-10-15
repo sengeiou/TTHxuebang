@@ -86,6 +86,7 @@
 
 
       <view class="section__title"> </view>
+       
       <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
         <view class="picker ipt" style='color:#C8C8C8' wx:if="{{region.length==0}}">请填写地址</view>
         <view class="picker ipt" wx:if="{{region.length>0}}">{{region[0]}} {{region[1]}} {{region[2]}}</view>
@@ -93,13 +94,14 @@
 
 
     </view>
-    <!-- <view class="padding-20 flex-row flex-center">
-      <view class="h15 " style="color:#FF5252;width:20rpx"></view>
+     <view class="padding-20 flex-row flex-center">
+     <view class="h15 " style="color:#FF5252;width:20rpx">*</view>
+    
       <view class="h15 margin-left-10" style="color:#222222">详细地址</view>
       <view class="flex-1"></view>
       <input style="width:500rpx;" class="ipt" bindinput="menpai" placeholder-class='pc' value='{{menpai}}' name='hangye' placeholder='如道路,门牌号,小区,楼栋号.单元室'></input>
 
-    </view> -->
+    </view> 
 
   </view>
 
