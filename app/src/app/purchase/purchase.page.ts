@@ -37,24 +37,26 @@ export class PurchasePage extends AppBase {
 
   }
   usercomment = "";
-  xuanzexueyuan = null;
+  xuanzexueyuan = '';
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-  courseinfo;
+  courseinfo=null;
   xueyuanlist=[];
   onMyShow(e=undefined) {
     var that = this;
-    var instapi = this.instApi;;
-    var jigouapi = this.jigouApi;;
-
+    var instapi = this.instApi;
+    var jigouapi = this.jigouApi;
+    console.log(this.params)
     if (this.params.type != undefined) {
+      this.courseinfo=[]
 
       jigouapi.courseinfo({
         id: this.params.course_id
       }).then((courseinfo) => {
+        console.log(courseinfo,'kkkkk')
         if (this.params.leixin == 0) {
           courseinfo.price = courseinfo.isgroup;
         }
@@ -62,16 +64,19 @@ export class PurchasePage extends AppBase {
           courseinfo.price = courseinfo.isgroup_tiyan;
         }
 
-        this.courseinfo=courseinfo;
+        this.courseinfo.push(courseinfo);
       });
 
 
     }
     else {
+      this.courseinfo=[]
 
       jigouapi.courseinfo({
         id: this.params.course_id
       }).then((courseinfo) => {
+        console.log(courseinfo,'啊啊啊啊啊')
+
         if (this.params.leixin == 0) {
           console.log("里")
 
@@ -80,8 +85,12 @@ export class PurchasePage extends AppBase {
           console.log("发")
           courseinfo.price = courseinfo.expeprice;
         }
-        this.courseinfo=courseinfo;
+
+        this.courseinfo.push(courseinfo);
+    console.log(this.courseinfo,'pppppp')
+
       });
+
     }
     var nian = new Date();
     var year = nian.getFullYear();
@@ -322,12 +331,12 @@ export class PurchasePage extends AppBase {
   xianqin(id) {
 
     this.navigateTo({
-      url: '/pages/studentinfo/studentinfo?id=' + id,
+      url: '/studentinfo/studentinfo?id=' + id,
     })
   }
   tianjia(e=undefined) {
     this.navigateTo({
-      url: '/pages/studentinfo/studentinfo',
+      url: '/studentinfo/studentinfo',
     })
 
   }

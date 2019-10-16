@@ -109,7 +109,7 @@
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
-        <div *ngFor='let item of filtercoursetype;let idx=index;' class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc($event)'
+        <div *ngFor='let item of filtercoursetype;let idx=index;' class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc(item.id,item.typename)'
           [data-name]='item.typename' [id]='item.id'  [class.hidden]='!(idx<8)'>
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
@@ -117,7 +117,7 @@
 
     </ion-slide>
 
-    <ion-slide class=" flex-row flex-center flex-wrap">
+    <ion-slide class=" flex-row flex-center flex-wrap" [class.hidden]='!(idx<8)'>
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc(item.id,item.typename)'
           id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
@@ -197,7 +197,7 @@
 
             <div class="flex-row flex-column width-46">
               <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
+              <div class='flex-1 dakadian {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
               <div class=' f8 '>{{week[0].daka_date}}</div>
             </div>                                
 
@@ -265,10 +265,10 @@
 
 
     <div class='flex-row flex-center margin-top-16'>
-      <div class='flex-row flex-center '>
-        <div *ngFor='let item of resultArr;let idx=index;'>
-          <img   src='{{item.member_avatarUrl}}' *ngIf='idx<5'
-            class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' />
+      <div class='flex-row flex-center margin-right-60'>
+        <div class="margin-right-f20" *ngFor='let item of resultArr;let idx=index;'>
+              <img   src='{{item.member_avatarUrl}}' *ngIf='idx<5'
+              class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' style="overflow: hidden;"/>
         </div>
       </div>
       <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
@@ -456,7 +456,7 @@
                       </div>
                     </div>
 
-                    <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                    <div class="stars2" [style.width.%]="width" [width]="item.pingfen==''?(item.scoring*20):(item.pingfen*20)">
                       <div class="ims">
                         <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                         <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -477,7 +477,7 @@
                     <div *ngFor="let litem of item.labels;let idx=index;">
 
                       <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
-                        style='border:1px solid {{litem.color}};color:{{litem.color}}' wx:key="k" *ngIf='idx<3'>
+                      [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k" *ngIf='idx<3'>
                         {{litem.name}}</div>
                     </div>
                   </div>

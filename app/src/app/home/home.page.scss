@@ -171,7 +171,7 @@ ion-content {
 
 .ceshi {
   width: rpx(412);
-  height: rpx(105);
+  height: 19vw;
   padding-top: rpx(16);
   padding-bottom: rpx(16);
   padding-left: rpx(26);
@@ -235,10 +235,19 @@ ion-content {
 }
 
 .touxiang2 {
+  display: block;
   width: rpx(40);
   height: rpx(40);
-  margin-left: -rpx(20);
+  // margin-left: rpx(-20);
   border: rpx(2) solid rgba(255, 255, 255, 1);
+}
+
+.margin-right-f20 {
+  margin-right: rpx(-20);
+}
+
+.margin-right-60 {
+  margin-right:16vw;
 }
 
 .margin-top-16 {
@@ -300,7 +309,7 @@ ion-content {
 }
 
 .width-46 {
-  width: rpx(60);
+  width: 1vw;
 }
 
 .dakaxian {

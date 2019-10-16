@@ -35,6 +35,8 @@ export class PingcedatiPage extends AppBase {
   qie = 0;
   pingce = [];
   gif = false;
+
+ 
   onMyLoad() {
     //参数
     this.params;
@@ -56,6 +58,8 @@ export class PingcedatiPage extends AppBase {
     });
 
   }
+
+  
 
   bindcheck(id,sx) {
 

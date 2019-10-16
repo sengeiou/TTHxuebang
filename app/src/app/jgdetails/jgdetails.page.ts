@@ -9,6 +9,7 @@ import { MemberApi } from 'src/providers/member.api';
 import { JigouApi } from 'src/providers/jigou.api';
 import { YiduihuangPageModule } from '../yiduihuang/yiduihuang.module';
 
+
 @Component({
   selector: 'app-jgdetails',
   templateUrl: './jgdetails.page.html',
@@ -89,7 +90,7 @@ export class JgdetailsPage extends AppBase {
 
       console.log(hangshu);
 
-
+      
 
       jigouapi.courselist({
         jg_id: jginfo.id,
@@ -171,7 +172,6 @@ export class JgdetailsPage extends AppBase {
       this.jginfo = jginfo;
       this.isfav = jginfo.isfav;
     });
-
   }
 
   seemore(e) {

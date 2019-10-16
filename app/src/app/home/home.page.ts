@@ -333,18 +333,20 @@ export class HomePage extends AppBase {
       city_id: AppBase.CITYID,
       orderby: "distance"
     }).then((jglist) => {
-
+      console.log(jglist,'啦啦啦啦啦啦2222')
       var jgvteach = [];
       for (var i = 0; i < 4 && i < jglist.length; i++) {
         var mile = AppUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
         var miletxt = AppUtil.GetMileTxt(mile);
         jglist[i]["miletxt"] = miletxt;
         jgvteach.push(jglist[i]);
+        console.log(jglist[i],'哈哈哈哈哈哈2222')
       }
-
+      
       this.jglist = jglist;
       this.jgvteach = jgvteach;
     });
+    console.log(this.jgvteach,'啦啦啦啦啦啦')
   }
 
   jgnomore = 0;
@@ -616,6 +618,8 @@ export class HomePage extends AppBase {
 
     }
 
+    console.log(this.min,'哈哈哈哈哈哈')
+
   }
   jifen = 5;
   addjifen = null;
@@ -741,13 +745,14 @@ export class HomePage extends AppBase {
 
   bindtokc(typeid,typename) {
     var json = null;
-    json = { type: "kc", typeid: 0, typename: typename };
+    console.log(typeid,typename,'5555')
+    json = { type: "kc", typeid: typeid, typename: typename };
 
     if (typeid > 0) {
       json.keyword = typename;
     }
 
-    this.navigate("seek")
+    this.navigate("seek",json)
 
   }
 

@@ -35,11 +35,11 @@ ion-content {
 .mid-padding {
   padding: rpx(40) rpx(10) rpx(40) rpx(0);
   margin-left: rpx(34);
-  border-bottom: rpx(2) solid #f5f5f5;
+  border-bottom: rpx(2) solid #eeeeee;
 }
 
 .bg-gray {
-  background: #f5f6f8;
+  background: #eeeeee;
 }
 
 .kon {
@@ -88,9 +88,13 @@ ion-content {
 }
 
 .h20 {
-  height: rpx(20)
+  height: rpx(20);
 }
 
 .h180 {
   height: rpx(180);
+}
+
+.swiper-zoom-container {
+  text-align: left;
 }

@@ -7,6 +7,7 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { JifenApi } from 'src/providers/jifen.api';
+import { query } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-shopmalldetail',
@@ -40,16 +41,21 @@ export class ShopmalldetailPage extends AppBase {
     this.params;
   }
   onMyShow(e=undefined) {
-    var that = this;
-    var jifenapi = this.jifenApi;;
-    jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
-      this.info = info;
+    this.activeRoute.queryParams.subscribe(query=>{
+
+      var that = this;
+      var jifenapi = this.jifenApi;;
+      jifenapi.commodityinfo({ id: query.id }).then((info) => {
+        this.info = info;
+      })
+
     })
+    
 
   }
   toshouzhi(e) {
     this.navigateTo({
-      url: '/pages/jifenshouzhi/jifenshouzhi'
+      url: '/jifenshouzhi/jifenshouzhi'
     })
   }
   jia(e) {
@@ -90,7 +96,7 @@ export class ShopmalldetailPage extends AppBase {
 
 
     this.navigateTo({
-      url: '/pages/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral + '&id=' + this.params.id + '&img=' + img + '&name=' + name + '&shuliang=' + shuliang
+      url: '/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral + '&id=' + this.params.id + '&img=' + img + '&name=' + name + '&shuliang=' + shuliang
     })
 
   }

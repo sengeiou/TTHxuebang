@@ -54,18 +54,24 @@ export class ShopmallPage extends AppBase {
     this.onUnload();
     console.log("看来大家");
     this.navigateTo({
-      url: '/pages/jifenshouzhi/jifenshouzhi'
+      url: '/jifenshouzhi/jifenshouzhi'
     })
   }
   todetails(id) {
-    this.navigateTo({
-      url: '/pages/shopmalldetail/shopmalldetail?id=' + id
+    // this.navigateTo({
+    //   url: '/shopmalldetail/shopmalldetail?id=' + id,
+    // })
+
+    this.router.navigate(['shopmalldetail'],{
+      queryParams: {
+        id: id
+      }
     })
   }
 
   toorder(e) {
     this.navigateTo({
-      url: '/pages/jifenorder/jifenorder'
+      url: '/jifenorder/jifenorder'
     })
   }
   showtoset(e) {

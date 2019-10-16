@@ -15,6 +15,7 @@
   <!--pages/jgdetails/jgdetails.wxml-->
 
 
+
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div class=' to_top'>
@@ -42,7 +43,7 @@
 
       <div class="flex-row flex-column">
 
-        <div *ngIf='tanchuang==true' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+        <div *ngIf='tanchuang==true' class='radius-10 bg-white padding-15 shadow margin-bottom-10 mid'>
 
 
           <div class='padding-10 '>
@@ -62,7 +63,7 @@
                 </div>
               </div>
 
-              <div class="stars2" style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+              <div class="stars2" [width]="jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20" [style.width.%]="width">
                 <div class="ims">
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -79,7 +80,7 @@
 
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels"
+                  *ngFor="let litem of jginfo.labels"  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}'
                   wx:key="k" >{{litem.name}}</div>
               </div>
 
@@ -146,8 +147,8 @@
                 </div>
               </div>
 
-              <div class="hiddenblock"
-                style="width:{{jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)}}%"></div>
+              <div class="hiddenblock" [width]="jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)"
+                [style.width.%]="width"></div>
 
               <div class="stars1 " style="width: 100%;">
                 <div class="ims ">
@@ -167,7 +168,7 @@
 
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels;"
+                  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' *ngFor="let litem of jginfo.labels;"
                   wx:key="k">{{litem.name}}</div>
               </div>
 

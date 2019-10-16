@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA,ElementRef } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -124,24 +124,28 @@ export class PingceindexPage extends AppBase {
 
   }
 
-
+  @ViewChild('canvas')
+  canvas: ElementRef;
+  arcTimeTicket;
   drawProgressbg(e=undefined) {
     //todo
     // 使用 wx.createContext 获取绘图上下文 context
     // var ctx = wx.createCanvasContext('canvasProgressbg')
+    　let canvas = this.canvas.nativeElement
+      let context = canvas.getContext('2d');
 
     // console.log("滴滴滴滴");
-    // console.log(ctx);
+    // console.log(context);
     // console.log("滴滴滴滴");
 
-    // ctx.setLineWidth(6); // 设置圆环的宽度
-    // ctx.setStrokeStyle('#C0D0FF'); // 设置圆环的颜色
-    // ctx.setLineCap('stroke') // 设置圆环端点的形状
-    // ctx.beginPath(); //开始一个新的路径
-    // ctx.arc(45, 45, 35, 0, 2 * Math.PI, false);
+    // context.setLineWidth(6); // 设置圆环的宽度
+    // context.setStrokeStyle('#C0D0FF'); // 设置圆环的颜色
+    // context.setLineCap('stroke') // 设置圆环端点的形状
+    // context.beginPath(); //开始一个新的路径
+    // context.arc(45, 45, 35, 0, 2 * Math.PI, false);
     // //设置一个原点(100,100)，半径为90的圆的路径到当前路径
-    // ctx.stroke(); //对当前路径进行描边
-    // ctx.draw();
+    // context.stroke(); //对当前路径进行描边
+    // context.draw();
   }
 
   drawCircle(step) {

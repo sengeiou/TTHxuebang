@@ -14,14 +14,14 @@
 <!--pages/purchase/purchase.wxml-->
 <!--pages/myorder/myorder.wxml-->
 
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<img class="backhome"  src="{{uploadpath}}resource/{{res.fanhui}}"  (click)="backHome()" />
 
 <div class=' margin-top-10 margin-bottom-10 text-center h6 ' style='color:#A1A1A1'>
   本次购买的课程请认真查看购买须知，合理安排学习时间。
 </div>
 
 
-<div class=' padding-left-20 bg-white bor_bot' style=''>
+<div class=' padding-left-20 bg-white bor_bot' style='' *ngFor='let item of courseinfo'>
   <!-- <div class='flex-row flex-center padding-20 bor_bot' style=''>
     <div class='flex-1 txt-gray'>2019-02-03 12:00</div>
     <div class='txt-gray'>已完成</div>
@@ -29,17 +29,17 @@
 
   <div class='flex-row  padding-20 bor_bot margin-top-10' style=''>
 
-    <img class='icon radius-10' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}}' />
+    <img class='icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
 
     <div class='flex-1 flex-row column margin-left-20'>
 
       <div class='flex-row flex-center'>
-        <div class='flex-1 txt-black'>{{courseinfo.name}}</div>
-        <div class='txt-black'>￥{{courseinfo.price}}</div>
+        <div class='flex-1 txt-black'>{{item.name}}</div>
+        <div class='txt-black'>￥{{item.price}}</div>
       </div>
 
       <div class='flex-row flex-center margin-top-5'>
-        <div class='flex-1 txt-gray h5'>{{courseinfo.JG_jigou}}</div>
+        <div class='flex-1 txt-gray h5'>{{item.JG_jigou}}</div>
       </div>
 
       <div class='flex-row flex-center flex-1 ' style=''>
@@ -47,14 +47,14 @@
 
         <div class='flex-row flex-center '>
           <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{courseinfo.age_name}}</div>
+          <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
         </div>
 
         <div class='w20'></div>
 
         <div class='flex-row flex-center '>
           <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{courseinfo.class_hours}}节课</div>
+          <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
         </div>
 
         <div class='w20'></div>
@@ -62,7 +62,7 @@
 
         <div class='flex-row flex-center '>
           <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{courseinfo.duration}}/节</div>
+          <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
         </div>
 
 
@@ -76,7 +76,7 @@
   <div class='flex-row flex-center padding-20' style=''>
     <div class='flex-1 h6'>小计</div>
     <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='txt-black txt-bold margin-left-20'>￥{{courseinfo.price}}</div>
+    <div class='txt-black txt-bold margin-left-20'>￥{{item.price}}</div>
   </div> 
 
 </div>
