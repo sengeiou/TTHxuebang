@@ -60,6 +60,7 @@ export class HomePage extends AppBase {
   fapk=[];
   nocity = 0;
 
+
   onMyLoad(e=undefined) {
     //参数
     this.params;
@@ -301,9 +302,9 @@ export class HomePage extends AppBase {
   totake(name) {
     console.log(name);
     if (name == "jg") {
-      this.navigate("seek", { type: "jg" });
+      this.navigate("seek", { type: "jg" ,typename:'找机构'});
     } else {
-      this.navigate("seek", { type: "kc" });
+      this.navigate("seek", { type: "kc" ,typename:'找课程'});
     }
 
   }
@@ -326,6 +327,8 @@ export class HomePage extends AppBase {
     var mylng = this.mylng;
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
+    console.log(mylat,mylng)
+    console.log('哪来看看')
 
     jigouapi.jglist({
       mylat,
@@ -746,7 +749,7 @@ export class HomePage extends AppBase {
   bindtokc(typeid,typename) {
     var json = null;
     console.log(typeid,typename,'5555')
-    json = { type: "kc", typeid: typeid, typename: typename };
+    json = { type: "kc", typeid: 0, typename: '找课程' };
 
     if (typeid > 0) {
       json.keyword = typename;

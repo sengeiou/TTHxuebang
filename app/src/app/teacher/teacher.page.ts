@@ -44,6 +44,7 @@ export class TeacherPage extends AppBase {
       status: "A",
       orderby: 'r_main.seq'
     }).then((teachlist) => {
+      console.log(teachlist,'teachlist')
       var vteach = [];
       vteach.push(teachlist[0]);
       vteach.push(teachlist[1]);
@@ -128,6 +129,7 @@ export class TeacherPage extends AppBase {
   }
   nowplaying_id = 0;
   play(id) {
+    console.log(id,'ididdd')
     var that = this;
     id = id.split("_");
     id = id[1];

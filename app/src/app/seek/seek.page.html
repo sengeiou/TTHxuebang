@@ -5,7 +5,7 @@
               <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
             </ion-button>
           </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
+          <ion-title>{{typename}}</ion-title>
         </ion-toolbar>
   </ion-header>
 
@@ -27,7 +27,7 @@
           <div class='h5 txt-gray margin-left'>搜索机构名字</div>
         </div>
       </div>
-
+      <!--  -->
       <div class=' flex-row flex-center margin-top-10 h70' (click)='yingcang($event)' style='background-image:url({{uploadpath}}resource/{{res.toutiao_bg}});background-size:100% 100%;'>
 
         <div class='flex-1  flex-row flex-center '>
@@ -91,10 +91,10 @@
   <div class="h240"></div>
 
 
-  <div *ngFor='let item of jgvteach;let idx=index;' wx:key='k' id='{{item.id}}' (click)='tojgdetails(item.id)' style=''  class='{{idx>0?"margin-top":""}}'>
+  <div *ngFor='let item of jgvteach;let idx=index;' wx:key='k' id='{{item.id}}' (click)='tojgdetails(item.id)'   class='{{idx>0?"margin-top":""}}'>
 
-    <div class=' padding-20' style=''>
-      <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 sp3' style='' />
+    <div class=' padding-20' >
+      <img src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' lazy-load='{{true}}' class=' radius-10 sp3'  />
     </div>
 
     <div class='flex-row flex-column midt {{xiala=="xs"?"midtm":""}}'>
@@ -120,7 +120,7 @@
                 </div>
               </div>
 
-              <div class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+              <div class="stars2" [style.width.%]="item.pingfen==''?item.scoring*20:item.pingfen*20">
                 <div class="ims">
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -137,7 +137,7 @@
           <div class='flex-row flex-center margin-top-5'>
 
             <div class='flex-row flex-1'>
-              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"  [class.hidden]='idx>=3'>{{litem.name}}</div>
+              <div class=' biaoqian text-center radius-10 txt-green h6 margin-5'  style='border:1px solid' [style.borderColor]='litem.color' [style.color]='litem.color' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"  [class.hidden]='idx>=3'>{{litem.name}}</div>
             </div>
 
             <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
@@ -412,7 +412,7 @@
 </ion-slides>
 
 
-<div *ngIf='xiala=="xs"' class='bg-white list' style='height:{{43*((filterdistrict.length>7)?7:filterdistrict.length)}};top:{{type=="kc"?"97px":"122px"}}'>
+<div *ngIf='xiala=="xs"' class='bg-white list' [style.height.px]='43*((filterdistrict.length>7)?7:filterdistrict.length)' [style.top]='type=="kc"?"132px":"171px"' >
 
   <scroll-view scroll-y>
     <div (click)='changeDistrict(-1)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>

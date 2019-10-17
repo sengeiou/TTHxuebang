@@ -33,7 +33,7 @@
     <div class='padding-15  bg-primary'>
       <div (click)='tocity()' class='flex-row flex-center'>
         <div class='txt-black h40 txt-bold'>{{cityname}}</div>
-        <div class='txt-black h40 txt-bold' *ngIf='cityname==null'>深圳市</div>
+        <div class='txt-black h40 txt-bold' *ngIf='cityname==""'>深圳市</div>
         <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
 

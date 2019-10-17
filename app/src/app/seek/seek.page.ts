@@ -58,34 +58,38 @@ export class SeekPage extends AppBase {
   ftype_id = "0";
   gongaolist = [];
   options_show=false;
+  typename=''
 
-  onLoad(e=undefined) {
-    if (this.params.keyword != undefined) {
-      this.params.keyword = decodeURI(this.params.keyword);
-    }
+  onLoad() {
+    // if (this.params.keyword != undefined) {
+    //   this.params.keyword = decodeURI(this.params.keyword);
+    // }
+    this.type = this.params.type;
+    this.typename = this.params.typename
     //this.this.params.type="jg";
 
-    if (this.params.type == undefined) {
-      this.params.type = 'kc';
-    }
+    // if (this.params.type == undefined) {
+    //   this.params.type = 'kc';
+    // }
 
 
-    if (this.params.ftype_id == undefined) {
-      this.params.ftype_id = "0";
-    }
+    // if (this.params.ftype_id == undefined) {
+    //   // this.params.ftype_id = "0";
+    // }
 
-    if (this.params.fage_id == undefined) {
-      this.params.fage_id = "0";
-    }
+    // if (this.params.fage_id == undefined) {
+    //   this.params.fage_id = "0";
+    // }
 
-    if (this.params.fdistrict_id == undefined) {
-      this.params.fdistrict_id = "0";
-    }
+    // if (this.params.fdistrict_id == undefined) {
+    //   this.params.fdistrict_id = "0";
+    // }
 
-    this.type = this.params.type;
-    this.fdistrict_id = this.params.fdistrict_id;
-    this.fage_id = this.params.fage_id;
-    this.ftype_id = this.params.ftype_id;
+ 
+    // this.type = this.params.type;
+    // this.fdistrict_id = this.params.fdistrict_id;
+    // this.fage_id = this.params.fage_id;
+    // this.ftype_id = this.params.ftype_id;
 
     //  console.log(this.this.params.type);
 
@@ -94,18 +98,22 @@ export class SeekPage extends AppBase {
     jigouapi.gongaolist({
       orderby: " rand() "
     }).then((gongaolist) => {
+      console.log(gongaolist,'gongaolist')
       this.gongaolist = gongaolist;
     });
 
     jigouapi.coursetype({}).then((filtercoursetype) => {
+      console.log(filtercoursetype,'filtercoursetype')
       this.filtercoursetype = filtercoursetype;
     });
     jigouapi.courseage({}).then((filtercourseage) => {
+      console.log(filtercourseage,'filtercourseage')
       this.filtercourseage = filtercourseage;
     });
     jigouapi.buyshow({
       limit: '20'
     }).then((buyshow) => {
+      console.log(buyshow,'buyshow')
       this.buyshow = buyshow;
     });
 
@@ -113,13 +121,17 @@ export class SeekPage extends AppBase {
 
   timerStart;
 
-  onUnload(e=undefined) {
+  onUnload() {
     var timerStart = this.timerStart;
     clearInterval(timerStart);
   }
   isload = false;
-  onMyShow(e=undefined) {
+  onMyShow() {
+    this.onLoad()
     var that = this;
+
+    console.log(that.params,'哈哈哈哈')
+
 
     var jigouapi = this.jigouApi;;
     var isload = this.isload;
@@ -142,6 +154,7 @@ export class SeekPage extends AppBase {
     jigouapi.activedistrictlist({
       city_id: AppBase.CITYID
     }).then((filterdistrict) => {
+      console.log(filterdistrict,'filterdistrict')
       this.filterdistrict = filterdistrict;
       if (type == "kc") {
         this.loadcourse();
@@ -158,13 +171,13 @@ export class SeekPage extends AppBase {
     this.xialaage = "yc";
 
     this.navigateTo({
-      url: '/pages/jgdetails/jgdetails?id=' + id,
+      url: '/jgdetails/jgdetails?id=' + id,
     })
   }
 
   tokcdetails(id) {
     this.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + id,
+      url: '/kcdetails/kcdetails?id=' + id,
     })
   }
 
@@ -192,7 +205,7 @@ export class SeekPage extends AppBase {
   }
   jgvteach=[];
 
-  loadjg(e=undefined) {
+  loadjg() {
     var jigouapi = this.jigouApi;;
     var mylat = this.mylat;
     var mylng = this.mylng;
@@ -238,7 +251,7 @@ export class SeekPage extends AppBase {
   ages=0;
   minage:0;
   maxage:0;
-  loadcourse(e=undefined) {
+  loadcourse() {
     var jigouapi = this.jigouApi;;
     var mylat = this.mylat;
     var mylng = this.mylng;
@@ -309,7 +322,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  onReachBottom(e=undefined) {
+  onReachBottom() {
 
 
     var mylat = this.mylat;
@@ -380,7 +393,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  hideFilter(e=undefined) {
+  hideFilter() {
     var tdistrict_id = this.fdistrict_id;
     var ttype_id = this.ftype_id;
     var tage_id = this.fage_id;
@@ -468,7 +481,7 @@ export class SeekPage extends AppBase {
   setTAge(id) {
     this.tage_id=id;
   }
-  resetFilter(e=undefined) {
+  resetFilter() {
     var that = this;
 
     this.showConfirm("确认重置？",(ret)=>{
@@ -514,14 +527,14 @@ export class SeekPage extends AppBase {
     this.xialaage= "yc";
   }
 
-  catchTouchMove(e=undefined) {
+  catchTouchMove() {
     return false;
   }
 
 
-  onShareAppMessage(e=undefined) {
+  onShareAppMessage() {
     console.log('haha');
-    var url = "/pages/seek/seek?type=" + this.params.type +
+    var url = "/seek/seek?type=" + this.params.type +
       "&fage_id=" + this.fage_id +
       "&fdistrict_id=" + this.fdistrict_id + '&typename=' + this.params.typename;
     //"&keyword=" + this.params.keyword +
