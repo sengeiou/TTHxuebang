@@ -106,7 +106,10 @@ export class PurchasePage extends AppBase {
   }
   bindtoorder(e) {
     var that = this;
+
     var xueyuan = this.xuanzexueyuan;
+
+    console.log(xueyuan);
 
     if (this.zhifuzhon) {
 
@@ -118,19 +121,21 @@ export class PurchasePage extends AppBase {
       this.showAlert("请选择学员");
       return;
     }
-    this.zhifuzhon=true;
 
-    var name = xueyuan.name;
-    var phone = xueyuan.shouji;
-    var diqu = xueyuan.dizhi;
-    var age = xueyuan.sui;
-    var sex = xueyuan.sex == 'sex' ? '男' : '女';
-    var json1 = {
-      course_id: this.params.course_id, phone: phone, name: name, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
-    };
-    var json2 = {
-      course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
-    }
+    this.zhifuzhon=true; 
+
+    // var name = xueyuan.name;
+    // var phone = xueyuan.shouji;
+    // var diqu = xueyuan.dizhi;
+    // var age = xueyuan.sui;
+    // var sex = xueyuan.sex == 'sex' ? '男' : '女';
+    
+    // var json1 = {
+    //   course_id: this.params.course_id, phone: phone, name: name, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
+    // };
+    // var json2 = {
+    //   course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
+    // }
 
     if (this.params.type != undefined) {
       console.log(123123);

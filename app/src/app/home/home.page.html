@@ -22,9 +22,9 @@
 
 
 
-  <div *ngIf='pd==1'>
+  <!-- <div *ngIf='pd==1'>
     <img src="{{uploadpath}}resource/{{res.shoucangtishi}}" class="tsimg" />
-  </div>
+  </div> -->
 
 
 
@@ -197,55 +197,55 @@
 
             <div class="flex-row flex-column width-46">
               <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num <=7?5:25}}</div>
-              <div class='flex-1 dakadian {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
+              <div class=' dakadian {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
               <div class=' f8 '>{{week[0].daka_date}}</div>
             </div>                                
 
-            <div class='dakaxian margin-top-4 bg9 {{min>1?"bgff":"bg9"}}'></div>
+            <div class='dakaxian  bg9 {{min>1?"bgff":"bg9"}}'></div>
 
             <div class="flex-row flex-column width-46">
               <div class='h6   {{min>1?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>1?"bgff":"bg9"}}' data-n='{{min+1}}'></div>
+              <div class='dakadian    {{min>1?"bgff":"bgff"}}' data-n='{{min+1}}'></div>
               <div class=' f8 '>{{week[1].daka_date}}</div>
             </div>
 
-            <div class='dakaxian margin-top-4 {{min>2?"bgff":"bg9"}} '></div>
+            <div class='dakaxian  {{min>2?"bgff":"bg9"}} '></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></div>
+              <div class='h6   {{min>2?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
+              <div class='dakadian   {{min>2?"bgff":"bg9"}}' data-n='{{min+2}}'></div>
               <div class=' f8 '>{{week[2].daka_date}}</div>
             </div>
 
-            <div class='dakaxian margin-top-4 {{min>3?"bgff":"bg9"}}  '></div>
+            <div class='dakaxian  {{min>3?"bgff":"bg9"}}  '></div>
 
             <div class="flex-row flex-column width-46">
               <div class='h6  {{min>3?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></div>
+              <div class='dakadian    {{min>3?"bgff":"bg9"}} ' data-n='{{min+3}}'></div>
               <div class=' f8 '>{{week[3].daka_date}}</div>
             </div>
 
-            <div class='dakaxian margin-top-4 {{min>4?"bgff":"bg9"}} '></div>
+            <div class='dakaxian  {{min>4?"bgff":"bg9"}} '></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></div>
+              <div class='h6    {{min>4?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
+              <div class='dakadian   {{min>4?"bgff":"bg9"}}' data-n='{{min+4}}'></div>
               <div class=' f8 '>{{week[4].daka_date}}</div>
             </div>
 
-            <div class='dakaxian margin-top-4 {{min>5?"bgff":"bg9"}}'></div>
+            <div class='dakaxian  {{min>5?"bgff":"bg9"}}'></div>
 
             <div class="flex-row flex-column width-46">
-              <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num  <=7?5:25}}</div>
-              <div class='dakadian  flex-1  {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></div>
+              <div class='h6     {{min>5?"txthuang":"txt-9"}}'>+{{num <=7?5:25}}</div>
+              <div class='dakadian    {{min>5?"bgff":"bg9"}}' data-n='{{min+5}}'></div>
               <div class=' f8 '>{{week[5].daka_date}}</div>
             </div>
 
-            <div class='dakaxian margin-top-4 {{min>6?"bgff":"bg9"}} '></div>
+            <div class='dakaxian  {{min>6?"bgff":"bg9"}} '></div>
 
             <div class="flex-row flex-column width-46">
               <div class='h6    {{min>6?"txthuang":"txt-9"}}'>+25</div>
-              <div class='dakadian  flex-1 {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></div>
+              <div class='dakadian   {{min>6?"bgff":"bg9"}} ' data-n='{{min+6}}'></div>
               <div class=' f8 '>{{week[6].daka_date}}</div>
             </div>
 
@@ -274,7 +274,8 @@
       <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
     </div>
 
-    <div *ngIf='tangchuan==true||dakashow==true||guize==true' class='block_black'></div>
+  
+    <div *ngIf='tangchuan==true||dakashow==true||guize==true'  class='block_black'></div>
 
     <div class=' gz ' *ngIf='guize==true'>
       <div class='guize bg-white flex-row flex-column'>
@@ -325,11 +326,17 @@
 
     </div>
 
+
+
+
+
+    
+
     <div *ngIf='tangchuan==true' class='tangchuan'>
 
-      <div class=' jilu' style='background-image:url({{uploadpath}}resource/{{res.daka}});background-size:100% 100%;'>
+      <div class=' jilu ' [ngStyle]="{'background-image': 'url('+uploadpath+'resource/'+res.daka+')'}" style='background-size:100% 100%;'>
 
-        <div class='flex-row  '>
+        <div class='flex-row '>
 
           <div class='icon-75  flex-row flex-center '>
             <div class='flex-1'></div>
@@ -359,17 +366,15 @@
 
             <div class='bg-tuhuang gun' *ngIf='idx>0' style=''></div>
 
-            <div class='flex-row flex-center'>
+            <div class='flex-row flex-center mf' style="">
 
               <div class='{{num>idx?"txt-white":"tuhuang"}} h6'>{{num>idx? "已签": "未签"}}</div>
 
               <div class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></div>
 
-              <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}
-              </div>
+              <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</div>
 
-              <div class='h6 txt-white' *ngIf='num<=7'>+{{idx
-                            <6?5:25}}</div>
+              <div class='h6 txt-white' *ngIf='num<=7'>+{{idx<6?5:25}}</div>
 
               <div class='h6 txt-white' *ngIf='num>7'>+25</div>
 

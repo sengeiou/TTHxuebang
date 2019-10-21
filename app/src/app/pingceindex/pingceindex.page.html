@@ -1,144 +1,146 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
-<!--pages/pingceindex/pingceindex.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class='top-img' style='background-size:100% 100%;' [style.background-image]="'url('+uploadpath+'pingceindex/'+info.indeximg+')'">
-  <div class='h178 ' ></div>
-  <div class='flex-row flex-center'>
-    <div class='h6  ml62' style='color:#B4B4B4; '>已有</div>
-    <div class=' h6 margin-left-12 txt-bold'>{{info.peoplenum}}</div>
-    <div class='h6 margin-left-12 ' style='color:#B4B4B4 '>人参与测试</div>
+<ion-content>
+  <!--pages/pingceindex/pingceindex.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  
+  <div class='top-img' style='background-size:100% 100%;' [ngStyle]="{'background-image': 'url('+uploadpath+'pingceindex/'+info.indeximg+')'}">
+ 
+    <div class='h178 '></div>
+    <div class='flex-row flex-center'>
+      <div class='h6  ml62' style='color:#B4B4B4; '>已有</div>
+      <div class=' h6 margin-left-12 txt-bold'>{{info.peoplenum}}</div>
+      <div class='h6 margin-left-12 ' style='color:#B4B4B4 '>人参与测试</div>
+    </div>
   </div>
-</div>
 
 
-<div class='mid-block bg-white padding-20 radius-8'>
+  <div class='mid-block bg-white padding-20 radius-8'>
 
-  <div class='flex-row flex-center'>
-    <div class='huangtiao'></div>
-    <div class='h5 txt-bold margin-left-16'>测试简介</div>
-  </div>
+    <div class='flex-row flex-center'>
+      <div class='huangtiao'></div>
+      <div class='h5 txt-bold margin-left-16'>测试简介</div>
+    </div>
 
     <p class='  h6 txt-6' style=''>{{info.jianjie}}</p>
- 
 
-  <div class='flex-row flex-center margin-top-30'>
-    <div class='flex-1'></div>
 
-    <div class='flex-row flex-column'>
+    <div class='flex-row flex-center margin-top-30'>
+      <div class='flex-1'></div>
 
-      <!-- <div class='quan radius-50 flex-row flex-column '>
+      <div class='flex-row flex-column'>
+
+        <!-- <div class='quan radius-50 flex-row flex-column '>
         <div class='flex-1'></div>
         <div class='h7' style='color:#B4B4B4'>平均</div>
         <div style='color:#B71B93'>{{info.zhunque}}</div>
         <div class='flex-1'></div>
       </div> -->
 
-      <div class="container">
-        <div class='progress_box '>
-          <canvas class="progress_bg" #canvas id="canvasProgressbg"> </canvas>
-          <canvas class="progress_canvas" #canvas2 id="canvasProgress"> </canvas>
-          <div class='progress_text'>
-            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
-            <div style='color:#B71B93' class="text-center">{{zq}}</div>
+        <div class="container">
+          <div class='progress_box '>
+            <canvas class="progress_bg" #canvas id="canvasProgressbg"> </canvas>
+            <canvas class="progress_canvas" #canvas2 id="canvasProgress"> </canvas>
+            <div class='progress_text'>
+              <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+              <div style='color:#B71B93' class="text-center">{{zq}}</div>
+            </div>
           </div>
         </div>
+
+
+        <div class='  h5'>测试准确度</div>
+
       </div>
 
+      <div class='flex-1'></div>
 
-      <div class='  h5'>测试准确度</div>
-
-    </div>
-
-    <div class='flex-1'></div>
-
-    <div class='flex-row flex-column'>
+      <div class='flex-row flex-column'>
 
 
-      <!-- <div class='quan radius-50 flex-row flex-column '>
+        <!-- <div class='quan radius-50 flex-row flex-column '>
         <div class='flex-1'></div>
         <div class='h7' style='color:#B4B4B4'>平均</div>
         <div style='color:#B71B93'>{{info.shiyon}}</div>
         <div class='flex-1'></div>
       </div> -->
 
-      <div class="container">
-        <div class='progress_box '>
-          <canvas class="progress_bg" canvas-id="canvasProgressbg2"> </canvas>
-          <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
-          <div class='progress_text'>
-            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
-            <div style='color:#B71B93' class="text-center">{{sy}}</div>
+        <div class="container">
+          <div class='progress_box '>
+            <canvas class="progress_bg" canvas-id="canvasProgressbg2"> </canvas>
+            <canvas class="progress_canvas" canvas-id="canvasProgress2"> </canvas>
+            <div class='progress_text'>
+              <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+              <div style='color:#B71B93' class="text-center">{{sy}}</div>
+            </div>
           </div>
         </div>
+
+
+
+        <div class='  h5'>建议实用性</div>
       </div>
 
+      <div class='flex-1'></div>
 
-
-      <div class='  h5'>建议实用性</div>
-    </div>
-
-    <div class='flex-1'></div>
-
-    <div class='flex-row flex-column'>
-      <!-- <div class='quan radius-50 flex-row flex-column '>
+      <div class='flex-row flex-column'>
+        <!-- <div class='quan radius-50 flex-row flex-column '>
         <div class='flex-1'></div>
         <div class='h7' style='color:#B4B4B4'>平均</div>
         <div style='color:#B71B93'>{{info.yidong}}</div>
         <div class='flex-1'></div>
       </div> -->
 
-      <div class="container">
-        <div class='progress_box '>
-          <canvas class="progress_bg" canvas-id="canvasProgressbg3"> </canvas>
-          <canvas class="progress_canvas" canvas-id="canvasProgress3"> </canvas>
-          <div class='progress_text'>
-            <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
-            <div style='color:#B71B93' class="text-center">{{yd}}</div>
+        <div class="container">
+          <div class='progress_box '>
+            <canvas class="progress_bg" canvas-id="canvasProgressbg3"> </canvas>
+            <canvas class="progress_canvas" canvas-id="canvasProgress3"> </canvas>
+            <div class='progress_text'>
+              <div class='h7 text-center' style='color:#B4B4B4'>平均</div>
+              <div style='color:#B71B93' class="text-center">{{yd}}</div>
+            </div>
           </div>
         </div>
+
+
+        <div class='  h5'>题目易懂性</div>
       </div>
 
-
-      <div class='  h5'>题目易懂性</div>
+      <div class='flex-1'></div>
     </div>
 
+  </div>
+
+
+  <div class='bottom-block bg-white padding-20 radius-8'>
+
+    <div class='flex-row flex-center'>
+      <div class='huangtiao'></div>
+      <div class='h5 txt-bold margin-left-16'>测评须知</div>
+    </div>
+
+    <div   class='margin-top-14 h6 txt-6 size'   style=' '>{{info.xuzhi}}</div>
+
+  </div>
+
+  <div class='height-126'></div>
+
+  <div class='flex-row flex-center' (click)='todati(info)' data-pc_id="{{info.id}}" id="{{MemberInfo.id}}">
+    <div class='flex-1'></div>
+    <div class='ceshi text-center txt-white'>立即测试</div>
     <div class='flex-1'></div>
   </div>
 
-</div>
-
-
-<div class='bottom-block bg-white padding-20 radius-8'>
-
-  <div class='flex-row flex-center'>
-    <div class='huangtiao'></div>
-    <div class='h5 txt-bold margin-left-16'>测评须知</div>
-  </div>
-
-  <p class='margin-top-14 h6 txt-6' style=''>{{info.xuzhi}}</p>
- 
-</div>
-
-<div class='height-126'></div>
-
-<div class='flex-row flex-center' (click)='todati(info)' data-pc_id="{{info.id}}" id="{{MemberInfo.id}}">
-  <div class='flex-1'></div>
-  <div class='ceshi text-center txt-white'>立即测试</div>
-  <div class='flex-1'></div>
-</div>
-
-<div class='height-52'></div>
+  <div class='height-52'></div>
 
 
 
@@ -146,25 +148,25 @@
 
 
 
-<div class='UD' [class.hidden]='true'>
+  <div class='UD' [class.hidden]='true'>
 
 
 
-  <div class="container">
-    <div class='progress_box '>
-      <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
-      <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
-      <div class='progress_text'>
-        <div class=''>455</div>
-        <div>455</div>
+    <div class="container">
+      <div class='progress_box '>
+        <canvas class="progress_bg" canvas-id="canvasProgressbg"> </canvas>
+        <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+        <div class='progress_text'>
+          <div class=''>455</div>
+          <div>455</div>
+        </div>
       </div>
     </div>
+
+
+
   </div>
 
 
 
-</div>
-
-
-
-    </ion-content>
+</ion-content>

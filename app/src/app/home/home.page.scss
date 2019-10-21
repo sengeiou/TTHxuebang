@@ -408,7 +408,7 @@ ion-content {
   z-index: 100;
   left: rpx(82);
   right: rpx(82);
-  top: 5%;
+  top: 15%;
 }
 
 .gz {
@@ -429,7 +429,7 @@ ion-content {
 .jilu {
   /* background: rgb(252, 205, 151); */
   border-radius: rpx(8);
-  width: rpx(506);
+  width: 100%;
   height: rpx(882);
   padding: rpx(44) rpx(40) rpx(0) rpx(40);
 }
@@ -522,9 +522,9 @@ ion-content {
 
 .gun {
   width: rpx(2);
-  height: rpx(72);
-  margin-top: -rpx(8);
-  margin-bottom: -rpx(14);
+  height: rpx(52);
+  // margin-top: -rpx(30);
+  // margin-bottom: -rpx(30);
   margin-left: rpx(86);
 }
 
@@ -652,7 +652,8 @@ ion-content {
 }
 
 .mf {
-  margin-top: rpx(-10)
+  margin-top: rpx(-10);
+  // margin-bottom: rpx(-10);
 }
 
 .h12 {
