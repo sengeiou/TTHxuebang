@@ -294,8 +294,6 @@ class Content extends AppBase {
 
 
 
-
-
   tocontent(e) {
     wx.navigateTo({
       url: '/pages/content/content',

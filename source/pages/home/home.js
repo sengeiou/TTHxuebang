@@ -526,7 +526,7 @@ class Content extends AppBase {
           if (indexbanner[i].url == '/pages/home/home' || indexbanner[i].url == '/pages/baoma/baoma' || indexbanner[i].url == '/pages/teacher/teacher' || indexbanner[i].url == '/pages/mine/mine') {
             console.log("试试")
             wx.reLaunch({
-              url: url indexbanner[i].url
+              url: indexbanner[i].url
             })
           } else {
             console.log("不杀死hi")
@@ -809,7 +809,7 @@ class Content extends AppBase {
         signState: true,
         dakashow: true,
         tangchuan: false,
-        daka:true
+       // daka:true
       })
 
       var num = this.Base.getMyData().num;

@@ -22,7 +22,7 @@
 <view wx:if='{{show==1}}' >
 
   <view style="height:52rpx" class="flex-row flex-center">
-    <view class="h6 txt9 margin-left-20 flex-1">2019年</view>
+    <view class=" flex-1"></view>
     <view class="h6 txt9">增加</view>
     <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
     <view class=" txt9 h6 margin-right-30">{{shousum}}</view>
@@ -48,7 +48,7 @@
 <view wx:if='{{show==2}}'>
 
   <view style="height:52rpx" class="flex-row flex-center">
-    <view class="h6 txt9 margin-left-20 flex-1">2019年</view>
+    <view class=" flex-1"></view>
     <view class="h6 txt9">支出</view>
     <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 margin-left-10"></image>
     <view class=" txt9 h6 margin-right-30">{{zhisum}}</view>
