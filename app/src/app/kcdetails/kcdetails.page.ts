@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -40,7 +40,19 @@ export class KcdetailsPage extends AppBase {
   shulian = 0;
   daojishilistdd = [];
   canbuy = null;
-  onMyLoad() {
+
+  arr5=[];
+  arr4=[];
+  arr3=[];
+  arr2=[];
+  arr1=[];
+
+  onMyLoad(e=undefined) {
+    this.arr5=this.getArray(5);
+    this.arr4=this.getArray(4);
+    this.arr3=this.getArray(3);
+    this.arr2=this.getArray(2);
+    this.arr1=this.getArray(1);
     //参数
     this.params;
 
@@ -49,7 +61,7 @@ export class KcdetailsPage extends AppBase {
   timer;
   sjlist = [];
   pingjialist = [];
-  daojishi() {
+  daojishi(e=undefined) {
     var that = this;
 
 
@@ -95,14 +107,14 @@ export class KcdetailsPage extends AppBase {
 
 
   }
-  onHide() {
+  onHide(e=undefined) {
     console.error(66666);
     clearInterval(this.timer);
 
 
   }
 
-  onUnload() {
+  onUnload(e=undefined) {
     console.error(66666);
     clearInterval(this.timer);
   }
@@ -115,7 +127,7 @@ export class KcdetailsPage extends AppBase {
   scoring = 0;
   courseinfo = null;
   isfav = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var jigouapi = this.jigouApi;
 
     if (this.params.yaoqin_id != undefined && this.MemberInfo.id != undefined) {
@@ -225,22 +237,20 @@ export class KcdetailsPage extends AppBase {
 
   }
   //todo
-  // gotoBottom(e) {
-  //   this.Base.setMyData({
-  //     show: "gmxz"
-  //   })
-  //   wx.pageScrollTo({
-  //     scrollTop: 100000,
-  //     duration: 300
-  //   })
-  // }
-  // bindcut(e) {
-  //   this.show="kcxq";
-  //   wx.pageScrollTo({
-  //     scrollTop: 521,
-  //     duration: 300
-  //   })
-  // }
+  gotoBottom(e) {
+    this.show="gmxz";
+    // wx.pageScrollTo({
+    //   scrollTop: 100000,
+    //   duration: 300
+    // })
+  }
+  bindcut(e) {
+    this.show="kcxq";
+    // wx.pageScrollTo({
+    //   scrollTop: 521,
+    //   duration: 300
+    // })
+  }
   ppp=0;
   pppp=0;
   tanchuang=true;
@@ -260,7 +270,7 @@ export class KcdetailsPage extends AppBase {
 
   }
 
-  opengroup() {
+  opengroup(e=undefined) {
     var expeprice = this.courseinfo.expeprice;
     if (expeprice <= 0) {
       this.ppp= 1;
@@ -279,9 +289,7 @@ export class KcdetailsPage extends AppBase {
 
   tishi=0;
 
-  fav(e) {
-
-    var status = e.target.id;
+  fav(status) {
 
 
 
@@ -299,7 +307,7 @@ export class KcdetailsPage extends AppBase {
       course_id: this.params.id,
       status
     }).then((ret) => {
-      //this.Base.info(ret.result);
+      //this.showAlert(ret.result);
       this.isfav=status;
     });
 
@@ -320,33 +328,32 @@ export class KcdetailsPage extends AppBase {
     this.show="gmxz";
   }
 
-  qupinban(e) {
-    this.navigate("groupinfo",{id:e.target.dataset.id});
+  qupinban(id) {
+    this.navigate("groupinfo",{id:id});
 
   }
 
 
-  bindtolist(e) {
-    var id = e.target.id;
+  bindtolist(id) {
     this.navigate("pingjialist",{id:id});
   }
-  jian() {
+  jian(e=undefined) {
     var shulian = this.shulian;
     if (shulian == 0) {
       return
     }
     this.shulian=shulian-1;
   }
-  jia() {
+  jia(e=undefined) {
     var shulian = this.shulian;
 
     this.shulian=shulian+1;
   }
-  bindclose() {
+  bindclose(e=undefined) {
     this.tanchuang=false;
 
   }
-  yaoqin() {
+  yaoqin(e=undefined) {
     var api = this.haibaoApi;
     api.haibao1({
       kcid: this.params.id, isdebug: 'Y'
@@ -362,7 +369,7 @@ export class KcdetailsPage extends AppBase {
 
   }
 
-  tobuy() {
+  tobuy(e=undefined) {
     this.tanchuang=false;
 
     var ppp = this.ppp;
@@ -381,28 +388,28 @@ export class KcdetailsPage extends AppBase {
     }
 
   }
-  shouye() {
+  shouye(e=undefined) {
     this.backHome();
   }
-  gotojigou() {
+  gotojigou(e=undefined) {
     this.navigate("jgdetails",{
       id:this.courseinfo.jg_id
     });
   }
-  lifk() {
+  lifk(e=undefined) {
     this.navigate("myorder");
   }
-  check(e) {
-    this.pppp=e.target.dataset.id;
+  check(id) {
+    this.pppp=id;
   }
   ispintuan=false;
-  chakangenduo() {
+  chakangenduo(e=undefined) {
     this.ispintuan=true;
   }
-  closetanchuang() {
+  closetanchuang(e=undefined) {
     this.ispintuan=false;
   }
-  chakantuan() {
+  chakantuan(e=undefined) {
     this.navigate("groupinfo",{id:this.canbuy.pt});
   }
 }

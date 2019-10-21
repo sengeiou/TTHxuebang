@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -34,7 +34,7 @@ export class JiemuxianqinPage extends AppBase {
   }
   toupiao = false;
   yulan = 0;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
 
@@ -42,7 +42,7 @@ export class JiemuxianqinPage extends AppBase {
   }
   jiemuinfo = null;
   paimin = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var huodonapi = this.huodonApi;
     var instapi = this.instApi;
@@ -86,7 +86,7 @@ export class JiemuxianqinPage extends AppBase {
 
 
   }
-  toupiaoclick() {
+  toupiaoclick(e=undefined) {
     var that = this;
     var api = this.instApi;
     var date = (new Date().getTime()) / 1000;
@@ -127,7 +127,7 @@ export class JiemuxianqinPage extends AppBase {
 
 
   }
-  tijiao() {
+  tijiao(e=undefined) {
     var that = this;
     var json = JSON.parse(this.params.json);
     var huodonapi = this.huodonApi;
@@ -152,7 +152,7 @@ export class JiemuxianqinPage extends AppBase {
     })
 
   }
-  fanhui() {
+  fanhui(e=undefined) {
 
     this.back();
 

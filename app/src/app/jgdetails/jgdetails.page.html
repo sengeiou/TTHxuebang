@@ -15,6 +15,7 @@
   <!--pages/jgdetails/jgdetails.wxml-->
 
 
+
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div class=' to_top'>
@@ -26,23 +27,23 @@
 
       <div style='position:relative;'>
         <div style=' ' class=''>
-          <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
+          <ion-slides  [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true'
             class="sp2">
-            <swiper-item *ngFor="let item of jigouimg;" wx:key="k">
+            <ion-slide *ngFor="let item of jigouimg;" wx:key="k">
               <div>
                 <!-- mode="aspectFill"  (click)='viewPhoto' -->
                 <img src='{{uploadpath}}jigouimg/{{item.img}}?x-oss-process=style/test_img' (click)='viewPhoto($event)'
                   id='{{uploadpath}}jigouimg/{{item.img}}' class="sp2" />
               </div>
-            </swiper-item>
-          </swiper>
+            </ion-slide>
+          </ion-slides>
         </div>
       </div>
 
 
       <div class="flex-row flex-column">
 
-        <div *ngIf='tanchuang==true' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+        <div *ngIf='tanchuang==true' class='radius-10 bg-white padding-15 shadow margin-bottom-10 mid'>
 
 
           <div class='padding-10 '>
@@ -62,7 +63,7 @@
                 </div>
               </div>
 
-              <div class="stars2" style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+              <div class="stars2" [width]="jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20" [style.width.%]="width">
                 <div class="ims">
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -79,8 +80,8 @@
 
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels"
-                  wx:key="k" wx:for-item='litem'>{{litem.name}}</div>
+                  *ngFor="let litem of jginfo.labels"  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}'
+                  wx:key="k" >{{litem.name}}</div>
               </div>
 
 
@@ -106,7 +107,7 @@
             </div>
 
             <div class='flex-row flex-center margin-top-10'>
-              <view>
+              <div>
                 <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
             </div>
             <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)' id="{{jginfo.address}}">
@@ -120,95 +121,95 @@
       </div>
 
       <div *ngIf='trunoff==false'>
-        <cover-view *ngIf='tanchuang==false' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+        <div *ngIf='tanchuang==false' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
-          <cover-view class='padding-10 '>
-            <cover-view class='flex-row flex-center'>
-              <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
-              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz"
-                *ngIf='jginfo.renzhen_value=="Y"'></cover-image>
-            </cover-view>
+          <div class='padding-10 '>
+            <div class='flex-row flex-center'>
+              <div class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</div>
+              <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz"
+                *ngIf='jginfo.renzhen_value=="Y"' />
+            </div>
 
 
-            <cover-view class="h10"></cover-view>
+            <div class="h10"></div>
 
-            <cover-view class="starbox text-right  ">
+            <div class="starbox text-right  ">
 
               <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
-              <cover-view class="stars_2" style="width:100%">
-                <cover-view class="ims ">
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                </cover-view>
-              </cover-view>
+              <div class="stars_2" style="width:100%">
+                <div class="ims ">
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                </div>
+              </div>
 
-              <cover-view class="hiddenblock"
-                style="width:{{jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)}}%"></cover-view>
+              <div class="hiddenblock" [width]="jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)"
+                [style.width.%]="width"></div>
 
-              <cover-view class="stars1 " style="width: 100%;">
-                <cover-view class="ims ">
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                </cover-view>
-              </cover-view>
-
-
-            </cover-view>
+              <div class="stars1 " style="width: 100%;">
+                <div class="ims ">
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                </div>
+              </div>
 
 
-            <cover-view class='flex-row flex-center  '>
+            </div>
 
-              <cover-view class='flex-row flex-1'>
-                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  style='border:1px solid  {{litem.color}};color:{{litem.color}}' *ngFor="let litem of jginfo.labels;"
-                  wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
-              </cover-view>
 
-            </cover-view>
+            <div class='flex-row flex-center  '>
 
-            <cover-view class='flex-row flex-center margin-top-5 padding-10'>
+              <div class='flex-row flex-1'>
+                <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
+                  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' *ngFor="let litem of jginfo.labels;"
+                  wx:key="k">{{litem.name}}</div>
+              </div>
 
-              <cover-view class='flex-row flex-column flex-1'>
+            </div>
+
+            <div class='flex-row flex-center margin-top-5 padding-10'>
+
+              <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13" /> -->
-                <cover-view class="txt-gray h6">适合年龄</cover-view>
-                <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
-              </cover-view>
+                <div class="txt-gray h6">适合年龄</div>
+                <div class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</div>
+              </div>
 
-              <cover-view class='flex-row flex-column flex-1'>
+              <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13" /> -->
-                <cover-view class="txt-gray h6">营业时间</cover-view>
-                <cover-view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</cover-view>
-              </cover-view>
+                <div class="txt-gray h6">营业时间</div>
+                <div class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</div>
+              </div>
 
-              <cover-view class='flex-row flex-column flex-1'>
+              <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13" /> -->
                 <!-- <div class="txt-gray h6" >预约</div> -->
-                <cover-view class='h6 txt-gray '>需要预约</cover-view>
-                <cover-view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</cover-view>
-              </cover-view>
+                <div class='h6 txt-gray '>需要预约</div>
+                <div class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</div>
+              </div>
 
-            </cover-view>
+            </div>
 
-            <cover-view class='flex-row flex-center mt24' >
-              <cover-view>
-                <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
-              </cover-view>
-              <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)'
-                id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
-              <cover-view class='h6 txt-black txt-right txt-bold w150'  *ngIf="miletxt!=''">
-                距你{{miletxt}}</cover-view>
-            </cover-view>
+            <div class='flex-row flex-center mt24' >
+              <div>
+                <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
+              </div>
+              <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)'
+                id="{{jginfo.address}}">{{jginfo.address}}</div>
+              <div class='h6 txt-black txt-right txt-bold w150'  *ngIf="miletxt!=''">
+                距你{{miletxt}}</div>
+            </div>
 
-          </cover-view>
+          </div>
 
-        </cover-view>
+        </div>
       </div>
     </div>
 
@@ -236,9 +237,9 @@
       <div class="mt-30" >
 
         <div class="sp6">
-          <text decode="{{true}}" space="ensp"
+          <p decode="{{true}}" space="ensp"
             class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}'
-            style="">{{jginfo.jieshao}}</text>
+            style="">{{jginfo.jieshao}}</p>
         </div>
         <div class="flex-row flex-column">
           <div class="txt-blue h5 margin-bottom-20 margin-top-10" *ngIf='more==false' (click)="showmore()">查看更多</div>
@@ -257,7 +258,7 @@
 
     <div class='margin-20 margin-bottom-10 '>
       <div class='padding-20 flex-row radius-10  margin-top-20  mk' *ngFor='let item of courselist' wx:key='k'
-        id='{{item.id}}' (click)='tokcdetails($event)' style='border:1px solid white '>
+        id='{{item.id}}' (click)='tokcdetails(item.id)' style='border:1px solid white '>
 
         <img class='kc_icon radius-10 ' src='{{uploadpath}}curriculum/{{item.kc_img}}?x-oss-process=style/test_img' />
         <div class='flex-row column   margin-left-20 flex-1'>
@@ -266,27 +267,27 @@
           <div class='flex-row flex-center'>
 
             <div *ngIf="item.scoring==5" class='flex-row flex-center '>
-              <img *ngFor='5' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr5' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
             </div>
 
             <div *ngIf="item.scoring==4" class='flex-row flex-center '>
-              <img *ngFor='4' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr4' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
               <img src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20' />
             </div>
 
             <div *ngIf="item.scoring==3" class='flex-row flex-center '>
-              <img *ngFor='3' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20' />
-              <img *ngFor='2' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr3' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20' />
+              <img *ngFor='let item of arr2' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
             </div>
 
             <div *ngIf="item.scoring==2" class='flex-row flex-center '>
-              <img *ngFor='2' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
-              <img *ngFor='3' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr2' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr3' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
             </div>
 
             <div *ngIf="item.scoring==1" class='flex-row flex-center '>
               <img src='uploadpath}}resource/{{res.star}}' class='margin-left-5 wh-20'  />
-              <img *ngFor='4' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
+              <img *ngFor='let item of arr4' src='{{uploadpath}}resource/{{res.star_null}}' class='margin-left-5 wh20'  />
             </div>
 
 
@@ -333,52 +334,6 @@
     </div>
 
 
-    <!-- 猜你喜欢，在线课堂推荐,勿删 -->
-    <!-- <div class='flex-row flex-center ' style="margin-top:68rpx;margin-bottom:22rpx;">
-      <img src="{{uploadpath}}resource/{{res.cainixihuan}}" class="" style="width:100vw;height:120rpx;" />
-    </div>
-    <div class='flex-row flex-center flex-wrap'>
-      <div (click)='kechenxianqin($event)' data-id='{{item.id}}' class='kecheng-block' *ngFor='let item of ketang' wx:key='k'>
-
-        <div style=''>
-          <img class='kecheng-img' src='{{uploadpath}}onlineclassroom/{{item.img}}' />
-        </div>
-
-        <div class='padding-12'>
-          <div class=' txt-bold chaochu'>{{item.name}}</div>
-          <div class='flex-row flex-center margin-top-14'>
-            <div class='flex-row flex-center'>
-              <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-16 ' />
-              <div class=' f20 margin-left-10'>{{item.age_name}}</div>
-            </div>
-
-            <div class='flex-row flex-center margin-left-26'>
-              <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-16 ' />
-              <div class=' f20 margin-left-10'>共{{item.chapter_num}}集</div>
-            </div>
-          </div>
-
-
-
-        </div>
-
-        <div class='margin-left-10 dd flex-row flex-center margin-top-12'>
-          <div class='margin-top-4 f20 txt-gray flex-1 '>{{item.learning_num}}人学过</div>
-          <div class='margin-top-4 f20 txt-gray xhx'>￥{{item.originalprice}}</div>
-          <div class='margin-top-4 h6 txt-red margin-left-6'>￥</div>
-          <div class=' txt-red xg' style=''>{{item.price}}</div>
-        </div>
-  
-      </div>
-    </div>
-    <div class='flex-row flex-center ' style="margin-top:48rpx;margin-bottom:42rpx;">
-      <div class="flex-1"></div>
-      <div class="more text-center txt-bold txt-white" (click)="seemore()">
-        查看更多
-      </div>
-      <div class="flex-1"></div>
-    </div> -->
-
 
     <div class="flex-row flex-center padding-T-B-28">
       <div class="flex-1"></div>
@@ -400,57 +355,57 @@
 
   <div class="h96"></div>
 
-  <cover-view style='' class='buy-block' *ngIf='trunoff==false'>
+  <div style='' class='buy-block' *ngIf='trunoff==false'>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <cover-view class='flex-1'></cover-view>
-      <cover-view class='txt_orange h6'>等待付款，</cover-view>
-      <cover-view class='txt_lan h6'>点击这里立即付款</cover-view>
-      <cover-view class='flex-1'></cover-view>
-    </cover-view>
+    <div class='huang_block  flex-row flex-center' [class.hidden]='true'>
+      <div class='flex-1'></div>
+      <div class='txt_orange h6'>等待付款，</div>
+      <div class='txt_lan h6'>点击这里立即付款</div>
+      <div class='flex-1'></div>
+    </div>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <cover-view class='flex-1'></cover-view>
-      <cover-view class='txt_orange h6'>此机构课程预约已满</cover-view>
-      <cover-view class='flex-1'></cover-view>
-    </cover-view>
+    <div class='huang_block  flex-row flex-center' [class.hidden]='true'>
+      <div class='flex-1'></div>
+      <div class='txt_orange h6'>此机构课程预约已满</div>
+      <div class='flex-1'></div>
+    </div>
 
-    <cover-view class='flex-row flex-center'>
-      <cover-view class='left flex-row flex-center' >
+    <div class='flex-row flex-center'>
+      <div class='left flex-row flex-center' >
 
-        <cover-view class='flex-1 flex-row flex-column' (click)='toindex()'>
-          <cover-image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></cover-image>
-          <cover-view class='h7 margin-top-8'>首页</cover-view>
-        </cover-view>
+        <div class='flex-1 flex-row flex-column' (click)='toindex()'>
+          <img src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25' />
+          <div class='h7 margin-top-8'>首页</div>
+        </div>
 
-        <cover-view class='flex-1 flex-row flex-column'>
+        <div class='flex-1 flex-row flex-column'>
           <!-- <img src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20' /> -->
-          <cover-image (click)='fav($event)' id='Y' *ngIf="isfav=='N'" class='icon-25'
-            src='{{uploadpath}}resource/{{res.unfav}}'></cover-image>
-          <cover-image (click)='fav($event)' id='N' *ngIf="isfav=='Y'" class='icon-25'
-            src='{{uploadpath}}resource/{{res.fav}}'></cover-image>
-          <cover-view class='h7 margin-top-8'>收藏</cover-view>
-        </cover-view>
+          <img (click)='fav("Y")' id='Y' *ngIf="isfav=='N'" class='icon-25'
+            src='{{uploadpath}}resource/{{res.unfav}}' />
+          <img (click)='fav("N")' id='N' *ngIf="isfav=='Y'" class='icon-25'
+            src='{{uploadpath}}resource/{{res.fav}}' />
+          <div class='h7 margin-top-8'>收藏</div>
+        </div>
 
         <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-          <cover-view class=' flex-row flex-column'>
-            <cover-image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></cover-image>
-            <cover-view class='h7 margin-top-8'>客服</cover-view>
-          </cover-view>
+          <div class=' flex-row flex-column'>
+            <img src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25' />
+            <div class='h7 margin-top-8'>客服</div>
+          </div>
         </button>
 
-      </cover-view>
-      <cover-view class=' flex-row flex-center' *ngIf='nogroup=="Y"'>
-        <cover-view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" (click)='bindshowtc($event)'>
-          立即购买</cover-view>
-        <cover-view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" (click)="bindpin($event)">
-          发起拼班</cover-view>
-      </cover-view>
-      <cover-view *ngIf='nogroup!="Y"' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}"
-        (click)='bindshowtc($event)'>立即购买</cover-view>
+      </div>
+      <div class=' flex-row flex-center' *ngIf='nogroup=="Y"'>
+        <div class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" (click)='bindshowtc($event)'>
+          立即购买</div>
+        <div class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" (click)="bindpin($event)">
+          发起拼班</div>
+      </div>
+      <div *ngIf='nogroup!="Y"' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}"
+        (click)='bindshowtc($event)'>立即购买</div>
 
-    </cover-view>
-  </cover-view>
+    </div>
+  </div>
 
 
 
@@ -469,7 +424,7 @@
           <img src='{{uploadpath}}curriculum/{{courseinfo.kc_img}}' style=' ' class='icon-img' />
 
           <div class=' flex-1 margin-left-20'>
-            <view>{{courseinfo.name}}
+            <div>{{courseinfo.name}}
           </div>
 
           <div class='flex-row flex-center margin-top-10' style=''>
@@ -527,15 +482,15 @@
       <div class="h400">
 
 
-        <view>
+        <div>
           <div class='  h6' style='color:#666666'>课程</div>
 
           <div class="flex-row ">
             <div class='flex-row flex-center flex-wrap margin-top-10'>
 
               <div class=' text-center h6 chaochu {{buy_id==item.id?"kcname_block_check txt-white":"kcname_block"}}'
-                *ngFor='let item of clist' wx:key='y' wx:for-index='idx' id='{{item.id}}' data-check="Y"
-                (click)='check()'>{{item.name}}</div>
+                *ngFor='let item of clist;let idx=index;'  id='{{item.id}}' data-check="Y"
+                (click)='check(item.id,"Y")'>{{item.name}}</div>
 
             </div>
 
@@ -546,19 +501,19 @@
           <div class="flex-row flex-center" *ngIf='pin==1'>
             <div *ngIf='courseinfo.isgroup>0'
               class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}'
-              (click)="xuan($event)" id='A'>系列课</div>
+              (click)="xuan('A')" id='A'>系列课</div>
             <div *ngIf='courseinfo.isgroup_tiyan>0'
               class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y'
-              (click)="xuan($event)" id='B'>体验课</div>
+              (click)="xuan('B')" id='B'>体验课</div>
           </div>
 
           <div class="flex-row flex-center" *ngIf='pin==0'>
             <div *ngIf='courseinfo.price!="0.00"'
               class=' text-center h6 chaochu   {{xuanzhong==1?"kcname_block_check txt-white":"kcname_block"}}'
-              (click)="xuan($event)" id='A'>系列课</div>
+              (click)="xuan('A')" id='A'>系列课</div>
             <div *ngIf='courseinfo.expeprice!="0.00"'
               class=' text-center h6 chaochu {{xuanzhong==2?"kcname_block_check txt-white":"kcname_block"}}' wx:key='y'
-              (click)="xuan($event)" id='B'>体验课</div>
+              (click)="xuan('B')" id='B'>体验课</div>
           </div>
 
       </div>
@@ -585,19 +540,19 @@
 
 
         <img class="sp1"
-          src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " (click)="jian" />
+          src="{{uploadpath}}resource/{{res.jianhao}}" class="icon-15 " (click)="jian($event)" />
 
         <div class="h6 margin-left-40 margin-right-40">{{shuliang}}</div>
 
         <img class="sp1"
-          src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" (click)="jia($event)"
+          src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" (click)="jia(courseinfo.kucun)"
           id="{{courseinfo.kucun}}" />
 
       </div>
 
 
       <div class='flex-row flex-column'>
-        <div *ngIf='xuanzhong!=0' (click)='tobuy($event)' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
+        <div *ngIf='xuanzhong!=0' (click)='tobuy(courseinfo.id)' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</div>
         <div *ngIf='xuanzhong==0' class='next2 text-center txt-white'>下一步</div>
       </div>
 

@@ -1,86 +1,53 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>我的客户</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
-
-
-<!-- <div class=' flex-row flex-center  bg-white  top'>
-
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>
-    <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</div>
-    <div **ngIf='{{show=="all"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="all"}}' class='' style='width:80rpx;height:6rpx;'></div>
-  </div>
-
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
-    <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>有效客户</div>
-    <div **ngIf='{{show=="wc"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="wc"}}' class='' style='width:80rpx;height:6rpx;'></div>
-  </div>
-
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
-    <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="df"?"txt":""}} txt-black'>失效客户</div>
-    <div **ngIf='{{show=="df"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="df"}}' class='' style='width:80rpx;height:6rpx;'></div>
-  </div>
+<ion-content>
 
 
 
-</div> -->
-<!-- <div style='height:88rpx;'></div> -->
-
-<div class="padding-20 flex-row  bg-white flex-center">
-    <div data-val="yesterday" bindtap="binddate" class="{{date=='yesterday'?'opt':'noopt'}}">昨天</div>
-    <div data-val="7days" bindtap="binddate" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
-    <div data-val="all" bindtap="binddate" class="{{date=='all'?'opt':'noopt'}}">全部</div>
+  <div class="padding-20 flex-row  bg-white flex-center">
+    <div data-val="yesterday" (click)="binddate($event)" class="{{date=='yesterday'?'opt':'noopt'}}">昨天</div>
+    <div data-val="7days" (click)="binddate($event)" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
+    <div data-val="all" (click)="binddate($event)" class="{{date=='all'?'opt':'noopt'}}">全部</div>
     <div class="flex-1"></div>
-  
-    <!-- <picker class=" " mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
-      <div class="flex-row flex-center">
-        <div class="h6">自定义时间</div>
-        <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.xiangxia}}" />
-      </div>
-    </picker> -->
-  
   </div>
-  <div **ngIf="{{show=='all'}}">
+  <div *ngIf="show=='all'">
     <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
       共{{quanbu.length}}个客户
     </div>
-    <div **ngFor="{{quanbu}}" wx:key='k' data-id="{{item.id}}" bindtap="kehuinfo" class="padding-20 bg-white flex-row flex-center">
+    <div *ngFor="let item of quanbu" wx:key='k' data-id="{{item.id}}" (click)="kehuinfo(item.id)"
+      class="padding-20 bg-white flex-row flex-center">
       <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
       <div class="margin-left-20">
         <div class="flex-row flex-center">
-          <div **ngIf="{{item.nickName!=''}}" class="h6 chaochu taichan">{{item.nickName}}</div>
-              <div **ngIf="{{item.nickName==''}}" class="h6 chaochu taichan">未授权用户</div>
-          <div **ngIf="{{item.istuiguanyuan=='1'}}" class="biaoqian margin-left-10">学榜大使</div>
+          <div *ngIf="item.nickName!=''" class="h6 chaochu taichan">{{item.nickName}}</div>
+          <div *ngIf="item.nickName==''" class="h6 chaochu taichan">未授权用户</div>
+          <div *ngIf="item.istuiguanyuan=='1'" class="biaoqian margin-left-10">学榜大使</div>
         </div>
         <div class="flex-row flex-center margin-top-20">
           <div class="h6">成交额:</div>
           <img class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
           <div class="h6 margin-left-10">{{item.jiner}}</div>
         </div>
-          <div class="flex-row flex-center margin-top-20">
+        <div class="flex-row flex-center margin-top-20">
           <div class="h6">我的收益:</div>
-           <img class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
+          <img class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
           <div class="h6 margin-left-10">{{item.shouyijiner}}</div>
         </div>
-  
+
       </div>
       <div class="flex-1"></div>
-      <!-- <div class="h6" **ngIf="{{item.jieshushijian>0}}">关系{{item.jieshushijian}}天后过期</div>
-      <div class="h6" **ngIf="{{item.jieshushijian<0}}">关系已过期{{0-item.jieshushijian}}天</div> -->
       <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}" />
     </div>
   </div>
-  
 
-    </ion-content>
+
+</ion-content>

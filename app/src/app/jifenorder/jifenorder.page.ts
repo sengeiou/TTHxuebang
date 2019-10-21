@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -42,7 +42,7 @@ export class JifenorderPage  extends AppBase {
   daifalist=[];
   daishoulist=[];
   wanchenlist=[];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenapi;
     jifenapi.jifenorderlist({ }).then( (alllist) => {
@@ -62,8 +62,7 @@ export class JifenorderPage  extends AppBase {
     })
 
   }
-  bindshow(e) {
-    var type = e.target.dataset.type;
+  bindshow(type) {
     console.log(type);
     if (type == "all") {
       this.show="all";
@@ -78,18 +77,15 @@ export class JifenorderPage  extends AppBase {
       this.show="wc";
     }
   }
-  bindtodetails(e){
-    var id=e.target.id;
+  bindtodetails(id){
     this.navigate("jifenorderinfo",{id});
   }
-  wuliu(e){
-    var id = e.target.id;
+  wuliu(id){
     this.navigate("wuliu",{id});
   }
   shouhuo=null;
-  shouhuoclick(e){
+  shouhuoclick(id){
     var that=this;
-    var id=e.target.id;
     var jifenapi = this.jifenapi;
 
     this.showConfirm("确认收货？",(ret)=>{
@@ -105,10 +101,9 @@ export class JifenorderPage  extends AppBase {
 
   }
   shanchu=null;
-  shanchuclick(e){
+  shanchuclick(id){
    
     var that=this;
-    var id=e.target.id;
     var jifenapi = this.jifenapi;
 
     this.showConfirm("确认删除该订单？",(ret)=>{

@@ -19,6 +19,7 @@ class Content extends AppBase {
   constructor() {
     super();
   }
+
   courselist = [];
   jglist = [];
 
@@ -98,7 +99,7 @@ class Content extends AppBase {
       });
     });
     jigouapi.buyshow({
-      limit: '20'
+     
     }, (buyshow) => {
 
       var lunbolist = [];
@@ -125,6 +126,10 @@ class Content extends AppBase {
     if (options.type == 'jg'){
       console.log("换个哈哈哈")
       var  title='找机构 ';
+    }
+    if (options.type == 'kc') {
+      console.log("换个哈哈哈")
+      var title = '找课程 ';
     }
 
     wx.setNavigationBarTitle({
@@ -304,6 +309,7 @@ class Content extends AppBase {
     if (data.show == "hp") {
       opt.orderby = "scoring desc,distance";
     }
+
     //opt.limit="100";
 
     jigouapi.jglist(opt, (jglist) => {

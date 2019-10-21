@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { HuodonApi } from 'src/providers/huodon.api';
 import { InstApi } from 'src/providers/inst.api';
+import { nextTick } from 'q';
 
 @Component({
   selector: 'app-huodoninfo',
@@ -36,13 +37,13 @@ export class HuodoninfoPage extends AppBase {
   yiguoqi = true;
   huodoninfo = null;
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
 
   guizezon = "";
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var huodonapi = this.huodonApi;
     var instapi = this.instApi;
@@ -60,7 +61,10 @@ export class HuodoninfoPage extends AppBase {
       }
 
       this.huodoninfo = huodoninfo;
-
+        nextTick(()=>{
+       
+        
+        });
     })
 
     instapi.guize({
@@ -70,18 +74,18 @@ export class HuodoninfoPage extends AppBase {
       guize.map((item) => {
         guizezon += item.guize + '\n';
       })
-      this.guize = true;
+      this.guize = false;
       this.guizezon = "";
     })
 
   }
-  guizeclick() {
+  guizeclick(e=undefined) {
     this.guize = true;
   }
-  closetanchuang() {
+  closetanchuang(e=undefined) {
     this.guize = false;
   }
-  baomin() {
+  baomin(e=undefined) {
     var that = this;
     var date = (new Date().getTime()) / 1000;
     var huodoninfo = this.huodoninfo;
@@ -101,16 +105,16 @@ export class HuodoninfoPage extends AppBase {
     this.navigate("baomin", { id: this.params.id });
 
   }
-  jiemuinfo(e) {
+  jiemuinfo(id,idx) {
     var huodoninfo = this.huodoninfo;
     this.navigate("jiemuxianqin", {
-      id: e.target.id,
-      idd: parseInt(e.target.dataset.id + 1),
+      id: id,
+      idd: parseInt(idx + 1),
       vote_startTime_timespan: huodoninfo.vote_startTime_timespan,
       vote_endTime_timespan: huodoninfo.endTime_timespan
     });
   }
-  toupiao(e) {
+  toupiao(id) {
     var that = this;
     var api = this.instApi;
     var date = (new Date().getTime()) / 1000;
@@ -128,7 +132,7 @@ export class HuodoninfoPage extends AppBase {
     api.jianchatoupiao({}).then((zige) => {
 
       if (zige.length == 0) {
-        api.toupiao({ jiemu_id: e.target.id }).then((res) => {
+        api.toupiao({ jiemu_id: id }).then((res) => {
 
           if (res.code == 0) {
             this.showAlert("投票成功");
@@ -147,19 +151,13 @@ export class HuodoninfoPage extends AppBase {
 
 
   }
+  gaodu=0;
+   
+   jiazaiwanle() {
+    var obb=null;
+    obb=document.querySelector("#gdd");
+      this.gaodu=obb.offsetHeight;
+     console.log("加载完了");
 
-  // todo
-  // jiazaiwanle() {
-  //   var that = this;
-  //   var query = wx.createSelectorQuery();
-  //   query.select('#gdd').boundingClientRect();
-  //   query.exec((res) => {
-  //     //res就是 所有标签为mjltest的元素的信息 的数组
-  //     console.log(res);
-  //     console.log("哈哈哈哈");
-  //     console.log(res[0].height);
-  //     console.log(AppBase.Model);
-  //     that.Base.setMyData({ gaodu: res[0].height });
-  //   })
-  // }
+  }
 }

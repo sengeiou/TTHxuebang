@@ -29,7 +29,7 @@
 
           <div class="padding-20">
             <div class="flex-1"></div>
-            <div class="txt-bold w350" >{{huodoninfo.activityName}}</div>
+            <div class="txt-bold w350">{{huodoninfo.activityName}}</div>
 
           </div>
 
@@ -128,7 +128,7 @@
 
             </div>
 
-            <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg()' *ngIf="{{fenmian==''}}"
+            <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg()' *ngIf="fenmian==''"
               class='icon-img' />
 
             <img mode='aspectFill' src='{{uploadpath}}jiemu/{{fenmian}}' (click)='jguploadimg()' *ngIf="fenmian!=''"
@@ -155,54 +155,54 @@
             </div>
 
             <div class="flex-row flex-center flex-wrap">
-              <div class=' ' *ngFor="jgimages" wx:key="k" wx:for-index="idx">
+              <div class=' ' *ngFor="let item of jgimages;let idx=index;" wx:key="k">
                 <img mode="aspectFill" src='{{uploadpath}}jiemutupian/{{item}}' *ngIf='idx<20'
                   id="{{uploadpath}}jiemutupian/{{item}}" data-id="{{idx}}" (click)='viewPhoto($event)'
                   todobindlongpress="deleteimg" class='icon-img' />
               </div>
               <img src='{{uploadpath}}resource/{{res.addimgs}}' (click)='jguploadimg1($event)' class='icon-img' />
             </div>
-            <view>
+            <div>
+
+            </div>
+          </div>
+
+          <div class="padding-40 flex-row flex-center ">
+
+            <img *ngIf="xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
+            <img *ngIf="!xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
+            <div class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</div>
+            <div (click)="baomin($event)" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</div>
 
           </div>
-        </div>
-
-        <div class="padding-40 flex-row flex-center ">
-
-          <img *ngIf="xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
-          <img *ngIf="!xuanzhon" (click)="gou($event)" class="icon" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
-          <div class="f13 margin-left-10" style="color:#666666">我已详细阅读并同意</div>
-          <div (click)="baomin($event)" class="f13 margin-left-10" style="color:#589DE9">《报名相关条款》</div>
 
         </div>
+
+
+
+
+
 
       </div>
 
+      <div class="flex-1"></div>
+    </div>
+    <div class="flex-row margin-top">
 
+      <div class="flex-1"></div>
+      <div (click)="yulan($event)" class="yulan">预览报名页面</div>
+      <div class="flex-1"></div>
+    </div>
+    <div class="flex-row margin-top-20">
 
+      <div class="flex-1"></div>
 
-
-
+      <div (click)="tijiao($event)" class="tijiao">提交信息</div>
+      <div class="flex-1"></div>
     </div>
 
-    <div class="flex-1"></div>
-  </div>
-  <div class="flex-row margin-top">
 
-    <div class="flex-1"></div>
-    <div (click)="yulan($event)" class="yulan">预览报名页面</div>
-    <div class="flex-1"></div>
-  </div>
-  <div class="flex-row margin-top-20">
-
-    <div class="flex-1"></div>
-
-    <div (click)="tijiao($event)" class="tijiao">提交信息</div>
-    <div class="flex-1"></div>
-  </div>
-
-
-  <div class="height-70"></div>
+    <div class="height-70"></div>
   </div>
 
 
@@ -212,9 +212,9 @@
 
       <div class='txt-bold margin-top f40'>报名条款</div>
       <div class="sp1">
-        <text class="sp2">
+        <p class="sp2">
           {{guizezon}}
-        </text>
+        </p>
       </div>
       <div class='' style='color:#FF6600' (click)='closetanchuang()'>我知道了</div>
       <div class="height-40"></div>

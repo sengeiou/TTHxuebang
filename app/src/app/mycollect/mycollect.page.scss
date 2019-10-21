@@ -4,9 +4,9 @@
 
 /* pages/myorder/myorder.wxss */
 
-Page {
-    background: #f5f5f5;
-  }
+ion-content {
+  --background: #f5f5f5;
+}
   
   .txt {
     color: #ffc200;
@@ -124,4 +124,35 @@ Page {
     width: rpx(116);
     height: rpx(38);
     line-height: rpx(38);
+  }
+
+  .sp1{
+    width:rpx(120);height:rpx(6);
+  }
+  .sp2{
+    width:rpx(80);height:rpx(6);
+  }
+
+  .sp3{
+    height:rpx(20);width:rpx(20);
+  }
+
+  .w20{
+    width:rpx(20);
+  }
+
+  .sp4{
+    width:30vw;margin-top:rpx(100);margin-bottom:rpx(40);
+  }
+
+  .sp5{
+    position: relative;height:rpx(564) 
+  }
+
+  .sp6{
+    width:100%;height:rpx(400)
+  }
+
+  .sp7{
+    font-size:rpx(16);width:rpx(360);
   }

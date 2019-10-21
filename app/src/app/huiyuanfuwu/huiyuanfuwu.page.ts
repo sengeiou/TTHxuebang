@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -37,7 +37,7 @@ export class HuiyuanfuwuPage  extends AppBase {
   }
   list=[];
   info=null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;
     jigouapi.huiyuan({}).then( (info) => {
@@ -50,11 +50,6 @@ export class HuiyuanfuwuPage  extends AppBase {
     });
   }
 
-  check(e) {
-    var ck = e.target.dataset.ck;
-  
- 
-  }
   tokaitong(e){
     this.navigate("liucheng");
   }

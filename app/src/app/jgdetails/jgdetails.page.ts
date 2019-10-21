@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { JigouApi } from 'src/providers/jigou.api';
 import { YiduihuangPageModule } from '../yiduihuang/yiduihuang.module';
+
 
 @Component({
   selector: 'app-jgdetails',
@@ -52,14 +53,25 @@ export class JgdetailsPage extends AppBase {
   jginfo = null;
   isfav = "";
 
-  onMyLoad() {
+  arr5=[];
+  arr4=[];
+  arr3=[];
+  arr2=[];
+  arr1=[];
+
+  onMyLoad(e=undefined) {
+    this.arr5=this.getArray(5);
+    this.arr4=this.getArray(4);
+    this.arr3=this.getArray(3);
+    this.arr2=this.getArray(2);
+    this.arr1=this.getArray(1);
     //参数
     this.params;
     var that = this;
   }
   more = false;
   ketanglist = [];
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;
 
@@ -78,7 +90,7 @@ export class JgdetailsPage extends AppBase {
 
       console.log(hangshu);
 
-
+      
 
       jigouapi.courselist({
         jg_id: jginfo.id,
@@ -160,12 +172,8 @@ export class JgdetailsPage extends AppBase {
       this.jginfo = jginfo;
       this.isfav = jginfo.isfav;
     });
+  }
 
-  }
-  kechenxianqin(e) {
-    console.log(e);
-    this.navigate("ketangdetails", { id: e.target.dataset.id });
-  }
   seemore(e) {
 
     var ketang = this.ketang;
@@ -210,8 +218,8 @@ export class JgdetailsPage extends AppBase {
   shouqi(e) {
     this.more = false;
   }
-  jia(e) {
-    var kucun = e.target.id;
+  jia(id) {
+    var kucun = id;
     var shuliang = this.shuliang;
     shuliang++
     if (shuliang > kucun) {
@@ -232,9 +240,7 @@ export class JgdetailsPage extends AppBase {
     this.shuliang = shuliang;
   }
   ck = "";
-  check(e) {
-    var id = e.target.id;
-    var ck = e.target.dataset.check;
+  check(id,ck) {
     var jigouapi = this.jigouApi;
 
     this.buy_id = id;
@@ -326,8 +332,7 @@ export class JgdetailsPage extends AppBase {
     this.xuanzhong = 1;
   }
 
-  xuan(e) {
-    var id = e.target.id;
+  xuan(id) {
     if (id == "A") {
       this.xuanzhong = 1;
     }
@@ -336,8 +341,7 @@ export class JgdetailsPage extends AppBase {
     }
   }
 
-  tobuy(e) {
-    var id = e.target.id;
+  tobuy(id) {
     var ck = this.xuanzhong;
     console.log(id + "电费");
     //return;
@@ -368,15 +372,12 @@ export class JgdetailsPage extends AppBase {
 
   }
 
-  tokcdetails(e) {
-    var id = e.target.id;
+  tokcdetails(id) {
     this.navigate("kcdetails",{id});
   }
   tishi=0;
 
-  fav(e) {
-    var status = e.target.id;
-
+  fav(status) {
 
     if (status == "Y") {
       this.toast("收藏成功");

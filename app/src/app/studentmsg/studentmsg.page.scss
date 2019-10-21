@@ -1,39 +1,47 @@
 @function rpx($px) {
-    @return ($px * 100vw) / 750;
+  @return ($px * 100vw) / 750;
 }
 
-Page{
-    background: #F5F6F8;
-  }
-  .qqq{
-    background: white;
-  }
-  .nande{
-  color:#FFFFFF;
+ion-content {
+  --background: #f5f5f5;
+}
+
+.qqq {
+  background: white;
+}
+
+.nande {
+  color: #FFFFFF;
   background-color: #4FB5E6;
   padding: rpx(5) rpx(20) rpx(5) rpx(20);
   border-radius: rpx(20);
   margin-left: rpx(20);
   font-size: rpx(20);
-  }
-  .nvde{
-  color:#FFFFFF;
+}
+
+.nvde {
+  color: #FFFFFF;
   background-color: #FF8686;
   padding: rpx(5) rpx(20) rpx(5) rpx(20);
   border-radius: rpx(20);
   margin-left: rpx(20);
   font-size: rpx(20);
-  
-  }
-  .tuan_btn{
-     position: fixed;
+
+}
+
+.tuan_btn {
+  position: fixed;
   width: 85%;
-  padding-top:rpx(20);
-  padding-bottom:rpx(20);
+  padding-top: rpx(20);
+  padding-bottom: rpx(20);
   background-color: #FF6600;
   color: white;
   border-radius: rpx(40);
-  bottom:rpx(30);
-  left:8vw;
-  
-  }
+  bottom: rpx(30);
+  left: 8vw;
+
+}
+
+.h100 {
+  height: rpx(100);
+}

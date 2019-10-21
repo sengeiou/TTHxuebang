@@ -24,13 +24,13 @@
         
           <div class="flex-row fd">
             <div class="flex-1"></div>
-            <div class="anniu  flex-row flex-center" data-id="erweima" bindtap="baocun">
+            <div class="anniu  flex-row flex-center" data-id="erweima" (click)="baocun('erweima')">
               <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.saoma}}" />
               <div class="zi margin-left-10">保存二维码</div>
             </div>
             <div class="flex-1"></div>
         
-            <div class="anniu  flex-row flex-center" data-id="haibao" bindtap="baocun">
+            <div class="anniu  flex-row flex-center" data-id="haibao" (click)="baocun('haibao')">
               <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
               <div class="zi margin-left-10">保存海报</div>
             </div>

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -35,7 +35,7 @@ export class BaomainfoPage  extends AppBase {
     this.params;
   }
   baomainfo=null;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var baomaapi = this.baomaapi;
 

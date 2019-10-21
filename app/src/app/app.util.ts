@@ -1,5 +1,6 @@
 import { ApiConfig } from './api.config';
 import { AlertController, ToastController } from '@ionic/angular';
+import { AppBase } from './AppBase';
 
 export class AppUtil {
     public static isMicroMessager: boolean = false; //是否是在微信内置浏览器打开.
@@ -28,6 +29,9 @@ export class AppUtil {
         return s;
     }
 
+    public static zhenze(str) {
+        return (str.length == 11 && str[0] == "1")
+    }
 
     public static FormatDateTime(date) {
         console.log("FormatDateTime" + date);
@@ -75,7 +79,13 @@ export class AppUtil {
         return val.toFixed(digits);
     }
     public static FormatDate(val) {
-        return val.substr(0, 10);
+        if(val instanceof Date){
+            console.log("aak",val);
+            return AppUtil.FormatDateTime(val).substr(0, 10);
+        }else{
+
+            return val.substr(0, 10);
+        }
     }
     public static TimeAgo(agoTime) {
 
@@ -120,9 +130,9 @@ export class AppUtil {
 
         //todate默认参数是当前日期，可以传入对应时间
         var dateArry = [];
-        var dateLater = AppUtil.DateLater;
+        
         for (var i = 0; i < days; i++) {
-            var dateObj = dateLater(todate, i);
+            var dateObj = AppUtil.DateLater(todate, i);
             dateArry.push(dateObj)
         }
         return dateArry;
@@ -166,6 +176,8 @@ export class AppUtil {
 
     //param：传入时间：dates: "2018-04-02", later: 往后多少天
     static DateLater(dates, later) {
+        console.log("akb",dates,later);
+
         let dateObj = null;
         dateObj = {};
         let show_day = new Array('星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六');
@@ -243,31 +255,31 @@ export class AppUtil {
 
     static Updatetime(str) {
         var timestamp = Date.parse(str);
-    
+
         //返回当前时间毫秒数
         timestamp = timestamp / 1000;
         //获取当前时间
         var n = timestamp *
-          1000;
+            1000;
         console.log(n, "啊啊啊")
-    
+
         var date = new Date(n);
-    
-    
-        console.log(date,"啊啊")
+
+
+        console.log(date, "啊啊")
         //年
         var Y =
-          date.getFullYear();
-          
+            date.getFullYear();
+
         //月
         var M = date.getMonth()
-          + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
+            + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
         //日
         var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-    
+
         return (Y + "年" + M + "月" + D + "日")
-      }
+    }
 
 
-      
+
 }

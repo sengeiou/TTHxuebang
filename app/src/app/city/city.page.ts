@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -32,7 +32,7 @@ export class CityPage extends AppBase {
 
   }
 
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
@@ -41,7 +41,7 @@ export class CityPage extends AppBase {
   locationCityCode = "";
   usecitylist=[];
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var memberapi = this.memberApi;
 
@@ -54,10 +54,9 @@ export class CityPage extends AppBase {
       this.usecitylist = usecitylist;
     });
   }
-  setCity(e) {
-    var id = e.currentTarget.id;
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+  setCity(id) {
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
     for (var i = 0; i < citylist.length; i++) {
       if (id == citylist[i].id) {
         AppBase.CITYID = citylist[i].id;

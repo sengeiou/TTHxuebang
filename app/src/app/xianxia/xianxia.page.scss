@@ -2,6 +2,14 @@
     @return ($px * 100vw) / 750;
 }
 
+ion-content{
+
+  --background :rbg(245,245,245) !important;
+
+}
+
+
+
 .activityCover{
 
     width:100%;
@@ -11,7 +19,7 @@
    .activitycontent{
    
     position: absolute;
-   margin-top:-rpx(20);
+   margin-top:rpx(-20);
    }
    .center{
     width:95vw;
@@ -22,4 +30,7 @@
    }
    .height-160{
      height: rpx(210);
+   }
+   .h90{
+    height:rpx(90)
    }

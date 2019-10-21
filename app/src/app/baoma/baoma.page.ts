@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -36,6 +36,7 @@ export class BaomaPage  extends AppBase {
     //参数
     this.params;
   }
+  floorstatus=false;
   baomalist=[];
   onMyShow() {
     var that = this;
@@ -49,9 +50,8 @@ export class BaomaPage  extends AppBase {
     });
   }
 
-  binddetails(e){
-    var id=e.target.id;
-    this.navigate("baomainfo",{id});
+  binddetails(id){
+    this.navigate("baomainfo",{id:id});
 
   }
 }

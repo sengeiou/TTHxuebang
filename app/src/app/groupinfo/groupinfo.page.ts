@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -33,18 +33,18 @@ export class GroupinfoPage extends AppBase {
     this.pintuaninfo = {};
   }
   timer;
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     //参数
     this.params;
     this.daojishi();
   }
-  onUnload() {
+  onUnload(e=undefined) {
     console.error(66666);
     clearInterval(this.timer);
 
 
   }
-  onHide() {
+  onHide(e=undefined) {
     console.error(66666);
     clearInterval(this.timer);
 
@@ -54,7 +54,7 @@ export class GroupinfoPage extends AppBase {
   pintuaninfo = null;
   daojishilist = [];
   chajia = 0;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;
     this.fenxianle = false;
@@ -80,7 +80,7 @@ export class GroupinfoPage extends AppBase {
 
   }
   sjlist = [];
-  daojishi() {
+  daojishi(e=undefined) {
     var that = this;
     this.timer = setInterval(() => {
       var list = that.daojishilist;
@@ -111,7 +111,7 @@ export class GroupinfoPage extends AppBase {
     }, 1000);
 
   }
-  yuanjiagoumai() {
+  yuanjiagoumai(e=undefined) {
     var leixin = this.pintuaninfo.type;
     leixin = leixin == 'T' ? '1' : '0';
     this.navigate("purchase", {
@@ -119,12 +119,12 @@ export class GroupinfoPage extends AppBase {
       leixin: leixin
     });
   }
-  chakankechen() {
+  chakankechen(e=undefined) {
     this.navigate("kcdetails", {
       id: this.pintuaninfo.group_course_course_id
     });
   }
-  kaigexintuan() {
+  kaigexintuan(e=undefined) {
     var leixin = this.pintuaninfo.type;
     leixin = leixin == 'T' ? '1' : '0';
     this.navigate("purchase",{
@@ -134,10 +134,10 @@ export class GroupinfoPage extends AppBase {
     });
 
   }
-  laren() {
+  laren(e=undefined) {
     this.onShareAppMessage();
   }
-  addgroup() {
+  addgroup(e=undefined) {
     var leixin = this.pintuaninfo.type;
     leixin = leixin == 'T' ? '1' : '0';
     this.navigate("purchase",{
@@ -146,7 +146,7 @@ export class GroupinfoPage extends AppBase {
       leixin
     });
   }
-  fenxian() {
+  fenxian(e=undefined) {
 
     if (this.fenxianle) {
       return;

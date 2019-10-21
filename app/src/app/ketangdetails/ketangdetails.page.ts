@@ -38,7 +38,7 @@ export class KetangdetailsPage extends AppBase {
   tanguole = true;
   spbf = false;
   animationData = {};
-  onMyLoad() {
+  onMyLoad(e=undefined) {
     this.shipin = this.elementRef.nativeElement.querySelector("#v_1");
     console.log("牛逼");
     console.log(this.shipin);
@@ -51,7 +51,7 @@ export class KetangdetailsPage extends AppBase {
   danqianzhanjie = {id:0,proved_date:"",cover:"",video:"",};
   zhanjie = [];
   rad=1;
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;
 
@@ -106,7 +106,7 @@ export class KetangdetailsPage extends AppBase {
       return
 
     }
-    // if ((mulu[e.currentTarget.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '') && this.tanguole) {
+    // if ((mulu[e.target.dataset.id].isproved_value == 'Y' && kecheninfo.idd == '') && this.tanguole) {
     //   this.setMyData({
     //     tanguole: false
     //   })
@@ -210,7 +210,7 @@ export class KetangdetailsPage extends AppBase {
     }
 
   }
-  chakanliebiao() {
+  chakanliebiao(e=undefined) {
 
 
     var that = this;
@@ -234,7 +234,7 @@ export class KetangdetailsPage extends AppBase {
     //   liebiao: true
     // })
     // // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
-    // setTimeout(function () {
+    // setTimeout(function (e=undefined) {
     //   animation.translateY(0).step()
     //   that.setMyData({
     //     animationData: animation.export()
@@ -246,16 +246,16 @@ export class KetangdetailsPage extends AppBase {
     //   liebiao: true
     // });
   }
-  chakanquanbu() {
+  chakanquanbu(e=undefined) {
     this.quanbu = true;
   }
-  guanbiquanbu() {
+  guanbiquanbu(e=undefined) {
     this.quanbu = false;
   }
-  guanbiliebiao() {
+  guanbiliebiao(e=undefined) {
     this.liebiao = false;
   }
-  shikan() {
+  shikan(e=undefined) {
     //this.backtotop();
     this.shipin.scrollIntoView();
     //this.shipin.play();
@@ -276,11 +276,11 @@ export class KetangdetailsPage extends AppBase {
 
 
   }
-  goumai() {
+  goumai(e=undefined) {
     this.navigate("shipingoumai", { id: this.kecheninfo.id });
   }
 
-  fabiao() {
+  fabiao(e=undefined) {
     var that = this;
     var api = this.jigouApi;
     if (this.kecheninfo.idd != '' || this.kecheninfo.isfree_value == 'Y') {

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -32,7 +32,9 @@ export class XitonPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
-
+  xiaoxi="";
+  onMyShow(e=undefined) {
+    var that = this;
+    this.xiaoxi=this.params.id;
   }
 }

@@ -15,93 +15,90 @@
 <!--pages/myorder/myorder.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 <div class=' flex-row flex-center  bg-white bor_bot top'>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='all'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("all")' data-type='all'>
     <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt-bold":""}} txt-black'>全部</div>
-    <div **ngIf='{{show=="all"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="all"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div *ngIf='show=="all"' class='bg-primary sp1' ></div>
+    <div *ngIf='show!="all"' class='sp2' ></div>
   </div>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='wc'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("wc")' data-type='wc'>
     <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt-bold":""}} txt-black'>已完成</div>
-    <div **ngIf='{{show=="wc"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="wc"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div *ngIf='show=="wc"' class='bg-primary sp1' ></div>
+    <div *ngIf='show!="wc"' class='sp2' ></div>
   </div>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='df'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("df")' data-type='df'>
     <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt-bold":""}} txt-black'>待付款</div>
-    <div **ngIf='{{show=="wait"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="wait"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div *ngIf='show=="wait"' class='bg-primary sp1' ></div>
+    <div *ngIf='show!="wait"' class='sp2' ></div>
   </div>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='dsh'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("dsh")' data-type='dsh'>
     <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="dsh"?"txt-bold":""}} txt-black'>待收货</div>
-    <div **ngIf='{{show=="dsh"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="dsh"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div *ngIf='show=="dsh"' class='bg-primary sp1' ></div>
+    <div *ngIf='show!="dsh"' class='sp2' ></div>
   </div>
 
-  <div class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='dpj'>
+  <div class='flex-1 flex-row flex-column' (click)='bindshow("dpj")' data-type='dpj'>
     <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="dpj"?"txt-bold":""}} txt-black'>待评价</div>
-    <div **ngIf='{{show=="dpj"}}' class='bg-primary' style='width:120rpx;height:6rpx;'></div>
-    <div **ngIf='{{show!="dpj"}}' class='' style='width:80rpx;height:6rpx;'></div>
+    <div *ngIf='show=="dpj"' class='bg-primary sp1' ></div>
+    <div *ngIf='show!="dpj"' class='sp2' ></div>
   </div>
 
-  <!-- <div class='xiaoxi'>
-    <div **ngIf="{{dflist.length>0}}" class='waitpay '>{{dflist.length}}</div>
-  </div> -->
 
 </div>
 
 
 
 
-<div style='height:88rpx;'></div>
+<div class="h88"></div>
 
-<div class='' **ngIf='{{show=="all"}}'>
+<div class='' *ngIf='show=="all"'>
 
-  <div **ngIf='{{alllist.length==0}}' class="flex-row flex-column">
-    <div style="height:100rpx;"></div>
+  <div *ngIf='alllist.length==0' class="flex-row flex-column">
+    <div class='h100'></div>
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>
-  <div class="margin-24 order" **ngFor="{{alllist}}" wx:key='k'>
-    <div bindtap="courseinfo" data-id="{{item.id}}" class="padding-20 flex-row ">
+  <div class="margin-24 order" *ngFor="let item of alllist" wx:key='k'>
+    <div (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
-      <img **ngIf="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
+      <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
-      <img **ngIf="{{item.type=='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
+      <img *ngIf="item.type=='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
 
       <div class="margin-left-20 flex-1">
         <div class="flex-row flex-center ">
-          <div **ngIf="{{item.type!='SP'}}">{{item.course_name}}</div>
-          <div **ngIf="{{item.type=='SP'}}">{{item.onlineclassroom_name}}</div>
+          <div *ngIf="item.type!='SP'">{{item.course_name}}</div>
+          <div *ngIf="item.type=='SP'">{{item.onlineclassroom_name}}</div>
 
           <div class="flex-1"></div>
-          <img **ngIf="{{item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'||item.pstatus=='PJ'}}" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
-          <div class="h6 " style="color:#FF5252" **ngIf="{{item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'}}">{{item.pstatus_name}}</div>
+          <img *ngIf="item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'||item.pstatus=='PJ'" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
+          <div class="h6 " style="color:#FF5252" *ngIf="item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'">{{item.pstatus_name}}</div>
         </div>
 
-        <div **ngIf="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
-        <div **ngIf="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
+        <div *ngIf="item.type!='SP'" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
+        <div *ngIf="item.type=='SP'" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
 
-        <div **ngIf="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type!='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
           <div class='flex-row flex-center '>
@@ -111,21 +108,21 @@
 
 
         </div>
-        <div **ngIf="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type=='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
 
@@ -133,7 +130,7 @@
         </div>
         <div class="hkg ">
           <div class='flex-row margin-top-10 flex-center'>
-            <div **ngIf="{{item.type=='PT'}}" class='pt'>拼团</div>
+            <div *ngIf="item.type=='PT'" class='pt'>拼团</div>
             <div class="flex-1"></div>
           </div>
         </div>
@@ -147,21 +144,21 @@
       </div>
 
     </div>
-    <div class="padding-20" style="padding-top:0rpx;">
+    <div class="padding-20" style="padding-top:0px;">
 
       <div class="flex-row flex-center padding-top-20 xian">
-        <img **ngIf="{{item.pstatus=='P'}}" bindtap="shanchu" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
+        <img *ngIf="item.pstatus=='P'" (click)="shanchu(item.id)" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
 
         <div class="flex-1"></div>
-        <div **ngIf="{{item.pstatus=='W'}}">
-          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' bindtap='colseorder'>取消订单</div>
-          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' bindtap='bindpay' id='{{item.id}}'>立即支付</div>
+        <div *ngIf="item.pstatus=='W'">
+          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='colseorder(item.id)'>取消订单</div>
+          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' (click)='bindpay(item.id)' id='{{item.id}}'>立即支付</div>
         </div>
-        <div **ngIf="{{item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'}}">
-          <div **ngIf="{{item.pstatus=='P'&&item.type!='SP'}}" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' catchtap='pinjialist' data-id="{{item.course_id}}">查看我的评价</div>
+        <div *ngIf="item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'">
+          <div *ngIf="item.pstatus=='P'&&item.type!='SP'" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='pinjialist(item.course_id)' data-id="{{item.course_id}}">查看我的评价</div>
 
-          <div **ngIf="{{item.pstatus=='PJ'&&item.type!='SP'}}" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" catchtap='pinjia'>评价晒图得10积分</div>
-          <div **ngIf="{{item.type=='PT'}}" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' catchtap='kantuan' id='{{item.id}}'>查看团详情</div>
+          <div *ngIf="item.pstatus=='PJ'&&item.type!='SP'" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" (click)='pinjia(item.course_id,item.id)'>评价晒图得10积分</div>
+          <div *ngIf="item.type=='PT'" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' (click)='kantuan(tem.spellgroup_id)' id='{{item.id}}'>查看团详情</div>
         </div>
       </div>
 
@@ -171,48 +168,48 @@
 
   </div>
 </div>
-<div class='' **ngIf='{{show=="wc"}}'>
+<div class='' *ngIf='show=="wc"'>
 
-  <div **ngIf='{{wclist.length==0}}' class="flex-row flex-column">
-    <div style="height:100rpx;"></div>
+  <div *ngIf='wclist.length==0' class="flex-row flex-column">
+    <div class='h100'></div>
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>
-  <div class="margin-24 order" **ngFor="{{wclist}}" wx:key='k'>
-    <div bindtap="courseinfo" data-id="{{item.id}}" class="padding-20 flex-row ">
+  <div class="margin-24 order" *ngFor="let item of wclist" wx:key='k'>
+    <div (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
-      <img **ngIf="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
+      <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
-      <img **ngIf="{{item.type=='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
+      <img *ngIf="item.type=='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
 
       <div class="margin-left-20 flex-1">
         <div class="flex-row flex-center ">
-          <div **ngIf="{{item.type!='SP'}}">{{item.course_name}}</div>
-          <div **ngIf="{{item.type=='SP'}}">{{item.onlineclassroom_name}}</div>
+          <div *ngIf="item.type!='SP'">{{item.course_name}}</div>
+          <div *ngIf="item.type=='SP'">{{item.onlineclassroom_name}}</div>
 
           <div class="flex-1"></div>
-          <img **ngIf="{{item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'||item.pstatus=='PJ'}}" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
-          <div class="h6 " style="color:#FF5252" **ngIf="{{item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'}}">{{item.pstatus_name}}</div>
+          <img *ngIf="item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'||item.pstatus=='PJ'" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
+          <div class="h6 " style="color:#FF5252" *ngIf="item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'">{{item.pstatus_name}}</div>
         </div>
 
-        <div **ngIf="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
-        <div **ngIf="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
+        <div *ngIf="item.type!='SP'" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
+        <div *ngIf="item.type=='SP'" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
 
-        <div **ngIf="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type!='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
           <div class='flex-row flex-center '>
@@ -222,21 +219,21 @@
 
 
         </div>
-        <div **ngIf="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type=='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
 
@@ -244,7 +241,7 @@
         </div>
         <div class="hkg ">
           <div class='flex-row margin-top-10 flex-center'>
-            <div **ngIf="{{item.type=='PT'}}" class='pt'>拼团</div>
+            <div *ngIf="item.type=='PT'" class='pt'>拼团</div>
             <div class="flex-1"></div>
           </div>
         </div>
@@ -258,22 +255,22 @@
       </div>
 
     </div>
-    <div class="padding-20" style="padding-top:0rpx;">
+    <div class="padding-20" style="padding-top:0px;">
 
       <div class="flex-row flex-center padding-top-20 xian">
-        <img **ngIf="{{item.pstatus=='P'}}" bindtap="shanchu" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
+        <img *ngIf="item.pstatus=='P'" (click)="shanchu(item.id)" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
 
         <div class="flex-1"></div>
-        <div **ngIf="{{item.pstatus=='W'}}">
-          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' bindtap='colseorder'>取消订单</div>
-          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' bindtap='bindpay' id='{{item.id}}'>立即支付</div>
+        <div *ngIf="item.pstatus=='W'">
+          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='colseorder(item.id)'>取消订单</div>
+          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' (click)='bindpay(item.id)' id='{{item.id}}'>立即支付</div>
         </div>
-        <div **ngIf="{{item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'}}">
-          <div **ngIf="{{item.pstatus=='P'&&item.type!='SP'}}" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' catchtap='pinjialist' data-id="{{item.course_id}}">查看我的评价</div>
+        <div *ngIf="item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'">
+          <div *ngIf="item.pstatus=='P'&&item.type!='SP'" class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='pinjialist(item.course_id)' data-id="{{item.course_id}}">查看我的评价</div>
 
-          <div **ngIf="{{item.pstatus=='PJ'&&item.type!='SP'}}" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" catchtap='pinjia'>评价晒图得10积分</div>
+          <div *ngIf="item.pstatus=='PJ'&&item.type!='SP'" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" (click)='pinjia(item.course_id,item.id)'>评价晒图得10积分</div>
 
-          <div **ngIf="{{item.type=='PT'}}" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' catchtap='kantuan' id='{{item.id}}'>查看团详情</div>
+          <div *ngIf="item.type=='PT'" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' (click)='kantuan(tem.spellgroup_id)' id='{{item.id}}'>查看团详情</div>
         </div>
       </div>
 
@@ -285,48 +282,48 @@
 
 </div>
 
-<div class='' **ngIf='{{show=="wait"}}'>
+<div class='' *ngIf='show=="wait"'>
 
-  <div **ngIf='{{dflist.length==0}}' class="flex-row flex-column">
-    <div style="height:100rpx;"></div>
+  <div *ngIf='dflist.length==0' class="flex-row flex-column">
+    <div class='h100'></div>
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>
-  <div class="margin-24 order" **ngFor="{{dflist}}" wx:key='k'>
-    <div  bindtap="courseinfo" data-id="{{item.id}}" class="padding-20 flex-row ">
+  <div class="margin-24 order" *ngFor="let item of dflist" wx:key='k'>
+    <div  (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
-      <img **ngIf="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
+      <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
-      <img **ngIf="{{item.type=='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
+      <img *ngIf="item.type=='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
 
       <div class="margin-left-20 flex-1">
         <div class="flex-row flex-center ">
-          <div **ngIf="{{item.type!='SP'}}">{{item.course_name}}</div>
-          <div **ngIf="{{item.type=='SP'}}">{{item.onlineclassroom_name}}</div>
+          <div *ngIf="item.type!='SP'">{{item.course_name}}</div>
+          <div *ngIf="item.type=='SP'">{{item.onlineclassroom_name}}</div>
 
           <div class="flex-1"></div>
-          <img **ngIf="{{item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'}}" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
-          <div class="h6 " style="color:#FF5252" **ngIf="{{item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'}}">{{item.pstatus_name}}</div>
+          <img *ngIf="item.pstatus=='P'||item.pstatus=='U'||item.pstatus=='R'" class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
+          <div class="h6 " style="color:#FF5252" *ngIf="item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'">{{item.pstatus_name}}</div>
         </div>
 
-        <div **ngIf="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
-        <div **ngIf="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
+        <div *ngIf="item.type!='SP'" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
+        <div *ngIf="item.type=='SP'" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
 
-        <div **ngIf="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type!='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
           <div class='flex-row flex-center '>
@@ -336,21 +333,21 @@
 
 
         </div>
-        <div **ngIf="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type=='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
 
@@ -358,7 +355,7 @@
         </div>
         <div class="hkg ">
           <div class='flex-row margin-top-10 flex-center'>
-            <div **ngIf="{{item.type=='PT'}}" class='pt'>拼团</div>
+            <div *ngIf="item.type=='PT'" class='pt'>拼团</div>
             <div class="flex-1"></div>
           </div>
         </div>
@@ -372,20 +369,20 @@
       </div>
 
     </div>
-    <div class="padding-20" style="padding-top:0rpx;">
+    <div class="padding-20" style="padding-top:0px;">
 
       <div class="flex-row flex-center padding-top-20 xian">
-        <img bindtap="shanchu" data-id="{{item.id}}" **ngIf="{{item.pstatus=='P'}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
+        <img (click)="shanchu(item.id)" data-id="{{item.id}}" *ngIf="item.pstatus=='P'" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
 
         <div class="flex-1"></div>
-        <div **ngIf="{{item.pstatus=='W'}}">
-          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' bindtap='colseorder'>取消订单</div>
-          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' bindtap='bindpay' id='{{item.id}}'>立即支付</div>
+        <div *ngIf="item.pstatus=='W'">
+          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='colseorder(item.id)'>取消订单</div>
+          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' (click)='bindpay(item.id)' id='{{item.id}}'>立即支付</div>
         </div>
-        <div **ngIf="{{item.pstatus=='P'||item.pstatus=='PT'}}">
+        <div *ngIf="item.pstatus=='P'||item.pstatus=='PT'">
 
-          <div **ngIf="{{item.pstatus=='P'&&item.type!='SP'}}" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" catchtap='pinjia'>评价晒图得10积分</div>
-          <div **ngIf="{{item.type=='PT'}}" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' bindtap='kantuan' id='{{item.id}}'>查看团详情</div>
+          <div *ngIf="item.pstatus=='P'&&item.type!='SP'" class='pj text-center h6 fbtn'  id='{{item.id}}' data-id="{{item.course_id}}" (click)='pinjia(item.course_id,item.id)'>评价晒图得10积分</div>
+          <div *ngIf="item.type=='PT'" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' (click)='kantuan(item.spellgroup_id)' id='{{item.id}}'>查看团详情</div>
         </div>
       </div>
 
@@ -397,49 +394,49 @@
 
 </div>
 
-<div class='' **ngIf='{{show=="dpj"}}'>
+<div class='' *ngIf='show=="dpj"'>
 
 
-  <div **ngIf='{{pjlist.length==0}}' class="flex-row flex-column">
-    <div style="height:100rpx;"></div>
+  <div *ngIf='pjlist.length==0' class="flex-row flex-column">
+    <div class='h100'></div>
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>
-  <div bindtap="courseinfo" data-id="{{item.id}}" class="margin-24 order" **ngFor="{{pjlist}}" wx:key='k'>
+  <div (click)="courseinfo($event)" data-id="{{item.id}}" class="margin-24 order" *ngFor="let item of pjlist" wx:key='k'>
     <div class="padding-20 flex-row ">
 
-      <img **ngIf="{{item.type!='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
+      <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
-      <img **ngIf="{{item.type=='SP'}}" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
+      <img *ngIf="item.type=='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}' />
 
       <div class="margin-left-20 flex-1">
         <div class="flex-row flex-center ">
-          <div **ngIf="{{item.type!='SP'}}">{{item.course_name}}</div>
-          <div **ngIf="{{item.type=='SP'}}">{{item.onlineclassroom_name}}</div>
+          <div *ngIf="item.type!='SP'">{{item.course_name}}</div>
+          <div *ngIf="item.type=='SP'">{{item.onlineclassroom_name}}</div>
 
           <div class="flex-1"></div>
           <img class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}' />
-          <div class="h6 " style="color:#FF5252" **ngIf="{{item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'}}">{{item.pstatus_name}}</div>
+          <div class="h6 " style="color:#FF5252" *ngIf="item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'">{{item.pstatus_name}}</div>
         </div>
 
-        <div **ngIf="{{item.type!='SP'}}" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
-        <div **ngIf="{{item.type=='SP'}}" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
+        <div *ngIf="item.type!='SP'" class=' txt-gray f-22 margin-top-5  '>{{item.course_jigouname}}</div>
+        <div *ngIf="item.type=='SP'" class=' txt-gray f-22 margin-top-5  height-40 '>{{item.onlineclassroom_class_introduce }}</div>
 
-        <div **ngIf="{{item.type!='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type!='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
           <div class='flex-row flex-center '>
@@ -449,21 +446,21 @@
 
 
         </div>
-        <div **ngIf="{{item.type=='SP'}}" class='flex-row flex-center  margin-top-5' style=''>
+        <div *ngIf="item.type=='SP'" class='flex-row flex-center  margin-top-5' style=''>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_age_name}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
           <div class='flex-row flex-center '>
             <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
             <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_chapter_num}}</div>
           </div>
 
-          <div style='width:20rpx;'></div>
+          <div class='w20'></div>
 
 
 
@@ -471,7 +468,7 @@
         </div>
         <div class="hkg ">
           <div class='flex-row margin-top-10 flex-center'>
-            <div **ngIf="{{item.type=='PT'}}" class='pt'>拼团</div>
+            <div *ngIf="item.type=='PT'" class='pt'>拼团</div>
             <div class="flex-1"></div>
           </div>
         </div>
@@ -485,20 +482,20 @@
       </div>
 
     </div>
-    <div class="padding-20" style="padding-top:0rpx;">
+    <div class="padding-20" style="padding-top:0px;">
 
       <div class="flex-row flex-center padding-top-20 xian">
-        <img **ngIf="{{item.pstatus=='P'}}" bindtap="shanchu" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
+        <img *ngIf="item.pstatus=='P'" (click)="shanchu(item.id)" data-id="{{item.id}}" src='{{uploadpath}}resource/{{res.lajiton}}' class='icon-30' />
 
         <div class="flex-1"></div>
-        <div **ngIf="{{item.pstatus=='W'}}">
-          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' bindtap='colseorder'>取消订单</div>
-          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' bindtap='bindpay' id='{{item.id}}'>立即支付</div>
+        <div *ngIf="item.pstatus=='W'">
+          <div class='txt-gray text-center h6 fbtn' style='border:1px solid #AAAAAA;' id='{{item.id}}' (click)='colseorder(item.id)'>取消订单</div>
+          <div class=' text-center  margin-left-20 h6 fbtn  ljzf' (click)='bindpay(item.id)' id='{{item.id}}'>立即支付</div>
         </div>
-        <div **ngIf="{{item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'}}">
+        <div *ngIf="item.pstatus=='P'||item.pstatus=='PT'||item.pstatus=='PJ'">
         
-          <div **ngIf="{{item.pstatus=='PJ'&&item.type!='SP'}}" class='pj text-center h6 fbtn' id='{{item.id}}' data-id="{{item.course_id}}" catchtap='pinjia'>评价晒图得10积分</div>
-          <div **ngIf="{{item.type=='PT'}}" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' catchtap='kantuan' id='{{item.id}}'>查看团详情</div>
+          <div *ngIf="item.pstatus=='PJ'&&item.type!='SP'" class='pj text-center h6 fbtn' id='{{item.id}}' data-id="{{item.course_id}}" (click)='pinjia(item.course_id,item.id)'>评价晒图得10积分</div>
+          <div *ngIf="item.type=='PT'" class=' text-center  margin-left-20 h6 fbtn  cktxq' data-pt='{{item.spellgroup_id}}' (click)='kantuan(item.spellgroup_id)' id='{{item.id}}'>查看团详情</div>
         </div>
       </div>
 
@@ -510,9 +507,9 @@
 
 </div>
 
-<div class='' **ngIf='{{show=="dsh"}}'>
+<div class='' *ngIf='show=="dsh"'>
   <div class="flex-row flex-column">
-    <div style="height:100rpx;"></div>
+    <div class='h100'></div>
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>

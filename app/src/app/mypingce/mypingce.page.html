@@ -5,7 +5,7 @@
               <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
             </ion-button>
           </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
+          <ion-title>{{header2}}</ion-title>
         </ion-toolbar>
   </ion-header>
 
@@ -16,27 +16,27 @@
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
 <div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop' />
+ <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
 
-<div **ngFor='{{mypingcelist}}' wx:key='k' bindtap='toceshi' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-image:url({{uploadpath}}pingceindex/{{item.pingce_listimg}});background-size:100% 100%;'>
+<div *ngFor='let item of mypingcelist' wx:key='k' (click)='toceshi(item)' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-size:100% 100%;'  [style.background-image]="'url('+uploadpath+'pingceindex/'+item.pingce_listimg+')'">
 
-  <div style='margin-left:40rpx;'>
+  <div class="margin-left-40">
 
     <!-- <div class='txt-white txt-bold'>{{item.pingce_id_name}}</div> -->
 
-    <div class=' ' style='height:120rpx;'></div>
+    <div class=' h120'></div>
    
     <div class='flex-row flex-center'>
-    <view></div>
+    <div></div>
       <div class='txt-white h6'>{{item.pingce_peoplenum}}</div>
       <div class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</div>
     </div>
 
-    <div class="flex-row flx-center" style="margin-top:-20rpx ">
-      <div class="flex-1" style="width:550rpx;"></div>
-      <div class=" " style="height:32rpx;" **ngIf='{{item.dati_status_value=="Y"}}'></div>
-      <div class="txt-bold txt-white h6" **ngIf='{{item.dati_status_value=="N"}}'>已测试</div>
+    <div class="flex-row flx-center mt-20" style=" ">
+      <div class="flex-1 w550" style=""></div>
+      <div class="h32 " style="" *ngIf='item.dati_status_value=="Y"'></div>
+      <div class="txt-bold txt-white h6" *ngIf='item.dati_status_value=="N"'>已测试</div>
     </div>
 
   </div>

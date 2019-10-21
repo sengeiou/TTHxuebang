@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -6,12 +6,13 @@ import { NavController, ModalController, ToastController, AlertController, NavPa
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
+import { JigouApi } from 'src/providers/jigou.api';
 
 @Component({
   selector: 'app-review',
   templateUrl: './review.page.html',
   styleUrls: ['./review.page.scss'],
-  providers:[MemberApi]
+  providers:[MemberApi,JigouApi]
 })
 export class ReviewPage  extends AppBase {
 
@@ -22,7 +23,8 @@ export class ReviewPage  extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
+    public memberApi:MemberApi,
+    public jigouApi:JigouApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
@@ -32,7 +34,28 @@ export class ReviewPage  extends AppBase {
     //参数
     this.params;
   }
-  onMyShow(){
+  shenhe=[];
+  onMyShow(e=undefined) {
+    var that = this;
+    var api = this.jigouApi;;
+    api.fenxiaoinfo({}).then( (res) => {
+      this.shenhe=res;
+    })
+  }
+  tuiguan(){
+    // this.navigateBack({
+      
+    // })
+
+    this.navigateTo({
+      url: '/pages/promotion/promotion',
+    })
+  }
+  chonxintijiao(){
+   this.navigateTo({
+     url: '/pages/promotion/promotion',
+   })
 
   }
+
 }

@@ -79,8 +79,8 @@
   .animation-box {
     position: fixed;
     left: 30vw;
-    width: 176px;
-    height: 176px;
+    width: rpx(176);
+    height: rpx(176);
     background: green;
   }
   
@@ -151,4 +151,10 @@
     position: absolute; 
   }
    
-  
+  .h178{
+    height:rpx(178)
+  }
+
+  .ml62{
+    margin-left:rpx(62)
+  }

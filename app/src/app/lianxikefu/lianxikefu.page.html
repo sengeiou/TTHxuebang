@@ -5,7 +5,7 @@
             <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-title>{{heading}}</ion-title>
+        <ion-title>联系客服</ion-title>
       </ion-toolbar>
 </ion-header>
 
@@ -14,36 +14,40 @@
 
 <!--pages/lianxikefu/lianxikefu.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<button class=' clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-  <div class="weixin flex-row flex-center">
-
-    <img src="{{uploadpath}}resource/{{res.wxkefu}}" class="icon-42" style="margin-left:84rpx" />
-
-
-    <div class="flex-row column flex-1" style="margin-left:50rpx;">
-      <div class="txt-bold">微信客服</div>
-      <div class="h6 margin-top-20 txt-9">学榜客服会热情解决您的所有问题</div>
-    </div>
-
-    <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right " style="margin-right:48rpx;" />
-
-  </div>
-</button>
-
-
-
-<div class="weixin flex-row flex-center" style="margin-top:0" bindtap="phoneCall" id="{{instinfo.tel}}">
-
-  <img src="{{uploadpath}}resource/{{res.dhkefu}}" class="icon-50" style="margin-left:84rpx" />
+<ion-card class="marginTop">
+    <button class=' clear-button marginLeft' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+        <div class="weixin flex-row flex-center">
+      
+          <img src="{{uploadpath}}resource/{{res.wxkefu}}" class="icon-42 ml84"  />
+      
+      
+          <div class="flex-row column flex-1 ml50" >
+            <div class="txt-bold">微信客服</div>
+            <div class="h6 margin-top-20 txt-9">学榜客服会热情解决您的所有问题</div>
+          </div>
+      
+          <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right mr48"  />
+      
+        </div>
+      </button>
+</ion-card>
 
 
-  <div class="flex-row column flex-1" style="margin-left:50rpx;">
-    <div class="txt-bold">电话客服</div>
-    <div class="h6 margin-top-20 txt-9">工作日 {{instinfo.worktime}}</div>
-  </div>
 
-  <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right " style="margin-right:48rpx;" />
+<ion-card class="margin-Top">
+    <div class="weixin flex-row flex-center margin-Left" style="margin-top:0" (click)="phoneCall($event)" id="{{InstInfo.tel}}">
 
-</div>
+        <img src="{{uploadpath}}resource/{{res.dhkefu}}" class="icon-50 ml84" />
+      
+      
+        <div class="flex-row column flex-1 ml50"  >
+          <div class="txt-bold">电话客服</div>
+          <div class="h6 margin-top-20 txt-9">工作日 {{InstInfo.worktime}}</div>
+        </div>
+      
+        <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right mr48"  />
+      
+      </div>
+</ion-card>
 
   </ion-content>

@@ -40,7 +40,7 @@
   z-index: 10;
   width: 91vw;
   height: rpx(330);
-  margin-top: -rpx(20);
+  margin-top: rpx(-20);
 }
 
 .mid2 {
@@ -450,6 +450,7 @@
 
 .starbox {
   width: rpx(120);
+  height: rpx(24);
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -568,4 +569,9 @@
   height: 1px;
   width: rpx(720);
   background: #F5F5F5;
+}
+
+.wh20{
+   width: rpx(20);
+   height: rpx(20);
 }

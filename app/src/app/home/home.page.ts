@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -57,9 +57,11 @@ export class HomePage extends AppBase {
   pd = 1;
   days = []
   filtercoursetype = [];
+  fapk=[];
   nocity = 0;
 
-  onMyLoad() {
+
+  onMyLoad(e=undefined) {
     //参数
     this.params;
   }
@@ -69,7 +71,7 @@ export class HomePage extends AppBase {
   mypingcelist = [];
   indexlist = [];
 
-  onMyShow() {
+  onMyShow(e=undefined) {
     var that = this;
 
     var jigouapi = this.jigouApi;
@@ -78,6 +80,7 @@ export class HomePage extends AppBase {
 
     jigouapi.coursetype({}).then((filtercoursetype) => {
       this.filtercoursetype = filtercoursetype;
+      this.fapk=this.getArray(10-((filtercoursetype.length)-8));
     });
 
 
@@ -146,8 +149,8 @@ export class HomePage extends AppBase {
     });
 
 
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
 
     var citycode = this.citycode;
 
@@ -195,22 +198,21 @@ export class HomePage extends AppBase {
 
   }
   yd = -1;
-  qiehuan() {
+  qiehuan(e=undefined) {
     this.img = 2;
   }
-  closeimage() {
+  closeimage(e=undefined) {
     this.yd = 0;
   }
-  closetop() {
+  closetop(e=undefined) {
     this.nocity = 0;
   }
   cityname = "";
-  setcity(e) {
+  setcity(id,name) {
     var that = this;
-    var id = (e.target.id).substr(0, 4) + "00";
-    var name = e.target.dataset.name;
-    var memberinfo = this.MemberInfo;
-    var citylist = memberinfo.citylist;
+    id = (id).substr(0, 4) + "00";
+    var MemberInfo = this.MemberInfo;
+    var citylist = MemberInfo.citylist;
 
     for (var i = 0; i < citylist.length; i++) {
       if (id == citylist[i].id) {
@@ -231,11 +233,10 @@ export class HomePage extends AppBase {
     //this.loadjg();
   }
 
-  tojgdetails(e) {
-    var id = e.target.id;
+  tojgdetails(id) {
     this.navigate("jgdetails", { id: id });
   }
-  toduihuan(e) {
+  toduihuan(e=undefined) {
     this.navigate("shopmall");
   }
 
@@ -249,7 +250,7 @@ export class HomePage extends AppBase {
   indexbanner = [];
   noticebanner = [];
   showlastnotice = false;
-  loadBanner() {
+  loadBanner(e=undefined) {
     var instapi = this.instApi;
     // console.log()
     instapi.indexbanner({
@@ -266,6 +267,9 @@ export class HomePage extends AppBase {
     });
 
     var cacheid = window.localStorage.getItem("homenoticecacheid");
+    if(cacheid==null){
+      cacheid="";
+    }
 
     instapi.lasthomenotice({
       orderby: 'r_main.seq',
@@ -291,22 +295,21 @@ export class HomePage extends AppBase {
 
   }
 
-  closenotice() {
+  closenotice(e=undefined) {
     this.showlastnotice = false;
   }
 
-  totake(e) {
-    var name = e.target.dataset.name;
+  totake(name) {
     console.log(name);
     if (name == "jg") {
-      this.navigate("seek", { type: "jg" });
+      this.navigate("seek", { type: "jg" ,typename:'找机构'});
     } else {
-      this.navigate("seek", { type: "kc" });
+      this.navigate("seek", { type: "kc" ,typename:'找课程'});
     }
 
   }
 
-  onPullDownRefresh() {
+  onPullDownRefresh(e=undefined) {
     //todo
   }
 
@@ -318,12 +321,14 @@ export class HomePage extends AppBase {
   }
   jglist = [];
   jgvteach = [];
-  loadjg() {
+  loadjg(e=undefined) {
     var jigouapi = this.jigouApi;
     var mylat = this.mylat;
     var mylng = this.mylng;
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
+    console.log(mylat,mylng)
+    console.log('哪来看看')
 
     jigouapi.jglist({
       mylat,
@@ -331,23 +336,25 @@ export class HomePage extends AppBase {
       city_id: AppBase.CITYID,
       orderby: "distance"
     }).then((jglist) => {
-
+      console.log(jglist,'啦啦啦啦啦啦2222')
       var jgvteach = [];
       for (var i = 0; i < 4 && i < jglist.length; i++) {
         var mile = AppUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
         var miletxt = AppUtil.GetMileTxt(mile);
         jglist[i]["miletxt"] = miletxt;
         jgvteach.push(jglist[i]);
+        console.log(jglist[i],'哈哈哈哈哈哈2222')
       }
-
+      
       this.jglist = jglist;
       this.jgvteach = jgvteach;
     });
+    console.log(this.jgvteach,'啦啦啦啦啦啦')
   }
 
   jgnomore = 0;
 
-  onReachBottom() {
+  onReachBottom(e=undefined) {
     var mylat = this.mylat;
     var mylng = this.mylng;
     console.log("???kk");
@@ -387,8 +394,7 @@ export class HomePage extends AppBase {
 
 
 
-  bannerGo(e) {
-    var id = e.target.id;
+  bannerGo(id) {
     var indexbanner = this.indexbanner;
     for (var i = 0; i < indexbanner.length; i++) {
       if (id == indexbanner[i].id) {
@@ -411,7 +417,7 @@ export class HomePage extends AppBase {
             //todo
           } else {
             console.log("不杀死hi")
-            // wx.navigateTo({
+            // this.navigateTo({
             //   url: indexbanner[i].url
             // })
             //todo
@@ -424,12 +430,10 @@ export class HomePage extends AppBase {
 
 
 
-  bannerGo2(e) {
+  bannerGo2(id) {
 
     this.showlastnotice = false;
 
-    var id = e.target.id;
-    console.log(id);
     var indexbanner = this.noticebanner;
     for (var i = 0; i < indexbanner.length; i++) {
       if (id == indexbanner[i].id) {
@@ -440,7 +444,7 @@ export class HomePage extends AppBase {
           this.navigate("jgdetails", { id: indexbanner[i].jg_id });
         }
         // if (indexbanner[i].type == 'SF') {
-        //   wx.navigateTo({
+        //   this.navigateTo({
         //     url: indexbanner[i].url
         //   })
         // }
@@ -450,7 +454,7 @@ export class HomePage extends AppBase {
     }
   }
 
-  tocity(e) {
+  tocity(e=undefined) {
     this.navigate("city");
   }
 
@@ -484,12 +488,8 @@ export class HomePage extends AppBase {
   //   }
   // }
 
-  toceshi(e) {
-    var id = e.target.id;
-
-    var pingceapi = this.pingceApi
+  toceshi(id) {
     this.navigate("pingceindex", { id: id, member_id: this.MemberInfo.id });
-
   }
 
 
@@ -514,7 +514,7 @@ export class HomePage extends AppBase {
   //打卡部分
   daka = false;
   week = [];
-  timetwo() {
+  timetwo(e=undefined) {
     console.log('卡路里')
 
     var days = this.days;
@@ -567,14 +567,16 @@ export class HomePage extends AppBase {
       } else {
         console.log("饭饭")
         if (time1 - time2 == 0) {
-          var daysago = new Date((new Date(AppUtil.GetNowFormatDate()).getTime()) - (num - 1) * 86400000);
+          var daysago = new Date((new Date()).getTime() - (num - 1) * 86400000);
         } else {
-          var daysago = new Date((new Date(AppUtil.GetNowFormatDate()).getTime()) - num * 86400000);
+          var daysago = new Date((new Date()).getTime() - num * 86400000);
         }
 
-        var begindate = this.util.FormatDate(new Date(daysago.getFullYear() + '/' + (daysago.getMonth() + 1 < 10 ? '0' + (daysago.getMonth() + 1) : daysago.getMonth() + 1) + '/' + (daysago.getDate() < 10 ? '0' + (daysago.getDate()) : daysago.getDate()) + ' '));
+        var begindate = this.util.FormatDate(
+          new Date(daysago.getFullYear() ,
+        daysago.getMonth(), daysago.getDate()));
       }
-
+      console.log("akb1",daysago,begindate);
 
       var week = AppUtil.GetDates(7, begindate);
 
@@ -587,6 +589,7 @@ export class HomePage extends AppBase {
           week[i].daka_date = "今天"
         }
       }
+      console.log("aak2",week);
       if (num % 7 > 0) {
         this.week = week
         this.min = num % 7;
@@ -612,10 +615,13 @@ export class HomePage extends AppBase {
           week[i].daka_date = "今天"
         }
       }
-      this.week = week
+      console.log("aak",week);
+      this.week = week;
       this.min = 0;
 
     }
+
+    console.log(this.min,'哈哈哈哈哈哈')
 
   }
   jifen = 5;
@@ -688,14 +694,14 @@ export class HomePage extends AppBase {
     return dateArry;
   }
 
-  guizeclick() {
+  guizeclick(e=undefined) {
     this.guize = true;
   }
 
   zong = "";
   resultArr = [];
 
-  jisuanrenshu() {
+  jisuanrenshu(e=undefined) {
     var jifenapi = this.jifenApi;
     jifenapi.dakalist({
 
@@ -736,23 +742,20 @@ export class HomePage extends AppBase {
 
   }
 
-  xiaoxiliebiao() {
+  xiaoxiliebiao(e=undefined) {
     this.navigate("mymessage");
-
   }
 
-  bindtokc(e) {
-    var typeid = parseInt(e.target.id);
-
-    var typename = e.target.dataset.name;
+  bindtokc(typeid,typename) {
     var json = null;
-    json = { type: "kc", typeid: 0, typename: typename };
+    console.log(typeid,typename,'5555')
+    json = { type: "kc", typeid: 0, typename: '找课程' };
 
     if (typeid > 0) {
       json.keyword = typename;
     }
 
-    this.navigate("seek")
+    this.navigate("seek",json)
 
   }
 
