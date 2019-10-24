@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -19,7 +19,7 @@ import { WechatApi } from 'src/providers/wechat.api';
 })
 export class PurchasePage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -34,10 +34,10 @@ export class PurchasePage extends AppBase {
     ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+      
   }
   usercomment = "";
-  xuanzexueyuan = '';
+  xuanzexueyuan = null;
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数
@@ -106,7 +106,10 @@ export class PurchasePage extends AppBase {
   }
   bindtoorder(e) {
     var that = this;
+
     var xueyuan = this.xuanzexueyuan;
+
+    console.log(xueyuan);
 
     if (this.zhifuzhon) {
 
@@ -118,13 +121,15 @@ export class PurchasePage extends AppBase {
       this.showAlert("请选择学员");
       return;
     }
-    this.zhifuzhon=true;
+
+    this.zhifuzhon=true; 
 
     var name = xueyuan.name;
     var phone = xueyuan.shouji;
     var diqu = xueyuan.dizhi;
     var age = xueyuan.sui;
     var sex = xueyuan.sex == 'sex' ? '男' : '女';
+    
     var json1 = {
       course_id: this.params.course_id, phone: phone, name: name, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     };

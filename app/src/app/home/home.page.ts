@@ -1,4 +1,4 @@
-import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA,NgZone } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -19,7 +19,7 @@ import { PingceApi } from 'src/providers/pingce.api';
 })
 export class HomePage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -31,7 +31,7 @@ export class HomePage extends AppBase {
     public jigouApi: JigouApi,
     public pingceApi: PingceApi,
     public jifenApi: JifenApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute,zone);
     this.headerscroptshow = 480;
 
   }
@@ -131,7 +131,6 @@ export class HomePage extends AppBase {
       }
 
     }
-
     var pingceapi = this.pingceApi;
 
     pingceapi.mypingcelist({
@@ -348,13 +347,14 @@ export class HomePage extends AppBase {
       
       this.jglist = jglist;
       this.jgvteach = jgvteach;
+      console.log(this.jgvteach,'啦啦啦啦啦啦');
     });
-    console.log(this.jgvteach,'啦啦啦啦啦啦')
   }
 
   jgnomore = 0;
 
   onReachBottom(e=undefined) {
+    
     var mylat = this.mylat;
     var mylng = this.mylng;
     console.log("???kk");
@@ -379,6 +379,7 @@ export class HomePage extends AppBase {
       }
     }
     if (cs == 0) {
+      e.target.complete();
       this.toast("已经没有了");
       this.jgnomore = 1;
     } else {
@@ -386,6 +387,7 @@ export class HomePage extends AppBase {
         console.log("llll");
         this.jgvteach = jgvteach;
         // wx.hideLoading()
+        e.target.complete();
       }, 1);
     }
 

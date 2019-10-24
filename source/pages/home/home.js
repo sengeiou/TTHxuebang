@@ -795,7 +795,7 @@ class Content extends AppBase {
         signState: true,
         dakashow: true,
         tangchuan: false,
-        daka:true
+       // daka:true
       })
 
       var num = this.Base.getMyData().num;

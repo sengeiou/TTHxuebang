@@ -267,7 +267,11 @@ class Content extends AppBase {
     this.Base.setMyData({
       shuliang
     })
+    
   }
+  
+
+  
   jian(e) {
     var shuliang = this.Base.getMyData().shuliang;
     shuliang--
