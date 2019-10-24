@@ -34,10 +34,10 @@ export class PurchasePage extends AppBase {
     ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-
+      
   }
   usercomment = "";
-  xuanzexueyuan = '';
+  xuanzexueyuan = null;
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数

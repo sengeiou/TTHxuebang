@@ -75,7 +75,7 @@ export class AppBase implements OnInit, OnDestroy {
 
     public static jump = true;
 
-    public keyt = "MemberInfo99";
+    public keyt = "MemberInfo07";
     public stat = "stat9";
 
     public heading = "学榜";
@@ -164,14 +164,14 @@ export class AppBase implements OnInit, OnDestroy {
                         var redirecturl = encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         console.log({ redurl });
-                        //window.location.href=redurl;
+                        window.location.href=redurl;
                     }
                 }
-                this.setWechatShare();
+                //this.setWechatShare();
             });
         } else {
             this.InstInfo = AppBase.InstInfo;
-            this.setWechatShare();
+            //this.setWechatShare();
         }
     }
     getMemberInfo() {
@@ -206,25 +206,25 @@ export class AppBase implements OnInit, OnDestroy {
         }
     }
     ionViewDidEnter() {
-        console.log("aaabbbccc", AppBase.STATICRAND);
         if (AppBase.MemberInfo == null) {
             //
-
-            console.log("aaabbbccc", this.params.code);
-            console.log("aaabbbccc", this.params.code != undefined && this.params.state == AppBase.STATICRAND);
-            console.log("aaabbbccc", this.params.state);
             if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
                 AppBase.memberapi.getuserinfo({ h5: "Y", code: this.params.code, grant_type: "authorization_code" }).then((MemberInfo) => {
                     MemberInfo.h5openid = MemberInfo.openid;
                     AppBase.MemberInfo = MemberInfo;
                     this.MemberInfo = MemberInfo;
 
-                    window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
 
                     ApiConfig.SetToken(MemberInfo.h5openid);
                     ApiConfig.SetTokenKey(MemberInfo.unionid);
                     AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
+                        AppBase.memberapi.info({}).then((MemberInfo)=>{
+                            AppBase.MemberInfo = MemberInfo;
+                            this.MemberInfo = MemberInfo;
+                            window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
+                            this.setWechatShare();
+                        });
                     });
                     //window.location.href="/tabs/tab1";
                 });
@@ -232,7 +232,7 @@ export class AppBase implements OnInit, OnDestroy {
 
                 //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
-                this.onMyShow();
+                this.setWechatShare();
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
@@ -240,10 +240,8 @@ export class AppBase implements OnInit, OnDestroy {
             console.log("aaaa", this.MemberInfo);
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
+            this.setWechatShare();
 
-
-
-            this.onMyShow();
         }
 
 
@@ -461,11 +459,11 @@ export class AppBase implements OnInit, OnDestroy {
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
             var that = this;
-            wx.ready(function () {
+            wx.ready(()=>{
                 wx.onMenuShareAppMessage({
                     title: title,
                     desc: desc,
@@ -504,7 +502,32 @@ export class AppBase implements OnInit, OnDestroy {
                         // alert("onMenuShareTimeline" + JSON.stringify(res));
                     }
                 });
+                wx.getLocation({
+                    success:(res)=>{
+                      console.log("location",(res));
+                      var lat=res.latitude;
+                      var lng=res.longitude;
 
+                      
+                        var url="https://restapi.amap.com/v3/geocode/regeo?output=json&location="
+                        +lng.toString()
+                        +","+lat.toString()
+                        +"&key=bbbefc93b56102814e2710090beb4c26&radius=1000&extensions=all";
+                        AppBase.instapi.http.get(url).toPromise().then((res)=>{
+                            var adinfo=res.json();
+                            console.log("location",adinfo);
+
+                            AppBase.lastaddress=adinfo.regeocode.addressComponent;
+                            that.address=adinfo.regeocode.addressComponent;
+                            that.mylat=lat;
+                            that.mylng=lng;
+                            that.onMyShow();
+                        });
+                    },
+                    cancel: (res)=> {
+                        that.onMyShow();
+                    }
+                  });
             });
 
 

@@ -1,4 +1,4 @@
-import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, ViewChild,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA,NgZone } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -26,6 +26,7 @@ export class HomePage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    private zone: NgZone,
     public instApi: InstApi,
     public memberApi: MemberApi,
     public jigouApi: JigouApi,
@@ -131,7 +132,6 @@ export class HomePage extends AppBase {
       }
 
     }
-
     var pingceapi = this.pingceApi;
 
     pingceapi.mypingcelist({
@@ -348,13 +348,15 @@ export class HomePage extends AppBase {
       
       this.jglist = jglist;
       this.jgvteach = jgvteach;
+      console.log(this.jgvteach,'啦啦啦啦啦啦');
+      this.zone.run(()=>{});
     });
-    console.log(this.jgvteach,'啦啦啦啦啦啦')
   }
 
   jgnomore = 0;
 
   onReachBottom(e=undefined) {
+    
     var mylat = this.mylat;
     var mylng = this.mylng;
     console.log("???kk");
