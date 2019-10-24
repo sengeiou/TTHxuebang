@@ -26,13 +26,13 @@ export class HomePage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    private zone: NgZone,
+    public zone: NgZone,
     public instApi: InstApi,
     public memberApi: MemberApi,
     public jigouApi: JigouApi,
     public pingceApi: PingceApi,
     public jifenApi: JifenApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute,zone);
     this.headerscroptshow = 480;
 
   }
@@ -349,7 +349,6 @@ export class HomePage extends AppBase {
       this.jglist = jglist;
       this.jgvteach = jgvteach;
       console.log(this.jgvteach,'啦啦啦啦啦啦');
-      this.zone.run(()=>{});
     });
   }
 
@@ -381,6 +380,7 @@ export class HomePage extends AppBase {
       }
     }
     if (cs == 0) {
+      e.target.complete();
       this.toast("已经没有了");
       this.jgnomore = 1;
     } else {
@@ -388,6 +388,7 @@ export class HomePage extends AppBase {
         console.log("llll");
         this.jgvteach = jgvteach;
         // wx.hideLoading()
+        e.target.complete();
       }, 1);
     }
 

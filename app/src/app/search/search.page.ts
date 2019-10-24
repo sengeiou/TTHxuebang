@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -208,6 +208,7 @@ export class SearchPage extends AppBase {
       console.log(count + "AAA")
       if (count == 0) {
         console.log("diaoni2");
+        e.target.complete();
         return;
       }
 
@@ -216,6 +217,7 @@ export class SearchPage extends AppBase {
         setTimeout(() => {
           console.log("llll");
           this.coursevlist=coursevlist;
+          e.target.complete();
         }, 500);
       }
 
@@ -233,6 +235,7 @@ export class SearchPage extends AppBase {
       }
       console.log("diaoni2", cs);
       if (cs == 0) {
+        e.target.complete();
         return;
       }
       if (cs != 0) {
@@ -240,6 +243,7 @@ export class SearchPage extends AppBase {
           console.log("llll");
           console.log("diaoni1");
           this.jgvlist=jgvlist;
+          e.target.complete();
         }, 500);
       }
     }

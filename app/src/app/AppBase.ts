@@ -10,7 +10,7 @@ import { ReturnStatement } from "@angular/compiler";
 import { ViewController } from '@ionic/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy,NgZone } from '@angular/core';
 
 declare let wx: any;
 
@@ -107,12 +107,14 @@ export class AppBase implements OnInit, OnDestroy {
 
 
     public constructor(
-        public router: Router,
+        public router: Router, 
         public navCtrl: NavController,
         public modalCtrl: ModalController,
         public toastCtrl: ToastController,
         public alertCtrl: AlertController,
-        public activeRoute: ActivatedRoute) {
+        public activeRoute: ActivatedRoute,
+        public zone:NgZone=null
+        ) {
 
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);
@@ -446,6 +448,9 @@ export class AppBase implements OnInit, OnDestroy {
 
 
     setWechatShare(title = undefined, desc = undefined) {
+        var that = this;
+
+
         if (title == undefined) {
             title = this.InstInfo.h5sharetitle;
         }
@@ -462,7 +467,6 @@ export class AppBase implements OnInit, OnDestroy {
                 jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
-            var that = this;
             wx.ready(()=>{
                 wx.onMenuShareAppMessage({
                     title: title,
@@ -521,11 +525,13 @@ export class AppBase implements OnInit, OnDestroy {
                             that.address=adinfo.regeocode.addressComponent;
                             that.mylat=lat;
                             that.mylng=lng;
-                            that.onMyShow();
+                            that.zone.run(()=>{
+                                that.onMyShow();});
                         });
                     },
                     cancel: (res)=> {
-                        that.onMyShow();
+                        that.zone.run(()=>{
+                            that.onMyShow();});
                     }
                   });
             });
