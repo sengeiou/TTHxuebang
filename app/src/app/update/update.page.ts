@@ -15,7 +15,7 @@ import { MemberApi } from 'src/providers/member.api';
 })
 export class UpdatePage  extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,

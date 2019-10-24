@@ -18,7 +18,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class PingcejieguoPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,

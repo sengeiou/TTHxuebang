@@ -17,7 +17,7 @@ import { JigouApi } from 'src/providers/jigou.api';
 })
 export class AboutusPage extends AppBase {
 
-  constructor(public router: Router, public zone:NgZone, 
+  constructor(public zone:NgZone, public router: Router, 
      public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,

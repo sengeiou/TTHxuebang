@@ -17,7 +17,7 @@ import { InstApi } from 'src/providers/inst.api';
 })
 export class SeekPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,

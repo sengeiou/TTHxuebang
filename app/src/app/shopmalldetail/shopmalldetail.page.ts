@@ -17,7 +17,7 @@ import { query } from '@angular/core/src/render3';
 })
 export class ShopmalldetailPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,

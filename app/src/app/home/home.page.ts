@@ -19,14 +19,13 @@ import { PingceApi } from 'src/providers/pingce.api';
 })
 export class HomePage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public zone: NgZone,
     public instApi: InstApi,
     public memberApi: MemberApi,
     public jigouApi: JigouApi,
