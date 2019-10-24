@@ -30,7 +30,7 @@ export class TuikuanPage extends AppBase {
     public wechatApi: WechatApi,
     public batchApi: BatchApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

@@ -27,7 +27,7 @@ export class ContentPage  extends AppBase {
     public memberApi:MemberApi,
     public jigouapi:JigouApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       this.xieyi={};
   }

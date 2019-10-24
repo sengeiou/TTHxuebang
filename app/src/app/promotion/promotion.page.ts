@@ -30,7 +30,7 @@ export class PromotionPage extends AppBase {
     public aliyunApi: AliyunApi,
     public haibaoApi: HaibaoApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

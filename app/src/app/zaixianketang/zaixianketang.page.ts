@@ -26,7 +26,7 @@ export class ZaixianketangPage extends AppBase {
     public memberApi:MemberApi,
     public jigouApi:JigouApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
       
   }
   fenleilist=[];

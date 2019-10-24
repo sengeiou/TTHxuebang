@@ -27,7 +27,7 @@ export class BaomaPage  extends AppBase {
     public memberApi:MemberApi,
     public instApi:InstApi,
     public baomaApi:BaomaApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

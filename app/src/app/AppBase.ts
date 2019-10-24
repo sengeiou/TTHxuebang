@@ -113,7 +113,7 @@ export class AppBase implements OnInit, OnDestroy {
         public toastCtrl: ToastController,
         public alertCtrl: AlertController,
         public activeRoute: ActivatedRoute,
-        public zone:NgZone=null
+        public zone:NgZone
         ) {
 
         this.activeRoute.queryParams.subscribe((params: Params) => {
@@ -575,11 +575,13 @@ export class AppBase implements OnInit, OnDestroy {
         if (url.indexOf("?") > 0) {
             let vk = url.substr(url.indexOf("?") + 1);
             let vk2 = vk.split("&");
-            for (let vk2 of vk) {
-                var vk3 = vk2.split("=");
+            console.log(vk,vk2);
+            for (let vkb of vk2) {
+                var vk3 = vkb.split("=");
                 json[vk3[0]] = vk3[1];
             }
         }
+        console.log(url,pagename,json);
         this.navigate(pagename, json);
     }
     navigateBack(obj = undefined) {

@@ -28,7 +28,7 @@ export class XuanzedizhiPage extends AppBase {
     public addressApi: AddressApi,
     public jifenApi:JifenApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

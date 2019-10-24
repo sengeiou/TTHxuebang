@@ -25,7 +25,7 @@ export class PingjialistPage  extends AppBase {
     public sanitizer: DomSanitizer,
     public memberApi:MemberApi,
     public pingjiaApi:PingjiaApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

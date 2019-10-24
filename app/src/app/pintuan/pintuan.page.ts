@@ -28,7 +28,7 @@ export class PintuanPage extends AppBase {
     public purchaseApi: PurchaseApi,
     public batchApi: BatchApi,
     public wechatApi: WechatApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

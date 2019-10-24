@@ -27,7 +27,7 @@ export class PersonaldataPage extends AppBase {
     public memberApi: MemberApi,
     public instApi: InstApi,
     public mineApi: MineApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.mydata = {};
   }

@@ -15,7 +15,7 @@ import { MemberApi } from 'src/providers/member.api';
 })
 export class AddressPage  extends AppBase {
 
-  constructor(public zone:NgZone, public router: Router, public zone:NgZone,
+  constructor(public zone:NgZone, public router: Router,
      public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -23,7 +23,7 @@ export class AddressPage  extends AppBase {
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
     public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }
