@@ -1,16 +1,10 @@
 <ion-header>
   <ion-toolbar color='primary'>
-    <ion-buttons slot="start">
-      <ion-button (click)='back()'>
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
     <ion-title>{{heading}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
 
 
   <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
@@ -29,7 +23,7 @@
 
 
 
-  <div class=' ' >
+  <div class=' '>
     <div class='padding-15  bg-primary'>
       <div (click)='tocity()' class='flex-row flex-center'>
         <div class='txt-black h40 txt-bold'>{{cityname}}</div>
@@ -38,7 +32,7 @@
         <div class="flex-1"></div>
 
         <div (click)="xiaoxiliebiao()">
-          <div  *ngIf="xiaoxishu>0" class="shuzi">{{xiaoxishu}}</div>
+          <div *ngIf="xiaoxishu>0" class="shuzi">{{xiaoxishu}}</div>
           <img class='icon margin-left-10 margin-right-10' src='{{uploadpath}}resource/{{res.shouyexiaoxi}}' />
         </div>
 
@@ -47,7 +41,8 @@
 
       <div class=' flex-row margin-top-20'>
 
-        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?type=kc'
+          class='search flex-1 flex-row flex-center  padding-10 '>
           <div class='flex-1 sp1'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h6 txt-gray margin-left-20 sp2'>快速搜索你要找的机构、课程 如“美术”</div>
@@ -69,8 +64,9 @@
       <div class="h6 txt-white margin-left-20">定位显示您的位置在“</div>
       <div class="h6" style="color:#3887DE">{{address.ad_info.city}}</div>
       <div class="h6 txt-white flex-1">”</div>
-      <div class="btn text-center h6 txt-white margin-right-20" (click)="setcity(address.ad_info.adcode,address.ad_info.city)"
-        data-name="{{address.ad_info.city}}" id="{{address.ad_info.adcode}}">
+      <div class="btn text-center h6 txt-white margin-right-20"
+        (click)="setcity(address.ad_info.adcode,address.ad_info.city)" data-name="{{address.ad_info.city}}"
+        id="{{address.ad_info.adcode}}">
         切换到{{address.ad_info.city}}</div>
       <img src="{{uploadpath}}resource/{{res.baicha}}" (click)="closetop()" class="icon15 margin-right-20" />
 
@@ -83,7 +79,8 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <ion-slides  [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
+      <ion-slides [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200'
+        circular='true' class="wpc2">
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
           <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
@@ -96,7 +93,7 @@
 
 
 
-  <ion-slides  [options]='mySwiperOption2' indicator-dots='true' class="h300 ">
+  <ion-slides [options]='mySwiperOption2' indicator-dots='true' class="h300 ">
 
     <ion-slide class=" flex-row flex-center flex-wrap">
 
@@ -109,18 +106,19 @@
         <img src="{{uploadpath}}resource/{{res.homebaoma}}" class="icon26" />
         <div class="h6">找课程</div>
       </div>
-        <div *ngFor='let item of filtercoursetype;let idx=index;' class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc(item.id,item.typename)'
-          [data-name]='item.typename' [id]='item.id'  [class.hidden]='!(idx<8)'>
-          <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
-          <div class="h6">{{item.typename}}</div>
+      <div *ngFor='let item of filtercoursetype;let idx=index;'
+        class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc(item.id,item.typename)'
+        [data-name]='item.typename' [id]='item.id' [class.hidden]='!(idx<8)'>
+        <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
+        <div class="h6">{{item.typename}}</div>
       </div>
 
     </ion-slide>
 
-    <ion-slide class=" flex-row flex-center flex-wrap" [class.hidden]='!(idx<8)'>
+   <!-- <ion-slide class=" flex-row flex-center flex-wrap" >
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
-        <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}" (click)='bindtokc(item.id,item.typename)'
-          id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
+        <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}"
+          (click)='bindtokc(item.id,item.typename)' id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">
           <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
           <div class="h6">{{item.typename}}</div>
         </div>
@@ -131,7 +129,7 @@
         <div class="h6"> </div>
       </div>
 
-    </ion-slide>
+    </ion-slide>-->
 
 
   </ion-slides>
@@ -199,7 +197,7 @@
               <div class='h6   {{min>0?"txthuang":"txt-9"}} '>+{{num <=7?5:25}}</div>
               <div class=' dakadian {{min>0?"bgff":"bg9"}} ' data-n='{{min}}'></div>
               <div class=' f8 '>{{week[0].daka_date}}</div>
-            </div>                                
+            </div>
 
             <div class='dakaxian  bg9 {{min>1?"bgff":"bg9"}}'></div>
 
@@ -258,7 +256,8 @@
         data-days="{{signNum}}" disabled='{{signState==true}}' data-min="{{min}}" data-max="{{max}}"
         data-weeks="{{weeks}}" data-be="{{be}}">打卡</div>
 
-      <div class='yidaka radius-50 text-center f15 txt-black txt-bold' *ngIf='daka==true' (click)='showtc($event)'>已打卡
+      <div class='yidaka radius-50 text-center f15 txt-black txt-bold' *ngIf='daka==true' (click)='showtc($event)'>
+        已打卡
       </div>
 
     </div>
@@ -267,15 +266,15 @@
     <div class='flex-row flex-center margin-top-16'>
       <div class='flex-row flex-center margin-right-60'>
         <div class="margin-right-f20" *ngFor='let item of resultArr;let idx=index;'>
-              <img   src='{{item.member_avatarUrl}}' *ngIf='idx<5'
-              class='radius-50 {{idx==0?"touxiang":"touxiang2"}}' style="overflow: hidden;"/>
+          <img src='{{item.member_avatarUrl}}' *ngIf='idx<5' class='radius-50 {{idx==0?"touxiang":"touxiang2"}}'
+            style="overflow: hidden;" />
         </div>
       </div>
       <div class='margin-left-16 h6 txt9'>等{{zong}}人已连续打卡</div>
     </div>
 
-  
-    <div *ngIf='tangchuan==true||dakashow==true||guize==true'  class='block_black'></div>
+
+    <div *ngIf='tangchuan==true||dakashow==true||guize==true' class='block_black'></div>
 
     <div class=' gz ' *ngIf='guize==true'>
       <div class='guize bg-white flex-row flex-column'>
@@ -326,11 +325,12 @@
 
     </div>
 
- 
+
 
     <div *ngIf='tangchuan==true' class='tangchuan'>
 
-      <div class=' jilu ' [ngStyle]="{'background-image': 'url('+uploadpath+'resource/'+res.daka+')'}" style='background-size:100% 100%;'>
+      <div class=' jilu ' [ngStyle]="{'background-image': 'url('+uploadpath+'resource/'+res.daka+')'}"
+        style='background-size:100% 100%;'>
 
         <div class='flex-row '>
 
@@ -370,7 +370,8 @@
 
               <div class='radius-50 margin-left-15  {{num>idx?"checkyuan":"yuan"}}'></div>
 
-              <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}} {{item.week}}</div>
+              <div class=' h6 margin-left-15 flex-1 {{num>idx?"txt-white":"tuhuang"}}'>{{item.seven_date}}
+                {{item.week}}</div>
 
               <div class='h6 txt-white' *ngIf='num<=7'>+{{idx<6?5:25}}</div>
 
@@ -417,7 +418,6 @@
       <div class='flex-1'></div>
     </div>
 
-
     <div [class.hidden]='jgvteach.length>0'>
 
       <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
@@ -459,7 +459,8 @@
                       </div>
                     </div>
 
-                    <div class="stars2" [style.width.%]="width" [width]="item.pingfen==''?(item.scoring*20):(item.pingfen*20)">
+                    <div class="stars2" [style.width.%]="width"
+                      [width]="item.pingfen==''?(item.scoring*20):(item.pingfen*20)">
                       <div class="ims">
                         <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                         <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -480,7 +481,8 @@
                     <div *ngFor="let litem of item.labels;let idx=index;">
 
                       <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
-                      [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k" *ngIf='idx<3'>
+                        [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k"
+                        *ngIf='idx<3'>
                         {{litem.name}}</div>
                     </div>
                   </div>
@@ -514,7 +516,7 @@
   <div class='height-70' style=''></div>
 
 
-  <div class=' to_top' >
+  <div class=' to_top'>
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
@@ -534,8 +536,8 @@
           </div>
         </div>
 
-        <ion-slides  [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}' autoplay='{{true}}' interval='3000'
-          duration='1000' circular='{{true}}' class='wpc'>
+        <ion-slides [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}'
+          autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' class='wpc'>
           <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2(item.id)' id="{{item.id}}">
               <img src='{{uploadpath}}indexbanner/{{item.img}}'
@@ -554,5 +556,8 @@
       <div class='flex-1'></div>
     </div>
   </div>
-
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

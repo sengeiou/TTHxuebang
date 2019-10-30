@@ -170,13 +170,13 @@
   
     <div class='submit flex-row bg-white'>
   
-      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='check($event)' data-ck='nm' *ngIf='check==true'>
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='checkclick("nm")' data-ck='nm' *ngIf='check==true'>
         <img src='{{uploadpath}}resource/{{res.xuanzhong}}' class='icon' />
   
         <div class='txt-black h6 margin-left-10'>匿名评价</div>
       </div>
   
-      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='check($event)' data-ck='bnm' *ngIf='check==false'>
+      <div class='bg-white flex-row flex-center flex-1 padding-left-28' (click)='checkclick("bnm")' data-ck='bnm' *ngIf='check==false'>
   
         <img src='{{uploadpath}}resource/{{res.weixuan}}' class='icon' />
   

@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -19,7 +19,7 @@ import { WechatApi } from 'src/providers/wechat.api';
 })
 export class PurchasePage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -32,12 +32,12 @@ export class PurchasePage extends AppBase {
     public purchaseApi:PurchaseApi,
     public wechatApi:WechatApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
-
+      
   }
   usercomment = "";
-  xuanzexueyuan = '';
+  xuanzexueyuan = null;
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数
