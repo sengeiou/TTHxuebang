@@ -94,7 +94,7 @@ class Content extends AppBase {
       this.Base.setMyData({ show: false})
       return;
     }
-
+    this.Base.setMyData({ tanchuan: 2, show: false })
     console.log("成功");
 
 //return;
@@ -161,7 +161,7 @@ class Content extends AppBase {
          })
 
          jifenapi.updatejifen({ id: this.Base.getMyData().memberinfo.id, integral: shengyu }, (updatejifen) => {
-           this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
+           //this.Base.setMyData({  tanchuan: 2, show: false })
            this.onMyShow();
            wx.redirectTo({
              url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return+'&shopid='+this.Base.options.id,
