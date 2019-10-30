@@ -26,9 +26,7 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this; 
-
-
-
+ 
     var addressapi = new AddressApi();
     
     addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
@@ -145,7 +143,7 @@ class Content extends AppBase {
         consignee: info.name,
         mobile: info.phonenumber,
         address:info.region+info.address,
-        orderid:'1234567891011',
+       // orderid:'1234567891011',
         status:"A"
        }, (addjifenorder) => {
 
@@ -156,9 +154,7 @@ class Content extends AppBase {
            this.Base.setMyData({ deduction })
          })
 
-
-         //console.log(addjifenorder.return+"阿");
-        // return;
+ 
 
          jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - shuliang }, (updatekucun) => {
            this.Base.setMyData({ updatekucun })
@@ -172,7 +168,7 @@ class Content extends AppBase {
            })
          })
 
-         this.Base.setMyData({ addjifenorder })
+         //this.Base.setMyData({ addjifenorder })
 
       })
 
