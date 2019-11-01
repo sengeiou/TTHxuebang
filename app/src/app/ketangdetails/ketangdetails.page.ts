@@ -28,7 +28,7 @@ export class KetangdetailsPage extends AppBase {
     public jigouApi: JigouApi,
     public elementRef: ElementRef
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
 
   }
   shipin = null;

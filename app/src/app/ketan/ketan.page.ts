@@ -29,7 +29,7 @@ export class KetanPage extends AppBase {
     public elementRef: ElementRef,
     public puchaseApi:PurchaseApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
 
   }
 

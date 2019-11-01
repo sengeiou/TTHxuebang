@@ -27,7 +27,7 @@ export class JifenorderPage  extends AppBase {
     public memberApi:MemberApi,
     public jifenapi:JifenApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

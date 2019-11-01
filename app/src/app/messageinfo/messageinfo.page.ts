@@ -27,7 +27,7 @@ export class MessageinfoPage extends AppBase {
     public memberApi: MemberApi,
     public jigouapi: JigouApi,
     public purchaseapi: PurchaseApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.courseinfo = {};
     this.info = {};

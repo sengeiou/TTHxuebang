@@ -30,7 +30,7 @@ export class SearchPage extends AppBase {
     public teacherApi:TeacherApi,
     public jigouApi:JigouApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

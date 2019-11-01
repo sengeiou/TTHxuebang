@@ -28,7 +28,7 @@ export class TixianPage extends AppBase {
     public jigouApi: JigouApi,
     public wechatApi: WechatApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.fenixaoinfo = {};
   }

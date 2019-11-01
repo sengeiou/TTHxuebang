@@ -30,7 +30,7 @@ export class KcdetailsPage extends AppBase {
     public pingjiaApi: PingjiaApi,
     public haibaoApi:HaibaoApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.fenxiaoinfo = {};
     this.courseinfo = {};

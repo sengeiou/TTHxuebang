@@ -29,7 +29,7 @@ export class HuodoninfoPage extends AppBase {
     public huodonApi: HuodonApi,
     public instApi: InstApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.huodoninfo = {};
   }

@@ -26,7 +26,7 @@ export class MypingcePage  extends AppBase {
     public memberApi:MemberApi,
     public pingceApi:PingceApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

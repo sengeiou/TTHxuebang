@@ -28,7 +28,7 @@ export class GroupinfoPage extends AppBase {
     public jigouApi: JigouApi,
     public haibaoApi:HaibaoApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.pintuaninfo = {};
   }

@@ -29,7 +29,7 @@ export class VideopurcsuccPage  extends AppBase {
     public elementRef:ElementRef,
     public instApi:InstApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
       
   }
   kechenlist=[];

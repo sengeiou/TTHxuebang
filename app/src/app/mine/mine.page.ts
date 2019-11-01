@@ -30,7 +30,7 @@ export class MinePage  extends AppBase {
     public instApi:InstApi,
     public purchaseApi:PurchaseApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

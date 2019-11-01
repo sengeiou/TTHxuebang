@@ -33,7 +33,7 @@ export class ShipingoumaiPage extends AppBase {
     public purchaseApi: PurchaseApi,
     public wechatApi: WechatApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
 
   }
   onMyLoad(e=undefined) {

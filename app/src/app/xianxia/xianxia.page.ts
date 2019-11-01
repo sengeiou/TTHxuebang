@@ -26,7 +26,7 @@ export class XianxiaPage  extends AppBase {
     public memberApi:MemberApi,
     public huodonApi:HuodonApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

@@ -29,7 +29,7 @@ export class BaominPage extends AppBase {
     public instApi: InstApi,
     public baomaApi: BaomaApi,
     public huodonApi: HuodonApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.huodoninfo = {};
   }

@@ -29,7 +29,7 @@ export class AddmechanismPage  extends AppBase {
     public instApi:InstApi,
     public jigouApi:JigouApi,
     public mineApi:MineApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
       
   }

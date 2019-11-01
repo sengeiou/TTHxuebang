@@ -28,7 +28,7 @@ export class PingcejieguoPage extends AppBase {
     public memberApi: MemberApi,
     public pingceApi: PingceApi,
     public jigouApi: JigouApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }

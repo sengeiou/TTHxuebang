@@ -28,7 +28,7 @@ export class JgdetailsPage extends AppBase {
     public memberApi: MemberApi,
     public jigouApi: JigouApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.courseinfo = {};
     this.canbuy = {};

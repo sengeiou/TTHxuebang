@@ -26,7 +26,7 @@ export class WuliuPage extends AppBase {
     public memberApi: MemberApi,
     public jifenApi: JifenApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }
