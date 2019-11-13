@@ -151,6 +151,7 @@ export class AppBase implements OnInit, OnDestroy {
     onMyLoad() {
     }
     getInstInfo() {
+        console.log(66666)
         if (AppBase.InstInfo == null) {
             AppBase.instapi.info({}, false).then((InstInfo) => {
                 AppBase.InstInfo = InstInfo;
@@ -172,6 +173,7 @@ export class AppBase implements OnInit, OnDestroy {
                 //this.setWechatShare();
             });
         } else {
+            console.log(55555);
             this.InstInfo = AppBase.InstInfo;
             //this.setWechatShare();
         }
