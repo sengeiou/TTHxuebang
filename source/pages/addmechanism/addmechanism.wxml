@@ -72,13 +72,13 @@
 
 
     <!-- 暂时注释 -->
-    <!-- <view class='padding-mid  ' style=''>
+    <view class='padding-mid  ' style=''>
       <view class='flex-row '>
         <view class='' style='color:#FF5252'>*</view>
         <view class='font-30  txt-black margin-left-10  width-210'>机构简介：</view>
       </view>
       <textarea class='margin-top-20 h5' style='width:600rpx;height:230rpx;' placeholder-class='pc' name='jianjie' placeholder='250字左右简介'></textarea>
-    </view> -->
+    </view>
 
   </view>
 
@@ -86,7 +86,7 @@
 
 
   <!-- 暂时注释 -->
-  <!-- <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
+  <view wx:for='{{kclist}}' wx:key='k' wx:for-index='idx'>
 
     <view class='height-72 txt-6'>
       课程({{idx+1}})
@@ -299,7 +299,7 @@
 
     </view>
 
-  </view> -->
+  </view>
 
 
   <view class='padding-30 ' style=''>
