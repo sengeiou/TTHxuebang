@@ -1,10 +1,5 @@
 <ion-header>
   <ion-toolbar color='primary'>
-    <ion-buttons slot="start">
-      <ion-button (click)='back()'>
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
     <ion-title>{{heading}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -54,5 +49,9 @@
   </div>
 
 
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 </ion-content>

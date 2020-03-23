@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { TeacherApi } from 'src/providers/teacher.api';
 import { JigouApi } from 'src/providers/jigou.api';
+import { nextTick } from 'q';
 
 @Component({
   selector: 'app-teacher',
@@ -17,7 +18,7 @@ import { JigouApi } from 'src/providers/jigou.api';
 })
 export class TeacherPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone: NgZone, public router: Router,
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -28,7 +29,7 @@ export class TeacherPage extends AppBase {
     public teacherApi: TeacherApi,
     public jigouApi: JigouApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute, zone);
     this.headerscroptshow = 480;
 
   }
@@ -44,7 +45,7 @@ export class TeacherPage extends AppBase {
       status: "A",
       orderby: 'r_main.seq'
     }).then((teachlist) => {
-      console.log(teachlist,'teachlist')
+      console.log(teachlist, 'teachlist')
       var vteach = [];
       vteach.push(teachlist[0]);
       vteach.push(teachlist[1]);
@@ -55,7 +56,7 @@ export class TeacherPage extends AppBase {
   }
   nomore = 0;
 
-  onReachBottom() {
+  onReachBottom(e) {
     console.log("???kk");
     var vteach = this.vteach;
     var teachlist = this.teachlist;
@@ -68,6 +69,7 @@ export class TeacherPage extends AppBase {
       }
     }
 
+    e.target.complete();
     if (count == 0) {
 
       this.showToast({
@@ -84,7 +86,7 @@ export class TeacherPage extends AppBase {
 
   tojgdetails(id) {
     this.navigate(
-      'jgdetails',{id:id}
+      'jgdetails', { id: id }
     )
   }
   show = 0;
@@ -129,7 +131,7 @@ export class TeacherPage extends AppBase {
   }
   nowplaying_id = 0;
   play(id) {
-    console.log(id,'ididdd')
+    console.log(id, 'ididdd')
     var that = this;
     id = id.split("_");
     id = id[1];
@@ -137,7 +139,7 @@ export class TeacherPage extends AppBase {
     console.log(id);
     var teachlist = this.vteach;
     var nowplaying_id = this.nowplaying_id;
-    var videoContext:HTMLVideoElement = null;
+    var videoContext: HTMLVideoElement = null;
     for (var i = 0; i < teachlist.length; i++) {
       if (id != teachlist[i].id) {
         try {
@@ -149,17 +151,21 @@ export class TeacherPage extends AppBase {
         }
       } else {
         teachlist[i].play = "Y";
-        this.vteach = teachlist;
-        videoContext = document.querySelector("#v_" + id);
-        if (nowplaying_id == id) {
-          videoContext.pause();
-          this.nowplaying_id = 0;
-        } else {
+        nextTick(() => {
 
-          videoContext.play();
-          this.nowplaying_id = id;
-          console.log("nihaoya")
-        }
+          this.vteach = teachlist;
+          videoContext = document.querySelector("#v_" + id);
+          if (nowplaying_id == id) {
+            videoContext.pause();
+            this.nowplaying_id = 0;
+          } else {
+
+            videoContext.play();
+            this.nowplaying_id = id;
+            console.log("nihaoya")
+          }
+
+        })
       }
     }
   }

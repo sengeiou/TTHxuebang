@@ -9,6 +9,9 @@ export class InstApi {
 
     }
 
+    public getLocation(lat,lng){
+    }
+
 
     public guize(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'inst/guize';

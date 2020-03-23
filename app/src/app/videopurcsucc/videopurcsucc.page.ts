@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, NgZone, ViewChild, ElementRef } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import {  ActivatedRoute, Params } from '@angular/router';
@@ -17,7 +17,7 @@ import { InstApi } from 'src/providers/inst.api';
 })
 export class VideopurcsuccPage  extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -29,7 +29,7 @@ export class VideopurcsuccPage  extends AppBase {
     public elementRef:ElementRef,
     public instApi:InstApi
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
       
   }
   kechenlist=[];

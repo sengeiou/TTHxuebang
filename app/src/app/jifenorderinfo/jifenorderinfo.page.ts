@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -16,7 +16,7 @@ import { JifenApi } from 'src/providers/jifen.api';
 })
 export class JifenorderinfoPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -25,7 +25,7 @@ export class JifenorderinfoPage extends AppBase {
     public sanitizer: DomSanitizer,
     public memberApi: MemberApi,
     public jifenApi: JifenApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.info = {};
   }

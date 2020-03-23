@@ -26,9 +26,7 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this; 
-
-
-
+ 
     var addressapi = new AddressApi();
     
     addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
@@ -96,7 +94,7 @@ class Content extends AppBase {
       this.Base.setMyData({ show: false})
       return;
     }
-
+    this.Base.setMyData({ tanchuan: 2, show: false })
     console.log("成功");
 
 //return;
@@ -145,7 +143,7 @@ class Content extends AppBase {
         consignee: info.name,
         mobile: info.phonenumber,
         address:info.region+info.address,
-        orderid:'1234567891011',
+       // orderid:'1234567891011',
         status:"A"
        }, (addjifenorder) => {
 
@@ -156,23 +154,21 @@ class Content extends AppBase {
            this.Base.setMyData({ deduction })
          })
 
-
-         //console.log(addjifenorder.return+"阿");
-        // return;
+ 
 
          jifenapi.updatekucun({ id: this.Base.options.id, inventory: inventory - shuliang }, (updatekucun) => {
            this.Base.setMyData({ updatekucun })
          })
 
          jifenapi.updatejifen({ id: this.Base.getMyData().memberinfo.id, integral: shengyu }, (updatejifen) => {
-           this.Base.setMyData({ updatejifen, tanchuan: 2, show: false })
+           //this.Base.setMyData({  tanchuan: 2, show: false })
            this.onMyShow();
            wx.redirectTo({
              url: '/pages/yiduihuang/yiduihuang?id=' + addjifenorder.return+'&shopid='+this.Base.options.id,
            })
          })
 
-         this.Base.setMyData({ addjifenorder })
+         //this.Base.setMyData({ addjifenorder })
 
       })
 

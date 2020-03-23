@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -18,7 +18,7 @@ import { nextTick } from 'q';
 })
 export class HuodoninfoPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -29,7 +29,7 @@ export class HuodoninfoPage extends AppBase {
     public huodonApi: HuodonApi,
     public instApi: InstApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
     this.huodoninfo = {};
   }

@@ -106,7 +106,10 @@ class Content extends AppBase {
     var api = new JigouApi();
     var that = this;
     var xueyuan = this.Base.getMyData().xuanzexueyuan;
-    
+      
+
+      console.log(xueyuan);
+     //return
       if(this.Base.getMyData().zhifuzhon)
       {
    
@@ -124,7 +127,7 @@ class Content extends AppBase {
     var phone = xueyuan.shouji;
     var  diqu=xueyuan.dizhi;
     var age = xueyuan.sui;
-    var sex = xueyuan.sex=='sex'?'男':'女';
+    var sex = xueyuan.sex=='nan'?'男':'女';
     var json1 = {
       course_id: this.Base.options.course_id, phone: phone, name: name, jiage: this.Base.getMyData().courseinfo.price, isexperience: this.Base.options.leixin == 1 ? 'Y' : 'N',diqu:diqu,age:age,sex:sex
     };

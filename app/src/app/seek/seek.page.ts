@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -17,7 +17,7 @@ import { InstApi } from 'src/providers/inst.api';
 })
 export class SeekPage extends AppBase {
 
-  constructor(public router: Router,
+  constructor(public zone:NgZone, public router: Router, 
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -28,7 +28,7 @@ export class SeekPage extends AppBase {
     public jigouApi: JigouApi,
     public instApi: InstApi
   ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
 
   }
@@ -326,7 +326,7 @@ export class SeekPage extends AppBase {
   }
 
 
-  onReachBottom() {
+  onReachBottom(e) {
 
 
     var mylat = this.mylat;
@@ -355,6 +355,7 @@ export class SeekPage extends AppBase {
       }
       console.log(count + "AAA")
       if (count == 0) {
+        e.target.complete();
         return;
       }
 
@@ -363,6 +364,7 @@ export class SeekPage extends AppBase {
         setTimeout(() => {
           console.log("llll");
           this.vteach=vteach;
+          e.target.complete();
         }, 500);
       }
 
@@ -382,11 +384,13 @@ export class SeekPage extends AppBase {
         }
       }
       if (cs == 0) {
+        e.target.complete();
         return;
       }
       if (cs != 0) {
         setTimeout(() => {
           this.jgvteach=jgvteach;
+          e.target.complete();
         }, 500);
       }
     }
