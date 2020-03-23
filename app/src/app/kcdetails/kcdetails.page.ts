@@ -156,6 +156,7 @@ export class KcdetailsPage extends AppBase {
     }).then((courseinfo) => {
 
       jigouapi.fenxiaoinfo({}).then((fenxiaoinfo) => {
+        console.log(fenxiaoinfo,'22')
 
         this.fenxiaoinfo = fenxiaoinfo;
       })
@@ -206,6 +207,7 @@ export class KcdetailsPage extends AppBase {
         orderby: 'r_main.seq',
         status: "A"
       }).then((kechenlunbo) => {
+        console.log(kechenlunbo,'12')
         this.kechenlunbo = kechenlunbo;
       });
 
@@ -253,7 +255,7 @@ export class KcdetailsPage extends AppBase {
   }
   ppp=0;
   pppp=0;
-  tanchuang=true;
+  tanchuang=false;
   bindtopurchase(e) {
 
     var price = this.courseinfo.price;

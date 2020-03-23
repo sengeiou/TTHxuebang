@@ -22,7 +22,7 @@
       <div class="w20"></div>
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
       <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true'
-        placeholder='搜索您要找的机构、课程' [(ngModel)]='search' />
+        placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' />
 
       <div class='padding-left-20 padding-right-10' >
         <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
@@ -45,7 +45,7 @@
       <div class="bg-white">
         <div class='keywordtitle txt-9'>热门搜索</div>
         <div class='flex-row pl30' style='flex-wrap: wrap;'>
-          <div *ngFor="let item of hotest;" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails($event)'>
+          <div *ngFor="let item of hotest;" wx:key="k" class='keyword' id="{{item.keyword}}" (click)='todetails(item.keyword)'>
             {{item.keyword}}</div>
         </div>
         <div class="h40"></div>
@@ -58,12 +58,12 @@
       <div class="bg-white mt12" style=''>
         <div class='flex-row flex-center'>
           <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
-          <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord($event)' />
+          <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord()' />
           <div class="w40"></div>
         </div>
 
         <div class='sp2 ' style=''>
-          <div *ngFor="let item of history;" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails($event)'>
+          <div *ngFor="let item of history;" wx:key="k" class='' id="{{item.keyword}}" (click)='todetails(item.keyword)'>
             <div style="height:2px;background:#F5F5F5"></div>
             <div class="h6 sp1" style="">{{item.keyword}}</div>
           </div>

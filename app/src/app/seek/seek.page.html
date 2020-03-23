@@ -18,11 +18,12 @@
 </div>
 
 <div *ngIf='type=="jg"'>
- 
-  <div class='fixedtop'>
+
+  <div class='fixedtop' >
+    
     <div class='bg-primary'>
       <div class='padding-left-20 padding-right-20 padding-top-20 '>
-        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator()' url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
           <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h5 txt-gray margin-left'>搜索机构名字</div>
         </div>
@@ -39,7 +40,7 @@
           <div class="w50"></div>
           <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
           <ion-slides  [options]='mySwiperOption' vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
-            <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+            <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black '>
               {{item.content}}
             </ion-slide>
           </ion-slides>

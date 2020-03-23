@@ -166,19 +166,23 @@ export class SeekPage extends AppBase {
 
   }
   tojgdetails(id) {
+    console.log(id,'pp00');
+    // return
     this.xiala = "yc";
     this.xialakc = "yc";
     this.xialaage = "yc";
 
-    this.navigateTo({
-      url: '/jgdetails/jgdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/jgdetails/jgdetails?id=' + id,
+    // })
+    this.navigate("jgdetails", { id: id });
   }
 
   tokcdetails(id) {
-    this.navigateTo({
-      url: '/kcdetails/kcdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/kcdetails/kcdetails?id=' + id,
+    // })
+    this.navigate("kcdetails", { id: id });
   }
 
   bindshow(type) {
@@ -546,6 +550,8 @@ export class SeekPage extends AppBase {
       path: url
     };
   }
-
+  gonavigator(){
+    this.navigate('searchword',{type:'jg'})
+  }
 
 }

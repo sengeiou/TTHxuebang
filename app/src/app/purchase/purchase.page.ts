@@ -37,7 +37,7 @@ export class PurchasePage extends AppBase {
 
   }
   usercomment = "";
-  xuanzexueyuan = '';
+  xuanzexueyuan;
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数

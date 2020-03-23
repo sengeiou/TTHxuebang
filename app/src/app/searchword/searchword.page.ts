@@ -41,7 +41,7 @@ export class SearchwordPage extends AppBase {
 
   }
 
-
+  searchword;
   history = [];
   hotest = [];
   onMyShow(e=undefined) {
@@ -94,9 +94,10 @@ export class SearchwordPage extends AppBase {
     instapi.setsearch({ keyword: word });
 
     if (word != null) {
-      this.navigateTo({
-        url: '/pages/search/search?keyword=' + word + '&tp=' + this.params.tp,
-      })
+      // this.navigateTo({
+      //   url: '/pages/search/search?keyword=' + word + '&tp=' + this.params.tp,
+      // })
+      this.navigate('search',{keyword:name,tp:this.params.tp})
     }
   }
 
@@ -105,9 +106,10 @@ export class SearchwordPage extends AppBase {
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: name });
 
-    this.navigateTo({
-      url: '/pages/search/search?keyword=' + name,
-    })
+    // this.navigateTo({
+    //   url: '/pages/search/search?keyword=' + name,
+    // })
+    this.navigate('search',{keyword:name})
   }
   teachlist=[];
   fav(id) {

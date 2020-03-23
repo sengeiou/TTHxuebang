@@ -2,7 +2,7 @@
   <ion-toolbar color='primary'>
     <ion-buttons slot="start">
       <ion-button (click)='back()'>
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <!-- <ion-icon slot="icon-only" name="arrow-back"></ion-icon> -->
       </ion-button>
     </ion-buttons>
     <ion-title>{{heading}}</ion-title>
@@ -31,10 +31,10 @@
 
   <div class=' ' >
     <div class='padding-15  bg-primary'>
-      <div (click)='tocity()' class='flex-row flex-center'>
-        <div class='txt-black h40 txt-bold'>{{cityname}}</div>
-        <div class='txt-black h40 txt-bold' *ngIf='cityname==""'>深圳市</div>
-        <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
+      <div class='flex-row flex-center'>
+        <div class='txt-black h40 txt-bold'  (click)='tocity()'>{{cityname}}</div>
+        <div class='txt-black h40 txt-bold'  (click)='tocity()' *ngIf='cityname==""'>深圳市</div>
+        <img class='icon-15 margin-left-10'  (click)='tocity()' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
 
         <div (click)="xiaoxiliebiao()">
@@ -47,7 +47,7 @@
 
       <div class=' flex-row margin-top-20'>
 
-        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator()' url='/pages/searchword/searchword?type=kc' class='search flex-1 flex-row flex-center  padding-10 '>
           <div class='flex-1 sp1'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h6 txt-gray margin-left-20 sp2'>快速搜索你要找的机构、课程 如“美术”</div>
@@ -86,7 +86,7 @@
       <ion-slides  [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200' circular='true' class="wpc2">
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' id="{{item.id}}"
             class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
         </ion-slide>
       </ion-slides>

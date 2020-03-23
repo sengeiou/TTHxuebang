@@ -48,8 +48,8 @@ export class CityPage extends AppBase {
     this.CurrentName = AppBase.CITYNAME;
     this.CurrentName = AppBase.CITYNAME;
     var address = this.address;
-    var citycode = address.ad_info.adcode.substr(0, 4) + "00";
-    this.locationCityCode = citycode;
+    // var citycode = address.ad_info.adcode.substr(0, 4) + "00";
+    // this.locationCityCode = citycode;
     memberapi.usecitylist({}).then((usecitylist) => {
       this.usecitylist = usecitylist;
     });

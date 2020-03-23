@@ -21,14 +21,14 @@
 <div>
 
 
-  <div class='' style='background-image:url({{uploadpath}}curriculum/{{courseinfo.xq_bg}}?x-oss-process=style/test_img);background-size:100% 100%;'>
+  <div class='' [style.background-image]="'url('+uploadpath+'curriculum/'+courseinfo.xq_bg+'?x-oss-process=style/test_img'+')'"  style='background-size:100% 100%;'>
 
     <div class="h140"></div>
 
     <ion-slides  [options]='mySwiperOption' indicator-dots='{{true}}' autoplay='{{false}}' interval='2000' duration='200' circular='true' class='sp1'>
       <ion-slide *ngFor="let item of kechenlunbo" wx:key="k">
         <div>
-          <img *ngIf='item.video==""' src='{{uploadpath}}kecheng/{{item.img}}' (click)='viewPhoto($event)' id='{{uploadpath}}kecheng/{{item.img}}' class="sp1" />
+          <img *ngIf='item.video==""' src='{{uploadpath}}kecheng/{{item.img}}' (click)='viewPhoto()' id='{{uploadpath}}kecheng/{{item.img}}' class="sp1" />
           <video *ngIf='item.video!=""' objectFit='fill' src='{{uploadpath}}kechenimg/{{item.video}}' poster='{{uploadpath}}kecheng/{{item.img}}' class="sp1" ></video>
         </div>
       </ion-slide>
@@ -86,18 +86,19 @@
 
             <div class='flex-row margin-top-5 padding-left-20'>
               <div class="flex-row flex-1">
-                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of courseinfo.labels" wx:key="k">{{litem.name}}</div>
+                <div class='biaoqian  text-center radius-10 txt-green h6 margin-5 ' style='border:1px solid' [style.bordercolor]='litem.color' [style.color]='litem.color' *ngFor="let litem of courseinfo.labels" wx:key="k">{{litem.name}}</div>
               </div>
 
 
               <div *ngIf="!tanchuang">
+                <div *ngIf="courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined && fenxiaoinfo.length>0">
                 <div *ngIf="courseinfo.isfenxiao_value=='Y'&&fenxiaoinfo!=undefined&&fenxiaoinfo[0].status=='S'" (click)="yaoqin($event)" class=" zhaunfa flex-row flex-center margin-bottom-10">
 
                   <div class='flex-1'></div>
                   <img src='{{uploadpath}}resource/{{res.zhuanfa}}' class='zhuanfa-icon' />
                   <div class='h6 margin-left-10'>转发好友</div>
                   <div class='flex-1'></div>
-
+                </div>
                 </div>
               </div>
             </div>

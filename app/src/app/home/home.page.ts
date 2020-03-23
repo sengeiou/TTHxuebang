@@ -758,5 +758,8 @@ export class HomePage extends AppBase {
     this.navigate("seek",json)
 
   }
+  gonavigator(){
+    this.navigate("searchword",{type:'kc'})
+  }
 
 }
