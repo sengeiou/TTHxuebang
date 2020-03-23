@@ -164,17 +164,10 @@ export class AppBase implements OnInit, OnDestroy {
                     if (AppBase.MemberInfo == null) {
                         var url = window.location.href;
                         //url="http://yuyue.helpfooter.com/tabs/tab1";
-<<<<<<< HEAD
                         // var redirecturl = encodeURIComponent(url);
                         // var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         // console.log({ redurl });
-                        //window.location.href=redurl;
-=======
-                        var redirecturl = encodeURIComponent(url);
-                        var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
-                        console.log({ redurl });
-                        window.location.href=redurl;
->>>>>>> 136e8263af115a9c5a33c13edb83d68ffd809495
+                        // window.location.href=redurl;
                     }
                 }
                 //this.setWechatShare();

@@ -1,4 +1,4 @@
-import { Component, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component,NgZone, ViewChild, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -30,9 +30,10 @@ export class PurchasePage extends AppBase {
     public instApi:InstApi,
     public jigouApi:JigouApi,
     public purchaseApi:PurchaseApi,
-    public wechatApi:WechatApi
+    public wechatApi:WechatApi,
+    public zone:NgZone
     ) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute,zone);
     this.headerscroptshow = 480;
 
   }
