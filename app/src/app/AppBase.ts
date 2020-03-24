@@ -237,6 +237,7 @@ export class AppBase implements OnInit, OnDestroy {
                 //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
                 this.setWechatShare();
+                // this.onMyShow();
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
@@ -245,7 +246,7 @@ export class AppBase implements OnInit, OnDestroy {
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
             this.setWechatShare();
-
+            // this.onMyShow();
         }
 
 

@@ -38,13 +38,23 @@ export class PurchasePage extends AppBase {
 
   }
   usercomment = "";
-  xuanzexueyuan;
+  xuanzexueyuan={
+    id:'',
+    name:'',
+    sex:'',
+    shouji :'',
+    dizhi:'',
+    sui:''
+  };
   zhifuzhon = false;
   onMyLoad(e=undefined) {
     //参数
     this.params;
   }
   courseinfo=null;
+  tempinfo={
+    price:0
+  };
   xueyuanlist=[];
   onMyShow(e=undefined) {
     var that = this;
@@ -66,6 +76,7 @@ export class PurchasePage extends AppBase {
         }
 
         this.courseinfo.push(courseinfo);
+        this.tempinfo=courseinfo;
       });
 
 
@@ -88,6 +99,7 @@ export class PurchasePage extends AppBase {
         }
 
         this.courseinfo.push(courseinfo);
+        this.tempinfo=courseinfo;
     console.log(this.courseinfo,'pppppp')
 
       });
@@ -96,6 +108,7 @@ export class PurchasePage extends AppBase {
     var nian = new Date();
     var year = nian.getFullYear();
     jigouapi.xueyuanlist({}).then((xueyuan) => {
+      console.log(xueyuan)
       xueyuan.map((item) => {
         console.log(Number(item.shengri.substring(0, 4)));
         console.log(Number(year))
@@ -105,7 +118,7 @@ export class PurchasePage extends AppBase {
       this.xueyuanlist=xueyuan;
     })
   }
-  bindtoorder(e) {
+  bindtoorder() {
     var that = this;
 
     var xueyuan = this.xuanzexueyuan;
@@ -118,7 +131,7 @@ export class PurchasePage extends AppBase {
 
     }
 
-    if (xueyuan == "") {
+    if (xueyuan.name == "") {
       this.showAlert("请选择学员");
       return;
     }
@@ -134,8 +147,9 @@ export class PurchasePage extends AppBase {
     var json1 = {
       course_id: this.params.course_id, phone: phone, name: name, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     };
+
     var json2 = {
-      course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.options.type, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
+      course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.params.type, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     }
 
     if (this.params.type != undefined) {
@@ -150,9 +164,10 @@ export class PurchasePage extends AppBase {
           if (ret.code == '0') {
             if (ret.return.pstatus == 'P') {
 
-              this.navigateTo({
-                url: '/pages/order/order' + ret.return.id,
-              })
+              // this.navigateTo({
+              //   url: '/pages/order/order' + ret.return.id,
+              // })
+              this.navigate('order',{id:ret.return.id})
 
 
               return;
@@ -167,19 +182,19 @@ export class PurchasePage extends AppBase {
 
                     api.purchaseinfo({ id: ret.return.id }).then((res) => {
 
-                      this.navigateTo({
-                        url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                      })
-
+                      // this.navigateTo({
+                      //   url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
+                      // })
+                      this.navigate('groupinfo',{id:res.spellgroup_id})
                     })
 
                   }
                   else {
 
-                    this.navigateTo({
-                      url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                    })
-
+                    // this.navigateTo({
+                    //   url: '/pages/kcdetails/kcdetails?id=' + that.params.course_id,
+                    // })
+                    this.navigate('kcdetails',{id:that.params.course_id})
                   }
 
                 }
@@ -201,7 +216,7 @@ export class PurchasePage extends AppBase {
       else {
 
         var api2 = this.jigouApi;
-        api2.addgroup({ group_course_id: this.options.course_id, id: this.options.type }).then((res) => {
+        api2.addgroup({ group_course_id: this.params.course_id, id: this.params.type }).then((res) => {
           console.log("哈哈哈");
           console.log(res);
           if (res.code == "0") {
@@ -212,9 +227,10 @@ export class PurchasePage extends AppBase {
             api3.create(json2).then( (ret) => {
               if (ret.code == '0') {
                 if (ret.return.pstatus == 'P') {
-                  this.navigateTo({
-                    url: '/pages/order/order' + ret.return.id,
-                  })
+                  // this.navigateTo({
+                  //   url: '/pages/order/order' + ret.return.id,
+                  // })
+                  this.navigate('order',{id:ret.return.id})
                   return;
                 } else {
                   var wechatapi = this.wechatApi;
@@ -224,17 +240,17 @@ export class PurchasePage extends AppBase {
                       if (e.errMsg == "requestPayment:ok") {
                         api.purchaseinfo({ id: ret.return.id }).then((res) => {
 
-                          this.navigateTo({
-                            url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                          })
-
+                          // this.navigateTo({
+                          //   url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
+                          // })
+                          this.navigate('groupinfo',{id:res.spellgroup_id})
                         })
                       }
                       else {
-                        this.navigateTo({
-                          url: '/pages/kcdetails/kcdetails?id=' + that.options.course_id,
-                        })
-
+                        // this.navigateTo({
+                        //   url: '/pages/kcdetails/kcdetails?id=' + that.params.course_id,
+                        // })
+                        this.navigate('kcdetails',{id:that.params.course_id})
                       }
 
                     }
@@ -272,9 +288,10 @@ export class PurchasePage extends AppBase {
         if (ret.code == '0') {
           if (ret.return.pstatus == 'P') {
 
-            this.navigateTo({
-              url: '/pages/order/order' + ret.return.id,
-            })
+            // this.navigateTo({
+            //   url: '/pages/order/order' + ret.return.id,
+            // })
+            this.navigate('order',{id:ret.return.id});
             return;
           } else {
             var wechatapi = this.wechatApi;
@@ -287,19 +304,19 @@ export class PurchasePage extends AppBase {
                   //迷that.id
                   api.purchaseinfo({ id: 0 }).then((res) => {
 
-                    this.navigateTo({
-                      url: '/pages/order/order?id=' + ret.return.id,
-                    })
-
+                    // this.navigateTo({
+                    //   url: '/pages/order/order?id=' + ret.return.id,
+                    // })
+                    this.navigate('order',{id:ret.return.id})
                   })
 
                 }
                 else {
 
-                  this.navigateTo({
-                    url: '/pages/order/order?id=' + ret.return.id,
-                  })
-
+                  // this.navigateTo({
+                  //   url: '/pages/order/order?id=' + ret.return.id,
+                  // })
+                  this.navigate('order',{id:ret.return.id})
                 }
 
               }
@@ -336,14 +353,16 @@ export class PurchasePage extends AppBase {
   }
   xianqin(id) {
 
-    this.navigateTo({
-      url: '/studentinfo/studentinfo?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/studentinfo/studentinfo?id=' + id,
+    // })
+    this.navigate('studentinfo',{id:id})
   }
   tianjia(e=undefined) {
-    this.navigateTo({
-      url: '/studentinfo/studentinfo',
-    })
+    // this.navigateTo({
+    //   url: '/studentinfo/studentinfo',
+    // })
+    this.navigate('studentinfo')
 
   }
 }

@@ -50,7 +50,7 @@ export class JgdetailsPage extends AppBase {
   miletxt = "";
   canbuy = null;
   jigouimg = [];
-  jginfo = null;
+  jginfo=[];
   isfav = "";
 
   arr5=[];
@@ -79,7 +79,7 @@ export class JgdetailsPage extends AppBase {
       id: this.params.id
     }).then((jginfo) => {
 
-
+      console.log(jginfo,'jginfo')
       var hang = jginfo.jieshao;
       var hangshu = hang.split('\n')
 
@@ -169,7 +169,8 @@ export class JgdetailsPage extends AppBase {
       });
 
       console.log("???????????");
-      this.jginfo = jginfo;
+      // this.jginfo = jginfo;
+      this.jginfo.push(jginfo)
       this.isfav = jginfo.isfav;
     });
   }

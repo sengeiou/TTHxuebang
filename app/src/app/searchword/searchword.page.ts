@@ -40,7 +40,7 @@ export class SearchwordPage extends AppBase {
 
 
   }
-
+  morenqu=false;
   searchword;
   history = [];
   hotest = [];
@@ -59,8 +59,9 @@ export class SearchwordPage extends AppBase {
 
   bindconfirm(e) {
     this.tosearch();
+    
   }
-  quxiao(e) {
+  quxiao() {
     this.navigateBack({
       delta: 1,
     })
@@ -89,7 +90,7 @@ export class SearchwordPage extends AppBase {
 
   tosearch(e=undefined) {
     var word = this.value;
-
+  
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: word });
 
@@ -102,7 +103,7 @@ export class SearchwordPage extends AppBase {
   }
 
   todetails(name) {
-
+    console.log(name,'keyword')
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: name });
 

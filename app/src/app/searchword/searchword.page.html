@@ -21,7 +21,7 @@
     <div class='search flex-row flex-center padding-5 '>
       <div class="w20"></div>
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-      <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true'
+      <input class='h6 flex-1 txt-black padding-left-5 inp' bindconfirm='bindconfirm' confirm-type='search' focus='true'
         placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' />
 
       <div class='padding-left-20 padding-right-10' >
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)'>取消</div>
+    <div class='text-right flex-1 h5 txt-white' style=''  (click)='quxiao()'>取消</div>
   </div>
   <div (click)='todetails(item.name)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
     *ngFor="let item of result;let idx=index;" >
