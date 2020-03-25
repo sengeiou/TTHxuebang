@@ -244,7 +244,7 @@ export class AppBase implements OnInit, OnDestroy {
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
             this.setWechatShare();
 
-        }
+        } 
 
 
     }
