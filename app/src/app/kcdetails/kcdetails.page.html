@@ -18,10 +18,10 @@
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 
-  <div>
+  <div >
 
 
-    <div class=''
+    <div class='' id='dinbu'
       [style.background-image]="'url('+uploadpath+'curriculum/'+courseinfo.xq_bg+'?x-oss-process=style/test_img'+')'"
       style='background-size:100% 100%;'>
 
@@ -143,8 +143,8 @@
             </div>
             <div class='flex-row flex-center  padding-left-30  '>
               <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
-              <div class='h5 margin-left-10 txt-blue dizhi w500' (click)='nav()'
-                id="{{courseinfo.JG_address}}">{{courseinfo.JG_showaddress}}</div>
+              <div class='h5 margin-left-10 txt-blue dizhi w500' (click)='nav()' id="{{courseinfo.JG_address}}">
+                {{courseinfo.JG_showaddress}}</div>
               <div class="flex-1"></div>
               <div class='h6 txt-black margin-right-40 txt-bold ' *ngIf="miletxt!=undefined">距你{{miletxt}}</div>
             </div>
@@ -309,19 +309,19 @@
 
     <div *ngIf="(pingjialist.length==0&&pintuanrenshu==undefined)||pintuanrenshu>0" class='height-20 bg-gray'></div>
 
-    <div class='flex-row bg-white ' style=''>
+    <div class='flex-row bg-white ' style='' id='xianq'>
       <div class='padding-20 text-center flex-1 txt-bold {{show=="kcxq"?"txt":""}} txt-black' (click)='bindcut("kcxq")'
         data-type='kcxq'>课程详情</div>
       <div class='padding-20 text-center flex-1 txt-bold {{show=="gmxz"?"txt":""}} txt-black'
-        (click)='gotoBottom("gmxz")'  data-type='gmxz'>购买须知</div>
+        (click)='gotoBottom("gmxz")' data-type='gmxz'>购买须知</div>
     </div>
 
 
-    <div class=''>
+    <div class='' >
       <img src='{{uploadpath}}curriculum/{{courseinfo.kcchimg}} ' class=' ' mode='widthFix' style='width:100vw' />
     </div>
-
-    <div class='fixedbottom' >
+    <div id='goumai'></div>
+    <div class='fixedbottom'>
 
       <div class='txt-red txt-bold text-center h5 flex-row flex-center sp3' *ngIf="canbuy.code=='-1'">
         <div class="flex-1"></div>
@@ -356,14 +356,14 @@
 
         </div>
 
-        <div class='flex-1  bg-white padding-15'>
+        <!-- <div class='flex-1  bg-white padding-15'>
           <button class=' clear-button' hover-class='bg-primary' open-type='contact' style='border-radius:0;border:0;'>
             <div class='flex-row flex-column'>
               <img class='icon-25' mode='aspectFill' src='{{uploadpath}}resource/{{res.kc_kf}}' />
               <div class='h6 '>客服</div>
             </div>
           </button>
-        </div>
+        </div> -->
 
 
 
@@ -605,6 +605,7 @@
 
   <div class='block_black' *ngIf='ispintuan'>
   </div>
+
 
   <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">

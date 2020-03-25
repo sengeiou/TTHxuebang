@@ -415,6 +415,10 @@ export class JgdetailsPage extends AppBase {
   toindex(e) {
     this.backHome();
   }
+  nav(){
+    console.log(this.jginfo)
+    this.openLocation(this.jginfo[0].lat,this.jginfo[0].lng,this.jginfo[0].jigou,this.jginfo[0].address);
+  }
   bindfullscreenchange(e) {
     console.log("10000", e)
     if (e.detail.fullScreen == true) {

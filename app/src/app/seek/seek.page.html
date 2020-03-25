@@ -9,7 +9,7 @@
         </ion-toolbar>
   </ion-header>
 
-    <ion-content >
+    <ion-content>
 
 <!--pages/seek/seek.wxml  *ngIf='type=="jg"'-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
@@ -17,7 +17,7 @@
   <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
 </div>
 
-<div *ngIf='type=="jg"'>
+<div *ngIf='type=="jg"' id='dinbu'>
 
   <div class='fixedtop' >
     
@@ -164,7 +164,7 @@
 
 
 
-<div *ngIf='type=="kc"' class='' style=''>
+<div *ngIf='type=="kc"' class='' style='' id='dinbu'>
 
   <div class='fixedtop'>
     <div class='bg-primary'>

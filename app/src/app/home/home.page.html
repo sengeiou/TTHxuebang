@@ -7,7 +7,7 @@
 <ion-content>
 
 
-  <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
+  <div class="tishikuang flex-row flex-center" *ngIf='nocity==1' >
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
     <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
     <div class="f20 margin-left-10" style="color:#589DE9">{{InstInfo.slogen}}</div>
@@ -23,9 +23,9 @@
 
 
 
-  <div class=' '>
+  <div class=' ' id='dinbu'>
     <div class='padding-15  bg-primary'>
-      <div  class='flex-row flex-center'>
+      <div class='flex-row flex-center'>
         <div class='txt-black h40 txt-bold' (click)='tocity()'>{{cityname}}</div>
         <div class='txt-black h40 txt-bold' (click)='tocity()' *ngIf='cityname==""'>深圳市</div>
         <img class='icon-15 margin-left-10' (click)='tocity()' src='{{uploadpath}}resource/{{res.bottom}}' />
@@ -76,7 +76,7 @@
 
 
 
-  <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
+  <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);' >
     <div class=' sp3  ' style="">
 
       <ion-slides [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200'
@@ -115,7 +115,7 @@
 
     </ion-slide>
 
-   <!-- <ion-slide class=" flex-row flex-center flex-wrap" >
+    <!-- <ion-slide class=" flex-row flex-center flex-wrap" >
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}"
           (click)='bindtokc(item.id,item.typename)' id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">

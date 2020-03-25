@@ -22,7 +22,7 @@
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 
-  <div style="" class="{{tanchuang==true?'tanchuang':''}}" *ngFor='let item of jginfo'>
+  <div style="" class="{{tanchuang==true?'tanchuang':''}}" *ngFor='let item of jginfo' id='dinbu'>
     <div class=''  [style.background-color]='item.bgcolor'>
 
       <div style='position:relative;'>
@@ -110,7 +110,7 @@
               <div>
                 <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
             </div>
-            <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)' id="{{item.address}}">
+            <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='nav(item.address)' id="{{item.address}}">
               {{item.address}}</div>
             <div class='h6 txt-black txt-right txt-bold h150'  *ngIf="miletxt!=undefined">距你{{miletxt}}
             </div>
@@ -201,7 +201,7 @@
               <div>
                 <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
               </div>
-              <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)'
+              <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='nav(item.address)'
                 id="{{item.address}}">{{item.address}}</div>
               <div class='h6 txt-black txt-right txt-bold w150'  *ngIf="miletxt!=''">
                 距你{{miletxt}}</div>
@@ -371,7 +371,7 @@
     </div>
 
     <div class='flex-row flex-center'>
-      <div class='left flex-row flex-center' >
+      <div class='left flex-row flex-center flex-1' >
 
         <div class='flex-1 flex-row flex-column' (click)='toindex()'>
           <img src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25' />
@@ -387,15 +387,15 @@
           <div class='h7 margin-top-8'>收藏</div>
         </div>
 
-        <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+        <!-- <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
           <div class=' flex-row flex-column'>
             <img src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25' />
             <div class='h7 margin-top-8'>客服</div>
           </div>
-        </button>
+        </button> -->
 
       </div>
-      <div class=' flex-row flex-center' *ngIf='nogroup=="Y"'>
+      <div class=' flex-row flex-center flex-1' *ngIf='nogroup=="Y"'>
         <div class='buybtn txt-white h5 text-center bg-cheng' id="{{item.id}}" (click)='bindshowtc($event)'>
           立即购买</div>
         <div class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{item.id}}" (click)="bindpin($event)">
@@ -413,7 +413,7 @@
 
 
 
-  <div class='buy' *ngIf='tanchuang==true'>
+  <div class='buy' *ngIf='tanchuang==true' >
 
     <div class="black" catchtouchmove="{{true}}"></div>
 

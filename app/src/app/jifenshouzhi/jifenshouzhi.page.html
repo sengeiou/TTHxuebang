@@ -17,7 +17,7 @@
   <div class=' to_top'>
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
-  <div class="flex-row flex-center title bg-white" style="">
+  <div class="flex-row flex-center title bg-white" style="" >
 
     <div class="flex-row flex-column flex-1 margin-left-20" (click)="xuanze('shouru')" id="shouru">
       <div class="h5 {{show==1?'txt-bold':''}}">收入</div>
@@ -33,7 +33,7 @@
 
 
 
-  <div *ngIf='show==1'>
+  <div *ngIf='show==1' id='dinbu'>
 
     <div class="flex-row flex-center h52">
       <div class="h6 txt9 margin-left-20 flex-1">2019年</div>
@@ -60,7 +60,7 @@
   </div>
 
 
-  <div *ngIf='show==2'>
+  <div *ngIf='show==2' id='dinbu'>
 
     <div class="flex-row flex-center h52">
       <div class="h6 txt9 margin-left-20 flex-1">2019年</div>

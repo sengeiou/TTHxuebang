@@ -143,13 +143,13 @@ export class PurchasePage extends AppBase {
     var diqu = xueyuan.dizhi;
     var age = xueyuan.sui;
     var sex = xueyuan.sex == 'sex' ? '男' : '女';
-    
+    this.tempinfo.price=0.1;
     var json1 = {
-      course_id: this.params.course_id, phone: phone, name: name, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
+      course_id: this.params.course_id, phone: phone, name: name, jiage: this.tempinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     };
 
     var json2 = {
-      course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.params.type, jiage: this.courseinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
+      course_id: this.params.course_id, phone: phone, name: name, type: "PT", kt: this.params.type, jiage: this.tempinfo.price, isexperience: this.params.leixin == 1 ? 'Y' : 'N', diqu: diqu, age: age, sex: sex
     }
 
     if (this.params.type != undefined) {
