@@ -75,8 +75,8 @@ export class AppBase implements OnInit, OnDestroy {
 
     public static jump = true;
 
-    public keyt = "MemberInfo07";
-    public stat = "stat9";
+    public keyt = "MemberInfo09";
+    public stat = "stat91";
 
     public heading = "学榜";
 

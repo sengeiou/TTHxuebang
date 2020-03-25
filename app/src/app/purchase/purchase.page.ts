@@ -10,6 +10,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { JigouApi } from 'src/providers/jigou.api';
 import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
+declare let WeixinJSBridge: any; 
 
 @Component({
   selector: 'app-purchase',
@@ -173,32 +174,20 @@ export class PurchasePage extends AppBase {
               return;
             } else {
               var wechatapi = this.wechatApi;
-              wechatapi.prepay2({ id: ret.return.id }).then((payret) => {
-                payret.complete = function (e) {
+              wechatapi.prepay2({ id: ret.return.id,h5:"Y" }).then((payret) => {
 
+                WeixinJSBridge.invoke(
+                  'getBrandWCPayRequest', payret,
+                  (res) => {
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                      api.purchaseinfo({ id: ret.return.id }).then((res) => {
+                        this.navigate('groupinfo',{id:res.spellgroup_id})
+                      })
+                    } else {
+                      this.navigate('kcdetails',{id:that.params.course_id})
+                    }
+                  });
 
-                  if (e.errMsg == "requestPayment:ok") {
-
-
-                    api.purchaseinfo({ id: ret.return.id }).then((res) => {
-
-                      // this.navigateTo({
-                      //   url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                      // })
-                      this.navigate('groupinfo',{id:res.spellgroup_id})
-                    })
-
-                  }
-                  else {
-
-                    // this.navigateTo({
-                    //   url: '/pages/kcdetails/kcdetails?id=' + that.params.course_id,
-                    // })
-                    this.navigate('kcdetails',{id:that.params.course_id})
-                  }
-
-                }
-                console.log(payret);
                 //todo
                 //wx.requestPayment(payret)
               });
@@ -234,29 +223,20 @@ export class PurchasePage extends AppBase {
                   return;
                 } else {
                   var wechatapi = this.wechatApi;
-                  wechatapi.prepay2({ id: ret.return.id }).then((payret) => {
+                  wechatapi.prepay2({ id: ret.return.id,h5:"Y" }).then((payret) => {
 
-                    payret.complete = function (e) {
-                      if (e.errMsg == "requestPayment:ok") {
-                        api.purchaseinfo({ id: ret.return.id }).then((res) => {
+                    WeixinJSBridge.invoke(
+                      'getBrandWCPayRequest', payret,
+                      (res) => {
+                        if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                          api3.purchaseinfo({ id: ret.return.id }).then((res) => {
+                            this.navigate('groupinfo',{id:res.spellgroup_id})
+                          })
+                        } else {
+                          this.navigate('kcdetails',{id:that.params.course_id})
+                        }
+                      });
 
-                          // this.navigateTo({
-                          //   url: '/pages/groupinfo/groupinfo?id=' + res.spellgroup_id,
-                          // })
-                          this.navigate('groupinfo',{id:res.spellgroup_id})
-                        })
-                      }
-                      else {
-                        // this.navigateTo({
-                        //   url: '/pages/kcdetails/kcdetails?id=' + that.params.course_id,
-                        // })
-                        this.navigate('kcdetails',{id:that.params.course_id})
-                      }
-
-                    }
-                    console.log(payret);
-                    //todo
-                    //wx.requestPayment(payret)
                   });
                 }
               } else {
@@ -295,34 +275,22 @@ export class PurchasePage extends AppBase {
             return;
           } else {
             var wechatapi = this.wechatApi;
-            wechatapi.prepay({ id: ret.return.id }).then((payret) => {
-              payret.complete = function (e) {
+            wechatapi.prepay({ id: ret.return.id,h5:"Y" }).then((payret) => {
 
 
-                if (e.errMsg == "requestPayment:ok") {
 
-                  //迷that.id
-                  api.purchaseinfo({ id: 0 }).then((res) => {
-
-                    // this.navigateTo({
-                    //   url: '/pages/order/order?id=' + ret.return.id,
-                    // })
+              WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', payret,
+                (res) => {
+                  if(res.err_msg == "get_brand_wcpay_request:ok" ){
+                    api4.purchaseinfo({ id: ret.return.id }).then((res) => {
+                      this.navigate('order',{id:ret.return.id})
+                    })
+                  } else {
                     this.navigate('order',{id:ret.return.id})
-                  })
+                  }
+                });
 
-                }
-                else {
-
-                  // this.navigateTo({
-                  //   url: '/pages/order/order?id=' + ret.return.id,
-                  // })
-                  this.navigate('order',{id:ret.return.id})
-                }
-
-              }
-              console.log(payret);
-              //todo
-              //wx.requestPayment(payret)
             });
           }
         } else {
