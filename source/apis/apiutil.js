@@ -27,7 +27,11 @@ export class ApiUtil {
       list.push(a,b,c,d);
      list= list.filter((item)=>{
          return    item>0;
-     })
+     }) 
+     if(list.length==0)
+     {
+       return  0;
+     }
      var min= Math.min.apply(null,list)
       console.log(list);
       console.log(min);

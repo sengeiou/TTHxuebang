@@ -151,6 +151,7 @@ export class AppBase implements OnInit, OnDestroy {
     onMyLoad() {
     }
     getInstInfo() {
+        console.log(66666)
         if (AppBase.InstInfo == null) {
             AppBase.instapi.info({}, false).then((InstInfo) => {
                 AppBase.InstInfo = InstInfo;
@@ -172,6 +173,7 @@ export class AppBase implements OnInit, OnDestroy {
                 //this.setWechatShare();
             });
         } else {
+            console.log(55555);
             this.InstInfo = AppBase.InstInfo;
             //this.setWechatShare();
         }
@@ -192,8 +194,8 @@ export class AppBase implements OnInit, OnDestroy {
 
 
 
-        this.navigate("/tabs/tab1");
-
+        this.navCtrl.navigateBack('tabs/home');
+        return;
 
 
     }
@@ -235,6 +237,7 @@ export class AppBase implements OnInit, OnDestroy {
                 //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
                 this.setWechatShare();
+                // this.onMyShow();
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
@@ -243,8 +246,8 @@ export class AppBase implements OnInit, OnDestroy {
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
             this.setWechatShare();
-
-        } 
+            // this.onMyShow();
+        }
 
 
     }
@@ -464,7 +467,7 @@ export class AppBase implements OnInit, OnDestroy {
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation",'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
             wx.ready(()=>{
@@ -548,7 +551,8 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     backtotop(e = undefined) {
-        var ioncontent = document.querySelector("ion-header");
+        // var ioncontent = document.querySelector("ion-content");
+        var ioncontent = document.getElementById('dinbu');
         ioncontent.scrollIntoView(true);
     }
     onShareAppMessage() {
@@ -609,6 +613,15 @@ export class AppBase implements OnInit, OnDestroy {
     phoneCall(e) {
          
     }
+    openLocation(lat, lng, name, address) {
+        wx.openLocation({
+            latitude: lat,//目的地latitude
+            longitude: lng,//目的地longitude
+            name: name,
+            address: address,
+            scale: 15//地图缩放大小，可根据情况具体调整
+        });
+      }
     viewPhoto(e) {
 
     }

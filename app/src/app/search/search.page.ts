@@ -44,15 +44,15 @@ export class SearchPage extends AppBase {
       searchrecomm: ""
     };
 
-    if (this.params.tp == undefined) {
+    if (this.params.tp == 'undefined') {
       this.params.tp = "kc";
     }
     //this.options.keyword="%E8%8B%B1%E8%AF%AD";
-    this.params.keyword = decodeURI(this.params.keyword);
-
+    // this.params.keyword = decodeURI(this.params.keyword);
+    console.log(this.params.keyword,'ppp')
     this.keyword = this.params.keyword;
     this.shows = "finished";
-    this.keyword = this.params.tp;
+    this.tp = this.params.tp;
 
 
     var tp = this.tp;

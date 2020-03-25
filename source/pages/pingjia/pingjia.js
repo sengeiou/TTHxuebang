@@ -110,6 +110,8 @@ class Content extends AppBase {
 
     var jgpingfen = this.Base.getMyData().jgpingfen;
     console.log(jgpingfen + "机构评分");
+   
+
 
     var text = data.text;
     console.log(text + "评分文字");

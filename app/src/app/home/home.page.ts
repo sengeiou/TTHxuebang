@@ -77,7 +77,7 @@ export class HomePage extends AppBase {
     var jigouapi = this.jigouApi;
 
     var jifenapi = this.jifenApi;
-
+    console.log(1231231123)
     jigouapi.coursetype({}).then((filtercoursetype) => {
       this.filtercoursetype = filtercoursetype;
       this.fapk=this.getArray(10-((filtercoursetype.length)-8));
@@ -157,7 +157,7 @@ export class HomePage extends AppBase {
       return item.code == citycode
     })
 
-    console.log(citycode, "好借口", AppBase.CITYID);
+    console.log(citycode, "好借口", AppBase.CITYID,citys.length);
 
     if (citys.length != 0 && AppBase.CITYID != citycode) {
       this.nocity = 2;
@@ -327,6 +327,7 @@ export class HomePage extends AppBase {
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
     console.log(mylat,mylng)
+    console.log(AppBase.lastlat,AppBase.lastlng)
     console.log('哪来看看')
 
     jigouapi.jglist({
@@ -711,17 +712,19 @@ export class HomePage extends AppBase {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
-
-      for (var i = 0; i < dakalist.length; i++) {
-        for (var j = 0; j < resultArr.length; j++) {
-          if (resultArr[j].member_id == dakalist[i].member_id) {
-            break;
+      if(dakalist){
+        for (var i = 0; i < dakalist.length; i++) {
+          for (var j = 0; j < resultArr.length; j++) {
+            if (resultArr[j].member_id == dakalist[i].member_id) {
+              break;
+            }
+          }
+          if (j == resultArr.length) {
+            resultArr[resultArr.length] = dakalist[i];
           }
         }
-        if (j == resultArr.length) {
-          resultArr[resultArr.length] = dakalist[i];
-        }
       }
+      
 
 
       var personnumber = parseInt(this.InstInfo.personnumber);
@@ -759,6 +762,9 @@ export class HomePage extends AppBase {
 
     this.navigate("seek",json)
 
+  }
+  gonavigator(){
+    this.navigate("searchword",{type:'kc'})
   }
 
 }

@@ -40,8 +40,8 @@ export class SearchwordPage extends AppBase {
 
 
   }
-
-
+  morenqu=false;
+  searchword;
   history = [];
   hotest = [];
   onMyShow(e=undefined) {
@@ -59,8 +59,9 @@ export class SearchwordPage extends AppBase {
 
   bindconfirm(e) {
     this.tosearch();
+    
   }
-  quxiao(e) {
+  quxiao() {
     this.navigateBack({
       delta: 1,
     })
@@ -89,25 +90,27 @@ export class SearchwordPage extends AppBase {
 
   tosearch(e=undefined) {
     var word = this.value;
-
+  
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: word });
 
     if (word != null) {
-      this.navigateTo({
-        url: '/pages/search/search?keyword=' + word + '&tp=' + this.params.tp,
-      })
+      // this.navigateTo({
+      //   url: '/pages/search/search?keyword=' + word + '&tp=' + this.params.tp,
+      // })
+      this.navigate('search',{keyword:name,tp:this.params.tp})
     }
   }
 
   todetails(name) {
-
+    console.log(name,'keyword')
     var instapi = this.memberApi;;
     instapi.setsearch({ keyword: name });
 
-    this.navigateTo({
-      url: '/pages/search/search?keyword=' + name,
-    })
+    // this.navigateTo({
+    //   url: '/pages/search/search?keyword=' + name,
+    // })
+    this.navigate('search',{keyword:name})
   }
   teachlist=[];
   fav(id) {

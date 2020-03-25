@@ -9,7 +9,7 @@
         </ion-toolbar>
   </ion-header>
 
-    <ion-content >
+    <ion-content class="bg-f5">
 
 <!--pages/purchase/purchase.wxml-->
 <!--pages/myorder/myorder.wxml-->
@@ -84,7 +84,7 @@
 
 <div class=''>
   <div class='margin-top-20 padding-left-20 bg-white  bor_top'>
-    <div class='height-40 padding-20 bor_bot h5 txt-black txt-bold' style=''>
+    <div class='height-80 padding-20 bor_bot h5 txt-black txt-bold' style=''>
       学员信息
     </div>
 
@@ -94,8 +94,8 @@
 
     <div (click)="xueyuan($event)" class='flex-row flex-center   padding-20  pb30' style="">
       <div class='h5 txt-black '>学员</div>
-      <div *ngIf="xuanzexueyuan==''" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
-      <div *ngIf="xuanzexueyuan!=''" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
+      <div *ngIf="xuanzexueyuan==null" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
+      <div *ngIf="xuanzexueyuan!=null" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
       <div class="flex-1"></div>
       <img src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 ' />
 
@@ -112,9 +112,9 @@
 <div class='fixedbottom'>
 
   <div class='flex-row flex-center bg-white ' style='border-top:1px solid #e5e5e5'>
-    <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{courseinfo.price}}</div>
+    <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{tempinfo.price}}</div>
     <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' (click)='bindtoorder($event)'>提交订单</div>
+    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' (click)='bindtoorder()'>提交订单</div>
   </div>
 
 </div>
@@ -164,6 +164,5 @@
   </div>
   <div class="height-50"></div>
 </div>
-
 
     </ion-content>

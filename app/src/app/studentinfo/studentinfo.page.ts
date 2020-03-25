@@ -183,9 +183,10 @@ export class StudentinfoPage extends AppBase {
     }
     api.addxueyuan(json).then((res) => {
       if (res.code == '0') {
-        this.navigateBack({
+        // this.navigateBack({
 
-        })
+        // })
+        this.back();
       }
 
     })
@@ -198,11 +199,15 @@ export class StudentinfoPage extends AppBase {
         var api = this.jigouApi;;
         api.shanchuxueyuan({ id: that.params.id }).then((res) => {
          
-          this.navigateBack({
+          // this.navigateBack({
 
-          })
+          // })
+          this.back();
         })
       }
     });
+  }
+  chosex(e){
+    this.sex=e;
   }
 }
