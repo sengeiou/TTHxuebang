@@ -60,19 +60,23 @@ export class PingcedatiPage extends AppBase {
   }
 
   
-
+  @ViewChild("topSlide",) topSliders: IonSlides;
   bindcheck(id,sx) {
 
-
-    var pingcelist = this.pingcelist;
-
-    pingcelist[sx].check = id;
-    this.pingcelist = pingcelist;
+    
+    // var pingcelist = this.pingcelist;
+    var cuid = this.topSliders.getActiveIndex();
+    console.log(cuid);
+    this.pingcelist[sx].check = id;
+    // this.pingcelist = pingcelist;
     this.ck = parseInt(sx);
-    if (sx < pingcelist.length - 1) {
+    if (sx < this.pingcelist.length - 1) {
       this.next(sx);
     }
 
+  }
+  ionSlideAutoplay(){
+    console.log('ionSlideAutoplay')
   }
 
   next(sx) {
@@ -90,15 +94,16 @@ export class PingcedatiPage extends AppBase {
     pingce.push([parseInt(id) + 1, check]);
 
 
-    setTimeout(() => {
+    // setTimeout(() => {
       this.sx = idx;
       this.qie = parseInt(id) + 1;
-    }, 300)
+      this.topSliders.slideTo(this.qie,300);
+    // }, 300)
 
   }
 
 
-  last() {
+  last(e) {
     var ck = this.ck;
     var qie = this.qie;
 
@@ -109,9 +114,17 @@ export class PingcedatiPage extends AppBase {
     var id = this.sx;
     var idx = id - 1;
     this.sx = idx;
+    this.topSliders.slideTo(this.qie,300);
+  }
+  qiehuan(){
+    // var index = this.topSliders;
+    // console.log(index.el.swiper.realIndex);
+    this.topSliders.getActiveIndex().then(num=>{
+      console.log(num);
+     
+    })
 
   }
-
   stoptouch() {
     console.log("禁止滑动")
   }

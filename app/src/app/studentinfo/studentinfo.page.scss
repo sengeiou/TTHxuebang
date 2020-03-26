@@ -13,7 +13,7 @@
   }
   .nannv{
     width: rpx(150);
-    height: rpx(40);
+    height: rpx(55);
   }
   .tuan_btn{
      position: fixed;
@@ -52,4 +52,17 @@
     border:none;
     text-align: right;
     outline:medium;
+    background-color:transparent; 
+    FILTER: alpha(opacity=0); 
+    appearance:none; 
   }
+
+  input {
+    border: none;
+  outline:medium;
+  }
+  input[type="date"]::-ms-expand{
+
+    display: none;
+    
+    }

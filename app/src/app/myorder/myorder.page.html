@@ -65,7 +65,7 @@
 
   </div>
   <div class="margin-24 order" *ngFor="let item of alllist" wx:key='k'>
-    <div (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
+    <div (click)="courseinfo(item.id)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
       <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
@@ -176,7 +176,7 @@
 
   </div>
   <div class="margin-24 order" *ngFor="let item of wclist" wx:key='k'>
-    <div (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
+    <div (click)="courseinfo(item.id)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
       <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
@@ -290,7 +290,7 @@
 
   </div>
   <div class="margin-24 order" *ngFor="let item of dflist" wx:key='k'>
-    <div  (click)="courseinfo($event)" data-id="{{item.id}}" class="padding-20 flex-row ">
+    <div  (click)="courseinfo(item.id)" data-id="{{item.id}}" class="padding-20 flex-row ">
 
       <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />
 
@@ -402,7 +402,7 @@
     <img src="{{uploadpath}}resource/{{res.dindannull}}" class="icon-170 " />
 
   </div>
-  <div (click)="courseinfo($event)" data-id="{{item.id}}" class="margin-24 order" *ngFor="let item of pjlist" wx:key='k'>
+  <div (click)="courseinfo(item.id)" data-id="{{item.id}}" class="margin-24 order" *ngFor="let item of pjlist" wx:key='k'>
     <div class="padding-20 flex-row ">
 
       <img *ngIf="item.type!='SP'" class='icon radius-10' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.course_kc_img}}' />

@@ -330,7 +330,7 @@ export class JgdetailsPage extends AppBase {
       this.clist = clist;
     });
 
-    this.xuanzhong = 1;
+    // this.xuanzhong = 1;
   }
 
   xuan(id) {
@@ -345,6 +345,7 @@ export class JgdetailsPage extends AppBase {
   tobuy(id) {
     var ck = this.xuanzhong;
     console.log(id + "电费");
+    console.log(ck + "电费");
     //return;
     //this.pin == "1"  
 

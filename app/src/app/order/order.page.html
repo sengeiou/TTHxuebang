@@ -199,11 +199,11 @@
       <div class='txt-black '>订单信息</div>
     </div>
 
-    <div class='flex-row flex-center padding-20 bor_bot ' (click)='todetails($event)' style=' '>
+    <div class='flex-row flex-center padding-20 bor_bot '  style=' '>
 
-      <img class='icon-50 radius-10 ' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}} ' />
+      <img class='icon-50 radius-10 ' src='{{uploadpath}}curriculum/{{courseinfo.kc_img}} ' (click)='todetails($event)' />
 
-      <div class='flex-1 flex-row column margin-left-20 '>
+      <div class='flex-1 flex-row column margin-left-20 ' (click)='todetails($event)'>
         <div class='flex-row flex-center '>
           <div class=' txt-black txt-bold '>{{courseinfo.name}}</div>
         </div>
@@ -275,7 +275,7 @@
     <div class="flex-row flex-center margin-top">
       <div class="flex-1"></div>
       <img *ngIf="type=='kefu'" todobindlongtap="xiazai($event)" (click)="viewPhoto($event)" id="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="erweimade" />
-      <img *ngIf="type=='hexiao'" (click)="viewPhoto($event)" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' todobindlongtap="xiazai" />
+      <img *ngIf="type=='hexiao'" (click)="viewPhoto($event)" class="erweimade" mode="widthFix" id='{{apiurl}}jigou/qrcode?id={{info.id}}&a.jpg' src='{{codeimg}}' todobindlongtap="xiazai" />
       <div class="flex-1"></div>
     </div>
 

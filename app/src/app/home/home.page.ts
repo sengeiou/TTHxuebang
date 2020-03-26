@@ -492,6 +492,7 @@ export class HomePage extends AppBase {
   // }
 
   toceshi(id) {
+    console.log(id,'id',this.MemberInfo.id)
     this.navigate("pingceindex", { id: id, member_id: this.MemberInfo.id });
   }
 

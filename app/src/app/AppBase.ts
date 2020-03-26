@@ -522,10 +522,11 @@ export class AppBase implements OnInit, OnDestroy {
                         +"&key=bbbefc93b56102814e2710090beb4c26&radius=1000&extensions=all";
                         AppBase.instapi.http.get(url).toPromise().then((res)=>{
                             var adinfo=res.json();
-                            console.log("location",adinfo);
+                            console.log("location2",adinfo);
 
                             AppBase.lastaddress=adinfo.regeocode.addressComponent;
                             that.address=adinfo.regeocode.addressComponent;
+                            that.address.ad_info=adinfo.regeocode.addressComponent;
                             that.mylat=lat;
                             that.mylng=lng;
                             that.zone.run(()=>{

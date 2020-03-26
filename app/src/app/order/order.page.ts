@@ -210,6 +210,7 @@ export class OrderPage extends AppBase {
   }
   xiazai(e=undefined) {
     var type = this.type;
+    console.log(type)
     if (type == 'kefu') {
       window.open(this.uploadpath + 'inst/' + this.InstInfo.kefuerweima)
     }
