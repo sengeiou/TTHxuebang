@@ -52,19 +52,19 @@ export class PingcejieguoPage extends AppBase {
     //参数
     this.params;
 
-    var typeA = this.options.typeA;
-    var typeB = this.options.typeB;
-    var typeC = this.options.typeC;
-    var typeD = this.options.typeD;
+    var typeA = this.params.typeA;
+    var typeB = this.params.typeB;
+    var typeC = this.params.typeC;
+    var typeD = this.params.typeD;
     console.log(typeA, typeB, typeC, typeD, "看看")
     if (typeA != "undefined") {
-      this.typeA == "A";
+      this.typeA = "A";
     }
     if (typeB != "undefined") {
-      this.typeB == "B";
+      this.typeB = "B";
     }
     if (typeC != "undefined") {
-      this.typeC == "C";
+      this.typeC = "C";
     }
     if (typeD != "undefined") {
       this.typeD = "D";
@@ -72,18 +72,20 @@ export class PingcejieguoPage extends AppBase {
     console.log(this.params.pingce_id, "是是是");
   }
 
-  pingcejieguo = null;
-  info = null;
+  pingcejieguo = [];
+  info = {
+    jieguotu:''
+  };
   courselist = [];
   onMyShow() {
 
     var that = this;
     var pingceapi = this.pingceApi;
     var jigouapi = this.jigouApi;
-    var typeA = this.options.typeA;
-    var typeB = this.options.typeB;
-    var typeC = this.options.typeC;
-    var typeD = this.options.typeD;
+    var typeA = this.params.typeA;
+    var typeB = this.params.typeB;
+    var typeC = this.params.typeC;
+    var typeD = this.params.typeD;
 
 
     pingceapi.indexinfo({
@@ -97,24 +99,24 @@ export class PingcejieguoPage extends AppBase {
 
     pingceapi.pingcejieguo({
       pingceindex_id: this.params.id, options: [typeA, typeB, typeC, typeD]
-    }).then((pingcejieguo) => {
-      this.pingcejieguo = pingcejieguo;
-      // console.log(pingcejieguo.coursetype_id+"看了房价高");
+    }).then((pingcejieguo:any) => {
+      this.pingcejieguo = pingcejieguo
+     
 
       var type = [];
 
       for (var a = 0; a < pingcejieguo.length; a++) {
 
         console.log(pingcejieguo[a].coursetype_id + "看了房价高");
+        console.log(pingcejieguo[a].options+"看了房价高1111");
+        console.log(pingcejieguo[a]+"看了房价高1111");
 
         if (pingcejieguo[a].coursetype_id != "") {
           type.push(pingcejieguo[a].coursetype_id);
         }
 
-
       }
-
-
+    
       console.log(type, "懂得");
       console.log("的客话")
 
@@ -142,12 +144,13 @@ export class PingcejieguoPage extends AppBase {
 
 
   tokcdetails(id) {
-    this.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + id,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    // this.navigateTo({
+    //   url: '/pages/kcdetails/kcdetails?id=' + id,
+    //   success: function (res) { },
+    //   fail: function (res) { },
+    //   complete: function (res) { },
+    // })
+    this.navigate('kcdetails',{id:id})
   }
   again() {
 
@@ -167,7 +170,7 @@ export class PingcejieguoPage extends AppBase {
 
     console.log(555555);
   }
-  xh;
+  xh=0;
   xianshilist = [];
   bindhuan(e=undefined) {
     console.log(5555555555555);

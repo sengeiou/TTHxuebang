@@ -9,20 +9,21 @@
         </ion-toolbar>
   </ion-header>
 
-    <ion-content >
+    <ion-content>
 
 <!--pages/seek/seek.wxml  *ngIf='type=="jg"'-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <div class=' to_top'>
   <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
 </div>
+<div id='dinbu' style='width: 1px;height: 1px;'></div>
+<div *ngIf='type=="jg"' >
 
-<div *ngIf='type=="jg"'>
- 
-  <div class='fixedtop'>
+  <div class='fixedtop' >
+    
     <div class='bg-primary'>
       <div class='padding-left-20 padding-right-20 padding-top-20 '>
-        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
+        <div (click)='gonavigator()' url='/pages/searchword/searchword?tp=jg' class='search  flex-row flex-center  padding-10 '>
           <img class='search_icon margin-left-10' src='{{uploadpath}}resource/{{res.search_icon}}' />
           <div class='h5 txt-gray margin-left'>搜索机构名字</div>
         </div>
@@ -39,7 +40,7 @@
           <div class="w50"></div>
           <div class=' jx radius-10 txt-red h6 ' style='border:1px solid red'>精选</div>
           <ion-slides  [options]='mySwiperOption' vertical="{{false}}" autoplay="{{true}}" interval="{{5000}}" circular='{{true}}' easing-function='easeInOutCubic' class='sp1'>
-            <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black margin-left-15'>
+            <ion-slide *ngFor="let item of gongaolist" wx:key="k" catchtouchmove='catchTouchMove' class='h6 txt-black '>
               {{item.content}}
             </ion-slide>
           </ion-slides>
@@ -163,7 +164,7 @@
 
 
 
-<div *ngIf='type=="kc"' class='' style=''>
+<div *ngIf='type=="kc"' class='' style='' >
 
   <div class='fixedtop'>
     <div class='bg-primary'>
@@ -279,7 +280,7 @@
 
       </div>
 
-      <div class='flex-row flex-center flex-1' style=''>
+      <div class='flex-row flex-center flex-1 ' style=''>
 
 
         <div class='flex-row flex-center flex-1'>
@@ -303,7 +304,7 @@
       </div>
 
 
-      <div class='flex-row flex-center flex-1'>
+      <div class='flex-row flex-center flex-1 mw400'>
         <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
         <div class='h6 flex-1 margin-left-5 txt-gray chaochu'>{{item.JG_jigou}}</div>
         <div class=' txt-red h6 padding-top-10'>￥</div>
@@ -313,7 +314,7 @@
 
       </div>
 
-      <div class='flex-row flex-center'>
+      <div class='flex-row flex-center mw400'>
         <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
         <div class='h6 txt-black txt-bold'>{{item.miletxt}}</div>
       </div>
@@ -412,7 +413,7 @@
 </ion-slides>
 
 
-<div *ngIf='xiala=="xs"' class='bg-white list' [style.height.px]='43*((filterdistrict.length>7)?7:filterdistrict.length)' [style.top]='type=="kc"?"132px":"171px"' >
+<div *ngIf='xiala=="xs"' class='bg-white list' [style.height.px]='43*((filterdistrict.length>7)?7:(filterdistrict.length+1))' [style.top]='type=="kc"?"132px":"171px"' >
 
   <scroll-view scroll-y>
     <div (click)='changeDistrict(-1)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全{{cityname}}</div>
@@ -421,7 +422,7 @@
 
 </div>
 
-<div *ngIf='xialaage=="xs"' class='bg-white list3' style='height:{{43*((filtercourseage.length>7)?7:filtercourseage.length)}}'>
+<div *ngIf='xialaage=="xs"' class='bg-white list3' [style.height.px]='43*((filtercourseage.length>7)?7:(filtercourseage.length))' >
 
   <scroll-view scroll-y>
     <div (click)='changeage(-1,0,100)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>全年龄</div>

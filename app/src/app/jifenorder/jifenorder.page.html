@@ -16,7 +16,7 @@
 <div class=' to_top' >
 <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
 </div>
-<div class=' flex-row flex-center  bg-white bor_bot top'>
+<div class=' flex-row flex-center  bg-white bor_bot top' >
 
 <div class='flex-1 flex-row flex-column' (click)='bindshow("all")' data-type='all'>
   <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</div>
@@ -45,10 +45,10 @@
 
 </div>
 
-<div class="h88"></div>
+<div class="h88" ></div>
 
 <!-- 全部订单-->
-<div class="" *ngIf='show=="all"'>
+<div class="" *ngIf='show=="all"' id='dinbu'>
 
 <div class="block  " *ngFor='let item of alllist' wx:key='k'>
 
@@ -100,7 +100,7 @@
 </div>
 
 <!-- 待发货订单-->
-<div class="" *ngIf='show=="finished"'>
+<div class="" *ngIf='show=="finished"' id='dinbu'>
 
 <div class="block  " *ngFor='let item of daifalist' wx:key='k'>
 
@@ -144,11 +144,11 @@
 </div>
 
 <!-- 待收货订单-->
-<div class="" *ngIf='show=="wait"'>
+<div class="" *ngIf='show=="wait" && daishoulist.length>0' id='dinbu'>
 
 <div class="block  " ngFor='let item of daishoulist' wx:key='k'>
 
-  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails(item.id)'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
@@ -189,7 +189,7 @@
 </div>
 
 <!-- 已完成订单-->
-<div class="" *ngIf='show=="wc"'>
+<div class="" *ngIf='show=="wc"' id='dinbu'>
 
 <div class="block  " *ngFor='let item of wanchenlist' wx:key='k'>
 

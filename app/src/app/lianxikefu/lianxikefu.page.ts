@@ -35,4 +35,12 @@ export class LianxikefuPage extends AppBase {
   onMyShow(){
 
   }
+  isshow=false;
+  jiawei(){
+    console.log('jiaweixin');
+    this.isshow=true;
+  }
+  close(){
+    this.isshow=false;
+  }
 }

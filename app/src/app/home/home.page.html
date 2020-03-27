@@ -7,7 +7,7 @@
 <ion-content>
 
 
-  <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
+  <div class="tishikuang flex-row flex-center" *ngIf='nocity==1' >
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
     <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
     <div class="f20 margin-left-10" style="color:#589DE9">{{InstInfo.slogen}}</div>
@@ -23,12 +23,12 @@
 
 
 
-  <div class=' '>
+  <div class=' ' id='dinbu'>
     <div class='padding-15  bg-primary'>
-      <div (click)='tocity()' class='flex-row flex-center'>
-        <div class='txt-black h40 txt-bold'>{{cityname}}</div>
-        <div class='txt-black h40 txt-bold' *ngIf='cityname==""'>深圳市</div>
-        <img class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.bottom}}' />
+      <div class='flex-row flex-center'>
+        <div class='txt-black h40 txt-bold' (click)='tocity()'>{{cityname}}</div>
+        <div class='txt-black h40 txt-bold' (click)='tocity()' *ngIf='cityname==""'>深圳市</div>
+        <img class='icon-15 margin-left-10' (click)='tocity()' src='{{uploadpath}}resource/{{res.bottom}}' />
         <div class="flex-1"></div>
 
         <div (click)="xiaoxiliebiao()">
@@ -41,7 +41,7 @@
 
       <div class=' flex-row margin-top-20'>
 
-        <div (click)='gonavigator($event)' url='/pages/searchword/searchword?type=kc'
+        <div (click)='gonavigator()' url='/pages/searchword/searchword?type=kc'
           class='search flex-1 flex-row flex-center  padding-10 '>
           <div class='flex-1 sp1'></div>
           <img class='search_icon' style='' src='{{uploadpath}}resource/{{res.search_icon}}' />
@@ -76,14 +76,14 @@
 
 
 
-  <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
+  <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);' >
     <div class=' sp3  ' style="">
 
       <ion-slides [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200'
         circular='true' class="wpc2">
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo($event)' id="{{item.id}}"
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' id="{{item.id}}"
             class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
         </ion-slide>
       </ion-slides>
@@ -115,7 +115,7 @@
 
     </ion-slide>
 
-   <!-- <ion-slide class=" flex-row flex-center flex-wrap" >
+    <!-- <ion-slide class=" flex-row flex-center flex-wrap" >
       <div *ngFor='let item of filtercoursetype;let idx=index;'>
         <div class="flex-row flex-column lesson-width {{idx>7?'margin-bottom-20':''}}"
           (click)='bindtokc(item.id,item.typename)' id='{{item.id}}' *ngIf='idx>=8' data-name="='{{item.typename}}'">

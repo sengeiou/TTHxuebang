@@ -55,7 +55,14 @@ ion-content {
   border-radius: rpx(50);
   background-color: rgb(240, 240, 240);
 }
-
+.inp {
+  border: none;
+  background-color: rgb(240, 240, 240);
+  outline:medium;
+}
+.inp:hover{
+  appearance: none;
+}
 .search_icon {
   width: rpx(35);
   height: rpx(30);

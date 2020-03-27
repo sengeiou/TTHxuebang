@@ -9,7 +9,10 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+<<<<<<< HEAD
+=======
 		"coverView": true,
+>>>>>>> 136e8263af115a9c5a33c13edb83d68ffd809495
 		"autoAudits": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -47,12 +50,17 @@
 		"game": {
 			"list": []
 		},
+<<<<<<< HEAD
+		"miniprogram": {
+			"current": 71,
+=======
 		"gamePlugin": {
 			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": -1,
+>>>>>>> 136e8263af115a9c5a33c13edb83d68ffd809495
 			"list": [
 				{
 					"id": 0,

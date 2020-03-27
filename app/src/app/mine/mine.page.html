@@ -16,22 +16,22 @@
 
             <div style="" class="sp1">
           
-              <button class='clear-button sp2' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
-              </button>
+              <!-- <button class='clear-button sp2' hover-class="hover" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNo" style=''>
+              </button> -->
           
-              <div class='gengxin '>
+              <!-- <div class='gengxin ' (click)='getPhoneNo()'>
                 <div class="flex-row flex-center">
                   <img src='{{uploadpath}}resource/{{res.shuaxin}}' class='icon-10' />
                   <div class='txt-white h7 margin-left-4'>更新资料</div>
                 </div>
-              </div>
+              </div> -->
           
             </div>
           
           
             <div class='flex-row flex-center'>
           
-              <div class='flex-row column flex-1'>
+              <div class='flex-row column flex-1' style="width: 78%;">
                 <div class='f48 txt-bold txt-white chaochu'>Hi,{{MemberInfo.nickName}}</div>
                 <div *ngIf='MemberInfo.mobile!=""&&MemberInfo.mobile!="undefined"' class='f26 txt-bold txt-white margin-top-10'>{{mobile}}</div>
                 <div *ngIf='MemberInfo.mobile==""||MemberInfo.mobile=="undefined"' class='f26 txt-bold txt-white margin-top-10'>暂无手机号码，请更新资料</div>

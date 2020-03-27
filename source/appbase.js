@@ -137,7 +137,7 @@ export class AppBase {
       copytext: base.copytext,
       recorderManager: base.recorderManager,
       backtotop: base.backtotop,
-      gotoBottom: base.gotoBottom
+      gotoBottom: base.gotoBottom,
 
 
 
@@ -799,6 +799,7 @@ export class AppBase {
       }
     });
   }
+
   uploadFile(modul, filename, lujin, callback) {
     //console.log(8888888888);
 

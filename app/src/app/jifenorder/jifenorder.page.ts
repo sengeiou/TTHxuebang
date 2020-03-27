@@ -55,6 +55,7 @@ export class JifenorderPage  extends AppBase {
 
     jifenapi.jifenorderlist({ orderstatus: "B"}).then((daishoulist) => {
       this.daishoulist=daishoulist;
+      console.log(this.daishoulist);
     })
 
     jifenapi.jifenorderlist({ orderstatus: "C"}).then((wanchenlist) => {

@@ -27,15 +27,29 @@ export class JiaoyixinxiPage extends AppBase {
     public jigouApi: JigouApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
-    this.xiaoxi = {};
+    // 
   }
 
   onMyLoad(e=undefined) {
     //参数
     this.params;
   }
-
-  xiaoxi = null;
+  
+  xiaoxi = {
+    order_id: '',
+    xiaoxi_date:'',
+    content:'',
+    dindan:{
+      course_kc_img:"",
+      course_name:'',
+      amount:'',
+      course_jigouname:'',
+      course_age_name:'',
+      course_class_hours:'',
+      course_duration:'',
+    }
+    
+  };
   onMyShow(e=undefined) {
     var that = this;
     var api = this.jigouApi;

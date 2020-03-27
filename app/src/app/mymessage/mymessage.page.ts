@@ -93,7 +93,7 @@ export class MymessagePage extends AppBase {
   onShare(e=undefined) {
     console.log('onShare')
   }
-  xianqin(id) {
+  xianqin(id,order_id) {
     var xiaoxilist = this.xiaoxilist;
     xiaoxilist = xiaoxilist.filter((item) => {
 

@@ -205,15 +205,15 @@ textarea {
 }
 
 .bor_bak {
-    border: 1px solid black;
+    border: rpx(1) solid black;
 }
 
 .bor_bot {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: rpx(1) solid #e5e5e5;
 }
 
 .bor_top {
-    border-top: 1px solid #e5e5e5;
+    border-top: rpx(1) solid #e5e5e5;
 }
 
 .white_primary {
@@ -966,7 +966,7 @@ a {
 }
 
 .shown {
-    display: "";
+    display: block;
 }
 
 .f40 {
