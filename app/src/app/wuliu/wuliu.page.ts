@@ -34,9 +34,15 @@ export class WuliuPage extends AppBase {
   onMyLoad(e=undefined) {
     //参数
     this.params;
-    this.wuliu = {};
+    // this.wuliu = {};
   }
-  wuliu = null;
+  wuliu = {
+    result:{
+      logo:'',
+      expName:'',
+      number:''
+    }
+  };
   wllist = [];
   info = null;
   onMyShow(e=undefined) {

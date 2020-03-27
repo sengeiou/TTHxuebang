@@ -25,8 +25,7 @@
     </div>
 
 
-    <div *ngFor="let item of xiaoxilist" wx:key="k" data-idd="{{item.order_id}}" data-id='{{item.id}}'
-      (click)="xianqin(item.id)" class="page__bd padding-20">
+    <div *ngFor="let item of xiaoxilist" wx:key="k" (click)="xianqin(item.id,item.order_id)" class="page__bd padding-20">
 
 
 
@@ -43,7 +42,7 @@
                   src='{{uploadpath}}resource/{{res.wuliuxiaoxi}}' />
                 <img *ngIf="item.type=='E'" class='icon-30' mode='scaleToFill'
                   src='{{uploadpath}}resource/{{res.xitonxiaoxi}}' />
-                <div class="margin-left-20 flex-1">
+                <div class="margin-left-20 flex-1" style="width:90%;">
 
                   <div class="" style="color:#222222">{{item.type_name}}</div>
 

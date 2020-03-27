@@ -168,14 +168,16 @@ export class SearchPage extends AppBase {
 
   }
   tojgdetails(id) {
-    this.navigateTo({
-      url: '/pages/jgdetails/jgdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/pages/jgdetails/jgdetails?id=' + id,
+    // })
+    this.navigate('jgdetails',{id:id})
   }
   tokcdetails(id) {
-    this.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/pages/kcdetails/kcdetails?id=' + id,
+    // })
+    this.navigate('kcdetails',{id:id})
   }
 
   onReachBottom(e=undefined) {

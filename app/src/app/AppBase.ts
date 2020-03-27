@@ -612,7 +612,7 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     phoneCall(e) {
-         
+       window.location.href = 'https://www.cnblogs.com/handsome-jm/p/7878478.html';
     }
     openLocation(lat, lng, name, address) {
         wx.openLocation({
@@ -625,5 +625,9 @@ export class AppBase implements OnInit, OnDestroy {
       }
     viewPhoto(e) {
 
+    }
+
+    getPhoneNo(){
+        
     }
 }

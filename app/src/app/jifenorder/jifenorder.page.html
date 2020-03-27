@@ -144,11 +144,11 @@
 </div>
 
 <!-- 待收货订单-->
-<div class="" *ngIf='show=="wait"' id='dinbu'>
+<div class="" *ngIf='show=="wait" && daishoulist.length>0' id='dinbu'>
 
 <div class="block  " ngFor='let item of daishoulist' wx:key='k'>
 
-  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
+  <div class="flex-row" (click)='bindtodetails(item.id)'>
     <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
     <div class="flex-row column margin-top-24 flex-1 margin-left-20">
