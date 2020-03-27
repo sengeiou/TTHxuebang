@@ -43,9 +43,12 @@ export class KcinfoPage extends AppBase {
   }
   fenxiaoinfo = [];
   pingjialist = [];
+  miletxt='';
   kechenlunbo = [];
-  courseinfo = '';
+  pintuanrenshu=0;
+  courseinfo = null;
   isfav = '';
+  sco=0;
   canbuy = '';
   onMyShow() {
     var instapi = this.InstApi;

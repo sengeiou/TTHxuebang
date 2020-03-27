@@ -17,7 +17,10 @@ const routes: Routes = [
   { path: 'generate', loadChildren: './generate/generate.module#GeneratePageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'kchaibao', loadChildren: './kchaibao/kchaibao.module#KchaibaoPageModule' },
-  { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' }
+  { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' },
+  { path: 'yindao', loadChildren: './yindao/yindao.module#YindaoPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'password', loadChildren: './password/password.module#PasswordPageModule' }
 
 ];
 @NgModule({

@@ -1,0 +1,35 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+  }
+  
+  ion-content{   
+    --background:#F0F2F5;
+    } 
+    .icon-170{
+   margin-top:rpx(100);
+      width:rpx(534);
+      height: rpx(624);
+    }
+    .denglu{
+    width:rpx(672);
+    height: rpx(120);
+    background: #37CFC9;
+    line-height: rpx(120);
+    text-align: center;
+     border-radius: rpx(60);
+     margin-top:rpx(200);
+     font-size: rpx(40);
+     color:#FFFFFF;
+    }
+    .zhuce{
+      width:rpx(672);
+      height: rpx(120);
+      background: #F5F5F5;
+      line-height: rpx(120);
+      text-align: center;
+       border-radius: rpx(60);
+       margin-top:rpx(32);
+       font-size: rpx(40);
+       color:#000000;
+
+    }

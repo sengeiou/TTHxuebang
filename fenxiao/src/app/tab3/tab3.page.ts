@@ -31,6 +31,7 @@ export class Tab3Page extends AppBase {
   }
   showModal1=false;
   tuiguandindan=[];
+  tuiguaninfo=[];
   onMyLoad() {
 
     

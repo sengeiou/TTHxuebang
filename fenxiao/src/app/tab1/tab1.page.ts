@@ -131,6 +131,9 @@ export class Tab1Page extends AppBase {
         return idx != 0;
 
       });
+   console.log(1111);
+      console.log(this.fuli0);
+
 
     })
   }
