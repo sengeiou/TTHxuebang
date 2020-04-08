@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { AppBase } from '../AppBase';
 import { Router } from '@angular/router';
-import {  ActivatedRoute, Params } from '@angular/router';
-import { NavController, ModalController, ToastController, AlertController, NavParams,IonSlides } from '@ionic/angular';
+import { ActivatedRoute, Params } from '@angular/router';
+import { NavController, ModalController, ToastController, AlertController, NavParams, IonSlides } from '@ionic/angular';
 import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
@@ -21,18 +21,43 @@ export class PasswordPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
-    public memberApi:MemberApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
+    public memberApi: MemberApi) {
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute);
     this.headerscroptshow = 480;
-      
-  }
 
-  onMyLoad(){
+  }
+  mima1 = false;
+  mima2 = true;
+  password1 = "";
+  password2 = "";
+  onMyLoad() {
     //参数
     this.params;
     console.log(this.params);
   }
-  onMyShow(){
+  onMyShow() {
+
+  }
+  zhuce() {
+
+    var password1 = this.password1;
+    var password2 = this.password2;
+
+    if (password1 != password2) {
+
+      this.toast("两次输入的密码不一致");
+      return
+
+    }
+    console.log(123123);
+    var api = this.memberApi;
+    api.register({ mobile: this.params.id, password: this.password1 }).then((res) => {
+ 
+        console.log(res)
+        
+
+
+    })
 
   }
 }

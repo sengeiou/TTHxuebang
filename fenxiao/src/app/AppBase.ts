@@ -96,6 +96,7 @@ export class AppBase implements OnInit {
     onMyLoad() {
     }
     getInstInfo() {
+        this.getMemberInfo();
         if (AppBase.InstInfo == null) {
             AppBase.instapi.info({}, false).then((instinfo) => {
                 AppBase.InstInfo = instinfo;
@@ -122,15 +123,16 @@ export class AppBase implements OnInit {
         }
     }
     getMemberInfo() {
-
+    console.log("进来了");
         AppBase.memberapi.info({}).then((memberinfo) => {
             if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
                 //alert("?");
                 memberinfo = null;
             }
             this.MemberInfo = memberinfo;
-
+          console.log(memberinfo);  
         });
+    
     }
     shouye(){
         

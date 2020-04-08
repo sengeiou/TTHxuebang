@@ -12,7 +12,7 @@
 
 
 
-<ion-content>
+<ion-content *ngIf="courseinfo!=null">
   <div>
 
 
@@ -96,8 +96,8 @@
               </div>
 
               <div class='flex-row margin-top-5 padding-left-20'>
-                <div class="flex-row flex-1">
-                  <div style="border:0.5px solid #16110b;color:#16110b" class='biaoqian  text-center radius-10 txt-green h6 margin-5 '
+                <div *ngIf="courseinfo!=null" class="flex-row flex-1">
+                  <div  style="border:0.5px solid #16110b;color:#16110b" class='biaoqian  text-center radius-10 txt-green h6 margin-5 '
                     *ngFor='let litem of courseinfo.labels;let idx=index'>{{litem.name}}</div>
                 </div>
 

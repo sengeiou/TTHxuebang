@@ -20,7 +20,9 @@ const routes: Routes = [
   { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' },
   { path: 'yindao', loadChildren: './yindao/yindao.module#YindaoPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'password', loadChildren: './password/password.module#PasswordPageModule' }
+  { path: 'password', loadChildren: './password/password.module#PasswordPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'forgetpassword', loadChildren: './forgetpassword/forgetpassword.module#ForgetpasswordPageModule' }
 
 ];
 @NgModule({
