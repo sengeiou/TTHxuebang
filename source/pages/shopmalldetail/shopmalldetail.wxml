@@ -18,9 +18,9 @@
 </view>
 
 <view class="flex-row flex-center padding-L-R" style="height:92rpx;">
-  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight!=0}}'>运费：免运费</view>
+  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight!=0}}'>{{info.yunfeiwenzi}}</view>
   <!-- {{info.freight}}元 -->
-  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight==0}}'>运费：免运费</view>
+  <view class="txt-9 h6 flex-1 " wx:if='{{info.freight==0}}'>{{info.yunfeiwenzi}}</view>
   <view class="txt-9 h6">配送方式：{{info.peison}}</view>
   <view class="txt-9 h6" wx:if='{{info.peison==""}}'>配送方式：快递</view>
 </view>

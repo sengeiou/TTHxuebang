@@ -124,18 +124,20 @@ class Content extends AppBase {
     })
 
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
-
+        
+       if(xiaoxilist!=undefined)
+       {
       var weidu = xiaoxilist.filter((item) => {
 
         return item.isread_value == 'N'
 
       })
-
+   
       console.log("消息哈哈哈哈敖德萨大所");
       this.Base.setMyData({
         xiaoxishu: weidu.length
       })
-
+    }
     })
 
     // this.btn();
