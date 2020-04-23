@@ -420,6 +420,12 @@ export class HomePage extends AppBase {
             //todo
           } else {
             console.log("不杀死hi")
+             
+            var a= indexbanner[i].url;
+            console.log(a);
+            var b=a.split("/");
+          
+            this.navigate(b[3])
             // this.navigateTo({
             //   url: indexbanner[i].url
             // })

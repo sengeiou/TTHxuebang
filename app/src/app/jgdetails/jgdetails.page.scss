@@ -40,7 +40,7 @@
   z-index: 10;
   width: 91vw;
   height: 44%;
-  margin-top: rpx(-20);
+  // margin-top: rpx(-20);
 }
 
 .mid2 {
@@ -339,10 +339,10 @@
 }
 
 .under {
-  position: absolute;
+ 
   background: white;
   width: 94vw;
-  bottom: 0;
+  margin-top: rpx(-50);
 }
 
 .topblock {
@@ -499,7 +499,7 @@
 }
 
 .h400 {
-  height: rpx(400);
+ 
 }
 
 .h120 {

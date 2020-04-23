@@ -3,8 +3,9 @@
 }
 
 /* pages/xuanzedizhi/xuanzedizhi.wxss */
-.page{
-    /* background: white; */
+
+  ion-content {
+    --background: #F5F5F5;
   }
   .margin-left-14 {
     margin-left: rpx(14);

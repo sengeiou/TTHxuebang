@@ -56,15 +56,13 @@ export class StudentmsgPage extends AppBase {
 
   }
   studentinfo(id) {
+     
+    this.navigate("studentinfo", { id: id });
 
-    this.navigateTo({
-      url: '/pages/studentinfo/studentinfo?id=' + id,
-    })
+  
   }
   tianjia(e=undefined) {
-    this.navigateTo({
-      url: '/pages/studentinfo/studentinfo',
-    })
+    this.navigate("studentinfo");
 
   }
 }

@@ -170,7 +170,8 @@
                     <p class="h6 margin-left-5 margin-right-5" style='color:#F12A00'>
                       {{item.group_course_group_number-item.danqianrenshu}}人</p>拼成</div>
                   <div class="h7 text-center">
-                    剩余{{sjlist[idx][1] < 10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10? "0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10? "0"+sjlist[idx][3]:sjlist[idx][3]}}
+                    剩余
+                    {{sjlist[idx][1] < 10? "0"+sjlist[idx][1]:sjlist[idx][1]}}:{{sjlist[idx][2]<10?"0"+sjlist[idx][2]:sjlist[idx][2]}}:{{sjlist[idx][3]<10?"0"+sjlist[idx][3]:sjlist[idx][3]}}
                   </div>
                 </div>
                 <div (click)='qupinban(item.id)' data-id="{{item.id}}" class="qpb h6 margin-left-10">去拼班</div>
@@ -607,8 +608,8 @@
   </div>
 
 
-  <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
+  <!-- <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">
     </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  </ion-infinite-scroll> -->
 </ion-content>

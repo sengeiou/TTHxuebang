@@ -110,7 +110,6 @@
         "iconPath": "images/icons/bm.png",
         "selectedIconPath": "images/icons/bm1.png"
       },
-     
         {
           "text": "线下活动",
           "pagePath": "pages/xianxia/xianxia",

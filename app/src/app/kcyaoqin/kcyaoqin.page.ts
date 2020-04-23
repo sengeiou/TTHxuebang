@@ -52,12 +52,15 @@ export class KcyaoqinPage extends AppBase {
       }
 
     }
-    this.lujin=ApiConfig.getUploadPath() + this.options.name;
+    this.lujin=ApiConfig.getUploadPath() + this.params.name;
     this.erweima=ApiConfig.getApiUrl() + "inst/qrcode?inst_id=1&url=/pages/kcdetails/kcdetails?yaoqin_id=" + this.MemberInfo.id + '%26id=' + this.params.kcid;
 
 
     var kcid = this.params.kcid;
     api.courseinfo({ id: kcid }).then((kcinfo) => {
+
+      console.log("1111");
+      console.log(kcinfo);
       this.kcinfo=kcinfo;
     })
   }

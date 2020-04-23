@@ -129,6 +129,8 @@ export class AppBase implements OnInit, OnDestroy {
         AppBase.STATICRAND = stat;
 
         var MemberInfo = window.localStorage.getItem(this.keyt);
+         
+               
 
         if (MemberInfo != null) {
             AppBase.MemberInfo = JSON.parse(MemberInfo);
@@ -162,11 +164,13 @@ export class AppBase implements OnInit, OnDestroy {
 
                 } else {
                     if (AppBase.MemberInfo == null) {
+                        
                         var url = window.location.href;
                         //url="http://yuyue.helpfooter.com/tabs/tab1";
                         var redirecturl = encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         console.log({ redurl });
+
                         window.location.href=redurl;
                     }
                 }
@@ -179,13 +183,16 @@ export class AppBase implements OnInit, OnDestroy {
         }
     }
     getMemberInfo() {
-
+        console.log("牛逼了");
+        console.log("11111");
+        
         AppBase.memberapi.info({}).then((MemberInfo) => {
             if (MemberInfo == null || MemberInfo.mobile == undefined || MemberInfo.mobile == "") {
                 //alert("?");
                 MemberInfo = null;
             }
             this.MemberInfo = MemberInfo;
+            
 
         });
     }
@@ -224,6 +231,7 @@ export class AppBase implements OnInit, OnDestroy {
                     AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
                         AppBase.memberapi.info({}).then((MemberInfo)=>{
+                            
                             AppBase.MemberInfo = MemberInfo;
                             this.MemberInfo = MemberInfo;
                             window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
@@ -241,8 +249,34 @@ export class AppBase implements OnInit, OnDestroy {
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
+            var  info=AppBase.MemberInfo;
+            var order = info.order;
+            var dfkorder = 0;
+            var ypborder = 0;
+            var dpjorder = 0;
+            var dshorder = 0;
+            var tkorder = 0;
+            order.map((item) => {
+      
+              if (item.pstatus == 'W') {
+                dfkorder++;
+              }
+              if (item.type == 'PT' && item.pstatus == 'PT') {
+                ypborder++;
+              }
+              if (item.pstatus =='PJ')
+              {
+                dpjorder++;
+              }
+            })
+            AppBase.MemberInfo.dfkorder = dfkorder;
+            AppBase.MemberInfo.ypborder=ypborder;
+            AppBase.MemberInfo.dpjorder=dpjorder;
+            AppBase.MemberInfo.dshorder=dshorder;
+            AppBase.MemberInfo.tkorder=tkorder;
             this.MemberInfo = AppBase.MemberInfo;
             console.log("aaaa", this.MemberInfo);
+             
             ApiConfig.SetToken(this.MemberInfo.h5openid);
             ApiConfig.SetTokenKey(this.MemberInfo.unionid);
             this.setWechatShare();

@@ -225,7 +225,7 @@
       <div class='padding-20'>
 
         <video class='pos sp5' *ngIf='item.jg_video!=""'  object-fit="contain"
-          autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{item.jg_video}}'>
+           loop='{{false}}' controls src='{{uploadpath}}mechanism/{{item.jg_video}}'>
         </video>
 
         <img class="sp5" mode='widthFix' *ngIf='item.jg_video==""&&item.waitimg!=""'
@@ -236,15 +236,15 @@
 
       <div class="mt-30" >
 
-        <div class="sp6">
+        <div class="sp6" *ngIf="item.jieshao!=''">
           <p decode="{{true}}" space="ensp"
-            class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}'
+            class='  h5 margin-top-20   '
             style="">{{item.jieshao}}</p>
         </div>
-        <div class="flex-row flex-column">
+        <!-- <div class="flex-row flex-column">
           <div class="txt-blue h5 margin-bottom-20 margin-top-10" *ngIf='more==false' (click)="showmore()">查看更多</div>
           <div class="txt-blue h5 margin-bottom-20" *ngIf='more==true' (click)="shouqi()">收起</div>
-        </div>
+        </div> -->
       </div>
 
 

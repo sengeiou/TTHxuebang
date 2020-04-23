@@ -50,7 +50,7 @@ export class XuanzedizhiPage extends AppBase {
     var that = this;
     var addressapi = this.addressApi;
 
-    addressapi.addresslist({member_id: 1}).then(
+    addressapi.addresslist({member_id: this.MemberInfo.id}).then(
       (addresslist) => {
       this.addresslist = addresslist;
       console.log(addresslist)
