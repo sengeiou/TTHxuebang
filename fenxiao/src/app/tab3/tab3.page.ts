@@ -32,16 +32,78 @@ export class Tab3Page extends AppBase {
   showModal1=false;
   tuiguandindan=[];
   tuiguaninfo=[];
+  ycmobile='';
   onMyLoad() {
 
     
   }
-  onMyShow() {
-    var that = this;
+  ycmobile1(str) {
+    return str.substr(0, 3) + "****" + str.substr(7);
+  }
+  dianle=false;
 
+  onMyShow() {
+    
+    var that = this;
+   
+    var mobile = this.MemberInfo.mobile;
+    if (mobile != '') {
+      this.ycmobile=this.ycmobile1(mobile)
+    }
+    var api = this.jigouApi;
+    api.fenxiaoinfo({}).then((res)=>{
+      console.log(res);
+      console.log(1231313);
+          console.log(res.length);
+          this.tuiguaninfo=res 
+          if (res.length == 0 ) {
+            this.showModal1=true;
+          }
+
+    })
+  
+    var leijikehu = [];
+    var xiajituiguan = [];
+    var shijian = this.InstInfo.xiajishijian;
+    this.memberApi.chakanxiaji({}).then((xiaji)=>{
+      for (var i = 0; i < xiaji.length; i++) {
+
+        leijikehu.push(xiaji[i]);
+      }
+      console.log("数据");
+      console.log(leijikehu);
+      console.log(xiajituiguan);
+      this.leijikehu=leijikehu.length;
+      this.xiajituiguan=leijikehu.length;
+      this.tuiguandindan=this.zhuandindan(leijikehu);
+     
+
+     
+    })
+    
+  }
+  leijikehu=0;
+    xiajituiguan=0;
+    zhuandindan(quanbu) {
+      var dindan = [];
+  
+      quanbu.map((item) => {
+  
+        item.dindan.map((item1) => {
+          dindan.push(item1)
+        })
+  
+      })
+      console.log("嚯嚯嚯");
+      console.log(dindan);
+      return dindan;
+  
+    }
+  tuiguanguize(){
+
+     this.navigate("tuiguanguize");
 
   }
-
   todetails(name){
     var pagename="";
     if (name == "jfsc") {

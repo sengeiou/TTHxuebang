@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'password', loadChildren: './password/password.module#PasswordPageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'forgetpassword', loadChildren: './forgetpassword/forgetpassword.module#ForgetpasswordPageModule' }
+  { path: 'forgetpassword', loadChildren: './forgetpassword/forgetpassword.module#ForgetpasswordPageModule' },
+  { path: 'tuiguanguize', loadChildren: './tuiguanguize/tuiguanguize.module#TuiguanguizePageModule' }
 
 ];
 @NgModule({

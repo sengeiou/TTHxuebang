@@ -2,11 +2,11 @@
 
 
   <div class="padding-30 padding-bottom-20 flex-row flex-center">
-    <img class='member_icon'>
-    <div class='margin-left-10 chaochu'>ssaaa</div>
+    <img src="{{MemberInfo.avatarUrl}}" class='member_icon'>
+    <div class='margin-left-10 chaochu'>{{MemberInfo.nickName}}</div>
     <div *ngIf="!showModal&&tuiguaninfo[0].status=='S'" class="label">学榜大使</div>
     <div class="flex-1"></div>
-    <div class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</div>
+    <div class="h5" style='color:#666666' style="width:150rpx" (click)="tuiguanguize()">推广规则</div>
   </div>
 
 
@@ -22,7 +22,7 @@
 
           <img class="icon-25  margin-right-10  " src='{{uploadpath}}resource/{{res.qiandai}}'>
 
-          <div class=" h2" style="color:rgba(255, 255, 255, 1);">111</div>
+          <div class=" h2" style="color:rgba(255, 255, 255, 1);">{{MemberInfo.tuiguanshouyi}}</div>
           <div class="flex-1"></div>
           <div bindtap='lijitixian' class="tixian">立即提现</div>
         </div>
@@ -37,7 +37,7 @@
               大使馆(人)
             </div>
             <div class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
-              111
+              {{leijikehu}}
             </div>
           </div>
           <div class="flex-1"></div>
@@ -50,7 +50,7 @@
                   成功邀请推广员(人)
                 </div>
                 <div class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
-                 1231
+                  {{xiajituiguan}}
                 </div>
               </div>
               <div class="flex-1"></div>

@@ -10,8 +10,8 @@
 </ion-header>
 
 
-<ion-content>
-  <img class="hb" src="{{uploadpath}}curriculum/{{neiron.kc_img}}" />
+<ion-content  *ngIf="kcinfo!=null">
+  <!-- <img class="hb" /> -->
   <div class="top_bg">
     <div class="padding-20">
 
@@ -27,7 +27,11 @@
 
       <div class="flex-1"></div>
     
-      <img class="hb" src="{{uploadpath}}resource/{{res.kchaibaobeijin1}}" />
+      <div  style="background-size:100% 100%;"
+      [style.background-image]="'url('+uploadpath+'resource/'+res.kchaibaobeijin1 +')'" class="hb"  >
+      <div>{{kcinfo.name}}</div>
+      </div>
+     
       <div class="flex-1"></div>
 
     </div>

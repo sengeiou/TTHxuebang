@@ -37,6 +37,7 @@ export class RegisterPage extends AppBase {
   onMyLoad(){
     //参数
     this.params;
+    this.needlogin=true;
   }
   onMyShow(){
 

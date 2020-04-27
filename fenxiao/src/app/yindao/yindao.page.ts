@@ -29,6 +29,7 @@ export class YindaoPage extends AppBase {
   }
   register() { 
     console.log("register");
+
     this.navigate("register");
   }
   dneglu(){
@@ -37,6 +38,7 @@ export class YindaoPage extends AppBase {
   onMyLoad(){
     //参数
     this.params;
+    this.needlogin=true;
   }
   onMyShow(){
 

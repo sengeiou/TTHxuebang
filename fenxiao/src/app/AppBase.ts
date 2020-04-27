@@ -35,8 +35,8 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo=null;
-    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
+    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",xiajishijian:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"",mobile:'' };
     public static MYBABY = [];
     public mybaby = [];
     public options = null;
@@ -125,8 +125,16 @@ export class AppBase implements OnInit {
     getMemberInfo() {
     console.log("进来了");
         AppBase.memberapi.info({}).then((memberinfo) => {
+             
             if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
-                //alert("?");
+                console.log(memberinfo);
+                 console.log(memberinfo == null);
+                 console.log(memberinfo.mobile == undefined)
+                 console.log( memberinfo.mobile == "")
+                if(this.needlogin==false)
+                {
+                this.navigate("yindao");
+                }
                 memberinfo = null;
             }
             this.MemberInfo = memberinfo;

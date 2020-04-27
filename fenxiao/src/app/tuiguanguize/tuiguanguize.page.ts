@@ -7,13 +7,15 @@ import { AppUtil } from '../app.util';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 
+import { JigouApi } from 'src/providers/jigou.api';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
-  providers:[MemberApi]
+  selector: 'app-tuiguanguize',
+  templateUrl: './tuiguanguize.page.html',
+  styleUrls: ['./tuiguanguize.page.scss'],
+  providers:[MemberApi,JigouApi]
 })
-export class LoginPage extends AppBase {
+export class TuiguanguizePage extends AppBase {
 
   constructor(public router: Router,
     public navCtrl: NavController,
@@ -22,57 +24,49 @@ export class LoginPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public sanitizer: DomSanitizer,
+    public jigouApi:JigouApi,
     public memberApi:MemberApi) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute);
     this.headerscroptshow = 480;
       
   }
-  zhuce(){
 
-    this.navigate("register");
-  }
   onMyLoad(){
     //参数
     this.params;
-    this.needlogin=true;
   }
-  onMyShow(){
-
-    
-  }
-  shoujihao='';
-  password='';
-  login(){
-  var shoujihao=this.shoujihao;
-  var password=this.password;
-
-   var api=this.memberApi;
-     
-    api.login({mobile:shoujihao,password:password}).then((res)=>{
-     
-       if(res.code==0)
-       {
-          
-        window.localStorage.setItem("UserToken",res.return)
-
-        this.navigate("/tabs/tab1");
-              
-       }
-       else{
-        
-         this.toast(res.result);
-
-
-       }
- 
+  problemlist=[];
+  onMyShow() {
+    var api = this.jigouApi;
+    var that = this;
+  
+    api.problemlist({ chanjin: 'tg' }).then((problemlist)=>{
+      this. problemlist= problemlist
 
     })
 
-
   }
-  forgetpsw(){
-    console.log("阿森松岛")
-    this.navigate("forgetpassword");
+  lijishenqin()
+  {
+    var api = this.jigouApi;
+    api.fenxiaoinfo({}).then((res)=>{
+      console.log(res.length);
+      if (res.length == 0) {
+       
+       return
 
+      }
+      if(res[0].status=='A')
+      {
+      this.toast("正在审核中哦");
+      return
+      }
+      if (res[0].status == 'S') {
+        this.toast("您已经是推广员了,无需申请");
+      }
+
+    
+
+    })
   }
 }

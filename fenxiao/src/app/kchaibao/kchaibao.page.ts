@@ -35,7 +35,8 @@ export class KchaibaoPage  extends AppBase {
     //参数
     this.params;
   }
-  neiron="";
+  neiron=null;
+  kcinfo=null;
   onMyShow(){
     var api=this.jigouapi;
     api.courseinfo({id:this.params.id}).then((kcinfo)=>{
@@ -47,6 +48,7 @@ export class KchaibaoPage  extends AppBase {
    
     console.log( kcinfo.wenan);
      this.neiron=kcinfo.wenan;
+     this.kcinfo=kcinfo;
      
     })
 

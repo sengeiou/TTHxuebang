@@ -29,11 +29,13 @@ export class PasswordPage extends AppBase {
   mima1 = false;
   mima2 = true;
   password1 = "";
+  
   password2 = "";
   onMyLoad() {
     //参数
     this.params;
     console.log(this.params);
+    this.needlogin=true;
   }
   onMyShow() {
 
@@ -51,9 +53,15 @@ export class PasswordPage extends AppBase {
     }
     console.log(123123);
     var api = this.memberApi;
-    api.register({ mobile: this.params.id, password: this.password1 }).then((res) => {
+    api.register({ xiugai:1,mobile: this.params.id, password: this.password1 }).then((res) => {
  
-        console.log(res)
+      if(res.code==0)
+      {
+         
+       this.navigate("login");
+
+      }
+     
         
 
 
