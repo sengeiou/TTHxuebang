@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>我的客户</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <div class="padding-20 flex-row  bg-white flex-center">
+    <div data-val="yesterday" (click)="binddate($event)" class="{{date=='yesterday'?'opt':'noopt'}}">昨天</div>
+    <div data-val="7days" (click)="binddate($event)" class="{{date=='7days'?'opt':'noopt'}}">近7天</div>
+    <div data-val="all" (click)="binddate($event)" class="{{date=='all'?'opt':'noopt'}}">全部</div>
+    <div class="flex-1"></div>
+  </div>
+  <div *ngIf="show=='all'">
+    <div class="padding-20 h6" style="color:rgba(161, 161, 161, 1)">
+      共{{quanbu.length}}个客户
+    </div>
+    <div *ngFor="let item of quanbu" wx:key='k' data-id="{{item.id}}" (click)="kehuinfo(item.id)"
+      class="padding-20 bg-white flex-row flex-center">
+      <img class="icon-60 radius-50" src="{{item.avatarUrl}}" />
+      <div class="margin-left-20">
+        <div class="flex-row flex-center">
+          <div *ngIf="item.nickName!=''" class="h6 chaochu taichan">{{item.nickName}}</div>
+          <div *ngIf="item.nickName==''" class="h6 chaochu taichan">未授权用户</div>
+          <div *ngIf="item.istuiguanyuan=='1'" class="biaoqian margin-left-10">学榜大使</div>
+        </div>
+        <div class="flex-row flex-center margin-top-20">
+          <div class="h6">成交额:</div>
+          <img class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
+          <div class="h6 margin-left-10">{{item.jiner}}</div>
+        </div>
+        <div class="flex-row flex-center margin-top-20">
+          <div class="h6">我的收益:</div>
+          <img class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.fenxiaojinbi}}" />
+          <div class="h6 margin-left-10">{{item.shouyijiner}}</div>
+        </div>
+
+      </div>
+      <div class="flex-1"></div>
+      <img class="icon-10 margin-left-10" mode="widthFix" src="{{uploadpath}}resource/{{res.right_icon}}" />
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,48 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+.center{
+
+    text-align: center;
+    margin-top:rpx(20);
+  }
+  .jingao{
+    background: #FFECEC;
+  }
+  .h2 {
+    font-size: rpx(56) !important;
+    line-height: rpx(56);
+    overflow: hidden;
+}
+  .shuru{
+  height: rpx(100);
+  
+  }
+  .btn{
+    margin-top:rpx(50);
+    padding:rpx(25) rpx(260) rpx(25) rpx(260);
+    background: rgba(34, 171, 57, 1);
+    color:rgba(255, 255, 255, 1);
+    font-size: rpx(30);
+    border-radius: rpx(120);
+  }
+  .xhx{
+    border-bottom: 1px solid #F5F5F5;
+    margin-bottom: rpx(0);
+    padding-bottom: rpx(20);
+  }
+  .tsk{
+  font-size: rpx(24);
+  color:#CCCCCC;
+  
+  }
+  
+  .bg{
+  
+    background-color: white;
+  }
+
+  .sp1{
+    width:rpx(10);heigth:rpx(10)
+  }

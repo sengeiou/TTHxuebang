@@ -275,11 +275,11 @@
       <div  class="padding-30 flex-row flex-center"
         style='border-bottom:2px solid #F5F5F5' bindtap='bindtolist' id='{{courseinfo.id}}'>
         <div class="flex-1 h5" style='color:#222222'>推广文案</div>
-        <div class="h6 yijian margin-right-20" >一键复制文案</div>
+        <div (click)="this.copy(courseinfo.wenan);" class="h6 yijian margin-right-20" >一键复制文案</div>
        
       </div>
-      <div class="padding-30 h6" style="color:#999999">
-        国之瑰宝 中国舞 编程【2节课 | 0-12岁 | 4节课】 ￥39.9立即购买
+      <div class="padding-30 h6" [innerHTML]="courseinfo.wenan" style="color:#999999">
+      
       </div>
 
       
@@ -320,3 +320,25 @@
     </div>
   </div>
 </ion-content>
+
+<div *ngIf="courseinfo!=null" class="db ">
+
+  <div class="flex-row flex-center padding-20">
+
+   
+  
+    <img *ngIf="isfav=='N'" (click)='fav("Y")' class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}' />
+    
+  
+
+
+    <img class='icon' (click)='fav("N")' *ngIf="isfav=='Y'" mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}' />
+   
+ 
+    <div class="flex-1 text-center" style="color:#FF6600">可赚￥{{courseinfo.expeprice*courseinfo.fenxiaobili}}</div>
+    <div (click)="tokcdetails()" class="tgbt">生成推广海报</div>
+
+
+  </div>
+  
+</div>

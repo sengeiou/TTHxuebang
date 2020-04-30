@@ -27,8 +27,50 @@ export class AppUtil {
 
         return s;
     }
+    static Rad(d) {
+        return d * Math.PI / 180.0; //经纬度转换成三角函数中度分表形式。
+    }
+    static GetDistance(lat1, lng1, lat2, lng2) {
+        var radLat1 = AppUtil.Rad(lat1);
+        var radLat2 = AppUtil.Rad(lat2);
+        var a = radLat1 - radLat2;
+        var b = AppUtil.Rad(lng1) - AppUtil.Rad(lng2);
+        var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+        s = s * 6378.137; // 地球半径，千米;
+        s = Math.round(s * 10000) / 10000; //输出为公里
+        s = Math.round(s * 1000) / 1; //单位修改为米,取整
+        //s=s.toFixed(4);
+        return s;
+    }
+    static zuidijia(a, b, c, d) {
+        var list = [];
+        list.push(a, b, c, d);
+        list = list.filter((item) => {
+            return item > 0;
+        })
+        var min = Math.min.apply(null, list)
+        console.log(list);
+        console.log(min);
+        console.log("hahdadhsadhasdhasdhas");
 
 
+        return min.toFixed(2);
+
+    }
+
+    static GetMileTxt(mile) {
+        console.log(mile);
+        if (mile > 100000) {
+            return "";
+        }
+        if (mile > 1000) {
+            return + (mile / 1000.0).toFixed(0) + "km";
+        } else if (mile < 100) {
+            return "100米内";
+        } else {
+            return "" + (mile).toString() + "m";
+        }
+    }
     public static FormatDateTime(date){
         console.log("FormatDateTime"+date);
         var year = AppUtil.ten2(date.getFullYear());

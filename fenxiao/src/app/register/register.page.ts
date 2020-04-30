@@ -34,6 +34,7 @@ export class RegisterPage extends AppBase {
   shoujihao = "";
   timer = null;
   yanzhenma = "";
+  xieyi=false;
   onMyLoad(){
     //参数
     this.params;
@@ -76,6 +77,12 @@ export class RegisterPage extends AppBase {
    
   }
   
+  login(){
+
+     this.navigate("login");
+
+  }
+
   setInVerify() {
      var that=this;
   
@@ -91,6 +98,14 @@ export class RegisterPage extends AppBase {
     }, 1000);
   }
   zhuce(){
+   
+     if(!this.xieyi)
+     {
+
+       this.toast("请勾选协议");
+      return
+
+     }
 
     var verifycode =this.yanzhenma;
   

@@ -13,6 +13,23 @@
     border-radius: rpx(100);
     
     }
+    .tgbt{
+      width:rpx(342);
+      height: rpx(72);
+      border-radius: rpx(36);
+      background: #FF6600;
+      line-height:rpx(72);
+      color:#FFFFFF;
+      text-align: center;
+      font-size: rpx(28);
+    }
+    .db{
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
+      
+      background: white;
+    }
     .guanggao {
       width: 100vw;
       height: rpx(88);

@@ -142,4 +142,39 @@ export class Tab3Page extends AppBase {
     this.navigate(pagename);
   
   }
+
+  mykehu(e=undefined) {
+
+    if (this.leijikehu == 0) {
+      this.showAlert("暂无邀请的好友，快去邀请好友吧")
+      return
+    }
+    // this.navigateTo({
+    //   url: '/pages/mykehu/mykehu',
+    // })
+    this.navigate('mykehu')
+  }
+  tuiguandindan1(tuiguandindan) {
+    if (tuiguandindan == 0) {
+      this.showAlert("暂无推广订单")
+      return
+    }
+    // this.navigateTo({
+    //   url: '/pages/tuiguandindan/tuiguandindan',
+    // })
+    this.navigate('tuiguandindan')
+  }
+
+  lijitixian(e=undefined) {
+
+    // this.navigateTo({
+    //   url: '/pages/tixian/tixian',
+    // })
+    this.navigate('tixian')
+  }
+  myshoucan(){
+   console.log("21111");
+    this.navigate("mycollect");
+
+  }
 }

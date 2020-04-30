@@ -1,8 +1,8 @@
-<ion-header >
-  <ion-toolbar >
-    <ion-buttons  slot="start">
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
       <ion-button (click)='back()'>
-        <img src="{{uploadpath}}resource/{{res.h5shanyiye}}" class="icon-25" />  
+        <img src="{{uploadpath}}resource/{{res.h5shanyiye}}" class="icon-25" />
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -22,26 +22,48 @@
         placeholder-style="color:#C8C8C8;margin-left-20" class="flex-1 margin-left-20 shuruk"></ion-input>
     </div>
 
-    <div class="mima1 flex-row flex-center">
+    <div *ngIf="type=='N'" class="mima1 flex-row flex-center">
 
 
-     
-      <ion-input type="{{mima2?'text':'password'}}" [(ngModel)]="password" inputmode="tel" maxlength="32"  placeholder="输入密码"
-        placeholder-style="color:#C8C8C8;margin-left-20" class="flex-1 margin-left-20 shuruk"></ion-input>
-        <img (click)="mima2=!mima2" src="{{uploadpath}}resource/{{mima2==true?res.kejian:res.bukejian}}" class="icon-25 margin-20" />
+
+      <ion-input type="{{mima2?'text':'password'}}" [(ngModel)]="password" inputmode="tel" maxlength="32"
+        placeholder="输入密码" placeholder-style="color:#C8C8C8;margin-left-20" class="flex-1 margin-left-20 shuruk">
+      </ion-input>
+      <img (click)="mima2=!mima2" src="{{uploadpath}}resource/{{mima2==true?res.kejian:res.bukejian}}"
+        class="icon-25 margin-20" />
     </div>
+
+
+    <div *ngIf="type=='Y'" class=" flex-row flex-center" style="margin-top:32px">
+
+      <div class="yanzhenma flex-row flex-center">
+
+        <ion-input [(ngModel)]="yanzhenma" placeholder="验证码" placeholder-style="color:#C8C8C8;margin-left-20"
+          class="flex-1 margin-left-40 shuruk"></ion-input>
+
+      </div>
+      <div class="huoquyanzhenma1" *ngIf="reminder>0">{{reminder}}s</div>
+      <div (click)="sendVerifyCode()" class="huoquyanzhenma1" *ngIf="reminder<0">重新发送</div>
+      <div (click)="sendVerifyCode()" *ngIf="!diyici" class="huoquyanzhenma">获取验证码</div>
+
+    </div>
+
+
 
     <div class="flex-row flex-center padding-20">
 
-      <div class="f-28" style="color:#37CFC9">使用手机号密码登录</div>
-   <div class="flex-1"></div>
-      <div  (click)="forgetpsw()" class="f-28" style="color:#C8C8C8">忘记密码？</div>
+      <div *ngIf="type=='Y'" (click)="type='N'" class="f-28" style="color:#FF6600">使用手机号密码登录</div>
+      
+
+      <div *ngIf="type=='N'" (click)="type='Y'" class="f-28" style="color:#FF6600">使用验证码登录</div>
+      <div class="flex-1"></div>
+      <div *ngIf="type=='N'" (click)="forgetpsw()" class="f-28" style="color:#C8C8C8">忘记密码？</div>
 
 
     </div>
 
     <div (click)="login()" class="zhuce">登录</div>
-    
+
 
   </div>
 
@@ -50,7 +72,7 @@
     <div class="flex-row flex-center" style="width:100vw">
       <div class="flex-1"></div>
       <div class="h5" style="color:#000000">还没有账号?</div>
-      <div (click)="zhuce()" class="h5" style="color:#37CFC9">注册</div>
+      <div (click)="zhuce()" class="h5" style="color:#FF6600">注册</div>
       <div class="flex-1"></div>
     </div>
   </div>

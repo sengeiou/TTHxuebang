@@ -1,0 +1,42 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+ion-content{
+  --background:#F5F6F8;
+  }
+.top{
+    position: fixed;
+    width: 100vw;
+  }
+  .txt {
+    color: #ffc200;
+  }
+  .noopt{
+    margin-left:rpx(20);
+  color: rgba(153, 153, 153, 1);
+  background: rgba(245, 246, 248, 1);
+  padding: rpx(10) rpx(30) rpx(10) rpx(30);
+  border-radius: rpx(30);
+  font-size: rpx(24);
+  
+  }
+  .taichan{
+   width: rpx(200);
+  
+  }
+  .opt{
+    margin-left:rpx(20);
+  color: rgba(34, 34, 34, 1);
+  background: rgba(255, 186, 18, 1);
+  padding: rpx(10) rpx(30) rpx(10) rpx(30);
+  border-radius: rpx(30);
+  font-size: rpx(24);
+  }
+  .biaoqian{
+  font-size: rpx(20);
+  color:rgba(0, 0, 0, 1);
+  background: rgba(255, 186, 18, 1);
+  padding: rpx(3) rpx(5) rpx(3) rpx(5);
+  border-radius: rpx(10);
+  
+  }

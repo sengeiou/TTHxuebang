@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar  color='primary'>
+      <ion-buttons slot="start">
+        <ion-button (click)='back()'>
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{InstInfo.name}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+    <!-- <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" /> -->
+    <div *ngIf="tishi1" class="padding-20 flex-row flex-center jingao">
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
+      <div class="h6 margin-left-10">不能超过可提现金额 5000元</div>
+      <div class="flex-1"></div>
+    </div>
+    
+    <div *ngIf="tishi2" class="padding-20 flex-row flex-center jingao">
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
+      <div class="h6 margin-left-10">提现金额不能为空</div>
+      <div class="flex-1"></div>
+    </div>
+    
+    <div *ngIf="tishi3" class="padding-20 flex-row flex-center jingao">
+      <div class="flex-1"></div>
+      <img src="{{uploadpath}}resource/{{res.cuowu}}" class="icon-15  " />
+      <div class="h6 margin-left-10">提现金额不能大于余额</div>
+      <div class="flex-1"></div>
+    </div>
+    
+    
+    <div class="padding-30 h5" style='color:rgba(34, 34, 34, 1)'>提现金额 (元) 到微信钱包</div>
+    <div class='padding-20' style="padding-top:0px">
+      <div class="bg">
+        <div class="flex-row flex-center  margin-20 xhx">
+          <div class="h2">￥</div>
+          <input [(ngModel)]="jiner" class="flex-1 margin-left-20 h2 shuru" value="{{jiner}}" type='digit' confirm-type='done' placeholder-class="tsk"  />
+          <div (click)="quanbu($event)" class="h6" style="color:#589DE9">全部提现</div>
+        </div>
+        <div class="flex-row flex-center  padding-30 ">
+          <div class="" style="color:#222222">全部可提现金额:</div>
+          <div class="" style="color:#D43030">￥{{MemberInfo.tuiguanshouyi}}</div>
+        </div>
+      </div>
+    
+    </div>
+    <div class="flex-row ">
+      <div class="flex-1"></div>
+      <div (click)='tixian($event)' class="btn">立即提现</div>
+      <div class="flex-1"></div>
+    </div>
+    <div class="flex-row flex-center margin-top-10">
+      <div class="flex-1"></div>
+      <div (click)='mingxi($event)' class="h6" style='color:rgba(88, 157, 233, 1)'>收支明细</div>
+      <img style='' class=" margin-left-10 sp1" mode='widthFix' src='{{uploadpath}}resource/{{res.right_icon}}' />
+      <div class="flex-1"></div>
+    </div>
+    
+    
+
+</ion-content>

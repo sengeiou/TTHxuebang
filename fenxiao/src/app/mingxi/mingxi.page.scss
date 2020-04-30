@@ -1,0 +1,15 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+ion-content {
+  --background: #f5f5f5;
+}
+.cc{
+    background-color: #FFFFFF;
+    margin-top:rpx(1);
+    }
+    .xian{
+     
+      width: 100vw;
+      background-color: red;
+    }

@@ -28,7 +28,7 @@
             <div (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
 
               <img src='{{uploadpath}}onlineclassroomtype/{{fenleilist[idx+zhon].img}}' class='icon-50 radius-50' />
-              <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
+              <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].name}}</div>
 
             </div>
 
@@ -73,15 +73,15 @@
         </div>
 
 
-      
+  
 
 
       </div>
 
       <div class="flex-row flex-center margin-top-20">
 
-        <div style="color:#FA2020">￥39.9</div>
-        <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥299</div>
+        <div style="color:#FA2020">￥{{item.price}}</div>
+        <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥{{item.originalprice}}</div>
       </div>
       <div class="flex-row flex-center margin-top-20">
 
@@ -92,7 +92,6 @@
         <div class="flex-1"></div>
         <div (click)="zxkthanbao(item.id);$event.stopPropagation();" class="hqhb">获取海报</div>
       </div>
-
     </div>
 
   </div>

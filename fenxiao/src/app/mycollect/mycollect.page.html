@@ -1,0 +1,217 @@
+<ion-header>
+  <ion-toolbar  color='primary'>
+      <ion-buttons slot="start">
+        <ion-button (click)='back()'>
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>{{InstInfo.name}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+
+<!--pages/mycollect/mycollect.wxml-->
+<!-- <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" /> -->
+<!-- <div class=' to_top' >
+<img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
+</div> -->
+<div class=' flex-row flex-center   bg-white bor_bot'>
+
+<div class='flex-1 flex-row flex-column' (click)='bindshow("t1")' data-type='t1'>
+<div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t1"?"txt":""}} txt-black'>课程</div>
+<div *ngIf='show=="t1"' class='bg-primary sp1' style=''></div>
+<div *ngIf='show!="t1"' class='sp2' style=''></div>
+</div>
+
+
+
+<div class='flex-1 flex-row flex-column' (click)='bindshow("t3")' data-type='t3'>
+<div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="t3"?"txt":""}} txt-black'>在线课堂</div>
+<div *ngIf='show=="t3"' class='bg-primary sp1' ></div>
+<div *ngIf='show!="t3"' class='sp2' ></div>
+</div>
+
+
+
+</div>
+
+<!--课程收藏-->
+<div class='' *ngIf="show=='t1'"  id='dinbu'>
+<div *ngIf="kclist.length==0">
+<div class='flex-row text-center'>
+  <div class='flex-1'>
+
+  </div>
+
+  <div>
+
+    <div >
+      <img  class="icon-170" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+    </div>
+    <div class='h5 txt-gray'>
+     
+    </div>
+  </div>
+  <div class='flex-1'>
+
+  </div>
+</div>
+</div>
+
+<div (click)="tokcdetails(item.course_id)" id='{{item.id}}' class='padding-20 flex-row bg-white kecheng1 radius-10 shadow'
+*ngFor='let item of kclist;let idx=index'>
+<img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.course_kc_img}}" />
+<div class='flex-row column   margin-left-20 flex-1'>
+  <div class='txt-bold txt-black flex-1 chaochu' style="width:400rpx;">{{item.course_name}}</div>
+
+
+  <div class="flex-row flex-center">
+    <div class="starbox text-right">
+      <div class="stars" style="width: 100%;">
+        <div class=" ims">
+          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+        </div>
+      </div>
+
+      <div class="stars2">
+        <div class="ims">
+          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="h7 margin-left-20 margin-top-5" style="color:#FF5733">{{item.course_people_num}}人已购课</div>
+  </div>
+  <div class='flex-row flex-center flex-1' style=''>
+
+
+    <div class='flex-row flex-center flex-1'>
+      <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+      <div class='h6 txt-black margin-left-5'>{{item.course_age_name}}</div>
+    </div>
+
+
+    <div class='flex-row flex-center flex-1'>
+      <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+      <div class='h6 txt-black margin-left-5'>{{item.course_class_hours}}节课</div>
+    </div>
+
+
+    <div class='flex-row flex-center flex-1'>
+      <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+      <div class='h6 txt-black margin-left-5'>{{item.course_duration}}/节</div>
+    </div>
+
+
+  </div>
+
+  <div class="flex-row flex-center">
+
+    <div style="color:#FA2020">￥{{item.course_expeprice}}</div>
+    <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥299</div>
+  </div>
+  <div class="flex-row flex-center">
+
+    <div class="flex-row ">
+      <div class="h6 ">佣金:</div>
+      <div class="h6" style="color:#FA2020">{{item.course_expeprice*item.course_fenxiaobili}}</div>
+    </div>
+    <div class="flex-1"></div>
+    <div class="hqhb"  (click)="ckhb(item.course_id);$event.stopPropagation();">获取海报</div>
+  </div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<!--在线课堂收藏-->
+<div class='' *ngIf="show=='t3'"   id='dinbu'>
+
+<div *ngIf="ketangshoucanglist.length==0">
+<div class='flex-row text-center'>
+  <div class='flex-1'>
+
+  </div>
+
+  <div>
+
+    <div class='nofound-img'>
+      <img class="sp4" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}' />
+    </div>
+    <div class='h5 txt-gray'>
+      你还没有添加在线课堂的收藏
+    </div>
+  </div>
+  <div class='flex-1'>
+  </div>
+</div>
+</div>
+
+<div id='{{item.id}}' (click)="ketaninfo(item.onlineclassroom_id)" class='padding-20 flex-row   bg-white kecheng1 radius-10 shadow'
+*ngFor='let item of ketangshoucanglist;let idx=index'>
+<img class='kc_icon radius-10' src="{{uploadpath}}onlineclassroom/{{item.onlineclassroom_img}}" />
+<div class='flex-row column   margin-left-20 flex-1'>
+  <div class='txt-bold txt-black flex-1 chaochu wd' >{{item.onlineclassroom_name}}</div>
+
+
+
+  <div class='flex-row flex-center flex-1 margin-top-20' style=''>
+
+
+    <div class='flex-row flex-center flex-1'>
+      <img src='{{uploadpath}}resource/{{res.nianlin}}' class='icon-10' />
+      <div class='h6 txt-black margin-left-5'>{{item.onlineclassroom_age_name}}</div>
+    </div>
+
+
+    <div class='flex-row flex-center flex-1'>
+      <img src='{{uploadpath}}resource/{{res.zhanjie}}' class='icon-10' />
+      <div class='h6 txt-black margin-left-5'>全集{{item.onlineclassroom_chapter_num}}集</div>
+    </div>
+
+
+  
+
+
+  </div>
+
+  <div class="flex-row flex-center margin-top-20">
+
+    <div style="color:#FA2020">￥{{item.onlineclassroom_price}}</div>
+    <div class="h6 margin-left-20" style="text-decoration:line-through;color:#999999">￥{{item.onlineclassroom_originalprice}}</div>
+  </div>
+  <div class="flex-row flex-center margin-top-20">
+
+    <div class="flex-row  ">
+      <div class="h6 ">佣金:</div>
+      <div class="h6" style="color:#FA2020">￥35.9</div>
+    </div>
+    <div class="flex-1"></div>
+    <div (click)="zxkthanbao(item.onlineclassroom_id);$event.stopPropagation();" class="hqhb">获取海报</div>
+  </div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</ion-content>
