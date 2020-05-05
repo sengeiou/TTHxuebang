@@ -116,7 +116,7 @@ export class AddressmanagePage extends AppBase {
           })
         } else {
           addressapi.addedaddress({
-            member_id: 1,
+            member_id: member_id,
             name: data.name,
             phonenumber: data.phonenumber,
             region: data.region,

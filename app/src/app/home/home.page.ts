@@ -653,7 +653,7 @@ export class HomePage extends AppBase {
       this.signState = true;
 
       var num = this.num;
-
+      alert(this.num);
 
       if (this.num < 7) {
         this.jifen = 5;
@@ -663,11 +663,8 @@ export class HomePage extends AppBase {
 
       var jifenapi = this.jifenApi;
       jifenapi.daka({
-        member_id: this.MemberInfo.id,
-        jifen: this.jifen,
-        status: "A"
       }).then((daka) => {
-        if (this.jifen == 5) {
+        if (daka.return == 5) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "meiridaka"
@@ -675,7 +672,7 @@ export class HomePage extends AppBase {
             this.addjifen = addjifen;
           })
         }
-        if (this.jifen == 25) {
+        if (daka.return == 25) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "lianxvdaka"

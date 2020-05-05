@@ -68,16 +68,21 @@ export class SearchwordPage extends AppBase {
   }
   value = "";
   search(e) {
-    //console.log(e.detail.value);
     this.show = 1;
     // wx.showLoading({
     //   title: '加载中...',
     // })
 
+    console.log(e);
+    if(e.keyCode==13){
+      this.todetails(this.searchword);
+      return;
+    }
+
 
     var data = e.detail.value;
     this.value = data;
-    var json = { searchkeyword: data };
+    var json = { searchkeyword: this.searchword };
 
     var jigouapi = this.jigouApi;;
     jigouapi.keywordlist(json).then((result) => {

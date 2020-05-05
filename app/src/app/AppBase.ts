@@ -230,10 +230,35 @@ export class AppBase implements OnInit, OnDestroy {
                     ApiConfig.SetTokenKey(MemberInfo.unionid);
                     AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
-                        AppBase.memberapi.info({}).then((MemberInfo)=>{
+                        AppBase.memberapi.info({}).then((info)=>{
+
+                            var order = info.order;
+                            var dfkorder = 0;
+                            var ypborder = 0;
+                            var dpjorder = 0;
+                            var dshorder = 0;
+                            var tkorder = 0;
+                            order.map((item) => {
+                    
+                            if (item.pstatus == 'W') {
+                                dfkorder++;
+                            }
+                            if (item.type == 'PT' && item.pstatus == 'PT') {
+                                ypborder++;
+                            }
+                            if (item.pstatus =='PJ')
+                            {
+                                dpjorder++;
+                            }
+                            })
+                            info.dfkorder = dfkorder;
+                            info.ypborder=ypborder;
+                            info.dpjorder=dpjorder;
+                            info.dshorder=dshorder;
+                            info.tkorder=tkorder;
                             
-                            AppBase.MemberInfo = MemberInfo;
-                            this.MemberInfo = MemberInfo;
+                            AppBase.MemberInfo = info;
+                            this.MemberInfo = info;
                             window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
                             this.setWechatShare();
                         });
@@ -249,37 +274,40 @@ export class AppBase implements OnInit, OnDestroy {
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
-            var  info=AppBase.MemberInfo;
-            var order = info.order;
-            var dfkorder = 0;
-            var ypborder = 0;
-            var dpjorder = 0;
-            var dshorder = 0;
-            var tkorder = 0;
-            order.map((item) => {
-      
-              if (item.pstatus == 'W') {
-                dfkorder++;
-              }
-              if (item.type == 'PT' && item.pstatus == 'PT') {
-                ypborder++;
-              }
-              if (item.pstatus =='PJ')
-              {
-                dpjorder++;
-              }
-            })
-            AppBase.MemberInfo.dfkorder = dfkorder;
-            AppBase.MemberInfo.ypborder=ypborder;
-            AppBase.MemberInfo.dpjorder=dpjorder;
-            AppBase.MemberInfo.dshorder=dshorder;
-            AppBase.MemberInfo.tkorder=tkorder;
-            this.MemberInfo = AppBase.MemberInfo;
-            console.log("aaaa", this.MemberInfo);
-             
-            ApiConfig.SetToken(this.MemberInfo.h5openid);
-            ApiConfig.SetTokenKey(this.MemberInfo.unionid);
-            this.setWechatShare();
+            ApiConfig.SetToken(AppBase.MemberInfo.h5openid);
+            ApiConfig.SetTokenKey(AppBase.MemberInfo.unionid);
+            AppBase.memberapi.info({}).then((info)=>{
+                var order = info.order;
+                var dfkorder = 0;
+                var ypborder = 0;
+                var dpjorder = 0;
+                var dshorder = 0;
+                var tkorder = 0;
+                order.map((item) => {
+          
+                  if (item.pstatus == 'W') {
+                    dfkorder++;
+                  }
+                  if (item.type == 'PT' && item.pstatus == 'PT') {
+                    ypborder++;
+                  }
+                  if (item.pstatus =='PJ')
+                  {
+                    dpjorder++;
+                  }
+                })
+                info.dfkorder = dfkorder;
+                info.ypborder=ypborder;
+                info.dpjorder=dpjorder;
+                info.dshorder=dshorder;
+                info.tkorder=tkorder;
+                AppBase.MemberInfo=info;
+                this.MemberInfo = info;
+                console.log("aaaa", this.MemberInfo);
+                 
+                this.setWechatShare();
+            });
+            
             // this.onMyShow();
         }
 
@@ -587,8 +615,9 @@ export class AppBase implements OnInit, OnDestroy {
     }
     backtotop(e = undefined) {
         // var ioncontent = document.querySelector("ion-content");
+        //alert(1);
         var ioncontent = document.getElementById('dinbu');
-        ioncontent.scrollIntoView(true);
+        ioncontent.scrollIntoView({behavior:"smooth"});
     }
     onShareAppMessage() {
 

@@ -70,8 +70,8 @@
   <div (click)='tokcdetails(item.id)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
     *ngFor='let item of coursevlist;let idx=index;' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
-    <div class='flex-row column   margin-left-20 flex-1'>
-      <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
+    <div class=' margin-left-20 flex-1'>
+      <div class='txt-bold txt-black flex-1 chaochu spa'>{{item.name}}</div>
 
       <div class='flex-row flex-center'>
 
@@ -101,7 +101,7 @@
         <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>
       </div>
 
-      <div class='flex-row flex-center flex-1' style=''>
+      <div class='flex-row flex-center ' style=''>
 
 
         <div class='flex-row flex-center flex-1'>
@@ -125,7 +125,7 @@
       </div>
 
 
-      <div class='flex-row flex-center flex-1'>
+      <div class='flex-row flex-center margin-top-10'>
         <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
         <div class='h6 flex-1 margin-left-5 txt-gray'>{{item.JG_jigou}}</div>
         <div class=' txt-red h6 padding-top-10'>￥</div>
@@ -133,8 +133,8 @@
         <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
       </div>
 
-      <div class='flex-row flex-center'>
-        <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
+      <div class='flex-row spa'>
+        <div class='h6 flex-1 chaochu txt-gray' >{{item.JG_showaddress}}</div>
         <div class='h6 txt-gray'>{{item.miletxt}}</div>
       </div>
 

@@ -120,7 +120,7 @@
 
                 <div class='flex-1  flex-column  flex-row  '>
                   <div class="h6 txt-gray">适合年龄</div>
-                  <div class='h5  txt-bold margin-top-15  ' style='color:#222222'>
+                  <div class='h5  txt-bold margin-top-15  ' style='color:#222222' *ngIf="courseinfo.id!=undefined">
                     {{courseinfo.min_age}}{{courseinfo.max_age==100?'岁以上':'-'+courseinfo.max_age+'岁'}}</div>
                 </div>
 

@@ -406,9 +406,10 @@ ion-content {
 .tangchuan {
   position: fixed;
   z-index: 100;
-  left: rpx(82);
-  right: rpx(82);
-  top: 15%;
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
 }
 
 .gz {

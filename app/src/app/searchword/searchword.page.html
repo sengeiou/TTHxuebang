@@ -22,7 +22,7 @@
       <div class="w20"></div>
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
       <input class='h6 flex-1 txt-black padding-left-5 inp' bindconfirm='bindconfirm' confirm-type='search' focus='true'
-        placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' />
+        placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' (keyup)='search($event)' />
 
       <div class='padding-left-20 padding-right-10' >
         <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
@@ -55,7 +55,7 @@
 
     <div *ngIf="history.length>0">
 
-      <div class="bg-white mt12" style=''>
+      <div class="bg-white mt12 " style=''>
         <div class='flex-row flex-center'>
           <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
           <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord()' />

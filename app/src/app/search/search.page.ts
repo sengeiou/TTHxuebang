@@ -102,6 +102,7 @@ export class SearchPage extends AppBase {
     json.mylat = mylat;
     json.mylng = mylng;
     json.orderby = "distance";
+    json.limit="0,100";
     jigouapi.jglist(json).then( (jglist) => {
       console.log("jglist", jglist);
       var jgvlist = [];
@@ -118,6 +119,7 @@ export class SearchPage extends AppBase {
     kc.mylat = mylat;
     kc.mylng = mylng;
     kc.orderby = "distance";
+    kc.limit="0,100";
 
     jigouapi.courselist(kc).then( (courselist) => {
       var coursevlist = [];
