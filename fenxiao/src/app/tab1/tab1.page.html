@@ -30,20 +30,20 @@
 
     <div class=''>
       <div style=" " class='ss1 scroll-x'>
-        <div class="flex-row flex-center " [ngStyle]="{'width.px': fenleilist.length*35*rad }">
+        <div class="flex-row " [ngStyle]="{'width.px': fenleilist.length*35*rad }">
           <div *ngFor='let item of fenleilist;let idx=index'>
 
             <div *ngIf="idx<zhon">
-              <div (click)="qiehuanzhanjie(idx)" class="ceshi  flex-row  flex-column">
+              <div *ngIf="idx<zhon" (click)="qiehuanzhanjie(idx)" class="ceshi  flex-row  flex-column">
 
                 <img *ngIf="idx!=0" src='{{uploadpath}}coursetype/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
                 <img *ngIf="idx==0" src='{{uploadpath}}resource/{{fenleilist[idx].img}}' class='icon-50 radius-50' />
-                <div class='h6 margin-top-12 '>{{fenleilist[idx].typename}}</div>
+                <div class='h6 margin-top-12 '>{{fenleilist[idx].typename}} </div>
 
               </div>
 
 
-              <div (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
+              <div  *ngIf="idx+1<zhon"  (click)="qiehuanzhanjie(idx+zhon)" class="ceshi  flex-row  flex-column">
 
                 <img src='{{uploadpath}}coursetype/{{fenleilist[idx+zhon].img}}' class='icon-50 radius-50' />
                 <div class='h6 margin-top-12 '>{{fenleilist[zhon+idx].typename}}</div>
@@ -66,7 +66,7 @@
 
   </div>
 
-  <div class="xianshi" [class.xianshi1]='genduo==true' style="background-size:100% 100%;"
+  <div  class="xianshi" [class.xianshi1]='genduo==true' style="background-size:100% 100%;"
     [style.background-image]="'url('+uploadpath+'resource/'+res.xianshifuli+')'">
 
     <div class="flex-row flex-center padding-50">
@@ -78,7 +78,7 @@
       <div class="padding-5">:</div>
       <div class="sj">59</div>
     </div>
-    <div id='{{item.ccc.id}}' class='padding-20  flex-row bg-white kecheng1 radius-10 shadow'
+    <div id='{{item.ccc.id}}' (click)="tokcdetails(item.ccc.id)" class='padding-20  flex-row bg-white kecheng1 radius-10 shadow'
       *ngFor='let item of fuli0;let idx=index'>
       <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.ccc.kc_img}}" />
       <div class='flex-row column   margin-left-20 flex-1'>
@@ -143,7 +143,7 @@
 
           <div class="flex-row ">
             <div class="h6 ">佣金:</div>
-            <div class="h6" style="color:#FA2020">￥35.9</div>
+            <div class="h6" style="color:#FA2020">￥{{item.ccc.expeprice*item.ccc.fenxiaobili}}</div>
           </div>
           <div class="flex-1"></div>
           <div class="hqhb"  (click)="ckhb(item.id);$event.stopPropagation();">获取海报</div>
@@ -164,7 +164,7 @@
   [style.background-image]="'url('+uploadpath+'resource/'+res.genduobeijin+')'" >
    
 
-    <div id='{{item.ccc.id}}' [class.margin-top-2000]='idx!=0' class='padding-20  flex-row bg-white  kecheng11  radius-10 shadow'
+    <div id='{{item.ccc.id}}' (click)="tokcdetails(item.ccc.id)" [class.margin-top-2000]='idx!=0' class='padding-20  flex-row bg-white  kecheng11  radius-10 shadow'
     *ngFor='let item of fuli;let idx=index'>
     <img class='kc_icon radius-10' src="{{uploadpath}}curriculum/{{item.ccc.kc_img}}" />
     <div class='flex-row column   margin-left-20 flex-1'>
@@ -229,7 +229,7 @@
 
         <div class="flex-row ">
           <div class="h6 ">佣金:</div>
-          <div class="h6" style="color:#FA2020">￥35.9</div>
+          <div class="h6" style="color:#FA2020">￥{{item.ccc.expeprice*item.ccc.fenxiaobili}}</div>
         </div>
         <div class="flex-1"></div>
         <div class="hqhb"  (click)="ckhb(item.id);$event.stopPropagation();">获取海报</div>
@@ -338,7 +338,7 @@
 
         <div class="flex-row ">
           <div class="h6 ">佣金:</div>
-          <div class="h6" style="color:#FA2020">￥35.9</div>
+          <div class="h6" style="color:#FA2020">{{item.expeprice*item.fenxiaobili}}</div>
         </div>
         <div class="flex-1"></div>
         <div class="hqhb"  (click)="ckhb(item.id);$event.stopPropagation();">获取海报</div>
@@ -347,5 +347,8 @@
     </div>
 
   </div>
-
+  <ion-infinite-scroll threshold="10px" (ionInfinite)="onReachBottom($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载中">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

@@ -111,7 +111,16 @@ margin-top:rpx(20);
   position: absolute;
 
 }
-
+.tgbt{
+  width:rpx(342);
+  height: rpx(72);
+  border-radius: rpx(36);
+  background: #FF6600;
+  line-height:rpx(72);
+  color:#FFFFFF;
+  text-align: center;
+  font-size: rpx(28);
+}
 .db {
   width: 100vw;
   height: rpx(100);

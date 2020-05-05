@@ -39,8 +39,11 @@
     <div (click)="zhuce()" class="zhuce">同意协议并注册</div>
     <div class="flex-row flex-center  " style="margin-top:32px">
       <div class="flex-1"></div>
-      <div></div>
-      <div class="h5" style="color:#C8C8C8">《注册协议》</div>
+      
+
+      <img *ngIf="xieyi"  (click)="xieyi=false" class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.yiyuedu}}" />
+      <img *ngIf="!xieyi" (click)="xieyi=true" class="icon-15 margin-left-10" src="{{uploadpath}}resource/{{res.weiyuedu}}" />
+      <div (click)="navigate('content')" class="h5" style="color:#C8C8C8">《注册协议》</div>
       <div class="flex-1"></div>
     </div>
 
@@ -51,7 +54,7 @@
     <div class="flex-row flex-center" style="width:100vw">
       <div class="flex-1"></div>
       <div class="h5" style="color:#000000">已经有账号？</div>
-      <div class="h5" style="color:#37CFC9">登录</div>
+      <div (click)="login()" class="h5" style="color:#FF6600">登录</div>
       <div class="flex-1"></div>
     </div>
   </div>

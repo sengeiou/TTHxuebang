@@ -44,8 +44,7 @@ export class Tab1Page extends AppBase {
 
   }
   xzlist = [];
-  mylat = '';
-  mylng = '';
+  
   fdistrict_id = '';
   jglist = [];
   jgvteach = [];
@@ -110,7 +109,7 @@ export class Tab1Page extends AppBase {
 
       console.log(list);
 
-      this.zhon = Math.floor(list.length / 2);
+      this.zhon = Math.floor(list.length / 2)+1;
 
 
       this.fenleilist = list;
@@ -122,7 +121,7 @@ export class Tab1Page extends AppBase {
 
     })
     instapi.xianshifuli({ id: 0 }).then((fuli) => {
-      console.log(11111);
+      console.log("第一次1");
       console.log(fuli);
       this.fuli0=[];
          var fulilist = fuli.kc;
@@ -131,8 +130,9 @@ export class Tab1Page extends AppBase {
         return idx != 0;
 
       });
-   console.log(1111);
-      console.log(this.fuli0);
+     
+      // var date=new date();
+        
 
 
     })
@@ -160,13 +160,85 @@ export class Tab1Page extends AppBase {
     this.navigate("kcinfo", { id: id });
 
   }
-  sousuo() {
-    console.log("adads");
-    this.navigate('searchword');
-  }
   ckhb(id)
   {
     console.log(id);
     this.navigate("kchaibao",{id:id});
+  }
+  sousuo() {
+    console.log("adads");
+    this.navigate('searchword');
+  }
+
+  onReachBottom(e){
+    var mylat = this.mylat;
+    var mylng = this.mylng;
+
+    var jgvteach = this.jgvteach;
+    var vteach = this.vteach;
+    var courselist = this.courselist;
+    var jglist = this.jglist;
+    var count = 0;
+    var cs = 0;
+ 
+    if (this.params.type == "kc") {
+      for (var i = vteach.length; i < courselist.length; i++) {
+
+        var mile = this.util.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+        var miletxt = this.util.GetMileTxt(mile);
+        courselist[i]["miletxt"] = miletxt;
+        courselist[i]["zuidijia"] = this.util.zuidijia(
+          courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
+        vteach.push(courselist[i]);
+        count++;
+        if (count >= 7) {
+          break;
+        }
+      }
+      console.log(count + "AAA")
+      if (count == 0) {
+        e.target.complete();
+        return;
+      }
+
+      if (count != 0) {
+        console.log("diaoni1");
+        setTimeout(() => {
+          console.log("llll");
+          this.vteach=vteach;
+          e.target.complete();
+        }, 500);
+      }
+
+    }
+
+
+
+    if (this.params.type == "jg") {
+      for (var j = jgvteach.length; j < jglist.length; j++) {
+        var mile = this.util.GetDistance(mylat, mylng, jglist[j].lat, jglist[j].lng);
+        var miletxt = this.util.GetMileTxt(mile);
+        jglist[j]["miletxt"] = miletxt;
+        jgvteach.push(jglist[j]);
+        cs++;
+        if (cs >= 4) {
+          break;
+        }
+      }
+      if (cs == 0) {
+        e.target.complete();
+        return;
+      }
+      if (cs != 0) {
+        setTimeout(() => {
+          this.jgvteach=jgvteach;
+          e.target.complete();
+        }, 500);
+      }
+    }
+
+    console.log("diaoni3");
+
+
   }
 }

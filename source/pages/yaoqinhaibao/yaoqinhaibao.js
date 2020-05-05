@@ -31,7 +31,8 @@ class Content extends AppBase {
     }
 
 
-
+          console.log(ApiConfig.GetUploadurl() + this.options.name);
+          console.log("那真的牛逼");
     this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
     this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+ "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.Base.getMyData().memberinfo.id })
   }

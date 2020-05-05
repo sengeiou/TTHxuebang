@@ -820,7 +820,7 @@ class Content extends AppBase {
         jifen: this.Base.getMyData().jifen,
         status: "A"
       }, (daka) => {
-        if (this.Base.getMyData().jifen == 5) {
+        if (daka.jifen == 5) {
           jifenapi.addjifen({
             member_id: this.Base.getMyData().memberinfo.id,
             unicode: "lianxvdaka"
@@ -830,7 +830,7 @@ class Content extends AppBase {
             })
           })
         }
-        if (this.Base.getMyData().jifen == 25) {
+        if (daka.jifen == 25) {
           jifenapi.addjifen({
             member_id: this.Base.getMyData().memberinfo.id,
             unicode: "lianxvdaka"

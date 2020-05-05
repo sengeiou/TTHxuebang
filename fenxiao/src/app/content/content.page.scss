@@ -1,0 +1,7 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+page{
+    background-color:white;
+  }

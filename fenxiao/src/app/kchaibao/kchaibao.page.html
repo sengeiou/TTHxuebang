@@ -1,4 +1,4 @@
-  <ion-header>
+<ion-header>
   <ion-toolbar color='primary'>
     <ion-buttons slot="start">
       <ion-button (click)='back()'>
@@ -10,7 +10,7 @@
 </ion-header>
 
 
-<ion-content  *ngIf="kcinfo!=null">
+<ion-content *ngIf="kcinfo!=null">
   <!-- <img class="hb" /> -->
   <div class="top_bg">
     <div class="padding-20">
@@ -26,12 +26,54 @@
     <div class="flex-row flex-center">
 
       <div class="flex-1"></div>
-    
-      <div  style="background-size:100% 100%;"
-      [style.background-image]="'url('+uploadpath+'resource/'+res.kchaibaobeijin1 +')'" class="hb"  >
-      <div>{{kcinfo.name}}</div>
+
+      <div style="background-size:100% 100%;"
+        [style.background-image]="'url('+haibao+')'" class="hb">
+<!-- 
+        <div class="flex-row margin-20 flex-center">
+          <img src="{{MemberInfo.avatarUrl}}" class='member_icon'>
+          <div>
+            <div class='margin-left-10 chaochu'>{{MemberInfo.nickName}}</div>
+            <div class='margin-left-10 margin-top-5 h6 chaochu'>邀请你来一起学习艺术课程</div>
+          </div>
+        </div>
+
+        <img src="{{uploadpath}}curriculum/{{kcinfo.kc_img}}" class='kcimg'>
+        <div class="text-center h4">{{kcinfo.name}}</div>
+
+        <div class='flex-row flex-center  margin-top-20' style=''>
+
+
+          <div class='flex-row flex-center  ' style="margin-left: 20%;">
+            <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{kcinfo.age_name}}</div>
+          </div>
+  
+  
+          <div class='flex-row flex-center margin-left-20 '>
+            <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{kcinfo.class_hours}}节课</div>
+          </div>
+  
+  
+          <div class='flex-row flex-center margin-left-20 '>
+            <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+            <div class='h6 txt-black margin-left-5'>{{kcinfo.duration}}/节</div>
+          </div>
+  
+  
+        </div>
+        <div style="margin-left: 10%;margin-top: 20%;" class="flex-row">
+
+          <div>
+        <div class="txt-white h6">上课地址</div>
+        <div class="txt-white chaochu2 h6 cs2">{{kcinfo.JG_address}}</div>
+        <div class="txt-white  margin-top-10 h6">长按识别二维码购课>>>></div>
       </div>
-     
+      <img src="{{qrcode}}" class='qrcode'>
+      </div> -->
+      </div>
+
       <div class="flex-1"></div>
 
     </div>
@@ -41,11 +83,13 @@
 
       <div class="flex-1"></div>
 
-      <div class="flex-row flex-center anniu">
+      <a    target='_blank' href='{{ApiUrl}}file/download?filename={{haibao}}' class="flex-row flex-center anniu">
         <img class="icon-25 margin-left-20" src="{{uploadpath}}resource/{{res.baocunhaibao}}" />
         <div class="f13 margin-left-10">保存图片到本地</div>
-      </div>
-      <div class="flex-row flex-center anniu margin-left-20">
+      </a>
+
+
+      <div  (click)="ceshi()" class="flex-row flex-center anniu margin-left-20">
         <img class="icon-25 margin-left-20" src="{{uploadpath}}resource/{{res.fenxianpyq}}" />
         <div class="f13 margin-left-10">分享到朋友圈</div>
 
@@ -57,24 +101,23 @@
       <div class="padding-20 flex-row flex-center">
         <div class="h5">推广文案</div>
         <div class="flex-1"></div>
-        <div class="f-26" style="color:#FF6600">保存图片或分享朋友圈即自动复制文案</div>
+        <div class="f-26"   style="color:#FF6600">保存图片或分享朋友圈即自动复制文案</div>
 
-      </div> 
+      </div>
       <div class="flex-row ">
         <div class="flex-1"></div>
-      <div class="xian"></div>
-      <div class="flex-1"></div>
-    </div>
-   <div  class="padding-20" style="white-space: pre-wrap">
-    
-<div class="h6" style="color:#999999">国之瑰宝 中国舞</div>
-<div class="h6" style="color:#999999">12312312</div>
-<div class="h6" style="color:#999999">编程【2节课 | 0-12岁 | 4节课】</div>
-<div class="h6" style="color:#999999">￥39.9立即购买</div>
+        <div class="xian"></div>
+        <div class="flex-1"></div>
+      </div>
+      <div class="padding-20" style="white-space: pre-wrap">
+          
+        
+        <div [innerHTML]="neiron" class="h6" style="color:#999999"></div>
+      
 
-    
-   </div>
+
+      </div>
     </div>
-  <div class="height-100"></div>
+    <div class="height-100"></div>
   </div>
 </ion-content>

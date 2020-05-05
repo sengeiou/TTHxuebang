@@ -35,7 +35,7 @@ export class ApiConfig {
         var headers = new Headers({
             'Content-Type': 'application/x-www-form-urlencoded',
             'Sign': sign,
-            'Token': ApiConfig.TOKEN,
+            'Token': window.localStorage.getItem("UserToken"),
             'TokenKey': ApiConfig.TOKENKEY,
             'UNICODE': ApiConfig.UNICODE
         });

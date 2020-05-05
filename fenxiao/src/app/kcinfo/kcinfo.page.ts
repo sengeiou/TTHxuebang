@@ -25,6 +25,7 @@ export class KcinfoPage extends AppBase {
     public alertCtrl: AlertController,
     public activeRoute: ActivatedRoute,
     public InstApi: InstApi,
+    
     public JigouApi: JigouApi,
     public PinjiaApi: PingjiaApi,
     public sanitizer: DomSanitizer,
@@ -43,20 +44,18 @@ export class KcinfoPage extends AppBase {
   }
   fenxiaoinfo = [];
   pingjialist = [];
-  miletxt='';
+  miletxt = '';
   kechenlunbo = [];
-  pintuanrenshu=0;
+  pintuanrenshu = 0;
   courseinfo = null;
   isfav = '';
-  sco=0;
+  sco = 0;
   canbuy = '';
   onMyShow() {
     var instapi = this.InstApi;
     var jigouapi = this.JigouApi;
-
-
-
     var pingjiaapi = this.PinjiaApi;
+
 
     var that = this;
     //this.Base.params.id
@@ -74,13 +73,19 @@ export class KcinfoPage extends AppBase {
       })
       jigouapi.kechenlunbo({
         name: courseinfo.id,
-        orderby: 'r_main.seq',
+        orderby: 'r_main.seq', 
         status: "A"
       }).then((kechenlunbo) => {
 
         this.kechenlunbo = kechenlunbo;
 
       });
+
+
+
+      courseinfo.wenan = courseinfo.wenan.replace(/\n/g, "<br>");
+      courseinfo.wenan = courseinfo.wenan.replace(/<br\/>/g, "");
+
       this.courseinfo = courseinfo;
       this.isfav = courseinfo.isfav;
       jigouapi.orderstatus({
@@ -97,6 +102,43 @@ export class KcinfoPage extends AppBase {
 
 
 
+
+  }
+  fav(status) {
+
+
+
+    if (status == "Y") {
+      this.toast("收藏成功");
+    }
+    if (status == "N") {
+      this.toast("取消收藏");
+    }
+
+
+
+    var jigouapi = this.JigouApi;
+    jigouapi.coursefav({
+      course_id: this.params.id,
+      status
+    }).then((ret) => {
+      //this.showAlert(ret.result);
+      this.isfav=status;
+    });
+
+    setTimeout(() => {
+      this.tishi=0;
+      // clearTimeout(timeoutId);
+    }, 3000);
+
+
+
+
+  }
+  tishi=0;
+  tokcdetails() {
+    console.log("123213123");
+    this.navigate("kchaibao", { id: this.params.id });
 
   }
 }

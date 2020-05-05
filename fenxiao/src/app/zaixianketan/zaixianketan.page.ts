@@ -50,7 +50,7 @@ export class ZaixianketanPage extends AppBase {
       this.fenleilist = fenleilist;
 
     }) 
-    jigouapi.zaixiankechenlist({onlineclassroomtype_id:2}).then((zaixiankechenlist)=>{
+    jigouapi.zaixiankechenlist({}).then((zaixiankechenlist)=>{
        console.log(zaixiankechenlist);
      this.kechenlist=zaixiankechenlist ;
     })
@@ -67,5 +67,19 @@ export class ZaixianketanPage extends AppBase {
   zxkthanbao(id)
   {
     this.navigate("zxkthaibao",{id:id});
+  }
+  qiehuanzhanjie(id){
+  
+    var list=this.fenleilist[id];
+       
+
+    var jigouapi = this.jigouApi;
+    console.log(list.id);
+    jigouapi.zaixiankechenlist({onlineclassroomtype_id:list.id}).then((zaixiankechenlist)=>{
+      console.log(zaixiankechenlist);
+    this.kechenlist=zaixiankechenlist ;
+   })
+    
+
   }
 }
