@@ -1,0 +1,133 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>机构列表</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item active">机构列表</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+  
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="card card-info">
+            <div class="card-header  bg-gray-d">
+              <h3 class="card-title">搜索条件</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label">机构名称</label>
+                      <input type="email" class="form-control" id="inputEmail3"  [(ngModel)]='name' name='name'/>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">营业时间</label>
+                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='time' name='time'/>
+                  </div>
+                  <!-- <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">状态</label>
+                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='status' name='name' />
+                  </div> -->
+                
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                  <div class="float-right">
+                    <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
+                    <button type="submit" class="btn btn-primary margin-left-10" (click)='search()'>搜索</button>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-warning" routerLink='/addjigou'>+ 添加机构</button>
+                  </div>
+              </div>
+              <!-- /.card-footer -->
+            </form>
+          </div>
+          <!-- /.card -->
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
+  
+              <div class="card-tools">
+                <ul class="pagination pagination-sm float-right">
+                    <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                    <li class="page-item" *ngFor='let i of pageList'><span
+                        class="page-link {{selPage==i?'bg-primary':''}}" (click)='changedate(i)'>{{i}}</span></li>
+                    <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0" style="overflow-x: auto;">
+              <table class="table text-center"  style="min-width: 768px;">
+                <thead>
+                  <tr>
+                    <th>机构名称</th>
+                    <th>营业时间</th>
+                    <th>地址</th>
+                    <th>上线时间</th>
+                    <th>搜索关键字</th>
+                    <th>适合年龄</th>
+                    <th>编辑</th>	
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let item of data'>
+                    <td>{{item.name}}</td>
+                    <td>{{item.time}}</td>
+                    <td>
+                        {{item.address}}
+                    </td>
+                    <td>{{item.up_time}}</td>
+                    <td>{{item.searchkeyword}}</td>
+                    <td>{{item.jg_age}}</td>
+                    <td>
+                        <div class="badge bg-primary margin-right" >编辑</div>
+                        <div class="badge bg-danger" >删除</div>
+                    </td>
+                  </tr>
+                  <tr *ngIf='allinst.length==0'>
+                    <td colspan="9">没有数据</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+  
+        </div>
+      </div>
+  
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  

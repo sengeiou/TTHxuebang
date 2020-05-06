@@ -1,0 +1,169 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>设置</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink="">Home</a></li>
+            <li class="breadcrumb-item active">设置</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+
+      <div class="row">
+        <div class="col-md-3">
+          <!-- Profile Image -->
+          <div class="card card-primary ">
+            <div class="card-header">
+              <h3 class="card-title">About Me</h3>
+            </div>
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <!-- <img class="profile-user-img img-fluid img-circle" *ngIf='memberinfo.logo!=""'
+                  src="{{uploadpath}}instregister/{{memberinfo.logo}}" alt="User profile picture"> -->
+
+                  <nz-upload  nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
+                  [nzShowUploadList]="false" (nzChange)="afterupload($event)">
+                  <ng-container *ngIf="memberinfo.logo==''">
+                    <div class="ant-upload-text">点击上传头像</div>
+                  </ng-container>
+                  <img *ngIf="memberinfo.logo!=''" src="{{uploadpath}}instregister/{{memberinfo.logo}}" class="profile-user-img img-fluid img-circle" alt="User profile picture"/>
+                </nz-upload>
+              </div>
+
+              <h3 class="profile-username text-center">{{memberinfo.name}}</h3>
+
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+
+          <!-- About Me Box -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">About Us</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <strong><i class="fas fa-book mr-1"></i> 公司编号</strong>
+
+              <p class="text-muted">
+                <input type="text" [(ngModel)]='memberinfo.bianhao'>
+              </p>
+
+              <hr>
+              <strong><i class="fas fa-book mr-1"></i> 公司名称</strong>
+
+              <p class="text-muted">
+                <input type="text" [(ngModel)]='memberinfo.name'>
+              </p>
+
+              <hr>
+
+              <strong><i class="fas fa-map-marker-alt mr-1"></i> 地址</strong>
+
+              <p class="text-muted">
+               <input type="text" [(ngModel)]='memberinfo.address'>
+
+              <hr>
+
+              <strong><i class="fas fa-pencil-alt mr-1"></i> 联系电话</strong>
+
+              <p class="text-muted">
+                <input type="text" [(ngModel)]='memberinfo.mobile'>
+              </p>
+
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+          <div class="card">
+            <div class="card-header p-2">
+              <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">修改密码</a></li>
+              </ul>
+            </div><!-- /.card-header -->
+            <div class="card-body">
+              <div class="tab-content">
+                <div class="active tab-pane" id="activity">
+                  
+                    <form class="form-horizontal">
+                        <div class="form-group row">
+                          <label for="inputName" class="col-sm-2 col-form-label">旧密码</label>
+                          <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputName" placeholder="oldpassword" name='oldpassword' [(ngModel)]='oldpassword'>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputEmail" class="col-sm-2 col-form-label">新密码</label>
+                          <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputEmail" placeholder="newpassword"  name='newpassword' [(ngModel)]='newpassword'>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="inputName2" class="col-sm-2 col-form-label">重复新密码</label>
+                          <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputName2" placeholder="newpassword"  name='newpassword2' [(ngModel)]='newpassword2'>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <button type="submit" (click)='resetpwd()' class="btn btn-danger">Submit</button>
+                          </div>
+                        </div>
+                      </form>
+
+
+                </div>
+            
+              </div>
+              <!-- /.tab-content -->
+            </div><!-- /.card-body -->
+          </div>
+          <!-- /.nav-tabs-custom -->
+
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">公司营业执照</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <div class="flex-row2 flex-center2" >
+                <img src="{{uploadpath}}instregister/{{memberinfo.zhizhao}}"  class="icon-100  margin-right-10">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+
+
+
+
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
