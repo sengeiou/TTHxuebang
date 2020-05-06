@@ -31,7 +31,9 @@ export class AboutusPage extends AppBase {
     this.headerscroptshow = 480;
       
   }
-  aboutus=null;
+  aboutus={
+    content:''
+  };
   onMyShow(e=undefined) {
     var that = this;
     var jigouapi = this.jigouApi;

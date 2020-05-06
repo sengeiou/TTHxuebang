@@ -9,6 +9,7 @@ import { MemberApi } from 'src/providers/member.api';
 import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { BatchApi } from 'src/providers/batch.api';
+declare let WeixinJSBridge: any; 
 
 @Component({
   selector: 'app-myorder',
@@ -131,25 +132,48 @@ export class MyorderPage extends AppBase {
 
     });
     if (list[0].type == 'PT') {
-      wechatapi.prepay2({ id: id }).then((payret) => {
+      wechatapi.prepay2({ id: id ,h5:"Y"}).then((payret) => {
         //todo
         //  payret.complete = function (e) {
         //    that.onMyShow();
         //  }
         //  console.log(payret);
         //  wx.requestPayment(payret)
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', payret,
+          (res) => {
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+              that.onMyShow();
+            } else {
+              this.showAlert(res.errMsg);
+            }
+          });
+
+
       });
 
     }
     else {
 
-      wechatapi.prepay({ id: id }).then((payret) => {
+      wechatapi.prepay({ id: id,h5:"Y" }).then((payret) => {
         // todo
         // payret.complete = function (e) {
         //   that.onMyShow();
         // }
         // console.log(payret);
         // wx.requestPayment(payret)
+
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', payret,
+          (res) => {
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+              that.onMyShow();
+            } else {
+              this.showAlert(res.errMsg);
+            }
+          });
+
+
       });
     }
   }

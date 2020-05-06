@@ -44,15 +44,15 @@ export class SearchPage extends AppBase {
       searchrecomm: ""
     };
 
-    if (this.params.tp == undefined) {
+    if (this.params.tp == 'undefined') {
       this.params.tp = "kc";
     }
     //this.options.keyword="%E8%8B%B1%E8%AF%AD";
-    this.params.keyword = decodeURI(this.params.keyword);
-
+    // this.params.keyword = decodeURI(this.params.keyword);
+    console.log(this.params.keyword,'ppp')
     this.keyword = this.params.keyword;
     this.shows = "finished";
-    this.keyword = this.params.tp;
+    this.tp = this.params.tp;
 
 
     var tp = this.tp;
@@ -102,6 +102,7 @@ export class SearchPage extends AppBase {
     json.mylat = mylat;
     json.mylng = mylng;
     json.orderby = "distance";
+    json.limit="0,100";
     jigouapi.jglist(json).then( (jglist) => {
       console.log("jglist", jglist);
       var jgvlist = [];
@@ -118,6 +119,7 @@ export class SearchPage extends AppBase {
     kc.mylat = mylat;
     kc.mylng = mylng;
     kc.orderby = "distance";
+    kc.limit="0,100";
 
     jigouapi.courselist(kc).then( (courselist) => {
       var coursevlist = [];
@@ -168,14 +170,16 @@ export class SearchPage extends AppBase {
 
   }
   tojgdetails(id) {
-    this.navigateTo({
-      url: '/pages/jgdetails/jgdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/pages/jgdetails/jgdetails?id=' + id,
+    // })
+    this.navigate('jgdetails',{id:id})
   }
   tokcdetails(id) {
-    this.navigateTo({
-      url: '/pages/kcdetails/kcdetails?id=' + id,
-    })
+    // this.navigateTo({
+    //   url: '/pages/kcdetails/kcdetails?id=' + id,
+    // })
+    this.navigate('kcdetails',{id:id})
   }
 
   onReachBottom(e=undefined) {

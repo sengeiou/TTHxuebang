@@ -77,7 +77,7 @@ export class HomePage extends AppBase {
     var jigouapi = this.jigouApi;
 
     var jifenapi = this.jifenApi;
-
+    console.log(1231231123)
     jigouapi.coursetype({}).then((filtercoursetype) => {
       this.filtercoursetype = filtercoursetype;
       this.fapk=this.getArray(10-((filtercoursetype.length)-8));
@@ -157,7 +157,7 @@ export class HomePage extends AppBase {
       return item.code == citycode
     })
 
-    console.log(citycode, "好借口", AppBase.CITYID);
+    console.log(citycode, "好借口", AppBase.CITYID,citys.length);
 
     if (citys.length != 0 && AppBase.CITYID != citycode) {
       this.nocity = 2;
@@ -327,6 +327,7 @@ export class HomePage extends AppBase {
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
     console.log(mylat,mylng)
+    console.log(AppBase.lastlat,AppBase.lastlng)
     console.log('哪来看看')
 
     jigouapi.jglist({
@@ -419,6 +420,12 @@ export class HomePage extends AppBase {
             //todo
           } else {
             console.log("不杀死hi")
+             
+            var a= indexbanner[i].url;
+            console.log(a);
+            var b=a.split("/");
+          
+            this.navigate(b[3])
             // this.navigateTo({
             //   url: indexbanner[i].url
             // })
@@ -491,6 +498,7 @@ export class HomePage extends AppBase {
   // }
 
   toceshi(id) {
+    console.log(id,'id',this.MemberInfo.id)
     this.navigate("pingceindex", { id: id, member_id: this.MemberInfo.id });
   }
 
@@ -645,7 +653,7 @@ export class HomePage extends AppBase {
       this.signState = true;
 
       var num = this.num;
-
+      alert(this.num);
 
       if (this.num < 7) {
         this.jifen = 5;
@@ -655,11 +663,8 @@ export class HomePage extends AppBase {
 
       var jifenapi = this.jifenApi;
       jifenapi.daka({
-        member_id: this.MemberInfo.id,
-        jifen: this.jifen,
-        status: "A"
       }).then((daka) => {
-        if (this.jifen == 5) {
+        if (daka.return == 5) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "meiridaka"
@@ -667,7 +672,7 @@ export class HomePage extends AppBase {
             this.addjifen = addjifen;
           })
         }
-        if (this.jifen == 25) {
+        if (daka.return == 25) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "lianxvdaka"
@@ -711,17 +716,19 @@ export class HomePage extends AppBase {
 
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
-
-      for (var i = 0; i < dakalist.length; i++) {
-        for (var j = 0; j < resultArr.length; j++) {
-          if (resultArr[j].member_id == dakalist[i].member_id) {
-            break;
+      if(dakalist){
+        for (var i = 0; i < dakalist.length; i++) {
+          for (var j = 0; j < resultArr.length; j++) {
+            if (resultArr[j].member_id == dakalist[i].member_id) {
+              break;
+            }
+          }
+          if (j == resultArr.length) {
+            resultArr[resultArr.length] = dakalist[i];
           }
         }
-        if (j == resultArr.length) {
-          resultArr[resultArr.length] = dakalist[i];
-        }
       }
+      
 
 
       var personnumber = parseInt(this.InstInfo.personnumber);

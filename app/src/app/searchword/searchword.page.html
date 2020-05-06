@@ -17,19 +17,19 @@
   <div class=' to_top'>
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
-  <div class='Top padding-20 flex-row flex-center ' style="background:#FFC200">
+  <div class='Top padding-20 flex-row flex-center ' style="background:#FFC200" id='dinbu'>
     <div class='search flex-row flex-center padding-5 '>
       <div class="w20"></div>
       <img class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}' />
-      <input class='h6 flex-1 txt-black padding-left-5' bindconfirm='bindconfirm' confirm-type='search' focus='true'
-        placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' />
+      <input class='h6 flex-1 txt-black padding-left-5 inp' bindconfirm='bindconfirm' confirm-type='search' focus='true'
+        placeholder='搜索您要找的机构、课程' [(ngModel)]='searchword' (keyup)='search($event)' />
 
       <div class='padding-left-20 padding-right-10' >
         <img class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}' />
       </div>
     </div>
 
-    <div class='text-right flex-1 h5 txt-white' style='' (click)='quxiao($event)'>取消</div>
+    <div class='text-right flex-1 h5 txt-white' style=''  (click)='quxiao()'>取消</div>
   </div>
   <div (click)='todetails(item.name)' class='h5 padding-20 margin-left-40 flex-row flex-center' id='{{item.name}}'
     *ngFor="let item of result;let idx=index;" >
@@ -55,7 +55,7 @@
 
     <div *ngIf="history.length>0">
 
-      <div class="bg-white mt12" style=''>
+      <div class="bg-white mt12 " style=''>
         <div class='flex-row flex-center'>
           <div class='keywordtitle flex-1 txt-9'>历史搜索</div>
           <img src='{{uploadpath}}resource/{{res.clear}}' class='icon' (click)='clearrecord()' />

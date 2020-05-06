@@ -9,7 +9,7 @@ import { MemberApi } from 'src/providers/member.api';
 import { JigouApi } from 'src/providers/jigou.api';
 import { PingjiaApi } from 'src/providers/pingjia.api';
 import { HaibaoApi } from 'src/providers/haibao.api';
-
+declare let wx: any;
 @Component({
   selector: 'app-kcdetails',
   templateUrl: './kcdetails.page.html',
@@ -154,6 +154,7 @@ export class KcdetailsPage extends AppBase {
     jigouapi.courseinfo({
       id: this.params.id
     }).then((courseinfo) => {
+      console.log(courseinfo,'courseinfo')
 
       jigouapi.fenxiaoinfo({}).then((fenxiaoinfo) => {
         console.log(fenxiaoinfo,'22')
@@ -239,12 +240,15 @@ export class KcdetailsPage extends AppBase {
 
   }
   //todo
+
   gotoBottom(e) {
     this.show="gmxz";
     // wx.pageScrollTo({
     //   scrollTop: 100000,
     //   duration: 300
     // })
+    document.getElementById('goumai').scrollIntoView(true)
+
   }
   bindcut(e) {
     this.show="kcxq";
@@ -252,6 +256,7 @@ export class KcdetailsPage extends AppBase {
     //   scrollTop: 521,
     //   duration: 300
     // })
+    document.getElementById('xianq').scrollIntoView(true)
   }
   ppp=0;
   pppp=0;
@@ -373,20 +378,20 @@ export class KcdetailsPage extends AppBase {
 
   }
 
-  tobuy(e=undefined) {
+  tobuy(id) {
     this.tanchuang=false;
 
     var ppp = this.ppp;
     if (ppp == 1) {
       this.navigate("purchase",{
-        course_id:this.params.id,
+        course_id:id,
         type:0,
         leixin:this.pppp
       });
 
     } else {
       this.navigate("purchase",{
-        course_id:this.params.id,
+        course_id:id,
         leixin:this.pppp
       });
     }
@@ -416,4 +421,8 @@ export class KcdetailsPage extends AppBase {
   chakantuan(e=undefined) {
     this.navigate("groupinfo",{id:this.canbuy.pt});
   }
+  nav(){
+    this.openLocation(this.courseinfo.JG_lat,this.courseinfo.JG_lng,this.courseinfo.name,this.courseinfo.JG_address);
+  }
+ 
 }

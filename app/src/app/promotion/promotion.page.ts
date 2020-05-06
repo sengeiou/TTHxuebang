@@ -97,9 +97,10 @@ export class PromotionPage extends AppBase {
 
   }
   tuiguanguize(e) {
-    this.navigateTo({
-      url: '/pages/tuiguanguize/tuiguanguize',
-    })
+    // this.navigateTo({
+    //   url: '/pages/tuiguanguize/tuiguanguize',
+    // })
+    this.navigate('tuiguanguize');
   }
   hideModal(e) {
     this.showModal=false;
@@ -137,9 +138,10 @@ export class PromotionPage extends AppBase {
 
           if (res.code == '0') {
             that.showModal=false;
-            this.navigateTo({
-              url: '/pages/review/review',
-            })
+            // this.navigateTo({
+            //   url: '/pages/review/review',
+            // })
+            this.navigate('review')
           }
 
         })
@@ -159,10 +161,10 @@ export class PromotionPage extends AppBase {
   }
   lijitixian(e=undefined) {
 
-    this.navigateTo({
-      url: '/pages/tixian/tixian',
-    })
-
+    // this.navigateTo({
+    //   url: '/pages/tixian/tixian',
+    // })
+    this.navigate('tixian')
   }
   mykehu(e=undefined) {
 
@@ -170,9 +172,10 @@ export class PromotionPage extends AppBase {
       this.showAlert("暂无邀请的好友，快去邀请好友吧")
       return
     }
-    this.navigateTo({
-      url: '/pages/mykehu/mykehu',
-    })
+    // this.navigateTo({
+    //   url: '/pages/mykehu/mykehu',
+    // })
+    this.navigate('mykehu')
   }
 
   myinvite(e=undefined) {
@@ -180,19 +183,20 @@ export class PromotionPage extends AppBase {
       this.showAlert("暂无成功邀请的推广员，请先邀请好友成为推广员。")
       return
     }
-    this.navigateTo({
-      url: '/pages/myinvite/myinvite',
-    })
+    // this.navigateTo({
+    //   url: '/pages/myinvite/myinvite',
+    // })
+    this.navigate('myinvite')
   }
   tuiguandindan(tuiguandindan) {
     if (tuiguandindan == 0) {
       this.showAlert("暂无推广订单")
       return
     }
-    this.navigateTo({
-      url: '/pages/tuiguandindan/tuiguandindan',
-    })
-
+    // this.navigateTo({
+    //   url: '/pages/tuiguandindan/tuiguandindan',
+    // })
+    this.navigate('tuiguandindan')
   }
   yaoqin(e=undefined) {
     var api = this.haibaoApi;
@@ -211,10 +215,11 @@ export class PromotionPage extends AppBase {
     api.haibao({ isdebug: 'Y' }).then((res) => {
       console.log(res);
       if (res.code == 0) {
-        this.navigateTo({
-          url: '/pages/yaoqinhaibao/yaoqinhaibao?name=' + res.return,
-        })
+        // this.navigateTo({
+        //   url: '/pages/yaoqinhaibao/yaoqinhaibao?name=' + res.return,
+        // })
 
+        this.navigate('yaoqinhaibao')
 
       }
     })

@@ -81,18 +81,19 @@ export class StudentinfoPage extends AppBase {
       this.niubi = 0;
     }
   }
-  region = [];
+  region = '';
   dizhi = "";
   onMyShow(e=undefined) {
     var that = this;
 
     var address = this.address;
+    console.log(address,'address');
     if (address.ad_info != undefined) {
 
-      console.log(address);
+      console.log(address,'address');
       var region = [address.ad_info.province, address.ad_info.city, address.ad_info.district];
-      this.region = region;
-      this.dizhi = region[0] + region[1] + region[2]
+      this.region = region[0] + region[1] + region[2];
+      this.dizhi = region[0] + region[1] + region[2];
       console.log(region[0] + region[1] + region[2]);
     }
 
@@ -114,6 +115,7 @@ export class StudentinfoPage extends AppBase {
     var xssj = (shijians[0] + ' 年 ' + shijians[1] + ' 月 ' + shijians[2] + ' 日 ');
     this.xssj = xssj;
   }
+  dizhi2="";
   baocun(e=undefined) {
     var api = this.jigouApi;;
 
@@ -124,7 +126,11 @@ export class StudentinfoPage extends AppBase {
     var shenri = this.xssj;
     var nianji = this.nianji;
     var weixin = this.weixin;
-    var dizhi = this.dizhi;
+    if(this.region!=this.dizhi){
+      this.dizhi=this.region;
+    }
+    var dizhi = this.dizhi+this.dizhi2;
+
     var menpai = this.menpai;
     var json = null;
     if (this.params.id != undefined) {
@@ -183,14 +189,16 @@ export class StudentinfoPage extends AppBase {
     }
     api.addxueyuan(json).then((res) => {
       if (res.code == '0') {
-        this.navigateBack({
+        // this.navigateBack({
 
-        })
+        // })
+        this.back();
       }
 
     })
 
   }
+ 
   shanchu(e=undefined) {
     var that = this;
     this.showConfirm("确认删除学员？",(ret)=>{
@@ -198,11 +206,15 @@ export class StudentinfoPage extends AppBase {
         var api = this.jigouApi;;
         api.shanchuxueyuan({ id: that.params.id }).then((res) => {
          
-          this.navigateBack({
+          // this.navigateBack({
 
-          })
+          // })
+          this.back();
         })
       }
     });
+  }
+  chosex(e){
+    this.sex=e;
   }
 }

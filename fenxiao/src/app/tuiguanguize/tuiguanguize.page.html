@@ -1,0 +1,47 @@
+
+<ion-header >
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{InstInfo.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="padding-20">
+  <div class="margin-left-20 h4-5 txt-bold " style='color:rgba(34, 34, 34, 1)'>大使等级</div>
+  </div>
+  <div class="margin-20 bg">
+   <div class="padding-40 ">
+    <div class="f15">学榜大使</div>
+    <div class="margin-top-10 flex-row flex-center">
+      <div class="h6-7 " style='color:rgba(234, 184, 121, 1)'>直接推广佣金比例：{{InstInfo.fenxiaobili*100}}%</div>
+      <div class="flex-1"></div>
+      <div bindtap="lijishenqin" class="lijishenqin margin-right-20">立即申请</div>
+    </div>
+  </div>
+  </div>
+ 
+
+<div class="padding-20">
+  <div class="margin-left-20 h4-5 txt-bold " style='color:rgba(34, 34, 34, 1)'>常见问题</div>
+
+</div>
+ <div class="margin-20 bg">
+   <div *ngFor=" let item of problemlist;let idx=index"  class="padding-40   sbb">
+   <div class=" {{problemlist.length-1!=idx?'xian':'xian1'}}">
+    <div class="f15">{{item.title}}</div>
+    <div class="margin-top-10 flex-row flex-center">
+      <div class="h6-7  " style='color:rgba(153, 153, 153, 1)'>{{item.content}}</div>
+    </div>
+    </div>
+  </div>
+   </div>
+  </ion-content>
+ 
+
+
+

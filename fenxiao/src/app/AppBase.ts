@@ -27,7 +27,19 @@ export class AppBase implements OnInit {
     public static memberapi: MemberApi = null;
     public static wechatApi: WechatApi = null;
     public static UNICODE = "tthxb";
+    mylat = 0;
+    mylng = 0;
+    static CITYID = 440300;
 
+    static lastlat = 0;
+    static lastlng = 0;
+    static lastdistance = 0;
+    static lastaddress = {
+        address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
+    };
+    address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
+    citycode = 0;
+    lastdistance = 0;
     public statusBarStyle = "X";//{DARK}
     public uploadpath: string = ApiConfig.getUploadPath();
     public util = AppUtil;
@@ -35,10 +47,11 @@ export class AppBase implements OnInit {
     public res = null;
     public static InstInfo = null;
     public static MemberInfo=null;
-    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",tel:"", h5appid: "", kf: "", openning: "", successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
-    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"" };
+    public InstInfo = {h5sharelogo:"",h5sharetitle:"",h5sharedesc:"",xiajishijian:"",tel:"", h5appid: "", kf: "", openning: "",fenxiaobili:0, successtips: "", orderneedknow: "", name: "", logo: "", memberlogo: "", undershipping: 0, shippingfee: 0, about1: "", about2: "", about3: "", about4: "", about5: "" };
+    public MemberInfo = { avatarUrl: "", nickName: "",h5openid:"",unionid:"",mobile:'',id:'',tuiguanshouyi:0 };
     public static MYBABY = [];
     public mybaby = [];
+    public ApiUrl =ApiConfig.getApiUrl();
     public options = null;
     public params: Params = null;
 
@@ -61,7 +74,10 @@ export class AppBase implements OnInit {
         public modalCtrl: ModalController,
         public toastCtrl: ToastController,
         public alertCtrl: AlertController,
-        public activeRoute: ActivatedRoute) {
+        
+        public activeRoute: ActivatedRoute,
+     
+        ) {
 
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);
@@ -80,6 +96,10 @@ export class AppBase implements OnInit {
         if(memberinfo!=null){
             AppBase.MemberInfo=JSON.parse(memberinfo);
         }
+         if(window.localStorage.getItem("UserToken")!=null)
+         {
+              
+         }
         console.log("rdw",AppBase.MemberInfo);
     }
     setStatusBar() {
@@ -96,13 +116,14 @@ export class AppBase implements OnInit {
     onMyLoad() {
     }
     getInstInfo() {
+        this.getMemberInfo();
         if (AppBase.InstInfo == null) {
             AppBase.instapi.info({}, false).then((instinfo) => {
                 AppBase.InstInfo = instinfo;
                 this.InstInfo = instinfo;
                 console.log(instinfo);
                 console.log("aaabbbccc",AppBase.STATICRAND);
-                // if(this.params.code!=undefined&&this.params.state==AppBase.STATICRAND){
+                // if(this.params.code!=undefinedthis.params.state==AppBase.STATICRAND){
 
                 // }else{
                 //     if(AppBase.MemberInfo==null){
@@ -122,15 +143,26 @@ export class AppBase implements OnInit {
         }
     }
     getMemberInfo() {
-
+    console.log("进来了");
+    //alert(window.localStorage.getItem("aaa"));
+    //alert(window.localStorage.getItem("UserToken"));
         AppBase.memberapi.info({}).then((memberinfo) => {
+             
             if (memberinfo == null || memberinfo.mobile == undefined || memberinfo.mobile == "") {
-                //alert("?");
+                console.log(memberinfo);
+                 console.log(memberinfo == null);
+                 console.log(memberinfo.mobile == undefined)
+                 console.log( memberinfo.mobile == "")
+                if(this.needlogin==false)
+                {
+                this.navigate("yindao");
+                }
                 memberinfo = null;
             }
             this.MemberInfo = memberinfo;
-
+          console.log(memberinfo);  
         });
+    
     }
     shouye(){
         
@@ -267,6 +299,14 @@ export class AppBase implements OnInit {
         });
         alert.present();
     }
+
+    getArray(t) {
+        var ret = [];
+        for (var i = 0; i < t; i++) {
+            ret.push(i);
+        }
+        return ret;
+    }
     async showConfirm(msg, confirmcallback) {
 
         const alert = await this.alertCtrl.create({
@@ -291,7 +331,16 @@ export class AppBase implements OnInit {
     async checkLogin(callback) {
 
     }
-
+   copy(a){
+    var oInput = document.createElement('input');
+    oInput.value = a;
+    document.body.appendChild(oInput);
+    oInput.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    oInput.className = 'oInput';
+    oInput.style.display='none';
+   this.toast("复制成功");
+   }
     async showActionSheet(actionSheetController, header, buttons) {
         const actionSheet = await actionSheetController.create({
             header: header,
@@ -348,6 +397,70 @@ export class AppBase implements OnInit {
 
 
     setWechatShare(title=undefined,desc=undefined){
+        if(title==undefined){
+            title=this.InstInfo.h5sharetitle;
+        }
+        if(desc==undefined){
+            desc=this.InstInfo.h5sharedesc;
+        }
+        AppBase.wechatApi.gensign({url:window.location.href}).then((config)=>{
+            var json={
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: this.InstInfo.h5appid, // 必填，公众号的唯一标识
+                timestamp: config.timestamp, // 必填，生成签名的时间戳
+                nonceStr: config.nonceStr, // 必填，生成签名的随机串
+                signature: config.signature,// 必填，签名，见附录1
+                jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+            };
+            wx.config(json);
+            var that=this;
+            wx.ready(function () {
+                wx.onMenuShareAppMessage({
+                        title: title,
+                        desc: desc,
+                        link: window.location.href,
+                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
+                        trigger: function (res) {
+                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                            //alert('用户点击发送给朋友');
+                        },
+                        success: function (res) {
+                            //alert('已分享');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            //alert("onMenuShareAppMessage" + JSON.stringify(res));
+                        }
+                    });
+
+                    wx.onMenuShareTimeline({
+                        title: title,
+                        link: window.location.href,
+                        imgUrl: that.uploadpath+"inst/"+ that.InstInfo.h5sharelogo,
+                        trigger: function (res) {
+                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                            //alert('用户点击分享到朋友圈');
+                        },
+                        success: function (res) {
+                            //alert('已分享');
+                        },
+                        cancel: function (res) {
+                            //alert('已取消');
+                        },
+                        fail: function (res) {
+                            // alert("onMenuShareTimeline" + JSON.stringify(res));
+                        }
+                    });
+                
+            });
+        
+
+    });
+    }
+    
+    setWechatShare1(title=undefined,desc=undefined){
         if(title==undefined){
             title=this.InstInfo.h5sharetitle;
         }

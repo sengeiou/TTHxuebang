@@ -111,12 +111,6 @@
         "selectedIconPath": "images/icons/bm1.png"
       },
         {
-          "text": "名师专访",
-          "pagePath": "pages/teacher/teacher",
-          "iconPath": "images/icons/ms.png",
-          "selectedIconPath": "images/icons/ms1.png"
-        },
-        {
           "text": "线下活动",
           "pagePath": "pages/xianxia/xianxia",
           "iconPath": "images/icons/hd.png",

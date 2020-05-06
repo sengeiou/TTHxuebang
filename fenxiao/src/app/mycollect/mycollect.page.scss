@@ -1,0 +1,180 @@
+@function rpx($px) {
+    @return ($px * 100vw) / 750;
+}
+
+/* pages/myorder/myorder.wxss */
+
+ion-content {
+  --background: #f5f5f5;
+}
+  
+  .txt {
+    color: #ffc200;
+  }
+  
+  .block {
+    padding-left: rpx(20);
+    padding-top: rpx(20);
+    padding-bottom: rpx(20);
+  }
+  
+  /* .icon{
+    height: rpx(168);
+    width: rpx(168);
+  } */
+  
+  .icon2 {
+    height: rpx(224);
+    width: rpx(228);
+  border-radius:rpx(8);
+  }
+  
+  .bor_bot {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  
+  .org_block {
+    padding-left: rpx(5);
+    padding-right: rpx(15);
+    padding-top: rpx(6);
+    padding-bottom: rpx(6);
+  }
+  
+  .title {
+    position: absolute;
+    width: 50%;
+    top: rpx(24);
+    left: rpx(32);
+    z-index: 10;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .img {
+    width: rpx(220);
+    height: rpx(252);
+  }
+  
+  .dizhi {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .mid {
+    position: absolute;
+    width: 85.5%;
+    z-index: 10;
+    height: rpx(190);
+    bottom: 0%;
+    /* opacity: 0.8; */
+    box-shadow: 1px 1px 5px #dfdfdf;
+  }
+  
+  
+  
+  .biaoqian {
+    min-width: rpx(56);
+    height: rpx(38);
+    line-height: rpx(38);
+    padding-left: rpx(10);
+    padding-right: rpx(10);
+  }
+  
+  .kt_block {
+    width: rpx(712);
+    height: rpx(250);
+    margin: rpx(20);
+    background: rgba(255, 255, 255, 1);
+    box-shadow: rpx(0) rpx(4) rpx(12) rpx(0) rgba(0, 0, 0, 0.1);
+    border-radius: rpx(8);
+  }
+  .margin-left-28{
+    margin-left: rpx(28);
+  }
+  .margin-top-32{
+    margin-top: rpx(32);
+  }
+  .margin-top-6{
+    margin-top: rpx(6);
+  }
+  .margin-left-26{
+    margin-left: rpx(26);
+  }
+  .margin-right-12{
+    margin-right: rpx(12);
+  }
+  .kt_img {
+    width: rpx(296);
+    height: rpx(220);
+    margin-left: rpx(16);
+  }
+  .f20 {
+    font-size: rpx(20);
+  }
+  .icon-16 {
+    width: rpx(16);
+    height: rpx(16);
+  }
+  .margin-16{
+    margin: rpx(8);
+  }
+  .biaoqian {
+    width: rpx(116);
+    height: rpx(38);
+    line-height: rpx(38);
+  }
+
+  .sp1{
+    width:rpx(120);height:rpx(6);
+  }
+  .sp2{
+    width:rpx(80);height:rpx(6);
+  }
+
+  .sp3{
+    height:rpx(20);width:rpx(20);
+  }
+
+  .w20{
+    width:rpx(20);
+  }
+  .kc_icon {
+    width: rpx(228);
+    height: rpx(224);
+  }
+
+ 
+  .hqhb{
+    height: rpx(52);
+    width: rpx(160);
+    background: #FF6600;
+    color:#FFFFFF;
+    line-height: rpx(52);
+    text-align: center;
+    font-size: rpx(24);
+    border-radius: rpx(40);
+   
+   
+   }
+  .kecheng1{
+    width:94vw;
+    margin-left:3vw;
+    margin-top:rpx(20);
+  }
+  .sp4{
+    width:30vw;margin-top:rpx(100);margin-bottom:rpx(40);
+  }
+
+  .sp5{
+    position: relative;height:rpx(564) 
+  }
+
+  .sp6{
+    width:100%;height:rpx(400)
+  }
+
+  .sp7{
+    font-size:rpx(16);width:rpx(360);
+  }

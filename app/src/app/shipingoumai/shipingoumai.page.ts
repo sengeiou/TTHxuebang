@@ -10,7 +10,7 @@ import { JigouApi } from 'src/providers/jigou.api';
 import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
-declare let WeixinJSBridge: any;
+declare let WeixinJSBridge: any; 
 
 @Component({
   selector: 'app-shipingoumai',

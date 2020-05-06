@@ -22,8 +22,8 @@
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 
-  <div style="" class="{{tanchuang==true?'tanchuang':''}}">
-    <div class='' style='background:{{jginfo.bgcolor}}'>
+  <div style="" class="{{tanchuang==true?'tanchuang':''}}" *ngFor='let item of jginfo' id='dinbu'>
+    <div class=''  [style.background-color]='item.bgcolor'>
 
       <div style='position:relative;'>
         <div style=' ' class=''>
@@ -48,8 +48,8 @@
 
           <div class='padding-10 '>
             <div class='flex-row flex-center'>
-              <div class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</div>
-              <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" *ngIf='jginfo.renzhen_value=="Y"' />
+              <div class='txt-black txt-bold  flex-1 chaochu'>{{item.jigou}}</div>
+              <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" *ngIf='item.renzhen_value=="Y"' />
             </div>
 
             <div class="starbox text-right margin-top-10">
@@ -63,7 +63,7 @@
                 </div>
               </div>
 
-              <div class="stars2" [width]="jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20" [style.width.%]="width">
+              <div class="stars2" [width]="item.pingfen==''?item.scoring*20:item.pingfen*20" [style.width.%]="width">
                 <div class="ims">
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
@@ -80,7 +80,7 @@
 
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  *ngFor="let litem of jginfo.labels"  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}'
+                  *ngFor="let litem of item.labels"  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}'
                   wx:key="k" >{{litem.name}}</div>
               </div>
 
@@ -91,17 +91,17 @@
 
               <div class='flex-row flex-column flex-1'>
                 <div class="txt-gray h6">适合年龄</div>
-                <div class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</div>
+                <div class='h6 txt-black  txt-bold  margin-top-10 '>{{item.jg_age}}</div>
               </div>
 
               <div class='flex-row flex-column flex-1'>
                 <div class="txt-gray h6">营业时间</div>
-                <div class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</div>
+                <div class='h6 txt-black txt-bold  margin-top-10  '>{{item.time}}</div>
               </div>
 
               <div class='flex-row flex-column flex-1'>
                 <div class='h6 txt-gray '>需要预约</div>
-                <div class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</div>
+                <div class='h6 txt-black txt-bold  margin-top-10'>{{item.people_num}}人已预约</div>
               </div>
 
             </div>
@@ -110,8 +110,8 @@
               <div>
                 <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
             </div>
-            <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)' id="{{jginfo.address}}">
-              {{jginfo.address}}</div>
+            <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='nav(item.address)' id="{{item.address}}">
+              {{item.address}}</div>
             <div class='h6 txt-black txt-right txt-bold h150'  *ngIf="miletxt!=undefined">距你{{miletxt}}
             </div>
           </div>
@@ -126,9 +126,9 @@
 
           <div class='padding-10 '>
             <div class='flex-row flex-center'>
-              <div class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</div>
+              <div class='txt-black txt-bold  flex-1 chaochu'>{{item.jigou}}</div>
               <img src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz"
-                *ngIf='jginfo.renzhen_value=="Y"' />
+                *ngIf='item.renzhen_value=="Y"' />
             </div>
 
 
@@ -147,7 +147,7 @@
                 </div>
               </div>
 
-              <div class="hiddenblock" [width]="jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)"
+              <div class="hiddenblock" [width]="item.pingfen==''?(100-item.scoring*20):(100-item.pingfen*20)"
                 [style.width.%]="width"></div>
 
               <div class="stars1 " style="width: 100%;">
@@ -168,7 +168,7 @@
 
               <div class='flex-row flex-1'>
                 <div class=' biaoqian radius-10 txt-green h6 margin-5 text-center'
-                  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' *ngFor="let litem of jginfo.labels;"
+                  [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' *ngFor="let litem of item.labels;"
                   wx:key="k">{{litem.name}}</div>
               </div>
 
@@ -179,20 +179,20 @@
               <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13" /> -->
                 <div class="txt-gray h6">适合年龄</div>
-                <div class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</div>
+                <div class='h6 txt-black  txt-bold  margin-top-10 '>{{item.jg_age}}</div>
               </div>
 
               <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13" /> -->
                 <div class="txt-gray h6">营业时间</div>
-                <div class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</div>
+                <div class='h6 txt-black txt-bold  margin-top-10  '>{{item.time}}</div>
               </div>
 
               <div class='flex-row flex-column flex-1'>
                 <!-- <img src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13" /> -->
                 <!-- <div class="txt-gray h6" >预约</div> -->
                 <div class='h6 txt-gray '>需要预约</div>
-                <div class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</div>
+                <div class='h6 txt-black txt-bold  margin-top-10'>{{item.people_num}}人已预约</div>
               </div>
 
             </div>
@@ -201,8 +201,8 @@
               <div>
                 <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' />
               </div>
-              <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='openMap($event)'
-                id="{{jginfo.address}}">{{jginfo.address}}</div>
+              <div class='flex-1 h5 margin-left-10 txt-blue chaochu' (click)='nav(item.address)'
+                id="{{item.address}}">{{item.address}}</div>
               <div class='h6 txt-black txt-right txt-bold w150'  *ngIf="miletxt!=''">
                 距你{{miletxt}}</div>
             </div>
@@ -214,7 +214,7 @@
     </div>
 
 
-    <div class='margin-20 bg-white radius-10 shadow' *ngIf='jginfo.novideosummary_value!="Y"'>
+    <div class='margin-20 bg-white radius-10 shadow' *ngIf='item.novideosummary_value!="Y"'>
 
       <div class='flex-row flex-center  radius-10 padding-20'>
         <!-- <div class='bg-primary margin-left-10' style='height:38rpx;width:10rpx;'></div> -->
@@ -224,27 +224,27 @@
 
       <div class='padding-20'>
 
-        <video class='pos sp5' *ngIf='jginfo.jg_video!=""'  object-fit="contain"
-          autoplay='{{false}}' loop='{{false}}' controls src='{{uploadpath}}mechanism/{{jginfo.jg_video}}'>
+        <video class='pos sp5' *ngIf='item.jg_video!=""'  object-fit="contain"
+           loop='{{false}}' controls src='{{uploadpath}}mechanism/{{item.jg_video}}'>
         </video>
 
-        <img class="sp5" mode='widthFix' *ngIf='jginfo.jg_video==""&&jginfo.waitimg!=""'
-          src='{{uploadpath}}mechanism/{{jginfo.waitimg}}?x-oss-process=style/test_img' />
+        <img class="sp5" mode='widthFix' *ngIf='item.jg_video==""&&item.waitimg!=""'
+          src='{{uploadpath}}mechanism/{{item.waitimg}}?x-oss-process=style/test_img' />
 
         <!-- <div style='width:100%;height:300rpx; ' class='bg-primary '>视频</div> -->
       </div>
 
       <div class="mt-30" >
 
-        <div class="sp6">
+        <div class="sp6" *ngIf="item.jieshao!=''">
           <p decode="{{true}}" space="ensp"
-            class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}'
-            style="">{{jginfo.jieshao}}</p>
+            class='  h5 margin-top-20   '
+            style="">{{item.jieshao}}</p>
         </div>
-        <div class="flex-row flex-column">
+        <!-- <div class="flex-row flex-column">
           <div class="txt-blue h5 margin-bottom-20 margin-top-10" *ngIf='more==false' (click)="showmore()">查看更多</div>
           <div class="txt-blue h5 margin-bottom-20" *ngIf='more==true' (click)="shouqi()">收起</div>
-        </div>
+        </div> -->
       </div>
 
 
@@ -253,7 +253,7 @@
     <!-- <img src='{{uploadpath}}mechanism/{{jginfo.longimg}} ' mode='widthFix' style='width:100vw' /> -->
 
 
-    <img src='{{uploadpath}}mechanism/{{jginfo.longimg}}?x-oss-process=style/test_img' mode='widthFix'
+    <img src='{{uploadpath}}mechanism/{{item.longimg}}?x-oss-process=style/test_img' mode='widthFix'
       style='width:100vw' />
 
     <div class='margin-20 margin-bottom-10 '>
@@ -371,7 +371,7 @@
     </div>
 
     <div class='flex-row flex-center'>
-      <div class='left flex-row flex-center' >
+      <div class='left flex-row flex-center flex-1' >
 
         <div class='flex-1 flex-row flex-column' (click)='toindex()'>
           <img src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25' />
@@ -387,21 +387,21 @@
           <div class='h7 margin-top-8'>收藏</div>
         </div>
 
-        <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
+        <!-- <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
           <div class=' flex-row flex-column'>
             <img src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25' />
             <div class='h7 margin-top-8'>客服</div>
           </div>
-        </button>
+        </button> -->
 
       </div>
-      <div class=' flex-row flex-center' *ngIf='nogroup=="Y"'>
-        <div class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" (click)='bindshowtc($event)'>
+      <div class=' flex-row flex-center flex-1' *ngIf='nogroup=="Y"'>
+        <div class='buybtn txt-white h5 text-center bg-cheng' id="{{item.id}}" (click)='bindshowtc($event)'>
           立即购买</div>
-        <div class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" (click)="bindpin($event)">
+        <div class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{item.id}}" (click)="bindpin($event)">
           发起拼班</div>
       </div>
-      <div *ngIf='nogroup!="Y"' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}"
+      <div *ngIf='nogroup!="Y"' class='onlybuy txt-white h5 text-center bg-cheng' id="{{item.id}}"
         (click)='bindshowtc($event)'>立即购买</div>
 
     </div>
@@ -413,7 +413,7 @@
 
 
 
-  <div class='buy' *ngIf='tanchuang==true'>
+  <div class='buy' *ngIf='tanchuang==true' >
 
     <div class="black" catchtouchmove="{{true}}"></div>
 

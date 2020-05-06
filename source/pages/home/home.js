@@ -124,18 +124,20 @@ class Content extends AppBase {
     })
 
     jigouapi.myxiaoxi({}, (xiaoxilist) => {
-
+        
+       if(xiaoxilist!=undefined)
+       {
       var weidu = xiaoxilist.filter((item) => {
 
         return item.isread_value == 'N'
 
       })
-
+   
       console.log("消息哈哈哈哈敖德萨大所");
       this.Base.setMyData({
         xiaoxishu: weidu.length
       })
-
+    }
     })
 
     // this.btn();
@@ -819,29 +821,7 @@ class Content extends AppBase {
         jifen: this.Base.getMyData().jifen,
         status: "A"
       }, (daka) => {
-        if (this.Base.getMyData().jifen == 5) {
-          jifenapi.addjifen({
-            member_id: this.Base.getMyData().memberinfo.id,
-            unicode: "lianxvdaka"
-          }, (addjifen) => {
-            this.Base.setMyData({
-              addjifen
-            })
-          })
-        }
-        if (this.Base.getMyData().jifen == 25) {
-          jifenapi.addjifen({
-            member_id: this.Base.getMyData().memberinfo.id,
-            unicode: "lianxvdaka"
-          }, (addjifen) => {
-            this.Base.setMyData({
-              addjifen
-            })
-          })
-        }
-        this.Base.setMyData({
-          daka
-        })
+        
         this.onMyShow();
       })
     }

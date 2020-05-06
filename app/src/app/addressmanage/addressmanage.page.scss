@@ -3,7 +3,9 @@
 }
 
 /* pages/addressmanage/addressmanage.wxss */
-
+ion-content {
+  --background: #F5F5F5;
+}
 .hezi {
     margin-top: rpx(20);
     padding-top: rpx(40);

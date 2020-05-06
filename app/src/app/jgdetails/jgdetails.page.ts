@@ -50,7 +50,7 @@ export class JgdetailsPage extends AppBase {
   miletxt = "";
   canbuy = null;
   jigouimg = [];
-  jginfo = null;
+  jginfo=[];
   isfav = "";
 
   arr5=[];
@@ -79,7 +79,7 @@ export class JgdetailsPage extends AppBase {
       id: this.params.id
     }).then((jginfo) => {
 
-
+      console.log(jginfo,'jginfo')
       var hang = jginfo.jieshao;
       var hangshu = hang.split('\n')
 
@@ -169,7 +169,8 @@ export class JgdetailsPage extends AppBase {
       });
 
       console.log("???????????");
-      this.jginfo = jginfo;
+      // this.jginfo = jginfo;
+      this.jginfo.push(jginfo)
       this.isfav = jginfo.isfav;
     });
   }
@@ -329,7 +330,7 @@ export class JgdetailsPage extends AppBase {
       this.clist = clist;
     });
 
-    this.xuanzhong = 1;
+    // this.xuanzhong = 1;
   }
 
   xuan(id) {
@@ -344,6 +345,7 @@ export class JgdetailsPage extends AppBase {
   tobuy(id) {
     var ck = this.xuanzhong;
     console.log(id + "电费");
+    console.log(ck + "电费");
     //return;
     //this.pin == "1"  
 
@@ -413,6 +415,10 @@ export class JgdetailsPage extends AppBase {
 
   toindex(e) {
     this.backHome();
+  }
+  nav(){
+    console.log(this.jginfo)
+    this.openLocation(this.jginfo[0].lat,this.jginfo[0].lng,this.jginfo[0].jigou,this.jginfo[0].address);
   }
   bindfullscreenchange(e) {
     console.log("10000", e)

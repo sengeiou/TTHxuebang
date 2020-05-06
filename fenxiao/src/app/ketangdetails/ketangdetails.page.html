@@ -322,3 +322,26 @@
 <div class='backhome'>
   <img src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' (click)='shouye()' />
 </div>
+
+
+<div *ngIf="kecheninfo!=null" class="db ">
+
+  <div class="flex-row flex-center padding-20">
+
+   
+  
+    <img *ngIf="isfav=='N'" (click)='fav("Y")' class='icon' mode='widthFix' src='{{uploadpath}}resource/{{res.unfav}}' />
+    
+  
+
+
+    <img class='icon' (click)='fav("N")' *ngIf="isfav=='Y'" mode='widthFix' src='{{uploadpath}}resource/{{res.fav}}' />
+   
+ 
+    <div class="flex-1 text-center" style="color:#FF6600">可赚￥39.9</div>
+    <div (click)="tokcdetails()" class="tgbt">生成推广海报</div>
+
+
+  </div>
+  
+</div>

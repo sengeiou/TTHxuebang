@@ -12,6 +12,7 @@ import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { BatchApi } from 'src/providers/batch.api';
 import { ApiConfig } from '../api.config';
+declare let WeixinJSBridge: any; 
 
 @Component({
   selector: 'app-order',
@@ -126,22 +127,42 @@ export class OrderPage extends AppBase {
     var info = this.info;
 
     if (info.type == 'PT') {
-      wechatapi.prepay2({ id: this.params.id }).then((payret) => {
+      wechatapi.prepay2({ id: this.params.id,h5:"Y" }).then((payret) => {
         // payret.complete = function (e) {
         //   that.onMyShow();
         // }
         // console.log(payret);
         // wx.requestPayment(payret)
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', payret,
+          (res) => {
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+              that.onMyShow();
+            } else {
+              this.showAlert(res.errMsg);
+            }
+          });
+
       });
     }
     else {
 
-      wechatapi.prepay({ id: this.params.id }).then((payret) => {
+      wechatapi.prepay({ id: this.params.id,h5:"Y" }).then((payret) => {
         // payret.complete = function (e) {
         //   that.onMyShow();
         // }
         // console.log(payret);
         // wx.requestPayment(payret)
+
+        WeixinJSBridge.invoke(
+          'getBrandWCPayRequest', payret,
+          (res) => {
+            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+              that.onMyShow();
+            } else {
+              this.showAlert(res.errMsg);
+            }
+          });
       });
 
     }
@@ -189,6 +210,7 @@ export class OrderPage extends AppBase {
   }
   xiazai(e=undefined) {
     var type = this.type;
+    console.log(type)
     if (type == 'kefu') {
       window.open(this.uploadpath + 'inst/' + this.InstInfo.kefuerweima)
     }

@@ -16,7 +16,7 @@
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <ion-card class="marginTop">
     <button class=' clear-button marginLeft' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-        <div class="weixin flex-row flex-center">
+        <div class="weixin flex-row flex-center" (click)='jiawei()'>
       
           <img src="{{uploadpath}}resource/{{res.wxkefu}}" class="icon-42 ml84"  />
       
@@ -35,7 +35,7 @@
 
 
 <ion-card class="margin-Top">
-    <div class="weixin flex-row flex-center margin-Left" style="margin-top:0" (click)="phoneCall($event)" id="{{InstInfo.tel}}">
+    <a class="weixin flex-row flex-center margin-Left" style="margin-top:0" href="tel:{{InstInfo.tel}}" >
 
         <img src="{{uploadpath}}resource/{{res.dhkefu}}" class="icon-50 ml84" />
       
@@ -47,7 +47,12 @@
       
         <img src="{{uploadpath}}resource/{{res.xiangyou}}" class="icon-right mr48"  />
       
-      </div>
+      </a>
 </ion-card>
 
   </ion-content>
+
+  <div class="mask" (click)='close()' *ngIf='isshow==true'></div>
+  <div class="erwei" *ngIf='isshow==true'>
+    <img src="{{uploadpath}}resource/{{res.kefuweixin}}" style="width: 100%;" >
+  </div>

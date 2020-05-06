@@ -14,12 +14,12 @@
 
 <!--pages/pingcejieguo/pingcejieguo.wxml-->
 <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class='top-block  ' style='background-size:100% 100%;'[style.background-image]="'url('+uploadpath+'pingceindex/'+info.jieguotu+')'">
+<div class='top-block' style='background-size:100% 100%;' [style.background-image]="'url('+uploadpath+'pingceindex/'+info.jieguotu+')'">
 
 
   <div class='flex-row flex-column '>
-
-    <div class='flex-row flex-column yuan radius-50' style='background-image:url({{uploadpath}}resource/{{res.wanchen_gif}});background-size:100% 100%;'>
+    <!-- <img src="{{uploadpath}}resource/{{res.wanchen_gif}}" alt=""> -->
+    <div class='flex-row flex-column yuan radius-50' [style.background-image]="'url('+uploadpath+'resource/'+res.wanchen_gif+')'" style='background-size:100% 100%;'>
       <div class='flex-1 '></div>
       <div class='  h6'>测试结果</div>
 

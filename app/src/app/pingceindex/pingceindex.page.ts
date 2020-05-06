@@ -48,13 +48,19 @@ export class PingceindexPage extends AppBase {
         var that = this;
 
         this.showConfirm("您已答题，将跳转至结果页",(ret)=>{
-          this.navigate("pingcejieguo",{
-            id:that.params.id,
-            typeA: a[0].typeA,
-            typeB: a[0].typeB,
-            typeC: a[0].typeC,
-            typeD: a[0].typeD
-          });
+          console.log(ret)
+          if(ret){
+            this.navigate("pingcejieguo",{
+              id:that.params.id,
+              typeA: a[0].typeA,
+              typeB: a[0].typeB,
+              typeC: a[0].typeC,
+              typeD: a[0].typeD
+            });
+          }else {
+            return
+          }
+         
         });
 
       }
@@ -77,7 +83,14 @@ export class PingceindexPage extends AppBase {
   countTimer2;
   countTimer3;
 
-  info=null;
+  info={
+    indeximg:'',
+    peoplenum:'',
+    jianjie:'',
+    xuzhi:'',
+    id:'',
+    jieguotu:''
+  };
   yd="0";
   zq="0";
   sy="0";
@@ -131,7 +144,7 @@ export class PingceindexPage extends AppBase {
     //todo
     // 使用 wx.createContext 获取绘图上下文 context
     // var ctx = wx.createCanvasContext('canvasProgressbg')
-    　let canvas = this.canvas.nativeElement
+    　let canvas = this.canvas.nativeElement;
       let context = canvas.getContext('2d');
 
     // console.log("滴滴滴滴");

@@ -63,15 +63,15 @@ export class TuiguanxiaoxiPage extends AppBase {
     })
   }
   zhuqnaian(e=undefined) {
-    this.navigateTo({
-      url: '/pages/review/review',
-    })
-
+    // this.navigateTo({
+    //   url: '/pages/review/review',
+    // })
+    this.navigate('review');
   }
   chakanxianqin(e=undefined) {
-    this.navigateTo({
-      url: '/pages/review/review',
-    })
-
+    // this.navigateTo({
+    //   url: '/pages/review/review',
+    // })
+    this.navigate('review');
   }
 }

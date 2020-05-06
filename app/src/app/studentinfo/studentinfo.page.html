@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
       <ion-toolbar  color='primary'>
           <ion-buttons slot="start">
             <ion-button (click)='back()'>
@@ -7,7 +7,7 @@
           </ion-buttons>
           <ion-title>{{heading}}</ion-title>
         </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
     <ion-content >
 
@@ -44,14 +44,14 @@
               <div class="h15 sp2"></div>
               <div class="h15 margin-left-10" style="color:#222222">性别 </div>
               <div class="flex-1"></div>
-              <img (click)="sex($event)" data-id="nan" *ngIf="sex=='nan'" src='{{uploadpath}}resource/{{res.xuannan}} ' class='nannv' mode='widthFix' />
-              <img (click)="sex($event)" data-id="nan" *ngIf="sex=='nv'" src='{{uploadpath}}resource/{{res.weixuannan}} ' class='nannv' mode='widthFix' />
-              <img (click)="sex($event)" data-id="nv" *ngIf="sex=='nv'" src='{{uploadpath}}resource/{{res.xuannv}} ' class=' margin-left-10 nannv' mode='widthFix' />
-              <img (click)="sex($event)" data-id="nv" *ngIf="sex=='nan'" src='{{uploadpath}}resource/{{res.weixuannv}} ' class='margin-left-10 nannv ' mode='widthFix' />
+              <img (click)="chosex('nan')" data-id="nan" *ngIf="sex=='nan'" src='{{uploadpath}}resource/{{res.xuannan}} ' class='nannv' mode='widthFix' />
+              <img (click)="chosex('nan')" data-id="nan" *ngIf="sex=='nv'" src='{{uploadpath}}resource/{{res.weixuannan}} ' class='nannv' mode='widthFix' />
+              <img (click)="chosex('nv')" data-id="nv" *ngIf="sex=='nv'" src='{{uploadpath}}resource/{{res.xuannv}} ' class=' margin-left-10 nannv' mode='widthFix' />
+              <img (click)="chosex('nv')" data-id="nv" *ngIf="sex=='nan'" src='{{uploadpath}}resource/{{res.weixuannv}} ' class='margin-left-10 nannv ' mode='widthFix' />
         
             </div>
         
-            <picker class="" mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange">
+            <!-- <picker class="" mode="date" value="{{xssj}}" start="1970-1-1" end="{{jintian}}" bindchange="bindDateChange"> -->
               <div class="padding-20 flex-row flex-center">
         
                 <div class="h15 sp2">*</div>
@@ -59,16 +59,16 @@
                 <div class="flex-1"></div>
         
         
-                <div class="section__title">{{xssj}} </div>
+                <!-- <div class="section__title">{{xssj}} </div> -->
         
-                <div *ngIf="xssj==''" class="margin-right-10" style="color:#CCCCCC">请输入</div>
-                <img src="{{uploadpath}}resource/{{res.right_icon}}" mode="widthFix" class="icon-10" />
+                <input  [(ngModel)]='xssj' type='date' class="margin-right-10 inp" style="color:#CCCCCC;"  data-role="none" placeholder="请输入"/>
+                <img src="{{uploadpath}}resource/{{res.right_icon}}"  mode="widthFix" class="icon-10" style="margin-left:-20px;"/>
         
         
         
               </div>
         
-            </picker>
+            <!-- </picker> -->
             <div class="padding-20 flex-row flex-center">
         
               <div class="h15 sp1"></div>
@@ -93,11 +93,20 @@
         
         
               <div class="section__title"> </div>
-              <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange($event)" value="{{region}}">
-                <div class="picker ipt" style='color:#C8C8C8' *ngIf="region.length==0">请填写地址</div>
-                <div class="picker ipt" *ngIf="region.length>0">{{region[0]}} {{region[1]}} {{region[2]}}</div>
-              </picker>
+              <!-- <picker class='flex-2 ff' mode="region" bindchange="bindRegionChange($event)" value="{{region}}"> -->
+                <input class="picker ipt"   [(ngModel)]='region' placeholder="请填写地址" />
+                <!-- <div class="picker ipt" *ngIf="region.length>0">{{region[0]}} {{region[1]}} {{region[2]}}</div> -->
+              <!-- </picker> -->
         
+        
+            </div>
+
+            <div class="padding-20 flex-row flex-center">
+        
+              <div class="h15 sp1">*</div>
+              <div class="h15 margin-left-10" style="color:#222222">详细地址</div>
+              <!-- <div class="flex-1"></div> -->
+              <input class=' ipt flex-1 margin-left-10' maxlength="11" [(ngModel)]="dizhi2" placeholder-class='pc' value='{{dizhi2}}' name='hangye' placeholder='如道路,门牌号,小区,楼栋号,单元室' />
         
             </div>
         

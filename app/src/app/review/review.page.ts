@@ -47,15 +47,16 @@ export class ReviewPage  extends AppBase {
       
     // })
 
-    this.navigateTo({
-      url: '/pages/promotion/promotion',
-    })
+    // this.navigateTo({
+    //   url: '/pages/promotion/promotion',
+    // })
+    this.navigate('promotion');
   }
   chonxintijiao(){
-   this.navigateTo({
-     url: '/pages/promotion/promotion',
-   })
-
+  //  this.navigateTo({
+  //    url: '/pages/promotion/promotion',
+  //  })
+   this.navigate('promotion');
   }
 
 }

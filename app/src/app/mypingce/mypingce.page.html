@@ -1,46 +1,50 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{header2}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{header2}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
 
 
-<!--pages/mypingce/mypingce.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <!--pages/mypingce/mypingce.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-<div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
-</div>
+  <div class=' to_top' *ngIf="scrolltop>300">
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
+  </div>
 
-<div *ngFor='let item of mypingcelist' wx:key='k' (click)='toceshi(item)' data-pcid="{{item.id}}" id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}" data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-size:100% 100%;'  [style.background-image]="'url('+uploadpath+'pingceindex/'+item.pingce_listimg+')'">
+  <div id='dinbu' *ngFor='let item of mypingcelist' wx:key='k' (click)='toceshi(item)' data-pcid="{{item.id}}"
+    id='{{item.pingce_id}}' data-typea="{{item.typeA}}" data-typeb="{{item.typeB}}" data-typec="{{item.typeC}}"
+    data-typed="{{item.typeD}}" class='ceshi flex-row flex-center' style='background-size:100% 100%;'
+    [style.background-image]="'url('+uploadpath+'pingceindex/'+item.pingce_listimg+')'">
 
-  <div class="margin-left-40">
+    <div class="margin-left-40">
 
-    <!-- <div class='txt-white txt-bold'>{{item.pingce_id_name}}</div> -->
+      <!-- <div class='txt-white txt-bold'>{{item.pingce_id_name}}</div> -->
 
-    <div class=' h120'></div>
-   
-    <div class='flex-row flex-center'>
-    <div></div>
-      <div class='txt-white h6'>{{item.pingce_peoplenum}}</div>
-      <div class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</div>
-    </div>
+      <div class=' h120'></div>
 
-    <div class="flex-row flx-center mt-20" style=" ">
-      <div class="flex-1 w550" style=""></div>
-      <div class="h32 " style="" *ngIf='item.dati_status_value=="Y"'></div>
-      <div class="txt-bold txt-white h6" *ngIf='item.dati_status_value=="N"'>已测试</div>
+      <div class='flex-row flex-center'>
+        <div></div>
+        <div class='txt-white h6'>{{item.pingce_peoplenum}}</div>
+        <div class='h6 margin-left-12 txt-white opa' style=' '>人参与测试</div>
+      </div>
+
+      <div class="flex-row flx-center mt-20" style=" ">
+        <div class="flex-1 w550" style=""></div>
+        <div class="h32 " style="" *ngIf='item.dati_status_value=="Y"'></div>
+        <div class="txt-bold txt-white h6" *ngIf='item.dati_status_value=="N"'>已测试</div>
+      </div>
+
     </div>
 
   </div>
 
-</div>
-
-    </ion-content>
+</ion-content>

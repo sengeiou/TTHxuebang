@@ -22,7 +22,7 @@ export class ApiConfig {
         }
         return arr.join("&");
     }
-    private static TOKEN=null;
+    private static TOKEN= window.localStorage.getItem("UserToken");
     private static TOKENKEY=null;
     private static RID = null;
     private static UNICODE = null;
@@ -35,7 +35,7 @@ export class ApiConfig {
         var headers = new Headers({
             'Content-Type': 'application/x-www-form-urlencoded',
             'Sign': sign,
-            'Token': ApiConfig.TOKEN,
+            'Token': window.localStorage.getItem("UserToken"),
             'TokenKey': ApiConfig.TOKENKEY,
             'UNICODE': ApiConfig.UNICODE
         });

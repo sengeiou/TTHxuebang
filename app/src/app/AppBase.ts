@@ -75,8 +75,8 @@ export class AppBase implements OnInit, OnDestroy {
 
     public static jump = true;
 
-    public keyt = "MemberInfo07";
-    public stat = "stat9";
+    public keyt = "MemberInfo09";
+    public stat = "stat91";
 
     public heading = "学榜";
 
@@ -129,6 +129,8 @@ export class AppBase implements OnInit, OnDestroy {
         AppBase.STATICRAND = stat;
 
         var MemberInfo = window.localStorage.getItem(this.keyt);
+         
+               
 
         if (MemberInfo != null) {
             AppBase.MemberInfo = JSON.parse(MemberInfo);
@@ -162,11 +164,13 @@ export class AppBase implements OnInit, OnDestroy {
 
                 } else {
                     if (AppBase.MemberInfo == null) {
+                        
                         var url = window.location.href;
                         //url="http://yuyue.helpfooter.com/tabs/tab1";
                         var redirecturl = encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         console.log({ redurl });
+
                         window.location.href=redurl;
                     }
                 }
@@ -179,13 +183,16 @@ export class AppBase implements OnInit, OnDestroy {
         }
     }
     getMemberInfo() {
-
+        console.log("牛逼了");
+        console.log("11111");
+        
         AppBase.memberapi.info({}).then((MemberInfo) => {
             if (MemberInfo == null || MemberInfo.mobile == undefined || MemberInfo.mobile == "") {
                 //alert("?");
                 MemberInfo = null;
             }
             this.MemberInfo = MemberInfo;
+            
 
         });
     }
@@ -194,8 +201,8 @@ export class AppBase implements OnInit, OnDestroy {
 
 
 
-        this.navigate("/tabs/tab1");
-
+        this.navCtrl.navigateBack('tabs/home');
+        return;
 
 
     }
@@ -223,9 +230,35 @@ export class AppBase implements OnInit, OnDestroy {
                     ApiConfig.SetTokenKey(MemberInfo.unionid);
                     AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
-                        AppBase.memberapi.info({}).then((MemberInfo)=>{
-                            AppBase.MemberInfo = MemberInfo;
-                            this.MemberInfo = MemberInfo;
+                        AppBase.memberapi.info({}).then((info)=>{
+
+                            var order = info.order;
+                            var dfkorder = 0;
+                            var ypborder = 0;
+                            var dpjorder = 0;
+                            var dshorder = 0;
+                            var tkorder = 0;
+                            order.map((item) => {
+                    
+                            if (item.pstatus == 'W') {
+                                dfkorder++;
+                            }
+                            if (item.type == 'PT' && item.pstatus == 'PT') {
+                                ypborder++;
+                            }
+                            if (item.pstatus =='PJ')
+                            {
+                                dpjorder++;
+                            }
+                            })
+                            info.dfkorder = dfkorder;
+                            info.ypborder=ypborder;
+                            info.dpjorder=dpjorder;
+                            info.dshorder=dshorder;
+                            info.tkorder=tkorder;
+                            
+                            AppBase.MemberInfo = info;
+                            this.MemberInfo = info;
                             window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
                             this.setWechatShare();
                         });
@@ -237,15 +270,45 @@ export class AppBase implements OnInit, OnDestroy {
                 //alert(1);
                 //alert("看到这个就是逻辑出大问题了");
                 this.setWechatShare();
+                // this.onMyShow();
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
-            this.MemberInfo = AppBase.MemberInfo;
-            console.log("aaaa", this.MemberInfo);
-            ApiConfig.SetToken(this.MemberInfo.h5openid);
-            ApiConfig.SetTokenKey(this.MemberInfo.unionid);
-            this.setWechatShare();
-
+            ApiConfig.SetToken(AppBase.MemberInfo.h5openid);
+            ApiConfig.SetTokenKey(AppBase.MemberInfo.unionid);
+            AppBase.memberapi.info({}).then((info)=>{
+                var order = info.order;
+                var dfkorder = 0;
+                var ypborder = 0;
+                var dpjorder = 0;
+                var dshorder = 0;
+                var tkorder = 0;
+                order.map((item) => {
+          
+                  if (item.pstatus == 'W') {
+                    dfkorder++;
+                  }
+                  if (item.type == 'PT' && item.pstatus == 'PT') {
+                    ypborder++;
+                  }
+                  if (item.pstatus =='PJ')
+                  {
+                    dpjorder++;
+                  }
+                })
+                info.dfkorder = dfkorder;
+                info.ypborder=ypborder;
+                info.dpjorder=dpjorder;
+                info.dshorder=dshorder;
+                info.tkorder=tkorder;
+                AppBase.MemberInfo=info;
+                this.MemberInfo = info;
+                console.log("aaaa", this.MemberInfo);
+                 
+                this.setWechatShare();
+            });
+            
+            // this.onMyShow();
         }
 
 
@@ -466,7 +529,7 @@ export class AppBase implements OnInit, OnDestroy {
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation",'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
             wx.ready(()=>{
@@ -521,10 +584,11 @@ export class AppBase implements OnInit, OnDestroy {
                         +"&key=bbbefc93b56102814e2710090beb4c26&radius=1000&extensions=all";
                         AppBase.instapi.http.get(url).toPromise().then((res)=>{
                             var adinfo=res.json();
-                            console.log("location",adinfo);
+                            console.log("location2",adinfo);
 
                             AppBase.lastaddress=adinfo.regeocode.addressComponent;
                             that.address=adinfo.regeocode.addressComponent;
+                            that.address.ad_info=adinfo.regeocode.addressComponent;
                             that.mylat=lat;
                             that.mylng=lng;
                             that.zone.run(()=>{
@@ -550,8 +614,10 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     backtotop(e = undefined) {
-        var ioncontent = document.querySelector("ion-header");
-        ioncontent.scrollIntoView(true);
+        // var ioncontent = document.querySelector("ion-content");
+        //alert(1);
+        var ioncontent = document.getElementById('dinbu');
+        ioncontent.scrollIntoView({behavior:"smooth"});
     }
     onShareAppMessage() {
 
@@ -609,9 +675,22 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     phoneCall(e) {
-         
+       window.location.href = 'https://www.cnblogs.com/handsome-jm/p/7878478.html';
     }
+    openLocation(lat, lng, name, address) {
+        wx.openLocation({
+            latitude: lat,//目的地latitude
+            longitude: lng,//目的地longitude
+            name: name,
+            address: address,
+            scale: 15//地图缩放大小，可根据情况具体调整
+        });
+      }
     viewPhoto(e) {
 
+    }
+
+    getPhoneNo(){
+        
     }
 }

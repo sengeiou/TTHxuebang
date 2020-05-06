@@ -17,7 +17,20 @@ const routes: Routes = [
   { path: 'generate', loadChildren: './generate/generate.module#GeneratePageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'kchaibao', loadChildren: './kchaibao/kchaibao.module#KchaibaoPageModule' },
-  { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' }
+  { path: 'zxkthaibao', loadChildren: './zxkthaibao/zxkthaibao.module#ZxkthaibaoPageModule' },
+  { path: 'yindao', loadChildren: './yindao/yindao.module#YindaoPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'password', loadChildren: './password/password.module#PasswordPageModule' },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'forgetpassword', loadChildren: './forgetpassword/forgetpassword.module#ForgetpasswordPageModule' },
+  { path: 'tuiguanguize', loadChildren: './tuiguanguize/tuiguanguize.module#TuiguanguizePageModule' },
+  { path: 'tuiguandindan', loadChildren: './tuiguandindan/tuiguandindan.module#TuiguandindanPageModule' },
+  { path: 'mykehu', loadChildren: './mykehu/mykehu.module#MykehuPageModule' },
+  { path: 'kehuinfo', loadChildren: './kehuinfo/kehuinfo.module#KehuinfoPageModule' },
+  { path: 'tixian', loadChildren: './tixian/tixian.module#TixianPageModule' },
+  { path: 'mingxi', loadChildren: './mingxi/mingxi.module#MingxiPageModule' },
+  { path: 'mycollect', loadChildren: './mycollect/mycollect.module#MycollectPageModule' },
+  { path: 'content', loadChildren: './content/content.module#ContentPageModule' }
 
 ];
 @NgModule({

@@ -2,11 +2,11 @@
 
 
   <div class="padding-30 padding-bottom-20 flex-row flex-center">
-    <img class='member_icon'>
-    <div class='margin-left-10 chaochu'>ssaaa</div>
+    <img src="{{MemberInfo.avatarUrl}}" class='member_icon'>
+    <div class='margin-left-10 chaochu'>{{MemberInfo.nickName}}</div>
     <div *ngIf="!showModal&&tuiguaninfo[0].status=='S'" class="label">学榜大使</div>
     <div class="flex-1"></div>
-    <div class="h5" style='color:#666666' style="width:150rpx" bindtap='tuiguanguize'>推广规则</div>
+    <div class="h5" style='color:#666666' style="width:150rpx" (click)="tuiguanguize()">推广规则</div>
   </div>
 
 
@@ -22,41 +22,41 @@
 
           <img class="icon-25  margin-right-10  " src='{{uploadpath}}resource/{{res.qiandai}}'>
 
-          <div class=" h2" style="color:rgba(255, 255, 255, 1);">111</div>
+          <div class=" h2" style="color:rgba(255, 255, 255, 1);">{{MemberInfo.tuiguanshouyi}}</div>
           <div class="flex-1"></div>
-          <div bindtap='lijitixian' class="tixian">立即提现</div>
+          <div (click)='lijitixian($event)' class="tixian">立即提现</div>
         </div>
       </div>
 
       <div class="xian"></div>
       <div class="content_bottom flex-row flex-center">
-        <div bindtap='mykehu' class="flex-2 flex-row ">
+        <div (click)='mykehu($event)' class="flex-2 flex-row ">
           <!-- <div class="flex-1"></div> -->
           <div>
             <div class="margin-left-40 h5" style='color:rgba(161, 111, 47, 1)'>
               大使馆(人)
             </div>
             <div class="h4 margin-top-20 margin-left-40" style='color:rgba(255, 255, 255, 1)'>
-              111
+              {{leijikehu}}
             </div>
           </div>
           <div class="flex-1"></div>
         </div>
-         <div class="fenge"></div>
-            <div bindtap='myinvite' class="flex-3 flex-row ">
-              <div class="flex-1"></div>
-              <div>
-                <div class="h5" style='color:rgba(161, 111, 47, 1)'>
-                  成功邀请推广员(人)
-                </div>
-                <div class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
-                 1231
-                </div>
-              </div>
-              <div class="flex-1"></div>
-            </div> 
         <div class="fenge"></div>
-        <div bindtap='tuiguandindan' class="flex-2 flex-row ">
+        <div bindtap='myinvite' class="flex-3 flex-row ">
+          <div class="flex-1"></div>
+          <div>
+            <div class="h5" style='color:rgba(161, 111, 47, 1)'>
+              成功邀请推广员(人)
+            </div>
+            <div class="h4 margin-top-20" style='color:rgba(255, 255, 255, 1)'>
+              {{xiajituiguan}}
+            </div>
+          </div>
+          <div class="flex-1"></div>
+        </div>
+        <div class="fenge"></div>
+        <div (click)='tuiguandindan1($event)' class="flex-2 flex-row ">
 
           <div>
             <div class="h5 margin-left-40" style='color:rgba(161, 111, 47, 1)'>
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-  <div class="margin-30 margin-top-10 flex-row bg-white  flex-center">
+  <!-- <div class="margin-30 margin-top-10 flex-row bg-white  flex-center">
 
     <img class="yaoqin_icon margin-40 " src='{{uploadpath}}resource/{{res.yaoqinhaoyou}}' />
     <div class="flex-1">
@@ -80,9 +80,9 @@
     </div>
     <img class="icon-10  margin-40" src='{{uploadpath}}resource/{{res.yaoqin_you}}' />
 
-  </div>
+  </div> -->
 
-  <div class="margin-30 margin-top-10 flex-row bg-white  flex-center">
+  <div (click)="myshoucan()" class="margin-30 margin-top-10 flex-row bg-white  flex-center">
 
     <img class="yaoqin_icon margin-40 " src='{{uploadpath}}resource/{{res.yaoqinhaoyou}}' />
     <div class="flex-1">
