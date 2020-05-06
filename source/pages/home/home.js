@@ -426,6 +426,7 @@ class Content extends AppBase {
     var mylng = this.Base.getMyData().mylng;
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
+    console.log(mylat, "那真的牛批", mylng);
 
     jigouapi.jglist({
       mylat,
