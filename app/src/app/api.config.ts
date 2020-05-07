@@ -4,13 +4,13 @@ import { LoadingController } from '@ionic/angular';
 export class ApiConfig {
 	
     public static getApiUrl() {
-        return "https://tthxb.artxb.cn/api/";
+        return "https://tthxb2.artxb.cn/api/";
     }
     public static getUploadPath() {
         return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
     }
     public static getFileUploadAPI() {
-        return "https://tthxb.artxb.cn/fileupload";
+        return "https://tthxb2.artxb.cn/fileupload";
     }
 	
     public static ParamUrlencoded(json) {
