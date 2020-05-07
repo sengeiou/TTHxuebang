@@ -653,7 +653,7 @@ export class HomePage extends AppBase {
       this.signState = true;
 
       var num = this.num;
-      alert(this.num);
+      //alert(this.num);
 
       if (this.num < 7) {
         this.jifen = 5;

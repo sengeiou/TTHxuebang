@@ -7,13 +7,14 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
 
+
 @Component({
-  selector: 'app-kechen',
-  templateUrl: './kechen.component.html',
-  styleUrls: ['./kechen.component.scss'],
-  providers: [InstApi, MemberApi]
+  selector: 'app-addkechen',
+  templateUrl: './addkechen.component.html',
+  styleUrls: ['./addkechen.component.scss'],
+  providers: [InstApi, MemberApi,UserbApi]
 })
-export class KechenComponent extends AppBase {
+export class AddkechenComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -28,40 +29,15 @@ export class KechenComponent extends AppBase {
 
   onMyLoad() {
     this.params;
+    if(this.params.id!=undefined){
+      this.primary_id=this.params.id;
+    }
   }
   onMyShow() {
     
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("kechen", "");
     }
-    this.search();
   }
-  name='';
-  jg_id='';
-  seashow = false;
-  allcurriculum=[];
-  search(){
-    if(this.name.trim()!="" || this.jg_id!=""){
-      this.seashow=true;
-    }
-    this.userbApi.allcurriculum({
-      name:this.name,
-      jg_id:this.jg_id
-    }).then((allcurriculum:any)=>{
-      this.allcurriculum=allcurriculum;
-      this.pagination(allcurriculum,allcurriculum.length);
-    })
-  }
-  reset(){
-    this.name='';
-    this.jg_id='';
-    this.seashow=false;
-    this.onMyShow();
-  }
-  bianji(item){
-    this.navigate('/addkechen',{id:item.id});
-  }
-  shanchu(item){
-
-  }
+  primary_id=0;
 }

@@ -33,6 +33,7 @@ import { RegisterComponent } from './register/register.component';
 import { JigouComponent } from './jigou/jigou.component';
 import { KechenComponent } from './kechen/kechen.component';
 import { AddjigouComponent } from './addjigou/addjigou.component';
+import { AddkechenComponent } from './addkechen/addkechen.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AddjigouComponent } from './addjigou/addjigou.component';
     JigouComponent,
     KechenComponent,
     AddjigouComponent,
+    AddkechenComponent,
   ],
   imports: [
     BrowserModule,

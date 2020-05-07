@@ -149,6 +149,15 @@ export class AddmechanismPage  extends AppBase {
   kk="";
   qj="";
 
+  formdata={
+    jigou:"",
+    mobile:"",
+    region:"",
+    fulladdress:"",
+    name:"",
+    jianjie:""
+  };
+
   addjigou=[];
 
   confirm(e) {
@@ -208,10 +217,10 @@ export class AddmechanismPage  extends AppBase {
     }
 
 
-    if (data.address == "") {
-      this.showAlert("请填写地址");
-      return;
-    } 
+    // if (data.address == "") {
+    //   this.showAlert("请填写地址");
+    //   return;
+    // } 
     if (data.fulladdress == "") {
       this.showAlert("请填写详细地址");
       return;
@@ -227,7 +236,7 @@ export class AddmechanismPage  extends AppBase {
 
         jigouapi.addjigou({
           member_id: that.MemberInfo.id,
-          hangye: data.hangye,
+          hangye: "",
           name: data.jigou,
           mobile: data.mobile,
           address: region,

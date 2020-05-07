@@ -42,10 +42,6 @@
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">营业时间</label>
                       <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='time' name='time'/>
                   </div>
-                  <!-- <div class="form-group   col-lg-2 col-md-3  col-sm-4">
-                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">状态</label>
-                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='status' name='name' />
-                  </div> -->
                 
                 </div>
               </div>
@@ -56,7 +52,7 @@
                     <button type="submit" class="btn btn-primary margin-left-10" (click)='search()'>搜索</button>
                   </div>
                   <div>
-                    <button type="submit" class="btn btn-warning" routerLink='/addjigou'>+ 添加机构</button>
+                    <button type="submit" class="btn btn-warning" (click)='add()'>+ 添加机构</button>
                   </div>
               </div>
               <!-- /.card-footer -->
@@ -73,7 +69,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
+              <div class="card-title h5 {{seashow==true?'txt-orange':''}}">{{seashow==true?('当前搜索结果'+allinst.length+'条记录'):('总条数:'+allinst.length+'条')}}</div>
   
               <div class="card-tools">
                 <ul class="pagination pagination-sm float-right">
@@ -109,8 +105,8 @@
                     <td>{{item.searchkeyword}}</td>
                     <td>{{item.jg_age}}</td>
                     <td>
-                        <div class="badge bg-primary margin-right" >编辑</div>
-                        <div class="badge bg-danger" >删除</div>
+                        <div class="badge bg-primary margin-right" (click)='bianji(item)'>编辑</div>
+                        <div class="badge bg-danger" (click)='shanchu(item)'>删除</div>
                     </td>
                   </tr>
                   <tr *ngIf='allinst.length==0'>
