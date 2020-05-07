@@ -1,0 +1,1 @@
+applink-cli syncapi ng alucard263096 tthxb   ./src/providers

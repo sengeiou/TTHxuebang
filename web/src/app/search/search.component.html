@@ -1,0 +1,100 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">Search</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]='inputkeyword' placeholder="Search keyword"/>
+              </div>
+              <div class="col-sm-2">
+                <button type="button" class="btn btn-info" (click)='search()'>Search</button>
+              </div>
+            </div>
+            <h3 *ngIf="keyword!=''" class="padding-20">“{{keyword}}” in
+              {{humanlist.length+orderlist.length}} results</h3>
+            <h3 *ngIf="keyword==''" class="padding-20">No search keyword</h3>
+            <div *ngIf="keyword!=''">
+              <div class="flex-row2 flex-bottom2 border-bottom">
+                <div (click)='tab="human"' class="opt" [class.act]='tab=="human"'>Human ({{humanlist.length}})</div>
+                <div (click)='tab="order"' class="opt" [class.act]='tab=="order"'>Order ({{orderlist.length}})</div>
+              </div>
+              <div *ngIf='tab=="human"'>
+                <div *ngIf="humanlist.length==0" class="padding-20">No human result</div>
+                <div *ngIf="humanlist.length>0" class="padding-20">
+                  <div class="row border-bottom padding-10" *ngFor="let item of humanlist;let i=index;"  (click)='navigate("/addhuman",{id:item.id})'>
+                    <div class="col-md-2">
+                      <img class="avatar" src="{{uploadpath}}human/{{item.img}}">
+                    </div>
+                    <div class="col-md-10">
+                      <h4>{{item.bianhao}} - {{item.name}}</h4>
+                      <div>
+                        <p>Passport: {{item.huzhao}}</p>
+                        <div class="flex-row2 flex-wrap">
+                          <div class="margin-right">Gender: {{item.gender_name}}</div>
+                          <div class="margin-right">|</div>
+                          <div class="margin-right">Age: {{item.age}}</div>
+                          <div class="margin-right">|</div>
+                          <div class="margin-right">工种: {{item.type_name}}</div>
+                          <div class="margin-right">|</div>
+                          <div class="margin-right">Country: {{item.country_name}}</div>
+                          <div class="margin-right">|</div>
+                          <div class="margin-right">Religion: {{item.religion_name}}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf='tab=="order"'>
+                <div *ngIf="orderlist.length==0" class="padding-20">No order result</div>
+                <div *ngIf="orderlist.length>0" class="padding-20">
+                  <div class="row border-bottom padding-10" *ngFor="let item of orderlist;let i=index;"  (click)='navigate("/daiorder",{id:item.id})'>
+                    <div class="col-md-12">
+                      <h4>{{item.orderno}}({{item.orderstatus_name}})</h4>
+                      <p>{{item.name}}</p>
+                      <div>
+                        <div class="flex-row2 flex-wrap">
+                          <div class="margin-right">Peoples: {{item.peoples}}</div>
+                          <div class="margin-right">|</div>
+                          <div class="margin-right">Amount: {{item.money}}</div>
+                        </div>
+                        <p>{{item.orderxuqiu}} </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
