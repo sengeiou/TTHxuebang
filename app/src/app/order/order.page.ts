@@ -12,7 +12,7 @@ import { PurchaseApi } from 'src/providers/purchase.api';
 import { WechatApi } from 'src/providers/wechat.api';
 import { BatchApi } from 'src/providers/batch.api';
 import { ApiConfig } from '../api.config';
-declare let WeixinJSBridge: any; 
+declare let WeixinJSBridge: any;
 
 @Component({
   selector: 'app-order',
@@ -22,7 +22,7 @@ declare let WeixinJSBridge: any;
 })
 export class OrderPage extends AppBase {
 
-  constructor(public zone:NgZone, public router: Router, 
+  constructor(public zone: NgZone, public router: Router,
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
@@ -35,7 +35,7 @@ export class OrderPage extends AppBase {
     public purchaseApi: PurchaseApi,
     public wechatApi: WechatApi,
     public batchApi: BatchApi) {
-    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
+    super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl, activeRoute, zone);
     this.headerscroptshow = 480;
 
   }
@@ -47,7 +47,7 @@ export class OrderPage extends AppBase {
   mMinute = "";
   mSecond = "";
 
-  onMyLoad(e=undefined) {
+  onMyLoad(e = undefined) {
     //参数
     this.params;
 
@@ -74,13 +74,13 @@ export class OrderPage extends AppBase {
     this.info = {};
     this.courseinfo = {};
   }
-  onUnload(e=undefined) {
+  onUnload(e = undefined) {
     var timerid = this.timerid;
     clearInterval(timerid);
   }
   info = null;
   courseinfo = null;
-  onMyShow(e=undefined) {
+  onMyShow(e = undefined) {
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -120,14 +120,14 @@ export class OrderPage extends AppBase {
     this.back();
   }
 
-  bindpay(e=undefined) {
+  bindpay(e = undefined) {
     var that = this;
     var wechatapi = this.wechatApi;
 
     var info = this.info;
 
     if (info.type == 'PT') {
-      wechatapi.prepay2({ id: this.params.id,h5:"Y" }).then((payret) => {
+      wechatapi.prepay2({ id: this.params.id, h5: "Y" }).then((payret) => {
         // payret.complete = function (e) {
         //   that.onMyShow();
         // }
@@ -136,7 +136,7 @@ export class OrderPage extends AppBase {
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', payret,
           (res) => {
-            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+            if (res.err_msg == "get_brand_wcpay_request:ok") {
               that.onMyShow();
             } else {
               this.showAlert(res.errMsg);
@@ -147,7 +147,7 @@ export class OrderPage extends AppBase {
     }
     else {
 
-      wechatapi.prepay({ id: this.params.id,h5:"Y" }).then((payret) => {
+      wechatapi.prepay({ id: this.params.id, h5: "Y" }).then((payret) => {
         // payret.complete = function (e) {
         //   that.onMyShow();
         // }
@@ -157,7 +157,7 @@ export class OrderPage extends AppBase {
         WeixinJSBridge.invoke(
           'getBrandWCPayRequest', payret,
           (res) => {
-            if(res.err_msg == "get_brand_wcpay_request:ok" ){
+            if (res.err_msg == "get_brand_wcpay_request:ok") {
               that.onMyShow();
             } else {
               this.showAlert(res.errMsg);
@@ -195,20 +195,20 @@ export class OrderPage extends AppBase {
     //   // 需要预览的图片http链接  使用split把字符串转数组。不然会报错
     // })
   }
-  erweima=false;
-  type="";
-  hexiaoma(e=undefined) {
-    this.erweima=true;
-    this.type='hexiao';
+  erweima = false;
+  type = "";
+  hexiaoma(e = undefined) {
+    this.erweima = true;
+    this.type = 'hexiao';
   }
-  kefu(e=undefined) {
-    this.erweima=true;
-    this.type='kefu';
+  kefu(e = undefined) {
+    this.erweima = true;
+    this.type = 'kefu';
   }
-  hideModal(e=undefined) {
-    this.erweima=false;
+  hideModal(e = undefined) {
+    this.erweima = false;
   }
-  xiazai(e=undefined) {
+  xiazai(e = undefined) {
     var type = this.type;
     console.log(type)
     if (type == 'kefu') {
@@ -221,12 +221,20 @@ export class OrderPage extends AppBase {
 
 
   }
-  tohome(e=undefined) {
-   this.backHome();
+  tohome(e = undefined) {
+    this.backHome();
 
 
   }
-  pinjiagenduo(e=undefined) {
-    this.navigate("myorder",{type:"dpj"});
+  pinjiagenduo(e = undefined) {
+    this.navigate("myorder", { type: "dpj" });
+  }
+  copytext(text) {
+    var input = null;
+    input = document.getElementById("input");
+    input.value = text; // 修改文本框的内容
+    input.select(); // 选中文本
+    document.execCommand("copy"); // 执行浏览器复制命令
+    this.toast("复制成功");
   }
 }

@@ -8,7 +8,7 @@
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
-  <div class='bg-white margin-bottom-20 qqq' id='dinbu' style='' *ngFor='let item of vteach' wx:key='k'
+  <div class='bg-white margin-bottom-20 qqq'  style='' *ngFor='let item of vteach' wx:key='k'
     [class.hidden]='!(teachlist.length>0&&item.id!=null)'>
 
     <div *ngIf="item.play=='Y'">

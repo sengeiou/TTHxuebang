@@ -9,7 +9,7 @@
 
     <view class="flex-row flex-center">
       <view class="flex-1"></view>
-      <image class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' bindtap="showtoset"></image>
+      <div  class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}' ></div>
     </view>
 
     <view class='flex-row '>

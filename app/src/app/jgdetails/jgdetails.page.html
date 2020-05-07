@@ -9,7 +9,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+<div id='dinbu'></div>
 
 
   <!--pages/jgdetails/jgdetails.wxml-->
@@ -18,11 +20,11 @@
 
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-  <div class=' to_top'>
+  <div class=' to_top'  *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 
-  <div style="" class="{{tanchuang==true?'tanchuang':''}}" *ngFor='let item of jginfo' id='dinbu'>
+  <div style="" class="{{tanchuang==true?'tanchuang':''}}" *ngFor='let item of jginfo' >
     <div class=''  [style.background-color]='item.bgcolor'>
 
       <div style='position:relative;'>
