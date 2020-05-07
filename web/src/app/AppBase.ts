@@ -95,7 +95,6 @@ export class AppBase implements OnInit {
         this.onMyLoad();
         this.setStatusBar();
 
-       
 
     }
     CheckPermission() {
@@ -137,7 +136,7 @@ export class AppBase implements OnInit {
 
 
     }
-
+   
     onMyLoad() {
 
 

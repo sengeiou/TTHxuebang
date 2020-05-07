@@ -1,0 +1,186 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{{primary_id>0?'编辑课程':'添加课程'}}</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item"><a routerLink='/kechen'>课程列表</a></li>
+              <li class="breadcrumb-item active">{{primary_id>0?'编辑课程':'添加课程'}}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header bg-gray-d">
+                <h3 class="card-title">{{primary_id>0?'编辑课程':'添加课程'}}</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" id="quickForm">
+                <div class="card-body">
+  
+                  <div class="row">
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程名</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程类型</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">上线时间</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课时</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">单节时长</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">正式价格</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">体验价格</label>
+                      <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                    </div>
+                    <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程年龄</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">预约</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程图片</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">关键字</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">客服微信号</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">限购数量（0不限）</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">详情背景图</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情插画图片</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">标签</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">库存</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程老师的电话</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程购买类型</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">是否开启分销</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">age</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">分销比例</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">显示价格</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">地区</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">区</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">顺序</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">最小年龄</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">最大年龄</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">文案</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                      <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">轮播列表</label>
+                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                      </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer text-center">
+                  <button type="submit" class="btn btn-primary">提交</button>
+                  <button type="submit" class="btn bg-gray margin-left-20" (click)='back()'>返回</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+  
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  

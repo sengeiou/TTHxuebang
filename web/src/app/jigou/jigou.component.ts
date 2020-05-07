@@ -38,7 +38,11 @@ export class JigouComponent extends AppBase {
     }
     this.search();
   }
+  seashow = false;
   search(){
+    if(this.name.trim()!='' || this.time.trim()!=''){
+      this.seashow=true;
+    }
     this.instApi.allinst({
       time:this.time,
       name:this.name
@@ -50,6 +54,29 @@ export class JigouComponent extends AppBase {
   reset(){
     this.time='';
     this.name='';
+    this.seashow=false;
     this.onMyShow();
+  }
+  bianji(item){
+    this.navigate('/addjigou',{id:item.id});
+  }
+  shanchu(item){
+    item.status='D';
+    item.primary_id=item.id;
+    console.log(item)
+    this.userbApi.addinst(item).then((res:any)=>{
+      console.log(res)
+      if(res.code=='0'){
+        this.onMyShow();
+      }
+    })
+  }
+  add(){
+    if(this.memberinfo.instnum<=this.allinst.length){
+      this.toast('超出管理的个数，不能再添加机构了！！');
+      return
+    }else{
+      this.navigate('/addjigou');
+    }
   }
 }

@@ -9,6 +9,50 @@ export class UserbApi {
     }
 
 
+    public addinst(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/addinst';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/addinst', data, err);
+            });
+    }
+
+
+    public instdetail(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/instdetail';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/instdetail', data, err);
+            });
+    }
+
+
     public login(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'userb/login';
         var headers = ApiConfig.GetHeader(url, data);
@@ -93,6 +137,28 @@ export class UserbApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('userb/xiugai', data, err);
+            });
+    }
+
+
+    public allcurriculum(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/allcurriculum';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/allcurriculum', data, err);
             });
     }
 

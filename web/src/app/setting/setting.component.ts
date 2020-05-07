@@ -87,4 +87,14 @@ export class SettingComponent extends AppBase {
       this.memberinfo.logo='';
     }
   }
+  save(){
+    this.memberinfo.primary_id=this.memberinfo.id;
+    this.userbApi.xiugai(this.memberinfo).then((res:any)=>{
+      if(res.code=='0'){
+        this.succ('修改成功');
+      }else {
+        this.toast(res.result);
+      }
+    })
+  }
 }
