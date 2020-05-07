@@ -1,21 +1,22 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content >
-        <div id='dinbu'></div>
-        <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
+  <div id='dinbu'></div>
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-        <div class=' to_top' >
-            <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
-           </div>
-           <img src='{{uploadpath}}baoma/{{baomainfo.content}}'  mode='widthFix' style='width:100vw' />
+  <div class=' to_top' *ngIf="scrolltop>300">
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
+  </div>
+  <img src='{{uploadpath}}baoma/{{baomainfo.content}}' mode='widthFix' style='width:100vw' />
 
-    </ion-content>
+</ion-content>

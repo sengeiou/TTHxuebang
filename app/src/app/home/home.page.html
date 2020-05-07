@@ -138,7 +138,7 @@
 
 
 
-  <div class='margin-20'>
+  <div class='margin-20' *ngIf="false">
     <div class='flex-row flex-center '>
       <div class='orange'></div>
       <div class='f18 margin-left-12 txt-black txt-bold'>家长测试</div>
@@ -150,7 +150,7 @@
 
 
 
-  <div class='scv'>
+  <div class='scv'  *ngIf="false">
     <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
 
       <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi(item.id)' id='{{item.id}}'
@@ -293,6 +293,7 @@
 
     </div>
 
+    <img src="{{uploadpath}}resource/{{res.dakaok}}" style="display: none;" />
 
     <div *ngIf='dakashow==true' class='chengong'>
 
