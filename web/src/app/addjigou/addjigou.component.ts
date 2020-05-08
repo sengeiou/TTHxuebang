@@ -46,6 +46,7 @@ export class AddjigouComponent extends AppBase {
         this.jgdetail=res;
         this.bgimg=res.lunbo;
         this.hexiao=res.hexiaos;
+        this.jgdetail.labels=res.labels+',';
       })
     }
   }
@@ -69,9 +70,19 @@ export class AddjigouComponent extends AppBase {
           this.street=street;
       })
       this.instApi.label({}).then((label:any)=>{
+        for(let item of label){
+          var id=item.id+',';
+          if(this.alllable.indexOf(item.id)>-1){
+          }else {
+            this.alllable+=id;
+          }
+        }
+        this.lablen=this.alllable.length;
         this.label=label;
       })
   }
+  alllable='';
+  lablen=0;
   jgdetail={
     name:'',
     time:'',
@@ -167,17 +178,41 @@ export class AddjigouComponent extends AppBase {
      }
   }
   ischeckbox(item){
-    if(this.jgdetail.labels.length>1){
+    var id=item.id+',';
       if(this.jgdetail.labels.indexOf(item.id)>-1){
-        var id=item.id+',';
         this.jgdetail.labels=this.jgdetail.labels.replace(id,'');
       }else {
-        this.jgdetail.labels+=','+item.id;
+        this.jgdetail.labels+=id;
       }
-      
+      if(this.lablen==this.jgdetail.labels.length){
+        this.quanlabels=true;
+      }else {
+        this.quanlabels=false;
+      }
+  }
+  quanlabels=false;
+  quanxuan(){
+    
+    if(this.quanlabels==true){
+      this.quanlabels=false;
+      for(let item of this.label){
+        var id=item.id+',';
+        if(this.jgdetail.labels.indexOf(item.id)>-1){
+          this.jgdetail.labels=this.jgdetail.labels.replace(id,'');
+        }
+      }
     }else {
-      this.jgdetail.labels+=item.id;
+      this.quanlabels=true;
+      for(let item of this.label){
+        var id=item.id+',';
+        if(this.jgdetail.labels.indexOf(item.id)>-1){
+        }else {
+          this.jgdetail.labels+=id;
+        }
+      }
+      console.log( this.jgdetail.labels.length)
     }
+   
   }
   bgimg=[];
   jiabgimg(){
@@ -229,6 +264,7 @@ export class AddjigouComponent extends AppBase {
     if(this.primary_id>0){
       json.primary_id=this.primary_id;
     }
+    json.labels=this.jgdetail.labels.slice(0,this.jgdetail.labels.length-1);
     json.status='A';
     this.userbApi.addinst(json).then((res:any)=>{
       if(res.code=='0'){

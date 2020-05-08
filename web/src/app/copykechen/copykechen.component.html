@@ -1,0 +1,313 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>复制课程</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item"><a routerLink='/kechen'>课程列表</a></li>
+              <li class="breadcrumb-item active">复制课程</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- jquery validation -->
+            <div class="card card-primary">
+              <div class="card-header bg-gray-d">
+                <h3 class="card-title">复制课程</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" id="quickForm">
+                <div class="card-body">
+  
+                  <div class="row">
+                    <div class="form-group  col-lg-12 col-md-12  col-sm-12">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构</label>
+                      <div class="flex-row2 flex-wrap2">
+                        <div class="flex-row2 flex-center2 margin-right-10" *ngFor='let item of allinst'
+                          (click)='ischeckbox(item)'>
+                          <img src="{{uploadpath}}resource/{{kcdetail.jg_id.indexOf(item.id)>-1?res.xuanzhon:res.xuanze}}"
+                            class="icon-15" />
+                          <div>{{item.name}}</div>
+                        </div>
+  
+                      </div>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程名</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" placeholder="必填项"
+                        name='name' [(ngModel)]='kcdetail.name' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程类型</label>
+                      <select class="form-control form-control-sm" id="inputEmail3" name='type'
+                        [(ngModel)]='kcdetail.type'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of coursetype'>{{item.typename}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">上线时间</label>
+                      <input type="date" class="form-control form-control-sm" id="inputEmail3" name='up_time'
+                        [(ngModel)]='kcdetail.up_time' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课时</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='class_hours'
+                        [(ngModel)]='kcdetail.class_hours' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">单节时长</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" placeholder="必填项"
+                        name='duration' [(ngModel)]='kcdetail.duration' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">正式价格</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='price'
+                        [(ngModel)]='kcdetail.price' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">体验价格</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='expeprice'
+                        [(ngModel)]='kcdetail.expeprice' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程年龄</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" placeholder="必填项"
+                        name='age_name' [(ngModel)]='kcdetail.age_name' />
+                    </div>
+                    <!-- <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                          <label for="inputEmail3" class=" col-form-label  col-form-label-sm">预约</label>
+                          <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
+                        </div> -->
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程图片</label>
+                      <nz-upload class="avatar-uploader"
+                        nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                        [nzShowUploadList]="false" (nzChange)="afterupload($event)">
+                        <ng-container *ngIf="!kcdetail.kc_img">
+                          <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                          <div class="ant-upload-text">Upload</div>
+                        </ng-container>
+                        <img *ngIf="kcdetail.kc_img!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.kc_img}}"
+                          style="width: 100%" />
+                      </nz-upload>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">关键字</label>
+                      <textarea class="form-control form-control-sm" id="inputEmail3" name='searchkeyword'
+                        [(ngModel)]='kcdetail.searchkeyword' cols="30" rows="5" placeholder="必填项"></textarea>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">客服微信号</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" name='teacherwechatid'
+                        [(ngModel)]='kcdetail.teacherwechatid' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">限购数量（0不限）</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='limitcount'
+                        [(ngModel)]='kcdetail.limitcount' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">详情背景图</label>
+                      <nz-upload class="avatar-uploader"
+                        nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                        [nzShowUploadList]="false" (nzChange)="afterupload2($event)">
+                        <ng-container *ngIf="!kcdetail.xq_bg">
+                          <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                          <div class="ant-upload-text">Upload</div>
+                        </ng-container>
+                        <img *ngIf="kcdetail.xq_bg!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.xq_bg}}"
+                          style="width: 100%" />
+                      </nz-upload>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情插画图片</label>
+                      <nz-upload class="avatar-uploader"
+                        nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                        [nzShowUploadList]="false" (nzChange)="afterupload3($event)">
+                        <ng-container *ngIf="!kcdetail.kcchimg">
+                          <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                          <div class="ant-upload-text">Upload</div>
+                        </ng-container>
+                        <img *ngIf="kcdetail.kcchimg!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.kcchimg}}"
+                          style="width: 100%" />
+                      </nz-upload>
+                    </div>
+                    <div class="form-group  col-lg-12 col-md-12  col-sm-12">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">标签</label>
+                      <div class="flex-row2 flex-wrap2">
+                        <div class="flex-row2 flex-center2 margin-right-10" *ngFor='let item of label'
+                          (click)='ischeckbox2(item)'>
+                          <img
+                            src="{{uploadpath}}resource/{{kcdetail.labels.indexOf(item.id)>-1?res.xuanzhon:res.xuanze}}"
+                            class="icon-15" />
+                          <div>{{item.name}}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">库存</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='kucun'
+                        [(ngModel)]='kcdetail.kucun' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程老师的电话</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" name='teachermobile'
+                        [(ngModel)]='kcdetail.teachermobile' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程购买类型</label>
+                      <select class="form-control form-control-sm" id="inputEmail3" name='purchasetype'
+                        [(ngModel)]='kcdetail.purchasetype'>
+                        <option value="">请选择</option>
+                        <option value="A">正价课+体验课</option>
+                        <option value="B">正价课</option>
+                        <option value="C">体验课</option>
+                      </select>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8 flex-row2 flex-center2">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">是否开启分销</label>
+                      <div class="switch margin-left-10" (click)='changestatus2()'>
+                        <input type="checkbox" id='inputEmail3' checked *ngIf='kcdetail.isfenxiao=="Y"'>
+                        <input type="checkbox" id='inputEmail3' *ngIf='kcdetail.isfenxiao!="Y"'>
+                        <div class="slider round"></div>
+                      </div>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">age</label>
+                      <select name="age" [(ngModel)]='kcdetail.age' class="form-control form-control-sm" id="inputEmail3">
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of courseage'>{{item.name}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">分销比例</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='fenxiaobili'
+                        [(ngModel)]='kcdetail.fenxiaobili' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">显示价格</label>
+                      <input type="text" class="form-control form-control-sm" id="inputEmail3" name='showprice'
+                        [(ngModel)]='kcdetail.showprice' />
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">地区</label>
+                      <select name="shi" class="form-control form-control-sm" id="inputEmail3"
+                        [(ngModel)]='kcdetail.city_id'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of city'>{{item.name}}</option>
+                      </select>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">区</label>
+                      <select name="qu" class="form-control form-control-sm" id="inputEmail3"
+                        [(ngModel)]='kcdetail.district_id'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of district'>{{item.name}}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">顺序</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='seq' [(ngModel)]='kcdetail.seq'/>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">最小年龄</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='min_age' [(ngModel)]='kcdetail.min_age'/>岁
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">最大年龄</label>
+                      <input type="number" class="form-control form-control-sm" id="inputEmail3" name='max_age' [(ngModel)]='kcdetail.max_age'/>岁
+                    </div>
+                    <div class="form-group  col-lg-12 col-md-12  col-sm-12">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">文案</label>
+                      <textarea   class="form-control form-control-sm" id='inputEmail3' cols="30" rows="5" name='wenan' [(ngModel)]='kcdetail.wenan'></textarea>
+                    </div>
+                    <div class="form-group  col-lg-12 col-md-12  col-sm-12">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">轮播列表</label>
+                      <table class="table text-center h5" style="min-width: 768px;">
+                        <thead>
+                            <tr>
+                                <th width='22%' class="bor-l">顺序 </th>
+                                <th width='22%' class="bor-l">图片</th>
+                                <th width='22%' class="bor-l">视频</th>
+                                <th width='12%' class="bor-l bor-r">
+                                    <img src="{{uploadpath}}resource/{{res.jiabg}}" class="icon-20" (click)='jialunbo()'/>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor='let item of lunbo;let i=index'>
+                            <tr *ngIf='item.status!="D"'>
+                                <td class="bor-l bor-b"><input type="text" name="item.seq+{{i}}" [(ngModel)]='item.seq'></td>
+                                <td class="bor-l bor-b">  <nz-upload class="avatar-uploader"
+                                    nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json"
+                                    nzListType="picture-card" [nzShowUploadList]="false"
+                                    (nzChange)="afterupload4($event,item)" style="width: auto;">
+                                    <ng-container *ngIf="!item.img">
+                                        <i class="upload-icon" nz-icon
+                                            [nzType]="loading ? 'loading' : 'plus'"></i>
+                                        <div class="ant-upload-text">Upload</div>
+                                    </ng-container>
+                                    <img *ngIf="item.img!=''"
+                                        src="{{uploadpath}}instcurriculum/{{item.img}}" style="width: 100%" />
+                                </nz-upload></td>
+                                <td class="bor-l bor-b">  <nz-upload class="avatar-uploader"
+                                  nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json"
+                                  nzListType="picture-card" [nzShowUploadList]="false"
+                                  (nzChange)="afterupload5($event,item)" style="width: auto;">
+                                  <ng-container *ngIf="!item.video">
+                                      <i class="upload-icon" nz-icon
+                                          [nzType]="loading ? 'loading' : 'plus'"></i>
+                                      <div class="ant-upload-text">Upload</div>
+                                  </ng-container>
+                                  <video *ngIf="item.video!=''"
+                                      src="{{uploadpath}}instcurriculum/{{item.video}}" style="width: 100%" ></video>
+                              </nz-upload></td>
+                                <td class="bor-l bor-r bor-b">
+                                    <img src="{{uploadpath}}resource/{{res.jianbg}}" class="icon-20" (click)='jianlunbo(item,i)'/>
+                                </td>
+                            </tr>
+  
+                        </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer text-center">
+                  <button type="submit" class="btn btn-primary" (click)='tijiao()'>提交</button>
+                  <button type="submit" class="btn btn-info margin-left-20" >复制</button>
+                  <button type="submit" class="btn bg-gray margin-left-20" (click)='back()'>返回</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+          <div class="col-md-6">
+  
+          </div>
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

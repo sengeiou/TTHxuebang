@@ -35,14 +35,21 @@
               <div class="card-body">
                 <div class="row">
                   <div class="form-group  col-lg-2 col-md-3  col-sm-4">
-                      <label for="inputEmail3" class=" col-form-label">机构名称</label>
+                      <label for="inputEmail3" class=" col-form-label">课程名称</label>
                       <input type="email" class="form-control" id="inputEmail3"  [(ngModel)]='name' name='name'/>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构</label>
                       <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='jg_id' name='jg_id'/>
                   </div>
-                
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程类型</label>
+                    <select class="form-control form-control-sm" id="inputEmail3" name='type'
+                      [(ngModel)]='type'>
+                      <option value="">请选择</option>
+                      <option value="{{item.id}}" *ngFor='let item of coursetype'>{{item.typename}}</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <!-- /.card-body -->
@@ -98,7 +105,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor='let item of data'>
-                    <td></td>
+                    <td>{{item.jg_name}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.type_name}}</td>
                     <td>
@@ -110,7 +117,7 @@
                     <td>{{item.age_name}}</td>
                     <td>
                         <div class="badge bg-primary margin-right" (click)='bianji(item)'>编辑</div>
-                        <div class="badge bg-danger" (click)='shanchu(item)'>删除</div>
+                        <div class="badge bg-danger" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
                     </td>
                   </tr>
                   <tr *ngIf='allcurriculum.length==0'>
@@ -130,4 +137,28 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">删除提示</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>是否删除该机构？</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
+          <button type="button" class="btn btn-primary" (click)='jgdelete()' data-dismiss="modal">是</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
   

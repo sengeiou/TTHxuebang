@@ -13,6 +13,7 @@ import { JigouComponent } from '../jigou/jigou.component';
 import { KechenComponent } from '../kechen/kechen.component';
 import { AddjigouComponent } from '../addjigou/addjigou.component';
 import { AddkechenComponent } from '../addkechen/addkechen.component';
+import { CopykechenComponent } from '../copykechen/copykechen.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: "kechen", component: KechenComponent },
       { path: "addjigou", component: AddjigouComponent },
       { path: "addkechen", component: AddkechenComponent },
+      { path: "copykechen", component: CopykechenComponent },
     ]
   }
 ];

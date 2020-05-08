@@ -31,6 +31,28 @@ export class UserbApi {
     }
 
 
+    public allcurriculum(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/allcurriculum';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/allcurriculum', data, err);
+            });
+    }
+
+
     public instdetail(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'userb/instdetail';
         var headers = ApiConfig.GetHeader(url, data);
@@ -141,8 +163,8 @@ export class UserbApi {
     }
 
 
-    public allcurriculum(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'userb/allcurriculum';
+    public addkechen(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/addkechen';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -158,7 +180,29 @@ export class UserbApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('userb/allcurriculum', data, err);
+                return ApiConfig.ErrorHandle('userb/addkechen', data, err);
+            });
+    }
+
+
+    public kechendetail(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/kechendetail';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/kechendetail', data, err);
             });
     }
 

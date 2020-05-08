@@ -40,6 +40,7 @@ export class JigouComponent extends AppBase {
   }
   seashow = false;
   search(){
+    this.pageList=[];
     if(this.name.trim()!='' || this.time.trim()!=''){
       this.seashow=true;
     }
@@ -63,13 +64,18 @@ export class JigouComponent extends AppBase {
   shanchu(item){
     item.status='D';
     item.primary_id=item.id;
-    console.log(item)
-    this.userbApi.addinst(item).then((res:any)=>{
-      console.log(res)
-      if(res.code=='0'){
-        this.onMyShow();
+  }
+  jgdelete(){
+    for(let item of this.allinst){
+      if(item.status=='D'){
+        this.userbApi.addinst(item).then((res:any)=>{
+          console.log(res)
+          if(res.code=='0'){
+            this.onMyShow();
+          }
+        })
       }
-    })
+    }
   }
   add(){
     if(this.memberinfo.instnum<=this.allinst.length){

@@ -8,14 +8,13 @@ import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
 import { JigouApi } from 'src/providers/jigou.api';
 
-
 @Component({
-  selector: 'app-addkechen',
-  templateUrl: './addkechen.component.html',
-  styleUrls: ['./addkechen.component.scss'],
+  selector: 'app-copykechen',
+  templateUrl: './copykechen.component.html',
+  styleUrls: ['./copykechen.component.scss'],
   providers: [InstApi, MemberApi,UserbApi,JigouApi]
 })
-export class AddkechenComponent extends AppBase {
+export class CopykechenComponent extends AppBase {
   loading=false;
   constructor(
     public router: Router,
@@ -31,38 +30,29 @@ export class AddkechenComponent extends AppBase {
 
   onMyLoad() {
     this.params;
-    if(this.params.id!=undefined){
-      this.primary_id=this.params.id;
+    if(this.params.copyid!=undefined){
+     this.primary_id=this.params.copyid;
     }
-     this.instApi.allinst({}).then((allinst:any)=>{
-       
-       var aa='';
-      for(let item of allinst){
-        aa+=item.id+',';
-        if(this.primary_id>0){
-
-        }else {
-          this.kcdetail.jg_id+=item.id+',';
-        }
-      }
-      if(aa.length==this.kcdetail.jg_id.length){
-        this.quanjigou=true;
-      }
-      this.jigoulen=aa.length;
+  
+  }
+  allinst=[];
+  coursetype=[];
+  label=[];
+  courseage=[];
+  city=[];
+  district=[];
+  onMyShow() {
+    
+    if (MainComponent.Instance != null) {
+      MainComponent.Instance.setModule("kechen", "");
+    }
+    this.instApi.allinst({}).then((allinst:any)=>{
       this.allinst=allinst;
     })
     this.jigouApi.coursetype({}).then((coursetype:any)=>{
       this.coursetype=coursetype;
     })
     this.instApi.label({}).then((label:any)=>{
-      for(let item of label){
-        var id=item.id+',';
-        if(this.alllable.indexOf(item.id)>-1){
-        }else {
-          this.alllable+=id;
-        }
-      }
-      this.lablen=this.alllable.length;
       this.label=label;
     })
     this.jigouApi.courseage({}).then((courseage:any)=>{
@@ -74,24 +64,6 @@ export class AddkechenComponent extends AppBase {
     this.instApi.district({}).then((district:any)=>{
       this.district=district;
     })
-  }
-
-  jigoulen=0;
-  alllable='';
-  lablen=0;
-  allinst=[];
-  coursetype=[];
-  label=[];
-  courseage=[];
-  city=[];
-  district=[];
-  
-  onMyShow() {
-    
-    if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("kechen", "");
-    }
-   
     if(this.primary_id>0){
       this.userbApi.kechendetail({id:this.primary_id}).then((kechendetail:any)=>{
         this.kcdetail=kechendetail;
@@ -145,70 +117,16 @@ export class AddkechenComponent extends AppBase {
       }else {
         this.kcdetail.jg_id+=id;
       }
-      if(this.jigoulen==this.kcdetail.jg_id.length){
-        this.quanjigou=true;
-      }else {
-        this.quanjigou=false;
-      }
-  }
-  quanjigou=false;
-  quanxuan2(){
-    
-    if(this.quanjigou==true){
-      this.quanjigou=false;
-      for(let item of this.allinst){
-        var id=item.id+',';
-        if(this.kcdetail.jg_id.indexOf(item.id)>-1){
-          this.kcdetail.jg_id=this.kcdetail.jg_id.replace(id,'');
-        }
-      }
-    }else {
-      this.quanjigou=true;
-      for(let item of this.allinst){
-        var id=item.id+',';
-        if(this.kcdetail.jg_id.indexOf(item.id)>-1){
-        }else {
-          this.kcdetail.jg_id+=id;
-        }
-      }
-    }
+      console.log(this.kcdetail.jg_id);
   }
   ischeckbox2(item){
     var id=item.id+',';
     if(this.kcdetail.labels.indexOf(item.id)>-1){
+      
       this.kcdetail.labels=this.kcdetail.labels.replace(id,'');
     }else {
       this.kcdetail.labels+=id;
     }
-    if(this.lablen==this.kcdetail.labels.length){
-      this.quanlabels=true;
-    }else {
-      this.quanlabels=false;
-    }
-  }
-  quanlabels=false;
-  quanxuan(){
-    
-    if(this.quanlabels==true){
-      this.quanlabels=false;
-      for(let item of this.label){
-        var id=item.id+',';
-        if(this.kcdetail.labels.indexOf(item.id)>-1){
-          this.kcdetail.labels=this.kcdetail.labels.replace(id,'');
-        }
-      }
-    }else {
-      this.quanlabels=true;
-      for(let item of this.label){
-        var id=item.id+',';
-        if(this.kcdetail.labels.indexOf(item.id)>-1){
-        }else {
-          this.kcdetail.labels+=id;
-        }
-      }
-      console.log( this.kcdetail.labels.length)
-    }
-   
   }
   afterupload(e){
     var fileList = e.fileList;
@@ -312,8 +230,5 @@ export class AddkechenComponent extends AppBase {
         this.toast(res.result);
       }
     })
-  }
-  copy(){
-    this.navigate('copykechen',{copyid:this.primary_id});
   }
 }

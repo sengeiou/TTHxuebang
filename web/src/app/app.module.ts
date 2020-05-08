@@ -34,6 +34,7 @@ import { JigouComponent } from './jigou/jigou.component';
 import { KechenComponent } from './kechen/kechen.component';
 import { AddjigouComponent } from './addjigou/addjigou.component';
 import { AddkechenComponent } from './addkechen/addkechen.component';
+import { CopykechenComponent } from './copykechen/copykechen.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AddkechenComponent } from './addkechen/addkechen.component';
     KechenComponent,
     AddjigouComponent,
     AddkechenComponent,
+    CopykechenComponent,
   ],
   imports: [
     BrowserModule,

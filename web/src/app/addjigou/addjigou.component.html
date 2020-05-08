@@ -159,7 +159,10 @@
                                             name='up_time' [(ngModel)]='jgdetail.up_time' placeholder="必填项"/>
                                     </div>
                                     <div class="form-group  col-lg-12 col-md-12  col-sm-12">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">标签</label>
+                                        <label for="inputEmail" class=" col-form-label  col-form-label-sm">标签
+                                            <img src="{{uploadpath}}resource/{{quanlabels?res.xuanzhon:res.xuanze}}"
+                                            class="icon-15" (click)='quanxuan()'/>
+                                        </label>
                                         <div class="flex-row2 flex-wrap2">
                                             <div class="flex-row2 flex-center2 margin-right-10"
                                                 *ngFor='let item of label' (click)='ischeckbox(item)'>
@@ -262,7 +265,7 @@
                                             </table>
                                         </div>
 
-                                        <div class="form-group   col-lg-12 col-md-12  col-sm-12"
+                                        <!-- <div class="form-group   col-lg-12 col-md-12  col-sm-12"
                                         style="overflow-x: auto;">
                                         <label for="inputEmail3"
                                             class=" col-form-label col-form-label-sm">核销人列表</label>
@@ -285,7 +288,7 @@
 
                                             </tbody>
                                         </table>
-                                    </div>
+                                    </div> -->
 
                                 </div>
                             </div>

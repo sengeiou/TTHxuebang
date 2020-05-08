@@ -25,14 +25,15 @@ export class RegisterComponent extends AppBase {
   ) {
     super(router,activeRoute,instApi,userbApi);
     this.isLoginPage=true;
+    this.instApi.info({  }).then((instinfo) => {
+      this.instinfo = instinfo;
+    });
    }
   
   
    onMyLoad(){
      this.params;
-     this.instApi.info({  }).then((instinfo) => {
-      this.instinfo = instinfo;
-    });
+    
     
    }
    name='';

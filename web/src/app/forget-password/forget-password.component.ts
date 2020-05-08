@@ -14,6 +14,7 @@ import { UserbApi } from 'src/providers/userb.api';
   providers:[UserbApi,InstApi]
 })
 export class ForgetPasswordComponent extends AppBase {
+  instinfo=null;
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
@@ -25,13 +26,16 @@ export class ForgetPasswordComponent extends AppBase {
 
     this.isLoginPage = true;
   }
-
+  
   email="";
   isinvalid=false;
   invalidtext="";
 
   onMyLoad() {
     this.params;
+    this.instApi.info({  }).then((instinfo) => {
+      this.instinfo = instinfo;
+    });
   }
   onMyShow() {
 
