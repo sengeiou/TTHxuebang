@@ -40,7 +40,7 @@ export class HomePage extends AppBase {
   mylat = 0;
   mylng = 0;
   indexcurrent = 0;
-  currectcityid = 0;
+  currectcityid = "0";
   signNum = 0; //签到数
   signState = false; //签到状态
   min = 1; //默认值日期第一天1
@@ -72,6 +72,11 @@ export class HomePage extends AppBase {
   indexlist = [];
 
   onMyShow(e=undefined) {
+
+    AppBase.LASTTAB=this;
+
+    //alert(1);
+
     var that = this;
 
     var jigouapi = this.jigouApi;

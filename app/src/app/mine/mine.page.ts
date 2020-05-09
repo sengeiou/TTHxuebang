@@ -42,6 +42,8 @@ export class MinePage  extends AppBase {
   xiaoxi=0;
   reminderpay=0;
   onMyShow(e=undefined) {
+
+    AppBase.LASTTAB=this;
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;

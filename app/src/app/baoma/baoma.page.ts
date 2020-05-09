@@ -39,6 +39,8 @@ export class BaomaPage  extends AppBase {
   floorstatus=false;
   baomalist=[];
   onMyShow() {
+
+    AppBase.LASTTAB=this;
     var that = this;
     var instapi = this.instApi;
     var baomaapi = this.baomaApi;

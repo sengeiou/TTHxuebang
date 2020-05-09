@@ -56,7 +56,7 @@
         <div class='flex-row flex-center margin-top-5' style=''>
 
           <div class='flex-row flex-center  weizhi' (click)='bindxiala($event)' style=''>
-            <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{address.ad_info.city}}</div>
+            <div class='txt-black h5 txt-bold margin-top-5' *ngIf="'0'==fdistrict_id">全{{cityname}}</div>
 
 
             <div class='txt-black h5 txt-bold margin-top-5' *ngFor="let ditem of filterdistrict;" wx:key="dfkey"
@@ -447,7 +447,7 @@
 
     <scroll-view scroll-y>
       <div (click)='changeDistrict(-1)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>
-        全{{address.ad_info.city}}</div>
+        全{{cityname}}</div>
       <div (click)='changeDistrict(i)' class='margin-20 padding-top-20 h6 text-center border_top' [id]='i'
         *ngFor='let item of filterdistrict;let i=index;' wx:key='k' style=''>{{item.name}}</div>
     </scroll-view>

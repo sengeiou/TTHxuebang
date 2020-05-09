@@ -57,18 +57,23 @@ export class CityPage extends AppBase {
   setCity(id) {
     var MemberInfo = this.MemberInfo;
     var citylist = MemberInfo.citylist;
+    console.log(citylist,id);
     for (var i = 0; i < citylist.length; i++) {
       if (id == citylist[i].id) {
         AppBase.CITYID = citylist[i].id;
         AppBase.CITYNAME = citylist[i].name;
         AppBase.CITYSET = true;
         var memberapi = this.memberApi;
+        //alert(1);
         memberapi.usecity({
           city_id: AppBase.CITYID
+        }).then(()=>{
+          this.back();
+          //window.location.href="/";
         });
       }
     }
 
-    this.back();
+    //
   }
 }
