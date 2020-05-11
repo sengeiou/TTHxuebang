@@ -1,13 +1,10 @@
-<ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>{{heading}}</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
   <div  id='dinbu'></div>
   
-  <div class=' to_top' [class.hidden]='!floorstatus'>
+  <div class=' to_top' *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 

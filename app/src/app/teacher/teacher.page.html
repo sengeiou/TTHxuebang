@@ -1,17 +1,14 @@
-<ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>{{heading}}</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+  <div id='dinbu'></div>
   <!--pages/teacher/teacher.wxml-->
-  <div class=' to_top'>
+  <div class=' to_top ' *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
-  <div class='bg-white margin-bottom-20 qqq' id='dinbu' style='' *ngFor='let item of vteach' wx:key='k'
+  <div class='bg-white margin-bottom-20 qqq'  style='' *ngFor='let item of vteach' wx:key='k'
     [class.hidden]='!(teachlist.length>0&&item.id!=null)'>
 
     <div *ngIf="item.play=='Y'">

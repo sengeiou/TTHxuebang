@@ -12,13 +12,13 @@ export class ApiConfig {
   // }
 
   static GetUploadurl(){
-    return "https://tthxb.artxb.cn/upload/tthxb/";
+    return "https://tthxb2.artxb.cn/upload/tthxb/";
   }
   
   
   static GetApiUrl() {
      // return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
-    return "https://tthxb.artxb.cn/api/";
+    return "https://tthxb2.artxb.cn/api/";
   }
   
 
@@ -31,7 +31,7 @@ export class ApiConfig {
   }
 
   static GetFileUploadAPI() {
-    return "https://tthxb.artxb.cn/fileupload";
+    return "https://tthxb2.artxb.cn/fileupload";
   }
   
   static GetHeader() {

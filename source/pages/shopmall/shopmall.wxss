@@ -1,16 +1,17 @@
 /* pages/shopmall/shopmall.wxss */
 
-.toubu {
+/* .toubu {
   width: 750rpx;
   height: 300rpx;
   /* opacity: 0.5167; */
-}
+/* } */ 
 
 .sz {
-  width: 286rpx;
-  height: 72rpx;
+  width: 200rpx;
+  height: 54rpx;
   background: white;
   border-radius: 36rpx;
+  margin-left:20rpx;
 }
 
 .lingjifen{
@@ -56,8 +57,8 @@
 }
 
 .hezi {
-  margin-top: 24rpx;
-  margin-left: 24rpx;
+  margin-top:20rpx;
+  margin-left: 20rpx;
   border-radius: 8rpx;
   background-color: white;
   box-shadow:0rpx 4rpx 8rpx 0rpx rgba(0,0,0,0.1);
@@ -66,8 +67,28 @@
 .img {
   width: 340rpx;
   height: 340rpx;
-  border-radius: 8rpx;
+  border-radius: 0rpx;
 }
 .padding{
-  padding: 0rpx 20rpx 20rpx 20rpx;
+  padding: 0rpx 0rpx 0rpx 0rpx;
+}
+
+Page {
+  background: #f5f5f5;
+}
+.top{
+  position: fixed;
+  width: 100vw;
+  z-index: 998;
+}
+
+.txt {
+  color: #ffc200;
+}
+
+.black{
+  color: black;
+}
+.hui{
+  color: #B0B0B0;
 }

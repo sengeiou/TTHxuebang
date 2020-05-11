@@ -1,0 +1,164 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>课程列表</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item active">课程列表</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+  
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="card card-info">
+            <div class="card-header  bg-gray-d">
+              <h3 class="card-title">搜索条件</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label">课程名称</label>
+                      <input type="email" class="form-control" id="inputEmail3"  [(ngModel)]='name' name='name'/>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构</label>
+                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='jg_id' name='jg_id'/>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程类型</label>
+                    <select class="form-control form-control-sm" id="inputEmail3" name='type'
+                      [(ngModel)]='type'>
+                      <option value="">请选择</option>
+                      <option value="{{item.id}}" *ngFor='let item of coursetype'>{{item.typename}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                  <div class="float-right">
+                    <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
+                    <button type="submit" class="btn btn-primary margin-left-10" (click)='search()'>搜索</button>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-warning" routerLink='/addkechen'>+ 添加课程</button>
+                  </div>
+              </div>
+              <!-- /.card-footer -->
+            </form>
+          </div>
+          <!-- /.card -->
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title h5 {{seashow==true?'txt-orange':''}}">{{seashow==true?('当前搜索结果'+allcurriculum.length+'条记录'):('总条数:'+allcurriculum.length+'条')}}</div>
+  
+              <div class="card-tools">
+                <ul class="pagination pagination-sm float-right">
+                    <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                    <li class="page-item" *ngFor='let i of pageList'><span
+                        class="page-link {{selPage==i?'bg-primary':''}}" (click)='changedate(i)'>{{i}}</span></li>
+                    <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0" style="overflow-x: auto;">
+              <table class="table text-center"  style="min-width: 768px;">
+                <thead>
+                  <tr>
+                    <th>机构名称</th>
+                    <th>课程名称</th>
+                    <th>课程类型</th>
+                    <th>上线时间</th>
+                    <th>课时</th>
+                    <th>正式价格</th>
+                    <th>体验价格</th>
+                    <th>课程年龄</th>
+                    <th>编辑</th>	
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let item of data'>
+                    <td>{{item.jg_name}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.type_name}}</td>
+                    <td>
+                        {{item.up_time}}
+                    </td>
+                    <td>{{item.class_hours}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.expeprice}}</td>
+                    <td>{{item.age_name}}</td>
+                    <td>
+                        <div class="badge bg-primary margin-right" (click)='bianji(item)'>编辑</div>
+                        <div class="badge bg-danger" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
+                    </td>
+                  </tr>
+                  <tr *ngIf='allcurriculum.length==0'>
+                    <td colspan="9">没有数据</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+  
+        </div>
+      </div>
+  
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">删除提示</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p>是否删除该机构？</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
+          <button type="button" class="btn btn-primary" (click)='jgdelete()' data-dismiss="modal">是</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  

@@ -40,7 +40,7 @@ export class HomePage extends AppBase {
   mylat = 0;
   mylng = 0;
   indexcurrent = 0;
-  currectcityid = 0;
+  currectcityid = "0";
   signNum = 0; //签到数
   signState = false; //签到状态
   min = 1; //默认值日期第一天1
@@ -72,6 +72,11 @@ export class HomePage extends AppBase {
   indexlist = [];
 
   onMyShow(e=undefined) {
+
+    AppBase.LASTTAB=this;
+
+    //alert(1);
+
     var that = this;
 
     var jigouapi = this.jigouApi;
@@ -653,7 +658,7 @@ export class HomePage extends AppBase {
       this.signState = true;
 
       var num = this.num;
-
+      //alert(this.num);
 
       if (this.num < 7) {
         this.jifen = 5;
@@ -663,11 +668,8 @@ export class HomePage extends AppBase {
 
       var jifenapi = this.jifenApi;
       jifenapi.daka({
-        member_id: this.MemberInfo.id,
-        jifen: this.jifen,
-        status: "A"
       }).then((daka) => {
-        if (this.jifen == 5) {
+        if (daka.return == 5) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "meiridaka"
@@ -675,7 +677,7 @@ export class HomePage extends AppBase {
             this.addjifen = addjifen;
           })
         }
-        if (this.jifen == 25) {
+        if (daka.return == 25) {
           jifenapi.addjifen({
             member_id: this.MemberInfo.id,
             unicode: "lianxvdaka"

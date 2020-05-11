@@ -40,6 +40,8 @@ export class TeacherPage extends AppBase {
     this.params;
   }
   onMyShow() {
+
+    AppBase.LASTTAB=this;
     var teacherapi = this.teacherApi;
     teacherapi.teachlist({
       status: "A",

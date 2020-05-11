@@ -253,7 +253,7 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.tojgdetails = content.tojgdetails;
-body.bindshow = content.bindshow;
+
 body.colseorder = content.colseorder;
 body.bindpay = content.bindpay;
 body.toorder = content.toorder;

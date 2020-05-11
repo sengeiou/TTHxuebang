@@ -9,13 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+<div id='dinbu'></div>
 
 
 
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
-  <div class=' to_top'>
+  <div class=' to_top'  *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
   </div>
 
@@ -40,7 +42,7 @@
 
 
 
-  <div  id='dinbu' class='padding-bottom-20' *ngIf='shows=="finished"'>
+  <div   class='padding-bottom-20' *ngIf='shows=="finished"'>
 
     <div *ngIf="coursevlist.length==0">
       <div class='flex-row text-center'>
@@ -70,8 +72,8 @@
   <div (click)='tokcdetails(item.id)' id='{{item.id}}' class='padding-20 flex-row bg-white kecheng radius-10 shadow'
     *ngFor='let item of coursevlist;let idx=index;' wx:key='k'>
     <img class='kc_icon radius-10 ' lazy-load='{{true}}' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
-    <div class='flex-row column   margin-left-20 flex-1'>
-      <div class='txt-bold txt-black flex-1 chaochu'>{{item.name}}</div>
+    <div class=' margin-left-20 flex-1'>
+      <div class='txt-bold txt-black flex-1 chaochu spa'>{{item.name}}</div>
 
       <div class='flex-row flex-center'>
 
@@ -101,7 +103,7 @@
         <div class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</div>
       </div>
 
-      <div class='flex-row flex-center flex-1' style=''>
+      <div class='flex-row flex-center ' style=''>
 
 
         <div class='flex-row flex-center flex-1'>
@@ -125,7 +127,7 @@
       </div>
 
 
-      <div class='flex-row flex-center flex-1'>
+      <div class='flex-row flex-center margin-top-10'>
         <img class='icon-10  ' src='{{uploadpath}}resource/{{res.jg_icon}}' />
         <div class='h6 flex-1 margin-left-5 txt-gray'>{{item.JG_jigou}}</div>
         <div class=' txt-red h6 padding-top-10'>￥</div>
@@ -133,8 +135,8 @@
         <div class=' txt-red txt-bold'>{{item.zuidijia}}</div>
       </div>
 
-      <div class='flex-row flex-center'>
-        <div class='h6 flex-1 chaochu txt-gray'>{{item.JG_showaddress}}</div>
+      <div class='flex-row spa'>
+        <div class='h6 flex-1 chaochu txt-gray' >{{item.JG_showaddress}}</div>
         <div class='h6 txt-gray'>{{item.miletxt}}</div>
       </div>
 
@@ -146,7 +148,7 @@
 
   </div>
 
-  <div id='dinbu' class='' *ngIf='shows=="wait"'>
+  <div  class='' *ngIf='shows=="wait"'>
 
     <div *ngIf="jgvlist.length==0">
       <div class='flex-row text-center'>
@@ -222,7 +224,7 @@
 
           <div class='flex-row flex-center margin-top-5'>
             <div class='flex-row flex-1'>
-              <div class='  radius-10 txt-green h6 biaoqian text-center margin-5'
+              <div class='  radius-10 txt-green h6 biaoqian text-center margin-right'
                 style='border:1px solid {{litem.color}};color:{{litem.color}}' *ngFor="let litem of item.labels;let idx=index;" wx:key="k"
                 >{{litem.name}}</div>
             </div>
@@ -232,7 +234,7 @@
 
           <div class='flex-row flex-center margin-top-5'>
             <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
-            <div class='flex-1 h5 margin-left-10 txt-black dizhi'>{{item.showaddress}}</div>
+            <div class='flex-1 h5  txt-black dizhi'>{{item.showaddress}}</div>
             <div class='h6 '>{{item.miletxt}}</div>
           </div>
 

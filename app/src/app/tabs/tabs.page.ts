@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppBase } from '../AppBase';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  static Instance:TabsPage=null;
+  currentpage="tab1";
+  constructor() {
+  }
+  ionViewDidEnter() {
+
+    
+    TabsPage.Instance=this;
+    console.log(TabsPage.Instance,'歷史')
+    if (AppBase.LASTTAB != null) {
+      AppBase.LASTTAB.ionViewDidEnter();
+    }
+
+  }
 
 }

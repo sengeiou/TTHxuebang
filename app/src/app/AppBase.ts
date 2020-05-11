@@ -10,15 +10,15 @@ import { ReturnStatement } from "@angular/compiler";
 import { ViewController } from '@ionic/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, OnDestroy,NgZone } from '@angular/core';
+import { OnInit, OnDestroy, NgZone } from '@angular/core';
 
 declare let wx: any;
 
 export class AppBase implements OnInit, OnDestroy {
     public needlogin = false;
 
-    static CITYID = 440300;
-    static CITYNAME = "深圳市";
+    static CITYID: string = "440300";
+    static CITYNAME: string = "深圳市";
     static CITYSET = false;
 
     mylat = 0;
@@ -32,7 +32,7 @@ export class AppBase implements OnInit, OnDestroy {
         address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
     };
     address: { ad_info: { adcode: "", city: "", province: "", district: "" } }
-    citycode = 0;
+    citycode = "0";
     lastdistance = 0;
 
     public static TABName = "";
@@ -107,14 +107,14 @@ export class AppBase implements OnInit, OnDestroy {
 
 
     public constructor(
-        public router: Router, 
+        public router: Router,
         public navCtrl: NavController,
         public modalCtrl: ModalController,
         public toastCtrl: ToastController,
         public alertCtrl: AlertController,
         public activeRoute: ActivatedRoute,
-        public zone:NgZone
-        ) {
+        public zone: NgZone
+    ) {
 
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);
@@ -129,8 +129,8 @@ export class AppBase implements OnInit, OnDestroy {
         AppBase.STATICRAND = stat;
 
         var MemberInfo = window.localStorage.getItem(this.keyt);
-         
-               
+
+
 
         if (MemberInfo != null) {
             AppBase.MemberInfo = JSON.parse(MemberInfo);
@@ -164,14 +164,14 @@ export class AppBase implements OnInit, OnDestroy {
 
                 } else {
                     if (AppBase.MemberInfo == null) {
-                        
+
                         var url = window.location.href;
                         //url="http://yuyue.helpfooter.com/tabs/tab1";
                         var redirecturl = encodeURIComponent(url);
                         var redurl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + this.InstInfo.h5appid + "&redirect_uri=" + redirecturl + "&response_type=code&scope=snsapi_userinfo&state=" + AppBase.STATICRAND + "#wechat_redirect";
                         console.log({ redurl });
 
-                        window.location.href=redurl;
+                        window.location.href = redurl;
                     }
                 }
                 //this.setWechatShare();
@@ -185,21 +185,16 @@ export class AppBase implements OnInit, OnDestroy {
     getMemberInfo() {
         console.log("牛逼了");
         console.log("11111");
-        
+
         AppBase.memberapi.info({}).then((MemberInfo) => {
             if (MemberInfo == null || MemberInfo.mobile == undefined || MemberInfo.mobile == "") {
                 //alert("?");
                 MemberInfo = null;
             }
             this.MemberInfo = MemberInfo;
-            
-
         });
     }
     shouye() {
-
-
-
 
         this.navCtrl.navigateBack('tabs/home');
         return;
@@ -217,6 +212,8 @@ export class AppBase implements OnInit, OnDestroy {
         }
     }
     ionViewDidEnter() {
+
+        console.log("wx", "onmyshow");
         if (AppBase.MemberInfo == null) {
             //
             if (this.params.code != undefined && this.params.state == AppBase.STATICRAND) {
@@ -230,10 +227,34 @@ export class AppBase implements OnInit, OnDestroy {
                     ApiConfig.SetTokenKey(MemberInfo.unionid);
                     AppBase.memberapi.updateh5(MemberInfo).then((res) => {
                         // this.onMyShow();
-                        AppBase.memberapi.info({}).then((MemberInfo)=>{
-                            
-                            AppBase.MemberInfo = MemberInfo;
-                            this.MemberInfo = MemberInfo;
+                        AppBase.memberapi.info({}).then((info) => {
+
+                            var order = info.order;
+                            var dfkorder = 0;
+                            var ypborder = 0;
+                            var dpjorder = 0;
+                            var dshorder = 0;
+                            var tkorder = 0;
+                            order.map((item) => {
+
+                                if (item.pstatus == 'W') {
+                                    dfkorder++;
+                                }
+                                if (item.type == 'PT' && item.pstatus == 'PT') {
+                                    ypborder++;
+                                }
+                                if (item.pstatus == 'PJ') {
+                                    dpjorder++;
+                                }
+                            })
+                            info.dfkorder = dfkorder;
+                            info.ypborder = ypborder;
+                            info.dpjorder = dpjorder;
+                            info.dshorder = dshorder;
+                            info.tkorder = tkorder;
+
+                            AppBase.MemberInfo = info;
+                            this.MemberInfo = info;
                             window.localStorage.setItem(this.keyt, JSON.stringify(this.MemberInfo));
                             this.setWechatShare();
                         });
@@ -249,37 +270,39 @@ export class AppBase implements OnInit, OnDestroy {
             }
         } else {
             //alert("2"+this.MemberInfo.h5openid);
-            var  info=AppBase.MemberInfo;
-            var order = info.order;
-            var dfkorder = 0;
-            var ypborder = 0;
-            var dpjorder = 0;
-            var dshorder = 0;
-            var tkorder = 0;
-            order.map((item) => {
-      
-              if (item.pstatus == 'W') {
-                dfkorder++;
-              }
-              if (item.type == 'PT' && item.pstatus == 'PT') {
-                ypborder++;
-              }
-              if (item.pstatus =='PJ')
-              {
-                dpjorder++;
-              }
-            })
-            AppBase.MemberInfo.dfkorder = dfkorder;
-            AppBase.MemberInfo.ypborder=ypborder;
-            AppBase.MemberInfo.dpjorder=dpjorder;
-            AppBase.MemberInfo.dshorder=dshorder;
-            AppBase.MemberInfo.tkorder=tkorder;
-            this.MemberInfo = AppBase.MemberInfo;
-            console.log("aaaa", this.MemberInfo);
-             
-            ApiConfig.SetToken(this.MemberInfo.h5openid);
-            ApiConfig.SetTokenKey(this.MemberInfo.unionid);
-            this.setWechatShare();
+            ApiConfig.SetToken(AppBase.MemberInfo.h5openid);
+            ApiConfig.SetTokenKey(AppBase.MemberInfo.unionid);
+            AppBase.memberapi.info({}).then((info) => {
+                var order = info.order;
+                var dfkorder = 0;
+                var ypborder = 0;
+                var dpjorder = 0;
+                var dshorder = 0;
+                var tkorder = 0;
+                order.map((item) => {
+
+                    if (item.pstatus == 'W') {
+                        dfkorder++;
+                    }
+                    if (item.type == 'PT' && item.pstatus == 'PT') {
+                        ypborder++;
+                    }
+                    if (item.pstatus == 'PJ') {
+                        dpjorder++;
+                    }
+                })
+                info.dfkorder = dfkorder;
+                info.ypborder = ypborder;
+                info.dpjorder = dpjorder;
+                info.dshorder = dshorder;
+                info.tkorder = tkorder;
+                AppBase.MemberInfo = info;
+                this.MemberInfo = info;
+                console.log("aaaa", this.MemberInfo);
+
+                this.setWechatShare();
+            });
+
             // this.onMyShow();
         }
 
@@ -482,7 +505,9 @@ export class AppBase implements OnInit, OnDestroy {
     tryLogin() {
         this.showModal("MobileloginPage", {});
     }
-
+    adcode = "";
+    nocity = 0;
+    cityname = "";
 
     setWechatShare(title = undefined, desc = undefined) {
         var that = this;
@@ -501,10 +526,11 @@ export class AppBase implements OnInit, OnDestroy {
                 timestamp: config.timestamp, // 必填，生成签名的时间戳
                 nonceStr: config.nonceStr, // 必填，生成签名的随机串
                 signature: config.signature,// 必填，签名，见附录1
-                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage","getLocation",'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "getLocation", 'openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
             };
             wx.config(json);
-            wx.ready(()=>{
+            console.log("wx", 0);
+            wx.ready(() => {
                 wx.onMenuShareAppMessage({
                     title: title,
                     desc: desc,
@@ -543,35 +569,119 @@ export class AppBase implements OnInit, OnDestroy {
                         // alert("onMenuShareTimeline" + JSON.stringify(res));
                     }
                 });
+                console.log("wx", 1);
                 wx.getLocation({
-                    success:(res)=>{
-                      console.log("location",(res));
-                      var lat=res.latitude;
-                      var lng=res.longitude;
+                    success: (res) => {
+                        console.log("location", (res));
+                        var lat = res.latitude;
+                        var lng = res.longitude;
 
-                      
-                        var url="https://restapi.amap.com/v3/geocode/regeo?output=json&location="
-                        +lng.toString()
-                        +","+lat.toString()
-                        +"&key=bbbefc93b56102814e2710090beb4c26&radius=1000&extensions=all";
-                        AppBase.instapi.http.get(url).toPromise().then((res)=>{
-                            var adinfo=res.json();
-                            console.log("location2",adinfo);
 
-                            AppBase.lastaddress=adinfo.regeocode.addressComponent;
-                            that.address=adinfo.regeocode.addressComponent;
-                            that.address.ad_info=adinfo.regeocode.addressComponent;
-                            that.mylat=lat;
-                            that.mylng=lng;
-                            that.zone.run(()=>{
-                                that.onMyShow();});
+                        var url = "https://restapi.amap.com/v3/geocode/regeo?output=json&location="
+                            + lng.toString()
+                            + "," + lat.toString()
+                            + "&key=bbbefc93b56102814e2710090beb4c26&radius=1000&extensions=all";
+                        AppBase.instapi.http.get(url).toPromise().then((res) => {
+                            var adinfo = res.json();
+                            console.log("location2", adinfo);
+
+                            AppBase.lastaddress = adinfo.regeocode.addressComponent;
+                            var address = adinfo.regeocode.addressComponent;
+
+                            this.address = { ad_info: address };
+
+                            var mylat = lng;
+                            var mylng = lat;
+
+                            var memberinfo = this.MemberInfo;
+                            var citylist = memberinfo.citylist;
+
+
+
+                            var citycode = address.adcode.substr(0, 4) + "00";
+                            this.adcode = address.adcode;
+                            this.citycode = citycode;
+
+                            if (AppBase.CITYSET == false) {
+
+                                console.log(AppBase.CITYID, "哦哦", citycode)
+
+                                var citys = citylist.filter((item, idx) => {
+                                    return item.code == citycode
+                                })
+
+                                console.log(citys, "阔脚裤")
+
+
+                                if (citys.length == 0) {
+                                    this.nocity = 1;
+                                }
+
+
+
+                                for (var i = 0; i < citylist.length; i++) {
+
+                                    console.log(citylist[i].id, "大蒜", citycode, AppBase.CITYID)
+
+                                    if (citylist[i].id == citycode) {
+                                        AppBase.CITYID = citylist[i].id;
+                                        AppBase.CITYNAME = citylist[i].name;
+                                        break;
+                                    }
+
+
+                                }
+
+
+
+
+                            }
+
+                            var memberapi = AppBase.memberapi;
+                            memberapi.usecity({
+                                city_id: AppBase.CITYID
+                            });
+
+                            this.mylat = mylat;
+                            this.mylng = mylng;
+                            this.cityname = AppBase.CITYNAME;
+
+
+                            var lastlat = Number(AppBase.lastlat == undefined ? 0 : AppBase.lastlat);
+                            var lastlng = Number(AppBase.lastlng == undefined ? 0 : AppBase.lastlng);
+
+                            var lastdistance = this.util.GetDistance(mylat, mylng, lastlat, lastlng);
+
+                            AppBase.lastlat = mylat;
+                            AppBase.lastlng = mylng;
+                            AppBase.lastdistance = lastdistance;
+
+                            this.lastdistance = lastdistance;
+                            //this.address = address;
+
+                            console.log("lastdistance", Number(lastdistance), Number(lastdistance) == NaN);
+                            if (lastdistance > 500 || lastdistance == NaN) {
+                                console.log("citycode2" + AppBase.CITYID);
+                                console.log("vvckc", "1", mylat);
+
+                            }
+
+                            that.zone.run(() => {
+                                that.onMyShow();
+                            });
                         });
                     },
-                    cancel: (res)=> {
-                        that.zone.run(()=>{
-                            that.onMyShow();});
+                    cancel: (res) => {
+                        this.lastdistance = 0;
+                        this.mylat = 0;
+                        this.mylng = 0;
+                        console.log("vvckc", "2");
+                        that.zone.run(() => {
+                            that.onMyShow();
+                        });
                     }
-                  });
+                });
+
             });
 
 
@@ -587,8 +697,9 @@ export class AppBase implements OnInit, OnDestroy {
     }
     backtotop(e = undefined) {
         // var ioncontent = document.querySelector("ion-content");
+        //alert(1);
         var ioncontent = document.getElementById('dinbu');
-        ioncontent.scrollIntoView(true);
+        ioncontent.scrollIntoView({ behavior: "smooth" });
     }
     onShareAppMessage() {
 
@@ -614,13 +725,13 @@ export class AppBase implements OnInit, OnDestroy {
         if (url.indexOf("?") > 0) {
             let vk = url.substr(url.indexOf("?") + 1);
             let vk2 = vk.split("&");
-            console.log(vk,vk2);
+            console.log(vk, vk2);
             for (let vkb of vk2) {
                 var vk3 = vkb.split("=");
                 json[vk3[0]] = vk3[1];
             }
         }
-        console.log(url,pagename,json);
+        console.log(url, pagename, json);
         this.navigate(pagename, json);
     }
     navigateBack(obj = undefined) {
@@ -646,7 +757,7 @@ export class AppBase implements OnInit, OnDestroy {
 
     }
     phoneCall(e) {
-       window.location.href = 'https://www.cnblogs.com/handsome-jm/p/7878478.html';
+        window.location.href = 'https://www.cnblogs.com/handsome-jm/p/7878478.html';
     }
     openLocation(lat, lng, name, address) {
         wx.openLocation({
@@ -656,12 +767,12 @@ export class AppBase implements OnInit, OnDestroy {
             address: address,
             scale: 15//地图缩放大小，可根据情况具体调整
         });
-      }
+    }
     viewPhoto(e) {
 
     }
 
-    getPhoneNo(){
-        
+    getPhoneNo() {
+
     }
 }

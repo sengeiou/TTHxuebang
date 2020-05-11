@@ -37,6 +37,8 @@ export class XianxiaPage  extends AppBase {
   }
   huodonlist=[];
   onMyShow(e=undefined) {
+
+    AppBase.LASTTAB=this;
     var that = this;
     var huodonapi =this.huodonApi;
     huodonapi.huodonlist({}).then( (huodonlist) => {

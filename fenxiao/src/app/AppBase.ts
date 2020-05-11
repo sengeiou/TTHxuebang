@@ -107,6 +107,8 @@ export class AppBase implements OnInit {
     }
     ngOnInit() {
 
+        //window.localStorage.clear();
+
         ApiConfig.SetUnicode(AppBase.UNICODE);
         this.getResources();
         this.getInstInfo();

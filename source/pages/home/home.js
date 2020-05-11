@@ -428,6 +428,7 @@ class Content extends AppBase {
     var mylng = this.Base.getMyData().mylng;
     console.log(AppBase.CITYID);
     console.log("那真的牛批");
+    console.log(mylat, "那真的牛批", mylng);
 
     jigouapi.jglist({
       mylat,
@@ -820,29 +821,7 @@ class Content extends AppBase {
         jifen: this.Base.getMyData().jifen,
         status: "A"
       }, (daka) => {
-        if (daka.jifen == 5) {
-          jifenapi.addjifen({
-            member_id: this.Base.getMyData().memberinfo.id,
-            unicode: "lianxvdaka"
-          }, (addjifen) => {
-            this.Base.setMyData({
-              addjifen
-            })
-          })
-        }
-        if (daka.jifen == 25) {
-          jifenapi.addjifen({
-            member_id: this.Base.getMyData().memberinfo.id,
-            unicode: "lianxvdaka"
-          }, (addjifen) => {
-            this.Base.setMyData({
-              addjifen
-            })
-          })
-        }
-        this.Base.setMyData({
-          daka
-        })
+        
         this.onMyShow();
       })
     }

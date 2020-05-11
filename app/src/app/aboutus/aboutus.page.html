@@ -9,7 +9,8 @@
       <ion-title>{{InstInfo.name}}</ion-title>
     </ion-toolbar>
   </ion-header>
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
   <div id='dinbu'></div>
     <img src='{{uploadpath}}aboutus/{{aboutus.content}}' style="width: 100vw;"  />
 </ion-content>
@@ -18,6 +19,6 @@
   <img src='{{uploadpath}}resource/{{res.fanhui}}' class='icon-50' (click)='backHome()'/>
 </div>
 
-<div class='to_top'>
+<div class='to_top' *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()'/>
 </div>

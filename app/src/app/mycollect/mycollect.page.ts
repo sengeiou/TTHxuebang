@@ -58,24 +58,24 @@ export class MycollectPage extends AppBase {
 
 
     api.favcourselist({}).then((kclist) => {
-      this.kclist = kclist;
+     // this.kclist = kclist;
     });
 
 
     api.favjigoulist({}).then((jglist) => {
-      this.jglist = jglist;
+     // this.jglist = jglist;
     });
 
     api.favvideolist({}).then((splist) => {
-      this.splist = splist;
+      //this.splist = splist;
     });
 
     jigouapi.ketangshoucanglist({}).then((ketangshoucanglist) => {
-      this.ketangshoucanglist = ketangshoucanglist;
+      //this.ketangshoucanglist = ketangshoucanglist;
     });
 
-    this.huoqukclist();
-    this.huoqujigoulist();
+   // this.huoqukclist();
+   // this.huoqujigoulist();
 
   }
 

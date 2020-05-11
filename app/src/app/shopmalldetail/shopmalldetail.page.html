@@ -13,7 +13,7 @@
 
 
 <!--pages/shopmalldetail/shopmalldetail.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+<img class="backhome" *ngIf='show!=1' src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 <img src="{{uploadpath}}shop/{{info.top_img}}" (click)="viewPhoto($event)" id="{{uploadpath}}shop/{{info.top_img}}" class="top-img" />
 
 <div class="padding-20" style="border-bottom:1px solid #F5F5F5">

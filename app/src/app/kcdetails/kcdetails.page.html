@@ -9,19 +9,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+<div id='dinbu'></div>
 
 
   <!--pages/kcdetails/kcdetails.wxml-->
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-  <div class=' to_top'>
+  <div class=' to_top' *ngIf="scrolltop>300">
     <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
 
   <div >
 
 
-    <div class='' id='dinbu'
+    <div class=''
       [style.background-image]="'url('+uploadpath+'curriculum/'+courseinfo.xq_bg+'?x-oss-process=style/test_img'+')'"
       style='background-size:100% 100%;'>
 
@@ -120,7 +122,7 @@
 
                 <div class='flex-1  flex-column  flex-row  '>
                   <div class="h6 txt-gray">适合年龄</div>
-                  <div class='h5  txt-bold margin-top-15  ' style='color:#222222'>
+                  <div class='h5  txt-bold margin-top-15  ' style='color:#222222' *ngIf="courseinfo.id!=undefined">
                     {{courseinfo.min_age}}{{courseinfo.max_age==100?'岁以上':'-'+courseinfo.max_age+'岁'}}</div>
                 </div>
 
