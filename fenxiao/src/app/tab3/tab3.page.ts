@@ -59,6 +59,9 @@ export class Tab3Page extends AppBase {
           if (res.length == 0 ) {
             this.showModal1=true;
           }
+          else{
+            this.showModal1=true;
+          }
 
     })
   
