@@ -125,6 +125,7 @@ export class AddkechenComponent extends AppBase {
     teachermobile:'',
     purchasetype:'',
     isfenxiao:'',
+    isfenxiao_value:'',
     age:'',
     fenxiaobili:0,
     showprice:'',
@@ -135,7 +136,9 @@ export class AddkechenComponent extends AppBase {
     max_age:0,
     wenan:'',
     lunbo:'',
-    status:''
+    status:'',
+    shenhestatus:'',
+    shenhestatus_name:''
   }
   ischeckbox(item){
     var id=item.id+',';
@@ -222,6 +225,18 @@ export class AddkechenComponent extends AppBase {
       this.kcdetail.kc_img = '';
     }
   }
+  afteruploads(e){
+    var fileList = e.fileList;
+    let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
+    if (e.fileList.length > 0 && index != -1) {
+      e.fileList.splice(index, 1);
+    }
+    if (e.type == "success") {
+      this.kcdetail.mv= e.file.response.result;
+    } else if (e.type == 'removed') {
+      this.kcdetail.mv = '';
+    }
+  }
   afterupload2(e){
     var fileList = e.fileList;
     let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
@@ -247,10 +262,10 @@ export class AddkechenComponent extends AppBase {
     }
   }
   changestatus2(){
-    if(this.kcdetail.isfenxiao=='Y'){
-      this.kcdetail.isfenxiao='N';
+    if(this.kcdetail.isfenxiao_value=='Y'){
+      this.kcdetail.isfenxiao_value='N';
      }else {
-      this.kcdetail.isfenxiao='Y'
+      this.kcdetail.isfenxiao_value='Y'
      }
   }
   lunbo=[];
@@ -301,6 +316,7 @@ export class AddkechenComponent extends AppBase {
       json.primary_id=this.primary_id;
     }
     json.status='A';
+    json.isfenxiao=this.kcdetail.isfenxiao_value;
     json.jg_id=this.kcdetail.jg_id.slice(0,this.kcdetail.jg_id.length-1);
     json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
     this.userbApi.addkechen(json).then((res:any)=>{

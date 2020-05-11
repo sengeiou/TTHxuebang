@@ -84,13 +84,14 @@ export class AddjigouComponent extends AppBase {
   alllable='';
   lablen=0;
   jgdetail={
-    name:'',
+    jigou:'',
     time:'',
     jg_img:'',
     waitimg:'',
     jg_video:'',
     jieshao:'',
     novideosummary:'',
+    novideosummary_value:'',
     province_id:'',
     city_id:'',
     district_id:'',
@@ -109,11 +110,13 @@ export class AddjigouComponent extends AppBase {
     hexiao:'',
     longimg:'',
     isfenxiao:'',
+    isfenxiao_value:'',
     jg_age:'',
     contactmobile:'',
     fabu:'',
     shenhe:'',
-    status:''
+    status:'',
+    qrcode:''
   }
   afterupload(e) {
     var fileList = e.fileList;
@@ -125,6 +128,18 @@ export class AddjigouComponent extends AppBase {
       this.jgdetail.jg_img = e.file.response.result;
     } else if (e.type == 'removed') {
       this.jgdetail.jg_img = '';
+    }
+  }
+  afteruploads(e){
+    var fileList = e.fileList;
+    let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
+    if (e.fileList.length > 0 && index != -1) {
+      e.fileList.splice(index, 1);
+    }
+    if (e.type == "success") {
+      this.jgdetail.qrcode = e.file.response.result;
+    } else if (e.type == 'removed') {
+      this.jgdetail.qrcode = '';
     }
   }
   afterupload2(e) {
@@ -164,17 +179,17 @@ export class AddjigouComponent extends AppBase {
     }
   }
   changestatus(){
-   if(this.jgdetail.novideosummary=='Y'){
-    this.jgdetail.novideosummary='N';
+   if(this.jgdetail.novideosummary_value=='Y'){
+    this.jgdetail.novideosummary_value='N';
    }else {
-    this.jgdetail.novideosummary='Y'
+    this.jgdetail.novideosummary_value='Y'
    }
   }
   changestatus2(){
-    if(this.jgdetail.isfenxiao=='Y'){
-      this.jgdetail.isfenxiao='N';
+    if(this.jgdetail.isfenxiao_value=='Y'){
+      this.jgdetail.isfenxiao_value='N';
      }else {
-      this.jgdetail.isfenxiao='Y'
+      this.jgdetail.isfenxiao_value='Y'
      }
   }
   ischeckbox(item){
@@ -264,6 +279,8 @@ export class AddjigouComponent extends AppBase {
     if(this.primary_id>0){
       json.primary_id=this.primary_id;
     }
+    json.novideosummary=this.jgdetail.novideosummary_value;
+    json.isfenxiao=this.jgdetail.isfenxiao_value;
     json.labels=this.jgdetail.labels.slice(0,this.jgdetail.labels.length-1);
     json.status='A';
     this.userbApi.addinst(json).then((res:any)=>{

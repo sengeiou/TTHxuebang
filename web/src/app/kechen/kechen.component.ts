@@ -70,6 +70,7 @@ export class KechenComponent extends AppBase {
   reset(){
     this.name='';
     this.jg_id='';
+    this.type='';
     this.seashow=false;
     this.onMyShow();
   }
@@ -83,7 +84,7 @@ export class KechenComponent extends AppBase {
   jgdelete(){
     for(let item of this.allcurriculum){
       if(item.status=='D'){
-        this.userbApi.addkechen(item).then((res:any)=>{
+        this.userbApi.deletekc({idlist:item.id}).then((res:any)=>{
           console.log(res)
           if(res.code=='0'){
             this.onMyShow();

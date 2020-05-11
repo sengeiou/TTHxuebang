@@ -7,13 +7,14 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
 
+
 @Component({
-  selector: 'app-blank',
-  templateUrl: './blank.component.html',
-  styleUrls: ['./blank.component.scss'],
+  selector: 'app-hexiao',
+  templateUrl: './hexiao.component.html',
+  styleUrls: ['./hexiao.component.scss'],
   providers: [InstApi, MemberApi,UserbApi]
 })
-export class BlankComponent extends AppBase {
+export class HexiaoComponent  extends AppBase {
 
   constructor(
     public router: Router,

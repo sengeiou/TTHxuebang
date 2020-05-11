@@ -15,7 +15,7 @@ Chart.toast=function(con){
     toastr.error(con)
 }
 Chart.saveing=function(){
-  toastr.success("save successful")
+  toastr.success("保存成功")
 }
 Chart.succ=function(con){
   toastr.success(con)

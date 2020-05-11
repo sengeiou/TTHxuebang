@@ -38,17 +38,32 @@
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构名称</label>
                                         <input type="text" class="form-control form-control-sm" id="inputEmail3"
-                                            name='name' [(ngModel)]='jgdetail.name' placeholder="必填项"/>
+                                            name='name' [(ngModel)]='jgdetail.jigou' placeholder="必填项"/>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">营业时间</label>
                                         <input type="text" class="form-control form-control-sm" id="inputEmail3"
                                             name='time' [(ngModel)]='jgdetail.time' />
                                     </div>
+                                    <!-- <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">二维码</label>
+                                        <nz-upload class="avatar-uploader"
+                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
+                                            nzListType="picture-card" [nzShowUploadList]="false"
+                                            (nzChange)="afteruploads($event)">
+                                            <ng-container *ngIf="!jgdetail.qrcode">
+                                                <i class="upload-icon" nz-icon
+                                                    [nzType]="loading ? 'loading' : 'plus'"></i>
+                                                <div class="ant-upload-text">Upload</div>
+                                            </ng-container>
+                                            <img *ngIf="jgdetail.qrcode!=''"
+                                                src="{{uploadpath}}mechanism/{{jgdetail.qrcode}}" style="width: 100%" />
+                                        </nz-upload>
+                                    </div> -->
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构封面图</label>
                                         <nz-upload class="avatar-uploader"
-                                            nzAction="{{uploadapi}}?module=inst&field=file&rettype=json"
+                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload($event)">
                                             <ng-container *ngIf="!jgdetail.jg_img">
@@ -57,14 +72,14 @@
                                                 <div class="ant-upload-text">Upload</div>
                                             </ng-container>
                                             <img *ngIf="jgdetail.jg_img!=''"
-                                                src="{{uploadpath}}inst/{{jgdetail.jg_img}}" style="width: 100%" />
+                                                src="{{uploadpath}}mechanism/{{jgdetail.jg_img}}" style="width: 100%" />
                                         </nz-upload>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3"
                                             class=" col-form-label col-form-label-sm">无视频显示图</label>
                                         <nz-upload class="avatar-uploader"
-                                            nzAction="{{uploadapi}}?module=inst&field=file&rettype=json"
+                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload2($event)">
                                             <ng-container *ngIf="!jgdetail.waitimg">
@@ -73,13 +88,13 @@
                                                 <div class="ant-upload-text">Upload</div>
                                             </ng-container>
                                             <img *ngIf="jgdetail.waitimg!=''"
-                                                src="{{uploadpath}}inst/{{jgdetail.waitimg}}" style="width: 100%" />
+                                                src="{{uploadpath}}mechanism/{{jgdetail.waitimg}}" style="width: 100%" />
                                         </nz-upload>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构视频</label>
                                         <nz-upload class="avatar-uploader"
-                                            nzAction="{{uploadapi}}?module=inst&field=file&rettype=json"
+                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload3($event)">
                                             <ng-container *ngIf="!jgdetail.jg_video">
@@ -88,7 +103,7 @@
                                                 <div class="ant-upload-text">Upload</div>
                                             </ng-container>
                                             <video *ngIf="jgdetail.jg_video!=''"
-                                                src="{{uploadpath}}inst/{{jgdetail.jg_video}}"
+                                                src="{{uploadpath}}mechanism/{{jgdetail.jg_video}}"
                                                 style="width: 100%"></video>
                                         </nz-upload>
                                     </div>
@@ -102,9 +117,9 @@
                                             class=" col-form-label col-form-label-sm">不显示视频简介</label>
                                         <div class="switch margin-left-10" (click)='changestatus()'>
                                             <input type="checkbox" id='inputEmail3' checked
-                                                *ngIf='jgdetail.novideosummary=="Y"'>
+                                                *ngIf='jgdetail.novideosummary_value=="Y"'>
                                             <input type="checkbox" id='inputEmail3'
-                                                *ngIf='jgdetail.novideosummary!="Y"'>
+                                                *ngIf='jgdetail.novideosummary_value!="Y"'>
                                             <div class="slider round"></div>
                                         </div>
                                     </div>
@@ -199,7 +214,7 @@
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">长图</label>
                                         <nz-upload class="avatar-uploader"
-                                            nzAction="{{uploadapi}}?module=inst&field=file&rettype=json"
+                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload4($event)">
                                             <ng-container *ngIf="!jgdetail.longimg">
@@ -208,7 +223,7 @@
                                                 <div class="ant-upload-text">Upload</div>
                                             </ng-container>
                                             <img *ngIf="jgdetail.longimg!=''"
-                                                src="{{uploadpath}}inst/{{jgdetail.longimg}}" style="width: 100%" />
+                                                src="{{uploadpath}}mechanism/{{jgdetail.longimg}}" style="width: 100%" />
                                         </nz-upload>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
@@ -221,8 +236,8 @@
                                             class=" col-form-label  col-form-label-sm">是否开启分销</label>
                                         <div class="switch margin-left-10" (click)='changestatus2()'>
                                             <input type="checkbox" id='inputEmail3' checked
-                                                *ngIf='jgdetail.isfenxiao=="Y"'>
-                                            <input type="checkbox" id='inputEmail3' *ngIf='jgdetail.isfenxiao!="Y"'>
+                                                *ngIf='jgdetail.isfenxiao_value=="Y"'>
+                                            <input type="checkbox" id='inputEmail3' *ngIf='jgdetail.isfenxiao_value!="Y"'>
                                             <div class="slider round"></div>
                                         </div>
                                     </div>
@@ -245,7 +260,7 @@
                                                     <tr *ngIf='item.status!="D"'>
                                                         <td class="bor-l bor-b"><input type="text" name="item.seq+{{i}}" [(ngModel)]='item.seq'></td>
                                                         <td class="bor-l bor-b">  <nz-upload class="avatar-uploader"
-                                                            nzAction="{{uploadapi}}?module=inst&field=file&rettype=json"
+                                                            nzAction="{{uploadapi}}?module=jigouimg&field=file&rettype=json"
                                                             nzListType="picture-card" [nzShowUploadList]="false"
                                                             (nzChange)="afterupload5($event,item)" style="width: auto;">
                                                             <ng-container *ngIf="!item.img">
@@ -254,7 +269,7 @@
                                                                 <div class="ant-upload-text">Upload</div>
                                                             </ng-container>
                                                             <img *ngIf="item.img!=''"
-                                                                src="{{uploadpath}}inst/{{item.img}}" style="width: 100%" />
+                                                                src="{{uploadpath}}jigouimg/{{item.img}}" style="width: 100%" />
                                                         </nz-upload></td>
                                                         <td class="bor-l bor-r bor-b">
                                                             <img src="{{uploadpath}}resource/{{res.jianbg}}" class="icon-20" (click)='jianbgimg(item,i)'/>

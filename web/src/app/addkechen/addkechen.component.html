@@ -45,7 +45,7 @@
                         (click)='ischeckbox(item)'>
                         <img src="{{uploadpath}}resource/{{kcdetail.jg_id.indexOf(item.id)>-1?res.xuanzhon:res.xuanze}}"
                           class="icon-15" />
-                        <div>{{item.name}}</div>
+                        <div>{{item.jigou}}</div>
                       </div>
 
                     </div>
@@ -65,7 +65,7 @@
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                     <label for="inputEmail3" class=" col-form-label col-form-label-sm">上线时间</label>
-                    <input type="date" class="form-control form-control-sm" id="inputEmail3" name='up_time'
+                    <input type="date" class="form-control form-control-sm" id="inputEmail3" name='uptime'
                       [(ngModel)]='kcdetail.up_time' />
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
@@ -94,19 +94,28 @@
                       name='agename' [(ngModel)]='kcdetail.age_name' />
                   </div>
                   <!-- <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">预约</label>
-                        <input type="email" class="form-control form-control-sm" id="inputEmail3" placeholder="Email" />
-                      </div> -->
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">视频展示</label>
+                    <nz-upload class="avatar-uploader"
+                      nzAction="{{uploadapi}}?module=class&field=file&rettype=json" nzListType="picture-card"
+                      [nzShowUploadList]="false" (nzChange)="afteruploads($event)">
+                      <ng-container *ngIf="!kcdetail.mv">
+                        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                        <div class="ant-upload-text">Upload</div>
+                      </ng-container>
+                      <video *ngIf="kcdetail.mv!=''" src="{{uploadpath}}class/{{kcdetail.mv}}"
+                        style="width: 100%" ></video>
+                    </nz-upload>
+                  </div> -->
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                     <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程图片</label>
                     <nz-upload class="avatar-uploader"
-                      nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                      nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
                       [nzShowUploadList]="false" (nzChange)="afterupload($event)">
                       <ng-container *ngIf="!kcdetail.kc_img">
                         <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
                         <div class="ant-upload-text">Upload</div>
                       </ng-container>
-                      <img *ngIf="kcdetail.kc_img!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.kc_img}}"
+                      <img *ngIf="kcdetail.kc_img!=''" src="{{uploadpath}}curriculum/{{kcdetail.kc_img}}"
                         style="width: 100%" />
                     </nz-upload>
                   </div>
@@ -128,26 +137,26 @@
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                     <label for="inputEmail3" class=" col-form-label  col-form-label-sm">详情背景图</label>
                     <nz-upload class="avatar-uploader"
-                      nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                      nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
                       [nzShowUploadList]="false" (nzChange)="afterupload2($event)">
                       <ng-container *ngIf="!kcdetail.xq_bg">
                         <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
                         <div class="ant-upload-text">Upload</div>
                       </ng-container>
-                      <img *ngIf="kcdetail.xq_bg!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.xq_bg}}"
+                      <img *ngIf="kcdetail.xq_bg!=''" src="{{uploadpath}}curriculum/{{kcdetail.xq_bg}}"
                         style="width: 100%" />
                     </nz-upload>
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                     <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情插画图片</label>
                     <nz-upload class="avatar-uploader"
-                      nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json" nzListType="picture-card"
+                      nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
                       [nzShowUploadList]="false" (nzChange)="afterupload3($event)">
                       <ng-container *ngIf="!kcdetail.kcchimg">
                         <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
                         <div class="ant-upload-text">Upload</div>
                       </ng-container>
-                      <img *ngIf="kcdetail.kcchimg!=''" src="{{uploadpath}}instcurriculum/{{kcdetail.kcchimg}}"
+                      <img *ngIf="kcdetail.kcchimg!=''" src="{{uploadpath}}curriculum/{{kcdetail.kcchimg}}"
                         style="width: 100%" />
                     </nz-upload>
                   </div>
@@ -189,8 +198,8 @@
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8 flex-row2 flex-center2">
                     <label for="inputEmail3" class=" col-form-label  col-form-label-sm">是否开启分销</label>
                     <div class="switch margin-left-10" (click)='changestatus2()'>
-                      <input type="checkbox" id='inputEmail3' checked *ngIf='kcdetail.isfenxiao=="Y"'>
-                      <input type="checkbox" id='inputEmail3' *ngIf='kcdetail.isfenxiao!="Y"'>
+                      <input type="checkbox" id='inputEmail3' checked *ngIf='kcdetail.isfenxiao_value=="Y"'>
+                      <input type="checkbox" id='inputEmail3' *ngIf='kcdetail.isfenxiao_value!="Y"'>
                       <div class="slider round"></div>
                     </div>
                   </div>
@@ -261,7 +270,7 @@
                           <tr *ngIf='item.status!="D"'>
                               <td class="bor-l bor-b"><input type="text" name="item.seq+{{i}}" [(ngModel)]='item.seq'></td>
                               <td class="bor-l bor-b">  <nz-upload class="avatar-uploader"
-                                  nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json"
+                                  nzAction="{{uploadapi}}?module=kecheng&field=file&rettype=json"
                                   nzListType="picture-card" [nzShowUploadList]="false"
                                   (nzChange)="afterupload4($event,item)" style="width: auto;">
                                   <ng-container *ngIf="!item.img">
@@ -270,10 +279,10 @@
                                       <div class="ant-upload-text">Upload</div>
                                   </ng-container>
                                   <img *ngIf="item.img!=''"
-                                      src="{{uploadpath}}instcurriculum/{{item.img}}" style="width: 100%" />
+                                      src="{{uploadpath}}kecheng/{{item.img}}" style="width: 100%" />
                               </nz-upload></td>
                               <td class="bor-l bor-b">  <nz-upload class="avatar-uploader"
-                                nzAction="{{uploadapi}}?module=instcurriculum&field=file&rettype=json"
+                                nzAction="{{uploadapi}}?module=kechenimg&field=file&rettype=json"
                                 nzListType="picture-card" [nzShowUploadList]="false"
                                 (nzChange)="afterupload5($event,item)" style="width: auto;">
                                 <ng-container *ngIf="!item.video">
@@ -282,7 +291,7 @@
                                     <div class="ant-upload-text">Upload</div>
                                 </ng-container>
                                 <video *ngIf="item.video!=''"
-                                    src="{{uploadpath}}instcurriculum/{{item.video}}" style="width: 100%" ></video>
+                                    src="{{uploadpath}}kechenimg/{{item.video}}" style="width: 100%" ></video>
                             </nz-upload></td>
                               <td class="bor-l bor-r bor-b">
                                   <img src="{{uploadpath}}resource/{{res.jianbg}}" class="icon-20" (click)='jianlunbo(item,i)'/>
@@ -296,7 +305,8 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer text-center">
-                <button type="submit" class="btn btn-primary" (click)='tijiao()'>提交</button>
+                <button type="submit" class="btn btn-primary"  (click)='tijiao()'>提交</button>
+                <!-- <button type="submit" class="btn btn-warning margin-left-20" *ngIf='kcdetail.shenhestatus!=""'>{{kcdetail.shenhestatus_name}}</button> -->
                 <button type="submit" class="btn btn-info margin-left-20" (click)='copy()'>复制</button>
                 <button type="submit" class="btn bg-gray margin-left-20" (click)='back()'>返回</button>
               </div>

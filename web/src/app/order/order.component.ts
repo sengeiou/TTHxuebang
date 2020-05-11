@@ -7,13 +7,14 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
 
+
 @Component({
-  selector: 'app-blank',
-  templateUrl: './blank.component.html',
-  styleUrls: ['./blank.component.scss'],
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.scss'],
   providers: [InstApi, MemberApi,UserbApi]
 })
-export class BlankComponent extends AppBase {
+export class OrderComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -32,7 +33,7 @@ export class BlankComponent extends AppBase {
   onMyShow() {
     
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("kehu", "kehu");
+      MainComponent.Instance.setModule("order", "");
     }
   }
 }

@@ -129,7 +129,7 @@
             <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" >
               <i class="nav-icon fas fa-th"></i>
               <p>
-                系统首页
+                业务中心
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
@@ -152,14 +152,22 @@
             </a>
           </li>
          
-          <!-- <li class="nav-item has-treeview">
-            <a  class="nav-link {{module2=='infobox'?'active':''}}" routerLink='/infobox'>
+          <li class="nav-item has-treeview">
+            <a  class="nav-link {{module2=='order'?'active':''}}" routerLink='/order'>
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                消息中心
+                订单管理
               </p>
             </a>
-          </li> -->
+          </li>
+          <li class="nav-item has-treeview">
+            <a  class="nav-link {{module2=='hexiao'?'active':''}}" routerLink='/hexiao'>
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                核销订单
+              </p>
+            </a>
+          </li>
           <!-- <li class="nav-header">EXAMPLES</li> -->
           <li class="nav-item">
             <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'>
