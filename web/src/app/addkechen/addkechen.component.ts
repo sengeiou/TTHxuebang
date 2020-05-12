@@ -35,20 +35,7 @@ export class AddkechenComponent extends AppBase {
       this.primary_id=this.params.id;
     }
      this.instApi.allinst({}).then((allinst:any)=>{
-       
-       var aa='';
-      for(let item of allinst){
-        aa+=item.id+',';
-        if(this.primary_id>0){
-
-        }else {
-          this.kcdetail.jg_id+=item.id+',';
-        }
-      }
-      if(aa.length==this.kcdetail.jg_id.length){
-        this.quanjigou=true;
-      }
-      this.jigoulen=aa.length;
+      
       this.allinst=allinst;
     })
     this.jigouApi.coursetype({}).then((coursetype:any)=>{
@@ -97,7 +84,6 @@ export class AddkechenComponent extends AppBase {
         this.kcdetail=kechendetail;
         this.lunbo=kechendetail.lunbo;
         this.kcdetail.labels=kechendetail.labels+',';
-        this.kcdetail.jg_id=kechendetail.jg_id+',';
 
       })
     }
@@ -317,7 +303,6 @@ export class AddkechenComponent extends AppBase {
     }
     json.status='A';
     json.isfenxiao=this.kcdetail.isfenxiao_value;
-    json.jg_id=this.kcdetail.jg_id.slice(0,this.kcdetail.jg_id.length-1);
     json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
     this.userbApi.addkechen(json).then((res:any)=>{
       if(res.code=='0'){

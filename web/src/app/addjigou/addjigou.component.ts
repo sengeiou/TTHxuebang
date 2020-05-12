@@ -85,7 +85,7 @@ export class AddjigouComponent extends AppBase {
   lablen=0;
   jgdetail={
     jigou:'',
-    time:'',
+    time:'9:00-18:00',
     jg_img:'',
     waitimg:'',
     jg_video:'',

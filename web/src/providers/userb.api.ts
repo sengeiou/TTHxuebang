@@ -97,6 +97,28 @@ export class UserbApi {
     }
 
 
+    public deletekc(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/deletekc';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/deletekc', data, err);
+            });
+    }
+
+
     public instdetail(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'userb/instdetail';
         var headers = ApiConfig.GetHeader(url, data);
@@ -159,6 +181,28 @@ export class UserbApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('userb/login', data, err);
+            });
+    }
+
+
+    public orderlist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/orderlist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/orderlist', data, err);
             });
     }
 
@@ -247,28 +291,6 @@ export class UserbApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('userb/xiugai', data, err);
-            });
-    }
-
-
-    public deletekc(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'userb/deletekc';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = { headers: headers };
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                return res;
-            })
-            .catch(err => {
-                console.error(err);
-                return ApiConfig.ErrorHandle('userb/deletekc', data, err);
             });
     }
 

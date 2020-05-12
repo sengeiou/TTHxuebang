@@ -41,7 +41,12 @@ export class KechenComponent extends AppBase {
     this.jigouApi.coursetype({}).then((coursetype:any)=>{
       this.coursetype=coursetype;
     })
+    this.instApi.allinst({}).then((allinst:any)=>{
+      
+      this.allinst=allinst;
+    })
   }
+  allinst=[];
   coursetype=[];
   name='';
   jg_id='';
@@ -55,16 +60,11 @@ export class KechenComponent extends AppBase {
     }
     this.userbApi.allcurriculum({
       name:this.name,
-      type:this.type
+      type:this.type,
+      jg_id:this.jg_id
     }).then((allcurriculum:any)=>{
-      var arr=[];
-      for(let item of allcurriculum){
-        if(item.jg_name.indexOf(this.jg_id)>-1){
-          arr.push(item);
-        }
-      }
-      this.allcurriculum=arr;
-      this.pagination(arr,arr.length);
+      this.allcurriculum=allcurriculum;
+      this.pagination(allcurriculum,allcurriculum.length);
     })
   }
   reset(){

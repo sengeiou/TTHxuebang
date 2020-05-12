@@ -51,20 +51,6 @@ export class CopykechenComponent extends AppBase {
       MainComponent.Instance.setModule("kechen", "");
     }
     this.instApi.allinst({}).then((allinst: any) => {
-
-      var aa = '';
-      for (let item of allinst) {
-        aa += item.id + ',';
-        if (this.primary_id > 0) {
-
-        } else {
-          this.kcdetail.jg_id += item.id + ',';
-        }
-      }
-      if (aa.length == this.kcdetail.jg_id.length) {
-        this.quanjigou = true;
-      }
-      this.jigoulen = aa.length;
       this.allinst = allinst;
     })
     this.jigouApi.coursetype({}).then((coursetype: any) => {
@@ -95,7 +81,6 @@ export class CopykechenComponent extends AppBase {
         this.kcdetail = kechendetail;
         this.lunbo = kechendetail.lunbo;
         this.kcdetail.labels = kechendetail.labels + ',';
-        this.kcdetail.jg_id = kechendetail.jg_id + ',';
 
       })
     
@@ -123,6 +108,7 @@ export class CopykechenComponent extends AppBase {
     teachermobile: '',
     purchasetype: '',
     isfenxiao: '',
+    isfenxiao_value:'',
     age: '',
     fenxiaobili: 0,
     showprice: '',
@@ -248,10 +234,10 @@ export class CopykechenComponent extends AppBase {
     }
   }
   changestatus2() {
-    if (this.kcdetail.isfenxiao == 'Y') {
-      this.kcdetail.isfenxiao = 'N';
+    if (this.kcdetail.isfenxiao_value == 'Y') {
+      this.kcdetail.isfenxiao_value = 'N';
     } else {
-      this.kcdetail.isfenxiao = 'Y'
+      this.kcdetail.isfenxiao_value = 'Y'
     }
   }
   lunbo = [];
@@ -302,7 +288,7 @@ export class CopykechenComponent extends AppBase {
       json.primary_id = this.primary_id;
     }
     json.status = 'A';
-    json.jg_id = this.kcdetail.jg_id.slice(0, this.kcdetail.jg_id.length - 1);
+    json.isfenxiao=this.kcdetail.isfenxiao_value;
     json.labels = this.kcdetail.labels.slice(0, this.kcdetail.labels.length - 1)
     this.userbApi.addkechen(json).then((res: any) => {
       if (res.code == '0') {

@@ -66,7 +66,7 @@ export class MainComponent extends AppBase {
   setModule(module, module2) {
     this.module = module;
     this.module2 = module2;
-    // this.refreshSummary();
+    this.refreshSummary();
   }
   recentunreadlist = [];
   infoboxsummary = {
