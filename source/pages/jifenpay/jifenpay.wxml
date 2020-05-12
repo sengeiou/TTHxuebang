@@ -1,0 +1,158 @@
+<!--pages/shopinfo/shopinfo.wxml-->
+
+
+<view class="bg-white">
+
+  <view class="mid_block flex-row flex-center" bindtap="xuanzedizhi">
+    <image src="{{uploadpath}}resource/{{res.diz}}" class="icon-zuobiao" style="margin-left:40rpx"></image>
+    <view class="flex-row column flex-1" style="margin-left:30rpx" wx:if="{{address_id!=0}}">
+      <view class="h5">收货人：{{addressinfo.name}} {{addressinfo.mobile}}</view>
+      <view class="h5 txt-6">{{addressinforegion}}{{addressinfo.address}}</view>
+    </view>
+    <view class="flex-row column flex-1" style="margin-left:30rpx" wx:if="{{address_id==0}}">
+      <view class="h5">选择收货人</view>
+    </view>
+    <view>
+      <image src="{{uploadpath}}resource/{{res.address_right}}" class="icon-zuobiao" style="margin-left:40rpx"></image>
+    </view>
+  </view>
+
+
+
+</view>
+
+
+
+
+<view class="shangpin margin-top-20 ">
+
+  <view class="flex-row margin-left-28">
+    <image src="{{uploadpath}}shop/{{info.imgs}}" class="icon-img"></image>
+
+    <view class=" flex-1" style="margin-left:36rpx;margin-right:36rpx;">
+      <view class="txt-bold" style="height:120rpx">{{info.name}}</view>
+      <view class="text-center" wx:if="{{info.label!=''}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{info.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.labelcolor}};margin-top:6rpx;'>{{info.label}}</view>
+    </view>
+    <view class="">
+      <view class="flex-row flex-bottom" wx:if="{{info.istopvalue_value=='Y'}}">
+        <view class="h5  margin-right-5">¥</view>
+        <view class="h4 ">{{info.price}}</view>
+      </view>
+      <view class="flex-row flex-bottom" wx:if="{{info.isscore_value=='Y'}}">
+        <view class="h4 ">{{info.interral}}积分</view>
+      </view>
+      <view class=" text-right h5" style="color:#B0B0B0;text-decoration:line-through">¥{{info.old_price}}</view>
+    </view>
+  </view>
+
+  <view class="flex-row flex-center margin-left-28 margin-top-10">
+    <view class="h6 flex-1" style="color:#B0B0B0">购买数量</view>
+    <view class="flex-1"></view>
+    <view class="jisuan jian {{shuliang<=1?'inactive':''}} flex-row flex-center" bindtap="jian">
+      <view class="flex-1"></view>
+      <view>-</view>
+      <view class="flex-1"></view>
+    </view>
+    <view class="shuliang text-center">{{shuliang}}</view>
+    <view class="jisuan jia flex-row flex-center" bindtap="jia">
+      <view class="flex-1"></view>
+      <view>+</view>
+      <view class="flex-1"></view>
+    </view>
+  </view>
+  <view class="margin-left-28 margin-top-10" style="height:1px;background:#F5F5F5"></view>
+  <view class="flex-row flex-center margin-left-28 margin-top-10">
+    <view class="h6 flex-1" style="color:#B0B0B0">运费（快递）</view>
+    <view class="h6">免运费</view>
+  </view>
+
+  <view class="margin-left-28 margin-top-10" style="height:1px;background:#F5F5F5"></view>
+
+  <view class="flex-row flex-bottom margin-left-28 margin-top-10">
+    <view class="flex-1"></view>
+    <view class="h6  margin-right" style="color:#B0B0B0">共{{shuliang}}件商品 共计: </view>
+    <view class="h5 txt-red margin-right-5" wx:if="{{info.istopvalue_value=='Y'}}">¥</view>
+    <view class="h4 txt-red " wx:if="{{info.istopvalue_value=='Y'}}">{{shuliang*info.price}}</view><view class="h4 txt-red " wx:if="{{info.isscore_value=='Y'}}">{{shuliang*info.interral}}积分</view>
+  </view>
+
+
+</view>
+
+
+<view class="bottom">
+  <view class="flex-row flex-center" wx:if="{{info.istopvalue_value=='Y'}}">
+    <view class="flex-1"></view>
+    <view class="margin-right" >
+      <view class="flex-row flex-bottom">
+        <view style="h6 " style="color:#B0B0B0">应付总额：</view>
+        <view class="h6  margin-right-5 txt-price">¥</view>
+        <view class="h4  txt-price">{{shuliang*info.price}}</view>
+      </view>
+      <view  style="color:#B0B0B0" class="text-right h6">共{{shuliang}}件商品</view>
+    </view>
+    <view style="margin-right:24rpx;">
+      <view class="paybtn txt-white text-center" bindtap="pay" >提交订单</view>
+    </view>
+  </view>
+  <view class="flex-row flex-center" wx:if="{{info.isscore_value=='Y'}}">
+    <view class="flex-1"></view>
+    <view class="margin-right" >
+      <view class="flex-row flex-bottom">
+        <view style="h6 " style="color:#B0B0B0">应付总额：</view>
+        <view class="h6  margin-right-5 txt-price">
+          <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10"></image>
+        </view>
+        <view class="h4  txt-price" style="color:#FFBA12">{{shuliang*info.interral}}</view>
+      </view>
+      <view  style="color:#B0B0B0" class="text-right h6">共{{shuliang}}件商品</view>
+    </view>
+    <view style="margin-right:24rpx;">
+      <view class="paybtn txt-white text-center" bindtap="duihuan" >确认兑换</view>
+    </view>
+  </view>
+</view>
+
+<view class="bg" wx:if="{{showduihuanqueren==true}}">
+  <view class="flex-row flex-center h100">
+    <view class="flex-1 h100" ></view>
+    <view class="sel">
+      <view class="text-center">
+        <image mode="widthFix" class="querenduihuan" src="{{uploadpath}}resource/{{res.querenduihuan}}"></image>
+      </view>
+      <view class="flex-row flex-bottom t1">
+        <view class="flex-1"></view>
+        <view class="margin-right-5">使用</view>
+        <view class="txt-price">{{shuliang*info.interral}}积分</view>
+        <view class="margin-left-5">进行兑换</view>
+        <view class="flex-1"></view>
+      </view>
+      <view class="flex-row flex-center t2">
+        <view class="flex-1 text-center qx" bindtap="quxiaoduihuan">取消</view>
+        <view class="gehe"></view>
+        <view class="flex-1 text-center qr" bindtap="qurenduihuan">确认</view>
+      </view>
+    </view>
+    <view class="flex-1 h100" ></view>
+  </view>
+</view>
+
+
+<view class="bg"  wx:if="{{showerror==true}}">
+  <view class="flex-row flex-center h100">
+    <view class="flex-1 h100" ></view>
+    <view class="sel">
+      <view class="text-center">
+        <image mode="widthFix" class="querenduihuan" src="{{uploadpath}}resource/{{res.jifenbugou}}"></image>
+      </view>
+      <view class="flex-row flex-bottom t1">
+        <view class="flex-1"></view>
+        <view >{{errorreturn}}</view>
+        <view class="flex-1"></view>
+      </view>
+      <view class="flex-row flex-center t2">
+        <view class="flex-1 text-center qr" bindtap="quxiaoduihuan">取消</view>
+      </view>
+    </view>
+    <view class="flex-1 h100" ></view>
+  </view>
+</view>

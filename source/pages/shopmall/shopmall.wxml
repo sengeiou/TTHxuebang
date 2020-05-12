@@ -31,22 +31,22 @@
 <view style='height:88rpx;'></view>
 
 <view class='flex-row flex-wrap' wx:if='{{show=="all"}}'>
-  <view wx:for='{{list}}' wx:key='k'>
+  <view wx:for='{{topvaluelist}}' wx:key='k'>
     <view class='hezi' bindtap="todetails" id="{{item.id}}">
       <image class='img' src='{{uploadpath}}shop/{{item.imgs}}'></image>
 
       <view class="padding">
         <view class='  txt-bold f13 chaochu' style="width:300rpx;max-height:85rpx;margin-left:12rpx;">{{item.name}}</view>
-        <view class='' style='width:80rpx;height:28rpx;border:1px solid #FF6600;font-size:20rpx;border-radius:4rpx;color:#FF6600;margin-top:6rpx;margin-left:12rpx;'>今日特惠</view>
-        <view class='flex-row flex-center  margin-top-6'>
+        <view class='text-center' style='width:80rpx;height:28rpx;border:1px solid {{item.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.labelcolor}};margin-top:6rpx;margin-left:12rpx;'>{{item.label}}</view>
+        <view class='flex-row flex-bottom  margin-top-6'>
           <!-- <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image> -->
-
-          <view class=" txt9 h5 margin-left-5" style='color:#DE0000;padding:0;'>￥{{item.interral}}</view>
-
-
-          <view class="h6 margin-right-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}元</view>
-          <view style='color:#999999;height:28rpx;width:72rpx;font-size:20rpx;margin-left:100rpx;'>库存33</view>
+          <view class=" h7 " style="color:#DE0000;margin-left:12rpx;">￥</view>
+          <view class=" txt9 h5" style='color:#DE0000;'>{{item.price}}</view>
+          <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">￥{{item.old_price}}</view>
+          <view class="flex-1"></view>
+          <view class="margin-right" style='color:#999999;height:28rpx;font-size:20rpx;'>库存{{item.inventory}}</view>
         </view>
+        <view style="height:10rpx;"></view>
       </view>
     </view>
   </view>
@@ -64,38 +64,38 @@
   </view>
   <view>
     <view class='toubu'>
-      <view class='flex-row margin-left-20 margin-top-32'>
+      <view class='flex-row flex-center margin-left-20 margin-top-32'>
         <view>
           <image class='jf-icon margin-top-35' src='{{uploadpath}}resource/{{res.jf_icon}}' style='width:48rpx;height:40rpx;margin-right:15rpx;margin-left:10rpx;'></image>
         </view>
-        <view class='txt-bold margin-left-10' style='color:#222222 font-size:32rpx;margin-top:5rpx;margin-right:85px;'>{{memberinfo.integral}}</view>
-
+        <view class='txt-bold margin-left-10 flex-1' >{{memberinfo.integral}}</view>
         <view class='sz flex-row _center' bindtap="toshouzhi">
 
 
           <view class='flex-row'>
             <image class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}'></image>
           </view>
-          
+
           <view class='margin-left-10 h5' style=' '>收支明细</view>
         </view>
-        <view class='sz flex-row _center' bindtap="toorder">
-        <view>
-          <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
+        <view class='sz flex-row _center margin-right' bindtap="toorder">
+          <view>
+            <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
+          </view>
+          <view>
+            <view class='margin-left-10 h5' style=' '>我的兑换</view>
+          </view>
         </view>
-        <view>
-          <view class='margin-left-10 h5' style=' '>我的兑换</view>
-        </view>
-      </view>
       </view>
 
-      
+
     </view>
   </view>
 
 
   <view class='flex-row flex-wrap'>
-    <view wx:for='{{list}}' wx:key='k'>
+  
+    <view wx:for='{{scrolllist}}' wx:key='k'>
       <view class='hezi' bindtap="todetails" id="{{item.id}}">
         <image class='img' src='{{uploadpath}}shop/{{item.imgs}}'></image>
 

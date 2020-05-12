@@ -12,28 +12,25 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '我的兑换',
+      title: '学榜商城',
     });
   }
   onLoad(options) {
+    //options.id = 361;
     this.Base.Page = this;
-    // options.id=2;
     super.onLoad(options);
   }
   onMyShow() {
     var that = this;
     var jifenapi = new JifenApi();
-    jifenapi.jifenorderinfo({id:this.Base.options.id}, (info) => {
+    jifenapi.jifenorderinfo({ id: this.Base.options.id }, (info) => {
       this.Base.setMyData({ info })
     })
   }
-  towuliu(e){
-    var id=e.currentTarget.id;
-    wx.navigateTo({
-      url: '/pages/wuliu/wuliu?id='+id
-    })
+  towuliu(e) {
+    var id = e.currentTarget.id;
   }
-  shouhuo(e){
+  shouhuo(e) {
     var that = this;
     var id = e.currentTarget.id;
     var jifenapi = new JifenApi();
@@ -62,38 +59,21 @@ class Content extends AppBase {
     });
   }
 
-  submit(){
+  submit() {
 
   }
 
-  shouhou(){
-    this.Base.setMyData({ showshouhou:true});
-  }
-  fz() {
-    this.Base.setMyData({ showshouhou: false });
-    wx.setClipboardData({
-      //准备复制的数据
-      data: "xuebanggz",
-      success: function (res) {
-        wx.showToast({
-          title: '复制成功',
-        });
-      }
-    });
-
-  }
-  qx() {
-
-    this.Base.setMyData({ showshouhou: false });
+  gotoOrder(){
+    wx.navigateTo({
+      url: '/pages/jifenorderinfo/jifenorderinfo?id='+this.Base.options.id,
+    })
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
-body.towuliu = content.towuliu; 
-body.shouhuo = content.shouhuo; 
-body.shouhou = content.shouhou;
-body.fz = content.fz;
-body.qx = content.qx;
+body.towuliu = content.towuliu;
+body.shouhuo = content.shouhuo;
+body.gotoOrder = content.gotoOrder;
 Page(body)

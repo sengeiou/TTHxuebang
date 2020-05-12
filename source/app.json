@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/jifenpaysuccess/jifenpaysuccess",
+    "pages/jifenpay/jifenpay",
     "pages/groupinfo/groupinfo",
-    
     "pages/xuebang/xuebang",
     "pages/auth/auth",
     "pages/baomin/baomin",

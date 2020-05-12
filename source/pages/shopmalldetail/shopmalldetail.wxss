@@ -71,3 +71,24 @@ Page {
 .padding-8{
  margin: 30rpx 16rpx 30rpx 16rpx;
 }
+
+
+.fixedBottom{
+  position: fixed;
+  width: 100vw;
+  bottom: 0px;
+  left: 0px;
+}
+
+.shopbtn{
+  padding:14rpx 24rpx 14rpx 0rpx;
+}
+
+.shopbtn .btn{
+  background: #FF6600;
+  height: 72rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: white;
+  border-radius: 36rpx;
+}

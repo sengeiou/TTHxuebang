@@ -21,7 +21,7 @@
       <view class='hezi' bindtap="bindcheck" id="{{item.id}}">
         <view class='flex-row flex-center'>
 
-          <view wx:if='{{type==""||type==undefined}}'>
+          <view class="margin-right" wx:if='{{type==""||type==undefined}}'>
             <image src="{{uploadpath}}resource/{{res.weixuan}}" wx:if='{{check!=item.id}}' class="icon-12"></image>
             <image src="{{uploadpath}}resource/{{res.xuanzhong}}" wx:if='{{check==item.id}}' class="icon-12"></image>
           </view>
