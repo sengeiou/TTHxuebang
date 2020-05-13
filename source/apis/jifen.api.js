@@ -457,7 +457,7 @@ export class JifenApi{
         })
     }
 
-    wuliu(json, callback, showLoading = true) {
+  prepay(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -466,7 +466,7 @@ export class JifenApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'jifen/wuliu',
+          url: ApiConfig.GetApiUrl() + 'jifen/prepay',
             data: json,
             method: 'POST',
             dataType: 'json',

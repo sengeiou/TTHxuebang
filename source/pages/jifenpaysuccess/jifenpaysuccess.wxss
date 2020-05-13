@@ -1,0 +1,29 @@
+/* pages/jifenpaysuccess/jifenpaysuccess.wxss */
+.t1{
+  margin-top: 80rpx;
+  font-size: 40rpx;
+  color:#FFC200;
+  font-weight: 400;
+}
+.t2{
+  color:#222222;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+
+.pt{
+  width:206px;
+  margin-top: 54rpx;
+}
+.t3{
+  margin-top: 54rpx;
+}
+.btn{
+  height: 80rpx;
+  background:rgba(255,102,0,1);
+  border-radius:40rpx;
+}
+.btn view{
+  color:white;
+  font-size: 30rpx;
+}

@@ -85,8 +85,8 @@
 
     <swiper indicator-dots='true' autoplay='false' interval='5000' duration='200' current="{{indexcurrent}}" circular='true' style='width:710rpx;height:354rpx;'>
       <swiper-item wx:for="{{indexbanner}}" wx:key="k">
-     
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}"  class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
+
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style="width:710rpx;height:354rpx; " bindtap='bannerGo' id="{{item.id}}" class='lb {{item}} {{currentItemId == index ? "selected" : ""}}'></image>
       </swiper-item>
     </swiper>
 
@@ -114,7 +114,7 @@
 
 <!-- 修改后 -->
 
-<swiper indicator-dots='true'  style="height: 300rpx" class=" ">
+<swiper indicator-dots='true' style="height: 300rpx" class=" ">
 
   <swiper-item class=" flex-row flex-center flex-wrap">
 
@@ -180,7 +180,7 @@
 
 
 
-<view class='scv'  wx:if="{{false}}">
+<view class='scv' wx:if="{{false}}">
   <scroll-view scroll-x style=" " class='ss' bindscroll="scroll">
 
     <view wx:for='{{indexlist}}' wx:key='k' bindtap='toceshi' id='{{item.id}}' class='ceshi flex-row column' style='background-image:url({{uploadpath}}pingceindex/{{item.listimg}});background-size:100% 100%;'>
@@ -529,81 +529,140 @@
 
                 </view>
 
+                <block hidden='{{jgvteach.length==0}}' wx:for='{{jgvteach}}' wx:key='k' wx:for-index="jgidx">
+                  <view id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
+                    <view class=' padding-20' style=''>
+                      <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+                    </view>
+                    <view class='midt flex-row'>
+                      <view class='flex-1'></view>
+                      <view class='mid radius-10'>
+                        <view class=''>
+                          <view class=' bg-white   margin-bottom-10'>
 
-                <view hidden='{{jgvteach.length==0}}' wx:for='{{jgvteach}}' wx:key='k' id='{{item.id}}' bindtap='tojgdetails' style='position: relative;height:564rpx ;' class=''>
-                  <view class=' padding-20' style=''>
-                    <image lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
-                  </view>
-                  <view class='midt flex-row'>
-                    <view class='flex-1'></view>
-                    <view class='mid radius-10'>
-                      <view class=''>
-                        <view class=' bg-white   margin-bottom-10'>
+                            <view class='padding-20 '>
 
-                          <view class='padding-20 '>
+                              <view class='flex-row flex-center'>
+                                <!-- <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view> -->
 
-                            <view class='flex-row flex-center'>
-                              <!-- <view class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</view> -->
-
-                              <view class="flex-row flex-center flex-1 ">
-                                <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
-                                <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}"></image>
-                              </view>
-
-                              <view class="starbox text-right">
-                                <view class="stars" style="width: 100%;">
-                                  <view class=" ims">
-                                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
-                                  </view>
+                                <view class="flex-row flex-center flex-1 ">
+                                  <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{item.jigou}}</view>
+                                  <image src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10" wx:if="{{item.renzhen=='是'}}"></image>
                                 </view>
 
-                                <view class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
-                                  <view class="ims">
-                                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                                    <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                <view class="starbox text-right">
+                                  <view class="stars" style="width: 100%;">
+                                    <view class=" ims">
+                                      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                                    </view>
                                   </view>
+
+                                  <view class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                                    <view class="ims">
+                                      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                      <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                                    </view>
+                                  </view>
+
                                 </view>
 
+
                               </view>
 
 
-                            </view>
-
-
-                            <view class='flex-row flex-center margin-top-5'>
-                              <view class='flex-row flex-1'>
-                                <view class='  radius-10 txt-green h6 biaoqian text-center margin-right' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' wx:if='{{idx<3}}'>{{litem.name}}</view>
+                              <view class='flex-row flex-center margin-top-5'>
+                                <view class='flex-row flex-1'>
+                                  <view class='  radius-10 txt-green h6 biaoqian text-center margin-right' style='border:1rpx solid {{litem.color}};color:{{litem.color}}' wx:for="{{item.labels}}" wx:key="k" wx:for-item='litem' wx:for-index='idx' wx:if='{{idx<3}}'>{{litem.name}}</view>
+                                </view>
+                                <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
                               </view>
-                              <view class='h6 txt-gray'>已预约{{item.people_num}}人</view>
+
+
+                              <view class='flex-row flex-center margin-top-5'>
+                                <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
+                                <view class='flex-1 h5 txt-black dizhi'>{{item.showaddress}}</view>
+                                <view class='h6 '>{{item.miletxt}}</view>
+                              </view>
+
+
+
                             </view>
-
-
-                            <view class='flex-row flex-center margin-top-5'>
-                              <!-- <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image> -->
-                              <view class='flex-1 h5 txt-black dizhi'>{{item.showaddress}}</view>
-                              <view class='h6 '>{{item.miletxt}}</view>
-                            </view>
-
-
 
                           </view>
-
                         </view>
                       </view>
+                      <view class='flex-1'></view>
                     </view>
-                    <view class='flex-1'></view>
+
+
+                  </view>
+                  <view bindtap="togoods" wx:if="{{jgidx%goodsinterval==0&&topvaluelist[jgidx/goodsinterval]!=undefined}}" id='{{topvaluelist[jgidx/goodsinterval].id}}' style='position: relative;height:564rpx ;' class=''>
+                    <view class=' padding-20' style=''>
+                      <image lazy-load='{{true}}' src='{{uploadpath}}shop/{{topvaluelist[jgidx/goodsinterval].top_img}}?x-oss-process=style/test_img' class=' radius-10 ' style='width:100%;height:390rpx'></image>
+                    </view>
+                    <view class='midt flex-row'>
+                      <view class='flex-1'></view>
+                      <view class='mid radius-10'>
+                        <view class=''>
+                          <view class=' bg-white   margin-bottom-10'>
+
+                            <view class='padding-20 '>
+
+                              <view class='flex-row flex-center'>
+                                <!-- <view class='txt-black txt-bold flex-1 chaochu'>{{topvaluelist[jgidx/goodsinterval].jigou}}</view> -->
+
+                                <view class="flex-row flex-center flex-1 ">
+                                  <view class='txt-black txt-bold  chaochu' style="max-width:400rpx;">{{topvaluelist[jgidx/goodsinterval].name}}</view>
+                                </view>
+
+
+
+
+                              </view>
+
+
+                              <view class='flex-row flex-center margin-top-5'>
+                                <view class='flex-row flex-1'>
+                                  <view class='  radius-10 txt-green h6 biaoqian text-center margin-right' style='border:1rpx solid {{topvaluelist[jgidx/goodsinterval].labelcolor}};color:{{topvaluelist[jgidx/goodsinterval].labelcolor}}'>{{topvaluelist[jgidx/goodsinterval].label}}</view>
+                                </view>
+                              </view>
+
+
+                              <view class='flex-row flex-bottom  margin-top-5'>
+                                <!-- <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image> -->
+                                <view class=" h7 " style="color:#DE0000;">￥</view>
+                                <view class=" txt9 h5" style='color:#DE0000;'>{{topvaluelist[jgidx/goodsinterval].price}}</view>
+                                <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">￥{{topvaluelist[jgidx/goodsinterval].old_price}}</view>
+                                <view class="flex-1"></view>
+                                <view class="flex-row flex-center">
+                                  <view class="margin-right">
+                                    <image src="{{uploadpath}}resource/{{res.kucun}}" class="icon-15"></image>
+                                  </view>
+                                  <view  style='color:#999999;height:28rpx;font-size:20rpx;'>库存{{topvaluelist[jgidx/goodsinterval].inventory}}</view>
+                                </view>
+                              </view>
+
+
+
+                            </view>
+
+                          </view>
+                        </view>
+                      </view>
+                      <view class='flex-1'></view>
+                    </view>
+
+
                   </view>
 
-
-                </view>
-
+                </block>
 
 
               </view>

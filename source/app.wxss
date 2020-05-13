@@ -1,6 +1,6 @@
 /**app.wxss**/
-
 @import "wxParse/wxParse.wxss";
+
 /* .ceshi{
   border:1px solid red;
 } */
@@ -11,9 +11,9 @@ page {
 
 .clear-contact {
   position: absolute;
-  opacity: 0; 
+  opacity: 0;
 }
- 
+
 /* .clear-contact-debug {
   opacity: 1;
   background: orange;
@@ -28,12 +28,14 @@ page {
   border: 0rpx red solid;
   border-color: red;
 }
+
 .to_top {
   position: fixed;
   bottom: 25%;
   right: 8rpx;
   z-index: 100;
 }
+
 .clear-button::after {
   border: 0;
   background-color: transparent;
@@ -58,7 +60,7 @@ view, navigator, input, text, textarea {
   font-size: 32rpx;
   font-weight: 350;
   color: black;
- font-family:PingFangSC-Regular;
+  font-family: PingFangSC-Regular;
 }
 
 .flex-row {
@@ -205,6 +207,10 @@ view, navigator, input, text, textarea {
   font-weight: 350;
 }
 
+.txt-price {
+  color: #de0000;
+}
+
 .txt-red {
   color: #ff5733;
 }
@@ -224,8 +230,9 @@ view, navigator, input, text, textarea {
 .txt-6 {
   color: #666;
 }
+
 .txt-9 {
-  color: #999999;
+  color: #999;
 }
 
 .nowrap {
@@ -491,10 +498,10 @@ button[disabled][type=primary] {
 .margin-top-20 {
   margin-top: 20rpx;
 }
+
 .margin-top-15 {
   margin-top: 15rpx;
 }
-
 
 .margin-top-30 {
   margin-top: 30rpx;
@@ -691,15 +698,17 @@ button[disabled][type=primary] {
   width: 120rpx;
   height: 120rpx;
 }
-.to_top .icon-50 {
-width: 132rpx;
-  height: 132rpx;
 
+.to_top .icon-50 {
+  width: 132rpx;
+  height: 132rpx;
 }
-.icon-55{
+
+.icon-55 {
   width: 130rpx;
   height: 130rpx;
 }
+
 .icon-60 {
   width: 120rpx;
   height: 120rpx;
@@ -724,6 +733,7 @@ width: 132rpx;
   width: 300rpx;
   height: 300rpx;
 }
+
 .icon-170 {
   width: 340rpx;
   height: 340rpx;
@@ -792,14 +802,13 @@ width: 132rpx;
   -webkit-line-clamp: 5;
   line-clamp: 5;
   -webkit-box-orient: vertical; */
-
   display: -webkit-box;
-overflow: hidden;
-text-overflow: ellipsis;
-word-wrap: break-word;
-white-space: normal !important;
--webkit-line-clamp: 6;
--webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
 }
 
 ._center {
@@ -808,15 +817,14 @@ white-space: normal !important;
   align-items: center;
 }
 
-.chaochu3{
- text-overflow: -o-ellipsis-lastline;
+.chaochu3 {
+  text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
-
 }
 
 .starbox {

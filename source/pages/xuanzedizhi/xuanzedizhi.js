@@ -27,8 +27,7 @@ class Content extends AppBase {
   onMyShow() {
     var that = this; 
  
-    var addressapi = new AddressApi();
-    
+    var addressapi = new AddressApi();   
     addressapi.addresslist({ member_id:this.Base.getMyData().memberinfo.id   }, (addresslist) => {
       this.Base.setMyData({ addresslist })
     })
@@ -57,6 +56,28 @@ class Content extends AppBase {
     })
   }
   queren(e){
+
+    if (this.Base.getMyData().check == null) {
+      this.Base.toast("请选择地址");
+      return;
+    }
+
+    if (this.Base.options.selectback == 'Y') {
+
+      var pages = getCurrentPages(); // 获取页面栈
+      var currPage = pages[pages.length - 1]; // 当前页面
+      var prevPage = pages[pages.length - 2]; // 上一个页面
+      prevPage.setData({
+        address_id: this.Base.getMyData().check
+      })
+      wx.navigateBack({
+        
+      })
+
+      return;
+    }
+
+
     var jifen = this.Base.options.interral;
 
 
@@ -71,10 +92,7 @@ class Content extends AppBase {
   
 
     var shuliang = this.Base.options.shuliang;
-    if(this.Base.getMyData().check==null){
-      this.Base.toast("请选择地址");
-      return;
-    }
+    
     
     this.Base.setMyData({
       show: true, xiaofei: jifen * shuliang
@@ -82,6 +100,8 @@ class Content extends AppBase {
 
   }
   quedin(e){
+    
+    
     
     console.log(this.Base.getMyData().info.inventory);
     //return;

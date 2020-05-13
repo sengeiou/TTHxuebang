@@ -138,7 +138,8 @@ export class AppBase {
       recorderManager: base.recorderManager,
       backtotop: base.backtotop,
       gotoBottom: base.gotoBottom,
-
+      confirm: base.confirm,
+      
 
 
     }
@@ -226,6 +227,20 @@ export class AppBase {
     })
 
 
+  }
+
+  confirm(title,callback){
+    wx.showModal({
+      title: '提示',
+      content: title,
+      confirmText: "确定",
+      success: function (res) {
+        if (res.confirm) {
+          callback();
+        } else {
+        }
+      }
+    })
   }
 
   gotoOpenUserInfoSetting() {

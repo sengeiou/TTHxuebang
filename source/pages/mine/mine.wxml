@@ -116,13 +116,8 @@
   </view>
 </view> -->
 
-<view class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
-  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class="h6 margin-left-10">可用积分：</view>
-  <view class="flex-1 f18 " style="color:#FFA822">{{memberinfo.integral}}</view>
-  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class="h6 margin-left-10">积分商城</view>
-  <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}'></image>
+<view class="margin-20 " bindtap='todetails' data-name='jfsc'>
+  <image mode="widthFix" style="width:100%" src='{{uploadpath}}resource/{{res.xuebangshangcheng}}'></image>
 </view>
 
 

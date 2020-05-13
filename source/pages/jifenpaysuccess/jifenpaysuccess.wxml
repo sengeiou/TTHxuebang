@@ -1,0 +1,27 @@
+<view class="t1 text-center">
+{{info.paytype=='X'?"已成功购买":"兑换已完成"}}
+</view>
+
+<view class="t2 text-center text-center">
+{{info.name}}
+</view>
+<view class="text-center">
+  <image class="pt" mode="widthFix" src="{{uploadpath}}resource/{{res.yigoumaiimg}}"></image>
+</view>
+<view class="t3">
+  <view class="flex-row">
+    <view style="width:48rpx"></view>
+    <view class="flex-row flex-center flex-1 btn" bindtap="gotoOrder">
+      <view class="flex-1"></view>
+      <view>查看我的订单</view>
+      <view class="flex-1"></view>
+    </view>
+    <view style="width:20rpx"></view>
+    <view class="flex-row flex-center flex-1 btn" bindtap="backHome">
+      <view class="flex-1"></view>
+      <view>继续购买</view>
+      <view class="flex-1"></view>
+    </view>
+    <view style="width:48rpx"></view>
+  </view>
+</view>

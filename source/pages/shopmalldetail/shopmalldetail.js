@@ -61,7 +61,7 @@ jia(e){
 }
 jian(e){
   var shuliang = this.Base.getMyData().shuliang;
-  shuliang--
+  shuliang--;
   if (shuliang<=0){
     wx.showToast({
       title: '至少兑换一个',
@@ -110,7 +110,12 @@ jian(e){
     })
 
   }
+  createInfo(){
+    wx.navigateTo({
+      url: '/pages/jifenpay/jifenpay?id='+this.Base.options.id,
+    })
 
+  }
 
 
 }
@@ -123,7 +128,8 @@ body.toduihuan = content.toduihuan;
 body.close = content.close; 
 body.next = content.next;
 
-body.jia = content.jia;
+body.jia = content.jia; 
 body.jian = content.jian;
+body.createInfo = content.createInfo;
 
 Page(body)
