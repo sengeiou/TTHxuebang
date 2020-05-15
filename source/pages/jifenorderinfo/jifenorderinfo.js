@@ -12,7 +12,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '我的兑换',
+      title: '我的订单',
     });
   }
   onLoad(options) {

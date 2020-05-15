@@ -1,5 +1,4 @@
 <!--pages/shopinfo/shopinfo.wxml-->
-<back-component></back-component>
 <block wx:if="{{info!=undefined}}">
 
   <view class="top_block flex-row flex-center ">
@@ -31,10 +30,12 @@
 
   <view class="shangpin margin-top-20 ">
 
-    <navigator class="flex-row margin-left-28" url="/pages/shopmalldetail/shopmalldetail?id={{info.id}}">
+    <navigator class="flex-row margin-left-28" url="/pages/shopmalldetail/shopmalldetail?id={{info.goods_id}}">
       <image src="{{uploadpath}}shop/{{info.img}}" class="icon-img"></image>
-
-      <view class="txt-bold flex-1" style="margin-left:36rpx;"> {{info.name}}</view>
+<view class=" flex-1" style="margin-left:36rpx;margin-right:36rpx;">
+      <view class="txt-bold" style="height:120rpx">{{info.name}}</view>
+      <view class="text-center"  wx:if="{{info.goods_label!=''&&info.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{info.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.goods_labelcolor}};margin-top:6rpx;'>{{info.goods_label}}</view>
+    </view>
       <view class="flex-row column">
         <view class="h6" wx:if="{{info.paytype!='X'}}">{{info.danjia}} 积分</view>
         <view class="h6" wx:if="{{info.paytype=='X'}}">¥{{info.payamount}}</view>
@@ -109,7 +110,7 @@
       </view>
 
       <view wx:if='{{info.orderstatus=="C"}}' id="{{info.id}}" bindtap="shouhou" class="btn text-center margin-top-10 margin-right-28">
-        查看售后
+        商品售后
       </view>
     </view>
   </view>

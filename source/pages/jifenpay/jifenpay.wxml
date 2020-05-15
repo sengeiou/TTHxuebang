@@ -7,7 +7,7 @@
     <image src="{{uploadpath}}resource/{{res.diz}}" class="icon-zuobiao" style="margin-left:40rpx"></image>
     <view class="flex-row column flex-1" style="margin-left:30rpx" wx:if="{{address_id!=0}}">
       <view class="h5">收货人：{{addressinfo.name}} {{addressinfo.mobile}}</view>
-      <view class="h5 txt-6">{{addressinforegion}}{{addressinfo.address}}</view>
+      <view class="h5 txt-6">{{addressinfo.region}}{{addressinfo.address}}</view>
     </view>
     <view class="flex-row column flex-1" style="margin-left:30rpx" wx:if="{{address_id==0}}">
       <view class="h5">选择收货人</view>

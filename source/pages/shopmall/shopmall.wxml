@@ -83,7 +83,7 @@
             <image class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}'></image>
           </view>
           <view>
-            <view class='margin-left-10 h5' style=' '>我的兑换</view>
+            <view class='margin-left-10 h5' style=' '>我的订单</view>
           </view>
         </view>
       </view>

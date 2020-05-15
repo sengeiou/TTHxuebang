@@ -62,7 +62,6 @@
   width: 148rpx;
   height: 52rpx;
   font-size: 22rpx;
-  line-height: 52rpx;
   border-radius: 30rpx;
   border: 1px solid rgba(204, 204, 204, 1);
 }
@@ -87,7 +86,6 @@
 }
 
 .jisuan view {
-  line-height: 1;
   font-size: 28rpx;
 }
 

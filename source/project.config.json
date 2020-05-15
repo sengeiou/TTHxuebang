@@ -83,6 +83,13 @@
 					"pathName": "pages/jifenorderinfo/jifenorderinfo",
 					"query": "id=363",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jifenorder/jifenorder",
+					"pathName": "pages/jifenorder/jifenorder",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

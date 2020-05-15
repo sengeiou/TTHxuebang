@@ -24,7 +24,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '我的兑换'
+      title: '提交订单'
     });
   }
   onLoad(options) {
@@ -82,7 +82,7 @@ class Content extends AppBase {
               //{errMsg: "requestPayment:ok"}
               if (e.errMsg == "requestPayment:ok") {
                 wx.redirectTo({
-                  url: '/pages/jifenpaysuccess/jifenpaysuccess?paytype=X&id=' + ret.reutrn,
+                  url: '/pages/jifenpaysuccess/jifenpaysuccess?paytype=X&id=' + ret.return,
                 })
               }
             }
