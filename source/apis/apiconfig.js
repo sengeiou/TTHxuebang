@@ -1,14 +1,14 @@
 export class ApiConfig {
 
   static GetApiUrl() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
+    return "https://tthxb2.artxb.cn/api/";
   }
 
   static GetUploadPath() {
-    return "https://alioss.app-link.org/alucard263096/tthxb/";
+    return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
   }
   static GetFileUploadAPI() {
-    return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
+    return "https://tthxb2.artxb.cn/fileupload";
   }
 
   // static GetUploadurl(){

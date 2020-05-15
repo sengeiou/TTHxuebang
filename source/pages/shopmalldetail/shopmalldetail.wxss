@@ -17,14 +17,12 @@ Page {
 .duihuan {
   width: 610rpx;
   height: 84rpx;
-  line-height: 84rpx;
   background: rgba(255, 102, 0, 1);
   border-radius: 42rpx;
 }
 .wukucun {
   width: 610rpx;
   height: 84rpx;
-  line-height: 84rpx;
   background: rgb(207, 206, 205);
   border-radius: 42rpx;
 }
@@ -91,4 +89,64 @@ Page {
   font-size: 28rpx;
   color: white;
   border-radius: 36rpx;
+}
+
+
+
+
+.bg{
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  left: 0px;
+  top: 0px;
+}
+.h100{
+  height: 100%;
+}
+
+.sel{
+  width: 540rpx;
+  padding:14rpx;
+  border-radius: 8rpx;
+  background: white;
+}
+.sel .querenduihuan{
+  margin-top: 100rpx;
+  width:300rpx;
+}
+.t1{
+  margin-top: 34rpx;
+}
+.t1 view{
+  font-size: 32rpx;
+}
+.t1 .txt-price{
+  color:#FF6600;
+  font-weight: 400;
+  font-size: 40rpx;
+}
+
+.t2{
+
+  margin-top: 60rpx;
+}
+
+.gehe{
+  width: 1rpx;
+  height: 96rpx;
+  background: #F5F6F8;
+}
+
+.qx{
+  color:#CCCCCC;
+  font-size: 30rpx;
+  height: 96rpx;
+}
+.qr{
+  color:#FF6600;
+  font-size: 30rpx;
+  height: 96rpx;
 }

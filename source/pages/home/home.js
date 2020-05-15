@@ -930,7 +930,11 @@ class Content extends AppBase {
     })
   }
 
-
+  tomall(){
+    wx.navigateTo({
+      url: '/pages/shopmall/shopmall' 
+    })
+  }
 }
 
 var content = new Content();
@@ -979,4 +983,5 @@ body.xiaoxiliebiao = content.xiaoxiliebiao;
 body.qiehuan = content.qiehuan; 
 body.togoods = content.togoods;
 body.closeimage = content.closeimage;
+body.tomall = content.tomall;
 Page(body)

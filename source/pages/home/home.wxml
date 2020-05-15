@@ -118,6 +118,11 @@
 
   <swiper-item class=" flex-row flex-center flex-wrap">
 
+    <view class="flex-row flex-column lesson-width " bindtap='tomall' data-name='jg'>
+      <image src="{{uploadpath}}resource/{{res.topvalue}}" class="icon26"></image>
+      <view class="h6">特惠好物</view>
+    </view>
+
     <view class="flex-row flex-column lesson-width " bindtap='totake' data-name='jg'>
       <image src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26"></image>
       <view class="h6">找机构</view>
@@ -128,7 +133,7 @@
       <view class="h6">找课程</view>
     </view>
 
-    <view class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<8}}'>
+    <view class="flex-row flex-column lesson-width {{idx>3?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<7}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>

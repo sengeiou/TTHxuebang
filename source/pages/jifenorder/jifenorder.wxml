@@ -57,33 +57,30 @@
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
-        <view style="height:60rpx"></view>
-
-        <view class="flex-row flex-center">
+        <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
           <view class="" style="font-size:22rpx">扣除积分：</view>
           <view class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</view>
         </view>
+        <view class="flex-row flex-bottom" wx:if="{{item.paytype=='X'}}">
+          <view class="flex-1"></view>
+          <view class="" style="font-size:22rpx">现金购买：</view>
+          <view class="h6" >¥</view>
+          <view class="txt-bold h5 margin-right-24">{{item.payamount}}</view>
+        </view>
       </view>
     </view>
-
     <view style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></view>
 
-    <view class="flex-row flex-center margin-top-8">
-      <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
-
-      <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1 margin-left-24">
-        <image src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" wx:if='{{item.orderstatus=="C"}}' class="icon_shan"></image>
-      </view>
-
-
-      <view wx:if='{{item.orderstatus=="B"||item.orderstatus=="C"}}'  bindtap='wuliu' id="{{item.id}}" class="lianxi text-center   txt-6" style="margin-right:20rpx">物流详情</view>
-      <view wx:if='{{item.orderstatus=="B"}}' bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
-
-
+    <view class="flex-row flex-center margin-top-5">
+      <view class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</view>
+      <view class="lianxi text-center margin-right-24  txt-6" wx:if="{{item.orderstatus=='C'}}" style="" bindtap='shouhou' id="{{item.id}}">商品售后</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='C'}}"  bindtap='shanchu' id="{{item.id}}">删除订单</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='B'}}"  bindtap='shouhuo' id="{{item.id}}">确认收货</view>
     </view>
+    
 
   </view>
 
@@ -101,33 +98,38 @@
 
         <view class="flex-row flex-center">
           <view class="h5 flex-1">{{item.name}}</view>
-          <view class="txt-red h6 txt-bold  margin-right-24">
+          <view class="txt-red h6 txt-bold  margin-right-24" wx:if='{{item.orderstatus!="C"}}'>
             {{item.orderstatus_name}}
           </view>
+
+          <image wx:if='{{item.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
-        <view style="height:60rpx"></view>
-
-        <view class="flex-row flex-center">
+        <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
           <view class="" style="font-size:22rpx">扣除积分：</view>
           <view class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</view>
         </view>
+        <view class="flex-row flex-bottom" wx:if="{{item.paytype=='X'}}">
+          <view class="flex-1"></view>
+          <view class="" style="font-size:22rpx">现金购买：</view>
+          <view class="h6" >¥</view>
+          <view class="txt-bold h5 margin-right-24">{{item.payamount}}</view>
+        </view>
       </view>
     </view>
-
     <view style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></view>
 
-    <view class="flex-row flex-center margin-top-10">
-
-      <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
-
-      <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1"></view>
-      <!-- <view class="lianxi text-center margin-right-24 txt-6" style="">取消订单</view> -->
+    <view class="flex-row flex-center margin-top-5">
+      <view class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</view>
+      <view class="lianxi text-center margin-right-24  txt-6" wx:if="{{item.orderstatus=='C'}}" style="" bindtap='shouhou' id="{{item.id}}">商品售后</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='C'}}"  bindtap='shanchu' id="{{item.id}}">删除订单</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='B'}}"  bindtap='shouhuo' id="{{item.id}}">确认收货</view>
     </view>
+    
 
   </view>
 
@@ -145,34 +147,38 @@
 
         <view class="flex-row flex-center">
           <view class="h5 flex-1">{{item.name}}</view>
-          <view class="txt-red h6 txt-bold  margin-right-24">
+          <view class="txt-red h6 txt-bold  margin-right-24" wx:if='{{item.orderstatus!="C"}}'>
             {{item.orderstatus_name}}
           </view>
+
+          <image wx:if='{{item.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
-        <view style="height:60rpx"></view>
-
-        <view class="flex-row flex-center">
+        <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
           <view class="" style="font-size:22rpx">扣除积分：</view>
           <view class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</view>
         </view>
+        <view class="flex-row flex-bottom" wx:if="{{item.paytype=='X'}}">
+          <view class="flex-1"></view>
+          <view class="" style="font-size:22rpx">现金购买：</view>
+          <view class="h6" >¥</view>
+          <view class="txt-bold h5 margin-right-24">{{item.payamount}}</view>
+        </view>
       </view>
     </view>
-
     <view style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></view>
 
-    <view class="flex-row flex-center margin-top-8">
-      <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
-
-      <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1"></view>
-      <view class="lianxi text-center  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</view>
-      <view bindtap='shouhuo' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</view>
-
+    <view class="flex-row flex-center margin-top-5">
+      <view class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</view>
+      <view class="lianxi text-center margin-right-24  txt-6" wx:if="{{item.orderstatus=='C'}}" style="" bindtap='shouhou' id="{{item.id}}">商品售后</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='C'}}"  bindtap='shanchu' id="{{item.id}}">删除订单</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='B'}}"  bindtap='shouhuo' id="{{item.id}}">确认收货</view>
     </view>
+    
 
   </view>
 
@@ -189,39 +195,66 @@
       <view class="flex-row column margin-top-24 flex-1 margin-left-20">
 
         <view class="flex-row flex-center">
-
-          <view class="flex-1">
-            <view class="h5 ">{{item.name}}</view>
-            <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
+          <view class="h5 flex-1">{{item.name}}</view>
+          <view class="txt-red h6 txt-bold  margin-right-24" wx:if='{{item.orderstatus!="C"}}'>
+            {{item.orderstatus_name}}
           </view>
 
-          <image src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
-
+          <image wx:if='{{item.orderstatus=="C"}}' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24"></image>
         </view>
 
+        <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
-
-        <view style="height:60rpx"></view>
-
-        <view class="flex-row flex-center">
+        <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
           <view class="" style="font-size:22rpx">扣除积分：</view>
           <view class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</view>
         </view>
+        <view class="flex-row flex-bottom" wx:if="{{item.paytype=='X'}}">
+          <view class="flex-1"></view>
+          <view class="" style="font-size:22rpx">现金购买：</view>
+          <view class="h6" >¥</view>
+          <view class="txt-bold h5 margin-right-24">{{item.payamount}}</view>
+        </view>
       </view>
     </view>
-
     <view style="height:2rpx;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></view>
 
-    <view class="flex-row flex-center margin-top-6">
-      <!-- <image src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24"></image>
-      <view class="txt-22 txt-6 flex-1 margin-left-5">联系客服</view> -->
-      <view class="flex-1 margin-left-24 ">
-        <image src="{{uploadpath}}resource/{{res.lajiton}}" bindtap='shanchu' id="{{item.id}}" class="icon_shan"></image>
-      </view>
-      <view class="lianxi text-center margin-right-24  txt-6" style="" bindtap='wuliu' id="{{item.id}}">物流详情</view>
+    <view class="flex-row flex-center margin-top-5">
+      <view class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</view>
+      <view class="lianxi text-center margin-right-24  txt-6" wx:if="{{item.orderstatus=='C'}}" style="" bindtap='shouhou' id="{{item.id}}">商品售后</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='C'}}"  bindtap='shanchu' id="{{item.id}}">删除订单</view>
+      <view class="lianxi text-center  txt-6" style="" wx:if="{{item.orderstatus=='B'}}"  bindtap='shouhuo' id="{{item.id}}">确认收货</view>
     </view>
+    
 
   </view>
 
+</view>
+
+
+
+
+
+<view class="bg" wx:if="{{showshouhou==true}}" >
+  <view class="flex-row flex-center h100">
+    <view class="flex-1 h100" ></view>
+    <view class="sel">
+      <view class="text-center t0">
+        请添加学榜微信客服进行售后
+      </view>
+      <view class="flex-row flex-bottom t1">
+        <view class="flex-1"></view>
+        <view class="txt-price">微信ID：xuebanggz</view>
+        <view class="flex-1"></view>
+      </view>
+      <view class="flex-row flex-center t2">
+        <view class="flex-1 text-center qr" bindtap="fz">复制微信号</view>
+        <view class="gehe"></view>
+        <view class="flex-1 text-center qx" bindtap="qx">取消</view>
+      </view>
+    </view>
+    <view class="flex-1 h100" ></view>
+  </view>
 </view>
