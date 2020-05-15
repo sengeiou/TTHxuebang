@@ -110,5 +110,8 @@ export class MainComponent extends AppBase {
     }
     return list;
   }
-
+  zhan(){
+    this.toast('暂未开放!');
+    return
+  }
 }

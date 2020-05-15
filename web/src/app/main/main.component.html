@@ -126,7 +126,8 @@
           <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" >
+            <!-- <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" > -->
+              <a  (click)='zhan()' class="nav-link {{module=='home'?'active':''}}" >
               <i class="nav-icon fas fa-th"></i>
               <p>
                 业务中心
@@ -153,7 +154,8 @@
           </li>
          
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='order'?'active':''}}" routerLink='/order'>
+            <!-- <a  class="nav-link {{module=='order'?'active':''}}" routerLink='/order'> -->
+              <a  class="nav-link {{module=='order'?'active':''}}"  (click)='zhan()' >
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 订单管理
@@ -161,7 +163,8 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='hexiao'?'active':''}}" routerLink='/hexiao'>
+            <!-- <a  class="nav-link {{module=='hexiao'?'active':''}}" routerLink='/hexiao'> -->
+              <a  class="nav-link {{module=='hexiao'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 核销订单
@@ -169,7 +172,8 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'>
+            <!-- <a  class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'> -->
+              <a  class="nav-link {{module=='infobox'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 消息中心
@@ -178,7 +182,8 @@
           </li>
           <!-- <li class="nav-header">EXAMPLES</li> -->
           <li class="nav-item">
-            <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'>
+            <!-- <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'> -->
+              <a  class="nav-link {{module=='setting'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 设置

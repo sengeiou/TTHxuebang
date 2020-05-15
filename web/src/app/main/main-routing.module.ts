@@ -23,7 +23,8 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-      { path: "", component: DashboardComponent },
+      // { path: "", component: DashboardComponent },
+      { path: "", component: JigouComponent },
       { path: "dashboard", component: DashboardComponent },
       { path: "list", component: ListComponent },
       { path: "detail", component: DetailComponent },

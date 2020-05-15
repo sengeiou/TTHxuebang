@@ -106,7 +106,8 @@ export class RegisterComponent extends AppBase {
         console.log(11);
         var token=res.return;
         window.sessionStorage.setItem("token",token);
-        window.location.href="/";
+        // window.location.href="/";
+        this.navigate('/jigou');
       }else {
         this.toast(res.result);
       }
