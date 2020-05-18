@@ -57,7 +57,7 @@
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
-        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
         <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
@@ -106,7 +106,7 @@
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
-        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
         <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
@@ -155,7 +155,7 @@
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
-        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
         <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
@@ -204,7 +204,7 @@
         </view>
 
         <view class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</view>
-        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
+        <view class="text-center margin-top-8"  wx:if="{{item.goods_label!=''&&item.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{item.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.goods_labelcolor}};margin-top:6rpx;'>{{item.goods_label}}</view>
 
         <view class="flex-row flex-center" wx:if="{{item.paytype!='X'}}">
           <view class="flex-1"></view>
