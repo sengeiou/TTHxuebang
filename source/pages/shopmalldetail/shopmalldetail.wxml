@@ -10,7 +10,7 @@
     <view class=" txt-bold h5 margin-left-10 f18" wx:if="{{info.isscore_value=='Y'}}" style="color:#FFBA12">{{info.interral}}</view>
     <view class="h5 margin-left-10 " style="color:#999999;text-decoration:line-through;">{{info.old_price}}元</view>
 
-    <view class="text-center" wx:if="{{info.label!=''}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{info.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.labelcolor}};margin-top:6rpx;margin-left:12rpx;'>{{info.label}}</view>
+    <view class="text-center" wx:if="{{info.label!=''}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{info.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.labelcolor}};margin-top:6rpx;margin-left:12rpx;'>{{info.label}}</view>
 
     <view class="flex-1"></view>
 

@@ -650,7 +650,7 @@
                                   <view class="margin-right">
                                     <image src="{{uploadpath}}resource/{{res.kucun}}" class="icon-15"></image>
                                   </view>
-                                  <view  style='color:#999999;height:28rpx;font-size:20rpx;'>库存{{topvaluelist[jgidx/goodsinterval].inventory}}</view>
+                                  <view  style='color:#999999;font-size:20rpx;'>库存{{topvaluelist[jgidx/goodsinterval].inventory}}</view>
                                 </view>
                               </view>
 

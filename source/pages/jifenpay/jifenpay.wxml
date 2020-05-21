@@ -31,7 +31,7 @@
 
     <view class=" flex-1" style="margin-left:36rpx;margin-right:36rpx;">
       <view class="txt-bold" style="height:120rpx">{{info.name}}</view>
-      <view class="text-center" wx:if="{{info.label!=''}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{info.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.labelcolor}};margin-top:6rpx;'>{{info.label}}</view>
+      <view class="text-center" wx:if="{{info.label!=''}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{info.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.labelcolor}};margin-top:6rpx;'>{{info.label}}</view>
     </view>
     <view class="">
       <view class="flex-row flex-bottom" wx:if="{{info.istopvalue_value=='Y'}}">

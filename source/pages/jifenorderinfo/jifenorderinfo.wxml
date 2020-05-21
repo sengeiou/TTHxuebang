@@ -34,7 +34,7 @@
       <image src="{{uploadpath}}shop/{{info.img}}" class="icon-img"></image>
 <view class=" flex-1" style="margin-left:36rpx;margin-right:36rpx;">
       <view class="txt-bold" style="height:120rpx">{{info.name}}</view>
-      <view class="text-center"  wx:if="{{info.goods_label!=''&&info.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;height:28rpx;border:1px solid {{info.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.goods_labelcolor}};margin-top:6rpx;'>{{info.goods_label}}</view>
+      <view class="text-center"  wx:if="{{info.goods_label!=''&&info.goods_istopvalue=='Y'}}" style='border-raduis:4rpx;width:80rpx;border:1px solid {{info.goods_labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{info.goods_labelcolor}};margin-top:6rpx;'>{{info.goods_label}}</view>
     </view>
       <view class="flex-row column">
         <view class="h6" wx:if="{{info.paytype!='X'}}">{{info.danjia}} 积分</view>

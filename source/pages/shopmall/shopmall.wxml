@@ -37,14 +37,14 @@
 
       <view class="padding">
         <view class='  txt-bold f13 chaochu' style="width:300rpx;max-height:85rpx;margin-left:12rpx;">{{item.name}}</view>
-        <view class='text-center' style='width:80rpx;height:28rpx;border:1px solid {{item.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.labelcolor}};margin-top:6rpx;margin-left:12rpx;'>{{item.label}}</view>
+        <view class='text-center' style='width:80rpx;border:1px solid {{item.labelcolor}};font-size:20rpx;border-radius:4rpx;color:{{item.labelcolor}};margin-top:6rpx;margin-left:12rpx;'>{{item.label}}</view>
         <view class='flex-row flex-bottom  margin-top-6'>
           <!-- <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image> -->
           <view class=" h7 " style="color:#DE0000;margin-left:12rpx;">￥</view>
           <view class=" txt9 h5" style='color:#DE0000;'>{{item.price}}</view>
           <view class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">￥{{item.old_price}}</view>
           <view class="flex-1"></view>
-          <view class="margin-right" style='color:#999999;height:28rpx;font-size:20rpx;'>库存{{item.inventory}}</view>
+          <view class="margin-right" style='color:#999999;font-size:20rpx;'>库存{{item.inventory}}</view>
         </view>
         <view style="height:10rpx;"></view>
       </view>

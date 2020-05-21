@@ -6,12 +6,13 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { ApiConfig } from '../api.config';
 import { UserbApi } from 'src/providers/userb.api';
+import { AliyunApi } from 'src/providers/aliyun.api';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers:[InstApi,MemberApi,UserbApi]
+  providers:[InstApi,MemberApi,UserbApi,AliyunApi]
 })
 export class RegisterComponent extends AppBase {
   instinfo = null;
@@ -22,6 +23,7 @@ export class RegisterComponent extends AppBase {
     public instApi:InstApi,
     public memberApi:MemberApi,
     public userbApi:UserbApi,
+    public aliyunApi:AliyunApi
   ) {
     super(router,activeRoute,instApi,userbApi);
     this.isLoginPage=true;
@@ -36,6 +38,7 @@ export class RegisterComponent extends AppBase {
       });
     
    }
+   num=1;
    name='';
    email='';
    password='';
@@ -47,6 +50,8 @@ export class RegisterComponent extends AppBase {
    onMyShow(){
     
    }
+
+   errorname="";
   
    afterupload(e){
     console.log(e.file)
@@ -60,38 +65,43 @@ export class RegisterComponent extends AppBase {
       this.zhizhao='';
     }
   }
+  errorgonsi="";
+  errormobile="";
+  errorpassword="";
+  erroraddress="";
+  errorzhizhao="";
   submit(){
-    if(this.name.trim()==""){
-      this.toast('请输入姓名');
-      return
+    var iserror=false;
+    if(this.gonsi.trim()==""){
+      iserror=true;
+      this.errorgonsi="机构信息不能为空";
     }
-    if(this.email.trim()==""){
-      this.toast('请输入邮箱');
-      return
+    if(this.name.trim()==""){
+      iserror=true;
+      this.errorname="姓名不能为空";
     }
     if(this.mobile.trim()==""){
-      this.toast('请输入电话');
-      return
+      iserror=true;
+      this.errormobile="电话不能为空";
     }
     if(this.password.trim()==""){
-      this.toast('请输入密码');
-      return
+      iserror=true;
+      this.errorpassword="密码不能为空";
+    }else if(this.password!=this.password2){
+      iserror=true;
+      this.errorpassword="两次密码不一致";
     }
-    if(this.password!=this.password2){
-      this.toast('密码不一致');
-      return
-    }
-    if(this.gonsi.trim()==""){
-      this.toast('请输入公司名称');
-      return
-    }
+
     if(this.address.trim()==""){
-      this.toast('请输入公司地址');
-      return
+      iserror=true;
+      this.erroraddress="公司地址不能为空";
     }
     if(this.zhizhao==""){
-      this.toast('请输入营业执照');
-      return
+      iserror=true;
+      this.errorzhizhao="营业执照不能为空";
+    }
+    if(iserror==true){
+      return;
     }
     this.userbApi.register({
       name:this.name,
@@ -112,5 +122,26 @@ export class RegisterComponent extends AppBase {
         this.toast(res.result);
       }
     })
+  }
+  mobilechange(){
+    this.mobileerror="";
+  }
+  verifycode="";
+  resendreminder=0;
+  mobileerror="";
+  getVerifyCode(){
+    if(!(this.mobile[0]=="1"&&this.mobile.length==11)){
+      this.mobileerror="请输入正确的手机号码";
+      return;
+    }
+    this.aliyunApi.sendverifycode({mobile:this.mobile,type:"register"}).then((ret:any)=>{
+      this.resendreminder=60;
+        var timeresend=setInterval(()=>{
+          this.resendreminder--;
+          if(this.resendreminder==0){
+            clearInterval(timeresend);
+          }
+        },1000);
+    });
   }
 }
