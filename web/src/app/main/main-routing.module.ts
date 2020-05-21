@@ -17,6 +17,9 @@ import { CopykechenComponent } from '../copykechen/copykechen.component';
 import { OrderComponent } from '../order/order.component';
 import { HexiaoComponent } from '../hexiao/hexiao.component';
 import { OrderdetailComponent } from '../orderdetail/orderdetail.component';
+import { ServiceComponent } from '../service/service.component';
+import { AssetmanagementComponent } from '../assetmanagement/assetmanagement.component';
+import { OrderincomeComponent } from '../orderincome/orderincome.component';
 
 const routes: Routes = [
   {
@@ -42,6 +45,9 @@ const routes: Routes = [
       { path: "order", component: OrderComponent },
       { path: "hexiao", component: HexiaoComponent },
       { path: "orderdetail", component: OrderdetailComponent },
+      { path: "service", component: ServiceComponent },
+      { path: "assetmanagement", component: AssetmanagementComponent },
+      { path: "orderincome", component: OrderincomeComponent },
     ]
   }
 ];
