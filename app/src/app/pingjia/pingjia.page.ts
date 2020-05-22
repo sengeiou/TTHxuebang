@@ -76,8 +76,6 @@ export class PingjiaPage extends AppBase {
     //     images
     //   });
     // }, 6, undefined);
-
-    
   }
 
   minusImg(seq) {

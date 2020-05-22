@@ -1,168 +1,181 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content class="bg-f5">
+<ion-content class="bg-f5">
 
-<!--pages/purchase/purchase.wxml-->
-<!--pages/myorder/myorder.wxml-->
-
-<img class="backhome"  src="{{uploadpath}}resource/{{res.fanhui}}"  (click)="backHome()" />
-
-<div class=' margin-top-10 margin-bottom-10 text-center h6 ' style='color:#A1A1A1'>
-  本次购买的课程请认真查看购买须知，合理安排学习时间。
-</div>
+  <!--pages/purchase/purchase.wxml-->
+  <!--pages/myorder/myorder.wxml-->
+  <div [class.hidden]='courseinfo.length==0'>
 
 
-<div class=' padding-left-20 bg-white bor_bot' style='' *ngFor='let item of courseinfo'>
-  <!-- <div class='flex-row flex-center padding-20 bor_bot' style=''>
+    <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+
+    <div class=' margin-top-10 margin-bottom-10 text-center h6 ' style='color:#A1A1A1'>
+      本次购买的课程请认真查看购买须知，合理安排学习时间。
+    </div>
+
+
+    <div class=' padding-left-20 bg-white bor_bot' style='' *ngFor='let item of courseinfo'>
+      <!-- <div class='flex-row flex-center padding-20 bor_bot' style=''>
     <div class='flex-1 txt-gray'>2019-02-03 12:00</div>
     <div class='txt-gray'>已完成</div>
   </div> -->
 
-  <div class='flex-row  padding-20 bor_bot margin-top-10' style=''>
+      <div class='flex-row  padding-20 bor_bot margin-top-10' style=''>
 
-    <img class='icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
+        <img class='icon radius-10' src='{{uploadpath}}curriculum/{{item.kc_img}}' />
 
-    <div class='flex-1 flex-row column margin-left-20'>
+        <div class='flex-1 flex-row column margin-left-20'>
 
-      <div class='flex-row flex-center'>
-        <div class='flex-1 txt-black'>{{item.name}}</div>
-        <div class='txt-black'>￥{{item.price}}</div>
-      </div>
+          <div class='flex-row flex-center'>
+            <div class='flex-1 txt-black'>{{item.name}}</div>
+            <div class='txt-black'>￥{{item.price}}</div>
+          </div>
 
-      <div class='flex-row flex-center margin-top-5'>
-        <div class='flex-1 txt-gray h5'>{{item.JG_jigou}}</div>
-      </div>
+          <div class='flex-row flex-center margin-top-5'>
+            <div class='flex-1 txt-gray h5'>{{item.JG_jigou}}</div>
+          </div>
 
-      <div class='flex-row flex-center flex-1 ' style=''>
+          <div class='flex-row flex-center flex-1 ' style=''>
 
 
-        <div class='flex-row flex-center '>
-          <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.age_icon}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{item.age_name}}</div>
+            </div>
+
+            <div class='w20'></div>
+
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+            </div>
+
+            <div class='w20'></div>
+
+
+            <div class='flex-row flex-center '>
+              <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
+              <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+            </div>
+
+
+          </div>
+
+
         </div>
 
-        <div class='w20'></div>
+      </div>
 
-        <div class='flex-row flex-center '>
-          <img src='{{uploadpath}}resource/{{res.keshi}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{item.class_hours}}节课</div>
+      <div class='flex-row flex-center padding-20' style=''>
+        <div class='flex-1 h6'>小计</div>
+        <!-- <div class='txt-black '>共1个课程</div> -->
+        <div class='txt-black txt-bold margin-left-20'>￥{{item.price}}</div>
+      </div>
+
+    </div>
+
+
+    <div class=''>
+      <div class='margin-top-20 padding-left-20 bg-white  bor_top'>
+        <div class='height-80 padding-20 bor_bot h5 txt-black txt-bold' style=''>
+          学员信息
         </div>
 
-        <div class='w20'></div>
 
 
-        <div class='flex-row flex-center '>
-          <img src='{{uploadpath}}resource/{{res.time}}' class='icon-10' />
-          <div class='h6 txt-black margin-left-5'>{{item.duration}}/节</div>
+        <div class="height-20"></div>
+
+        <div (click)="xueyuan($event)" class='flex-row flex-center   padding-20  pb30' style="">
+          <div class='h5 txt-black '>学员</div>
+          <div *ngIf="xuanzexueyuan==null" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
+          <div *ngIf="xuanzexueyuan!=null" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}
+          </div>
+          <div class="flex-1"></div>
+          <img src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 ' />
+
+        </div>
+
+
+
+      </div>
+
+      <div style="width:100%;color:#999999" class="text-center h6 margin-top">您将购买的课程，购买后不支持退订、转让、退换。</div>
+      <div class="h120"></div>
+    </div>
+
+    <div class='fixedbottom'>
+
+      <div class='flex-row flex-center bg-white ' style='border-top:1px solid #e5e5e5'>
+        <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{tempinfo.price}}</div>
+        <!-- <div class='txt-black '>共1个课程</div> -->
+        <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style=''
+          (click)='bindtoorder()'>提交订单</div>
+      </div>
+
+    </div>
+
+
+
+    <div class="modal-mask" (click)="hideModal($event)" *ngIf="isxueyuan" catchtouchmove="preventTouchMove"></div>
+    <div class="modal-dialog" *ngIf="isxueyuan">
+      <div class="padding-20 margin-left-20 flex-row flex-center">
+        <div class="flex-1"></div>
+        <div class="h5 txt-bold " style="color:#222222">选择学员</div>
+        <div class="flex-1"></div>
+        <div (click)="hideModal($event)" class='h5' style="color:#AAAAAA">x</div>
+      </div>
+      <div *ngIf='xueyuanlist!=""'>
+        <div *ngFor="let item of xueyuanlist;let idx=index;" data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k"
+          class="margin-10" (click)="xuanze(idx)" class="flex-row flex-center padding-40">
+          <img *ngIf="xuanzexueyuan.id!=item.id" class="radius-50 icon-17" mode="widthFix"
+            src="{{uploadpath}}resource/{{res.weixuan}}" />
+          <img *ngIf="xuanzexueyuan.id==item.id" class="radius-50 icon-17" mode="widthFix"
+            src="{{uploadpath}}resource/{{res.xuanzhong}}" />
+          <img *ngIf="item.sex=='nv'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
+
+          <img *ngIf="item.sex=='nan'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
+
+          <div class="margin-left-20">
+            <div class="flex-row flex-center">
+              <div class="f15 txt-bold">{{item.name}}</div>
+              <div *ngIf="item.sex=='nan'" class="nande">{{item.sui}}岁</div>
+              <div *ngIf="item.sex=='nv'" class="nvde">{{item.sui}}岁</div>
+            </div>
+            <div class="h6 margin-top-20" style="color:#999999">{{item.shouji}}</div>
+          </div>
+          <div class="flex-1"></div>
+          <img data-id="{{item.id}}" (click)="xianqin(item.id)" src="{{uploadpath}}resource/{{res.fghy}}"
+            mode="widthFix" class="icon-17" />
+
         </div>
 
 
       </div>
 
+      <div (click)='tianjia($event)' class="flex-row margin-top-20">
+        <div class="flex-1"></div>
+        <div class="tuan_btn  text-center  ">
+          添加孩子
 
-    </div>
-
-  </div>
-
-  <div class='flex-row flex-center padding-20' style=''>
-    <div class='flex-1 h6'>小计</div>
-    <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='txt-black txt-bold margin-left-20'>￥{{item.price}}</div>
-  </div> 
-
-</div>
-
-
-<div class=''>
-  <div class='margin-top-20 padding-left-20 bg-white  bor_top'>
-    <div class='height-80 padding-20 bor_bot h5 txt-black txt-bold' style=''>
-      学员信息
-    </div>
-
-
-
-    <div class="height-20"></div>
-
-    <div (click)="xueyuan($event)" class='flex-row flex-center   padding-20  pb30' style="">
-      <div class='h5 txt-black '>学员</div>
-      <div *ngIf="xuanzexueyuan==null" class="margin-left-20 h5" style="color:#CCCCCC">选择学员</div>
-      <div *ngIf="xuanzexueyuan!=null" class="margin-left-20 h5">{{xuanzexueyuan.name}} {{xuanzexueyuan.shouji}}</div>
-      <div class="flex-1"></div>
-      <img src='{{uploadpath}}resource/{{res.xiangyou}}' mode='widthFix' class='margin-left-5 icon-10 ' />
-
-    </div>
-
-
-
-  </div>
-
-  <div style="width:100%;color:#999999" class="text-center h6 margin-top">您将购买的课程，购买后不支持退订、转让、退换。</div>
-  <div class="h120"></div>
-</div>
-
-<div class='fixedbottom'>
-
-  <div class='flex-row flex-center bg-white ' style='border-top:1px solid #e5e5e5'>
-    <div class='flex-2 txt-red txt-bold padding-30'>总计 ￥ {{tempinfo.price}}</div>
-    <!-- <div class='txt-black '>共1个课程</div> -->
-    <div class='flex-1 txt-black txt-bold  bg-red txt-white padding-30 text-center w276' style='' (click)='bindtoorder()'>提交订单</div>
-  </div>
-
-</div>
-
-
-
-<div class="modal-mask" (click)="hideModal($event)" *ngIf="isxueyuan" catchtouchmove="preventTouchMove"></div>
-<div class="modal-dialog" *ngIf="isxueyuan">
-  <div class="padding-20 margin-left-20 flex-row flex-center">
-    <div class="flex-1"></div>
-    <div class="h5 txt-bold " style="color:#222222">选择学员</div>
-    <div class="flex-1"></div>
-    <div (click)="hideModal($event)" class='h5' style="color:#AAAAAA">x</div>
-  </div>
-  <div *ngIf='xueyuanlist!=""'>
-    <div *ngFor="let item of xueyuanlist;let idx=index;"  data-idx="{{idx}}" data-id="{{item.id}}" wx:key="k" class="margin-10" (click)="xuanze(idx)" class="flex-row flex-center padding-40">
-      <img *ngIf="xuanzexueyuan.id!=item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.weixuan}}" />
-      <img *ngIf="xuanzexueyuan.id==item.id" class="radius-50 icon-17" mode="widthFix" src="{{uploadpath}}resource/{{res.xuanzhong}}" />
-      <img *ngIf="item.sex=='nv'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nvtou}}" />
-
-      <img *ngIf="item.sex=='nan'" class="radius-50 icon-60" src="{{uploadpath}}resource/{{res.nantou}}" />
-
-      <div class="margin-left-20">
-        <div class="flex-row flex-center">
-          <div class="f15 txt-bold">{{item.name}}</div>
-          <div *ngIf="item.sex=='nan'" class="nande">{{item.sui}}岁</div>
-          <div *ngIf="item.sex=='nv'" class="nvde">{{item.sui}}岁</div>
         </div>
-        <div class="h6 margin-top-20" style="color:#999999">{{item.shouji}}</div>
+
+        <div class="flex-1"></div>
       </div>
-      <div class="flex-1"></div>
-      <img data-id="{{item.id}}" (click)="xianqin(item.id)" src="{{uploadpath}}resource/{{res.fghy}}" mode="widthFix" class="icon-17" />
-
+      <div class="height-50"></div>
     </div>
+  </div>
+  <div [class.hidden]='courseinfo.length>0'>
 
+    <img style='width:100vw' mode="widthFix" src='{{uploadpath}}resource/{{res.null_icon}}' />
 
   </div>
-
-  <div (click)='tianjia($event)' class="flex-row margin-top-20">
-    <div class="flex-1"></div>
-    <div class="tuan_btn  text-center  ">
-      添加孩子
-
-    </div>
-
-    <div class="flex-1"></div>
-  </div>
-  <div class="height-50"></div>
-</div>
-
-    </ion-content>
+</ion-content>

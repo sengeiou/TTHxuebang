@@ -81,6 +81,7 @@ export class OrderPage extends AppBase {
   info = null;
   courseinfo = null;
   onMyShow(e = undefined) {
+    console.log(this.info)
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;

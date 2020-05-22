@@ -52,7 +52,7 @@ export class PurchasePage extends AppBase {
     //参数
     this.params;
   }
-  courseinfo=null;
+  courseinfo=[];
   tempinfo={
     price:0
   };

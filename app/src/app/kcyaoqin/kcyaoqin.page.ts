@@ -66,7 +66,7 @@ export class KcyaoqinPage extends AppBase {
   }
   baocun(e=undefined) {
     //todo
-    //this.download(this.lujin);
+    // this.download(this.lujin);
   }
   // onShareAppMessage(e) {
   //   return {

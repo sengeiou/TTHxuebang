@@ -18,7 +18,7 @@
 
   <div class="flex-1"></div>
 
-  <div *ngIf="info.pstatus!='W'" class="flex-row flex-center nr">
+  <div *ngIf="info.pstatus!='W' && info.pstatus!=undefined" class="flex-row flex-center nr">
 
     <img src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80' />
     <div class=' margin-left-20'>
@@ -30,7 +30,7 @@
   <div class="flex-1"></div>
 
 </div>
-<div *ngIf="info.pstatus!='W'"  class='flex-row flex-center pb60'>
+<div *ngIf="info.pstatus!='W' && info.pstatus!=undefined"  class='flex-row flex-center pb60'>
   <div class='flex-1'></div>
 
   <div class='flex-row flex-center btn ' (click)='tohome()'>
@@ -254,7 +254,7 @@
 
 
 
-<div *ngIf="info.pstatus!='W'" class='height-50 '></div>
+<div *ngIf="info.pstatus!='W'  && info.pstatus!=undefined" class='height-50 '></div>
 <div *ngIf="info.pstatus=='W'" class='height-100 '></div>
 
 
