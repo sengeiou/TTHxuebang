@@ -54,7 +54,8 @@ export class RegisterComponent extends AppBase {
    errorname="";
   
    afterupload(e){
-    console.log(e.file)
+    console.log(e.file);
+    this.errorzhizhao="";
     let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
     if (e.fileList.length > 0 && index != -1) {
       e.fileList.splice(index, 1);
@@ -66,12 +67,14 @@ export class RegisterComponent extends AppBase {
     }
   }
   errorgonsi="";
-  errormobile="";
   errorpassword="";
   erroraddress="";
   errorzhizhao="";
+  errorverifycode="";
+  errornum="";
   submit(){
     var iserror=false;
+    this.num=parseInt(this.num.toString());
     if(this.gonsi.trim()==""){
       iserror=true;
       this.errorgonsi="机构信息不能为空";
@@ -80,9 +83,14 @@ export class RegisterComponent extends AppBase {
       iserror=true;
       this.errorname="姓名不能为空";
     }
-    if(this.mobile.trim()==""){
+    if(this.num<=0||isNaN(this.num)){
       iserror=true;
-      this.errormobile="电话不能为空";
+      this.errornum="机构数量不能小于0";
+    }
+    
+    if(!(this.mobile[0]=="1"&&this.mobile.length==11)){
+      iserror=true;
+      this.mobileerror="请输入正确的联系电话";
     }
     if(this.password.trim()==""){
       iserror=true;
@@ -100,29 +108,41 @@ export class RegisterComponent extends AppBase {
       iserror=true;
       this.errorzhizhao="营业执照不能为空";
     }
+    if(this.verifycode==""){
+      iserror=true;
+      this.errorverifycode="验证码不能为空";
+    }
     if(iserror==true){
       return;
     }
-    this.userbApi.register({
-      name:this.name,
-      mobile:this.mobile,
-      email:this.email,
-      password:this.password,
-      gonsi:this.gonsi,
-      address:this.address,
-      zhizhao:this.zhizhao
-    }).then((res:any)=>{
-      if(res.code=='0'){
-        console.log(11);
-        var token=res.return;
-        window.sessionStorage.setItem("token",token);
-        // window.location.href="/";
-        this.navigate('/jigou');
-      }else {
-        this.toast(res.result);
+    this.aliyunApi.verifycode({mobile:this.mobile,verifycode:this.verifycode,type:"register"}).then((ret:any)=>{
+      if(ret.code!='0'){
+        this.errorverifycode="验证码不正确";
+        return;
       }
+    
+
+      this.userbApi.register({
+        name:this.name,
+        mobile:this.mobile,
+        email:this.email,
+        password:this.password,
+        gonsi:this.gonsi,
+        address:this.address,
+        zhizhao:this.zhizhao
+      }).then((res:any)=>{
+        if(res.code=='0'){
+          console.log(11);
+          var token=res.return;
+          window.sessionStorage.setItem("token",token);
+          window.location.href="/";
+        }else {
+          this.errorregister=(res.result);
+        }
+      })
     })
   }
+  errorregister="";
   mobilechange(){
     this.mobileerror="";
   }
@@ -143,5 +163,21 @@ export class RegisterComponent extends AppBase {
           }
         },1000);
     });
+  }
+  numkeyup(e){
+    console.log(e);
+    if(e.keyCode==8){
+      return;
+    }
+    try{
+      this.num=parseInt(this.num.toString());
+    }catch(e){
+      this.num=1;
+    }
+    console.log(this.num);
+    if(this.num<=0||isNaN(this.num)){
+      console.log("mk",this.num);
+      this.num=1;
+    }
   }
 }
