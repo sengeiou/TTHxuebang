@@ -80,12 +80,12 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <ion-slides [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200'
-        circular='true' class="wpc2">
+      <ion-slides pager  [options]='mySwiperOption' loop="true" indicator-dots='true' autoplay='false' interval='5000' duration='200'
+        circular='true' class="wpc2" *ngIf='indexbanner.length>0'>
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' id="{{item.id}}"
-            class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' 
+            class='lb wpc2 ite {{currentItemId == index ? "selected" : ""}}' />
         </ion-slide>
       </ion-slides>
 
@@ -299,7 +299,7 @@
 
       <div class='flex-row flex-center'>
         <div class='flex-1'></div>
-        <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;'
+        <div [style.background-image]="'url('+uploadpath+'resource/'+res.dakaok+')'"  style='background-size:100% 100%;'
           class='dakawc flex-row flex-column'>
           <div class='h376'></div>
           <div class='txt_jifen txt-bold txt-white' *ngIf='jf==25'>+25积分</div>
@@ -545,8 +545,8 @@
           </div>
         </div>
 
-        <ion-slides [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}'
-          autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' class='wpc'>
+        <ion-slides [options]='mySwiperOption' loop='true' *ngIf="noticebanner.length>1" indicator-dots='{{false}}'
+          autoplay='true' interval='3000' duration='1000' circular='true' class='wpc'>
           <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2(item.id)' id="{{item.id}}">
               <img src='{{uploadpath}}indexbanner/{{item.img}}'

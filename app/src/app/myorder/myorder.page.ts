@@ -201,7 +201,7 @@ export class MyorderPage extends AppBase {
 
   }
   pinjia(id,order_id) {
-    this.navigate("pingjia", { id: id, order_id: order_id });
+    this.navigate("/pingjia", { id: id, order_id: order_id });
 
   }
   shanchu(id) {

@@ -268,8 +268,7 @@ export class KcdetailsPage extends AppBase {
       this.ppp= 0;
       this.pppp= 1;
       this.tanchuang= true;
-    }
-    else {
+    }else {
       this.ppp= 0;
       this.pppp= 0;
       this.tanchuang= true;

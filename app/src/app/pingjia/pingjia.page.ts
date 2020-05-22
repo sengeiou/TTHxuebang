@@ -39,7 +39,7 @@ export class PingjiaPage extends AppBase {
   jgpingfen = 0;
   check = false;
   focus = false;
-  kcinfo = null;
+  kcinfo:any={};
   jg_id = 0;
   onMyLoad(e=undefined) {
     //参数
@@ -76,6 +76,8 @@ export class PingjiaPage extends AppBase {
     //     images
     //   });
     // }, 6, undefined);
+
+    
   }
 
   minusImg(seq) {

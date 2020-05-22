@@ -10,8 +10,8 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
-  (ionScrollEnd)="logScrollEnd()">
-  <div id='dinbu'></div>
+  (ionScrollEnd)="logScrollEnd()" >
+  <div  id='dinbu'></div>
   <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
 
   <div class=' to_top' *ngIf="scrolltop>300">
