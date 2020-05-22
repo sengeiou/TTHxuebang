@@ -62,7 +62,8 @@ export class LoginComponent extends AppBase {
         ApiConfig.SetToken(token);
         this.userbApi.userinfo({}).then((info: any) => {
           window.sessionStorage.setItem("memberinfo",JSON.stringify(info)) ;
-          window.location.href="/";
+          // window.location.href="/";
+          this.navigate('/jigou');
       })
 
 

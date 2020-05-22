@@ -38,6 +38,9 @@ import { CopykechenComponent } from './copykechen/copykechen.component';
 import { OrderComponent } from './order/order.component';
 import { HexiaoComponent } from './hexiao/hexiao.component';
 import { OrderdetailComponent } from './orderdetail/orderdetail.component';
+import { ServiceComponent } from './service/service.component';
+import { AssetmanagementComponent } from './assetmanagement/assetmanagement.component';
+import { OrderincomeComponent } from './orderincome/orderincome.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +67,9 @@ import { OrderdetailComponent } from './orderdetail/orderdetail.component';
     OrderComponent,
     HexiaoComponent,
     OrderdetailComponent,
+    ServiceComponent,
+    AssetmanagementComponent,
+    OrderincomeComponent,
   ],
   imports: [
     BrowserModule,

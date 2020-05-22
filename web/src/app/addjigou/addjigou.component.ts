@@ -6,7 +6,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
-
+declare let Chart: any;
 
 @Component({
   selector: 'app-addjigou',
@@ -33,7 +33,12 @@ export class AddjigouComponent extends AppBase {
     if(this.params.id!=undefined){
       this.primary_id=this.params.id;
     }
+    if(this.params.deposit!=undefined){
+        this.deposit=true;
+        Chart.saoma();
+    }
   }
+  deposit=false;
   onMyShow() {
     
     if (MainComponent.Instance != null) {

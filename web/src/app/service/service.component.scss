@@ -1,0 +1,47 @@
+.border-nav {
+    padding: 10px;
+    border: 1px solid #000000;
+    margin-right: 20px;
+    color: #000000;
+}
+
+a.border-nav:hover {
+    color: #000000 !important;
+}
+.nav-link.active2.border-nav {
+    background-color: #a6a6a6 !important;
+    color: #505050 !important;
+}
+.padding-20{
+    padding: 10px 30px;
+}
+.nav-link.active {
+    background-color:#ffffff !important;
+    color: #000000 !important;
+}
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    *word-wrap: break-word;
+    *white-space : normal ;  
+}
+.btns {
+    width: 180px;
+    height: 48px;
+    border:1px solid #000000;
+    line-height: 48px;
+    text-align: center;
+    color: #505050;
+    font-size: 14px;
+    margin-right: 20px;
+}
+.margin-top-ban{
+    margin-top: 50%;
+}
+.icon-260 {
+    width: 260px;
+    height: 260px;
+}

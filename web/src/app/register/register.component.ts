@@ -120,6 +120,7 @@ export class RegisterComponent extends AppBase {
         this.errorverifycode="验证码不正确";
         return;
       }
+    
 
       this.userbApi.register({
         name:this.name,

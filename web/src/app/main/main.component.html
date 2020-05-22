@@ -126,10 +126,21 @@
           <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" >
+            <!-- <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" > -->
+              <a  (click)='zhan()' class="nav-link {{module=='home'?'active':''}}" >
               <i class="nav-icon fas fa-th"></i>
               <p>
                 业务中心
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" > -->
+              <a  class="nav-link {{module=='service'?'active':''}}" routerLink='/service' >
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                服务内容
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
@@ -151,9 +162,33 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a  class="nav-link  {{module=='asset'?'active':''}}" >
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+               资产管理
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" routerLink='/assetmanagement'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>保证金管理</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" routerLink='/orderincome'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>订单收益管理</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
          
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='order'?'active':''}}" routerLink='/order'>
+            <!-- <a  class="nav-link {{module=='order'?'active':''}}" routerLink='/order'> -->
+              <a  class="nav-link {{module=='order'?'active':''}}"  (click)='zhan()' >
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 订单管理
@@ -161,7 +196,8 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='hexiao'?'active':''}}" routerLink='/hexiao'>
+            <!-- <a  class="nav-link {{module=='hexiao'?'active':''}}" routerLink='/hexiao'> -->
+              <a  class="nav-link {{module=='hexiao'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 核销订单
@@ -169,7 +205,8 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a  class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'>
+            <!-- <a  class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'> -->
+              <a  class="nav-link {{module=='infobox'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 消息中心
@@ -178,7 +215,8 @@
           </li>
           <!-- <li class="nav-header">EXAMPLES</li> -->
           <li class="nav-item">
-            <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'>
+            <!-- <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'> -->
+              <a  class="nav-link {{module=='setting'?'active':''}}" (click)='zhan()'>
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 设置

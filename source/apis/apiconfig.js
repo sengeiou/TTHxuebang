@@ -1,14 +1,25 @@
 export class ApiConfig {
 
+  // static GetApiUrl() {
+  //   return "https://tthxb2.artxb.cn/api/";
+  // }
+
+  // static GetUploadPath() {
+  //   return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
+  // }
+  // static GetFileUploadAPI() {
+  //   return "https://tthxb2.artxb.cn/fileupload";
+  // }
+
   static GetApiUrl() {
-    return "https://tthxb2.artxb.cn/api/";
+    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
   }
 
   static GetUploadPath() {
-    return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
+    return "https://alioss.app-link.org/alucard263096/tthxb/";
   }
   static GetFileUploadAPI() {
-    return "https://tthxb2.artxb.cn/fileupload";
+    return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
   }
 
   // static GetUploadurl(){

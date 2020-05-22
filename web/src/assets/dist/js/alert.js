@@ -20,10 +20,7 @@ Chart.saveing=function(){
 Chart.succ=function(con){
   toastr.success(con)
 }
-Chart.hidemodel=function(){
 
-  $("#modal-default3").modal('hide');
-}
 Chart.warning=function(title,subtitle,body){
   $(document).Toasts('create', {
     class: 'bg-warning', 
@@ -31,4 +28,16 @@ Chart.warning=function(title,subtitle,body){
     subtitle: subtitle,
     body: body
   })
+}
+
+Chart.saoma=function(){
+  $('#saoma').modal({
+    backdrop:"static",
+    keyboard:false,
+    show: true
+  });
+}
+Chart.hidemodel=function(){
+
+  $("#saoma").modal('hide');
 }
