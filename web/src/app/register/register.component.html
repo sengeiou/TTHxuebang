@@ -17,29 +17,36 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label" >品牌/机构名称: </label>
           <div class="col-sm-8">
-            <input type="text" [(ngModel)]='gonsi' maxlength="13" class="form-control" placeholder="输入机构品牌名称">
+            <input type="text" [(ngModel)]='gonsi' maxlength="13" class="form-control" placeholder="输入机构品牌名称"
+            [class.is-invalid]='errorgonsi!=""' (keyup)='errorgonsi=""'>
+           <span *ngIf="errorgonsi!=''" class="error invalid-feedback">{{errorgonsi}}</span>
           </div>
         </div>
 
         <div class="form-group row">
           <label class="col-sm-4  col-form-label">需要管理的门店数量: </label>
           <div class="col-sm-2">
-            <input type="tel" [(ngModel)]='num' class="form-control"  maxlength="2">
+            <input type="tel" [(ngModel)]='num' (keyup)='errorgonsi="";numkeyup($event)' class="form-control" min="1" maxlength="2"
+            [class.is-invalid]='errornum!=""' >
+           <span *ngIf="errornum!=''" class="error invalid-feedback">{{errornum}}</span>
           </div>
-          <label for="inputEmail3" class="col-sm-2 col-form-label">个</label>
+          <label  class="col-sm-2 col-form-label">个</label>
         </div>
 
 
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">联系人: </label>
           <div class="col-sm-8">
-            <input type="text" [(ngModel)]='name' class="form-control" placeholder="输入机构品牌名称">
+            <input type="text" [(ngModel)]='name' class="form-control" placeholder="输入联系人"
+            [class.is-invalid]='errorname!=""' (keyup)='errorname=""'>
+           <span *ngIf="errorname!=''" class="error invalid-feedback">{{errorname}}</span>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label" >联系电话: </label>
           <div class="col-sm-4">
-            <input type="tel" (keyup)='mobilechange()' maxlength="11" [(ngModel)]='mobile' class="form-control" [class.is-invalid]='mobileerror!=""' placeholder="输入联系电话">
+            <input type="tel" (keyup)='mobilechange()' maxlength="11" [(ngModel)]='mobile' class="form-control"  placeholder="输入联系电话"
+             [class.is-invalid]='mobileerror!=""' (keyup)='mobileerror=""'>
             <span *ngIf="mobileerror!=''" class="error invalid-feedback">{{mobileerror}}</span>
           </div>
           <div class="col-sm-4">
@@ -50,32 +57,39 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">验证码: </label>
           <div class="col-sm-8">
-            <input type="tel" [(ngModel)]='verifycode' maxlength="6" class="form-control" placeholder="输入验证码">
+            <input type="tel" [(ngModel)]='verifycode' maxlength="6" class="form-control" placeholder="输入验证码"
+            [class.is-invalid]='errorverifycode!=""' (keyup)='errorverifycode=""'>
+           <span *ngIf="errorverifycode!=''" class="error invalid-feedback">{{errorverifycode}}</span>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">登录密码: </label>
           <div class="col-sm-8">
-            <input type="password" [(ngModel)]='password' class="form-control" placeholder="输入登录密码">
+            <input type="password" [(ngModel)]='password' class="form-control" placeholder="输入登录密码"
+            [class.is-invalid]='errorpassword!=""' (keyup)='errorpassword=""'>
+           <span *ngIf="errorpassword!=''" class="error invalid-feedback">{{errorpassword}}</span>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">确认密码: </label>
           <div class="col-sm-8">
-            <input type="password" [(ngModel)]='password2' class="form-control" placeholder="输入确认密码">
+            <input type="password" [(ngModel)]='password2' class="form-control" placeholder="输入确认密码"
+            (keyup)='errorpassword=""'>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">联系地址: </label>
           <div class="col-sm-8">
-            <input type="text" [(ngModel)]='address' class="form-control" placeholder="输入联系地址">
+            <input type="text" [(ngModel)]='address' class="form-control" placeholder="输入联系地址"
+            [class.is-invalid]='erroraddress!=""' (keyup)='erroraddress=""'>
+           <span *ngIf="erroraddress!=''" class="error invalid-feedback">{{erroraddress}}</span>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">营业执照
             : </label>
           <div class="col-sm-8">
-            <nz-upload class="avatar-uploader" nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
+            <nz-upload  class="avatar-uploader" nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
               nzListType="picture-card" [nzShowUploadList]="false" (nzChange)="afterupload($event)">
               <ng-container *ngIf="!zhizhao">
                 <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
@@ -83,6 +97,8 @@
               </ng-container>
               <img *ngIf="zhizhao!=''" src="{{uploadpath}}instregister/{{zhizhao}}" style="width: 100%" />
             </nz-upload>
+            <input type="hidden"  class="form-control"  [class.is-invalid]='errorzhizhao!=""' />
+            <span *ngIf="errorzhizhao!=''" class="error invalid-feedback">{{errorzhizhao}}</span>
           </div>
         </div>
         
