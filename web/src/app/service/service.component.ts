@@ -6,20 +6,24 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
+import { WechatApi } from 'src/providers/wechat.api';
 
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
   styleUrls: ['./service.component.scss'],
-  providers: [InstApi, MemberApi,UserbApi]
+  providers: [InstApi, MemberApi,UserbApi,WechatApi]
 })
 export class ServiceComponent extends AppBase {
 
+  
+  static paycheck=null;
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public memberApi: MemberApi,
+    public wechatApi: WechatApi,
     public userbApi: UserbApi,
   ) {
     super(router, activeRoute, instApi, userbApi);
@@ -30,14 +34,33 @@ export class ServiceComponent extends AppBase {
     this.params;
     this.hidemodel();
   }
-  tabtype = 'readservice';
+  tabtype = 'readservice';//'readservice';
   agree=false;
+  payurl="";
+  kk=0;
   onMyShow() {
-    
-    if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("service", "");
-    }
+    this.wechatApi.payqrcode({}).then((ret:any)=>{
+      this.payurl=ret.return;
+    });
+    this.kk=(new Date()).getTime();
+    ServiceComponent.paycheck=this.kk;
+    this.checkifpay();
   }
+
+  checkifpay(){
+    this.userbApi.userinfo({}).then((info:any)=>{
+      if(info.issign_value=='Y'){
+       this.tabtype = 'paysuccess';
+      }else{
+        if(ServiceComponent.paycheck==this.kk){
+          setTimeout(()=>{
+            this.checkifpay();
+          },1000);
+        }
+      }
+    });
+  }
+
   tongyi(){
     this.agree=!this.agree;
   }
@@ -53,5 +76,8 @@ export class ServiceComponent extends AppBase {
   }
   quxiao(){
     this.navigate('addjigou',{deposit:true});
+  }
+  downloadAgreement(){
+    window.open(this.uploadpath+"inst/"+this.InstInfo.agreementfile)
   }
 }

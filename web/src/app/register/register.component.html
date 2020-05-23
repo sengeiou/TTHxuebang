@@ -80,7 +80,7 @@
         <div class="form-group row">
           <label class="col-sm-4 col-form-label">联系地址: </label>
           <div class="col-sm-8">
-            <input type="text" [(ngModel)]='address' class="form-control" placeholder="输入联系地址"
+            <input type="text" [(ngModel)]='address' maxlength="30" class="form-control" placeholder="输入联系地址"
             [class.is-invalid]='erroraddress!=""' (keyup)='erroraddress=""'>
            <span *ngIf="erroraddress!=''" class="error invalid-feedback">{{erroraddress}}</span>
           </div>

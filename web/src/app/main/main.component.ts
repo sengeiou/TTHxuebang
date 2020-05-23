@@ -55,11 +55,10 @@ export class MainComponent extends AppBase {
     //alert(this.memberinfo.expireddatetimespan);
     //alert(this.memberinfo.expireddatetimespan/24/3600/1000);
     //alert(timespan/24/3600/1000);
-    // if (this.memberinfo != null
-    //   &&
-    //   this.memberinfo.expireddatetimespan / 24 / 3600 / 1000 - timespan / 24 / 3600 / 1000 < 30) {
-    //   this.warning("Account Expired", "Your license would be expired in " + this.memberinfo.manpower.expired_date + ", please content support to update your license.");
-    // }
+    if (this.memberinfo != null
+      && this.memberinfo.issign_value!='Y') {
+      this.warning("入驻提醒", "您还未入驻本学榜平台，请点击<a href='/service'>这里快速入驻</a>");
+    }
   }
 
 

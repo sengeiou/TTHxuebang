@@ -1,146 +1,133 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>机构入驻</h1>
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>机构入驻</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+            <li class="breadcrumb-item active">机构入驻</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+      <div class="card card-primary card-outline">
+        <!-- left column -->
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-7 col-sm-9">
+              <div class="tab-content" id="vert-tabs-right-tabContent">
+                <div class=" tab-pane" [class.active]='tabtype=="readservice"' *ngIf='tabtype=="readservice"'>
+                  <div class="row">
+                    <h4>学榜保证金入驻协议</h4>
+                  </div>
+                  <div style="height: 40vh;overflow-y: scroll;">
+                    <blockquote style="margin:0px">
+                      <pre class="wenben h5" [innerHtml]='InstInfo.agreement'></pre>
+                    </blockquote>
+                  </div>
+                  <div style="height:20px"></div>
+                  <div class="row">
+                    <img src="{{uploadpath}}resource/{{agree==false?res.kuang:res.tongyi}}" class="icon-20 margin-right"
+                      (click)='tongyi()' />
+                    <div (click)='tongyi()' style="cursor: pointer;"> 我同意并认真遵守上述相关入驻协议内容，如有违反，遵从平台处理结果</div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <button class="btn btn-lg btn-default margin-right" data-toggle="modal"
+                      data-target="#modal-default">咨询客服</button>
+                    <button class="btn btn-lg btn-default margin-right" (click)='downloadAgreement()'>下载协议</button>
+                    <button class="btn btn-lg btn-primary margin-right" (click)='xiayibu()'>我已勾选协议，下一步</button>
+                  </div>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
-                        <li class="breadcrumb-item active">机构入驻</li>
-                    </ol>
+                
+                <div class=" tab-pane" [class.active]='tabtype=="deposit"' *ngIf='tabtype=="deposit"'>
+                  <h4>
+                    根据入驻合同协议，每个门店需要缴纳1000元保证金，此账号管理{{memberinfo.instnum}}个门店，需要缴纳￥{{memberinfo.instnum*1000}}作为保证金
+                  </h4>
+                  <h4>扫描下方二维码，支付￥{{memberinfo.instnum*1000}}元 </h4>
+
+                  <div *ngIf="payurl!=''" class="icon-260">
+                    <qrcode-svg
+                    [value]="payurl"
+                  ></qrcode-svg>
+                  </div>
+
+                  <div class="margin-top-40 margin-bottom-40">
+                    <button class="btn btn-lg btn-default" (click)='backstep()'>返回上一步</button>
+                  </div>
                 </div>
+                <div class=" tab-pane" [class.active]='tabtype=="paysuccess"' *ngIf='tabtype=="paysuccess"'>
+                 
+                  <h4>支付成功</h4>
+
+                  <div >
+                    <img src="{{uploadpath}}resource/{{res.paysuccess}}" class="icon-260" />
+                  </div>
+
+                  <div class="margin-top-40 margin-bottom-40">
+                    <button class="btn btn-lg btn-warning" (click)='navigate("jigou")'>开始创建课程</button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-12">
-                    <!-- jquery validation -->
-                    <div class="card ">
-                        <div class="card-header p-2 bg-white">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item"><a class="nav-link border-nav " [class.active2]='tabtype=="readservice"' 
-                                        data-toggle="tab">1、阅读并勾选入驻协议</a></li>
-                                <li class="nav-item"><a class="nav-link border-nav padding-20" [class.active2]='tabtype=="deposit"'
-                                        data-toggle="tab">2、缴纳保证金</a></li>
-                            </ul>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form role="form" id="quickForm">
-                            <div  class="card-body">
-                                <div class=" tab-pane" [class.active]='tabtype=="readservice"' *ngIf='tabtype=="readservice"'>
-                                <div class="row">
-                                    <h4>学榜保证金入驻协议</h4>
-                                </div>
-                                <div class="row" >
-                                    <pre class="wenben h5">
-1.合作形式：入驻+贴图 相互推广（1000元入驻平台后，须有选择地挑选机构内部几处地点贴学榜品牌贴纸）
-2.课程上架平台价格制定规则
-a.1~2次课，价格不超过9.9元，往下不设限；
-b.3次课，价格不超过29.9元，往下不设限；
-以上a、b课程费用由平台直接收取，不用返还给机构；
-c.4~6次课，价格不超过199元，往下不设限；
-d.6次课以上，价格不超过1000元，往下不设限；
-以上c、d课程费用平台抽取2%手续费后，其他返还给机构；
-3.权限描述：自主上架课程
-4.保证金退还条件：
-a.时间：硬性条件，1年后退保证金，1年内不退还保证金；（关系到后来的提现问题）
-b.全额退还：0引流，即平台在这段时间内没有为这个机构引流至少1人，则称为0引流；
-c.部分退还：扣款规则如下
-引流1人，则按50元/人进行相应的扣款；
-此类机构的课程，用户的评价需要显示在相应的课程详情页课程评价处；
-用户对课程差评，经平台核实后，将返还课程付款费用；
-梯度扣费规则：用户对某一机构的某一课程差评，则平台会相应地对该机构缴纳的保证金作出扣款，规则如下，首次差评扣款50元，第2次差评，则扣款100元，第3~5次差评，则扣款200元/个，第6个及以上差评，则将保证金扣款至0；
-机构入驻后，应对客户作出相应的服务，如沟通后继续不对客户进行服务，则按500/人进行扣款，需要添加进法律条款；
-5.保证金不退还条件：
-1年内有20个家长购买课程后并到该机构线下进行体验，则保证金不作退还；
-如果在1年合作期内，提前引流到20人，所有的门店的引流人数达到20人即结束，那么合作提前结束，保证金也不退；
-6.保证金充值：
-提供网上充值方式，充值渠道支持聚合收款扫码付款；
-                                            
-                                    </pre>
-                                </div>
-                                <div class="row">
-                                    <img src="{{uploadpath}}resource/{{agree==false?res.kuang:res.tongyi}}" class="icon-20 margin-right" (click)='tongyi()'/>
-                                    <div> 我同意并认真遵守上述相关入驻协议内容，如有违反，遵从平台处理结果</div>
-                                </div>
-
-                                <div class="row margin-top-40">
-                                    <button class="btns"  data-toggle="modal" data-target="#modal-default">咨询客服</button>
-                                    <button class="btns">下载协议</button>
-                                    <button class="btns" (click)='xiayibu()'>我已勾选协议，下一步</button>
-                                    <button class="btns" (click)='quxiao()'>取消</button>
-
-                                </div>
-                                </div>
-
-                                <div class=" tab-pane" [class.active]='tabtype=="deposit"' *ngIf='tabtype=="deposit"'>
-                                    <h4>
-                                        根据入驻合同协议，每个门店需要缴纳1000.00元保证金，此账号管理4个门店，需要缴纳￥4000.00作为保证金
-                                    </h4>
-                                    <h4>扫描下方二维码，支付￥4000.00元 </h4>
-
-                                    <div>
-                                        <img src="{{uploadpath}}resource/{{res.kehuweixin}}" class="icon-260 margin-top-40 margin-bottom-40">
-                                    </div>
-
-                                    <div class="margin-top-40 margin-bottom-40">
-                                        <button class="btns" (click)='backstep()'>返回上一步</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer bg-white">
-                               
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <div class="col-md-6">
-
-                </div>
-                <!--/.col (right) -->
+            <div class="col-5 col-sm-3">
+              <div class="nav flex-column nav-tabs nav-tabs-right h-100" id="vert-tabs-right-tab" role="tablist"
+                aria-orientation="vertical">
+                <a class="nav-link " disabled="disabled" [class.active]='tabtype=="readservice"' id="vert-tabs-right-home-tab"
+                  data-toggle="pill" role="tab" aria-controls="vert-tabs-right-home"
+                  aria-selected="true"  >1、阅读并勾选入驻协议</a>
+                <a class="nav-link" disabled="disabled" [class.active]='tabtype=="deposit"' id="vert-tabs-right-profile-tab"
+                  data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
+                  aria-selected="false">2、缴纳保证金</a>
+                  <a class="nav-link" disabled="disabled" [class.active]='tabtype=="paysuccess"' id="vert-tabs-right-profile-tab"
+                    data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
+                    aria-selected="false">3、完成支付</a>
+              </div>
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+          </div>
+        </div>
+      </div>
+
+
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 
 
 <div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-      <div class="modal-content margin-top-ban">
-        <div class="modal-body text-center">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            <div>
-            <h4 class="modal-title margin-top-10">
-                请打开微信扫描下方二维码<br>
-              添加学榜官方客服微信进行咨询</h4>
-            
-            </div>
-              <div>
-                  <img src="{{uploadpath}}resource/{{res.kehuweixin}}" class="icon-200 margin-top-20 margin-bottom-40">
-              </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+          <h4 class="modal-title margin-top-10">
+            请打开微信扫描下方二维码<br>
+            添加学榜官方客服微信进行咨询</h4>
+
+        </div>
+        <div>
+          <img src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="icon-260 margin-top-20 margin-bottom-40">
         </div>
       </div>
-      <!-- /.modal-content -->
     </div>
-    <!-- /.modal-dialog -->
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal -->
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
