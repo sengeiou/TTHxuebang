@@ -43,32 +43,44 @@
                 <div class="row">
                   <div class="form-group  col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label">订单编号</label>
-                      <input type="text" class="form-control" id="inputEmail3"  />
+                      <input type="text" class="form-control" id="inputEmail3" name='orderno'   [(ngModel)]='orderno'/>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">扣款时间</label>
                       <div class="flex-row2 flex-center2">
-                      <input type="date" class="form-control col-form-label-sm" [(ngModel)]='datefrom' [max]='dateto' />
+                      <input type="date" name="from" class="form-control col-form-label-sm" [(ngModel)]='datefrom' [max]='dateto' />
                       <div>一</div>
                     </div>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                     <label for="inputEmail3" class=" col-form-label col-form-label-sm txt-white">扣款时间</label>
-                    <input type="date" class="form-control col-form-label-sm" [(ngModel)]='dateto' [min]='datefrom'
+                    <input type="date" name='to' class="form-control col-form-label-sm" [(ngModel)]='dateto' [min]='datefrom'
                     [max]='today' />
                   
                 </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">扣款类型</label>
-                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" />
+                      <select class="form-control col-form-label-sm" id="inputEmail3" name='deductiontype'  [(ngModel)]='deductiontype'>
+                        <option value="">请选择</option>
+                        <option value="A">差评协议扣款</option>
+                        <option value="B">平台引流扣款</option>
+                        <option value="C">平台补扣款</option>
+                        <option value="D">平台违规扣款</option>
+                      </select>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">订单所属机构</label>
-                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" />
+                      <select class="form-control col-form-label-sm" id="inputEmail3" name='mechanism_id'   [(ngModel)]='mechanism_id'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of allinst'>{{item.jigou}}</option>
+                      </select>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label  col-form-label-sm">订单包含课程</label>
-                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" />
+                      <select  class="form-control col-form-label-sm" id="inputEmail3" name='kecheng_id'   [(ngModel)]='kecheng_id' >
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of allcurriculum'>{{item.name}}</option>
+                      </select>
                   </div>
                  
                 </div>
@@ -77,7 +89,8 @@
               <div class="card-footer">
                   <div class="float-right">
                     <button type="submit" class="btn btn-default ">导出</button>
-                    <button type="submit" class="btn btn-primary margin-left-20">搜索</button>
+                    <button type="submit" class="btn bg-gray margin-left-20" (click)='reset()'>重置</button>
+                    <button type="submit" class="btn btn-primary margin-left-20" (click)='search()'>搜索</button>
                   </div>
                
               </div>
@@ -126,18 +139,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                 <tr>
-                     <td>63636478844</td>
-                     <td>12.98</td>
-                     <td>用户的订单评价</td>
-                     <td>1分</td>
-                     <td>小小地球深圳店</td>
-                     <td>外教课</td>
-                     <td>差评协议扣款</td>
-                     <td>3</td>
-                     <td>第3、4、5次差评，平台额外扣除200元/次</td>
-                     <td>200.00</td>
-                     <td>2020-05-11 14:23:23</td>
+                 <tr *ngFor='let item of data'>
+                     <td>{{item.purchase_orderno}}</td>
+                     <td>{{item.purchase_amount}}</td>
+                     <td>{{item.pingjia_content}}</td>
+                     <td>{{item.pingjia_pingfen}}</td>
+                     <td>{{item.mechanism_jigou}}</td>
+                     <td>{{item.kecheng_id_name}}</td>
+                     <td>{{item.deductiontype_name}}</td>
+                     <td>{{item.deductiontype_name}}</td>
+                     <td>{{item.reason}}</td>
+                     <td>{{item.amount}}</td>
+                     <td>{{item.op_date}}</td>
                      <td><div style='color:#003eac' data-toggle="modal" data-target="#modal-default2">申诉</div></td>
                  </tr>
                 </tbody>
@@ -182,7 +195,7 @@
 
   <div class="modal fade" id="modal-default2">
     <div class="modal-dialog">
-      <div class="modal-content margin-top-ban">
+      <div class="modal-content">
         <div class="modal-body text-center">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -193,7 +206,7 @@
             
             </div>
               <div>
-                  <img src="{{uploadpath}}resource/{{res.kehuweixin}}" class="icon-200 margin-top-20 margin-bottom-40">
+                  <img src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="icon-260 margin-top-20 margin-bottom-40">
               </div>
         </div>
       </div>
