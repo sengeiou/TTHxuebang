@@ -28,14 +28,25 @@ class Content extends AppBase {
   zhifu(){
 
     var wechatApi = new WechatApi();
-    wechatApi.prepay5({id:this.Base.options.id},(res)=>{
-      console.log(res)
+    wechatApi.prepay5({ id: this.Base.options.id }, (payret)=>{
+      console.log(payret)
+      payret.complete = function (e) {
+        console.log(e)
+        if (e.errMsg == "requestPayment:ok") {
+          wx.reLaunch({
+            url: '/pages/ruzhuchenggong/ruzhuchenggong',
+          })
+        }
+
+      
+      }
+
+      wx.requestPayment(payret)
+
     })
 
 
-    // wx.reLaunch({
-    //   url: '/pages/ruzhuchenggong/ruzhuchenggong',
-    // })
+   
   }
 }
 var content = new Content();
