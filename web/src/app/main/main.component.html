@@ -135,8 +135,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview ">
-            <a  class="nav-link  {{module=='jigou'?'active':''}}" routerLink='/jigou'>
+          <li class="nav-item has-treeview " (click)='weipay("/jigou")'>
+            <a  class="nav-link  {{module=='jigou'?'active':''}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 机构管理
@@ -144,8 +144,8 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a  class="nav-link  {{module=='kechen'?'active':''}}" routerLink='/kechen'>
+          <li class="nav-item has-treeview" (click)='weipay("/kechen")'>
+            <a  class="nav-link  {{module=='kechen'?'active':''}}" >
               <i class="nav-icon fas fa-copy"></i>
               <p>
                课程管理
@@ -153,7 +153,7 @@
             </a>
           </li>
           
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" >
             <a  class="nav-link  {{module=='asset'?'active':''}}" >
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -162,13 +162,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" routerLink='/assetmanagement'>
+                <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/assetmanagement')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>保证金管理</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" routerLink='/orderincome'>
+                <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" (click)="weipay('/orderincome')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>订单收益管理</p>
                 </a>

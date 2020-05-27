@@ -1,0 +1,24 @@
+/* pages/deposit/deposit.wxss */
+.memdian {
+  width: 632rpx;
+  height: 484rpx;
+  margin: 0 58rpx 0 60rpx;
+  border-radius: 8rpx;
+}
+.lines {
+  width: 522rpx;
+  height: 2rpx;
+  background: #EFEEEE;
+  margin-top: 38rpx;
+  margin-bottom: 42rpx;
+}
+.btns{
+  width: 672rpx;
+  height: 120rpx;
+  background: #1BC35F;
+  border-radius: 60rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 40rpx;
+}

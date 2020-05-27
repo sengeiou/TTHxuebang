@@ -109,7 +109,16 @@ export class MainComponent extends AppBase {
     }
     return list;
   }
+  weipay(lujing){
+    if(this.memberinfo.issign_value!='Y'){
+      this.toast('请支付保证金!');
+      return
+    }else {
+      this.navigate(lujing);
+    }
+  }
   zhan(){
+   
     this.toast('暂未开放!');
     return
   }

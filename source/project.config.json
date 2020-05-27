@@ -90,6 +90,34 @@
 					"pathName": "pages/jifenorder/jifenorder",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保证金",
+					"pathName": "pages/baozhengjin/baozhengjin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "缴收保证金",
+					"pathName": "pages/deposit/deposit",
+					"query": "id=7&num=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入驻成功",
+					"pathName": "pages/ruzhuchenggong/ruzhuchenggong",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

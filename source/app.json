@@ -80,6 +80,10 @@
     "pages/mine/mine",
     "pages/addressmanage/addressmanage",
     "pages/shopmall/shopmall",
+    "pages/baozhengjin/baozhengjin",
+    "pages/ruzhuxieyi/ruzhuxieyi",
+    "pages/deposit/deposit",
+    "pages/ruzhuchenggong/ruzhuchenggong",
     "components/back"
   ],
   "permission": {
