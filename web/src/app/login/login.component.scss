@@ -189,4 +189,15 @@
   
   
   }
-  
+
+  .invalid-feedback {
+    widows: 100% ;
+    margin-top:.25rem;
+    font-size:80%;
+    color:#dc3545;
+    margin-left: 10%;
+  }
+
+  .dis-block {
+    display: block;
+  }

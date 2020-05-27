@@ -15,10 +15,11 @@
                 <img src="{{uploadpath}}resource/{{res.username}}" />
               </div>
               <div class="flex-1">
-                <input type="text"  [(ngModel)]='username' placeholder="请输入手机号码" />
+                <input type="text"  [(ngModel)]='username' placeholder="请输入手机号码" (keyup)='error=""'/>
               </div>
             </div>
           </div>
+          <span *ngIf="error!=''" class="error invalid-feedback {{error!=''?'dis-block':''}}" >{{error}}</span>
           <div class="ipt t4">
             <div class="flex-row2 flex-center2">
               <div>
@@ -29,6 +30,7 @@
               </div>
             </div>
           </div>
+          
           <div class="t3 flex-row2 flex-center2">
             <div class="btnlogin"  (click)='login()'>登录</div>
             <div class="flex-1"></div>

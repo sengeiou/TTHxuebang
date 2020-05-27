@@ -12,7 +12,8 @@
         <a class="nav-link" data-widget="pushmenu"  role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a  routerLink='/' class="nav-link">Home</a>
+        <a  routerLink='/' class="nav-link" *ngIf='memberinfo.issign_value=="Y"'>Home</a>
+        <a  href="#" class="nav-link" *ngIf='memberinfo.issign_value!="Y"'>Home</a>
       </li>
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a  class="nav-link">Contact</a>

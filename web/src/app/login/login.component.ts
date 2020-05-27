@@ -39,7 +39,7 @@ export class LoginComponent extends AppBase {
   onMyShow() {
 
   }
-
+  error='';
   login() {
     console.log(this.username, this.password)
     if (this.username == "" || this.password == "") {
@@ -72,7 +72,7 @@ export class LoginComponent extends AppBase {
 
 
       } else {
-
+        this.error=res.result;
       }
     })
   }
