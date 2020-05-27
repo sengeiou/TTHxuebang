@@ -28,9 +28,19 @@ class Content extends AppBase {
   zhifu(){
 
     var wechatApi = new WechatApi();
-    wechatApi.prepay5({id:this.Base.options.id},(res)=>{
-      console.log(res)
-    })
+    wechatApi.prepay5({ id: this.Base.options.id }, (payret) => {
+      payret.complete = function (e) {
+        console.log(e);
+        //that.onMyShow();
+        if (e.errMsg =="requestPayment:ok"){
+          //成功支付
+        }else{
+          //错误
+        }
+      }
+      console.log(payret);
+      wx.requestPayment(payret)
+    });
 
 
     // wx.reLaunch({
