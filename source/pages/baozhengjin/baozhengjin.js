@@ -32,7 +32,7 @@ class Content extends AppBase {
       check: false,
       gonsi: '',
       name: '',
-      instnum: '',
+      instnum: 1,
       dizhi: '',
       mobile: '',
       yanzhengma: '',
@@ -257,6 +257,7 @@ class Content extends AppBase {
       }
 
     }, 1000);
+    this.Base.setMyData({k})
   }
   bindpic() {
     var that = this;
@@ -273,11 +274,15 @@ class Content extends AppBase {
       url: '/pages/ruzhuxieyi/ruzhuxieyi',
     })
   }
+  onUnload(){
+    clearInterval(this.Base.getMyData().k);
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.onUnload = content.onUnload;
 body.checkFn = content.checkFn;
 body.gonsiFn = content.gonsiFn;
 body.instnumFn = content.instnumFn;

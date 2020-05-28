@@ -16,7 +16,7 @@
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 需管理门店数量：</view>
       <view style="width:26rpx;"></view>
-      <input class="f13 " type='number' placeholder="门店数量" placeholder-style="color:#CCCCCC" style="width:120rpx;" bindinput="instnumFn"></input>
+      <input class="f13 " type='number' value="{{instnum}}"  placeholder="门店数量" placeholder-style="color:#CCCCCC" style="width:120rpx;" bindinput="instnumFn"></input>
       <view class="f13" style="color:#222222;margin-left:26rpx;">个</view>
       <view class="flex-1"></view>
     </view>
