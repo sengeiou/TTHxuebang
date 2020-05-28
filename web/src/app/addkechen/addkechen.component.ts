@@ -61,6 +61,12 @@ export class AddkechenComponent extends AppBase {
     this.instApi.district({}).then((district:any)=>{
       this.district=district;
     })
+
+    var date=new Date();
+    var year=date.getFullYear();
+    var mon=(date.getMonth()+1)>10?(date.getMonth()+1):'0'+(date.getMonth()+1);
+    var day=date.getDate()>10?date.getDate():'0'+date.getDate();
+    this.kcdetail.up_time=year+'-'+mon+'-'+day;
   }
 
   jigoulen=0;
@@ -124,7 +130,8 @@ export class AddkechenComponent extends AppBase {
     lunbo:'',
     status:'',
     shenhestatus:'',
-    shenhestatus_name:''
+    shenhestatus_name:'',
+    kechennum:''
   }
   ischeckbox(item){
     var id=item.id+',';
@@ -295,6 +302,17 @@ export class AddkechenComponent extends AppBase {
     }
   }
   tijiao(){
+    if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+      this.kcdetail.duration=this.kcdetail.duration+'分钟';
+    }
+
+    if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+      this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+    }
+    if(this.errorprice!=""){
+      this.toast('课程价格错误，请重新输入');
+      return
+    }
     var json=null;
     json=this.kcdetail;
     json.lunbo=JSON.stringify(this.lunbo);
@@ -316,5 +334,28 @@ export class AddkechenComponent extends AppBase {
   }
   copy(){
     this.navigate('copykechen',{copyid:this.primary_id});
+  }
+  errorprice="";
+  pricekeyup(e){
+
+    if (e.keyCode == 8) {
+      return;
+    }
+    if(Number(this.kcdetail.kechennum)<=2 && Number(this.kcdetail.price)>9.9){
+      this.errorprice='1~2次课，价格不超过9.9元';
+    }
+
+    if(Number(this.kcdetail.kechennum)==3 && Number(this.kcdetail.price)>19.9){
+      this.errorprice='3次课，价格不超过19.9元';
+    }
+
+    if(Number(this.kcdetail.kechennum)>3 && Number(this.kcdetail.kechennum)<=5 && Number(this.kcdetail.price)>49.9){
+      this.errorprice='4~5次课，价格不超过49.9元';
+    }
+
+    if(Number(this.kcdetail.kechennum)>=6 && Number(this.kcdetail.price)>99){
+      this.errorprice='6次课，价格不超过49.9元';
+    }
+   
   }
 }

@@ -37,7 +37,14 @@ export class AddjigouComponent extends AppBase {
         this.deposit=true;
         Chart.saoma();
     }
+    var date=new Date();
+    var year=date.getFullYear();
+    var mon=(date.getMonth()+1)>10?(date.getMonth()+1):'0'+(date.getMonth()+1);
+    var day=date.getDate()>10?date.getDate():'0'+date.getDate();
+    this.jgdetail.up_time=year+'-'+mon+'-'+day;
+
   }
+
   deposit=false;
   onMyShow() {
     
@@ -61,18 +68,26 @@ export class AddjigouComponent extends AppBase {
   district=[];
   street=[];
   label=[];
+  allprovince=[];
+  allcity=[];
+  alldistrict=[];
+  allstreet=[];
   getaddress(){
       this.instApi.province({}).then((province:any)=>{
           this.province=province;
+          this.allprovince=province;
       })
       this.instApi.city({}).then((city:any)=>{
           this.city=city;
+          this.allcity=city;
       })
       this.instApi.district({}).then((district:any)=>{
           this.district=district;
+          this.alldistrict=district;
       })
       this.instApi.street({}).then((street:any)=>{
           this.street=street;
+          this.allstreet=street;
       })
       this.instApi.label({}).then((label:any)=>{
         for(let item of label){
@@ -297,5 +312,89 @@ export class AddjigouComponent extends AppBase {
         this.toast(res.result);
       }
     })
+  }
+  packagTypeChange(){
+    console.log(this.jgdetail.province_id);
+    var arr1=[];
+    for(let item of this.allcity){
+      if(item.province_id==this.jgdetail.province_id){
+        arr1.push(item);
+      }
+    }
+    this.city=arr1;
+
+    var arr2=[];
+    for(let item of this.alldistrict){
+      if(item.province_id==this.jgdetail.province_id){
+        arr2.push(item);
+      }
+    }
+    this.district=arr2;
+
+    var arr3=[];
+    for(let item of this.allstreet){
+      if(item.province_id==this.jgdetail.province_id){
+        arr3.push(item);
+      }
+    }
+    this.street=arr3;
+  }
+  packagTypeChange2(){
+    console.log(this.jgdetail.city_id);
+
+    for(let item of this.allcity){
+      if(item.id==this.jgdetail.city_id){
+        this.jgdetail.province_id=item.province_id;
+      }
+    }
+
+
+    var arr2=[];
+    for(let item of this.alldistrict){
+      if(item.city_id==this.jgdetail.city_id){
+        arr2.push(item);
+      }
+    }
+    this.district=arr2;
+
+    var arr3=[];
+    for(let item of this.allstreet){
+      if(item.city_id==this.jgdetail.city_id){
+        arr3.push(item);
+      }
+    }
+    this.street=arr3;
+  }
+  packagTypeChange3(){
+    console.log(this.jgdetail.district_id);
+  
+    
+    for(let item of this.alldistrict){
+      if(item.id==this.jgdetail.district_id){
+        this.jgdetail.city_id=item.city_id;
+        this.jgdetail.province_id=item.province_id;
+      }
+    }
+
+
+    var arr3=[];
+    for(let item of this.allstreet){
+      if(item.district_id==this.jgdetail.district_id){
+        arr3.push(item);
+      }
+    }
+    this.street=arr3;
+  }
+  packagTypeChange4(){
+    console.log(this.jgdetail.street_id);
+    
+    for(let item of this.allstreet){
+      if(item.id==this.jgdetail.street_id){
+        this.jgdetail.district_id=item.district_id;
+        this.jgdetail.city_id=item.city_id;
+        this.jgdetail.province_id=item.province_id;
+      }
+    }
+
   }
 }

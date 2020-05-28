@@ -7,7 +7,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 账户名称：</view>
-      <view class="flex-1"></view>
+      <view class="w56"></view>
       <input class="f13 " placeholder="请输入账户名称" placeholder-style="color:#CCCCCC" bindinput="gonsiFn"></input>
       <view class="flex-1"></view>
     </view>
@@ -16,7 +16,7 @@
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 需管理门店数量：</view>
       <view style="width:26rpx;"></view>
-      <input class="f13 " type='number' value="{{instnum}}"  placeholder="门店数量" placeholder-style="color:#CCCCCC" style="width:120rpx;" bindinput="instnumFn"></input>
+      <input class="f13 text-center" type='number' value="{{instnum}}"  placeholder="门店数量" placeholder-style="color:#CCCCCC" style="width:120rpx;" bindinput="instnumFn"></input>
       <view class="f13" style="color:#222222;margin-left:26rpx;">个</view>
       <view class="flex-1"></view>
     </view>
@@ -24,7 +24,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 联系人：</view>
-      <view class="flex-1"></view>
+      <view class="w86"></view>
       <input class="f13 " placeholder="张三、李四" placeholder-style="color:#CCCCCC" bindinput="nameFn"></input>
       <view class="flex-1"></view>
     </view>
@@ -32,7 +32,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 联系电话：</view>
-      <view class="flex-1"></view>
+      <view class="w56"></view>
       <input class="f13 " type='number' placeholder="187xxxxxxx" placeholder-style="color:#CCCCCC" style="width:260rpx;" bindinput="mobileFn"></input>
       <view class="flex-1"></view>
       <view class="huoqu h6" bindtap="getVerifyCode" wx:if='{{resendreminder==0}}'>获取验证码</view>
@@ -42,7 +42,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 验证码：</view>
-      <view class="flex-1"></view>
+      <view class="w86"></view>
       <input class="f13 " placeholder="输入验证码" placeholder-style="color:#CCCCCC" bindinput="yanzhengmaFn"></input>
       <view class="flex-1"></view>
     </view>
@@ -50,7 +50,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 登录密码：</view>
-      <view class="flex-1"></view>
+       <view class="w56"></view>
       <input class="f13 " type="password" placeholder="输入登录密码" placeholder-style="color:#CCCCCC" bindinput="passowordFn"></input>
       <view class="flex-1"></view>
     </view>
@@ -58,7 +58,7 @@
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 确认密码：</view>
-      <view class="flex-1"></view>
+      <view class="w56"></view>
       <input class="f13 " type="password" placeholder="再次输入登录密码" placeholder-style="color:#CCCCCC" bindinput="passoword2Fn"></input>
       <view class="flex-1"></view>
     </view>

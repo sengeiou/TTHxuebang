@@ -1,10 +1,10 @@
 <back-component></back-component>
 
 <view class="flex-row flex-column">
-  <view style="height:100rpx;"></view>
+  <view style="height:50rpx;"></view>
   <image src="{{uploadpath}}resource/{{res.success}}" mode='widthFix' style="width:60%"></image>
-  <view class="h3" style="color:#FF6600;margin-top:56rpx;">恭喜您成功入驻学榜</view>
-  <view class="h5" style="color:#222222;margin-top:26rpx;">请复制以下链接并在PC端打开</view>
+  <view class="h3 margin-top-50" style="color:#FF6600;">恭喜您成功入驻学榜</view>
+  <view class="h5 margin-top-20" style="color:#222222;">请复制以下链接并在PC端打开</view>
 
   <view class="flex-row flex-center links">
     <view class="flex-1"></view>

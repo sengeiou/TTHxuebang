@@ -40,3 +40,9 @@ Page {
   text-align: center;
   line-height: 120rpx;
 }
+.w56 {
+  width: 56rpx;
+}
+.w86{
+  width: 86rpx;
+}
