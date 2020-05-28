@@ -113,9 +113,13 @@ export class AddjigouComponent extends AppBase {
     novideosummary:'',
     novideosummary_value:'',
     province_id:'',
+    province_id_name:'',
     city_id:'',
+    city_id_name:'',
     district_id:'',
+    district_id_name:'',
     street_id:'',
+    street_id_name:'',
     address:'',
     showaddress:'',
     lat:'',
@@ -292,6 +296,7 @@ export class AddjigouComponent extends AppBase {
     }
   }
   submit(){
+    this.jgdetail.searchkeyword=this.jgdetail.jigou+','+this.jgdetail.address;
     var json=null;
     json=this.jgdetail;
     json.img=JSON.stringify(this.bgimg);

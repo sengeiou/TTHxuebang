@@ -76,5 +76,9 @@ export class LoginComponent extends AppBase {
       }
     })
   }
-
+  pwdkeup(e){
+    if(e.keyCode==13){
+      this.login();
+    }
+  }
 }

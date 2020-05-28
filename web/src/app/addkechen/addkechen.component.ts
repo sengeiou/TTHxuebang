@@ -113,7 +113,7 @@ export class AddkechenComponent extends AppBase {
     xq_bg:'',
     kcchimg:'',
     labels:'',
-    kucun:0,
+    kucun:'',
     teachermobile:'',
     purchasetype:'',
     isfenxiao:'',
@@ -313,6 +313,8 @@ export class AddkechenComponent extends AppBase {
       this.toast('课程价格错误，请重新输入');
       return
     }
+    // this.kcdetail.searchkeyword=this.kcdetail.name;
+    this.kcdetail.purchasetype='C';
     var json=null;
     json=this.kcdetail;
     json.lunbo=JSON.stringify(this.lunbo);
@@ -341,20 +343,20 @@ export class AddkechenComponent extends AppBase {
     if (e.keyCode == 8) {
       return;
     }
-    if(Number(this.kcdetail.kechennum)<=2 && Number(this.kcdetail.price)>9.9){
+    if(Number(this.kcdetail.kechennum)<=2 && Number(this.kcdetail.expeprice)>9.9){
       this.errorprice='1~2次课，价格不超过9.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)==3 && Number(this.kcdetail.price)>19.9){
+    if(Number(this.kcdetail.kechennum)==3 && Number(this.kcdetail.expeprice)>19.9){
       this.errorprice='3次课，价格不超过19.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)>3 && Number(this.kcdetail.kechennum)<=5 && Number(this.kcdetail.price)>49.9){
+    if(Number(this.kcdetail.kechennum)>3 && Number(this.kcdetail.kechennum)<=5 && Number(this.kcdetail.expeprice)>49.9){
       this.errorprice='4~5次课，价格不超过49.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)>=6 && Number(this.kcdetail.price)>99){
-      this.errorprice='6次课，价格不超过49.9元';
+    if(Number(this.kcdetail.kechennum)>=6 && Number(this.kcdetail.expeprice)>99){
+      this.errorprice='6次课，价格不超过99元';
     }
    
   }

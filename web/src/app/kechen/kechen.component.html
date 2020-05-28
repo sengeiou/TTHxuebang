@@ -119,8 +119,8 @@
                     <td>{{item.expeprice}}</td>
                     <td>{{item.age_name}}</td>
                     <td>
-                        <div class="badge bg-primary margin-right" (click)='bianji(item)'>编辑</div>
-                        <div class="badge bg-danger" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
+                        <div class="badge bg-primary margin-right cur-po" (click)='bianji(item)'>编辑</div>
+                        <div class="badge bg-danger cur-po" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
                     </td>
                   </tr>
                   <tr *ngIf='allcurriculum.length==0'>

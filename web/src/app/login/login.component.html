@@ -26,7 +26,7 @@
                 <img src="{{uploadpath}}resource/{{res.password}}" />
               </div>
               <div class="flex-1">
-                <input type="password"  [(ngModel)]='password' placeholder="请输入登录密码" />
+                <input type="password"  [(ngModel)]='password' placeholder="请输入登录密码" (keyup)='pwdkeup($event)'/>
               </div>
             </div>
           </div>
