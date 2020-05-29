@@ -34,7 +34,7 @@
           <div class="t3 flex-row2 flex-center2">
             <div class="btnlogin"  (click)='login()'>登录</div>
             <div class="flex-1"></div>
-            <div class="btnregister" (click)='navigate("register")'>注册</div>
+            <div class="btnregister"  data-toggle="modal" data-target="#modal-xl">注册</div>
           </div>
         </div>
       </div>
@@ -44,6 +44,19 @@
     </div>
   </div>
   <div class="flex-1"></div>
+</div>
+
+<div class="modal fade" id="modal-xl">
+  <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div style="width:100%;height: 900px; overflow-y: scroll;">
+          <img src="{{uploadpath}}resource/{{res.zhuce}}" mode='widthFix' style="width:100%;">
+        </div>
+          
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
 
 

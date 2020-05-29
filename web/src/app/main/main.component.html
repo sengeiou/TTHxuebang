@@ -130,7 +130,8 @@
           <li class="nav-item">
             <!-- <a  routerLink="" class="nav-link {{module=='home'?'active':''}}" > -->
               <a  (click)='zhan()' class="nav-link {{module=='home'?'active':''}}" >
-              <i class="nav-icon fas fa-th"></i>
+              <!-- <i class="nav-icon fas fa-th"></i> -->
+              <img src="{{uploadpath}}resource/{{res.yewuzhongxin}}" class="icon-17 margin-right"/>
               <p>
                 业务中心
                 <!-- <span class="right badge badge-danger">New</span> -->
@@ -139,7 +140,8 @@
           </li>
           <li class="nav-item has-treeview " (click)='weipay("/jigou")'>
             <a  class="nav-link  {{module=='jigou'?'active':''}}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
+              <img src="{{uploadpath}}resource/{{res.jigouguanli}}" class="icon-17 margin-right"/>
               <p>
                 机构管理
               </p>
@@ -148,7 +150,8 @@
 
           <li class="nav-item has-treeview" (click)='weipay("/kechen")'>
             <a  class="nav-link  {{module=='kechen'?'active':''}}" >
-              <i class="nav-icon fas fa-copy"></i>
+              <!-- <i class="nav-icon fas fa-copy"></i> -->
+              <img src="{{uploadpath}}resource/{{res.kechengguanli}}" class="icon-17 margin-right"/>
               <p>
                课程管理
               </p>
@@ -157,7 +160,8 @@
           
           <li class="nav-item has-treeview" >
             <a  class="nav-link  {{module=='asset'?'active':''}}" >
-              <i class="nav-icon fas fa-copy"></i>
+              <!-- <i class="nav-icon fas fa-copy"></i> -->
+              <img src="{{uploadpath}}resource/{{res.zichanguanli}}" class="icon-17 margin-right"/>
               <p>
                资产管理
               </p>
@@ -182,7 +186,8 @@
           <li class="nav-item has-treeview">
             <!-- <a  class="nav-link {{module=='order'?'active':''}}" routerLink='/order'> -->
               <a  class="nav-link {{module=='order'?'active':''}}"  (click)='zhan()' >
-              <i class="nav-icon fas fa-edit"></i>
+              <!-- <i class="nav-icon fas fa-edit"></i> -->
+              <img src="{{uploadpath}}resource/{{res.dingdanguanli}}" class="icon-17 margin-right"/>
               <p>
                 订单管理
               </p>
@@ -191,7 +196,8 @@
           <li class="nav-item has-treeview">
             <!-- <a  class="nav-link {{module=='hexiao'?'active':''}}" routerLink='/hexiao'> -->
               <a  class="nav-link {{module=='hexiao'?'active':''}}" (click)='zhan()'>
-              <i class="nav-icon fas fa-edit"></i>
+              <!-- <i class="nav-icon fas fa-edit"></i> -->
+              <img src="{{uploadpath}}resource/{{res.hexiaoguanli}}" class="icon-17 margin-right"/>
               <p>
                 核销订单
               </p>
@@ -200,7 +206,8 @@
           <li class="nav-item has-treeview">
             <!-- <a  class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'> -->
               <a  class="nav-link {{module=='infobox'?'active':''}}" (click)='zhan()'>
-              <i class="nav-icon fas fa-edit"></i>
+              <!-- <i class="nav-icon fas fa-edit"></i> -->
+              <img src="{{uploadpath}}resource/{{res.xiaoxizhongxin}}" class="icon-17 margin-right"/>
               <p>
                 消息中心
               </p>
@@ -210,7 +217,8 @@
           <li class="nav-item">
             <!-- <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'> -->
               <a  class="nav-link {{module=='setting'?'active':''}}" (click)='zhan()'>
-              <i class="nav-icon fas fa-cog"></i>
+              <!-- <i class="nav-icon fas fa-cog"></i> -->
+              <img src="{{uploadpath}}resource/{{res.shezhi}}" class="icon-17 margin-right"/>
               <p>
                 设置
               </p>
