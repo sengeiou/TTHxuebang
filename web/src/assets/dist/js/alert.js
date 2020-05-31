@@ -41,3 +41,8 @@ Chart.hidemodel=function(){
 
   $("#saoma").modal('hide');
 }
+Chart.setColorPick2=function(){
+
+  $('.my-colorpicker2').colorpicker()
+
+}
