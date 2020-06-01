@@ -282,12 +282,41 @@ export class CopykechenComponent extends AppBase {
     }
   }
   tijiao() {
+
+    if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+      this.kcdetail.duration=this.kcdetail.duration+'分钟';
+    }
+
+    if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+      this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+    }
+    if(this.errorprice!=""){
+      this.toast('课程价格错误，请重新输入');
+      return
+    }
+    if(parseFloat(this.kcdetail.expeprice)<0.01){
+      this.toast('课程价格不能小于0.01');
+      return
+    }
+
+      if(this.lunbo.length==0){
+        this.toast('请添加轮播图');
+        return
+      }
+
+      if(this.lunbo.length==1 && this.lunbo[0].img==""){
+        this.toast('请添加轮播图');
+        return
+      }
+    
+
     var json = null;
     json = this.kcdetail;
     json.lunbo = JSON.stringify(this.lunbo);
     if (this.primary_id > 0) {
       json.primary_id = this.primary_id;
     }
+   
     json.status = 'A';
     json.isfenxiao=this.kcdetail.isfenxiao_value;
     json.labels = this.kcdetail.labels.slice(0, this.kcdetail.labels.length - 1)
@@ -296,21 +325,73 @@ export class CopykechenComponent extends AppBase {
         this.primary_id = res.return;
         this.copyid=res.return;
         this.saveing();
-        this.onMyShow();
+        this.navigate('/kechen');
       } else {
         this.toast(res.result);
       }
     })
   }
-  copy(){
-    this.navigate('copykechen',{copyid:this.primary_id});
+
+    copy(){
+      if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+        this.kcdetail.duration=this.kcdetail.duration+'分钟';
+      }
+  
+      if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+        this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+      }
+      if(this.errorprice!=""){
+        this.toast('课程价格错误，请重新输入');
+        return
+      }
+      if(parseFloat(this.kcdetail.expeprice)<0.01){
+        this.toast('课程价格不能小于0.01');
+        return
+      }
+
+      if(this.lunbo.length==0){
+        this.toast('请添加轮播图');
+        return
+      }
+  
+      if(this.lunbo.length==1 && this.lunbo[0].img==""){
+        this.toast('请添加轮播图');
+        return
+      }
+      
+
+      // this.kcdetail.searchkeyword=this.kcdetail.name;
+      this.kcdetail.purchasetype='C';
+      var json=null;
+      json=this.kcdetail;
+      json.lunbo=JSON.stringify(this.lunbo);
+      if(this.primary_id>0){
+        json.primary_id=this.primary_id;
+      }
+      json.status='A';
+      json.isfenxiao=this.kcdetail.isfenxiao_value;
+      json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
+      this.userbApi.addkechen(json).then((res:any)=>{
+        if(res.code=='0'){
+          this.saveing();
+          // this.primary_id=res.return;
+          // this.navigate('/kechen');
+          this.copyid=res.return;
+          this.onMyShow();
+          // window.scrollTo({
+          //   top:0
+          // });
+        }else {
+          this.toast(res.result);
+        }
+      })
   }
   errorprice="";
   pricekeyup(e){
 
-    if (e.keyCode == 8) {
-      return;
-    }
+    // if (e.keyCode == 8) {
+    //   return;
+    // }
     if(parseInt(this.kcdetail.kechennum)<=2 && parseFloat(this.kcdetail.expeprice)>9.9){
       this.errorprice='1~2次课，价格不超过9.9元';
     }

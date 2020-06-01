@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppBase } from '../AppBase';
 import { InstApi } from 'src/providers/inst.api';
@@ -7,14 +7,13 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
 declare let Chart: any;
-
 @Component({
-  selector: 'app-addjigou',
-  templateUrl: './addjigou.component.html',
-  styleUrls: ['./addjigou.component.scss'],
+  selector: 'app-copyjigou',
+  templateUrl: './copyjigou.component.html',
+  styleUrls: ['./copyjigou.component.scss'],
   providers: [InstApi, MemberApi,UserbApi]
 })
-export class AddjigouComponent extends AppBase {
+export class CopyjigouComponent extends AppBase {
   loading=false;
   constructor(
     public router: Router,
@@ -26,12 +25,15 @@ export class AddjigouComponent extends AppBase {
     super(router, activeRoute, instApi, userbApi);
 
   }
-
+  copyid=0;
   onMyLoad() {
     this.params;
     this.getaddress();
     if(this.params.id!=undefined){
       this.primary_id=this.params.id;
+    }
+    if(this.params.copyid!=undefined){
+      this.copyid=this.params.copyid;
     }
     if(this.params.deposit!=undefined){
         this.deposit=true;
@@ -43,8 +45,12 @@ export class AddjigouComponent extends AppBase {
     var day=date.getDate()>10?date.getDate():'0'+date.getDate();
     this.jgdetail.up_time=year+'-'+mon+'-'+day;
     //Chart.setColorPick2();
-  }
 
+    this.instApi.allinst({}).then((allinst:any)=>{
+      this.allinst=allinst;
+    })
+  }
+  allinst=[];
   deposit=false;
   onMyShow() {
     
@@ -52,15 +58,15 @@ export class AddjigouComponent extends AppBase {
       MainComponent.Instance.setModule("jigou", "");
     }
 
-    if(this.primary_id>0){
-      this.userbApi.instdetail({id:this.primary_id}).then((res:any)=>{
+
+      this.userbApi.instdetail({id:this.copyid}).then((res:any)=>{
         console.log(res)
         this.jgdetail=res;
         this.bgimg=res.lunbo;
         this.hexiao=res.hexiaos;
         this.jgdetail.labels=res.labels+',';
       })
-    }
+    
   }
   primary_id=0;
   province=[];
@@ -297,6 +303,14 @@ export class AddjigouComponent extends AppBase {
   }
   submit(){
 
+
+    console.log(this.memberinfo);
+    if(this.memberinfo.instnum<=this.allinst.length){
+      this.toast('超出管理的个数，不能再添加机构了！！');
+      return
+    }
+
+    
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
       return
@@ -305,8 +319,6 @@ export class AddjigouComponent extends AppBase {
       this.toast('请添加轮播图');
       return
     }
-
-
 
     this.jgdetail.searchkeyword=this.jgdetail.jigou+','+this.jgdetail.address;
     var json=null;
@@ -324,14 +336,19 @@ export class AddjigouComponent extends AppBase {
       if(res.code=='0'){
         this.saveing();
         this.primary_id=res.return;
-        this.back();
+        this.navigate('/jigou');
       }else {
         this.toast(res.result);
       }
     })
   }
   copy(){
+    if(this.memberinfo.instnum<=this.allinst.length){
+      this.toast('超出管理的个数，不能再添加机构了！！');
+      return
+    }
 
+    
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
       return
@@ -340,7 +357,6 @@ export class AddjigouComponent extends AppBase {
       this.toast('请添加轮播图');
       return
     }
-
     this.jgdetail.searchkeyword=this.jgdetail.jigou+','+this.jgdetail.address;
     var json=null;
     json=this.jgdetail;
@@ -356,8 +372,10 @@ export class AddjigouComponent extends AppBase {
     this.userbApi.addinst(json).then((res:any)=>{
       if(res.code=='0'){
         this.saveing();
-        this.primary_id=res.return;
-        this.navigate('/copyjigou',{copyid:res.return});
+        // this.primary_id=res.return;
+        // this.navigate('/jigou');
+        this.copyid=res.return;
+        this.onMyShow();
       }else {
         this.toast(res.result);
       }

@@ -43,6 +43,7 @@ import { AssetmanagementComponent } from './assetmanagement/assetmanagement.comp
 import { OrderincomeComponent } from './orderincome/orderincome.component';
 import { QRCodeSVGModule } from 'ngx-qrcode-svg';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { CopyjigouComponent } from './copyjigou/copyjigou.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     ServiceComponent,
     AssetmanagementComponent,
     OrderincomeComponent,
+    CopyjigouComponent,
   ],
   imports: [
     BrowserModule,

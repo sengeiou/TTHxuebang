@@ -313,6 +313,22 @@ export class AddkechenComponent extends AppBase {
       this.toast('课程价格错误，请重新输入');
       return
     }
+    if(parseFloat(this.kcdetail.expeprice)<0.01){
+      this.toast('课程价格不能小于0.01');
+      return
+    }
+
+    if(this.lunbo.length==0){
+      this.toast('请添加轮播图');
+      return
+    }
+
+    if(this.lunbo.length==1 && this.lunbo[0].img==""){
+      this.toast('请添加轮播图');
+      return
+    }
+    
+
     // this.kcdetail.searchkeyword=this.kcdetail.name;
     this.kcdetail.purchasetype='C';
     var json=null;
@@ -328,7 +344,7 @@ export class AddkechenComponent extends AppBase {
       if(res.code=='0'){
         this.primary_id=res.return;
         this.saveing();
-        this.onMyShow();
+        this.back();
       }else {
         this.toast(res.result);
       }
@@ -342,10 +358,24 @@ export class AddkechenComponent extends AppBase {
     if(this.kcdetail.age_name.indexOf('岁')==-1  ){
       this.kcdetail.age_name=this.kcdetail.age_name+'岁';
     }
-    if(this.errorprice!=""){
+    if(this.errorprice!="" ){
       this.toast('课程价格错误，请重新输入');
       return
     }
+    if(parseFloat(this.kcdetail.expeprice)<0.01){
+      this.toast('课程价格不能小于0.01');
+      return
+    }
+    if(this.lunbo.length==0){
+      this.toast('请添加轮播图');
+      return
+    }
+
+    if(this.lunbo.length==1 && this.lunbo[0].img==""){
+      this.toast('请添加轮播图');
+      return
+    }
+    
     // this.kcdetail.searchkeyword=this.kcdetail.name;
     this.kcdetail.purchasetype='C';
     var json=null;
@@ -369,10 +399,11 @@ export class AddkechenComponent extends AppBase {
   }
   errorprice="";
   pricekeyup(e){
-
-    if (e.keyCode == 8) {
-      return;
-    }
+    console.log(e);
+    console.log(this.kcdetail.expeprice);
+    // if (e.keyCode == 8) {
+    //   return;
+    // }
     if(parseInt(this.kcdetail.kechennum)<=2 && parseFloat(this.kcdetail.expeprice)>9.9){
       this.errorprice='1~2次课，价格不超过9.9元';
     }

@@ -8,7 +8,7 @@
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 账户名称：</view>
       <view class="w56"></view>
-      <input class="f13 " placeholder="请输入账户名称" placeholder-style="color:#CCCCCC" bindinput="gonsiFn"></input>
+      <input class="f13 " placeholder="请输入账户名称" placeholder-style="color:#CCCCCC" bindinput="nameFn"></input>
       <view class="flex-1"></view>
     </view>
 
@@ -25,7 +25,7 @@
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 联系人：</view>
       <view class="w86"></view>
-      <input class="f13 " placeholder="张三、李四" placeholder-style="color:#CCCCCC" bindinput="nameFn"></input>
+      <input class="f13 " placeholder="张三、李四" placeholder-style="color:#CCCCCC" bindinput="gonsiFn"></input>
       <view class="flex-1"></view>
     </view>
 

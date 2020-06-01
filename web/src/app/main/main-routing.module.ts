@@ -20,6 +20,7 @@ import { OrderdetailComponent } from '../orderdetail/orderdetail.component';
 import { ServiceComponent } from '../service/service.component';
 import { AssetmanagementComponent } from '../assetmanagement/assetmanagement.component';
 import { OrderincomeComponent } from '../orderincome/orderincome.component';
+import { CopyjigouComponent } from '../copyjigou/copyjigou.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
       { path: "service", component: ServiceComponent },
       { path: "assetmanagement", component: AssetmanagementComponent },
       { path: "orderincome", component: OrderincomeComponent },
+      { path: "copyjigou", component: CopyjigouComponent },
     ]
   }
 ];

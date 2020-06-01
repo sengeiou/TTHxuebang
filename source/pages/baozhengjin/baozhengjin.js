@@ -38,7 +38,8 @@ class Content extends AppBase {
       yanzhengma: '',
       password: '',
       resendreminder: 0,
-      zhizhao: ''
+      zhizhao: '',
+      lianxiren:''
     })
   }
   onMyShow() {
@@ -52,7 +53,7 @@ class Content extends AppBase {
   }
   gonsiFn(e) {
     this.Base.setMyData({
-      gonsi: e.detail.value
+      lianxiren: e.detail.value
     })
   }
   instnumFn(e) {
@@ -91,7 +92,7 @@ class Content extends AppBase {
     })
   }
   tijiao() {
-    var gonsi = this.Base.getMyData().gonsi;
+    var lianxiren = this.Base.getMyData().lianxiren;
     var name = this.Base.getMyData().name;
     var instnum = this.Base.getMyData().instnum;
     var mobile = this.Base.getMyData().mobile;
@@ -105,13 +106,7 @@ class Content extends AppBase {
     var userbapi = new UserbApi;
 
 
-    if (gonsi.trim() == "") {
-      wx.showToast({
-        title: '账户名称不能为空',
-        icon: 'none'
-      })
-      return
-    }
+   
     if (name.trim() == "") {
       wx.showToast({
         title: '姓名不能为空',
@@ -128,6 +123,14 @@ class Content extends AppBase {
       return
     }
 
+    if (lianxiren.trim() == "") {
+      wx.showToast({
+        title: '账户名称不能为空',
+        icon: 'none'
+      })
+      return
+    }
+
     if (!(mobile[0] == "1" && mobile.length == 11)) {
       wx.showToast({
         title: '请输入正确的联系电话',
@@ -137,7 +140,7 @@ class Content extends AppBase {
     }
     if (password == "" || password.length < 8) {
       wx.showToast({
-        title: '密码不能为空切不得小于8位数',
+        title: '密码不能为空且不得小于8位数',
         icon: 'none'
       })
       return
@@ -198,7 +201,7 @@ class Content extends AppBase {
         name: name,
         mobile: mobile,
         password: password,
-        gonsi: gonsi,
+        lianxiren: lianxiren,
         address: dizhi,
         zhizhao: zhizhao,
         instnum: instnum
