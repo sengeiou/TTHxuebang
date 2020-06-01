@@ -120,6 +120,7 @@ export class CopykechenComponent extends AppBase {
     wenan: '',
     lunbo: '',
     status: '',
+    kechennum:''
   }
   ischeckbox(item) {
     var id = item.id + ',';
@@ -303,5 +304,28 @@ export class CopykechenComponent extends AppBase {
   }
   copy(){
     this.navigate('copykechen',{copyid:this.primary_id});
+  }
+  errorprice="";
+  pricekeyup(e){
+
+    if (e.keyCode == 8) {
+      return;
+    }
+    if(parseInt(this.kcdetail.kechennum)<=2 && parseFloat(this.kcdetail.expeprice)>9.9){
+      this.errorprice='1~2次课，价格不超过9.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)==3 && parseFloat(this.kcdetail.expeprice)>19.9){
+      this.errorprice='3次课，价格不超过19.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)>3 && parseInt(this.kcdetail.kechennum)<=5 && parseFloat(this.kcdetail.expeprice)>49.9){
+      this.errorprice='4~5次课，价格不超过49.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)>=6 && parseFloat(this.kcdetail.expeprice)>99){
+      this.errorprice='6次课，价格不超过99元';
+    }
+   
   }
 }

@@ -335,7 +335,37 @@ export class AddkechenComponent extends AppBase {
     })
   }
   copy(){
-    this.navigate('copykechen',{copyid:this.primary_id});
+    if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+      this.kcdetail.duration=this.kcdetail.duration+'分钟';
+    }
+
+    if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+      this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+    }
+    if(this.errorprice!=""){
+      this.toast('课程价格错误，请重新输入');
+      return
+    }
+    // this.kcdetail.searchkeyword=this.kcdetail.name;
+    this.kcdetail.purchasetype='C';
+    var json=null;
+    json=this.kcdetail;
+    json.lunbo=JSON.stringify(this.lunbo);
+    if(this.primary_id>0){
+      json.primary_id=this.primary_id;
+    }
+    json.status='A';
+    json.isfenxiao=this.kcdetail.isfenxiao_value;
+    json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
+    this.userbApi.addkechen(json).then((res:any)=>{
+      if(res.code=='0'){
+        this.primary_id=res.return;
+        this.navigate('copykechen',{copyid:this.primary_id});
+      }else {
+        this.toast(res.result);
+      }
+    })
+   
   }
   errorprice="";
   pricekeyup(e){
@@ -343,19 +373,19 @@ export class AddkechenComponent extends AppBase {
     if (e.keyCode == 8) {
       return;
     }
-    if(Number(this.kcdetail.kechennum)<=2 && Number(this.kcdetail.expeprice)>9.9){
+    if(parseInt(this.kcdetail.kechennum)<=2 && parseFloat(this.kcdetail.expeprice)>9.9){
       this.errorprice='1~2次课，价格不超过9.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)==3 && Number(this.kcdetail.expeprice)>19.9){
+    if(parseInt(this.kcdetail.kechennum)==3 && parseFloat(this.kcdetail.expeprice)>19.9){
       this.errorprice='3次课，价格不超过19.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)>3 && Number(this.kcdetail.kechennum)<=5 && Number(this.kcdetail.expeprice)>49.9){
+    if(parseInt(this.kcdetail.kechennum)>3 && parseInt(this.kcdetail.kechennum)<=5 && parseFloat(this.kcdetail.expeprice)>49.9){
       this.errorprice='4~5次课，价格不超过49.9元';
     }
 
-    if(Number(this.kcdetail.kechennum)>=6 && Number(this.kcdetail.expeprice)>99){
+    if(parseInt(this.kcdetail.kechennum)>=6 && parseFloat(this.kcdetail.expeprice)>99){
       this.errorprice='6次课，价格不超过99元';
     }
    
