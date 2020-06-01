@@ -59,7 +59,8 @@ export class HomePage extends AppBase {
   filtercoursetype = [];
   fapk=[];
   nocity = 0;
-
+ 
+  goodsinterval=2;
 
   onMyLoad(e=undefined) {
     //参数
@@ -70,7 +71,7 @@ export class HomePage extends AppBase {
   xiaoxishu = 0;
   mypingcelist = [];
   indexlist = [];
-
+  topvaluelist=[];
   onMyShow(e=undefined) {
 
     AppBase.LASTTAB=this;
@@ -87,6 +88,13 @@ export class HomePage extends AppBase {
       this.filtercoursetype = filtercoursetype;
       this.fapk=this.getArray(10-((filtercoursetype.length)-8));
     });
+
+    jifenapi.commoditylist({
+      istopvalue: "Y",
+      orderby: 'r_main.seq'
+    }).then((list) => {
+      this.topvaluelist= list;
+    })
 
 
     jifenapi.dakalist({
@@ -776,4 +784,10 @@ export class HomePage extends AppBase {
     this.navigate("searchword",{type:'kc'})
   }
 
+  togoods(id) {
+    this.navigate("shopmalldetail",{id:id});
+  }
+  tomall(){
+    this.navigate("shopmall",{});
+  }
 }

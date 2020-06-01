@@ -34,6 +34,7 @@ export class Tab1Page  extends AppBase {
   name="热门课程";
   lunbolist=[];
   zuixin=[];
+
   onMyLoad(e=undefined) {
     var that = this;
 

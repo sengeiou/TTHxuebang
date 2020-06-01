@@ -42,6 +42,9 @@ import { ServiceComponent } from './service/service.component';
 import { AssetmanagementComponent } from './assetmanagement/assetmanagement.component';
 import { OrderincomeComponent } from './orderincome/orderincome.component';
 import { QRCodeSVGModule } from 'ngx-qrcode-svg';
+import { ColorPickerModule } from 'ngx-color-picker';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +83,8 @@ import { QRCodeSVGModule } from 'ngx-qrcode-svg';
     NgZorroAntdModule,
     BrowserAnimationsModule,
     NzIconModule,
-    QRCodeSVGModule
+    QRCodeSVGModule,
+    ColorPickerModule
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: APP_BASE_HREF, useValue: '/' }],
   bootstrap: [AppComponent]

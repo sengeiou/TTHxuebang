@@ -197,13 +197,10 @@
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">背景色</label>
-                                        <div class="form-control form-control-sm flex-row2">
-                                            <input type="text" id="inputEmail3" class="flex-1" name='bgcolor'
-                                                [(ngModel)]='jgdetail.bgcolor' />
-                                            <input type="color" name='bgcolor' [(ngModel)]='jgdetail.bgcolor'
-                                                id='bgcolor' />
+                                        <div class="form-control input-group  form-control-sm flex-row2 flex-center2">
+                                            <input type="text" class="flex-1" name='bgcolor' [(ngModel)]='jgdetail.bgcolor' [(colorPicker)]="jgdetail.bgcolor" >
+                                            <i class="fas fa-square" [style.color]="jgdetail.bgcolor"></i>
                                         </div>
-
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3"

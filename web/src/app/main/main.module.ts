@@ -10,6 +10,9 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN,NZ_ICONS  } from 'ng-zorro-antd';
 import { InstApi } from 'src/providers/inst.api';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { MemberApi } from 'src/providers/member.api';
+
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [
     MainComponent,
@@ -22,7 +25,7 @@ import { MemberApi } from 'src/providers/member.api';
     NgxUploaderModule,
     NgZorroAntdModule,
     NzUploadModule,
-    
+    ColorPickerModule
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: NZ_ICONS, useValue: zh_CN }],
 })

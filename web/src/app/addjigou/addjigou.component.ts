@@ -42,7 +42,7 @@ export class AddjigouComponent extends AppBase {
     var mon=(date.getMonth()+1)>10?(date.getMonth()+1):'0'+(date.getMonth()+1);
     var day=date.getDate()>10?date.getDate():'0'+date.getDate();
     this.jgdetail.up_time=year+'-'+mon+'-'+day;
-
+    //Chart.setColorPick2();
   }
 
   deposit=false;
@@ -127,7 +127,7 @@ export class AddjigouComponent extends AppBase {
     map:'',
     up_time:'',
     labels:'',
-    bgcolor:'',
+    bgcolor:'#fec02f',
     searchkeyword:'',
     limitcount:0,
     img:'',
