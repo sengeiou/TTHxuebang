@@ -28,7 +28,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '积分商城',
+      title: '特惠好物',
     });
   }
 
@@ -61,7 +61,7 @@ jia(e){
 }
 jian(e){
   var shuliang = this.Base.getMyData().shuliang;
-  shuliang--
+  shuliang--;
   if (shuliang<=0){
     wx.showToast({
       title: '至少兑换一个',
@@ -110,9 +110,23 @@ jian(e){
     })
 
   }
+  createInfo(){
 
+    if (this.Base.getMyData().info.inventory==0){
+      this.Base.setMyData({ showerror:true})
+      return;
+    }
 
+    wx.navigateTo({
+      url: '/pages/jifenpay/jifenpay?id='+this.Base.options.id,
+    })
 
+  }
+
+  quxiaoduihuan(){
+
+    this.Base.setMyData({ showerror: false })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -123,7 +137,9 @@ body.toduihuan = content.toduihuan;
 body.close = content.close; 
 body.next = content.next;
 
-body.jia = content.jia;
-body.jian = content.jian;
+body.jia = content.jia; 
+body.jian = content.jian; 
+body.createInfo = content.createInfo;
+body.quxiaoduihuan = content.quxiaoduihuan;
 
 Page(body)

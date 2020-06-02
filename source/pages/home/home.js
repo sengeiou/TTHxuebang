@@ -84,8 +84,8 @@ class Content extends AppBase {
       num: 0,
       dian: 0,
       pd: 1,
-      days: []
-
+      days: [],
+      goodsinterval:2
     })
 
   }
@@ -96,6 +96,18 @@ class Content extends AppBase {
     var jigouapi = new JigouApi();
 
     var jifenapi = new JifenApi();
+
+
+
+    jifenapi.commoditylist({
+      istopvalue: "Y",
+      orderby: 'r_main.seq'
+    }, (list) => {
+      this.Base.setMyData({
+        topvaluelist: list
+      })
+    })
+
 
     jigouapi.coursetype({}, (filtercoursetype) => {
       this.Base.setMyData({
@@ -911,8 +923,18 @@ class Content extends AppBase {
 
   }
 
+  togoods(e) {
+    var id = e.currentTarget.id;
+    wx.navigateTo({
+      url: '/pages/shopmalldetail/shopmalldetail?id=' + id
+    })
+  }
 
-
+  tomall(){
+    wx.navigateTo({
+      url: '/pages/shopmall/shopmall' 
+    })
+  }
 }
 
 var content = new Content();
@@ -958,6 +980,8 @@ body.guize = content.guize;
 body.closenotice = content.closenotice;
 body.xiaoxiliebiao = content.xiaoxiliebiao;
 
-body.qiehuan = content.qiehuan;
+body.qiehuan = content.qiehuan; 
+body.togoods = content.togoods;
 body.closeimage = content.closeimage;
+body.tomall = content.tomall;
 Page(body)

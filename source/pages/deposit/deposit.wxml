@@ -1,0 +1,30 @@
+<view class="flex-row flex-column">
+  <view style='height:56rpx;'></view>
+  <view class="h4-5 " style="color:#222222">根据入驻合同协议</view>
+  <view class="h4-5 margin-top-5" style="color:#222222;">每
+    <text class="h4-5" style="color:#FF6600">1个门店 </text>需缴纳
+    <text class="h4-5" style="color:#FF6600">1000.00</text>元保证金</view>
+  <view style='height:56rpx;'></view>
+</view>
+
+
+<view class="bg-white memdian flex-row flex-column">
+  <view class="flex-1"></view>
+  <view class="flex-row flex-center">
+    <view class="h4-5" style="color:#222222">此账号管理</view>
+    <view class="margin-left-30 margin-right-20" style="color:#FF6600;font-size:72rpx;">{{num}}</view>
+    <view class="h4-5" style="color:#222222">个门店</view>
+  </view>
+  <view class="lines"></view>
+  <view class="h4-5 txt-bold margin-bottom-20" style="color:#222222">需缴纳</view>
+  <view class="h3" style="color:#FF6600">
+    <text class="h4-5 txt-bold" style="color:#222222">￥</text> {{1000*num}}.00</view>
+  <view class="h4-5 txt-bold margin-top-20" style="color:#222222">作为保证金</view>
+  <view class="flex-1"></view>
+</view>
+
+
+<view class="flex-row flex-column">
+  <view style="height:350rpx;"></view>
+  <view class="btns" bindtap="zhifu">立即支付</view>
+</view>

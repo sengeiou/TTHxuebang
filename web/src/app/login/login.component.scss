@@ -1,0 +1,203 @@
+
+  .loginbody {
+    height: 100vh;
+    background: linear-gradient(34deg, rgba(255, 152, 9, 1) 0%, rgba(255, 193, 44, 1) 100%);
+  }
+@media screen and (min-width : 600px) {
+
+  .loginbg {
+    width: 35vw;
+  }
+
+  .loginbox {
+    width: 30vw;
+    margin-left: 2vw;
+    background: rgba(255, 255, 253, 1);
+    padding: 3.1vw 3.4vw 3.4vw 3.4vw;
+    box-shadow: 0px 69px 103px 0px rgba(240, 64, 77, 0.34);
+  }
+
+  .loginbox .t1 {
+    color: #F0EDF2;
+    font-size: 2.5vw;
+    font-weight: 300;
+  }
+
+  .loginbox .t2 {
+    color: #FF6E28;
+    margin-top: 1.1vw;
+    font-size: 2.5vw;
+    font-weight: bold;
+  }
+
+  .loginbox .ipt {
+    padding-top: 1vw;
+    ;
+    padding-bottom: 1vw;
+    padding-left: 1.7vw;
+    padding-right: 1.7vw;
+    background: rgba(248, 245, 251, 1);
+    border-radius: 35px;
+  }
+
+  .loginbox .t3 {
+    margin-top: 3.6vw;
+  }
+
+  .loginbox .t4 {
+    margin-top: 2.4vw;
+  }
+
+  .loginbox .ipt img {
+
+    width: 1.4vw;
+    height: 1.6vw;
+    margin-right: 1vw;
+    ;
+  }
+
+  .loginbox .ipt input {
+    font-size: 1vw;
+    ;
+    background: transparent;
+    ;
+  }
+
+  .btnlogin {
+    padding-top: 1vw;
+    width: 11vw;
+    height: 3.5vw;
+    font-size: 1vw;
+    ;
+    color: white;
+    text-align: center;
+    background: rgba(255, 110, 40, 1);
+    border-radius: 1.8vw;
+    cursor: pointer;
+  }
+
+  .btnregister {
+    padding-top: 1vw;
+    width: 11vw;
+    height: 3.5vw;
+    font-size: 1vw;
+    ;
+    text-align: center;
+    color: rgba(255, 110, 40, 1);
+    border: 1px solid rgba(255, 110, 40, 1);
+    border-radius: 1.8vw;
+    cursor: pointer;
+  }
+
+  .loginlogo {
+    margin-top: 20px;
+    width: 13vw;
+  }
+
+
+}
+
+
+
+@media screen and (max-width : 600px) {
+  
+    .loginbg {
+      display: none;
+    }
+  
+    .loginbox {
+      width: 90vw;
+      background: rgba(255, 255, 253, 1);
+      padding: 9.3vw 10.2vw 10.2vw 10.2vw;
+      box-shadow: 0px 69px 103px 0px rgba(240, 64, 77, 0.34);
+    }
+  
+    .loginbox .t1 {
+      color: #F0EDF2;
+      font-size: 7.5vw;
+      font-weight: 300;
+    }
+  
+    .loginbox .t2 {
+      color: #FF6E28;
+      margin-top: 3.3vw;
+      font-size: 7.5vw;
+      font-weight: bold;
+    }
+  
+    .loginbox .ipt {
+      padding-top: 3vw;
+      ;
+      padding-bottom: 3vw;
+      padding-left: 5.1vw;
+      padding-right: 5.1vw;
+      background: rgba(248, 245, 251, 1);
+      border-radius: 35px;
+    }
+  
+    .loginbox .t3 {
+      margin-top: 10.8vw;
+    }
+  
+    .loginbox .t4 {
+      margin-top: 7.2vw;
+    }
+  
+    .loginbox .ipt img {
+  
+      width: 4.2vw;
+      height: 4.8vw;
+      margin-right: 3vw;
+      ;
+    }
+  
+    .loginbox .ipt input {
+      font-size: 3vw;
+      ;
+      background: transparent;
+      ;
+    }
+  
+    .btnlogin {
+      padding-top: 3vw;
+      width: 33vw;
+      height: 10.5vw;
+      font-size: 3vw;;
+      color: white;
+      text-align: center;
+      background: rgba(255, 110, 40, 1);
+      border-radius: 5.4vw;
+      cursor: pointer;
+    }
+  
+    .btnregister {
+        padding-top: 3vw;
+        width: 33vw;
+        height: 10.5vw;
+        font-size: 3vw;;
+      text-align: center;
+      color: rgba(255, 110, 40, 1);
+      border: 1px solid rgba(255, 110, 40, 1);
+      border-radius: 5.4vw;
+      cursor: pointer;
+    }
+  
+    .loginlogo {
+      margin-top: 20px;
+      width: 39vw;
+    }
+  
+  
+  }
+
+  .invalid-feedback {
+    widows: 100% ;
+    margin-top:.25rem;
+    font-size:80%;
+    color:#dc3545;
+    margin-left: 10%;
+  }
+
+  .dis-block {
+    display: block;
+  }

@@ -448,7 +448,7 @@
     <scroll-view scroll-y>
       <div (click)='changeDistrict(-1)' class='margin-20 text-center h6' id='-1' wx:key='k' style=''>
         全{{cityname}}</div>
-      <div (click)='changeDistrict(i)' class='margin-20 padding-top-20 h6 text-center border_top' [id]='i'
+      <div (click)='changeDistrict(i)' class='margin-20 padding-top-20 h6 text-center border_top padding-left-40 padding-right-40' [id]='i'
         *ngFor='let item of filterdistrict;let i=index;' wx:key='k' style=''>{{item.name}}</div>
     </scroll-view>
 

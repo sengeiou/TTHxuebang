@@ -46,7 +46,7 @@ export class JigouComponent extends AppBase {
     }
     this.instApi.allinst({
       time:this.time,
-      name:this.name
+      jigou:this.name
     }).then((allinst:any)=>{
       this.allinst=allinst;
       this.pagination(allinst,allinst.length);
@@ -68,7 +68,8 @@ export class JigouComponent extends AppBase {
   jgdelete(){
     for(let item of this.allinst){
       if(item.status=='D'){
-        this.userbApi.addinst(item).then((res:any)=>{
+        console.log(item)
+        this.userbApi.deleteinst({idlist:item.id}).then((res:any)=>{
           console.log(res)
           if(res.code=='0'){
             this.onMyShow();

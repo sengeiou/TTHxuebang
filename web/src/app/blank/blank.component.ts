@@ -11,7 +11,7 @@ import { UserbApi } from 'src/providers/userb.api';
   selector: 'app-blank',
   templateUrl: './blank.component.html',
   styleUrls: ['./blank.component.scss'],
-  providers: [InstApi, MemberApi]
+  providers: [InstApi, MemberApi,UserbApi]
 })
 export class BlankComponent extends AppBase {
 

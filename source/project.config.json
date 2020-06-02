@@ -6,30 +6,17 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"enhance": false,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
 		"autoAudits": false,
+		"coverView": true,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"bundle": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": true
+		"scopeDataCheck": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.10.4",
 	"appid": "wxb76c39adb7275c20",
 	"projectname": "miniprogram-1",
 	"debugOptions": {
@@ -60,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -71,9 +58,65 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/search/search",
-					"pathName": "pages/search/search",
-					"query": "keyword=%E4%B9%90%E5%99%A8",
+					"name": "pages/shopmall/shopmall",
+					"pathName": "pages/shopmall/shopmall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "pages/shopmalldetail/shopmalldetail",
+					"pathName": "pages/shopmalldetail/shopmalldetail",
+					"query": "id=36",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/jifenpay/jifenpay",
+					"pathName": "pages/jifenpay/jifenpay",
+					"query": "id=39",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "pages/jifenorderinfo/jifenorderinfo",
+					"pathName": "pages/jifenorderinfo/jifenorderinfo",
+					"query": "id=363",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jifenorder/jifenorder",
+					"pathName": "pages/jifenorder/jifenorder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mine/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保证金",
+					"pathName": "pages/baozhengjin/baozhengjin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "缴收保证金",
+					"pathName": "pages/deposit/deposit",
+					"query": "num=1&jsonstr=%7B%22name%22%3A%22ui%22%2C%22mobile%22%3A%2217817366191%22%2C%22password%22%3A%22123456789%22%2C%22gonsi%22%3A%22us%22%2C%22address%22%3A%22uifosau%22%2C%22zhizhao%22%3A%2207e015328478b34b5b081394dc8a8ed5_200528110541_1380541266.png%22%2C%22instnum%22%3A1%7D",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "入驻成功",
+					"pathName": "pages/ruzhuchenggong/ruzhuchenggong",
+					"query": "",
 					"scene": null
 				}
 			]

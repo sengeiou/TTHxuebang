@@ -1,0 +1,220 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>保证金管理</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item active">保证金管理</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+  
+        <div class="row margin-left-10 margin-bottom-40">
+
+            <h4>保证金余额：￥{{memberinfo.deposit}}</h4>
+            <div class="margin-left-20">
+                <button class="btn btn-default bg-gray-d" data-toggle="modal" data-target="#modal-default">充值</button>
+                <button class="btn btn-default margin-left-20 bg-gray-d">提现</button>
+            </div>
+        </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="card card-info">
+            <div class="card-header bg-gray-d">
+              <h3 class="card-title">扣款记录</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group  col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label">订单编号</label>
+                      <input type="text" class="form-control" id="inputEmail3" name='orderno'   [(ngModel)]='orderno'/>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">扣款时间</label>
+                      <div class="flex-row2 flex-center2">
+                      <input type="date" name="from" class="form-control col-form-label-sm" [(ngModel)]='datefrom' [max]='dateto' />
+                      <div>一</div>
+                    </div>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm txt-white">扣款时间</label>
+                    <input type="date" name='to' class="form-control col-form-label-sm" [(ngModel)]='dateto' [min]='datefrom'
+                    [max]='today' />
+                  
+                </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">扣款类型</label>
+                      <select class="form-control col-form-label-sm" id="inputEmail3" name='deductiontype'  [(ngModel)]='deductiontype'>
+                        <option value="">请选择</option>
+                        <option value="A">差评协议扣款</option>
+                        <option value="B">平台引流扣款</option>
+                        <option value="C">平台补扣款</option>
+                        <option value="D">平台违规扣款</option>
+                      </select>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">订单所属机构</label>
+                      <select class="form-control col-form-label-sm" id="inputEmail3" name='mechanism_id'   [(ngModel)]='mechanism_id'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of allinst'>{{item.jigou}}</option>
+                      </select>
+                  </div>
+                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                      <label for="inputEmail3" class=" col-form-label  col-form-label-sm">订单包含课程</label>
+                      <select  class="form-control col-form-label-sm" id="inputEmail3" name='kecheng_id'   [(ngModel)]='kecheng_id' >
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of allcurriculum'>{{item.name}}</option>
+                      </select>
+                  </div>
+                 
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                  <div class="float-right">
+                    <button type="submit" class="btn btn-default ">导出</button>
+                    <button type="submit" class="btn bg-gray margin-left-20" (click)='reset()'>重置</button>
+                    <button type="submit" class="btn btn-primary margin-left-20" (click)='search()'>搜索</button>
+                  </div>
+               
+              </div>
+              <!-- /.card-footer -->
+            </form>
+          </div>
+          <!-- /.card -->
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+  
+              <div class="card-tools">
+                <ul class="pagination pagination-sm float-right">
+                    <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                    <li class="page-item" *ngFor='let i of pageList'><span
+                        class="page-link {{selPage==i?'bg-primary':''}}" (click)='changedate(i)'>{{i}}</span></li>
+                    <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0" style="overflow-x: auto;">
+              <table class="table"  style="min-width: 768px;">
+                <thead>
+                  <tr>
+                    <th>订单编号</th>
+                    <th>订单金额/元</th>
+                    <th>订单评价</th>
+                    <th>订单评分</th>
+                    <th>订单所属机构</th>
+                    <th>订单包含课程</th>
+                    <th>扣款类型</th>
+                    <th>当前差评总个数</th>
+                    <th>扣款原因</th>
+                    <th>扣款金额/元 </th>
+                    <th>扣款时间</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor='let item of data'>
+                     <td>{{item.purchase_orderno}}</td>
+                     <td>{{item.purchase_amount}}</td>
+                     <td>{{item.pingjia_content}}</td>
+                     <td>{{item.pingjia_pingfen}}</td>
+                     <td>{{item.mechanism_jigou}}</td>
+                     <td>{{item.kecheng_id_name}}</td>
+                     <td>{{item.deductiontype_name}}</td>
+                     <td>
+                       <!-- {{item.deductiontype_name}} -->
+                      </td>
+                     <td>{{item.reason}}</td>
+                     <td>{{item.amount}}</td>
+                     <td>{{item.op_date}}</td>
+                     <td><div style='color:#003eac' data-toggle="modal" data-target="#modal-default2">申诉</div></td>
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+  
+        </div>
+      </div>
+  
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content margin-top-ban">
+        <div class="modal-body text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <div>
+            <h4 class="modal-title margin-top-10">
+                请扫描下方二维码进行支付<br>
+                充值金额：￥1000</h4>
+            
+            </div>
+              <div>
+                  <img src="{{uploadpath}}resource/{{res.kehuweixin}}" class="icon-200 margin-top-20 margin-bottom-40">
+              </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <div class="modal fade" id="modal-default2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            <div>
+            <h4 class="modal-title margin-top-10">
+                请扫描下方二维码添加微信客服进行申诉</h4>
+            
+            </div>
+              <div>
+                  <img src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="icon-260 margin-top-20 margin-bottom-40">
+              </div>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  

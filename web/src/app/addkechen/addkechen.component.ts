@@ -35,20 +35,7 @@ export class AddkechenComponent extends AppBase {
       this.primary_id=this.params.id;
     }
      this.instApi.allinst({}).then((allinst:any)=>{
-       
-       var aa='';
-      for(let item of allinst){
-        aa+=item.id+',';
-        if(this.primary_id>0){
-
-        }else {
-          this.kcdetail.jg_id+=item.id+',';
-        }
-      }
-      if(aa.length==this.kcdetail.jg_id.length){
-        this.quanjigou=true;
-      }
-      this.jigoulen=aa.length;
+      
       this.allinst=allinst;
     })
     this.jigouApi.coursetype({}).then((coursetype:any)=>{
@@ -74,6 +61,12 @@ export class AddkechenComponent extends AppBase {
     this.instApi.district({}).then((district:any)=>{
       this.district=district;
     })
+
+    var date=new Date();
+    var year=date.getFullYear();
+    var mon=(date.getMonth()+1)>10?(date.getMonth()+1):'0'+(date.getMonth()+1);
+    var day=date.getDate()>10?date.getDate():'0'+date.getDate();
+    this.kcdetail.up_time=year+'-'+mon+'-'+day;
   }
 
   jigoulen=0;
@@ -97,7 +90,6 @@ export class AddkechenComponent extends AppBase {
         this.kcdetail=kechendetail;
         this.lunbo=kechendetail.lunbo;
         this.kcdetail.labels=kechendetail.labels+',';
-        this.kcdetail.jg_id=kechendetail.jg_id+',';
 
       })
     }
@@ -121,10 +113,11 @@ export class AddkechenComponent extends AppBase {
     xq_bg:'',
     kcchimg:'',
     labels:'',
-    kucun:0,
+    kucun:'',
     teachermobile:'',
     purchasetype:'',
     isfenxiao:'',
+    isfenxiao_value:'',
     age:'',
     fenxiaobili:0,
     showprice:'',
@@ -135,7 +128,10 @@ export class AddkechenComponent extends AppBase {
     max_age:0,
     wenan:'',
     lunbo:'',
-    status:''
+    status:'',
+    shenhestatus:'',
+    shenhestatus_name:'',
+    kechennum:''
   }
   ischeckbox(item){
     var id=item.id+',';
@@ -222,6 +218,18 @@ export class AddkechenComponent extends AppBase {
       this.kcdetail.kc_img = '';
     }
   }
+  afteruploads(e){
+    var fileList = e.fileList;
+    let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
+    if (e.fileList.length > 0 && index != -1) {
+      e.fileList.splice(index, 1);
+    }
+    if (e.type == "success") {
+      this.kcdetail.mv= e.file.response.result;
+    } else if (e.type == 'removed') {
+      this.kcdetail.mv = '';
+    }
+  }
   afterupload2(e){
     var fileList = e.fileList;
     let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
@@ -247,10 +255,10 @@ export class AddkechenComponent extends AppBase {
     }
   }
   changestatus2(){
-    if(this.kcdetail.isfenxiao=='Y'){
-      this.kcdetail.isfenxiao='N';
+    if(this.kcdetail.isfenxiao_value=='Y'){
+      this.kcdetail.isfenxiao_value='N';
      }else {
-      this.kcdetail.isfenxiao='Y'
+      this.kcdetail.isfenxiao_value='Y'
      }
   }
   lunbo=[];
@@ -294,6 +302,35 @@ export class AddkechenComponent extends AppBase {
     }
   }
   tijiao(){
+    if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+      this.kcdetail.duration=this.kcdetail.duration+'分钟';
+    }
+
+    if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+      this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+    }
+    if(this.errorprice!=""){
+      this.toast('课程价格错误，请重新输入');
+      return
+    }
+    if(parseFloat(this.kcdetail.expeprice)<0.01){
+      this.toast('课程价格不能小于0.01');
+      return
+    }
+
+    if(this.lunbo.length==0){
+      this.toast('请添加轮播图');
+      return
+    }
+
+    if(this.lunbo.length==1 && this.lunbo[0].img==""){
+      this.toast('请添加轮播图');
+      return
+    }
+    
+
+    // this.kcdetail.searchkeyword=this.kcdetail.name;
+    this.kcdetail.purchasetype='C';
     var json=null;
     json=this.kcdetail;
     json.lunbo=JSON.stringify(this.lunbo);
@@ -301,19 +338,87 @@ export class AddkechenComponent extends AppBase {
       json.primary_id=this.primary_id;
     }
     json.status='A';
-    json.jg_id=this.kcdetail.jg_id.slice(0,this.kcdetail.jg_id.length-1);
+    json.isfenxiao=this.kcdetail.isfenxiao_value;
     json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
     this.userbApi.addkechen(json).then((res:any)=>{
       if(res.code=='0'){
         this.primary_id=res.return;
         this.saveing();
-        this.onMyShow();
+        this.back();
       }else {
         this.toast(res.result);
       }
     })
   }
   copy(){
-    this.navigate('copykechen',{copyid:this.primary_id});
+    if(this.kcdetail.duration.indexOf('分钟')==-1  ){
+      this.kcdetail.duration=this.kcdetail.duration+'分钟';
+    }
+
+    if(this.kcdetail.age_name.indexOf('岁')==-1  ){
+      this.kcdetail.age_name=this.kcdetail.age_name+'岁';
+    }
+    if(this.errorprice!="" ){
+      this.toast('课程价格错误，请重新输入');
+      return
+    }
+    if(parseFloat(this.kcdetail.expeprice)<0.01){
+      this.toast('课程价格不能小于0.01');
+      return
+    }
+    if(this.lunbo.length==0){
+      this.toast('请添加轮播图');
+      return
+    }
+
+    if(this.lunbo.length==1 && this.lunbo[0].img==""){
+      this.toast('请添加轮播图');
+      return
+    }
+    
+    // this.kcdetail.searchkeyword=this.kcdetail.name;
+    this.kcdetail.purchasetype='C';
+    var json=null;
+    json=this.kcdetail;
+    json.lunbo=JSON.stringify(this.lunbo);
+    if(this.primary_id>0){
+      json.primary_id=this.primary_id;
+    }
+    json.status='A';
+    json.isfenxiao=this.kcdetail.isfenxiao_value;
+    json.labels=this.kcdetail.labels.slice(0,this.kcdetail.labels.length-1)
+    this.userbApi.addkechen(json).then((res:any)=>{
+      if(res.code=='0'){
+        this.primary_id=res.return;
+        this.navigate('copykechen',{copyid:this.primary_id});
+      }else {
+        this.toast(res.result);
+      }
+    })
+   
+  }
+  errorprice="";
+  pricekeyup(e){
+    console.log(e);
+    console.log(this.kcdetail.expeprice);
+    // if (e.keyCode == 8) {
+    //   return;
+    // }
+    if(parseInt(this.kcdetail.kechennum)<=2 && parseFloat(this.kcdetail.expeprice)>9.9){
+      this.errorprice='1~2次课，价格不超过9.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)==3 && parseFloat(this.kcdetail.expeprice)>19.9){
+      this.errorprice='3次课，价格不超过19.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)>3 && parseInt(this.kcdetail.kechennum)<=5 && parseFloat(this.kcdetail.expeprice)>49.9){
+      this.errorprice='4~5次课，价格不超过49.9元';
+    }
+
+    if(parseInt(this.kcdetail.kechennum)>=6 && parseFloat(this.kcdetail.expeprice)>99){
+      this.errorprice='6次课，价格不超过99元';
+    }
+   
   }
 }

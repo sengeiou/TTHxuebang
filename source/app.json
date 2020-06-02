@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/jifenpaysuccess/jifenpaysuccess",
+    "pages/jifenpay/jifenpay",
     "pages/groupinfo/groupinfo",
-    
     "pages/xuebang/xuebang",
     "pages/auth/auth",
     "pages/baomin/baomin",
@@ -79,6 +80,10 @@
     "pages/mine/mine",
     "pages/addressmanage/addressmanage",
     "pages/shopmall/shopmall",
+    "pages/baozhengjin/baozhengjin",
+    "pages/ruzhuxieyi/ruzhuxieyi",
+    "pages/deposit/deposit",
+    "pages/ruzhuchenggong/ruzhuchenggong",
     "components/back"
   ],
   "permission": {

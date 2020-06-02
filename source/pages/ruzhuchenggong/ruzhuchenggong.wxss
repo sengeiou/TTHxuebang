@@ -1,0 +1,24 @@
+/* pages/ruzhuchenggong/ruzhuchenggong.wxss */
+Page {
+  background: #ffffff;
+}
+.fuzhi {
+  width: 166rpx;
+  height: 60rpx;
+  background: #FF6600;
+  text-align: center;
+  line-height: 60rpx;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-radius: 57rpx;
+}
+.links {
+  width: 638rpx;
+  height: 84rpx;
+  border-radius: 57rpx;
+  box-shadow:0 10rpx 14rpx 0 rgba(0,0,0,0.1);
+  margin-top: 94rpx;
+}
+.margin-top-50 {
+  margin-top: 50rpx;
+}

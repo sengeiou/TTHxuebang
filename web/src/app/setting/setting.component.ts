@@ -48,17 +48,18 @@ export class SettingComponent extends AppBase {
       return
     }
     console.log(this.oldpassword)
-    // this.memberApi.kehuresetpwd({
-    //   oldpassword:this.oldpassword,
-    //   newpassword:this.newpassword2
-    // }).then((res:any)=>{
-    //   console.log(res);
-    //   if(res.code=='0'){
-    //     this.saveing();
-    //   }else {
-    //     this.toast(res.result);
-    //   }
-    // })
+    this.userbApi.resetpwd({
+      id:this.memberinfo.id,
+      oldpassword:this.oldpassword,
+      newpassword:this.newpassword2
+    }).then((res:any)=>{
+      console.log(res);
+      if(res.code=='0'){
+        this.saveing();
+      }else {
+        this.toast(res.result);
+      }
+    })
   }
   logo='';
   watchimg(item){

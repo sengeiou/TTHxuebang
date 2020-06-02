@@ -43,7 +43,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static StaticInstInfo = null;
 
-    public InstInfo = { name: "", tel: '', logo: '' ,version:'',copyright:'' };
+    public InstInfo = { name: "", tel: '', logo: '' ,version:'',copyright:'',agreement:"",kefuerweima:"",agreementfile:"" };
 
 
     public options = null;
@@ -151,7 +151,9 @@ export class AppBase implements OnInit {
         if (AppBase.StaticInstInfo == null) {
             this.instApi.info({}, false).then((instinfo: any) => {
                 AppBase.StaticInstInfo = instinfo;
+                instinfo.agreement=this.util.HtmlDecode(instinfo.agreement);
                 this.InstInfo = instinfo;
+                
                 console.log(instinfo, 'inst');
                 this.instLoaded();
             });

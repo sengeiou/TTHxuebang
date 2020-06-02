@@ -10,7 +10,7 @@
 
   <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
     <img src="{{uploadpath}}resource/{{res.gantanhao}}" class="icon20 margin-left-30" />
-    <div class="f20 margin-left-10">您所在的城市“{{address.ad_info.city}}”准备开放中，添加微信咨询： </div>
+    <div class="f20 margin-left-10">您所在的城市“{{cityname}}”准备开放中，添加微信咨询： </div>
     <div class="f20 margin-left-10" style="color:#589DE9">{{InstInfo.slogen}}</div>
     <img src="{{uploadpath}}resource/{{res.heicha}}" (click)="closetop()" class="icon15 margin-left-10" />
   </div>
@@ -80,12 +80,12 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <ion-slides [options]='mySwiperOption' indicator-dots='true' autoplay='false' interval='5000' duration='200'
-        circular='true' class="wpc2">
+      <ion-slides pager  [options]='mySwiperOption' loop="true" indicator-dots='true' autoplay='false' interval='5000' duration='200'
+        circular='true' class="wpc2" *ngIf='indexbanner.length>0'>
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' id="{{item.id}}"
-            class='lb wpc2 {{item}} {{currentItemId == index ? "selected" : ""}}' />
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' 
+            class='lb wpc2 ite {{currentItemId == index ? "selected" : ""}}' />
         </ion-slide>
       </ion-slides>
 
@@ -98,6 +98,11 @@
 
     <ion-slide class=" flex-row flex-center flex-wrap">
 
+      <div class="flex-row flex-column lesson-width " (click)='tomall()' data-name='jg'>
+        <image src="{{uploadpath}}resource/{{res.topvalue}}" class="icon26"></image>
+        <div class="h6">特惠好物</div>
+      </div>
+
       <div class="flex-row flex-column lesson-width " (click)='totake("jg")' data-name='jg'>
         <img src="{{uploadpath}}resource/{{res.homejigou}}" class="icon26" />
         <div class="h6">找机构</div>
@@ -109,7 +114,7 @@
       </div>
       <div *ngFor='let item of filtercoursetype;let idx=index;'
         class="flex-row flex-column lesson-width {{idx>2?'margin-top-20':''}}" (click)='bindtokc(item.id,item.typename)'
-        [data-name]='item.typename' [id]='item.id' [class.hidden]='!(idx<8)'>
+        [data-name]='item.typename' [id]='item.id' [class.hidden]='!(idx<7)'>
         <img src="{{uploadpath}}coursetype/{{item.img}}" class="icon26" />
         <div class="h6">{{item.typename}}</div>
       </div>
@@ -299,7 +304,7 @@
 
       <div class='flex-row flex-center'>
         <div class='flex-1'></div>
-        <div style='background-image:url({{uploadpath}}resource/{{res.dakaok}});background-size:100% 100%;'
+        <div [style.background-image]="'url('+uploadpath+'resource/'+res.dakaok+')'"  style='background-size:100% 100%;'
           class='dakawc flex-row flex-column'>
           <div class='h376'></div>
           <div class='txt_jifen txt-bold txt-white' *ngIf='jf==25'>+25积分</div>
@@ -433,8 +438,9 @@
 
     </div>
 
-
-    <div [class.hidden]='jgvteach.length==0' *ngFor='let item of jgvteach;' wx:key='k' [id]='item.id'
+    <template *ngFor='let item of jgvteach;'>
+      
+    <div [class.hidden]='jgvteach.length==0'  wx:key='k' [id]='item.id'
       (click)='tojgdetails(item.id)' style='' class='wpc3' data-name='aab'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
@@ -520,6 +526,69 @@
 
 
 
+    <div *ngIf="{{jgidx%goodsinterval==0&&topvaluelist[jgidx/goodsinterval]!=undefined}}"  
+      (click)='togoods(topvaluelist[jgidx/goodsinterval].id)' style='' class='wpc3' data-name='aab'>
+      <div class=' padding-20' style=''>
+        <img lazy-load='{{true}}' src='{{uploadpath}}shop/{{topvaluelist[jgidx/goodsinterval].top_img}}?x-oss-process=style/test_img'
+          class=' radius-10 wpc4' style='' />
+      </div>
+      <div class='midt flex-row'>
+        <div class='flex-1'></div>
+        <div class='mid radius-10'>
+          <div class=''>
+            <div class=' bg-white   margin-bottom-10'>
+
+              <div class='padding-20 '>
+
+                <div class='flex-row flex-center'>
+                  <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
+
+                  <div class="flex-row flex-center flex-1 ">
+                    <div class='txt-black txt-bold  chaochu mw400' style="">{{topvaluelist[jgidx/goodsinterval].jigou}}</div>
+                    <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
+                      *ngIf="topvaluelist[jgidx/goodsinterval].renzhen=='是'" />
+                  </div>
+
+
+
+                </div>
+
+
+                <div class='flex-row flex-center margin-top-5'>
+                  <div class='flex-row flex-1'>
+                    <div *ngFor="let litem of item.labels;let idx=index;">
+
+                      <div class='  radius-10 txt-green h6 biaoqian text-center margin-right-10'
+                        [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k"
+                        *ngIf='idx<3'>
+                        {{litem.name}}</div>
+                    </div>
+                  </div>
+                  <div class='h6 txt-gray'>已预约{{topvaluelist[jgidx/goodsinterval].people_num}}人</div>
+                </div>
+
+
+                <div class='flex-row flex-center margin-top-5'>
+                  <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
+                  <div class='flex-1 h5 txt-black dizhi'>{{topvaluelist[jgidx/goodsinterval].showaddress}}</div>
+                  <div class='h6 '>{{topvaluelist[jgidx/goodsinterval].miletxt}}</div>
+                </div>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class='flex-1'></div>
+      </div>
+
+
+    </div>
+
+  </template>
+
   </div>
 
   <div class='height-70' style=''></div>
@@ -545,8 +614,8 @@
           </div>
         </div>
 
-        <ion-slides [options]='mySwiperOption' *ngIf="noticebanner.length>1" indicator-dots='{{false}}'
-          autoplay='{{true}}' interval='3000' duration='1000' circular='{{true}}' class='wpc'>
+        <ion-slides [options]='mySwiperOption' loop='true' *ngIf="noticebanner.length>1" indicator-dots='{{false}}'
+          autoplay='true' interval='3000' duration='1000' circular='true' class='wpc'>
           <ion-slide *ngFor="let item of noticebanner;" wx:key="k" item-id="{{index}}" data-item-id="{{index}}">
             <div (click)='bannerGo2(item.id)' id="{{item.id}}">
               <img src='{{uploadpath}}indexbanner/{{item.img}}'

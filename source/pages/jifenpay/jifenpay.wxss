@@ -1,0 +1,159 @@
+/* pages/jifenorderinfo/jifenorderinfo.wxss */
+
+.top_block {
+  height: 202rpx;
+  background: linear-gradient(110deg, rgba(255, 190, 49, 1) 0%, rgba(255, 139, 15, 1) 100%);
+}
+
+.icon-huowu {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.mid_block {
+  height: 168rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.icon-zuobiao {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.shangpin {
+  padding: 28rpx 28rpx 28rpx 0rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.margin-left-28 {
+  margin-left: 28rpx;
+}
+
+.margin-right-28 {
+  margin-right: 28rpx;
+}
+
+.icon-img {
+  width: 168rpx;
+  height: 168rpx;
+  border-radius: 8rpx;
+}
+
+.icon-right {
+  width: 14rpx;
+  height: 24rpx;
+}
+
+.width-56 {
+  width: 112rpx;
+}
+
+.bottom_block {
+  height: 202rpx;
+  padding: 28rpx 28rpx 28rpx 0rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.margin-left-52 {
+  margin-left: 52rpx;
+}
+
+.btn {
+  width: 148rpx;
+  height: 52rpx;
+  font-size: 22rpx;
+  border-radius: 30rpx;
+  border: 1px solid rgba(204, 204, 204, 1);
+}
+
+.bottom {
+  position: fixed;
+  width: 100vw;
+  height: 100rpx;
+  bottom: 0;
+  background: white;
+}
+
+.jisuan {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 8rpx;
+  border: 1px solid rgba(245, 245, 245, 1);
+}
+
+.shuliang {
+  width: 120rpx;
+}
+
+.jisuan view {
+  font-size: 28rpx;
+}
+
+.jisuan.inactive view {
+  color: rgba(245, 245, 245, 1);
+}
+
+.paybtn {
+  width: 300rpx;
+  background: rgba(255, 102, 0, 1);
+  border-radius: 36rpx;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+  font-size: 28rpx;
+}
+.bg{
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  left: 0px;
+  top: 0px;
+}
+.h100{
+  height: 100%;
+}
+
+.sel{
+  width: 540rpx;
+  padding:14rpx;
+  border-radius: 8rpx;
+  background: white;
+}
+.sel .querenduihuan{
+  margin-top: 100rpx;
+  width:300rpx;
+}
+.t1{
+  margin-top: 34rpx;
+}
+.t1 view{
+  font-size: 32rpx;
+}
+.t1 .txt-price{
+  color:#FF6600;
+  font-weight: 400;
+  font-size: 40rpx;
+}
+
+.t2{
+
+  margin-top: 60rpx;
+}
+
+.gehe{
+  width: 1rpx;
+  height: 96rpx;
+  background: #F5F6F8;
+}
+
+.qx{
+  color:#CCCCCC;
+  font-size: 30rpx;
+  height: 96rpx;
+}
+.qr{
+  color:#FF6600;
+  font-size: 30rpx;
+  height: 96rpx;
+}

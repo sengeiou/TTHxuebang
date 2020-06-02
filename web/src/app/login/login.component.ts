@@ -10,66 +10,75 @@ import { UserbApi } from 'src/providers/userb.api';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers:[InstApi,MemberApi,UserbApi]
+  providers: [InstApi, MemberApi, UserbApi]
 })
 export class LoginComponent extends AppBase {
   instinfo = null;
-  username='';
-  password='';
-  isremember=false;
+  username = '';
+  password = '';
+  isremember = false;
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
-    public instApi:InstApi,
-    public memberApi:MemberApi,
-    public userbApi:UserbApi,
+    public instApi: InstApi,
+    public memberApi: MemberApi,
+    public userbApi: UserbApi,
   ) {
-    super(router,activeRoute,instApi,userbApi);
-    this.isLoginPage=true;
-   }
-   loginunicode="";
-  
-   onMyLoad(){
-     this.params;
-     this.instApi.info({  }).then((instinfo) => {
+    super(router, activeRoute, instApi, userbApi);
+    this.isLoginPage = true;
+  }
+  loginunicode = "";
+
+  onMyLoad() {
+    this.params;
+    this.instApi.info({}).then((instinfo) => {
       this.instinfo = instinfo;
     });
-    
-   }
-   onMyShow(){
-    
-   }
-  
-   login(){
-     console.log(this.username,this.password)
-    if(this.username=="" || this.password==""){
+
+  }
+  onMyShow() {
+
+  }
+  error='';
+  login() {
+    console.log(this.username, this.password)
+    if (this.username == "" || this.password == "") {
       return
     }
     this.userbApi.login({
-      mobile:this.username,
-      password:this.password,
-    }).then((res:any)=>{
+      mobile: this.username,
+      password: this.password,
+    }).then((res: any) => {
       console.log(res);
-      if(res.code=='0'){
-        var token=res.return;
-        window.localStorage.setItem("lastusername",this.username);
-        
-        if(this.isremember==true){
-          window.localStorage.setItem("lastpassword",this.password);
+      if (res.code == '0') {
+        var token = res.return;
+        window.localStorage.setItem("lastusername", this.username);
+
+        if (this.isremember == true) {
+          window.localStorage.setItem("lastpassword", this.password);
         }
-        window.sessionStorage.setItem("token",token);
+        window.sessionStorage.setItem("token", token);
 
         ApiConfig.SetToken(token);
         this.userbApi.userinfo({}).then((info: any) => {
-          window.sessionStorage.setItem("memberinfo",JSON.stringify(info)) ;
-          window.location.href="/";
-      })
+          window.sessionStorage.setItem("memberinfo", JSON.stringify(info));
+          // window.location.href="/";
+          if (info.issign_value == 'Y') {
+            this.navigate('/jigou');
+          } else {
+            this.navigate('/service');
+          }
+        })
 
 
-      }else {
-
+      } else {
+        this.error=res.result;
       }
     })
-   }
-  
+  }
+  pwdkeup(e){
+    if(e.keyCode==13){
+      this.login();
+    }
+  }
 }

@@ -14,13 +14,21 @@ import { KechenComponent } from '../kechen/kechen.component';
 import { AddjigouComponent } from '../addjigou/addjigou.component';
 import { AddkechenComponent } from '../addkechen/addkechen.component';
 import { CopykechenComponent } from '../copykechen/copykechen.component';
+import { OrderComponent } from '../order/order.component';
+import { HexiaoComponent } from '../hexiao/hexiao.component';
+import { OrderdetailComponent } from '../orderdetail/orderdetail.component';
+import { ServiceComponent } from '../service/service.component';
+import { AssetmanagementComponent } from '../assetmanagement/assetmanagement.component';
+import { OrderincomeComponent } from '../orderincome/orderincome.component';
+import { CopyjigouComponent } from '../copyjigou/copyjigou.component';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
-      { path: "", component: DashboardComponent },
+      // { path: "", component: DashboardComponent },
+      { path: "", component: JigouComponent },
       { path: "dashboard", component: DashboardComponent },
       { path: "list", component: ListComponent },
       { path: "detail", component: DetailComponent },
@@ -35,6 +43,13 @@ const routes: Routes = [
       { path: "addjigou", component: AddjigouComponent },
       { path: "addkechen", component: AddkechenComponent },
       { path: "copykechen", component: CopykechenComponent },
+      { path: "order", component: OrderComponent },
+      { path: "hexiao", component: HexiaoComponent },
+      { path: "orderdetail", component: OrderdetailComponent },
+      { path: "service", component: ServiceComponent },
+      { path: "assetmanagement", component: AssetmanagementComponent },
+      { path: "orderincome", component: OrderincomeComponent },
+      { path: "copyjigou", component: CopyjigouComponent },
     ]
   }
 ];

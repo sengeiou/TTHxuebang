@@ -1,0 +1,134 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>订单列表</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>Home</a></li>
+              <li class="breadcrumb-item active">订单列表</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+  
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Horizontal Form -->
+          <div class="card card-info">
+            <div class="card-header bg-gray-d">
+              <h3 class="card-title">搜索条件</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group  col-lg-3 col-md-4  col-sm-5">
+                      <label for="inputEmail3" class=" col-form-label">订单编号</label>
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="请输入订单编号" name='orderno' [(ngModel)]='orderno'/>
+                  </div>
+                  <div class="form-group   col-lg-3 col-md-4  col-sm-5">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">团编号</label>
+                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" placeholder="请输入团编号" name='tuanno' [(ngModel)]='tuanno'/>
+                  </div>
+                  <div class="form-group   col-lg-3 col-md-4  col-sm-5">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">联系人</label>
+                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" placeholder="请输入联系人" name='name' [(ngModel)]='name'/>
+                  </div>
+                  <div class="form-group  col-lg-3 col-md-4  col-sm-5">
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">联系方式</label>
+                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" placeholder="请输入联系方式" name='phone' [(ngModel)]='phone'/>
+                  </div>
+                
+                 
+                </div>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                  <div class="float-right">
+                    <button type="submit" class="btn  bg-gray" (click)='reset()'>重置</button>
+                    <button type="submit" class="btn btn-primary margin-left-10 " (click)='search()'>搜索</button>
+                  </div>
+                
+              </div>
+              <!-- /.card-footer -->
+            </form>
+          </div>
+          <!-- /.card -->
+  
+  
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title h5 {{seashow==true?'txt-orange':''}}">{{seashow==true?('当前搜索结果'+orderlist.length+'条记录'):('总条数:'+orderlist.length+'条')}}</div>
+  
+              <div class="card-tools">
+                <ul class="pagination pagination-sm float-right">
+                  <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                  <li class="page-item" *ngFor='let i of pageList'><span
+                      class="page-link {{selPage==i?'bg-primary':''}}" (click)='changedate(i)'>{{i}}</span></li>
+                  <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>订单编号</th>
+                    <th>支付金额</th>
+                    <th>订单类型</th>
+                    <th>机构课程</th>
+                    <th>用户</th>
+                    <th>电话</th>
+                    <th>支付时间</th>
+                    <th>购买状态</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>	
+                <tbody *ngFor='let item of data'>
+                  <tr>
+                    <td>{{item.orderno}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.type_name}}</td>
+                    <td>{{item.course_id_name}}</td>
+                    <td>{{item.member_id_name}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.pay_time}}</td>
+                    <td>{{item.pstatus_name}}</td>
+                    <td>
+                      <div class="badge bg-primary margin-right" (click)='todetail(item)'>查看</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+  
+        </div>
+      </div>
+  
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  

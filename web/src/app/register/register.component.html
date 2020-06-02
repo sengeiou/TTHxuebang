@@ -1,83 +1,95 @@
-<div class="register-page">
-  <div class="register-box">
+<div class="flex-row2 flex-center2 registerbody">
+  <div class="flex-1"></div>
+  <div class="incard">
 
-    <div class="register-logo">
-      <b>{{instinfo.name}}</b>
+    <div class="text-center" style="margin-bottom:20px;">
+      <img src="{{uploadpath}}resource/{{res.loginlogo}}" />
     </div>
-
     <div class="card">
+
       <div class="card-body register-card-body">
-        <p class="login-box-msg">注册</p>
 
-        <form action="../../index.html" method="post">
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="text" class="form-control" placeholder="请输入姓名" [(ngModel)]='name' name='name'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="email" class="form-control" placeholder="请输入邮箱" [(ngModel)]='email' name='email'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
-            </div>
-          </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="email" class="form-control" placeholder="请输入电话" [(ngModel)]='mobile' name='mobile'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-mobile"></span>
-              </div>
-            </div>
-          </div>
+        <div class="register-logo">
+          <b>机构注册</b>
+        </div>
+        <p class="login-box-msg">请完善以下资料</p>
 
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="password" class="form-control" placeholder="请输入密码" [(ngModel)]='password' name='password'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" >品牌/机构名称: </label>
+          <div class="col-sm-8">
+            <input type="text" [(ngModel)]='gonsi' maxlength="13" class="form-control" placeholder="输入机构品牌名称"
+            [class.is-invalid]='errorgonsi!=""' (keyup)='errorgonsi=""'>
+           <span *ngIf="errorgonsi!=''" class="error invalid-feedback">{{errorgonsi}}</span>
           </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="password" class="form-control" placeholder="请再次确认密码" [(ngModel)]='password2' name='password2'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4  col-form-label">需要管理的门店数量: </label>
+          <div class="col-sm-2">
+            <input type="tel" [(ngModel)]='num' (keyup)='errorgonsi="";numkeyup($event)' class="form-control" min="1" maxlength="2"
+            [class.is-invalid]='errornum!=""' >
+           <span *ngIf="errornum!=''" class="error invalid-feedback">{{errornum}}</span>
           </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="email" class="form-control" placeholder="请输入公司名称" [(ngModel)]='gonsi' name='gonsi'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-address-card"></span>
-              </div>
-            </div>
+          <label  class="col-sm-2 col-form-label">个</label>
+        </div>
+
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">联系人: </label>
+          <div class="col-sm-8">
+            <input type="text" [(ngModel)]='name' class="form-control" placeholder="输入联系人"
+            [class.is-invalid]='errorname!=""' (keyup)='errorname=""'>
+           <span *ngIf="errorname!=''" class="error invalid-feedback">{{errorname}}</span>
           </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <input type="email" class="form-control" placeholder="请输入公司地址" [(ngModel)]='address' name='address'>
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-address-card"></span>
-              </div>
-            </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" >联系电话: </label>
+          <div class="col-sm-4">
+            <input type="tel" (keyup)='mobilechange()' maxlength="11" [(ngModel)]='mobile' class="form-control"  placeholder="输入联系电话"
+             [class.is-invalid]='mobileerror!=""' (keyup)='mobileerror=""'>
+            <span *ngIf="mobileerror!=''" class="error invalid-feedback">{{mobileerror}}</span>
           </div>
-          <div class="input-group mb-3">
-            <span class="txt-red-ff5 cc">*</span>
-            <div>营业执照</div>
-            <nz-upload class="avatar-uploader" nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
+          <div class="col-sm-4">
+            <button class="btn btn-primary" (click)='getVerifyCode()' *ngIf="resendreminder==0" >获取验证码</button>
+            <button class="btn btn-default" disabled='disabled'  *ngIf="resendreminder>0"  >{{resendreminder}}秒后重发</button>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">验证码: </label>
+          <div class="col-sm-8">
+            <input type="tel" [(ngModel)]='verifycode' maxlength="6" class="form-control" placeholder="输入验证码"
+            [class.is-invalid]='errorverifycode!=""' (keyup)='errorverifycode=""'>
+           <span *ngIf="errorverifycode!=''" class="error invalid-feedback">{{errorverifycode}}</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">登录密码: </label>
+          <div class="col-sm-8">
+            <input type="password" [(ngModel)]='password' class="form-control" placeholder="输入登录密码"
+            [class.is-invalid]='errorpassword!=""' (keyup)='errorpassword=""'>
+           <span *ngIf="errorpassword!=''" class="error invalid-feedback">{{errorpassword}}</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">确认密码: </label>
+          <div class="col-sm-8">
+            <input type="password" [(ngModel)]='password2' class="form-control" placeholder="输入确认密码"
+            (keyup)='errorpassword=""'>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">联系地址: </label>
+          <div class="col-sm-8">
+            <input type="text" [(ngModel)]='address' maxlength="30" class="form-control" placeholder="输入联系地址"
+            [class.is-invalid]='erroraddress!=""' (keyup)='erroraddress=""'>
+           <span *ngIf="erroraddress!=''" class="error invalid-feedback">{{erroraddress}}</span>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">营业执照
+            : </label>
+          <div class="col-sm-8">
+            <nz-upload  class="avatar-uploader" nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
               nzListType="picture-card" [nzShowUploadList]="false" (nzChange)="afterupload($event)">
               <ng-container *ngIf="!zhizhao">
                 <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
@@ -85,30 +97,31 @@
               </ng-container>
               <img *ngIf="zhizhao!=''" src="{{uploadpath}}instregister/{{zhizhao}}" style="width: 100%" />
             </nz-upload>
+            <input type="hidden"  class="form-control"  [class.is-invalid]='errorzhizhao!=""' />
+            <span *ngIf="errorzhizhao!=''" class="error invalid-feedback">{{errorzhizhao}}</span>
           </div>
-          <div class="row">
-            <div class="col-8">
-              <!-- <div class="icheck-primary">
-                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                <label for="agreeTerms">
-                  I agree to the <a href="#">terms</a>
-                </label>
-              </div> -->
-            </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block" (click)='submit()'>注册</button>
-            </div>
-            <!-- /.col -->
+        </div>
+        
+        <div class="form-group row">
+          <div class="col-sm-5">
+            <button class="btn btn-lg btn-block btn-warning" (click)='submit()'  >提交</button>
           </div>
-        </form>
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-5">
+            <button class="btn btn-lg btn-block btn-default" (click)='navigate("login")'  >返回</button>
+          </div>
+        </div>
 
-       
-
-        <a href="/login" class="text-center">我已有账号</a>
+        
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
+
   </div>
+
+
+
+  <div class="flex-1"></div>
 </div>
 <!-- /.register-box -->

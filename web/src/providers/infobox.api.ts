@@ -9,6 +9,28 @@ export class InfoboxApi {
     }
 
 
+    public add(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'infobox/add';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('infobox/add', data, err);
+            });
+    }
+
+
     public detail(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'infobox/detail';
         var headers = ApiConfig.GetHeader(url, data);

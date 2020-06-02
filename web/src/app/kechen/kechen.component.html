@@ -35,16 +35,19 @@
               <div class="card-body">
                 <div class="row">
                   <div class="form-group  col-lg-2 col-md-3  col-sm-4">
-                      <label for="inputEmail3" class=" col-form-label">课程名称</label>
-                      <input type="email" class="form-control" id="inputEmail3"  [(ngModel)]='name' name='name'/>
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程名称</label>
+                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3"  [(ngModel)]='name' name='name'/>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构</label>
-                      <input type="email" class="form-control col-form-label-sm" id="inputEmail3" [(ngModel)]='jg_id' name='jg_id'/>
+                      <select class="form-control col-form-label-sm" id="inputEmail3" name='jg_id' [(ngModel)]='jg_id'>
+                        <option value="">请选择</option>
+                        <option value="{{item.id}}" *ngFor='let item of allinst'>{{item.jigou}}</option>
+                      </select>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                     <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程类型</label>
-                    <select class="form-control form-control-sm" id="inputEmail3" name='type'
+                    <select class="form-control col-form-label-sm" id="inputEmail3" name='type'
                       [(ngModel)]='type'>
                       <option value="">请选择</option>
                       <option value="{{item.id}}" *ngFor='let item of coursetype'>{{item.typename}}</option>
@@ -97,7 +100,7 @@
                     <th>课程类型</th>
                     <th>上线时间</th>
                     <th>课时</th>
-                    <th>正式价格</th>
+                    <!-- <th>正式价格</th> -->
                     <th>体验价格</th>
                     <th>课程年龄</th>
                     <th>编辑</th>	
@@ -105,19 +108,19 @@
                 </thead>
                 <tbody>
                   <tr *ngFor='let item of data'>
-                    <td>{{item.jg_name}}</td>
+                    <td>{{item.jg_id_name}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.type_name}}</td>
                     <td>
-                        {{item.up_time}}
+                        {{item.up_time_dateformat}}
                     </td>
                     <td>{{item.class_hours}}</td>
-                    <td>{{item.price}}</td>
+                    <!-- <td>{{item.price}}</td> -->
                     <td>{{item.expeprice}}</td>
                     <td>{{item.age_name}}</td>
                     <td>
-                        <div class="badge bg-primary margin-right" (click)='bianji(item)'>编辑</div>
-                        <div class="badge bg-danger" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
+                        <div class="badge bg-primary margin-right cur-po" (click)='bianji(item)'>编辑</div>
+                        <div class="badge bg-danger cur-po" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
                     </td>
                   </tr>
                   <tr *ngIf='allcurriculum.length==0'>
@@ -149,7 +152,7 @@
           </button>
         </div>
         <div class="modal-body text-center">
-          <p>是否删除该机构？</p>
+          <p>是否删除该课程？</p>
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">否</button>

@@ -187,6 +187,12 @@ class Content extends AppBase {
       })
     }
 
+    if (name == "bzj") {
+      wx.navigateTo({
+        url: '/pages/baozhengjin/baozhengjin',
+      })
+    }
+
 
 
   }

@@ -1,0 +1,134 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>机构入驻</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"  *ngIf="tabtype=='paysuccess'"><a routerLink=''>Home</a></li>
+            <li class="breadcrumb-item" *ngIf="tabtype!='paysuccess'"><a href='#' >Home</a></li>
+            <li class="breadcrumb-item active">机构入驻</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+      <div class="card card-primary card-outline">
+        <!-- left column -->
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-7 col-sm-9">
+              <div class="tab-content" id="vert-tabs-right-tabContent">
+                <div class=" tab-pane" [class.active]='tabtype=="readservice"' *ngIf='tabtype=="readservice"'>
+                  <div class="row">
+                    <h4>学榜保证金入驻协议</h4>
+                  </div>
+                  <div style="height: 40vh;overflow-y: scroll;">
+                    <blockquote style="margin:0px">
+                      <pre class="wenben h5" [innerHtml]='InstInfo.agreement'></pre>
+                    </blockquote>
+                  </div>
+                  <div style="height:20px"></div>
+                  <div class="row">
+                    <img src="{{uploadpath}}resource/{{agree==false?res.kuang:res.tongyi}}" class="icon-20 margin-right"
+                      (click)='tongyi()' />
+                    <div (click)='tongyi()' style="cursor: pointer;"> 我同意并认真遵守上述相关入驻协议内容，如有违反，遵从平台处理结果</div>
+                  </div>
+
+                  <div class="row margin-top-40">
+                    <button class="btn btn-lg btn-default margin-right" data-toggle="modal"
+                      data-target="#modal-default">咨询客服</button>
+                    <button class="btn btn-lg btn-default margin-right" (click)='downloadAgreement()'>下载协议</button>
+                    <button class="btn btn-lg btn-primary margin-right" (click)='xiayibu()'>我已勾选协议，下一步</button>
+                  </div>
+                </div>
+                
+                <div class=" tab-pane" [class.active]='tabtype=="deposit"' *ngIf='tabtype=="deposit"'>
+                  <h4>
+                    根据入驻合同协议，每个门店需要缴纳1000元保证金，此账号管理{{memberinfo.instnum}}个门店，需要缴纳￥{{memberinfo.instnum*1000}}作为保证金
+                  </h4>
+                  <h4>扫描下方二维码，支付￥{{memberinfo.instnum*1000}}元 </h4>
+
+                  <div *ngIf="payurl!=''" class="icon-260">
+                    <qrcode-svg
+                    [value]="payurl"
+                  ></qrcode-svg>
+                  </div>
+
+                  <div class="margin-top-40 margin-bottom-40">
+                    <button class="btn btn-lg btn-default" (click)='backstep()'>返回上一步</button>
+                  </div>
+                </div>
+                <div class=" tab-pane" [class.active]='tabtype=="paysuccess"' *ngIf='tabtype=="paysuccess"'>
+                 
+                  <h4>支付成功</h4>
+
+                  <div >
+                    <img src="{{uploadpath}}resource/{{res.paysuccess}}" class="icon-260" />
+                  </div>
+
+                  <div class="margin-top-40 margin-bottom-40">
+                    <button class="btn btn-lg btn-warning" (click)='navigate("jigou")'>开始创建课程</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-5 col-sm-3">
+              <div class="nav flex-column nav-tabs nav-tabs-right h-100" id="vert-tabs-right-tab" role="tablist"
+                aria-orientation="vertical">
+                <a class="nav-link " disabled="disabled" [class.active]='tabtype=="readservice"' id="vert-tabs-right-home-tab"
+                  data-toggle="pill" role="tab" aria-controls="vert-tabs-right-home"
+                  aria-selected="true"  >1、阅读并勾选入驻协议</a>
+                <a class="nav-link" disabled="disabled" [class.active]='tabtype=="deposit"' id="vert-tabs-right-profile-tab"
+                  data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
+                  aria-selected="false">2、缴纳保证金</a>
+                  <a class="nav-link" disabled="disabled" [class.active]='tabtype=="paysuccess"' id="vert-tabs-right-profile-tab"
+                    data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
+                    aria-selected="false">3、完成支付</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+          <h4 class="modal-title margin-top-10">
+            请打开微信扫描下方二维码<br>
+            添加学榜官方客服微信进行咨询</h4>
+
+        </div>
+        <div>
+          <img src="{{uploadpath}}inst/{{InstInfo.kefuerweima}}" class="icon-260 margin-top-20 margin-bottom-40">
+        </div>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

@@ -260,6 +260,7 @@ body.toorder = content.toorder;
 body.kantuan = content.kantuan;
 body.pinjia = content.pinjia;
 body.shanchu = content.shanchu;
-body.courseinfo = content.courseinfo;
+body.courseinfo = content.courseinfo; 
 body.pinjialist = content.pinjialist;
+body.bindshow = content.bindshow;
 Page(body)

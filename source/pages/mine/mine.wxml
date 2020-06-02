@@ -116,13 +116,8 @@
   </view>
 </view> -->
 
-<view class="flex-row flex-center margin-20 bg-white shop" bindtap='todetails' data-name='jfsc'>
-  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class="h6 margin-left-10">可用积分：</view>
-  <view class="flex-1 f18 " style="color:#FFA822">{{memberinfo.integral}}</view>
-  <image class='icon-10 ' src='{{uploadpath}}resource/{{res.money}}'></image>
-  <view class="h6 margin-left-10">积分商城</view>
-  <image class='icon-15 margin-left-10' src='{{uploadpath}}resource/{{res.to}}'></image>
+<view class="margin-20 " bindtap='todetails' data-name='jfsc'>
+  <image mode="widthFix" style="width:100%" src='{{uploadpath}}resource/{{res.xuebangshangcheng}}'></image>
 </view>
 
 
@@ -248,6 +243,12 @@
   <view data-name='tg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.tuiguang}}'></image>
     <view class='margin-left-20  txt-black  flex-1 h'>大使中心</view>
+    <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
+  </view>
+
+    <view data-name='bzj' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
+    <image class='icon-24' src='{{uploadpath}}resource/{{res.bzjruzhu}}'></image>
+    <view class='margin-left-20  txt-black  flex-1 h'>机构保证金入驻</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 

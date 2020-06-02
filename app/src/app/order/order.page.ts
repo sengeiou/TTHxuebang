@@ -81,6 +81,7 @@ export class OrderPage extends AppBase {
   info = null;
   courseinfo = null;
   onMyShow(e = undefined) {
+    console.log(this.info)
     var that = this;
     var instapi = this.instApi;
     var jigouapi = this.jigouApi;
@@ -230,10 +231,10 @@ export class OrderPage extends AppBase {
     this.navigate("myorder", { type: "dpj" });
   }
   copytext(text) {
-    var input = null;
-    input = document.getElementById("input");
-    input.value = text; // 修改文本框的内容
-    input.select(); // 选中文本
+    const oInput = document.createElement('input');
+    oInput.value = text; // 修改文本框的内容
+    document.body.appendChild(oInput);
+    oInput.select(); // 选中文本
     document.execCommand("copy"); // 执行浏览器复制命令
     this.toast("复制成功");
   }

@@ -1,0 +1,48 @@
+/* pages/baozhengjin/baozhengjin.wxss */
+Page {
+  background: #F7F7F7;
+}
+.padding-left-36 {
+  padding-left: 36rpx;
+}
+.margin-24{
+  margin: 0 24rpx;
+}
+.padding1614 {
+  padding: 32rpx 20rpx 14rpx 16rpx;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+.huoqu {
+  width: 170rpx;
+  height: 50rpx;
+  border: 2rpx solid  #FF6600;
+  color: #FF6600;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 25rpx;
+}
+.shangchuan {
+  width: 640rpx;
+  height: 341rpx;
+  border: 2rpx dashed #979797;
+  margin: 28rpx 12rpx 34rpx 14rpx;
+}
+.icon-16 {
+  width: 32rpx;
+  height: 32rpx;
+}
+.btns {
+  width: 672rpx;
+  height: 120rpx;
+  background: #FF6600;
+  color: #ffffff;
+  border-radius: 60rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+.w56 {
+  width: 56rpx;
+}
+.w86{
+  width: 86rpx;
+}

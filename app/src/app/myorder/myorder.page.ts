@@ -145,7 +145,11 @@ export class MyorderPage extends AppBase {
             if(res.err_msg == "get_brand_wcpay_request:ok" ){
               that.onMyShow();
             } else {
-              this.showAlert(res.errMsg);
+              if(res.errMsg==''){
+                this.showAlert('支付失败！');
+              }else {
+                this.showAlert(res.errMsg);
+              }
             }
           });
 
@@ -169,7 +173,12 @@ export class MyorderPage extends AppBase {
             if(res.err_msg == "get_brand_wcpay_request:ok" ){
               that.onMyShow();
             } else {
-              this.showAlert(res.errMsg);
+              if(res.errMsg==''){
+                this.showAlert('支付失败！');
+              }else {
+                this.showAlert(res.errMsg);
+              }
+              
             }
           });
 
@@ -201,7 +210,7 @@ export class MyorderPage extends AppBase {
 
   }
   pinjia(id,order_id) {
-    this.navigate("pingjia", { id: id, order_id: order_id });
+    this.navigate("/pingjia", { id: id, order_id: order_id });
 
   }
   shanchu(id) {

@@ -12,7 +12,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '我的兑换',
+      title: '我的订单',
     });
   }
   onLoad(options) {
@@ -61,11 +61,39 @@ class Content extends AppBase {
       }
     });
   }
+
+  submit(){
+
+  }
+
+  shouhou(){
+    this.Base.setMyData({ showshouhou:true});
+  }
+  fz() {
+    this.Base.setMyData({ showshouhou: false });
+    wx.setClipboardData({
+      //准备复制的数据
+      data: "xuebanggz",
+      success: function (res) {
+        wx.showToast({
+          title: '复制成功',
+        });
+      }
+    });
+
+  }
+  qx() {
+
+    this.Base.setMyData({ showshouhou: false });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow; 
 body.towuliu = content.towuliu; 
-body.shouhuo = content.shouhuo;
+body.shouhuo = content.shouhuo; 
+body.shouhou = content.shouhou;
+body.fz = content.fz;
+body.qx = content.qx;
 Page(body)
