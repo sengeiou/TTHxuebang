@@ -351,7 +351,7 @@ export class ApiUtil {
   static GetMileTxt(mile) {
     console.log(mile);
     if (mile > 100000) {
-      return "10公里外";
+      return "";
     }
     if (mile > 1000) {
       return + (mile / 1000.0).toFixed(0) + "km";
