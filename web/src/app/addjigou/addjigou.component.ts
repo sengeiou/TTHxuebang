@@ -143,6 +143,7 @@ export class AddjigouComponent extends AppBase {
     qrcode:''
   }
   afterupload(e) {
+    console.log(e)
     var fileList = e.fileList;
     let index = e.fileList.findIndex(ele => ele.uid != e.file.uid);
     if (e.fileList.length > 0 && index != -1) {
