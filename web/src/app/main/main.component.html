@@ -159,7 +159,7 @@
           </li>
           
           <li class="nav-item has-treeview" >
-            <a  class="nav-link  {{module=='asset'?'active':''}}" >
+            <a  class="nav-link  {{module=='asset'?'active':''}}" (click)='zhan()'>
               <!-- <i class="nav-icon fas fa-copy"></i> -->
               <img src="{{uploadpath}}resource/{{res.zichanguanli}}" class="icon-17 margin-right"/>
               <p>
@@ -168,13 +168,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/assetmanagement')">
+                <!-- <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/assetmanagement')">  -->
+                  <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)='zhan()'> 
                   <i class="far fa-circle nav-icon"></i>
                   <p>保证金管理</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" (click)="weipay('/orderincome')">
+                <!-- <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" (click)="weipay('/orderincome')"> -->
+                  <a href="#" class="nav-link {{module2=='asset2'?'active':''}}"  (click)='zhan()'>
                   <i class="far fa-circle nav-icon"></i>
                   <p>订单收益管理</p>
                 </a>
