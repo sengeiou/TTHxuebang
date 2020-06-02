@@ -30,7 +30,9 @@ const routes: Routes = [
   { path: 'tixian', loadChildren: './tixian/tixian.module#TixianPageModule' },
   { path: 'mingxi', loadChildren: './mingxi/mingxi.module#MingxiPageModule' },
   { path: 'mycollect', loadChildren: './mycollect/mycollect.module#MycollectPageModule' },
-  { path: 'content', loadChildren: './content/content.module#ContentPageModule' }
+  { path: 'content', loadChildren: './content/content.module#ContentPageModule' },
+  { path: 'review', loadChildren: './review/review.module#ReviewPageModule' },
+  { path: 'yaoqinhaibao', loadChildren: './yaoqinhaibao/yaoqinhaibao.module#YaoqinhaibaoPageModule' }
 
 ];
 @NgModule({

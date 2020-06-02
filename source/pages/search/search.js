@@ -100,6 +100,13 @@ class Content extends AppBase {
       console.log("jglist", jglist);
       var jgvlist = [];
       for (var i = 0; i < 7 && i < jglist.length; i++) {
+
+        var mile = ApiUtil.GetDistance(mylat, mylng, jglist[i].lat, jglist[i].lng);
+    
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        console.log(miletxt);
+        console.log("aweq");
+        jglist[i]["miletxt"] = miletxt;
         jgvlist.push(jglist[i]);
       }
 
@@ -119,8 +126,12 @@ class Content extends AppBase {
     jigouapi.courselist(kc, (courselist) => {
       var coursevlist = [];
       for (var i = 0; i < 7 && i < courselist.length; i++) {
-
-
+        var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
+    
+           var miletxt = ApiUtil.GetMileTxt(mile);
+           console.log(miletxt);
+           console.log("aweq");
+           courselist[i]["miletxt"] = miletxt;
         courselist[i]["zuidijia"] = ApiUtil.zuidijia(
           courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
 

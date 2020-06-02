@@ -335,6 +335,7 @@ export class ApiUtil {
   }
 
   static GetDistance(lat1, lng1, lat2, lng2) {
+    console.log(lat1,lng1,lat2,lat2);
     var radLat1 = ApiUtil.Rad(lat1);
     var radLat2 = ApiUtil.Rad(lat2);
     var a = radLat1 - radLat2;
@@ -350,7 +351,7 @@ export class ApiUtil {
   static GetMileTxt(mile) {
     console.log(mile);
     if (mile > 100000) {
-      return "";
+      return "10公里外";
     }
     if (mile > 1000) {
       return + (mile / 1000.0).toFixed(0) + "km";
