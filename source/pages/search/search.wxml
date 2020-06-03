@@ -62,9 +62,9 @@
         <view class='nofound-img'>
           <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
-        <view class='h5 txt-gray'>
+        <!-- <view class='h5 txt-gray'>
           未找到您需要的课程
-        </view>
+        </view> -->
       </view>
       <view class='flex-1'>
 
@@ -166,9 +166,9 @@
         <view class='nofound-img'>
           <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' lazy-load='{{true}}' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
-        <view class='h5 txt-gray'>
+        <!-- <view class='h5 txt-gray'>
           未找到您需要的机构
-        </view>
+        </view> -->
       </view>
       <view class='flex-1'>
 
