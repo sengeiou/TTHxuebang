@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>邀请好友</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" /> -->
+  <div
+    style="width:100vw;height:100vh;background-size: 100vw 100vh;" [style.background-image]="'url('+uploadpath+'resource/'+res.yaoqindebeijin +')'">
+    <div class="flex-row  pt40" style="">
+
+      <div class="flex-1"></div>
+      <img class="bggg" mode="widthFix" src="{{lujin}}" />
+      <div class="flex-1"></div>
+    </div>
+
+
+
+    <div class="flex-row fd">
+      <div class="flex-1"></div>
+      <div class="anniu  flex-row flex-center" (click)="baocun($event)">
+        <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.xiazai}}" />
+        <div class="zi margin-left-10">保存海报</div>
+      </div>
+      <div class="flex-1"></div>
+
+      <button class="anniu clear-button flex-row flex-center" open-type='share'>
+        <img class="icon-15" mode="widthFix" src="{{uploadpath}}resource/{{res.yaoqin_zhuanfa}}" />
+        <div class="zi margin-left-10">发给好友</div>
+      </button>
+      <div class="flex-1"></div>
+    </div>
+
+
+  </div>
+
+
+</ion-content>

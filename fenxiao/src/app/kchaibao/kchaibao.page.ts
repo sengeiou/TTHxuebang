@@ -76,7 +76,7 @@ export class KchaibaoPage extends AppBase {
     
     this.habaoapi.fenxiaohaibao1({isdebug:'Y',kc_id:this.params.id}).then((res) => {
         
-      this.haibao="https://tthxb.artxb.cn/Users/upload/tthxb/"+res.return;
+      this.haibao="https://tthxb2.artxb.cn/Users/upload/tthxb/"+res.return+"?a="+(new Date()).getTime();
 
     })
 
