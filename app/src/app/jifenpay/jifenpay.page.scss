@@ -2,7 +2,9 @@
   @return ($px * 100vw) / 750;
 }
 
-/* pages/jifenorderinfo/jifenorderinfo.wxss */
+/* pages/teacher/teacher.wxss */
+
+
 
 .top_block {
   height: rpx(202);
@@ -19,15 +21,13 @@
   background: rgba(255, 255, 255, 1);
 }
 
-
 .icon-zuobiao {
   width: rpx(48);
   height: rpx(48);
 }
 
 .shangpin {
-  height: rpx(308);
-  padding: rpx(28) rpx(28) rpx(28) rpx(0);
+  padding: rpx(28) rpx(28) rpx(28) 0px;
   background: rgba(255, 255, 255, 1);
 }
 
@@ -45,10 +45,6 @@
   border-radius: rpx(8);
 }
 
-.title{
-  height:rpx(120);
-}
-
 .icon-right {
   width: rpx(14);
   height: rpx(24);
@@ -60,7 +56,7 @@
 
 .bottom_block {
   height: rpx(202);
-  padding: rpx(28) rpx(28) rpx(28) rpx(0);
+  padding: rpx(28) rpx(28) rpx(28) 0px;
   background: rgba(255, 255, 255, 1);
 }
 
@@ -72,7 +68,6 @@
   width: rpx(148);
   height: rpx(52);
   font-size: rpx(22);
-  line-height: rpx(52);
   border-radius: rpx(30);
   border: 1px solid rgba(204, 204, 204, 1);
 }
@@ -85,33 +80,33 @@
   background: white;
 }
 
-.ml104 {
-  margin-left: rpx(104);
+.jisuan {
+  width: rpx(60);
+  height: rpx(60);
+  border-radius: rpx(8);
+  border: 1px solid rgba(245, 245, 245, 1);
 }
 
-.ml30 {
-  margin-left: rpx(30);
+.shuliang {
+  width: rpx(120);
 }
 
-.ml36 {
-  margin-left: rpx(36);
+.jisuan view {
+  font-size: rpx(28);
 }
 
-.ml40 {
-  margin-left: rpx(40);
+.jisuan.inactive view {
+  color: rgba(245, 245, 245, 1);
 }
 
-.w580 {
-  width: rpx(580);
+.paybtn {
+  width: rpx(300);
+  background: rgba(255, 102, 0, 1);
+  border-radius: rpx(36);
+  padding-top: rpx(16);
+  padding-bottom: rpx(16);
+  font-size: rpx(28);
 }
-
-.h140 {
-  height: rpx(140)
-}
-
-
-
-
 .bg{
   position: fixed;
   background: rgba(0,0,0,0.5);
@@ -142,9 +137,9 @@
   font-size: rpx(32);
 }
 .t1 .txt-price{
-  color:#222222;
+  color:#FF6600;
   font-weight: 400;
-  font-size: rpx(30);
+  font-size: rpx(40);
 }
 
 .t2{
@@ -159,7 +154,7 @@
 }
 
 .qx{
-  color:#222222;
+  color:#CCCCCC;
   font-size: rpx(30);
   height: rpx(96);
 }
@@ -168,8 +163,20 @@
   font-size: rpx(30);
   height: rpx(96);
 }
+.ml40{
+  margin-left: rpx(40);
+}
+.ml30{
+  margin-left: rpx(30);
+}
+.mlr36{
+  margin-left: rpx(36);
+  margin-right: rpx(36);
+}
+.h120{
+  height:rpx(120);
+}
+.mr24{
 
-.t0{
-  margin-top: rpx(80);
-  font-size: rpx(30);
+  margin-right: rpx(24);
 }

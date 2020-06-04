@@ -106,3 +106,24 @@ ion-content {
 .w100 {
   width: rpx(100);
 }
+
+
+.fixedBottom{
+  position: fixed;
+  width: 100vw;
+  bottom: 0px;
+  left: 0px;
+}
+
+.shopbtn{
+  padding:7px 12px 7px 0px;
+}
+
+.shopbtn .btn{
+  background: #FF6600;
+  height: 36px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  border-radius: 18px;
+}

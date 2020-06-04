@@ -5,7 +5,7 @@
 </ion-header> -->
 
 <ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
-(ionScrollEnd)="logScrollEnd()">
+  (ionScrollEnd)="logScrollEnd()">
 
 
   <div class="tishikuang flex-row flex-center" *ngIf='nocity==1'>
@@ -80,11 +80,11 @@
   <div style='background:linear-gradient(360deg,rgba(255,255,255,1) 0%,rgba(255,194,0,1) 100%);'>
     <div class=' sp3  ' style="">
 
-      <ion-slides pager  [options]='mySwiperOption' loop="true" indicator-dots='true' autoplay='false' interval='5000' duration='200'
-        circular='true' class="wpc2" *ngIf='indexbanner.length>0'>
+      <ion-slides pager [options]='mySwiperOption' loop="true" indicator-dots='true' autoplay='false' interval='5000'
+        duration='200' circular='true' class="wpc2" *ngIf='indexbanner.length>0'>
         <ion-slide *ngFor="let item of indexbanner" wx:key="k">
 
-          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)' 
+          <img src='{{uploadpath}}indexbanner/{{item.img}}' (click)='bannerGo(item.id)'
             class='lb wpc2 ite {{currentItemId == index ? "selected" : ""}}' />
         </ion-slide>
       </ion-slides>
@@ -93,13 +93,13 @@
   </div>
 
 
-
+  
   <ion-slides [options]='mySwiperOption2' indicator-dots='true' class="h300 ">
 
     <ion-slide class=" flex-row flex-center flex-wrap">
 
       <div class="flex-row flex-column lesson-width " (click)='tomall()' data-name='jg'>
-        <image src="{{uploadpath}}resource/{{res.topvalue}}" class="icon26"></image>
+        <img src="{{uploadpath}}resource/{{res.topvalue}}" class="icon26" />
         <div class="h6">特惠好物</div>
       </div>
 
@@ -155,7 +155,7 @@
 
 
 
-  <div class='scv'  *ngIf="false">
+  <div class='scv' *ngIf="false">
     <div style=" " class='ss scroll-x' bindscrolltodo="scroll">
 
       <div *ngFor='let item of indexlist;let idx=index;' wx:key='k' (click)='toceshi(item.id)' id='{{item.id}}'
@@ -304,7 +304,7 @@
 
       <div class='flex-row flex-center'>
         <div class='flex-1'></div>
-        <div [style.background-image]="'url('+uploadpath+'resource/'+res.dakaok+')'"  style='background-size:100% 100%;'
+        <div [style.background-image]="'url('+uploadpath+'resource/'+res.dakaok+')'" style='background-size:100% 100%;'
           class='dakawc flex-row flex-column'>
           <div class='h376'></div>
           <div class='txt_jifen txt-bold txt-white' *ngIf='jf==25'>+25积分</div>
@@ -438,95 +438,93 @@
 
     </div>
 
-    <template *ngFor='let item of jgvteach;'>
-      
-    <div [class.hidden]='jgvteach.length==0'  wx:key='k' [id]='item.id'
-      (click)='tojgdetails(item.id)' style='' class='wpc3' data-name='aab'>
-      <div class=' padding-20' style=''>
-        <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
-          class=' radius-10 wpc4' style='' />
-      </div>
-      <div class='midt flex-row'>
-        <div class='flex-1'></div>
-        <div class='mid radius-10'>
-          <div class=''>
-            <div class=' bg-white   margin-bottom-10'>
+    <div *ngFor='let item of jgvteach;let jgidx=index;'>
 
-              <div class='padding-20 '>
+      <div [class.hidden]='jgvteach.length==0' wx:key='k' (click)='tojgdetails(item.id)' style='' class='wpc3'
+        data-name='aab'>
+        <div class=' padding-20' style=''>
+          <img lazy-load='{{true}}' src='{{uploadpath}}mechanism/{{item.jg_img}}?x-oss-process=style/test_img'
+            class=' radius-10 wpc4' style='' />
+        </div>
+        <div class='midt flex-row'>
+          <div class='flex-1'></div>
+          <div class='mid radius-10'>
+            <div class=''>
+              <div class=' bg-white   margin-bottom-10'>
 
-                <div class='flex-row flex-center'>
-                  <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
+                <div class='padding-20 '>
 
-                  <div class="flex-row flex-center flex-1 ">
-                    <div class='txt-black txt-bold  chaochu mw400' style="">{{item.jigou}}</div>
-                    <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
-                      *ngIf="item.renzhen=='是'" />
+                  <div class='flex-row flex-center'>
+                    <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
+
+                    <div class="flex-row flex-center flex-1 ">
+                      <div class='txt-black txt-bold  chaochu mw400' style="">{{item.jigou}}</div>
+                      <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
+                        *ngIf="item.renzhen=='是'" />
+                    </div>
+
+                    <div class="starbox text-right">
+                      <div class="stars" style="width: 100%;">
+                        <div class=" ims">
+                          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+                        </div>
+                      </div>
+
+                      <div class="stars2" [style.width.%]="width"
+                        [width]="item.pingfen==''?(item.scoring*20):(item.pingfen*20)">
+                        <div class="ims">
+                          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                          <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
+                        </div>
+                      </div>
+
+                    </div>
+
+
                   </div>
 
-                  <div class="starbox text-right">
-                    <div class="stars" style="width: 100%;">
-                      <div class=" ims">
-                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star" />
+
+                  <div class='flex-row flex-center margin-top-5'>
+                    <div class='flex-row flex-1'>
+                      <div *ngFor="let litem of item.labels;let idx=index;">
+
+                        <div class='  radius-10 txt-green h6 biaoqian text-center margin-right-10'
+                          [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k"
+                          *ngIf='idx<3'>
+                          {{litem.name}}</div>
                       </div>
                     </div>
-
-                    <div class="stars2" [style.width.%]="width"
-                      [width]="item.pingfen==''?(item.scoring*20):(item.pingfen*20)">
-                      <div class="ims">
-                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                        <img src="{{uploadpath}}resource/{{res.star}}" class="icon-star" />
-                      </div>
-                    </div>
-
+                    <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
                   </div>
 
 
-                </div>
-
-
-                <div class='flex-row flex-center margin-top-5'>
-                  <div class='flex-row flex-1'>
-                    <div *ngFor="let litem of item.labels;let idx=index;">
-
-                      <div class='  radius-10 txt-green h6 biaoqian text-center margin-right-10'
-                        [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k"
-                        *ngIf='idx<3'>
-                        {{litem.name}}</div>
-                    </div>
+                  <div class='flex-row flex-center margin-top-5'>
+                    <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
+                    <div class='flex-1 h5 txt-black dizhi'>{{item.showaddress}}</div>
+                    <div class='h6 '>{{item.miletxt}}</div>
                   </div>
-                  <div class='h6 txt-gray'>已预约{{item.people_num}}人</div>
+
+
+
                 </div>
-
-
-                <div class='flex-row flex-center margin-top-5'>
-                  <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
-                  <div class='flex-1 h5 txt-black dizhi'>{{item.showaddress}}</div>
-                  <div class='h6 '>{{item.miletxt}}</div>
-                </div>
-
-
 
               </div>
-
             </div>
           </div>
+          <div class='flex-1'></div>
         </div>
-        <div class='flex-1'></div>
+
+
       </div>
 
-
-    </div>
-
-
-
-    <div *ngIf="{{jgidx%goodsinterval==0&&topvaluelist[jgidx/goodsinterval]!=undefined}}"  
+      <div *ngIf="jgidx%goodsinterval==0&&topvaluelist[jgidx/goodsinterval]!=undefined"  
       (click)='togoods(topvaluelist[jgidx/goodsinterval].id)' style='' class='wpc3' data-name='aab'>
       <div class=' padding-20' style=''>
         <img lazy-load='{{true}}' src='{{uploadpath}}shop/{{topvaluelist[jgidx/goodsinterval].top_img}}?x-oss-process=style/test_img'
@@ -544,7 +542,7 @@
                   <!-- <div class='txt-black txt-bold flex-1 chaochu'>{{item.jigou}}</div> -->
 
                   <div class="flex-row flex-center flex-1 ">
-                    <div class='txt-black txt-bold  chaochu mw400' style="">{{topvaluelist[jgidx/goodsinterval].jigou}}</div>
+                    <div class='txt-black txt-bold  chaochu mw400' style="">{{topvaluelist[jgidx/goodsinterval].name}}</div>
                     <img src="{{uploadpath}}resource/{{res.renzheng}}" class="icon13 margin-left-10"
                       *ngIf="topvaluelist[jgidx/goodsinterval].renzhen=='是'" />
                   </div>
@@ -556,22 +554,30 @@
 
                 <div class='flex-row flex-center margin-top-5'>
                   <div class='flex-row flex-1'>
-                    <div *ngFor="let litem of item.labels;let idx=index;">
 
                       <div class='  radius-10 txt-green h6 biaoqian text-center margin-right-10'
-                        [ngStyle]='{"border":"1px solid","border-color":litem.color,"color":litem.color}' wx:key="k"
-                        *ngIf='idx<3'>
-                        {{litem.name}}</div>
-                    </div>
+                        [ngStyle]='{"border":"1px solid","border-color":topvaluelist[jgidx/goodsinterval].labelcolor.color,"color":topvaluelist[jgidx/goodsinterval].labelcolor}' wx:key="k">
+                        {{topvaluelist[jgidx/goodsinterval].label}}</div>
                   </div>
-                  <div class='h6 txt-gray'>已预约{{topvaluelist[jgidx/goodsinterval].people_num}}人</div>
+                  
+
+
+
                 </div>
 
 
-                <div class='flex-row flex-center margin-top-5'>
-                  <!-- <img class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}' /> -->
-                  <div class='flex-1 h5 txt-black dizhi'>{{topvaluelist[jgidx/goodsinterval].showaddress}}</div>
-                  <div class='h6 '>{{topvaluelist[jgidx/goodsinterval].miletxt}}</div>
+                <div class='flex-row flex-bottom  margin-top-5'>
+                  <!-- <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image> -->
+                  <div class=" h7 " style="color:#DE0000;">￥</div>
+                  <div class=" txt9 h5" style='color:#DE0000;'>{{topvaluelist[jgidx/goodsinterval].price}}</div>
+                  <div class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">￥{{topvaluelist[jgidx/goodsinterval].old_price}}</div>
+                  <div class="flex-1"></div>
+                  <div class="flex-row flex-center">
+                    <div class="margin-right">
+                      <img src="{{uploadpath}}resource/{{res.kucun}}" class="icon-15" />
+                    </div>
+                    <div  class="tv1">库存{{topvaluelist[jgidx/goodsinterval].inventory}}</div>
+                  </div>
                 </div>
 
 
@@ -587,7 +593,7 @@
 
     </div>
 
-  </template>
+    </div>
 
   </div>
 

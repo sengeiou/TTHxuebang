@@ -30,8 +30,10 @@ export class ShopmallPage extends AppBase {
     this.headerscroptshow = 480;
 
   }
+  show="all";
   kf = 0;
   list=[];
+  topvaluelist=[];
   onMyLoad(e=undefined) {
     //参数
     this.params;
@@ -39,9 +41,14 @@ export class ShopmallPage extends AppBase {
   onMyShow(e=undefined) {
     var that = this;
     var jifenapi = this.jifenApi;;
-    jifenapi.commoditylist({ orderby: 'r_main.seq' }).then((list) => {
+    jifenapi.commoditylist({ isscore: "Y",orderby: 'r_main.seq' }).then((list) => {
       this.list=list;
     })
+
+    jifenapi.commoditylist({ istopvalue: "Y",rderby: 'r_main.seq' }).then((list) => {
+      this.topvaluelist=list;
+    })
+
 
   }
   ss(e) {

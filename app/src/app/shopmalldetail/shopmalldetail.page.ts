@@ -29,7 +29,6 @@ export class ShopmalldetailPage extends AppBase {
   ) {
     super(router, navCtrl, modalCtrl, toastCtrl, alertCtrl,activeRoute,zone);
     this.headerscroptshow = 480;
-    this.info = {};
   }
 
   show = 0;
@@ -97,6 +96,15 @@ export class ShopmalldetailPage extends AppBase {
 
     this.navigateTo({
       url: '/xuanzedizhi/xuanzedizhi?inventory=' + inventory + '&interral=' + interral + '&id=' + this.params.id + '&img=' + img + '&name=' + name + '&shuliang=' + shuliang
+    })
+
+  }
+
+  showerror=false;
+
+  createInfo(){
+    this.navigateTo({
+      url: '/jifenpay/jifenpay?id='+this.params.id,
     })
 
   }

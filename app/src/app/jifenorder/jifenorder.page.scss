@@ -113,3 +113,68 @@
 .mr20 {
   margin-right: rpx(20);
 }
+
+
+
+
+.bg{
+  position: fixed;
+  background: rgba(0,0,0,0.5);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  left: 0px;
+  top: 0px;
+}
+.h100{
+  height: 100%;
+}
+
+.sel{
+  width: rpx(540);
+  padding:rpx(14);
+  border-radius: rpx(8);
+  background: white;
+}
+.sel .querenduihuan{
+  margin-top: rpx(100);
+  width:rpx(300);
+}
+.t1{
+  margin-top: rpx(34);
+}
+.t1 view{
+  font-size: rpx(32);
+}
+.t1 .txt-price{
+  color:#222222;
+  font-weight: 400;
+  font-size: rpx(30);
+}
+
+.t2{
+
+  margin-top: rpx(60);
+}
+
+.gehe{
+  width: 1px;
+  height: rpx(96);
+  background: #F5F6F8;
+}
+
+.qx{
+  color:#222222;
+  font-size: rpx(30);
+  height: rpx(96);
+}
+.qr{
+  color:#FF6600;
+  font-size: rpx(30);
+  height: rpx(96);
+}
+
+.t0{
+  margin-top: rpx(80);
+  font-size: rpx(30);
+}

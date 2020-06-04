@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MemberApi } from 'src/providers/member.api';
 import { AddressApi } from 'src/providers/address.api';
 import { JifenApi } from 'src/providers/jifen.api';
+import { JifenpayPage } from '../jifenpay/jifenpay.page';
 
 @Component({
   selector: 'app-xuanzedizhi',
@@ -82,11 +83,17 @@ export class XuanzedizhiPage extends AppBase {
 
 
     var jifenapi = this.jifenApi;
-    jifenapi.commodityinfo({ id: this.params.id }).then((info) => {
+    if (this.check == null) {
+      this.showAlert("请选择地址");
+      return;
+    }
 
-      this.info=info;
+    if (this.params.selectback == 'Y') {
 
-    })
+      JifenpayPage.Instance.address_id=this.check;
+      this.back();
+      return;
+    }
 
 
 

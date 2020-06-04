@@ -1,0 +1,183 @@
+<!--pages/shopinfo/shopinfo.wxml-->
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>提交订单</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="info!=null">
+
+    <div class="bg-white">
+
+      <div class="mid_block flex-row flex-center" (click)="xuanzedizhi()">
+        <img src="{{uploadpath}}resource/{{res.diz}}" class="icon-zuobiao ml40" />
+        <div class="flex-row column flex-1 ml30" *ngIf="address_id!=0">
+          <div class="h5">收货人：{{addressinfo.name}} {{addressinfo.mobile}}</div>
+          <div class="h5 txt-6">{{addressinfo.region}}{{addressinfo.address}}</div>
+        </div>
+        <div class="flex-row column flex-1 ml30" *ngIf="address_id==0">
+          <div class="h5">选择收货人</div>
+        </div>
+        <div>
+          <img src="{{uploadpath}}resource/{{res.address_right}}" class="icon-zuobiao ml40" />
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="shangpin margin-top-20 ">
+
+      <div class="flex-row margin-left-28">
+        <img src="{{uploadpath}}shop/{{info.imgs}}" class="icon-img" />
+
+        <div class=" flex-1 mlr36">
+          <div class="txt-bold h120">{{info.name}}</div>
+          <div class="flex-row  margin-left-10" *ngIf="info.label!=''">
+            <div class='text-center tvlabel' [style.border-color]='info.labelcolor' [style.color]='info.labelcolor'>
+              {{info.label}}</div>
+          </div>
+        </div>
+        <div class="">
+          <div class="flex-row flex-bottom" *ngIf="info.istopvalue_value=='Y'">
+            <div class="h5  margin-right-5">¥</div>
+            <div class="h4 ">{{info.price}}</div>
+          </div>
+          <div class="flex-row flex-bottom" *ngIf="info.isscore_value=='Y'">
+            <div class="h4 ">{{info.interral}}积分</div>
+          </div>
+          <div class=" text-right h5" style="color:#B0B0B0;text-decoration:line-through">¥{{info.old_price}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="padding">
+
+      <div class="flex-row flex-center  margin-top-10">
+        <div class="h6 flex-1" style="color:#B0B0B0">购买数量</div>
+        <div class="flex-1"></div>
+        <div class="jisuan jian {{shuliang<=1?'inactive':''}} flex-row flex-center" (click)="jian()">
+          <div class="flex-1"></div>
+          <div>-</div>
+          <div class="flex-1"></div>
+        </div>
+        <div class="shuliang text-center">{{shuliang}}</div>
+        <div class="jisuan jia flex-row flex-center" (click)="jia()">
+          <div class="flex-1"></div>
+          <div>+</div>
+          <div class="flex-1"></div>
+        </div>
+      </div>
+      <div class=" margin-top-10" style="height:1px;background:#F5F5F5"></div>
+      <div class="flex-row flex-center  margin-top-10">
+        <div class="h6 flex-1" style="color:#B0B0B0">运费（快递）</div>
+        <div class="h6">免运费</div>
+      </div>
+
+      <div class=" margin-top-10" style="height:1px;background:#F5F5F5"></div>
+
+      <div class="flex-row flex-bottom  margin-top-10">
+        <div class="flex-1"></div>
+        <div class="h6  margin-right" style="color:#B0B0B0">共{{shuliang}}件商品 共计: </div>
+        <div class="h5 txt-red margin-right-5" *ngIf="info.istopvalue_value=='Y'">¥</div>
+        <div class="h4 txt-red " *ngIf="info.istopvalue_value=='Y'">{{shuliang*info.price}}</div>
+        <div class="h4 txt-red " *ngIf="info.isscore_value=='Y'">{{shuliang*info.interral}}积分</div>
+      </div>
+
+    </div>
+
+
+    <div class="bottom">
+      <div class="flex-row flex-center" *ngIf="info.istopvalue_value=='Y'">
+        <div class="flex-1"></div>
+        <div class="margin-right">
+          <div class="flex-row flex-bottom">
+            <div class="h6 " style="color:#B0B0B0">应付总额：</div>
+            <div class="h6  margin-right-5 txt-price">¥</div>
+            <div class="h4  txt-price">{{shuliang*info.price}}</div>
+          </div>
+          <div style="color:#B0B0B0" class="text-right h6">共{{shuliang}}件商品</div>
+        </div>
+        <div class="mr24">
+          <div class="paybtn txt-white text-center" (click)="pay()">提交订单</div>
+        </div>
+      </div>
+      <div class="flex-row flex-center" *ngIf="info.isscore_value=='Y'">
+        <div class="flex-1"></div>
+        <div class="margin-right">
+          <div class="flex-row flex-bottom">
+            <div class="h6 " style="color:#B0B0B0">应付总额：</div>
+            <div class="h6  margin-right-5 txt-price">
+              <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10" />
+            </div>
+            <div class="h4  txt-price" style="color:#FFBA12">{{shuliang*info.interral}}</div>
+          </div>
+          <div style="color:#B0B0B0" class="text-right h6">共{{shuliang}}件商品</div>
+        </div>
+        <div class="mr24">
+          <div class="paybtn txt-white text-center" (click)="duihuan()">确认兑换</div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="bg" *ngIf="showduihuanqueren==true">
+    <div class="flex-row flex-center h100">
+      <div class="flex-1 h100"></div>
+      <div class="sel">
+        <div class="text-center">
+          <img mode="widthFix" class="querenduihuan" src="{{uploadpath}}resource/{{res.querenduihuan}}" />
+        </div>
+        <div class="flex-row flex-bottom t1">
+          <div class="flex-1"></div>
+          <div class="margin-right-5">使用</div>
+          <div class="txt-price">{{shuliang*info.interral}}积分</div>
+          <div class="margin-left-5">进行兑换</div>
+          <div class="flex-1"></div>
+        </div>
+        <div class="flex-row flex-center t2">
+          <div class="flex-1 text-center qx" (click)="quxiaoduihuan()">取消</div>
+          <div class="gehe"></div>
+          <div class="flex-1 text-center qr" (click)="qurenduihuan()">确认</div>
+        </div>
+      </div>
+      <div class="flex-1 h100"></div>
+    </div>
+  </div>
+
+
+  <div class="bg" *ngIf="showerror==true">
+    <div class="flex-row flex-center h100">
+      <div class="flex-1 h100"></div>
+      <div class="sel">
+        <div class="text-center">
+          <img mode="widthFix" class="querenduihuan" src="{{uploadpath}}resource/{{res.jifenbugou}}" />
+        </div>
+        <div class="flex-row flex-bottom t1">
+          <div class="flex-1"></div>
+          <div>{{errorreturn}}</div>
+          <div class="flex-1"></div>
+        </div>
+        <div class="flex-row flex-center t2">
+          <div class="flex-1 text-center qr" (click)="quxiaoduihuan()">取消</div>
+        </div>
+      </div>
+      <div class="flex-1 h100"></div>
+    </div>
+  </div>
+
+</ion-content>

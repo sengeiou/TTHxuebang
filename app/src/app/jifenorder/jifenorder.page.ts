@@ -121,4 +121,25 @@ export class JifenorderPage  extends AppBase {
 
   
   }
+  showshouhou=false;
+
+  shouhou() {
+   this.showshouhou= true;
+  }
+  fz() {
+    this.showshouhou= false;
+    
+    var oInput = document.createElement('input');
+    oInput.value = "xuebanggz";
+    document.body.appendChild(oInput);
+    oInput.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    oInput.className = 'oInput';
+    oInput.style.display='none';
+   this.toast("复制成功");
+
+  }
+  qx() {
+    this.showshouhou= false;
+  }
 }

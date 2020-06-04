@@ -1,0 +1,36 @@
+@function rpx($px) {
+  @return ($px * 100vw) / 750;
+}
+
+/* pages/teacher/teacher.wxss */
+
+
+/* pages/jifenpaysuccess/jifenpaysuccess.wxss */
+.t1{
+  margin-top: rpx(80);
+  font-size: rpx(40);
+  color:#FFC200;
+  font-weight: 400;
+}
+.t2{
+  color:#222222;
+  font-size: rpx(32);
+  margin-top: rpx(20);
+}
+
+.pt{
+  width:206px;
+  margin-top: rpx(54);
+}
+.t3{
+  margin-top: rpx(54);
+}
+.btn{
+  height: rpx(80);
+  background:rgba(255,102,0,1);
+  border-radius:rpx(40);
+}
+.btn view{
+  color:white;
+  font-size: rpx(30);
+}

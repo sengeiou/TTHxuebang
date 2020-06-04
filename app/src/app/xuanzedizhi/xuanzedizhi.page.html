@@ -35,7 +35,7 @@
       <div class='hezi' (click)="bindcheck(item.id)" id="{{item.id}}">
         <div class='flex-row flex-center'>
 
-          <div *ngIf='type==""||type==undefined'>
+          <div class="margin-right" *ngIf='type==""||type==undefined'>
             <img src="{{uploadpath}}resource/{{res.weixuan}}" *ngIf='check!=item.id' class="icon-12" />
             <img src="{{uploadpath}}resource/{{res.xuanzhong}}" *ngIf='check==item.id' class="icon-12" />
           </div>

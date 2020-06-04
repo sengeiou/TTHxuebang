@@ -1,86 +1,127 @@
 <ion-header>
-      <ion-toolbar  color='primary'>
-          <ion-buttons slot="start">
-            <ion-button (click)='back()'>
-              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-          <ion-title>{{heading}}</ion-title>
-        </ion-toolbar>
-  </ion-header>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
 
-    <ion-content >
 
-<!--pages/shopmall/shopmall.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class=' to_top' >
- <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
-</div>
-<div id='dinbu'>
-  <div class='toubu' [ngStyle]="{'background-image': 'url('+uploadpath+'resource/'+res.jifen_bg+')'}" style='background-size:100% 100%;'>
-    
+  <div class=' flex-row flex-center  bg-white bor_bot top'>
 
-    <div class="flex-row flex-center">
-      <div class="flex-1"></div>
-      <div class='lingjifen ' src='{{uploadpath}}resource/{{res.lingjifen}}'  ></div>
+    <div class='flex-1 flex-row flex-column' (click)='show="all"' data-type='all'>
+      <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"black":"hui"}}'>特惠好物</div>
+
+      <div *ngIf='show=="all"' class='bg-primary' style='width:60px;height:3px;'></div>
+      <div *ngIf='show!="all"' class='' style='height:3px;'></div>
+
     </div>
 
-    <div class='flex-row '>
-      <div class='flex-1'></div>
+    <div class='flex-1 flex-row flex-column' (click)='show="wc"' data-type='wc'>
+      <div class='  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"black":"hui"}}'>积分商城</div>
+      <div *ngIf='show=="wc"' class='bg-primary' style='width:60px;height:3px;'></div>
+      <div *ngIf='show!="wc"' class='' style='height:3px;'></div>
+    </div>
+  </div>
+</ion-header>
 
-      <div class='flex-row'>
-        <img class='jf-icon margin-top-36' src='{{uploadpath}}resource/{{res.jf_icon}}' />
-        <div class='f60 txt-bold margin-left-10' style='color:#222222'>{{MemberInfo.integral}}</div>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+(ionScrollEnd)="logScrollEnd()">
+
+  <div id='dinbu'></div>
+
+  <!--pages/shopmall/shopmall.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class=' to_top'  *ngIf="scrolltop>300">
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop($event)' />
+  </div>
+  <div *ngIf="show=='all'" >
+    <div class='flex-row flex-wrap'>
+      <div *ngFor='let item of topvaluelist' wx:key='k'>
+        <div class='hezi' (click)="todetails(item.id)" id="{{item.id}}">
+          <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
+
+          <div class="padding">
+            <div class='  txt-bold f13 chaochu sp1' style="">{{item.name}}</div>
+            <div class="flex-row">
+              <div class='text-center tvlabel' [style.border-color]='item.labelcolor'  [style.color]='item.labelcolor' >{{item.label}}</div>
+            </div>
+            <div class='flex-row flex-bottom  margin-top-6'>
+              <!-- <image src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 "></image> -->
+              <div class=" h7 " style="color:#DE0000;">￥</div>
+              <div class=" txt9 h5" style='color:#DE0000;'>{{item.price}}</div>
+              <div class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">￥{{item.old_price}}</div>
+              <div class="flex-1"></div>
+              <div class="margin-right" style='color:#999999;font-size:10px;'>库存{{item.inventory}}</div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class='flex-1'></div>
     </div>
 
-    <div class='flex-row margin-left-66 margin-top-32'>
+  </div>
 
-      <div class='sz flex-row _center' (click)="toshouzhi($event)">
-        <div class='flex-row'>
+
+  <div *ngIf="show=='wc'" >
+ 
+    <div>
+      <div class='toubu'>
+        <div class='flex-row flex-center margin-left-20 margin-top-32'>
           <div>
-            <img class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}' />
+            <img class='jf-icon margin-top-35' src='{{uploadpath}}resource/{{res.jf_icon}}' style='width:24px;height:20px;margin-right:7px;margin-left:5px;' />
           </div>
-          <div class='margin-left-10 h5' style=' '>收支明细</div>
-        </div>
-      </div>
-
-      <div class='sz flex-row _center margin-left-46' (click)="toorder($event)">
-        <div>
-          <img class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}' />
-        </div>
-        <div>
-          <div class='margin-left-10 h5' style=' '>我的兑换</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class='flex-row flex-wrap'>
-    <div *ngFor='let item of list' wx:key='k'>
-      <div class='hezi' (click)="todetails(item.id)" id="{{item.id}}">
-        <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
-
-        <div class="padding">
-          <div class='  txt-bold f13 chaochu sp1' style="">{{item.name}}</div>
-          <div class='flex-row flex-center  margin-top-6'>
-            <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 " />
-            <div class=" txt9 h5 margin-left-10">{{item.interral}}</div>
-            <div class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}元</div>
+          
+          <div class='txt-bold margin-left-10 flex-1' >{{MemberInfo.integral}}</div>
+          <div class='sz flex-row _center' (click)="toshouzhi($event)">
+  
+  
+            <div class='flex-row'>
+              <img class='szmx-icon' src='{{uploadpath}}resource/{{res.szmx_icon}}' />
+            </div>
+  
+            <div class='margin-left-10 h5' style=' '>收支明细</div>
+          </div>
+          <div class='sz flex-row _center margin-right' (click)="toorder($event)">
+            <div>
+              <img class='zjf-icon' src='{{uploadpath}}resource/{{res.zjf_icon}}' />
+            </div>
+            <div>
+              <div class='margin-left-10 h5' style=' '>我的订单</div>
+            </div>
           </div>
         </div>
+  
+  
       </div>
     </div>
 
+
+    <div class='flex-row flex-wrap'>
+      <div *ngFor='let item of list' wx:key='k'>
+        <div class='hezi' (click)="todetails(item.id)" id="{{item.id}}">
+          <img class='img' src='{{uploadpath}}shop/{{item.imgs}}' />
+
+          <div class="padding">
+            <div class='  txt-bold f13 chaochu sp1' style="">{{item.name}}</div>
+            <div class='flex-row flex-center  margin-top-6'>
+              <img src="{{uploadpath}}resource/{{res.jf_minicon}}" class="icon-10 " />
+              <div class=" txt9 h5 margin-left-10">{{item.interral}}</div>
+              <div class="h6 margin-left-10" style="color:#999999;text-decoration:line-through;">{{item.old_price}}元
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
   </div>
 
-
-</div>
-
-<div class="h40"></div>
+  <div class="h40"></div>
 
 
-    </ion-content>
+</ion-content>

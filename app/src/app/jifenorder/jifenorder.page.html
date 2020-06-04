@@ -1,240 +1,314 @@
 <ion-header>
-    <ion-toolbar  color='primary'>
-        <ion-buttons slot="start">
-          <ion-button (click)='back()'>
-            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title>{{heading}}</ion-title>
-      </ion-toolbar>
+  <ion-toolbar color='primary'>
+    <ion-buttons slot="start">
+      <ion-button (click)='back()'>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{heading}}</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-  <ion-content >
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
 
-<!--pages/jifenorder/jifenorder.wxml-->
-<img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
-<div class=' to_top' >
-<img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
-</div>
-<div class=' flex-row flex-center  bg-white bor_bot top' >
-
-<div class='flex-1 flex-row flex-column' (click)='bindshow("all")' data-type='all'>
-  <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部</div>
-  <div *ngIf='show=="all"' class='bg-primary sp1' style=''></div>
-  <div *ngIf='show!="all"' class='sp1' style=''></div>
-</div>
-
-<div class='flex-1 flex-row flex-column' (click)='bindshow("ok")' data-type='ok'>
-  <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成</div>
-  <div *ngIf='show=="wc"' class='bg-primary sp1' ></div>
-  <div *ngIf='show!="wc"' class='sp1' ></div>
-</div>
-
-<div class='flex-1 flex-row flex-column' (click)='bindshow("wc")' data-type='wc'>
-  <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>待发货</div>
-  <div *ngIf='show=="finished"' class='bg-primary sp1' ></div>
-  <div *ngIf='show!="finished"' class='sp1' ></div>
-</div>
-
-<div class='flex-1 flex-row flex-column' (click)='bindshow("df")' data-type='df'>
-  <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>待收货</div>
-  <div *ngIf='show=="wait"' class='bg-primary sp1' ></div>
-  <div *ngIf='show!="wait"' class=' sp1' ></div>
-</div>
-
-
-</div>
-
-<div class="h88" ></div>
-
-<!-- 全部订单-->
-<div class="" *ngIf='show=="all"' id='dinbu'>
-
-<div class="block  " *ngFor='let item of alllist' wx:key='k'>
-
-  <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
-    <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
-
-    <div class="flex-row column margin-top-24 flex-1 margin-left-20">
-
-      <div class="flex-row flex-center">
-        <div class="h5 flex-1">{{item.name}}</div>
-        <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
-          {{item.orderstatus_name}}
-        </div>
-
-        <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24" />
-      </div>
-
-      <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
-
-      <div class="h60"></div>
-
-      <div class="flex-row flex-center">
-        <div class="flex-1"></div>
-        <div class="f22" >扣除积分：</div>
-        <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
-      </div>
-    </div>
+  <!--pages/jifenorder/jifenorder.wxml-->
+  <img class="backhome" src="{{uploadpath}}resource/{{res.fanhui}}" (click)="backHome()" />
+  <div class=' to_top' *ngIf="scrolltop>300">
+    <img src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' (click)='backtotop()' />
   </div>
+  <div class=' flex-row flex-center  bg-white bor_bot top'>
 
-  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+    <div class='flex-1 flex-row flex-column' (click)='bindshow("all")' data-type='all'>
+      <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="all"?"txt":""}} txt-black'>全部
+      </div>
+      <div *ngIf='show=="all"' class='bg-primary sp1' style=''></div>
+      <div *ngIf='show!="all"' class='sp1' style=''></div>
+    </div>
 
-  <div class="flex-row flex-center margin-top-8">
-    <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
+    <div class='flex-1 flex-row flex-column' (click)='bindshow("ok")' data-type='ok'>
+      <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wc"?"txt":""}} txt-black'>已完成
+      </div>
+      <div *ngIf='show=="wc"' class='bg-primary sp1'></div>
+      <div *ngIf='show!="wc"' class='sp1'></div>
+    </div>
 
-    <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
-    <div class="flex-1 margin-left-24">
-      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick()' id="{{item.id}}" *ngIf='item.orderstatus=="C"' class="icon_shan" />
+    <div class='flex-1 flex-row flex-column' (click)='bindshow("wc")' data-type='wc'>
+      <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="finished"?"txt":""}} txt-black'>
+        待发货</div>
+      <div *ngIf='show=="finished"' class='bg-primary sp1'></div>
+      <div *ngIf='show!="finished"' class='sp1'></div>
+    </div>
+
+    <div class='flex-1 flex-row flex-column' (click)='bindshow("df")' data-type='df'>
+      <div class='txt-bold  flex-1 h5 padding-10 margin-bottom-5 margin-top-10 {{show=="wait"?"txt":""}} txt-black'>待收货
+      </div>
+      <div *ngIf='show=="wait"' class='bg-primary sp1'></div>
+      <div *ngIf='show!="wait"' class=' sp1'></div>
     </div>
 
 
-    <div *ngIf='item.orderstatus=="B"||item.orderstatus=="C"'  (click)='wuliu(item.id)' id="{{item.id}}" class="lianxi text-center   txt-6 mr20" >物流详情</div>
-    <div *ngIf='item.orderstatus=="B"' (click)='shouhuoclick($event)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
-
-
   </div>
 
-</div>
+  <div class="h88"></div>
 
-</div>
+  <!-- 全部订单-->
+  <div class="" *ngIf='show=="all"' id='dinbu'>
 
-<!-- 待发货订单-->
-<div class="" *ngIf='show=="finished"' id='dinbu'>
+    <div class="block  " *ngFor='let item of alllist' wx:key='k'>
 
-<div class="block  " *ngFor='let item of daifalist' wx:key='k'>
+      <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
+        <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
 
-  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
-    <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
+        <div class="flex-row column margin-top-24 flex-1 margin-left-20">
 
-    <div class="flex-row column margin-top-24 flex-1 margin-left-20">
+          <div class="flex-row flex-center">
+            <div class="h5 flex-1">{{item.name}}</div>
+            <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
+              {{item.orderstatus_name}}
+            </div>
 
-      <div class="flex-row flex-center">
-        <div class="h5 flex-1">{{item.name}}</div>
-        <div class="txt-red h6 txt-bold  margin-right-24">
-          {{item.orderstatus_name}}
-        </div>
-      </div>
+            <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}"
+              class="iconwc margin-right-24" />
+          </div>
 
-      <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
-
-      <div class="h60"></div>
-
-      <div class="flex-row flex-center">
-        <div class="flex-1"></div>
-        <div class="f22" >扣除积分：</div>
-        <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
-
-  <div class="flex-row flex-center margin-top-10">
-
-    <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
-
-    <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
-    <div class="flex-1"></div>
-    <!-- <div class="lianxi text-center margin-right-24 txt-6" style="">取消订单</div> -->
-  </div>
-
-</div>
-
-</div>
-
-<!-- 待收货订单-->
-<div class="" *ngIf='show=="wait" && daishoulist.length>0' id='dinbu'>
-
-<div class="block  " ngFor='let item of daishoulist' wx:key='k'>
-
-  <div class="flex-row" (click)='bindtodetails(item.id)'>
-    <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
-
-    <div class="flex-row column margin-top-24 flex-1 margin-left-20">
-
-      <div class="flex-row flex-center">
-        <div class="h5 flex-1">{{item.name}}</div>
-        <div class="txt-red h6 txt-bold  margin-right-24">
-          {{item.orderstatus_name}}
-        </div>
-      </div>
-
-      <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
-
-      <div class="h60"></div>
-
-      <div class="flex-row flex-center">
-        <div class="flex-1"></div>
-        <div class="f22" >扣除积分：</div>
-        <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
-      </div>
-    </div>
-  </div>
-
-  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
-
-  <div class="flex-row flex-center margin-top-8">
-    <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
-
-    <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
-    <div class="flex-1"></div>
-    <div class="lianxi text-center  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
-    <div (click)='shouhuoclick(item.id)' id="{{item.id}}" class="lianxi text-center margin-left-14 margin-right-24  txt-6" style="">确认收货</div>
-
-  </div>
-
-</div>
-
-</div>
-
-<!-- 已完成订单-->
-<div class="" *ngIf='show=="wc"' id='dinbu'>
-
-<div class="block  " *ngFor='let item of wanchenlist' wx:key='k'>
-
-  <div class="flex-row" (click)='bindtodetails($event)' id='{{item.id}}'>
-    <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
-
-    <div class="flex-row column margin-top-24 flex-1 margin-left-20">
-
-      <div class="flex-row flex-center">
-
-        <div class="flex-1">
-          <div class="h5 ">{{item.name}}</div>
           <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
+
+
+          <div class="flex-row  margin-top-8" *ngIf="item.goods_label!=''&&item.goods_istopvalue=='Y'">
+            <div class='text-center tvlabel' [style.border-color]='item.goods_labelcolor'
+              [style.color]='item.goods_labelcolor'>
+              {{item.goods_label}}</div>
+          </div>
+
+          <div class="flex-row flex-center" *ngIf="item.paytype!='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">扣除积分：</div>
+            <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
+          </div>
+          <div class="flex-row flex-bottom" *ngIf="item.paytype=='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">现金购买：</div>
+            <div class="h6">¥</div>
+            <div class="txt-bold h5 margin-right-24">{{item.payamount}}</div>
+          </div>
         </div>
+      </div>
+      <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
 
-        <img src="{{uploadpath}}resource/{{res.yiwanchen}}" class="iconwc margin-right-24" />
+      <div class="flex-row flex-center margin-top-5">
+        <div class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</div>
+        <div class="lianxi text-center margin-right-24  txt-6" *ngIf="item.orderstatus=='C'" style=""
+          (click)='shouhou($event)' id="{{item.id}}">商品售后</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='C'" (click)='shanchuclick(item.id)'
+          id="{{item.id}}">删除订单</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='B'" (click)='shouhuoclick(item.id)'
+          id="{{item.id}}">确认收货</div>
+      </div>
 
+    </div>
+
+  </div>
+
+  <!-- 待发货订单-->
+  <div class="" *ngIf='show=="finished"' id='dinbu'>
+
+    <div class="block  " *ngFor='let item of daifalist' wx:key='k'>
+
+      <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
+        <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
+
+        <div class="flex-row column margin-top-24 flex-1 margin-left-20">
+
+          <div class="flex-row flex-center">
+            <div class="h5 flex-1">{{item.name}}</div>
+            <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
+              {{item.orderstatus_name}}
+            </div>
+
+            <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}"
+              class="iconwc margin-right-24" />
+          </div>
+
+          <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
+
+
+          <div class="flex-row  margin-top-8" *ngIf="item.goods_label!=''&&item.goods_istopvalue=='Y'">
+            <div class='text-center tvlabel' [style.border-color]='item.goods_labelcolor'
+              [style.color]='item.goods_labelcolor'>
+              {{item.goods_label}}</div>
+          </div>
+
+          <div class="flex-row flex-center" *ngIf="item.paytype!='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">扣除积分：</div>
+            <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
+          </div>
+          <div class="flex-row flex-bottom" *ngIf="item.paytype=='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">现金购买：</div>
+            <div class="h6">¥</div>
+            <div class="txt-bold h5 margin-right-24">{{item.payamount}}</div>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+
+      <div class="flex-row flex-center margin-top-5">
+        <div class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</div>
+        <div class="lianxi text-center margin-right-24  txt-6" *ngIf="item.orderstatus=='C'" style=""
+          (click)='shouhou($event)' id="{{item.id}}">商品售后</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='C'" (click)='shanchuclick(item.id)'
+          id="{{item.id}}">删除订单</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='B'" (click)='shouhuoclick(item.id)'
+          id="{{item.id}}">确认收货</div>
       </div>
 
 
+    </div>
 
-      <div class="h60"></div>
+  </div>
 
-      <div class="flex-row flex-center">
-        <div class="flex-1"></div>
-        <div class="f22" >扣除积分：</div>
-        <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
+  <!-- 待收货订单-->
+  <div class="" *ngIf='show=="wait" && daishoulist.length>0' id='dinbu'>
+
+    <div class="block  " ngFor='let item of daishoulist' wx:key='k'>
+
+
+      <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
+        <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
+
+        <div class="flex-row column margin-top-24 flex-1 margin-left-20">
+
+          <div class="flex-row flex-center">
+            <div class="h5 flex-1">{{item.name}}</div>
+            <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
+              {{item.orderstatus_name}}
+            </div>
+
+            <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}"
+              class="iconwc margin-right-24" />
+          </div>
+
+          <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
+
+
+          <div class="flex-row  margin-top-8" *ngIf="item.goods_label!=''&&item.goods_istopvalue=='Y'">
+            <div class='text-center tvlabel' [style.border-color]='item.goods_labelcolor'
+              [style.color]='item.goods_labelcolor'>
+              {{item.goods_label}}</div>
+          </div>
+
+          <div class="flex-row flex-center" *ngIf="item.paytype!='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">扣除积分：</div>
+            <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
+          </div>
+          <div class="flex-row flex-bottom" *ngIf="item.paytype=='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">现金购买：</div>
+            <div class="h6">¥</div>
+            <div class="txt-bold h5 margin-right-24">{{item.payamount}}</div>
+          </div>
+        </div>
       </div>
+      <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+
+      <div class="flex-row flex-center margin-top-5">
+        <div class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</div>
+        <div class="lianxi text-center margin-right-24  txt-6" *ngIf="item.orderstatus=='C'" style=""
+          (click)='shouhou($event)' id="{{item.id}}">商品售后</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='C'" (click)='shanchuclick(item.id)'
+          id="{{item.id}}">删除订单</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='B'" (click)='shouhuoclick(item.id)'
+          id="{{item.id}}">确认收货</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 已完成订单-->
+  <div class="" *ngIf='show=="wc"' id='dinbu'>
+
+    <div class="block  " *ngFor='let item of wanchenlist' wx:key='k'>
+
+      <div class="flex-row" (click)='bindtodetails(item.id)' id='{{item.id}}'>
+        <img src="{{uploadpath}}shop/{{item.img}}" class="icon-img margin-left-24 margin-top-24" />
+
+        <div class="flex-row column margin-top-24 flex-1 margin-left-20">
+
+          <div class="flex-row flex-center">
+            <div class="h5 flex-1">{{item.name}}</div>
+            <div class="txt-red h6 txt-bold  margin-right-24" *ngIf='item.orderstatus!="C"'>
+              {{item.orderstatus_name}}
+            </div>
+
+            <img *ngIf='item.orderstatus=="C"' src="{{uploadpath}}resource/{{res.yiwanchen}}"
+              class="iconwc margin-right-24" />
+          </div>
+
+          <div class="h6  margin-top-8 " style="color:#B0B0B0">数量 X {{item.shuliang}}</div>
+
+
+          <div class="flex-row  margin-top-8" *ngIf="item.goods_label!=''&&item.goods_istopvalue=='Y'">
+            <div class='text-center tvlabel' [style.border-color]='item.goods_labelcolor'
+              [style.color]='item.goods_labelcolor'>
+              {{item.goods_label}}</div>
+          </div>
+
+          <div class="flex-row flex-center" *ngIf="item.paytype!='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">扣除积分：</div>
+            <div class="txt-bold h5 margin-right-24">{{item.jifen}} 积分</div>
+          </div>
+          <div class="flex-row flex-bottom" *ngIf="item.paytype=='X'">
+            <div class="flex-1"></div>
+            <div class="" style="font-size:11px">现金购买：</div>
+            <div class="h6">¥</div>
+            <div class="txt-bold h5 margin-right-24">{{item.payamount}}</div>
+          </div>
+        </div>
+      </div>
+      <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
+
+      <div class="flex-row flex-center margin-top-5">
+        <div class="txt-22 txt-6 flex-1 margin-left txt-gray">{{item.goods_istopvalue=='Y'?'特惠好物':''}}</div>
+        <div class="lianxi text-center margin-right-24  txt-6" *ngIf="item.orderstatus=='C'" style=""
+          (click)='shouhou($event)' id="{{item.id}}">商品售后</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='C'" (click)='shanchuclick(item.id)'
+          id="{{item.id}}">删除订单</div>
+        <div class="lianxi text-center  txt-6" style="" *ngIf="item.orderstatus=='B'" (click)='shouhuoclick(item.id)'
+          id="{{item.id}}">确认收货</div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+  <div class="bg" *ngIf="showshouhou==true">
+    <div class="flex-row flex-center h100">
+      <div class="flex-1 h100"></div>
+      <div class="sel">
+        <div class="text-center t0">
+          请添加学榜微信客服进行售后
+        </div>
+        <div class="flex-row flex-bottom t1">
+          <div class="flex-1"></div>
+          <div class="txt-price">微信ID：xuebanggz</div>
+          <div class="flex-1"></div>
+        </div>
+        <div class="flex-row flex-center t2">
+          <div class="flex-1 text-center qr" (click)="fz()">复制微信号</div>
+          <div class="gehe"></div>
+          <div class="flex-1 text-center qx" (click)="qx()">取消</div>
+        </div>
+      </div>
+      <div class="flex-1 h100"></div>
     </div>
   </div>
 
-  <div style="height:1px;background:#F5F5F5" class="margin-left-24 margin-right-24 margin-top-24"></div>
-
-  <div class="flex-row flex-center margin-top-6">
-    <!-- <img src="{{uploadpath}}resource/{{res.tc_icon}}" class="icon-36 margin-left-24" />
-    <div class="txt-22 txt-6 flex-1 margin-left-5">联系客服</div> -->
-    <div class="flex-1 margin-left-24 ">
-      <img src="{{uploadpath}}resource/{{res.lajiton}}" (click)='shanchuclick(item.id)' id="{{item.id}}" class="icon_shan" />
-    </div>
-    <div class="lianxi text-center margin-right-24  txt-6" style="" (click)='wuliu($event)' id="{{item.id}}">物流详情</div>
-  </div>
-
-</div>
-
-</div>
-
-
-  </ion-content>
+</ion-content>

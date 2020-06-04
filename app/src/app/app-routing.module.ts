@@ -95,8 +95,9 @@ const routes: Routes = [
   { path: 'pingjiawanchen', loadChildren: './pingjiawanchen/pingjiawanchen.module#PingjiawanchenPageModule' },
   { path: 'pintuan', loadChildren: './pintuan/pintuan.module#PintuanPageModule' },
   { path: 'purchase', loadChildren: './purchase/purchase.module#PurchasePageModule' },
-  { path: 'search', loadChildren: './search/search.module#SearchPageModule' }
-
+  { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
+  { path: 'jifenpay', loadChildren: './jifenpay/jifenpay.module#JifenpayPageModule' },
+  { path: 'jifenpaysuccess', loadChildren: './jifenpaysuccess/jifenpaysuccess.module#JifenpaysuccessPageModule' }
 ];
 @NgModule({
   imports: [
