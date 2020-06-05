@@ -340,6 +340,11 @@ export class CopykechenComponent extends AppBase {
       if(this.kcdetail.age_name.indexOf('岁')==-1  ){
         this.kcdetail.age_name=this.kcdetail.age_name+'岁';
       }
+
+      if(this.kcdetail.kechennum==null){
+        this.toast('请输入课次！');
+        return
+      }
       if(this.errorprice!=""){
         this.toast('课程价格错误，请重新输入');
         return
