@@ -269,7 +269,6 @@ class Content extends AppBase {
         options: "x_s"
       })
 
-
     }
     if (options == "bm_za") {
       this.Base.setMyData({
