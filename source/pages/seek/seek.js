@@ -230,7 +230,7 @@ class Content extends AppBase {
       xialaage: "yc",
     })
     var type = e.currentTarget.dataset.type;
-    console.log(type);
+    console.log("看六角恐龙");
     if (type == "jx") {
       this.Base.setMyData({
         show: "jx"
@@ -251,6 +251,11 @@ class Content extends AppBase {
   }
 
   bindxuanxiang(e) {
+    this.Base.setMyData({
+      xiala: "yc",
+      xialakc: "yc",
+      xialaage: "yc",
+    })
     var options = e.currentTarget.dataset.options;
     console.log(options);
     if (options == "j_x") {
@@ -705,7 +710,8 @@ class Content extends AppBase {
     var xiala = this.Base.getMyData().xiala;
 
     this.Base.setMyData({
-      xiala: xiala == "xs" ? "yc" : "xs"
+      xiala: xiala == "xs" ? "yc" : "xs",
+      xialaage:"yc"
     })
 
   }
@@ -732,10 +738,10 @@ class Content extends AppBase {
   }
 
   bindxialaage(e) {
-    var xialaage = this.Base.getMyData().xialaage;
-
+    var xialaage = this.Base.getMyData().xialaage; 
     this.Base.setMyData({
-      xialaage: xialaage == "xs" ? "yc" : "xs"
+      xialaage: xialaage == "xs" ? "yc" : "xs",
+      xiala:'yc'
     })
   }
 

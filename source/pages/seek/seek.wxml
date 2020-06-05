@@ -52,7 +52,7 @@
             <view wx:if='{{show=="jx"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>
             <view wx:if='{{show!="jx"}}' class='' style='width:80rpx;height:6rpx;'></view>
           </view>
-
+ 
           <view class='flex-1 flex-row flex-column' bindtap='bindshow' data-type='xs'>
             <view class='   flex-1 h5 padding-10 margin-bottom-5 {{show=="xs"?"txt-bold":""}} txt-black'>新上</view>
             <view wx:if='{{show=="xs"}}' class='bg-black' style='width:80rpx;height:6rpx;'></view>

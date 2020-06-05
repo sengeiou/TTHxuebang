@@ -127,10 +127,10 @@ class Content extends AppBase {
       var coursevlist = [];
       for (var i = 0; i < 7 && i < courselist.length; i++) {
         var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
-    
+       
            var miletxt = ApiUtil.GetMileTxt(mile);
-           console.log(miletxt);
-           console.log("aweq");
+           console.log(courselist[i].JG_jigou,miletxt,'mimimii',mile);
+           console.log(courselist[i].JG_jigou,mile,"米");
            courselist[i]["miletxt"] = miletxt;
         courselist[i]["zuidijia"] = ApiUtil.zuidijia(
           courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
@@ -279,8 +279,12 @@ class Content extends AppBase {
 
     if (this.Base.getMyData().shows == "finished") {
       for (var i = coursevlist.length; i < courselist.length; i++) {
+ 
+        var mile = ApiUtil.GetDistance(mylat, mylng, courselist[i].JG_lat, courselist[i].JG_lng);
        
-
+        var miletxt = ApiUtil.GetMileTxt(mile);
+        courselist[i]["miletxt"] = miletxt;
+       
         courselist[i]["zuidijia"] = ApiUtil.zuidijia(
           courselist[i].expeprice, courselist[i].price, courselist[i].isgroup, courselist[i].isgroup_tiyan);
 

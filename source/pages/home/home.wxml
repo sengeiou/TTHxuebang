@@ -114,7 +114,7 @@
 
 <!-- 修改后 -->
 
-<swiper indicator-dots='true' style="height: 300rpx" class=" ">
+<swiper indicator-dots='{{false}}' style="height: 300rpx" class=" ">
 
   <swiper-item class=" flex-row flex-center flex-wrap">
 
@@ -133,7 +133,7 @@
       <view class="h6">找课程</view>
     </view>
 
-    <view class="flex-row flex-column lesson-width {{idx>3?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<7}}'>
+    <view class="flex-row flex-column lesson-width {{idx>1?'margin-top-20':''}}" bindtap='bindtokc' data-name='{{item.typename}}' id='{{item.id}}' wx:for='{{filtercoursetype}}' wx:key='s' wx:for-index='idx' wx:if='{{idx<7}}'>
       <image src="{{uploadpath}}coursetype/{{item.img}}" class="icon26"></image>
       <view class="h6">{{item.typename}}</view>
     </view>

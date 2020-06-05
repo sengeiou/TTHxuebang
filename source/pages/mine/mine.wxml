@@ -236,7 +236,7 @@
 
   <view data-name='jg' bindtap='todetails' class='flex-row flex-center margin-30   pd'>
     <image class='icon-24' src='{{uploadpath}}resource/{{res.ruzhu}}'></image>
-    <view class='margin-left-20  txt-black  flex-1 h'>机构入驻</view>
+    <view class='margin-left-20  txt-black  flex-1 h'>意向入驻</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.to}}'></image>
   </view>
 

@@ -911,12 +911,14 @@ class Content extends AppBase {
 
     var typename = e.currentTarget.dataset.name;
 
-    var url = '/pages/seek/seek?type=kc&typeid=0';
+    var url = '/pages/seek/seek?type=kc&typeid='+typeid;
     url += '&typename=' + typename;
     if (typeid>0){
       url += '&keyword=' + typename;
     }
 
+    console.log(url,'链接')
+    //return;
     wx.navigateTo({
       url: url
     })
