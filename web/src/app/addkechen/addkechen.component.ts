@@ -309,6 +309,12 @@ export class AddkechenComponent extends AppBase {
     if(this.kcdetail.age_name.indexOf('岁')==-1  ){
       this.kcdetail.age_name=this.kcdetail.age_name+'岁';
     }
+
+    if(this.kcdetail.kechennum==null){
+      this.toast('请输入课次！');
+      return
+    }
+    console.log(this.kcdetail.kechennum);
     if(this.errorprice!=""){
       this.toast('课程价格错误，请重新输入');
       return
@@ -317,6 +323,8 @@ export class AddkechenComponent extends AppBase {
       this.toast('课程价格不能小于0.01');
       return
     }
+
+    
 
     if(this.lunbo.length==0){
       this.toast('请添加轮播图');
@@ -399,8 +407,6 @@ export class AddkechenComponent extends AppBase {
   }
   errorprice="";
   pricekeyup(e){
-    console.log(e);
-    console.log(this.kcdetail.expeprice);
     // if (e.keyCode == 8) {
     //   return;
     // }
@@ -421,4 +427,5 @@ export class AddkechenComponent extends AppBase {
     }
    
   }
+ 
 }
