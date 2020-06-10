@@ -31,7 +31,7 @@
               <div class="tab-content" id="vert-tabs-right-tabContent">
                 <div class=" tab-pane" [class.active]='tabtype=="readservice"' *ngIf='tabtype=="readservice"'>
                   <div class="row">
-                    <h4>学榜保证金入驻协议</h4>
+                    <h4>学榜预付款入驻协议</h4>
                   </div>
                   <div style="height: 40vh;overflow-y: scroll;">
                     <blockquote style="margin:0px">
@@ -55,7 +55,7 @@
                 
                 <div class=" tab-pane" [class.active]='tabtype=="deposit"' *ngIf='tabtype=="deposit"'>
                   <h4>
-                    根据入驻合同协议，每个门店需要缴纳1000元保证金，此账号管理{{memberinfo.instnum}}个门店，需要缴纳￥{{memberinfo.instnum*1000}}作为保证金
+                    根据入驻合同协议，每个门店需要缴纳1000元预付款，此账号管理{{memberinfo.instnum}}个门店，需要缴纳￥{{memberinfo.instnum*1000}}作为预付款
                   </h4>
                   <h4>扫描下方二维码，支付￥{{memberinfo.instnum*1000}}元 </h4>
 
@@ -91,7 +91,7 @@
                   aria-selected="true"  >1、阅读并勾选入驻协议</a>
                 <a class="nav-link" disabled="disabled" [class.active]='tabtype=="deposit"' id="vert-tabs-right-profile-tab"
                   data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
-                  aria-selected="false">2、缴纳保证金</a>
+                  aria-selected="false">2、缴纳预付款</a>
                   <a class="nav-link" disabled="disabled" [class.active]='tabtype=="paysuccess"' id="vert-tabs-right-profile-tab"
                     data-toggle="pill" role="tab" aria-controls="vert-tabs-right-profile"
                     aria-selected="false">3、完成支付</a>

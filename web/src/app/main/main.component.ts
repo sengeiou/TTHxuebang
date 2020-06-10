@@ -111,7 +111,7 @@ export class MainComponent extends AppBase {
   }
   weipay(lujing){
     if(this.memberinfo.issign_value!='Y'){
-      this.toast('请支付保证金!');
+      this.toast('请支付预付款!');
       return
     }else {
       this.navigate(lujing);
