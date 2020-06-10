@@ -10,7 +10,7 @@ class Content extends AppBase {
   }
   setPageTitle() {
     wx.setNavigationBarTitle({
-      title: '缴纳保证金',
+      title: '缴纳预付款',
     });
   }
   onLoad(options) {

@@ -101,7 +101,7 @@
     <view class="f13" style="color:#666666;margin-left:12rpx;" bindtap="checkFn">
       我已详细阅读并同意
     </view>
-    <view class="f13" style="color:#589DE9" bindtap="xieyi">《学榜保证金入驻协议》</view>
+    <view class="f13" style="color:#589DE9" bindtap="xieyi">《学榜预付款入驻协议》</view>
     <view class="flex-1"></view>
   </view>
 

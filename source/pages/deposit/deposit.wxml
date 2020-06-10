@@ -3,7 +3,7 @@
   <view class="h4-5 " style="color:#222222">根据入驻合同协议</view>
   <view class="h4-5 margin-top-5" style="color:#222222;">每
     <text class="h4-5" style="color:#FF6600">1个门店 </text>需缴纳
-    <text class="h4-5" style="color:#FF6600">1000.00</text>元保证金</view>
+    <text class="h4-5" style="color:#FF6600">1000.00</text>元预付款</view>
   <view style='height:56rpx;'></view>
 </view>
 
@@ -19,7 +19,7 @@
   <view class="h4-5 txt-bold margin-bottom-20" style="color:#222222">需缴纳</view>
   <view class="h3" style="color:#FF6600">
     <text class="h4-5 txt-bold" style="color:#222222">￥</text> {{1000*num}}.00</view>
-  <view class="h4-5 txt-bold margin-top-20" style="color:#222222">作为保证金</view>
+  <view class="h4-5 txt-bold margin-top-20" style="color:#222222">作为预付款</view>
   <view class="flex-1"></view>
 </view>
 

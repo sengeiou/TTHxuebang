@@ -100,14 +100,14 @@
 				},
 				{
 					"id": -1,
-					"name": "保证金",
+					"name": "预付款",
 					"pathName": "pages/baozhengjin/baozhengjin",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 8,
-					"name": "缴收保证金",
+					"name": "缴收预付款",
 					"pathName": "pages/deposit/deposit",
 					"query": "num=1&jsonstr=%7B%22name%22%3A%22ui%22%2C%22mobile%22%3A%2217817366191%22%2C%22password%22%3A%22123456789%22%2C%22gonsi%22%3A%22us%22%2C%22address%22%3A%22uifosau%22%2C%22zhizhao%22%3A%2207e015328478b34b5b081394dc8a8ed5_200528110541_1380541266.png%22%2C%22instnum%22%3A1%7D",
 					"scene": null
