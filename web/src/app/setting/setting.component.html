@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>设置</h1>
+          <h1>个人中心</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a routerLink="">Home</a></li>
-            <li class="breadcrumb-item active">设置</li>
+            <li class="breadcrumb-item"><a routerLink="">首页</a></li>
+            <li class="breadcrumb-item active">个人中心</li>
           </ol>
         </div>
       </div>
@@ -23,84 +23,122 @@
 
 
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12" *ngIf='show==false'>
           <!-- Profile Image -->
           <div class="card card-primary ">
-            <div class="card-header">
+            <!-- <div class="card-header ">
               <h3 class="card-title">About Me</h3>
-            </div>
-            <div class="card-body box-profile">
-              <div class="text-center">
-                <!-- <img class="profile-user-img img-fluid img-circle" *ngIf='memberinfo.logo!=""'
-                  src="{{uploadpath}}instregister/{{memberinfo.logo}}" alt="User profile picture"> -->
+            </div> -->
+            <div class="card-body box-profile ">
+              <div class="text-center col-md-3">
 
-                  <nz-upload  nzAction="{{uploadapi}}?module=instregister&field=file&rettype=json"
-                  [nzShowUploadList]="false" (nzChange)="afterupload($event)">
-                  <ng-container *ngIf="memberinfo.logo==''">
-                    <div class="ant-upload-text">点击上传头像</div>
-                  </ng-container>
-                  <img *ngIf="memberinfo.logo!=''" src="{{uploadpath}}instregister/{{memberinfo.logo}}" class="profile-user-img img-fluid img-circle" alt="User profile picture"/>
-                </nz-upload>
+                <img src="{{uploadpath}}resource/{{res.touxiang}}" class="profile-user-img img-fluid img-circle" />
+                <h3 class="profile-username">{{memberinfo.name}}</h3>
               </div>
 
-              <h3 class="profile-username text-center">{{memberinfo.name}}</h3>
+
+              <div class="box-profile">
+
+                <div class="flex-row2 flex-center2">
+                  <strong><i class="fas fa-book mr-1"></i> 登录手机号:</strong>
+                  <div class="text-muted margin-left-10">
+                    {{memberinfo.mobile}}
+                  </div>
+                </div>
+                <hr>
+                <div class="flex-row2 flex-center2">
+
+                  <strong><i class="fas fa-book mr-1"></i> 登录密码:</strong>
+
+                  <!-- <div class="text-muted margin-left-10">
+                    {{memberinfo.password}}
+                  </div> -->
+                  <input class="margin-left-10" type="password" ngModel='memberinfo.password'>
+                  <button class="btn btn-warning margin-left-20" data-toggle="modal" data-target="#modal-default">修改密码</button>
+
+                </div>
+
+                <hr>
+
+                <div class="flex-row2 flex-center2">
+
+                  <strong><i class="fas fa-map-marker-alt mr-1"></i> 管理的机构数量:</strong>
+
+                  <div class="text-muted margin-left-10">
+                    {{memberinfo.instnum}}
+                  </div>
+                </div>
+
+                <hr>
+                <div class="flex-row2 flex-center2">
+
+                  <strong><i class="fas fa-pencil-alt mr-1"></i> 联系人:</strong>
+
+                  <div class="text-muted margin-left-10">
+                    {{memberinfo.lianxiren}}
+                  </div>
+
+                </div>
+                <hr>
+                <div class="flex-row2 flex-center2">
+                  <strong><i class="fas fa-pencil-alt mr-1"></i> 联系地址:</strong>
+
+                  <div class="text-muted margin-left-10">
+                    {{memberinfo.address}}
+                  </div>
+
+                </div>
+                <hr>
+
+                <div class="flex-row2 flex-center2">
+                  <strong><i class="fas fa-pencil-alt mr-1"></i> 营业执照图片:</strong>
+
+                  <div class="text-muted margin-left-10">
+                    <img src="{{uploadpath}}instregister/{{memberinfo.zhizhao}}" class="icon-100">
+                  </div>
+
+                </div>
+                <hr>
+                <div class="flex-row2 ">
+
+                  <strong><i class="fas fa-pencil-alt mr-1"></i> 预付款协议图片:</strong>
+
+                  <div class="text-muted margin-left-10 flex-row2 flex-bottom2">
+                    <img src="{{uploadpath}}inst/{{InstInfo.yufukuan}}" class="icon-100">
+                    <button class="btn btn-warning margin-left-10" (click)='download()'>下载</button>
+                  </div>
+                  
+                </div>
+
+
+              </div>
+
 
 
             </div>
+
+
+
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
 
 
           <!-- About Me Box -->
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">About Us</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <strong><i class="fas fa-book mr-1"></i> 公司编号</strong>
+         
 
-              <p class="text-muted">
-                <input type="text" [(ngModel)]='memberinfo.bianhao'>
-              </p>
-
-              <hr>
-              <strong><i class="fas fa-book mr-1"></i> 公司名称</strong>
-
-              <p class="text-muted">
-                <input type="text" [(ngModel)]='memberinfo.name'>
-              </p>
-
-              <hr>
-
-              <strong><i class="fas fa-map-marker-alt mr-1"></i> 地址</strong>
-
-              <p class="text-muted">
-               <input type="text" [(ngModel)]='memberinfo.address'>
-
-              <hr>
-
-              <strong><i class="fas fa-pencil-alt mr-1"></i> 联系电话</strong>
-
-              <p class="text-muted">
-                <input type="text" [(ngModel)]='memberinfo.mobile'>
-              </p>
-
-              <button class="btn btn-primary float-right" (click)='save()'>保存</button>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
         </div>
         <!-- /.col -->
-        <div class="col-md-9">
+        <div class="col-md-12" *ngIf='show==true'>
           <div class="card">
-            <div class="card-header p-2">
-              <ul class="nav nav-pills">
-                <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">修改密码</a></li>
-              </ul>
-            </div><!-- /.card-header -->
+            <div class="card-header p-2 bg-ff">
+              <!-- <ul class="nav nav-pills ">
+                <li class="nav-item"> -->
+                  <h5>修改密码</h5> 
+                  <!-- <a class="nav-link active" href="#activity" data-toggle="tab">修改密码</a> -->
+                <!-- </li> -->
+              <!-- </ul> -->
+            </div>
             <div class="card-body">
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
@@ -109,24 +147,25 @@
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 col-form-label">旧密码</label>
                           <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputName" placeholder="oldpassword" name='oldpassword' [(ngModel)]='oldpassword'>
+                            <input type="password" class="form-control" id="inputName" placeholder="请输入旧密码" name='oldpassword' [(ngModel)]='oldpassword'>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputEmail" class="col-sm-2 col-form-label">新密码</label>
                           <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputEmail" placeholder="newpassword"  name='newpassword' [(ngModel)]='newpassword'>
+                            <input type="password" class="form-control" id="inputEmail" placeholder="请输入新密码"  name='newpassword' [(ngModel)]='newpassword'>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputName2" class="col-sm-2 col-form-label">重复新密码</label>
                           <div class="col-sm-10">
-                            <input type="password" class="form-control" id="inputName2" placeholder="newpassword"  name='newpassword2' [(ngModel)]='newpassword2'>
+                            <input type="password" class="form-control" id="inputName2" placeholder="请输入确认密码"  name='newpassword2' [(ngModel)]='newpassword2'>
                           </div>
                         </div>
                         <div class="form-group row">
                           <div class="offset-sm-2 col-sm-10">
-                            <button type="submit" (click)='resetpwd()' class="btn btn-danger">Submit</button>
+                            <button type="submit" (click)='resetpwd()' class="btn bg-ff">保存</button>
+                            <button type="submit" (click)='show=false' class="btn bg-gray margin-left-20">返回</button>
                           </div>
                         </div>
                       </form>
@@ -135,24 +174,9 @@
                 </div>
             
               </div>
-              <!-- /.tab-content -->
-            </div><!-- /.card-body -->
-          </div>
-          <!-- /.nav-tabs-custom -->
-
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">公司营业执照</h3>
+           
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <div class="flex-row2 flex-center2" >
-                <img src="{{uploadpath}}instregister/{{memberinfo.zhizhao}}"  class="icon-100  margin-right-10">
-              </div>
-            </div>
-            <!-- /.card-body -->
           </div>
-
         </div>
         <!-- /.col -->
       </div>
@@ -167,3 +191,27 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+
+<div class="modal fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">修改密码提示</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p>一年只能修改2次密码，是否要继续修改密码？</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
+        <button type="button" class="btn btn-primary" (click)='xiugai()' data-dismiss="modal">是</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

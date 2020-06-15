@@ -94,7 +94,7 @@ export class RegisterComponent extends AppBase {
     }
     if (this.password == "" || this.password.length < 8) {
       iserror = true;
-      this.errorpassword = "密码不能为空切不得小于8位数";
+      this.errorpassword = "密码不能为空且不得小于8位数";
     } else if (this.password != this.password2) {
       iserror = true;
       this.errorpassword = "两次密码不一致";

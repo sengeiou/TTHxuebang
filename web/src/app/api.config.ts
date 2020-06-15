@@ -4,33 +4,33 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class ApiConfig {
 	
-    // public static getApiUrl() {
-    //     return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
-    // }
-    // public static getLocalPath() {
-    //     return "https://alioss.app-link.org/alucard263096/tthxb/";
-    // }
-    // public static getUploadPath() {
-    //     return "https://alioss.app-link.org/alucard263096/tthxb/";
-    // }
-    // public static getFileUploadAPI() {
-    //     return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
-    // }
-
     public static getApiUrl() {
-        return "https://tthxb2.artxb.cn/api/";
-      }
-    
-      public static getUploadPath() {
-        return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
-      }
-      public static getFileUploadAPI() {
-        return "https://tthxb2.artxb.cn/fileupload";
-      }
+        return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
+    }
+    public static getLocalPath() {
+        return "https://alioss.app-link.org/alucard263096/tthxb/";
+    }
+    public static getUploadPath() {
+        return "https://alioss.app-link.org/alucard263096/tthxb/";
+    }
+    public static getFileUploadAPI() {
+        return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
+    }
 
-      public static getLocalPath() {
-        return "https://tthxb2.artxb.cn/";
-      }
+    // public static getApiUrl() {
+    //     return "https://tthxb2.artxb.cn/api/";
+    //   }
+    
+    //   public static getUploadPath() {
+    //     return "https://tthxboss.oss-cn-shenzhen.aliyuncs.com/";
+    //   }
+    //   public static getFileUploadAPI() {
+    //     return "https://tthxb2.artxb.cn/fileupload";
+    //   }
+
+    //   public static getLocalPath() {
+    //     return "https://tthxb2.artxb.cn/";
+    //   }
 	
     public static ParamUrlencoded(json) {
         var arr = new Array();

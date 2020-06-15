@@ -101,7 +101,7 @@
           </li>
           <!-- Menu Footer-->
           <li class="user-footer">
-            <!-- <a href="/setting" class="btn btn-default btn-flat">设置</a> -->
+            <a href="/setting" class="btn btn-default btn-flat">个人中心</a>
             <a  class="btn btn-default btn-flat float-right" (click)='logout()'>退出登录</a>
           </li>
         </ul>
@@ -159,7 +159,7 @@
           </li>
           
           <li class="nav-item has-treeview" >
-            <a  class="nav-link  {{module=='asset'?'active':''}}" (click)='zhan()'>
+            <a  class="nav-link  {{module=='asset'?'active':''}}" >
               <!-- <i class="nav-icon fas fa-copy"></i> -->
               <img src="{{uploadpath}}resource/{{res.zichanguanli}}" class="icon-17 margin-right"/>
               <p>
@@ -168,15 +168,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <!-- <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/assetmanagement')">  -->
-                  <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)='zhan()'> 
+                <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/assetmanagement')"> 
                   <i class="far fa-circle nav-icon"></i>
                   <p>预付款管理</p>
                 </a>
               </li>
               <li class="nav-item">
-                <!-- <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" (click)="weipay('/orderincome')"> -->
-                  <a href="#" class="nav-link {{module2=='asset2'?'active':''}}"  (click)='zhan()'>
+                <a href="#" class="nav-link {{module2=='asset2'?'active':''}}" (click)="weipay('/orderincome')">
                   <i class="far fa-circle nav-icon"></i>
                   <p>订单收益管理</p>
                 </a>
@@ -217,12 +215,11 @@
           </li>
           <!-- <li class="nav-header">EXAMPLES</li> -->
           <li class="nav-item">
-            <!-- <a  class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'> -->
-              <a  class="nav-link {{module=='setting'?'active':''}}" (click)='zhan()'>
+              <a  class="nav-link {{module=='setting'?'active':''}}" (click)='weipay("/setting")'>
               <!-- <i class="nav-icon fas fa-cog"></i> -->
               <img src="{{uploadpath}}resource/{{res.shezhi}}" class="icon-17 margin-right"/>
               <p>
-                设置
+                个人中心
               </p>
             </a>
           </li>

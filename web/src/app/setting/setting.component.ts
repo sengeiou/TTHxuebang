@@ -98,4 +98,11 @@ export class SettingComponent extends AppBase {
       }
     })
   }
+  show=false;
+  xiugai(){
+    this.show=true;
+  }
+  download(){
+    window.open(this.uploadpath+"inst/"+this.InstInfo.yufukuan);
+  }
 }
