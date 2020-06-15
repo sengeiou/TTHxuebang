@@ -44,6 +44,8 @@ import { OrderincomeComponent } from './orderincome/orderincome.component';
 import { QRCodeSVGModule } from 'ngx-qrcode-svg';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { CopyjigouComponent } from './copyjigou/copyjigou.component';
+import { InstdepositComponent } from './instdeposit/instdeposit.component';
+import { RechargrecordComponent } from './rechargrecord/rechargrecord.component';
 
 
 @NgModule({
@@ -75,6 +77,8 @@ import { CopyjigouComponent } from './copyjigou/copyjigou.component';
     AssetmanagementComponent,
     OrderincomeComponent,
     CopyjigouComponent,
+    InstdepositComponent,
+    RechargrecordComponent,
   ],
   imports: [
     BrowserModule,

@@ -232,8 +232,8 @@
           <text decode="{{true}}" space="ensp" class='  h5 margin-top-20   {{more==true?"chaochu5 height-210 padding-20":" "}}' style="">{{jginfo.jieshao}}</text>
         </view>
         <view class="flex-row flex-column">
-          <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==false}}' bindtap="showmore">查看更多</view>
-          <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==true}}' bindtap="shouqi">收起</view>
+          <view class="txt-blue h5 margin-bottom-20 margin-top-10" wx:if='{{more==true}}' bindtap="showmore">查看更多</view>
+          <view class="txt-blue h5 margin-bottom-20" wx:if='{{more==false}}' bindtap="shouqi">收起</view>
         </view>
       </view>
 

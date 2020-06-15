@@ -50,7 +50,7 @@ export class CopykechenComponent extends AppBase {
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("kechen", "");
     }
-    this.instApi.allinst({}).then((allinst: any) => {
+    this.instApi.allinst({status:'A'}).then((allinst: any) => {
       this.allinst = allinst;
     })
     this.jigouApi.coursetype({}).then((coursetype: any) => {

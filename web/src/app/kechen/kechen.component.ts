@@ -41,7 +41,7 @@ export class KechenComponent extends AppBase {
     this.jigouApi.coursetype({}).then((coursetype:any)=>{
       this.coursetype=coursetype;
     })
-    this.instApi.allinst({}).then((allinst:any)=>{
+    this.instApi.allinst({status:'A'}).then((allinst:any)=>{
       
       this.allinst=allinst;
     })

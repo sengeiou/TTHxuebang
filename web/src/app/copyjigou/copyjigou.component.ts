@@ -146,7 +146,8 @@ export class CopyjigouComponent extends AppBase {
     fabu:'',
     shenhe:'',
     status:'',
-    qrcode:''
+    qrcode:'',
+    status2:'A'
   }
   afterupload(e) {
     var fileList = e.fileList;
@@ -216,10 +217,10 @@ export class CopyjigouComponent extends AppBase {
    }
   }
   changestatus2(){
-    if(this.jgdetail.isfenxiao_value=='Y'){
-      this.jgdetail.isfenxiao_value='N';
+    if(this.jgdetail.status2=='A'){
+      this.jgdetail.status2='I';
      }else {
-      this.jgdetail.isfenxiao_value='Y'
+      this.jgdetail.status2='A'
      }
   }
   ischeckbox(item){

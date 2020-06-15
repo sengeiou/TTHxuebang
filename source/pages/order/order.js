@@ -79,6 +79,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         info
       });
+      console.log('info',info)
       var codeimg = ApiConfig.GetApiUrl()+ 'jigou/qrcode?id=' + info.id + '&a.jpg';
       this.Base.setMyData({ codeimg: codeimg });
       console.log(codeimg + "图片链接");

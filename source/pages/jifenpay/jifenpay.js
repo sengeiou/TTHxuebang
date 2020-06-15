@@ -35,8 +35,9 @@ class Content extends AppBase {
       address_id: 0,
       shuliang: 1,
       info: {
-        price: 0,
-        interral: 0
+        price: 0.00,
+        interral: 0,
+        totalprice:0,
       }
     })
   }
@@ -54,10 +55,11 @@ class Content extends AppBase {
       var info = this.Base.getMyData().info;
       var addressinfo = this.Base.getMyData().addressinfo;
       var shuliang = this.Base.getMyData().shuliang;
+      info.totalprice = (info.price * shuliang).toFixed(2);
       jifenapi.addjifenorder({
         goods_id: this.Base.options.id,
         member_id: this.Base.getMyData().memberinfo.id,
-        payamount: info.price * shuliang,
+        payamount: info.totalprice,
         danjia: info.price,
         img: info.imgs,
         shuliang: shuliang,
@@ -117,6 +119,7 @@ class Content extends AppBase {
     jifenapi.commodityinfo({
       id: this.Base.options.id
     }, (info) => {
+      info.totalprice=info.price;
       this.Base.setMyData({
         info
       })
@@ -139,9 +142,11 @@ class Content extends AppBase {
 
   jia(e) {
     var shuliang = this.Base.getMyData().shuliang;
-    shuliang++
+    shuliang++;
+    var info = this.Base.getMyData().info;
+    info.totalprice=(info.price*shuliang).toFixed(2);
     this.Base.setMyData({
-      shuliang
+      shuliang, info
     })
   }
   jian(e) {
@@ -149,8 +154,10 @@ class Content extends AppBase {
     if (shuliang > 1) {
       shuliang--;
     }
+    var info = this.Base.getMyData().info;
+    info.totalprice = (info.price * shuliang).toFixed(2);
     this.Base.setMyData({
-      shuliang
+      shuliang, info
     })
   }
 

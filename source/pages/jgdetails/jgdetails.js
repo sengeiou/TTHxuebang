@@ -74,7 +74,7 @@ class Content extends AppBase {
      var hangshu=  hang.split('\n')
 
       if (hangshu.length>5){
-        this.Base.setMyData({ more:false})
+        this.Base.setMyData({ more:true})
      }
       
       console.log(hangshu);
@@ -243,12 +243,12 @@ class Content extends AppBase {
 
   showmore(e) {
     this.Base.setMyData({
-      more: true
+      more: false
     })
   }
   shouqi(e) {
     this.Base.setMyData({
-      more: false
+      more: true
     })
   }
 

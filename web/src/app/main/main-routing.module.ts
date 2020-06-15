@@ -21,6 +21,8 @@ import { ServiceComponent } from '../service/service.component';
 import { AssetmanagementComponent } from '../assetmanagement/assetmanagement.component';
 import { OrderincomeComponent } from '../orderincome/orderincome.component';
 import { CopyjigouComponent } from '../copyjigou/copyjigou.component';
+import { InstdepositComponent } from '../instdeposit/instdeposit.component';
+import { RechargrecordComponent } from '../rechargrecord/rechargrecord.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,8 @@ const routes: Routes = [
       { path: "assetmanagement", component: AssetmanagementComponent },
       { path: "orderincome", component: OrderincomeComponent },
       { path: "copyjigou", component: CopyjigouComponent },
+      { path: "instdeposit", component: InstdepositComponent },
+      { path: "rechargrecord", component: RechargrecordComponent },
     ]
   }
 ];

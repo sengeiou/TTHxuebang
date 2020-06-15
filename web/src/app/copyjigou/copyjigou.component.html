@@ -128,41 +128,18 @@
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8" *ngIf='primary_id>0'>
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">省</label>
-                                        <!-- <select name="shen" class="form-control form-control-sm" id="inputEmail3"
-                                            [(ngModel)]='jgdetail.province_id' (ngModelChange)='packagTypeChange()'>
-                                            <option value="">请选择</option>
-                                            <option value="{{item.id}}" *ngFor='let item of province'>{{item.name}}
-                                            </option>
-                                        </select> -->
                                         <div class="form-control form-control-sm" id="inputEmail3">{{jgdetail.province_id_name}}</div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8" *ngIf='primary_id>0'>
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">市</label>
-                                        <!-- <select name="shi" class="form-control form-control-sm" id="inputEmail3"
-                                            [(ngModel)]='jgdetail.city_id' (ngModelChange)='packagTypeChange2()'>
-                                            <option value="">请选择</option>
-                                            <option value="{{item.id}}" *ngFor='let item of city'>{{item.name}}</option>
-                                        </select> -->
                                         <div class="form-control form-control-sm" id="inputEmail3">{{jgdetail.city_id_name}}</div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8" *ngIf='primary_id>0'>
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">区</label>
-                                        <!-- <select name="qu" class="form-control form-control-sm" id="inputEmail3"
-                                            [(ngModel)]='jgdetail.district_id' (ngModelChange)='packagTypeChange3()'>
-                                            <option value="">请选择</option>
-                                            <option value="{{item.id}}" *ngFor='let item of district'>{{item.name}}
-                                            </option>
-                                        </select> -->
                                         <div class="form-control form-control-sm" id="inputEmail3">{{jgdetail.district_id_name}}</div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8" *ngIf='primary_id>0'>
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">街道</label>
-                                        <!-- <select name="jiedao" class="form-control form-control-sm" id="inputEmail3"
-                                            [(ngModel)]='jgdetail.street_id' (ngModelChange)='packagTypeChange4()'>
-                                            <option value="">请选择</option>
-                                            <option value="{{item.id}}" *ngFor='let item of street'>{{item.name}}
-                                            </option>
-                                        </select> -->
                                         <div class="form-control form-control-sm" id="inputEmail3">{{jgdetail.street_id_name}}</div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
@@ -235,16 +212,16 @@
                                         <input type="email" class="form-control form-control-sm" id="inputEmail3"
                                             name='jg_age' [(ngModel)]='jgdetail.jg_age' placeholder="必填项"/>
                                     </div>
-                                    <!-- <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                                    <div class="form-group  col-lg-6 col-md-7  col-sm-8 flex-row2 flex-center2">
                                         <label for="inputEmail3"
-                                            class=" col-form-label  col-form-label-sm">是否开启分销</label>
+                                            class=" col-form-label  col-form-label-sm">启用/禁用</label>
                                         <div class="switch margin-left-10" (click)='changestatus2()'>
                                             <input type="checkbox" id='inputEmail3' checked
-                                                *ngIf='jgdetail.isfenxiao_value=="Y"'>
-                                            <input type="checkbox" id='inputEmail3' *ngIf='jgdetail.isfenxiao_value!="Y"'>
+                                                *ngIf='jgdetail.status2=="A"'>
+                                            <input type="checkbox" id='inputEmail3' *ngIf='jgdetail.status2!="A"'>
                                             <div class="slider round"></div>
                                         </div>
-                                    </div> -->
+                                    </div>
 
                                         <div class="form-group   col-lg-12 col-md-12  col-sm-12"
                                             style="overflow-x: auto;">

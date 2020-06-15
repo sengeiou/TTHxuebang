@@ -5,12 +5,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>预付款管理</h1>
+            <h1>扣款记录</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a routerLink=''>首页</a></li>
-              <li class="breadcrumb-item active">预付款管理</li>
+              <li class="breadcrumb-item"><a routerLink='/instdeposit'>预付款管理</a></li>
+              <li class="breadcrumb-item active">扣款记录</li>
             </ol>
           </div>
         </div>
@@ -124,28 +125,23 @@
               <table class="table"  style="min-width: 768px;">
                 <thead>
                   <tr>
-                    <!-- <th>订单编号</th>
+                    <th>订单编号</th>
                     <th>订单金额/元</th>
                     <th>订单评价</th>
                     <th>订单评分</th>
                     <th>订单所属机构</th>
                     <th>订单包含课程</th>
-                    <th>扣款类型</th>
                     <th>当前差评总个数</th>
+                    <th>扣款类型</th>
                     <th>扣款原因</th>
                     <th>扣款金额/元 </th>
-                    <th>扣款时间</th> -->
-                    <th>机构名称</th>
-                    <th>机构地址</th>
-                    <th>机构封面</th>
-                    <th>机构状态</th>
-                    <th>机构当前预付款余额</th>
+                    <th>扣款时间</th>
                     <th>操作</th>
                   </tr>
                 </thead>
                 <tbody>
                  <tr *ngFor='let item of data'>
-                     <!-- <td>{{item.purchase_orderno}}</td>
+                     <td>{{item.purchase_orderno}}</td>
                      <td>{{item.purchase_amount}}</td>
                      <td>{{item.pingjia_content}}</td>
                      <td>{{item.pingjia_pingfen}}</td>
@@ -157,12 +153,7 @@
                       </td>
                      <td>{{item.reason}}</td>
                      <td>{{item.amount}}</td>
-                     <td>{{item.op_date}}</td> -->
-                     <td>{{item.mechanism_jigou}}</td>
-                     <td>{{item.mechanism_address}}</td>
-                     <td><img src="{{uploadpath}}mechanism/{{item.mechanism_jg_img}}" class="icon-100"></td>
-                     <td> <div class="badge" [class.badge-warning]='item.mechanism_status=="A"' [class.badge-secondary]='item.mechanism_status=="I"'>{{item.mechanism_status=='A'?'上架':'下架'}}</div> </td>
-                     <td>{{item.amount}}</td>
+                     <td>{{item.op_date}}</td>
                      <td><div style='color:#003eac' data-toggle="modal" data-target="#modal-default2">申诉</div></td>
                  </tr>
                 </tbody>

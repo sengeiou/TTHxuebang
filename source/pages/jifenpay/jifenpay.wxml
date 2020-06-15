@@ -72,7 +72,7 @@
     <view class="flex-1"></view>
     <view class="h6  margin-right" style="color:#B0B0B0">共{{shuliang}}件商品 共计: </view>
     <view class="h5 txt-red margin-right-5" wx:if="{{info.istopvalue_value=='Y'}}">¥</view>
-    <view class="h4 txt-red " wx:if="{{info.istopvalue_value=='Y'}}">{{shuliang*info.price}}</view><view class="h4 txt-red " wx:if="{{info.isscore_value=='Y'}}">{{shuliang*info.interral}}积分</view>
+    <view class="h4 txt-red " wx:if="{{info.istopvalue_value=='Y'}}">{{info.totalprice}}</view><view class="h4 txt-red " wx:if="{{info.isscore_value=='Y'}}">{{shuliang*info.interral}}积分</view>
   </view>
 
 
@@ -86,7 +86,7 @@
       <view class="flex-row flex-bottom">
         <view style="h6 " style="color:#B0B0B0">应付总额：</view>
         <view class="h6  margin-right-5 txt-price">¥</view>
-        <view class="h4  txt-price">{{shuliang*info.price}}</view>
+        <view class="h4  txt-price">{{info.totalprice}}</view>
       </view>
       <view  style="color:#B0B0B0" class="text-right h6">共{{shuliang}}件商品</view>
     </view>

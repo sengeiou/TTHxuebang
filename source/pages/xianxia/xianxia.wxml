@@ -11,8 +11,8 @@
         <view class="center">
           <view  style="height:90rpx" class="txt-bold margin-left-40 margin-right-20 margin-top-10 chaochu2">{{item.activityName}}</view>
 
-          <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-10">活动时间:{{item.activityTime}} </view>
-          <view style="color:#4C4C4C" class="h6 margin-left-20 margin-top-5">活动地点:{{item.activitySite}} </view>
+          <view style="color:#4C4C4C" class="h6 margin-left-40 margin-top-10">活动时间:{{item.activityTime}} </view>
+          <view style="color:#4C4C4C" class="h6 margin-left-40 margin-top-5">活动地点:{{item.activitySite}} </view>
 
 
 

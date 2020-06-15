@@ -34,7 +34,7 @@ export class AddkechenComponent extends AppBase {
     if(this.params.id!=undefined){
       this.primary_id=this.params.id;
     }
-     this.instApi.allinst({}).then((allinst:any)=>{
+     this.instApi.allinst({status:'A'}).then((allinst:any)=>{
       
       this.allinst=allinst;
     })
@@ -131,7 +131,9 @@ export class AddkechenComponent extends AppBase {
     status:'',
     shenhestatus:'',
     shenhestatus_name:'',
-    kechennum:''
+    kechennum:'',
+    kcstatus:'A',
+    JG_status:''
   }
   ischeckbox(item){
     var id=item.id+',';
@@ -302,6 +304,12 @@ export class AddkechenComponent extends AppBase {
     }
   }
   tijiao(){
+
+    if(this.kcdetail.JG_status=='I'){
+      this.toast('此机构已被系统禁用，不允许更改其课程状态');
+      return
+    }
+
     if(this.kcdetail.duration.indexOf('分钟')==-1  ){
       this.kcdetail.duration=this.kcdetail.duration+'分钟';
     }
@@ -359,6 +367,13 @@ export class AddkechenComponent extends AppBase {
     })
   }
   copy(){
+
+    if(this.kcdetail.JG_status=='I'){
+      this.toast('此机构已被系统禁用，不允许更改其课程状态');
+      return
+    }
+
+
     if(this.kcdetail.duration.indexOf('分钟')==-1  ){
       this.kcdetail.duration=this.kcdetail.duration+'分钟';
     }

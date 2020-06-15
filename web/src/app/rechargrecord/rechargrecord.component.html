@@ -1,0 +1,80 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>充值记录</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a routerLink=''>首页</a></li>
+              <li class="breadcrumb-item"><a routerLink='/instdeposit'>预付款管理</a></li>
+              <li class="breadcrumb-item active">充值记录</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+  
+    <!-- Main content -->
+    <section class="content">
+  
+  
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"></h3>
+  
+              <div class="card-tools">
+                <ul class="pagination pagination-sm float-right">
+                    <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                    <li class="page-item" *ngFor='let i of pageList'><span
+                        class="page-link {{selPage==i?'bg-primary':''}}" (click)='changedate(i)'>{{i}}</span></li>
+                    <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                  </ul>
+              </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0" style="overflow-x: auto;">
+              <table class="table"  style="min-width: 768px;">
+                <thead>
+                  <tr>
+                    <th>充值金额</th>
+                    <th>充值时间</th>
+                    <th>支付方式</th>
+                    <th>交易流水号</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 <tr *ngFor='let item of data'>
+                     
+                     <td>{{item.amount}}</td>
+                     <td>{{item.shijian}}</td>
+                     <td>{{item.paytype}}</td>
+                     <td> {{item.rechargeno}}</td>
+                     <td>
+                         <button class="btn btn-warning h5">打印</button>
+                     </td>
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+  
+        </div>
+      </div>
+  
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+  

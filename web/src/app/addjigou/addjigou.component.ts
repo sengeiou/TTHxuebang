@@ -140,7 +140,8 @@ export class AddjigouComponent extends AppBase {
     fabu:'',
     shenhe:'',
     status:'',
-    qrcode:''
+    qrcode:'',
+    status2:'A'
   }
   afterupload(e) {
     console.log(e)
@@ -211,10 +212,10 @@ export class AddjigouComponent extends AppBase {
    }
   }
   changestatus2(){
-    if(this.jgdetail.isfenxiao_value=='Y'){
-      this.jgdetail.isfenxiao_value='N';
+    if(this.jgdetail.status2=='A'){
+      this.jgdetail.status2='I';
      }else {
-      this.jgdetail.isfenxiao_value='Y'
+      this.jgdetail.status2='A'
      }
   }
   ischeckbox(item){
@@ -298,6 +299,12 @@ export class AddjigouComponent extends AppBase {
   }
   submit(){
 
+
+    if(this.jgdetail.status=='I'){
+      this.toast('此机构已被系统禁用，不允许启用');
+      return
+    }
+
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
       return
@@ -306,8 +313,6 @@ export class AddjigouComponent extends AppBase {
       this.toast('请添加轮播图');
       return
     }
-
-
 
     this.jgdetail.searchkeyword=this.jgdetail.jigou+','+this.jgdetail.address;
     var json=null;
@@ -332,7 +337,10 @@ export class AddjigouComponent extends AppBase {
     })
   }
   copy(){
-
+    if(this.jgdetail.status=='I'){
+      this.toast('此机构已被系统禁用，不允许启用');
+      return
+    }
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
       return

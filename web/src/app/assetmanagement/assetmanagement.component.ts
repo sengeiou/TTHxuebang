@@ -29,8 +29,6 @@ export class AssetmanagementComponent extends AppBase {
   onMyLoad() {
     this.params;
 
-    
-
     this.instApi.allinst({}).then((allinst:any)=>{
       this.allinst=allinst;
     })

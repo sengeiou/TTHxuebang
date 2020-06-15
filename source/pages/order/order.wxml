@@ -1,44 +1,44 @@
 <!--pages/order/order.wxml-->
 <back-component></back-component>
-<view class="bg_top">
-<view class="flex-row flex-center ">
+<view class="bg_top" wx:if='{{info!=null }}'>
+  <view class="flex-row flex-center " >
 
-  <view class="flex-1"></view>
+    <view class="flex-1"></view>
 
-  <view wx:if="{{info.pstatus!='W'}}" class="flex-row flex-center nr">
+    <view class="flex-row flex-center nr">
 
-    <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
-    <view class=' margin-left-20'>
-      <view class="txt-bold">购买成功,获得{{info.jifen}}积分</view>
-      <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
+      <image src='{{uploadpath}}resource/{{res.goumaiwanchen}}' class='icon-80'></image>
+      <view class=' margin-left-20'>
+        <view class="txt-bold">购买成功,获得{{info.jifen}}积分</view>
+        <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
+      </view>
     </view>
+
+    <view class="flex-1"></view>
+
   </view>
-  
-  <view class="flex-1"></view>
-
-</view>
-<view wx:if="{{info.pstatus!='W'}}" style="padding-bottom:60rpx" class='flex-row flex-center'>
-  <view class='flex-1'></view>
-
-  <view class='flex-row flex-center btn ' bindtap='tohome'>
+  <view wx:if="{{info.pstatus!='W'}}" style="padding-bottom:60rpx" class='flex-row flex-center'>
     <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>返回首页</view>
+
+    <view class='flex-row flex-center btn ' bindtap='tohome'>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.kc_shouyebai}}' class='icon-34'></image>
+      <view class='txt-white h5 margin-left-18'>返回首页</view>
+      <view class='flex-1'></view>
+    </view>
+
+    <view style='width:24rpx'></view>
+
+    <view bindtap="todetails" class='flex-row flex-center btn '>
+      <view class='flex-1'></view>
+      <image src='{{uploadpath}}resource/{{res.jixugouke}}' class='icon-34'></image>
+      <view class='txt-white h5 margin-left-18'>继续购课</view>
+      <view class='flex-1'></view>
+    </view>
+
     <view class='flex-1'></view>
+
   </view>
-
-  <view style='width:24rpx'></view>
-
-  <view bindtap="todetails" class='flex-row flex-center btn '>
-    <view class='flex-1'></view>
-    <image src='{{uploadpath}}resource/{{res.jixugouke}}' class='icon-34'></image>
-    <view class='txt-white h5 margin-left-18'>继续购课</view>
-    <view class='flex-1'></view>
-  </view>
-
-  <view class='flex-1'></view>
-
-</view>
 </view>
 <view class='flex-row flex-column ' style='background-color:#FFFFFF' wx:if="{{info.pstatus=='W'}}">
   <view class='height-60'></view>

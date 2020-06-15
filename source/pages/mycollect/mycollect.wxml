@@ -46,7 +46,7 @@
           <image  class="icon-170" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
-         
+          你还没有添加课程的收藏
         </view>
       </view>
       <view class='flex-1'>
@@ -168,8 +168,8 @@
       <view class='flex-1'>
       </view>
       <view>
-        <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+        <view >
+          <image class="icon-170" mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
           你还没有添加机构的收藏
@@ -262,8 +262,8 @@
 
       <view>
 
-        <view class='nofound-img'>
-          <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+        <view >
+          <image class="icon-170"  mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
         </view>
         <view class='h5 txt-gray'>
           你还没有添加在线课堂的收藏
@@ -331,8 +331,8 @@
 
     <view>
 
-      <view class='nofound-img'>
-        <image style='width:30vw;margin-top:100rpx;margin-bottom:40rpx;' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
+      <view >
+        <image class='nofound-img' mode='widthFix' src='{{uploadpath}}resource/{{res.nofound}}'></image>
       </view>
       <view class='h5 txt-gray'>
         暂未开放

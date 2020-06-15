@@ -295,6 +295,28 @@ export class WechatApi {
     }
 
 
+    public prepay5(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'wechat/prepay5';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('wechat/prepay5', data, err);
+            });
+    }
+
+
     public refund(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'wechat/refund';
         var headers = ApiConfig.GetHeader(url, data);
