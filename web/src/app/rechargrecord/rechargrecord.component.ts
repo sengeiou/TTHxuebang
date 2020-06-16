@@ -36,11 +36,19 @@ export class RechargrecordComponent extends AppBase {
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("asset", "asset1");
     }
-    this.userbApi.instrecharge({
-      mechanism_id:this.params.jg_id
+    this.userbApi.instdeposit({
+      type:'A'
     }).then((instrecharge:any)=>{
-      this.instrecharge=instrecharge;
-      this.pagination(instrecharge,instrecharge.length);
+      var arr=[];
+      for(let item of instrecharge){
+        if(item.mechanism_id==0){
+          arr.push(item);
+        }else if(item.mechanism_id==this.params.jg_id){
+          arr.push(item);
+        }else {}
+      }
+      this.instrecharge=arr;
+      this.pagination(arr,arr.length);
     })
   }
 }

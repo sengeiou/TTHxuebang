@@ -163,6 +163,28 @@ export class UserbApi {
     }
 
 
+    public instrecharge(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/instrecharge';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/instrecharge', data, err);
+            });
+    }
+
+
     public kechendetail(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'userb/kechendetail';
         var headers = ApiConfig.GetHeader(url, data);
@@ -317,8 +339,8 @@ export class UserbApi {
     }
 
 
-    public instrecharge(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'userb/instrecharge';
+    public jgstatus(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/jgstatus';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -334,7 +356,51 @@ export class UserbApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('userb/instrecharge', data, err);
+                return ApiConfig.ErrorHandle('userb/jgstatus', data, err);
+            });
+    }
+
+
+    public zhanghaostatus(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/zhanghaostatus';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/zhanghaostatus', data, err);
+            });
+    }
+
+
+    public adddeposit(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'userb/adddeposit';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('userb/adddeposit', data, err);
             });
     }
 

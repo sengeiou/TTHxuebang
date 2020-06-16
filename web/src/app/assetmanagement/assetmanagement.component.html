@@ -23,10 +23,10 @@
   
         <div class="row margin-left-10 margin-bottom-40">
 
-            <h4>预付款余额：￥{{memberinfo.deposit}}</h4>
+            <h4>预付款余额：￥{{instdetail.advancepayment}}</h4>
             <div class="margin-left-20">
                 <button class="btn btn-default bg-gray-d" data-toggle="modal" data-target="#modal-default">充值</button>
-                <button class="btn btn-default margin-left-20 bg-gray-d">提现</button>
+                <button class="btn btn-default margin-left-20 bg-gray-d" [disabled]="isdisabled">提现</button>
             </div>
         </div>
   
@@ -129,7 +129,7 @@
                     <th>订单金额/元</th>
                     <th>订单评价</th>
                     <th>订单评分</th>
-                    <th>订单所属机构</th>
+                    <!-- <th>订单所属机构</th> -->
                     <th>订单包含课程</th>
                     <th>当前差评总个数</th>
                     <th>扣款类型</th>
@@ -144,8 +144,8 @@
                      <td>{{item.purchase_orderno}}</td>
                      <td>{{item.purchase_amount}}</td>
                      <td>{{item.pingjia_content}}</td>
-                     <td>{{item.pingjia_pingfen}}</td>
-                     <td>{{item.mechanism_jigou}}</td>
+                     <td>{{item.pingjia_pingfen+"分"}}</td>
+                     <!-- <td>{{item.mechanism_jigou}}</td> -->
                      <td>{{item.kecheng_id_name}}</td>
                      <td>{{item.deductiontype_name}}</td>
                      <td>
@@ -174,7 +174,7 @@
   
 <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
-      <div class="modal-content margin-top-ban">
+      <div class="modal-content ">
         <div class="modal-body text-center">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -182,12 +182,12 @@
             <div>
             <h4 class="modal-title margin-top-10">
                 请扫描下方二维码进行支付<br>
-                充值金额：￥1000</h4>
+                充值金额：￥{{money}}</h4>
             
             </div>
-              <div>
-                  <img src="{{uploadpath}}resource/{{res.kehuweixin}}" class="icon-200 margin-top-20 margin-bottom-40">
-              </div>
+            <div *ngIf="payurl!=''" class="icon-260 margin-top-20 margin-bottom-40 margin-left-80">
+              <qrcode-svg [value]="payurl"></qrcode-svg>
+            </div>
         </div>
       </div>
       <!-- /.modal-content -->

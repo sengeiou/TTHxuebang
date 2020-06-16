@@ -300,7 +300,7 @@ export class AddjigouComponent extends AppBase {
   submit(){
 
 
-    if(this.jgdetail.status=='I'){
+    if(this.jgdetail.status=='I'|| this.memberinfo.status=='I'){
       this.toast('此机构已被系统禁用，不允许启用');
       return
     }
@@ -337,7 +337,7 @@ export class AddjigouComponent extends AppBase {
     })
   }
   copy(){
-    if(this.jgdetail.status=='I'){
+    if(this.jgdetail.status=='I' || this.memberinfo.status=='I'){
       this.toast('此机构已被系统禁用，不允许启用');
       return
     }

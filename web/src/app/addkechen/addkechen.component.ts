@@ -305,8 +305,13 @@ export class AddkechenComponent extends AppBase {
   }
   tijiao(){
 
-    if(this.kcdetail.JG_status=='I'){
+    if(this.kcdetail.JG_status=='I' || this.memberinfo.status=='I'){
       this.toast('此机构已被系统禁用，不允许更改其课程状态');
+      return
+    }
+
+    if(this.kcdetail.status=='I'){
+      this.toast('此课程已被系统禁用，不允许上架');
       return
     }
 
@@ -368,10 +373,16 @@ export class AddkechenComponent extends AppBase {
   }
   copy(){
 
-    if(this.kcdetail.JG_status=='I'){
+    if(this.kcdetail.JG_status=='I' || this.memberinfo.status=='I'){
       this.toast('此机构已被系统禁用，不允许更改其课程状态');
       return
     }
+
+    if(this.kcdetail.status=='I'){
+      this.toast('此课程已被系统禁用，不允许上架');
+      return
+    }
+
 
 
     if(this.kcdetail.duration.indexOf('分钟')==-1  ){

@@ -1,7 +1,7 @@
 <!--pages/order/order.wxml-->
 <back-component></back-component>
 <view class="bg_top" wx:if='{{info!=null }}'>
-  <view class="flex-row flex-center " >
+  <view class="flex-row flex-center " wx:if="{{info.pstatus!='W'}}">
 
     <view class="flex-1"></view>
 

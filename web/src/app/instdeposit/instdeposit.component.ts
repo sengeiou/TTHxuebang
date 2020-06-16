@@ -6,22 +6,24 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
+import { WechatApi } from 'src/providers/wechat.api';
 
 
 @Component({
   selector: 'app-instdeposit',
   templateUrl: './instdeposit.component.html',
   styleUrls: ['./instdeposit.component.scss'],
-  providers: [InstApi, MemberApi,UserbApi]
+  providers: [InstApi, MemberApi,UserbApi,WechatApi]
 })
 export class InstdepositComponent extends AppBase {
-
+  static paycheck=null;
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public memberApi: MemberApi,
     public userbApi: UserbApi,
+    public wechatApi: WechatApi,
   ) {
     super(router, activeRoute, instApi, userbApi);
 
@@ -48,6 +50,8 @@ export class InstdepositComponent extends AppBase {
       }
     })
   }
+  payurl='';
+  money=0;
   onMyShow() {
     
     if (MainComponent.Instance != null) {
@@ -66,5 +70,33 @@ export class InstdepositComponent extends AppBase {
   }
   chojilu(item){
     this.navigate('/rechargrecord',{jg_id:item.id});
+  }
+  kk=0;
+  jg_id='';
+  xuanze(item){
+    this.money=-item.advancepayment+1000;
+    this.wechatApi.payqrcode2({jg_id:item.id}).then((ret:any)=>{
+      this.payurl=ret.return;
+      
+    });
+    this.jg_id=item.id;
+    this.kk=(new Date()).getTime();
+    InstdepositComponent.paycheck=this.kk;
+    this.checkifpay();
+  }
+  checkifpay(){
+
+    this.userbApi.instdetail({id:this.jg_id}).then((instdetail:any)=>{
+      if(instdetail.advancepayment>0){
+        this.onMyShow();
+        this.hidemodel();
+      }else {
+        if(InstdepositComponent.paycheck==this.kk){
+          setTimeout(()=>{
+            this.checkifpay();
+          },1000);
+        }
+      }
+    })
   }
 }
