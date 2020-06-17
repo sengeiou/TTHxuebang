@@ -122,7 +122,7 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body p-0" style="overflow-x: auto;">
-              <table class="table"  style="min-width: 768px;">
+              <table class="table text-center"  style="min-width: 768px;">
                 <thead>
                   <tr>
                     <th>订单编号</th>
@@ -141,17 +141,17 @@
                 </thead>
                 <tbody>
                  <tr *ngFor='let item of data'>
-                     <td>{{item.purchase_orderno}}</td>
-                     <td>{{item.purchase_amount}}</td>
-                     <td>{{item.pingjia_content}}</td>
-                     <td>{{item.pingjia_pingfen+"分"}}</td>
+                     <td>{{item.purchase_orderno==''?'无':item.purchase_orderno}}</td>
+                     <td>{{item.purchase_amount==''?'无':item.purchase_amount}}</td>
+                     <td>{{item.pingjia_content==''?'暂无评价':item.pingjia_content}}</td>
+                     <td>{{item.pingjia_pingfen==''?'暂无评价':item.pingjia_pingfen+"分"}}</td>
                      <!-- <td>{{item.mechanism_jigou}}</td> -->
-                     <td>{{item.kecheng_id_name}}</td>
+                     <td>{{item.kecheng_id_name==''?'无':item.kecheng_id_name}}</td>
                      <td>{{item.deductiontype_name}}</td>
                      <td>
                        {{item.deductiontype_name}}
                       </td>
-                     <td>{{item.reason}}</td>
+                     <td>{{item.reason==''?'无':item.reason}}</td>
                      <td>{{item.amount}}</td>
                      <td>{{item.op_date}}</td>
                      <td><div style='color:#003eac' data-toggle="modal" data-target="#modal-default2">申诉</div></td>

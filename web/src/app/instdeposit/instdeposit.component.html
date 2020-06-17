@@ -60,7 +60,7 @@
                       [class.badge-secondary]='item.status=="I"'>{{item.status=='A'?'上架':'下架'}}</div>
                   </td>
                   <td>{{item.advancepayment}}</td>
-                  <td>
+                  <td class="text-left">
                     <div class="">
                       <button class="btn btn-warning h5 margin-right-10" [disabled]="isdisabled"
                         (click)='tixian(item)'>提现</button>
