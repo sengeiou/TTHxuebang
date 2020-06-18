@@ -1,7 +1,7 @@
 <!--pages/order/order.wxml-->
 <back-component></back-component>
 <view class="bg_top" wx:if='{{info!=null }}'>
-  <view class="flex-row flex-center " wx:if="{{info.pstatus!='W'}}">
+  <view class="flex-row flex-center " wx:if="{{info.pstatus!='W' && info.pstatus!='C'}}">
 
     <view class="flex-1"></view>
 
@@ -11,6 +11,23 @@
       <view class=' margin-left-20'>
         <view class="txt-bold">购买成功,获得{{info.jifen}}积分</view>
         <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view>
+      </view>
+    </view>
+
+    <view class="flex-1"></view>
+
+  </view>
+
+  <view class="flex-row flex-center " wx:if="{{info.pstatus=='C'}}">
+
+    <view class="flex-1"></view>
+
+    <view class="flex-row flex-center nr">
+
+      <image src='{{uploadpath}}resource/{{res.jianbg}}' class='icon-80'></image>
+      <view class=' margin-left-20'>
+        <view class="txt-bold">购买失败</view>
+        <!-- <view class="h6 margin-top-10" style="width:500rpx">添加下方微信号联系上课，如果您过于繁忙，我们将在24小时内联系您预约上课时间。</view> -->
       </view>
     </view>
 
@@ -323,7 +340,7 @@
       </view>
       <view>
         <view class='txt-black  text-right'>￥{{info.amount}}</view>
-        <view wx:if="{{info.pstatus!='W'}}" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</view>
+        <view wx:if="{{info.pstatus!='W' && info.pstatus!='C'}}" catchtap="hexiaoma" class="margin-top h6 hexiaoma">核销码</view>
       </view>
 
     </view>

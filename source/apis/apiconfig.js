@@ -22,14 +22,15 @@ export class ApiConfig {
   //   return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
   // }
 
-  // static GetUploadurl(){
-  //   return "https://tthxb2.artxb.cn/upload/tthxb/";
-  // }
+  static GetUploadurl(){
+    return "https://tthxb2.artxb.cn/upload/tthxb/";
+    // return "https://cmsdev.app-link.org/alucard263096/tthxb/upload/tthxb/";
+  }
   
   
   // static GetApiUrl() {
-  //    // return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
-  //   return "https://tthxb2.artxb.cn/api/";
+  //    return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
+  //   // return "https://tthxb2.artxb.cn/api/";
   // }
   
 

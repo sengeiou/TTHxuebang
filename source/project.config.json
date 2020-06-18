@@ -118,6 +118,20 @@
 					"pathName": "pages/ruzhuchenggong/ruzhuchenggong",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pages/pintuanhaibao/pintuanhaibao",
+					"pathName": "pages/pintuanhaibao/pintuanhaibao",
+					"query": "name=458572_ttxhbpt.png&id=2",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "pages/groupinfo/groupinfo",
+					"pathName": "pages/groupinfo/groupinfo",
+					"query": "id=10",
+					"scene": null
 				}
 			]
 		}
