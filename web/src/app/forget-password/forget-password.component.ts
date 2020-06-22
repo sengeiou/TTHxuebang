@@ -35,6 +35,7 @@ export class ForgetPasswordComponent extends AppBase {
   reminder=0;
   mobile='';
   yanzhenma='';
+  send=false
   onMyLoad() {
     this.params;
     this.instApi.info({  }).then((instinfo) => {
@@ -45,9 +46,9 @@ export class ForgetPasswordComponent extends AppBase {
 
   }
   error='';
- 
+ k=null;
   sendyanzhenma(){
-    if (!(this.mobile[0] == "1" && this.mobile.length == 11)) {
+    if (!((/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.mobile)) && this.mobile.length == 11)) {
       this.error = "请输入正确的手机号码";
       return;
     }
@@ -55,18 +56,19 @@ export class ForgetPasswordComponent extends AppBase {
       mobile:this.mobile,
       type:"reset"
     }).then((res:any)=>{
-      
+        this.send=true;
         this.reminder=60;
 
-        var k =  setInterval(() => {
+        this.k =  setInterval(() => {
             this.reminder--;
           if (this.reminder == 0) {
-            clearInterval(k);
+            clearInterval(this.k);
           }
           console.log(this.reminder);
         }, 1000);
     })
   }
+
   password='';
   password2='';
   errorpassword='';
@@ -75,8 +77,10 @@ export class ForgetPasswordComponent extends AppBase {
   queding(){
     if (this.password == "" || this.password.length < 8) {
       this.errorpassword = "密码不能为空且不得小于8位数";
+      return
     } else if (this.password != this.password2) {
       this.errorpassword = "两次密码不一致";
+      return
     }
     this.aliyunApi.verifycode({ mobile: this.mobile, verifycode: this.yanzhenma, type: "reset" }).then((ret: any) => {
       if (ret.code != '0') {
@@ -99,5 +103,5 @@ export class ForgetPasswordComponent extends AppBase {
     
 
   } 
-
+  
 }

@@ -40,9 +40,15 @@ export class LoginComponent extends AppBase {
 
   }
   error='';
+  errorpwd='';
   login() {
     console.log(this.username, this.password)
-    if (this.username == "" || this.password == "") {
+    if (this.username == "" ) {
+      this.error='请输入手机号';
+      return
+    }
+    if( this.password == ""){
+      this.errorpwd='请输入密码';
       return
     }
     this.userbApi.login({

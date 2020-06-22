@@ -11,6 +11,10 @@ export class ApiConfig {
     return "https://tthxb2.artxb.cn/fileupload";
   }
 
+  static GetUploadurl() {
+    return "https://tthxb2.artxb.cn/upload/tthxb/";
+  }
+
   // static GetApiUrl() {
   //   return "https://cmsdev.app-link.org/alucard263096/tthxb/api/";
   // }
@@ -22,10 +26,9 @@ export class ApiConfig {
   //   return "https://cmsdev.app-link.org/alucard263096/tthxb/fileupload";
   // }
 
-  static GetUploadurl(){
-    return "https://tthxb2.artxb.cn/upload/tthxb/";
-    // return "https://cmsdev.app-link.org/alucard263096/tthxb/upload/tthxb/";
-  }
+  // static GetUploadurl(){
+  //   return "https://cmsdev.app-link.org/alucard263096/tthxb/upload/tthxb/";
+  // }
   
   
   // static GetApiUrl() {

@@ -26,11 +26,11 @@
                 <img src="{{uploadpath}}resource/{{res.password}}" />
               </div>
               <div class="flex-1">
-                <input type="password"  [(ngModel)]='password' placeholder="请输入登录密码" (keyup)='pwdkeup($event)'/>
+                <input type="password"  [(ngModel)]='password' placeholder="请输入登录密码" (keyup)='errorpwd="";pwdkeup($event);'/>
               </div>
             </div>
           </div>
-
+          <span *ngIf="errorpwd!=''" class="error invalid-feedback {{errorpwd!=''?'dis-block':''}}" >{{errorpwd}}</span>
          
           <div class="margin-top text-right" ><a routerLink='/forgetpassword' class="txt-ff6">找回密码</a> </div>
           <div class="t3 flex-row2 flex-center2">

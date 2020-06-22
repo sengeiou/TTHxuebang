@@ -109,7 +109,7 @@ class Content extends AppBase {
    
     if (name.trim() == "") {
       wx.showToast({
-        title: '姓名不能为空',
+        title: '账户名称不能为空',
         icon: 'none'
       })
       return
@@ -117,7 +117,7 @@ class Content extends AppBase {
 
     if (instnum <= 0) {
       wx.showToast({
-        title: '机构数量不能小于0',
+        title: '机构数量不能小于1',
         icon: 'none'
       })
       return
@@ -125,7 +125,7 @@ class Content extends AppBase {
 
     if (lianxiren.trim() == "") {
       wx.showToast({
-        title: '账户名称不能为空',
+        title: '联系人不能为空',
         icon: 'none'
       })
       return

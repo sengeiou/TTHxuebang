@@ -6,6 +6,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { UserbApi } from 'src/providers/userb.api';
+import { ApiConfig } from '../api.config';
 
 
 @Component({
@@ -50,5 +51,9 @@ export class RechargrecordComponent extends AppBase {
       this.instrecharge=arr;
       this.pagination(arr,arr.length);
     })
+  }
+  print(item){
+    var url = ApiConfig.getApiUrl()+'userb/print?id='+item.id;
+    window.open(url);
   }
 }

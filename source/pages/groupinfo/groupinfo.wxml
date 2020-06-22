@@ -146,9 +146,9 @@
           <view class="flex-row flex-center margin-top-30">
 
             <view wx:for="{{pintuaninfo.group_course_group_number}}" wx:key="k" wx:for-index="idx">
-              <image wx:if="{{pintuaninfo.tuanlist[idx]!=undefide}}" src='{{pintuaninfo.tuanlist[idx].touxian}}' class='radius-50 icon-50 margin-right-10 '></image>
+              <image wx:if="{{pintuaninfo.tuanlist[idx]!=undefided}}" src='{{pintuaninfo.tuanlist[idx].touxian}}' class='radius-50 icon-50 margin-right-10 '></image>
 
-              <view wx:if="{{pintuaninfo.tuanlist[idx]==undefide}}" class="quan radius-50 icon-50 margin-right-10  "></view>
+              <view wx:if="{{pintuaninfo.tuanlist[idx]==undefided}}" class="quan radius-50 icon-50 margin-right-10  "></view>
             </view>
 
           </view>

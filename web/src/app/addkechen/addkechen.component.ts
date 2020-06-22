@@ -133,7 +133,8 @@ export class AddkechenComponent extends AppBase {
     shenhestatus_name:'',
     kechennum:'',
     kcstatus:'A',
-    JG_status:''
+    JG_status:'',
+    JG_status2:''
   }
   ischeckbox(item){
     var id=item.id+',';
@@ -307,6 +308,11 @@ export class AddkechenComponent extends AppBase {
 
     if(this.kcdetail.JG_status=='I' || this.memberinfo.status=='I'){
       this.toast('此机构已被系统禁用，不允许更改其课程状态');
+      return
+    }
+
+    if(this.kcdetail.JG_status2=='I'){
+      this.toast('此机构已禁用，不允许更改其课程状态');
       return
     }
 
