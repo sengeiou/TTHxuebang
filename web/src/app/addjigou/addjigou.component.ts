@@ -46,6 +46,7 @@ export class AddjigouComponent extends AppBase {
   }
 
   deposit=false;
+  isdisabled=false;
   onMyShow() {
     
     if (MainComponent.Instance != null) {
@@ -59,6 +60,9 @@ export class AddjigouComponent extends AppBase {
         this.bgimg=res.lunbo;
         this.hexiao=res.hexiaos;
         this.jgdetail.labels=res.labels+',';
+        if(res.status=='I'){
+          this.isdisabled=true;
+        }
       })
     }
   }

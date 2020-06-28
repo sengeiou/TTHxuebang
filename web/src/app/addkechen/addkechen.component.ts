@@ -78,7 +78,7 @@ export class AddkechenComponent extends AppBase {
   courseage=[];
   city=[];
   district=[];
-  
+  isdisabled=false;
   onMyShow() {
     
     if (MainComponent.Instance != null) {
@@ -90,7 +90,9 @@ export class AddkechenComponent extends AppBase {
         this.kcdetail=kechendetail;
         this.lunbo=kechendetail.lunbo;
         this.kcdetail.labels=kechendetail.labels+',';
-
+        if(kechendetail.status=='I'){
+          this.isdisabled=true;
+        }
       })
     }
   }
