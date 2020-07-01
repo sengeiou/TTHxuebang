@@ -257,7 +257,7 @@
 .white{
   position: fixed;
   width: 100vw;
-  height: 68vh;
+  height: 62vh;
   bottom: 0;
   background: white;
   z-index: 50;
@@ -441,6 +441,7 @@
 
 .starbox {
   width: 120rpx;
+  height: 27rpx;
   position: relative;
   display: inline-block;
   overflow: hidden;

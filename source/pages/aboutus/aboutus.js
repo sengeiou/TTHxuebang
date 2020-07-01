@@ -68,11 +68,39 @@ class Content extends AppBase {
     });
 
   }
-
+  onPageScroll(e) {
+    //console.log(e)
+    //this.Base.setMyData({ scrolltop: e.scrollTop})
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop > 100 && floorstatus != true) {
+      this.setData({
+        floorstatus: true
+      });
+    }
+    var sco = this.Base.getMyData().sco;
+    if (e.scrollTop > 520 && sco != 1) {
+      this.setData({
+        sco: 1
+      });
+    }
+    var sco2 = this.Base.getMyData().sco;
+    if (e.scrollTop <= 520 && sco2 != 2) {
+      this.setData({
+        sco: 2
+      });
+    }
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop <= 100 && floorstatus != false) {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  }
 }
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.onPageScroll = content.onPageScroll;
 Page(body)

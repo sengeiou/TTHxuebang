@@ -77,8 +77,11 @@ export class LoginComponent extends AppBase {
         })
 
 
-      } else {
+      } else if(res.code =='-1'){
+        
         this.error=res.result;
+      }else {
+        this.errorpwd=res.result;
       }
     })
   }

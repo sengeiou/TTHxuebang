@@ -2,3 +2,4 @@
     width: 260px;
     height: 260px;
 }
+input[type=date]::-webkit-inner-spin-button { visibility: hidden; }

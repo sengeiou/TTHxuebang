@@ -33,6 +33,7 @@ class Content extends AppBase {
     var that = this;
     var huodonapi = new HuodonApi();
     var instapi = new InstApi();
+  
     huodonapi.huodoninfo({
       id: this.Base.options.id
     }, (huodoninfo) => {

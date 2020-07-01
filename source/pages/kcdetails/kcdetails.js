@@ -241,29 +241,49 @@ class Content extends AppBase {
 
   }
   onPageScroll(e) {
-    console.log(e)
     //this.Base.setMyData({ scrolltop: e.scrollTop})
-    if (e.scrollTop > 100) {
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop > 100 && floorstatus != true) {
       this.setData({
         floorstatus: true
       });
     }
-    if (e.scrollTop > 820) {
+    var sco = this.Base.getMyData().sco;
+    if (e.scrollTop > 520 && sco != 1) {
       this.setData({
         sco: 1
       });
     }
-    if (e.scrollTop <= 820) {
+    var sco2 = this.Base.getMyData().sco;
+    if (e.scrollTop <= 520 && sco2 != 2) {
       this.setData({
         sco: 2,
         show: "kcxq"
       });
     }
-    if (e.scrollTop <= 100) {
+    var floorstatus = this.Base.getMyData().floorstatus;
+    if (e.scrollTop <= 100 && floorstatus != false) {
       this.setData({
         floorstatus: false
       });
     }
+    // if (e.scrollTop > 820) {
+    //   this.setData({
+    //     sco: 1
+    //   });
+    // }
+    // if (e.scrollTop <= 820) {
+    //   this.setData({
+    //     sco: 2,
+        
+    //   });
+    // }
+    // var floorstatus = this.Base.getMyData().floorstatus;
+    // if (e.scrollTop <= 100 && floorstatus != false) {
+    //   this.setData({
+    //     floorstatus: false
+    //   });
+    // }
   }
   gotoBottom(e) {
     this.Base.setMyData({
@@ -509,6 +529,7 @@ class Content extends AppBase {
     })
     
   }
+  
 }
 var timer = 1;
 var content = new Content();

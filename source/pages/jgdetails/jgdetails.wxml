@@ -1,9 +1,9 @@
 <!--pages/jgdetails/jgdetails.wxml-->
 
 
-<back-component></back-component>
+<!-- <back-component ></back-component> -->
 
-<view class=' to_top'>
+<view class=' to_top'  hidden='{{!floorstatus}}'>
   <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
 </view>
 
@@ -112,93 +112,93 @@
       </view>
 
       <view wx:if='{{trunoff==false}}'>
-        <cover-view wx:if='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
+        <view wx:if='{{tanchuang==false}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
 
-          <cover-view class='padding-10 '>
-            <cover-view class='flex-row flex-center'>
-              <cover-view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</cover-view>
-              <cover-image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></cover-image>
-            </cover-view>
+          <view class='padding-10 '>
+            <view class='flex-row flex-center'>
+              <view class='txt-black txt-bold  flex-1 chaochu'>{{jginfo.jigou}}</view>
+              <image src="{{uploadpath}}resource/{{res.renzhen}}" class="icon-rz" wx:if='{{jginfo.renzhen_value=="Y"}}'></image>
+            </view>
 
 
-            <cover-view style="height:10rpx;"></cover-view>
+            <view style="height:10rpx;"></view>
 
-            <cover-view class="starbox text-right  ">
+            <view class="starbox text-right   margin-left-20 margin-top-20">
 
               <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
-              <cover-view class="stars_2" style="width:100%">
-                <cover-view class="ims "  >
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></cover-image>
-                </cover-view>
-              </cover-view>
+              <view class="stars_2"  style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
+                <view class="ims "  >
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                </view>
+              </view>
 
-              <cover-view class="hiddenblock" style="width:{{jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)}}%"></cover-view>
+              <!-- <view class="hiddenblock" style="width:{{jginfo.pingfen==''?(100-jginfo.scoring*20):(100-jginfo.pingfen*20)}}%"></view> -->
 
-              <cover-view class="stars1 " style="width: 100%;">
-                 <cover-view class="ims "  >
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                  <cover-image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></cover-image>
-                </cover-view>
-              </cover-view>
-
-
-            </cover-view>
+              <view class="stars1 " >
+                 <view class="ims "  style="width:100%">
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                </view>
+              </view>
 
 
-            <cover-view class='flex-row flex-center  '>
-
-              <cover-view class='flex-row flex-1'>
-                <cover-view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</cover-view>
-              </cover-view>
+            </view>
 
 
+            <view class='flex-row flex-center  '>
+
+              <view class='flex-row flex-1'>
+                <view class=' biaoqian radius-10 txt-green h6 margin-5 text-center' style='border:1rpx solid  {{litem.color}};color:{{litem.color}}' wx:for="{{jginfo.labels}}" wx:key="k" wx:for-item='litem'>{{litem.name}}</view>
+              </view>
 
 
 
-            </cover-view>
 
-            <cover-view class='flex-row flex-center margin-top-5 padding-10'>
 
-              <cover-view class='flex-row flex-column flex-1'>
+            </view>
+
+            <view class='flex-row flex-center margin-top-5 padding-10'>
+
+              <view class='flex-row flex-column flex-1'>
                 <!-- <image src="{{uploadpath}}resource/{{res.nianlin}}" class="icon-13"></image> -->
-                <cover-view class="txt-gray h6">适合年龄</cover-view>
-                <cover-view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</cover-view>
-              </cover-view>
+                <view class="txt-gray h6">适合年龄</view>
+                <view class='h6 txt-black  txt-bold  margin-top-10 '>{{jginfo.jg_age}}</view>
+              </view>
 
-              <cover-view class='flex-row flex-column flex-1'>
+              <view class='flex-row flex-column flex-1'>
                 <!-- <image src="{{uploadpath}}resource/{{res.shijian}}" class="icon-13"></image> -->
-                <cover-view class="txt-gray h6">营业时间</cover-view>
-                <cover-view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</cover-view>
-              </cover-view>
+                <view class="txt-gray h6">营业时间</view>
+                <view class='h6 txt-black txt-bold  margin-top-10  '>{{jginfo.time}}</view>
+              </view>
 
-              <cover-view class='flex-row flex-column flex-1'>
+              <view class='flex-row flex-column flex-1'>
                 <!-- <image src="{{uploadpath}}resource/{{res.yuyue}}" class="icon-13"></image> -->
                 <!-- <view class="txt-gray h6" >预约</view> -->
-                <cover-view class='h6 txt-gray '>需要预约</cover-view>
-                <cover-view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</cover-view>
-              </cover-view>
+                <view class='h6 txt-gray '>需要预约</view>
+                <view class='h6 txt-black txt-bold  margin-top-10'>{{jginfo.people_num}}人已预约</view>
+              </view>
 
-            </cover-view>
+            </view>
 
-            <cover-view class='flex-row flex-center ' style="margin-top: 24rpx;">
-              <cover-view>
-                <cover-image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></cover-image>
-              </cover-view>
-              <cover-view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</cover-view>
-              <cover-view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</cover-view>
-            </cover-view>
+            <view class='flex-row flex-center ' style="margin-top: 24rpx;">
+              <view>
+                <image class='icon-15 ' src='{{uploadpath}}resource/{{res.zuobiao}}'></image>
+              </view>
+              <view class='flex-1 h5 margin-left-10 txt-blue chaochu' bindtap='openMap' id="{{jginfo.address}}">{{jginfo.address}}</view>
+              <view class='h6 txt-black txt-right txt-bold' style='width:150rpx;' wx:if="{{miletxt!=undefined}}">距你{{miletxt}}</view>
+            </view>
 
-          </cover-view>
+          </view>
 
-        </cover-view>
+        </view>
       </view>
     </view>
 
@@ -389,61 +389,61 @@
 
   <view style='height:96rpx;'></view>
 
-  <cover-view style='' class='buy-block' wx:if='{{trunoff==false}}'>
+  <view style='' class='buy-block' wx:if='{{trunoff==false}}'>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <cover-view class='flex-1'></cover-view>
-      <cover-view class='txt_orange h6'>等待付款，</cover-view>
-      <cover-view class='txt_lan h6'>点击这里立即付款</cover-view>
-      <cover-view class='flex-1'></cover-view>
-    </cover-view>
+    <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+      <view class='flex-1'></view>
+      <view class='txt_orange h6'>等待付款，</view>
+      <view class='txt_lan h6'>点击这里立即付款</view>
+      <view class='flex-1'></view>
+    </view>
 
-    <cover-view class='huang_block  flex-row flex-center' hidden='{{true}}'>
-      <cover-view class='flex-1'></cover-view>
-      <cover-view class='txt_orange h6'>此机构课程预约已满</cover-view>
-      <cover-view class='flex-1'></cover-view>
-    </cover-view>
+    <view class='huang_block  flex-row flex-center' hidden='{{true}}'>
+      <view class='flex-1'></view>
+      <view class='txt_orange h6'>此机构课程预约已满</view>
+      <view class='flex-1'></view>
+    </view>
 
-    <cover-view class='flex-row flex-center'>
-      <cover-view class='left flex-row flex-center' style="width:310/750rpx;">
+    <view class='flex-row flex-center'>
+      <view class='left flex-row flex-center' style="width:310/750rpx;">
 
-        <cover-view class='flex-1 flex-row flex-column' bindtap='toindex'>
-          <cover-image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></cover-image>
-          <cover-view class='h7 margin-top-8'>首页</cover-view>
-        </cover-view>
+        <view class='flex-1 flex-row flex-column' bindtap='toindex'>
+          <image src='{{uploadpath}}resource/{{res.kc_shouye}}' class='icon-25'></image>
+          <view class='h7 margin-top-8'>首页</view>
+        </view>
 
-        <cover-view class='flex-1 flex-row flex-column'>
+        <view class='flex-1 flex-row flex-column'>
           <!-- <image src='{{uploadpath}}resource/{{res.tohome}}' class='icon-20'></image> -->
-          <cover-image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></cover-image>
-          <cover-image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></cover-image>
-          <cover-view class='h7 margin-top-8'>收藏</cover-view>
-        </cover-view>
+          <image bindtap='fav' id='Y' wx:if="{{isfav=='N'}}" class='icon-25' src='{{uploadpath}}resource/{{res.unfav}}'></image>
+          <image bindtap='fav' id='N' wx:if="{{isfav=='Y'}}" class='icon-25' src='{{uploadpath}}resource/{{res.fav}}'></image>
+          <view class='h7 margin-top-8'>收藏</view>
+        </view>
 
         <button class='flex-1 clear-button' hover-class='bg_gray' open-type='contact' style='border-radius:0;border:0;'>
-          <cover-view class=' flex-row flex-column'>
-            <cover-image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></cover-image>
-            <cover-view class='h7 margin-top-8'>客服</cover-view>
-          </cover-view>
+          <view class=' flex-row flex-column'>
+            <image src='{{uploadpath}}resource/{{res.kc_kf}}' class='icon-25'></image>
+            <view class='h7 margin-top-8'>客服</view>
+          </view>
         </button>
 
-      </cover-view>
+      </view>
 
 
 
-      <cover-view class=' flex-row flex-center' wx:if='{{nogroup=="Y"}}'>
-        <cover-view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
-        <cover-view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</cover-view>
-      </cover-view>
+      <view class=' flex-row flex-center' wx:if='{{nogroup=="Y"}}'>
+        <view class='buybtn txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
+        <view class='pingtuanbtn txt-white h5 text-center bg-hong' id="{{jginfo.id}}" bindtap="bindpin">发起拼班</view>
+      </view>
 
 
-      <cover-view wx:if='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</cover-view>
+      <view wx:if='{{nogroup!="Y"}}' class='onlybuy txt-white h5 text-center bg-cheng' id="{{jginfo.id}}" bindtap='bindshowtc'>立即购买</view>
 
 
 
 
 
-    </cover-view>
-  </cover-view>
+    </view>
+  </view>
 
 
 
@@ -516,7 +516,7 @@
 
       <view style="height:160rpx;"></view>
 
-      <view style="height:400rpx;">
+      <view style="height:400rpx;" class="padding-top-20">
 
 
         <view>
@@ -553,10 +553,10 @@
 
       <view class='under'>
 
-        <view style=" border-bottom:2rpx solid #f5f5f5; " class="flex-row flex-center padding-T-B-28">
+        <view style="  " class="flex-row flex-center padding-T-B-28">
 
 
-          <view class="flex-1  flex-row column">
+          <view class="flex-1  flex-row column" style="border-bottom:2rpx solid #f5f5f5; padding-bottom:20rpx;">
             <view class="h6  txt-6">购买数量</view>
             <view class="flex-row flex-center margin-top-8">
               <view class="txt-9 h6">剩余{{courseinfo.kucun}}个</view>

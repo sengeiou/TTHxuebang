@@ -43,8 +43,8 @@
               <div class="card-body">
                 <div class="row">
                   <div class="form-group  col-lg-2 col-md-3  col-sm-4">
-                      <label for="inputEmail3" class=" col-form-label">订单编号</label>
-                      <input type="text" class="form-control" id="inputEmail3" name='orderno'   [(ngModel)]='orderno'/>
+                      <label for="inputEmail3" class=" col-form-label col-form-label-sm">订单编号</label>
+                      <input type="text" class="form-control col-form-label-sm" id="inputEmail3" name='orderno'   [(ngModel)]='orderno'/>
                   </div>
                   <div class="form-group   col-lg-2 col-md-3  col-sm-4">
                       <label for="inputEmail3" class=" col-form-label col-form-label-sm">扣款时间</label>
@@ -143,15 +143,15 @@
                  <tr *ngFor='let item of data'>
                      <td>{{item.purchase_orderno==''?'无':item.purchase_orderno}}</td>
                      <td>{{item.purchase_amount==''?'无':item.purchase_amount}}</td>
-                     <td>{{item.pingjia_content==''?'暂无评价':item.pingjia_content}}</td>
-                     <td>{{item.pingjia_pingfen==''?'暂无评价':item.pingjia_pingfen+"分"}}</td>
+                     <td>{{item.pingjia_content==''?'-':item.pingjia_content}}</td>
+                     <td>{{item.pingjia_pingfen==''?'-':item.pingjia_pingfen+"分"}}</td>
                      <!-- <td>{{item.mechanism_jigou}}</td> -->
                      <td>{{item.kecheng_id_name==''?'无':item.kecheng_id_name}}</td>
                      <td>{{item.chapinum}}</td>
                      <td>
                        {{item.deductiontype_name}}
                       </td>
-                     <td>{{item.reason==''?'无':item.reason}}</td>
+                     <td>{{item.reasons==''?'-':item.reasons}}</td>
                      <td>{{item.amount}}</td>
                      <td>{{item.op_date}}</td>
                      <td><div style='color:#003eac' data-toggle="modal" data-target="#modal-default2">申诉</div></td>

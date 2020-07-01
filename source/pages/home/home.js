@@ -860,8 +860,8 @@ class Content extends AppBase {
     var jifenapi = new JifenApi();
     jifenapi.dakalist({
 
-    }, (dakalist) => {
-
+    }, (ret) => {
+      var dakalist = ret.result;
       //var arr = [1, 2, 3, 1, 3, 4, 5, 5];
       var resultArr = [];
 
@@ -870,17 +870,18 @@ class Content extends AppBase {
           if (resultArr[j].member_id == dakalist[i].member_id) {
             break;
           }
+          
         }
         if (j == resultArr.length) {
-          resultArr[resultArr.length] = dakalist[i];
-        }
+            resultArr[resultArr.length] = dakalist[i];
+          }
       }
 
 
       var personnumber = parseInt(this.Base.getMyData().instinfo.personnumber);
       console.log(personnumber, "人数");
 
-      var number = resultArr.length;
+      var number = ret.return;
 
       if ((parseInt(number) + personnumber)>=10000){
          var zong = ((parseInt(number) + personnumber) / 10000).toFixed(2) + 'W';

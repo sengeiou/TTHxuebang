@@ -99,7 +99,7 @@ Page {
 }
 
 .subbtn {
-  width: 200rpx;
+  width: 220rpx;
   height: 100rpx;
   line-height: 100rpx;
   background: rgba(255, 102, 0, 1);

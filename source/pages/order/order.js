@@ -45,7 +45,10 @@ class Content extends AppBase {
         this.Base.setMyData({ mMinute, mSecond, reminderpay });
 
         if (reminderpay <= 0) {
-          this.onMyShow();
+          // this.onMyShow();
+          wx.redirectTo({
+            url: '/pages/myorder/myorder',
+          })
         }
       }
     }, 1000);

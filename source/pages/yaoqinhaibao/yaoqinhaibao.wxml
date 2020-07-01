@@ -1,4 +1,4 @@
-<back-component></back-component>
+<!-- <back-component></back-component> -->
 <view style="width:100vw;height:100vh;background:url({{uploadpath}}resource/{{res.yaoqindebeijin}});background-size: 100vw 100vh;">
 <view class="flex-row  " style="padding-top:40rpx">
 
