@@ -226,11 +226,6 @@ class Content extends AppBase {
     }
 
 
-
-
-
-
-
   }
 
   showmore(e) {
@@ -249,7 +244,7 @@ class Content extends AppBase {
     var shuliang = this.Base.getMyData().shuliang;
     var limit = e.currentTarget.dataset.limit;
     shuliang++;
-    if (shuliang > limit) {
+    if (limit!=0 && shuliang > limit) {
       wx.showToast({
         title: '每人限购' + limit+'个体验课程',
         icon: 'none',

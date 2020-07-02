@@ -355,12 +355,12 @@ export class AddkechenComponent extends AppBase {
       return
     }
     if(this.kcdetail.kucun==''){
-      this.toast('请库存不能为空！');
+      this.toast('库存不能为空！');
       return
     }
 
     if(Number(this.kcdetail.kucun)<=0){
-      this.toast('请库存不能小于0！');
+      this.toast('库存不能小于0！');
       return
     }
 
@@ -447,12 +447,12 @@ export class AddkechenComponent extends AppBase {
     }
 
     if(this.kcdetail.kucun==''){
-      this.toast('请库存不能为空！');
+      this.toast('库存不能为空！');
       return
     }
 
     if(Number(this.kcdetail.kucun)<=0){
-      this.toast('请库存不能小于0！');
+      this.toast('库存不能小于0！');
       return
     }
     if(this.kcdetail.teachermobile==''){
@@ -518,5 +518,7 @@ export class AddkechenComponent extends AppBase {
     }
    
   }
- 
+  deleteimg(type){
+    this.kcdetail[type]='';
+  }
 }

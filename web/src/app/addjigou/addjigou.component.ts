@@ -470,4 +470,7 @@ export class AddjigouComponent extends AppBase {
     }
 
   }
+  deleteimg(type){
+    this.jgdetail[type]="";
+  }
 }

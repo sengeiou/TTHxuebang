@@ -55,6 +55,10 @@ export class SettingComponent extends AppBase {
     }).then((res:any)=>{
       console.log(res);
       if(res.code=='0'){
+        this.show=false;
+        this.oldpassword='';
+        this.newpassword2='';
+        this.newpassword='';
         this.saveing();
       }else {
         this.toast(res.result);
@@ -92,11 +96,8 @@ export class SettingComponent extends AppBase {
     this.memberinfo.primary_id=this.memberinfo.id;
     this.userbApi.xiugai(this.memberinfo).then((res:any)=>{
       if(res.code=='0'){
+        
         this.succ('修改成功');
-        this.show=false;
-        this.oldpassword='';
-        this.newpassword='';
-        this.newpassword2='';
       }else {
         this.toast(res.result);
       }

@@ -304,12 +304,12 @@ export class CopykechenComponent extends AppBase {
     }
 
     if(this.kcdetail.kucun==0){
-      this.toast('请库存不能为空！');
+      this.toast('库存不能为空！');
       return
     }
 
     if(this.kcdetail.kucun<=0){
-      this.toast('请库存不能小于0！');
+      this.toast('库存不能小于0！');
       return
     }
     if(this.kcdetail.teachermobile==''){
@@ -381,12 +381,12 @@ export class CopykechenComponent extends AppBase {
       }
 
       if(this.kcdetail.kucun==0){
-        this.toast('请库存不能为空！');
+        this.toast('库存不能为空！');
         return
       }
   
       if(this.kcdetail.kucun<=0){
-        this.toast('请库存不能小于0！');
+        this.toast('库存不能小于0！');
         return
       }
 

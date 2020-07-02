@@ -62,7 +62,8 @@
                                     </div> -->
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构封面图</label>
-                                        <nz-upload class="avatar-uploader"
+                                        <div class="flex-row2 flex-bottom2">
+                                            <nz-upload class="avatar-uploader" style="width:102px;"
                                             nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload($event)">
@@ -74,22 +75,32 @@
                                             <img *ngIf="jgdetail.jg_img!=''"
                                                 src="{{uploadpath}}mechanism/{{jgdetail.jg_img}}" style="width: 100%" />
                                         </nz-upload>
+
+                                          <div *ngIf="jgdetail.jg_img!=''" class="margin-left-20 badge bg-danger cur-po" (click)='deleteimg("jg_img")'>删除</div>
+
+                                        </div>
+                                       
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3"
                                             class=" col-form-label col-form-label-sm">无视频显示图</label>
-                                        <nz-upload class="avatar-uploader"
-                                            nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
-                                            nzListType="picture-card" [nzShowUploadList]="false"
-                                            (nzChange)="afterupload2($event)">
-                                            <ng-container *ngIf="!jgdetail.waitimg">
-                                                <i class="upload-icon" nz-icon
-                                                    [nzType]="loading ? 'loading' : 'plus'"></i>
-                                                <div class="ant-upload-text">Upload</div>
-                                            </ng-container>
-                                            <img *ngIf="jgdetail.waitimg!=''"
-                                                src="{{uploadpath}}mechanism/{{jgdetail.waitimg}}" style="width: 100%" />
-                                        </nz-upload>
+                                            <div class="flex-row2 flex-bottom2">
+                                                <nz-upload class="avatar-uploader" style="width: 102px;"
+                                                nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
+                                                nzListType="picture-card" [nzShowUploadList]="false"
+                                                (nzChange)="afterupload2($event)">
+                                                <ng-container *ngIf="!jgdetail.waitimg">
+                                                    <i class="upload-icon" nz-icon
+                                                        [nzType]="loading ? 'loading' : 'plus'"></i>
+                                                    <div class="ant-upload-text">Upload</div>
+                                                </ng-container>
+                                                <img *ngIf="jgdetail.waitimg!=''"
+                                                    src="{{uploadpath}}mechanism/{{jgdetail.waitimg}}" style="width: 100%" />
+                                            </nz-upload>
+                                            <div *ngIf="jgdetail.waitimg!=''" class="margin-left-20 badge bg-danger cur-po" (click)='deleteimg("waitimg")'>删除</div>
+
+                                            </div>
+                                        
                                     </div>
                                    
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
@@ -100,7 +111,8 @@
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构视频</label>
-                                        <nz-upload class="avatar-uploader"
+                                        <div class="flex-row2 flex-bottom2">
+                                            <nz-upload class="avatar-uploader" style="width: 102px;"
                                             nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload3($event)">
@@ -113,6 +125,10 @@
                                                 src="{{uploadpath}}mechanism/{{jgdetail.jg_video}}"
                                                 style="width: 100%" controls='controls'></video>
                                         </nz-upload>
+                                        <div *ngIf="jgdetail.jg_video!=''" class="margin-left-20 badge bg-danger cur-po" (click)='deleteimg("jg_video")'>删除</div>
+
+                                        </div>
+                                       
                                     </div>
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8 flex-row2 flex-center2">
@@ -192,7 +208,8 @@
                                     </div> -->
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3" class=" col-form-label  col-form-label-sm">长图</label>
-                                        <nz-upload class="avatar-uploader"
+                                        <div class="flex-row2 flex-bottom2">
+                                            <nz-upload class="avatar-uploader" style="width: 102px;"
                                             nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
                                             nzListType="picture-card" [nzShowUploadList]="false"
                                             (nzChange)="afterupload4($event)">
@@ -204,7 +221,10 @@
                                             <img *ngIf="jgdetail.longimg!=''"
                                                 src="{{uploadpath}}mechanism/{{jgdetail.longimg}}" style="width: 100%" />
                                         </nz-upload>
-                                        <div>删除</div>
+                                        <div *ngIf="jgdetail.longimg!=''" class="margin-left-20 badge bg-danger cur-po" (click)='deleteimg("longimg")'>删除</div>
+
+                                        </div>
+                                        
                                     </div>
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
