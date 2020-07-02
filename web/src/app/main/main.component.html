@@ -159,14 +159,14 @@
           </li>
           
           <li class="nav-item has-treeview" >
-            <a  class="nav-link  {{module=='asset'?'active':''}}" >
+            <a  class="nav-link  {{module=='asset'?'active':''}}" (click)='dianji()'>
               <!-- <i class="nav-icon fas fa-copy"></i> -->
               <img src="{{uploadpath}}resource/{{res.zichanguanli}}" class="icon-17 margin-right"/>
               <p>
                资产管理
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview {{aa==true?'disb':'disn'}" [style.display]='aa==true?"block":"none"'>
               <li class="nav-item">
                 <a href="#" class="nav-link {{module2=='asset1'?'active':''}}" (click)="weipay('/instdeposit')"> 
                   <i class="far fa-circle nav-icon"></i>

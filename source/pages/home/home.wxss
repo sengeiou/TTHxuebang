@@ -431,7 +431,7 @@ Page {
 }
 
 .dakawc {
-  height: 812rpx;
+  /* height: 812rpx; */
   width: 564rpx;
 }
 

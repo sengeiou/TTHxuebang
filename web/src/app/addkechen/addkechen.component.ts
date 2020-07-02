@@ -90,9 +90,9 @@ export class AddkechenComponent extends AppBase {
         this.kcdetail=kechendetail;
         this.lunbo=kechendetail.lunbo;
         this.kcdetail.labels=kechendetail.labels+',';
-        if(kechendetail.status=='I'){
-          this.isdisabled=true;
-        }
+        // if(kechendetail.status=='I'){
+        //   this.isdisabled=true;
+        // }
       })
     }
   }
@@ -307,21 +307,25 @@ export class AddkechenComponent extends AppBase {
     }
   }
   tijiao(){
+    // if(this.memberinfo.status=='I'){
+    //   this.toast('此账号已被系统禁用，不允许更改课程');
+    //   return
+    // }
 
-    if(this.kcdetail.JG_status=='I' || this.memberinfo.status=='I'){
-      this.toast('此机构已被系统禁用，不允许更改其课程状态');
-      return
-    }
+    // if(this.kcdetail.JG_status=='I' ){
+    //   this.toast('此机构已被系统禁用，不允许更改其课程状态');
+    //   return
+    // }
 
-    if(this.kcdetail.JG_status2=='I'){
-      this.toast('此机构已禁用，不允许更改其课程状态');
-      return
-    }
+    // if(this.kcdetail.JG_status2=='I'){
+    //   this.toast('此机构已禁用，不允许更改其课程状态');
+    //   return
+    // }
 
-    if(this.kcdetail.status=='I'){
-      this.toast('此课程已被系统禁用，不允许上架');
-      return
-    }
+    // if(this.kcdetail.status=='I'){
+    //   this.toast('此课程已被系统禁用，不允许上架');
+    //   return
+    // }
 
     if(this.kcdetail.duration.indexOf('分钟')==-1  ){
       this.kcdetail.duration=this.kcdetail.duration+'分钟';
@@ -340,11 +344,34 @@ export class AddkechenComponent extends AppBase {
       this.toast('课程价格错误，请重新输入');
       return
     }
+    if(this.kcdetail.expeprice==''){
+      this.toast('课程价格不能为空');
+      return
+    }
+
+
     if(parseFloat(this.kcdetail.expeprice)<0.01){
       this.toast('课程价格不能小于0.01');
       return
     }
+    if(this.kcdetail.kucun==''){
+      this.toast('请库存不能为空！');
+      return
+    }
 
+    if(Number(this.kcdetail.kucun)<=0){
+      this.toast('请库存不能小于0！');
+      return
+    }
+
+    if(this.kcdetail.teachermobile==''){
+      this.toast('请输入课程老师的电话');
+      return
+    }
+    if(this.kcdetail.duration==''){
+      this.toast('请输入单节时长');
+      return
+    }
     
 
     if(this.lunbo.length==0){
@@ -381,15 +408,21 @@ export class AddkechenComponent extends AppBase {
   }
   copy(){
 
-    if(this.kcdetail.JG_status=='I' || this.memberinfo.status=='I'){
-      this.toast('此机构已被系统禁用，不允许更改其课程状态');
-      return
-    }
+    // if(this.memberinfo.status=='I'){
+    //   this.toast('此账号已被系统禁用，不允许更改课程');
+    //   return
+    // }
 
-    if(this.kcdetail.status=='I'){
-      this.toast('此课程已被系统禁用，不允许上架');
-      return
-    }
+
+    // if(this.kcdetail.JG_status=='I' ){
+    //   this.toast('此机构已被系统禁用，不允许更改其课程状态');
+    //   return
+    // }
+
+    // if(this.kcdetail.status=='I'){
+    //   this.toast('此课程已被系统禁用，不允许上架');
+    //   return
+    // }
 
 
 
@@ -404,10 +437,34 @@ export class AddkechenComponent extends AppBase {
       this.toast('课程价格错误，请重新输入');
       return
     }
+    if(this.kcdetail.expeprice==''){
+      this.toast('课程价格不能为空');
+      return
+    }
     if(parseFloat(this.kcdetail.expeprice)<0.01){
       this.toast('课程价格不能小于0.01');
       return
     }
+
+    if(this.kcdetail.kucun==''){
+      this.toast('请库存不能为空！');
+      return
+    }
+
+    if(Number(this.kcdetail.kucun)<=0){
+      this.toast('请库存不能小于0！');
+      return
+    }
+    if(this.kcdetail.teachermobile==''){
+      this.toast('请输入课程老师的电话');
+      return
+    }
+    if(this.kcdetail.duration==''){
+      this.toast('请输入单节时长');
+      return
+    }
+
+
     if(this.lunbo.length==0){
       this.toast('请添加轮播图');
       return

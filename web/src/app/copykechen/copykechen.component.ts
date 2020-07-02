@@ -294,8 +294,30 @@ export class CopykechenComponent extends AppBase {
       this.toast('课程价格错误，请重新输入');
       return
     }
+    if(this.kcdetail.expeprice==''){
+      this.toast('课程价格不能为空');
+      return
+    }
     if(parseFloat(this.kcdetail.expeprice)<0.01){
       this.toast('课程价格不能小于0.01');
+      return
+    }
+
+    if(this.kcdetail.kucun==0){
+      this.toast('请库存不能为空！');
+      return
+    }
+
+    if(this.kcdetail.kucun<=0){
+      this.toast('请库存不能小于0！');
+      return
+    }
+    if(this.kcdetail.teachermobile==''){
+      this.toast('请输入课程老师的电话');
+      return
+    }
+    if(this.kcdetail.duration==''){
+      this.toast('请输入单节时长');
       return
     }
 
@@ -349,8 +371,31 @@ export class CopykechenComponent extends AppBase {
         this.toast('课程价格错误，请重新输入');
         return
       }
+      if(this.kcdetail.expeprice==''){
+        this.toast('课程价格不能为空');
+        return
+      }
       if(parseFloat(this.kcdetail.expeprice)<0.01){
         this.toast('课程价格不能小于0.01');
+        return
+      }
+
+      if(this.kcdetail.kucun==0){
+        this.toast('请库存不能为空！');
+        return
+      }
+  
+      if(this.kcdetail.kucun<=0){
+        this.toast('请库存不能小于0！');
+        return
+      }
+
+      if(this.kcdetail.teachermobile==''){
+        this.toast('请输入课程老师的电话');
+        return
+      }
+      if(this.kcdetail.duration==''){
+        this.toast('请输入单节时长');
         return
       }
 

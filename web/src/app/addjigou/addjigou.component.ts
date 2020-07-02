@@ -60,9 +60,9 @@ export class AddjigouComponent extends AppBase {
         this.bgimg=res.lunbo;
         this.hexiao=res.hexiaos;
         this.jgdetail.labels=res.labels+',';
-        if(res.status=='I'){
-          this.isdisabled=true;
-        }
+        // if(res.status=='I'){
+        //   this.isdisabled=true;
+        // }
       })
     }
   }
@@ -304,10 +304,15 @@ export class AddjigouComponent extends AppBase {
   submit(){
 
 
-    if(this.jgdetail.status=='I'|| this.memberinfo.status=='I'){
-      this.toast('此机构已被系统禁用，不允许启用');
-      return
-    }
+    // if(this.memberinfo.status=='I'){
+    //   this.toast('此账号已被系统禁用，不允许修改机构');
+    //   return
+    // }
+
+    // if(this.jgdetail.status=='I'){
+    //   this.toast('此机构已被系统禁用，不允许启用');
+    //   return
+    // }
 
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
@@ -341,10 +346,15 @@ export class AddjigouComponent extends AppBase {
     })
   }
   copy(){
-    if(this.jgdetail.status=='I' || this.memberinfo.status=='I'){
-      this.toast('此机构已被系统禁用，不允许启用');
-      return
-    }
+    // if(this.memberinfo.status=='I'){
+    //   this.toast('此账号已被系统禁用，不允许修改机构');
+    //   return
+    // }
+
+    // if(this.jgdetail.status=='I' ){
+    //   this.toast('此机构已被系统禁用，不允许启用');
+    //   return
+    // }
     if(this.bgimg.length==0){
       this.toast('请添加轮播图');
       return

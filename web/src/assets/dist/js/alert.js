@@ -30,6 +30,16 @@ Chart.warning=function(title,subtitle,body){
   })
 }
 
+
+Chart.dangers=function(title,subtitle,body){
+  $(document).Toasts('create', {
+    class: 'bg-danger', 
+    title: title,
+    subtitle: subtitle,
+    body: body
+  })
+}
+
 Chart.saoma=function(){
   $('#saoma').modal({
     backdrop:"static",

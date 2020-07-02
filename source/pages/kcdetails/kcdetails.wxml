@@ -353,7 +353,7 @@
 
 
 
-          <view class='h5 txt-white margin-left-10' wx:if="{{canbuy.code=='0'}}">立即购买</view>
+          <view class='h5 txt-white margin-left-10' wx:if="{{canbuy.code=='0' || canbuy.code=='-4'}}">立即购买</view>
           <view class="flex-1"></view>
         </view>
 
@@ -363,21 +363,21 @@
 
 
         <view wx:if="{{!(courseinfo.isgroup==0&&courseinfo.isgroup_tiyan==0)}}" class="flex-row flex-4 ">
-          <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0'}}">
+          <view class='flex-2 flex-row flex-column buy padding-15' bindtap='bindtopurchase' wx:if="{{canbuy.code=='0' || canbuy.code=='-4'}}">
 
 
             <view wx:if="{{courseinfo.price>0}}" class='txt-white txt-bold h5'>￥{{courseinfo.price}}</view>
 
             <view wx:if="{{courseinfo.price<=0}}" class='txt-white txt-bold h5'>￥{{courseinfo.expeprice}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">立即购买</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='0' || canbuy.code=='-4'}}">立即购买</view>
 
           </view>
-          <view class='flex-2 flex-row flex-column hon padding-15' bindtap='opengroup' wx:if="{{canbuy.code=='0'}}">
+          <view class='flex-2 flex-row flex-column hon padding-15' bindtap='opengroup' wx:if="{{canbuy.code=='0' || canbuy.code=='-4'}}">
 
             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup>0}}">￥{{courseinfo.isgroup}}</view>
 
             <view class='txt-white txt-bold h5' wx:if="{{courseinfo.isgroup<=0}}">￥{{courseinfo.isgroup_tiyan}}</view>
-            <view class='h6 txt-white' wx:if="{{canbuy.code=='0'}}">发起拼班</view>
+            <view class='h6 txt-white' wx:if="{{canbuy.code=='0' || canbuy.code=='-4'}}">发起拼班</view>
 
           </view>
 

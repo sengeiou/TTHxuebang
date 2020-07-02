@@ -26,7 +26,7 @@
 
     <!-- {{model!="iPhone X "&&model!="iPhone XR "&&model!="iPhone XS "&&model!="iPhone XS Max "?"mid2":"mid"}} -->
 
-    <view class="flex-row flex-column">
+    <view class="flex-row flex-column mmid">
 
       <view wx:if='{{tanchuang==true}}' class='radius-10 bg-white padding-15    margin-bottom-10 mid'>
 
@@ -122,9 +122,9 @@
             </view>
 
 
-            <view style="height:10rpx;"></view>
+            <!-- <view style="height:10rpx;"></view> -->
 
-            <view class="starbox text-right   margin-left-20 margin-top-20">
+            <view class="starbox text-right ">
 
               <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
               <view class="stars_2"  style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
@@ -252,7 +252,7 @@
         <view class='flex-row column   margin-left-20 flex-1'>
           <view class='txt-bold  flex-1' style='color:#000000'>{{item.name}}</view>
 
-          <view class='flex-row flex-center'>
+          <!-- <view class='flex-row flex-center'>
 
             <view wx:if="{{item.scoring==5}}" class='flex-row flex-center '>
               <image wx:for='{{5}}' src='{{uploadpath}}resource/{{res.star}}' class='margin-left-5' style='height:20rpx;width:20rpx;'></image>
@@ -280,7 +280,35 @@
 
 
             <view class='h6 flex-1 margin-left-20 txt-primary'>{{item.people_num}}人购课</view>
-          </view>
+          </view> -->
+
+
+            <view class="starbox text-right ">
+
+              <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
+              <view class="stars_2"  style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                <view class="ims "  >
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                </view>
+              </view>
+
+              <view class="stars1 " >
+                 <view class="ims "  style="width:100%">
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
+                </view>
+              </view>
+
+
+            </view>
+
 
           <view class='flex-row flex-center flex-1' style=''>
 
@@ -570,7 +598,7 @@
 
           <view class="h6 margin-left-40 margin-right-40">{{shuliang}}</view>
 
-          <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" id="{{courseinfo.kucun}}"></image>
+          <image style="border:2rpx solid #F5F5F5;padding:6rpx;border-radius:4rpx;" src="{{uploadpath}}resource/{{res.jiahao}}" class="icon-15 margin-right-20" bindtap="jia" id="{{courseinfo.kucun}}" data-limit="{{courseinfo.limitcount}}"></image>
 
         </view>
 

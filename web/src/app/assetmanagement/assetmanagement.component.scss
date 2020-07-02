@@ -3,3 +3,8 @@
     height: 260px;
 }
 input[type=date]::-webkit-inner-spin-button { visibility: hidden; }
+input[type=date]::-webkit-calendar-picker-indicator {
+        // display: inline-block;
+        // width: 30px;
+        // height: 100%;
+}

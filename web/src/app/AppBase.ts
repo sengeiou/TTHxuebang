@@ -303,6 +303,9 @@ export class AppBase implements OnInit {
     warning(title,body){
         Chart.warning("警告",title,body);
     }
+    dangers(title,body){
+        Chart.dangers("提醒",title,body);
+    }
     toast(com){
         Chart.toast(com);
     }

@@ -118,8 +118,8 @@ class Content extends AppBase {
 
     jifenapi.dakalist({
       member_id: this.Base.getMyData().memberinfo.id
-    }, (dakalist) => {
-
+    }, (ret) => {
+      var dakalist=ret.result;
       var days = this.Base.getMyData().days;
       for (var i = dakalist.length - 1; i >= 0; i--) {
         days.push(dakalist[i].daka_date_dateformat)
@@ -877,8 +877,12 @@ class Content extends AppBase {
           }
       }
 
-
-      var personnumber = parseInt(this.Base.getMyData().instinfo.personnumber);
+      if (this.Base.getMyData().instinfo.personnumber==''){
+        var personnumber = 0;
+      }else {
+        var personnumber = parseInt(this.Base.getMyData().instinfo.personnumber);
+      }
+     
       console.log(personnumber, "人数");
 
       var number = ret.return;

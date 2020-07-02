@@ -93,6 +93,10 @@ export class SettingComponent extends AppBase {
     this.userbApi.xiugai(this.memberinfo).then((res:any)=>{
       if(res.code=='0'){
         this.succ('修改成功');
+        this.show=false;
+        this.oldpassword='';
+        this.newpassword='';
+        this.newpassword2='';
       }else {
         this.toast(res.result);
       }

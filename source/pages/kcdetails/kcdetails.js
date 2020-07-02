@@ -308,6 +308,14 @@ class Content extends AppBase {
   bindtopurchase(e) {
      
     var price = this.Base.getMyData().courseinfo.price;
+    var canbuy = this.Base.getMyData().canbuy;
+    if(canbuy.code=='-4'){
+      wx.showToast({
+        title: '您已达到限购次数，不能再购买了！！',
+        icon:'none'
+      })
+      return
+    }
       
       if(price<=0)
       {

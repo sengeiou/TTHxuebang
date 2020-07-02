@@ -91,6 +91,7 @@
                     <th>上线时间</th>
                     <th>搜索关键字</th>
                     <th>适合年龄</th>
+                    <th>机构状态</th>
                     <th>编辑</th>	
                   </tr>
                 </thead>
@@ -104,6 +105,7 @@
                     <td>{{item.up_time}}</td>
                     <td>{{item.searchkeyword}}</td>
                     <td>{{item.jg_age}}</td>
+                    <td>{{item.status2_name}}</td>
                     <td>
                         <div class="badge bg-primary margin-right cur-po" (click)='bianji(item)'>编辑</div>
                         <div class="badge bg-danger cur-po" (click)='shanchu(item)'  data-toggle="modal" data-target="#modal-default">删除</div>

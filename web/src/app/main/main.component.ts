@@ -59,7 +59,45 @@ export class MainComponent extends AppBase {
       && this.memberinfo.issign_value!='Y') {
       this.warning("入驻提醒", "您还未入驻本学榜平台，请点击<a href='/service'>这里快速入驻</a>");
     }
-  }
+    if(this.memberinfo != null
+      && this.memberinfo.status=='I'){
+        this.dangers("账号禁用提醒","您的账号已被平台禁用!<br />有问题请联系学榜工作人员: 19928710539 <br />或者添加学榜客服微信: xuebang996");
+    }
+
+    this.instApi.allinst({status:'I'}).then((allinst:any)=>{
+      var jigouname=''
+      for(let item of allinst){
+        if(jigouname.length==0){
+          jigouname+=item.jigou;
+        }else {
+          jigouname+=','+item.jigou;
+        }
+        
+      }
+      if(this.memberinfo != null
+        && jigouname.length>0){
+        this.dangers("机构禁用提醒","您的机构: "+jigouname+"  已被平台禁用!<br />有问题请联系学榜工作人员: 19928710539 <br />或者添加学榜客服微信: xuebang996");
+      }
+     
+    })
+
+    this.userbApi.allcurriculum({status:'I'}).then((allcurriculum:any)=>{
+      var kcname='';
+      for(let item of allcurriculum){
+        if(kcname.length==0){
+          kcname+=item.name;
+        }else {
+          kcname+=','+item.name;
+        }
+        
+      }
+      if(this.memberinfo != null
+        && kcname.length>0){
+        this.dangers("课程禁用提醒","您的课程: "+kcname+"  已被平台禁用!<br />有问题请联系学榜工作人员: 19928710539 <br />或者添加学榜客服微信: xuebang996");
+      }
+    })
+
+}
 
 
   setModule(module, module2) {
@@ -121,5 +159,10 @@ export class MainComponent extends AppBase {
    
     this.toast('暂未开放!');
     return
+  }
+  aa=false;
+  dianji(){
+    this.aa=this.aa==true?false:true;
+    console.log(this.aa)
   }
 }

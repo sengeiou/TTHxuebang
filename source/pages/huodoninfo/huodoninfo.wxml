@@ -3,7 +3,7 @@
 
 <image class="tmbg" mode="widthFix" style="width:100vw" src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}"></image>
 
-<view id='gdd'>
+<view id='gdd' wx:if='{{huodoninfo!=null}}'>
   <view class="flex-row   flex-center">
 
     <view class="flex-1"></view>
@@ -27,7 +27,7 @@
           <view class="f-22" style="color:#555555">报名截止时间</view>
           <view class="f-26 txt-bold margin-left-10" style="color:#555555">{{huodoninfo.apply_endTime}} 23:59</view>
           <view class="flex-1"></view>
-          <view bindtap="baomin" class=" {{yiguoqi==true?'nobmcs':'bmcs'}} ">报名参赛</view>
+          <view bindtap="baomin" class=" {{yiguoqi==true?'nobmcs':'bmcs'}} ">报名参加</view>
         </view>
 
         <view class="flex-row  flex-center  margin-top-5">

@@ -153,15 +153,7 @@ class Content extends AppBase {
 
       })
 
-      jigouapi.orderstatus({
-        id: this.Base.options.id
-      }, (canbuy) => {
-
-        this.Base.setMyData({
-          canbuy
-        });
-      });
-
+      
       jigouapi.jigouimg({
         jigou: jginfo.id,
         orderby: 'r_main.seq',
@@ -255,7 +247,15 @@ class Content extends AppBase {
   jia(e) {
     var kucun = e.currentTarget.id;
     var shuliang = this.Base.getMyData().shuliang;
-    shuliang++
+    var limit = e.currentTarget.dataset.limit;
+    shuliang++;
+    if (shuliang > limit) {
+      wx.showToast({
+        title: '每人限购' + limit+'个体验课程',
+        icon: 'none',
+      })
+      return;
+    }
     if (shuliang > kucun) {
       wx.showToast({
         title: '购买数量请勿超过库存',
@@ -440,35 +440,53 @@ class Content extends AppBase {
     //return;
     //this.Base.getMyData().pin == "1"  
 
-    if (this.Base.getMyData().pin == "1") {
-      console.log(id);
-      console.log("aaa");
-      // return;
-      if (ck == 1) {
-        wx.navigateTo({
-          url: '/pages/purchase/purchase?course_id=' + id + '&type=0' + '&leixin=0',
-        })
+    var jigouapi = new JigouApi();
+    jigouapi.orderstatus({
+      id: id
+    }, (canbuy) => {
+        if(canbuy.code=='-4'){
+          wx.showToast({
+            title: '您已达到限购次数，不能再购买了！！',
+            icon:'none'
+          })
+          return
+        }
+
+      if (this.Base.getMyData().pin == "1") {
+        console.log(id);
+        console.log("aaa");
+        // return;
+        if (ck == 1) {
+          wx.navigateTo({
+            url: '/pages/purchase/purchase?course_id=' + id + '&type=0' + '&leixin=0',
+          })
+        }
+        if (ck == 2) {
+          wx.navigateTo({
+            url: '/pages/purchase/purchase?course_id=' + id + '&type=0' + '&leixin=1',
+          })
+        }
+      } else {
+        console.log(id);
+        console.log("ggg");
+        //  return
+        if (ck == 1) {
+          wx.navigateTo({
+            url: '/pages/purchase/purchase?course_id=' + id + '&leixin=0',
+          })
+        }
+        if (ck == 2) {
+          wx.navigateTo({
+            url: '/pages/purchase/purchase?course_id=' + id + '&leixin=1',
+          })
+        }
       }
-      if (ck == 2) {
-        wx.navigateTo({
-          url: '/pages/purchase/purchase?course_id=' + id + '&type=0' + '&leixin=1',
-        })
-      }
-    } else {
-      console.log(id);
-      console.log("ggg");
-      //  return
-      if (ck == 1) {
-        wx.navigateTo({
-          url: '/pages/purchase/purchase?course_id=' + id + '&leixin=0',
-        })
-      }
-      if (ck == 2) {
-        wx.navigateTo({
-          url: '/pages/purchase/purchase?course_id=' + id + '&leixin=1',
-        })
-      }
-    }
+
+    });
+
+
+
+   
 
 
   }

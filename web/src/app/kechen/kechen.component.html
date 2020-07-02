@@ -103,6 +103,7 @@
                     <!-- <th>正式价格</th> -->
                     <th>体验价格</th>
                     <th>课程年龄</th>
+                    <th>课程状态</th>
                     <th>编辑</th>	
                   </tr>
                 </thead>
@@ -118,6 +119,7 @@
                     <!-- <td>{{item.price}}</td> -->
                     <td>{{item.expeprice}}</td>
                     <td>{{item.age_name}}</td>
+                    <td>{{item.kcstatus_name}}</td>
                     <td>
                         <div class="badge bg-primary margin-right cur-po" (click)='bianji(item)'>编辑</div>
                         <div class="badge bg-danger cur-po" (click)='shanchu(item)' data-toggle="modal" data-target="#modal-default">删除</div>
