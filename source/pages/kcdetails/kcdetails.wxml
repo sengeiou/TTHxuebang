@@ -529,7 +529,7 @@
       <view class='under'>
         <view class='flex-row flex-column'>
 
-          <view bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+          <view bindtap='tobuy' id='{{courseinfo.id}}' data-kucun="{{courseinfo.kucun}}" class='next text-center txt-white'>下一步</view>
 
         </view>
       </view>

@@ -51,15 +51,15 @@
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 登录密码：</view>
        <view class="w56"></view>
-      <input class="h7 " type="password" placeholder="输入登录密码" placeholder-style="color:#CCCCCC" placeholder-class="f13"  bindinput="passowordFn"></input>
-      <view class="flex-1"></view>
+      <input class="h7 "  type="password" placeholder="输入登录密码" placeholder-style="color:#CCCCCC" placeholder-class="f13"  bindinput="passowordFn"></input>
+      <view class="flex-1"></view> 
     </view>
 
     <view class="flex-row flex-center padding1614">
       <text class="h6-7" style="color:#FF5252;margin-right:4rpx;">*</text>
       <view class="f13 " style="color:#222222"> 确认密码：</view>
       <view class="w56"></view>
-      <input class="h7 " type="password" placeholder="再次输入登录密码" placeholder-style="color:#CCCCCC" placeholder-class="f13" bindinput="passoword2Fn"></input>
+      <input class="h7 " type="password" style="width:280rpx" placeholder="再次输入登录密码" placeholder-style="color:#CCCCCC" placeholder-class="f13" bindinput="passoword2Fn"></input>
       <view class="flex-1"></view>
     </view>
 

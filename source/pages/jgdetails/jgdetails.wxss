@@ -445,7 +445,7 @@
 
 .starbox {
   width: 120rpx;
-  height: 27rpx;
+  /* height: 27rpx; */
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -477,7 +477,7 @@
 .icon-star{
   height: 24rpx;
   width: 24rpx;
-  float: left;    
+  /* float: left;     */
 }
 
 .ims {

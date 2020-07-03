@@ -309,6 +309,9 @@ export class AppBase implements OnInit {
     toast(com){
         Chart.toast(com);
     }
+    saoma(){
+        Chart.saoma();
+    }
     saveing(){
         Chart.saveing();
     }

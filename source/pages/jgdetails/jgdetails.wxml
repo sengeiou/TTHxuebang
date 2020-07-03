@@ -124,7 +124,7 @@
 
             <!-- <view style="height:10rpx;"></view> -->
 
-            <view class="starbox text-right ">
+            <view class="starbox text-right " style="height:40rpx">
 
               <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
               <view class="stars_2"  style="width: {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}}%">
@@ -284,20 +284,8 @@
 
 
             <view class="starbox text-right ">
-
-              <!-- {{jginfo.pingfen==''?jginfo.scoring*20:jginfo.pingfen*20}} -->
-              <view class="stars_2"  style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
-                <view class="ims "  >
-                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
-                </view>
-              </view>
-
-              <view class="stars1 " >
-                 <view class="ims "  style="width:100%">
+              <view class="stars" style="width: 100%;">
+                <view class=" ims">
                   <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
                   <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
                   <image src="{{uploadpath}}resource/{{res.star_null}}" class="icon-star"></image>
@@ -306,6 +294,15 @@
                 </view>
               </view>
 
+              <view class="stars2" style="width: {{item.pingfen==''?item.scoring*20:item.pingfen*20}}%">
+                <view class="ims">
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                  <image src="{{uploadpath}}resource/{{res.star}}" class="icon-star"></image>
+                </view>
+              </view>
 
             </view>
 
@@ -604,7 +601,7 @@
 
 
         <view class='flex-row flex-column'>
-          <view wx:if='{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' class='next text-center txt-white'>下一步</view>
+          <view wx:if='{{xuanzhong!=0}}' bindtap='tobuy' id='{{courseinfo.id}}' data-kucun='{{courseinfo.kucun}}' class='next text-center txt-white'>下一步</view>
           <view wx:if='{{xuanzhong==0}}' class='next2 text-center txt-white'>下一步</view>
         </view>
 

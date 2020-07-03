@@ -251,6 +251,13 @@ class Content extends AppBase {
       })
       return;
     }
+    if(kucun==0){
+      wx.showToast({
+        title: '当前课程已没有可预约名额',
+        icon:'none'
+      })
+      return
+    }
     if (shuliang > kucun) {
       wx.showToast({
         title: '购买数量请勿超过库存',
@@ -434,6 +441,15 @@ class Content extends AppBase {
     console.log(id + "电费");
     //return;
     //this.Base.getMyData().pin == "1"  
+    var kucun = e.currentTarget.dataset.kucun;
+
+    if (kucun == 0) {
+      wx.showToast({
+        title: '当前课程已没有可预约名额',
+        icon: 'none'
+      })
+      return
+    }
 
     var jigouapi = new JigouApi();
     jigouapi.orderstatus({

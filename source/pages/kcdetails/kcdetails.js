@@ -474,10 +474,20 @@ class Content extends AppBase {
     })
 
   }
-  tobuy() {
+  tobuy(e) {
     this.Base.setMyData({
       tanchuang: false
     });
+
+    var kucun = e.currentTarget.dataset.kucun;
+
+    if (kucun == 0) {
+      wx.showToast({
+        title: '当前课程已没有可预约名额',
+        icon: 'none'
+      })
+      return
+    }
 
     var ppp = this.Base.getMyData().ppp;
     if (ppp == 1) {

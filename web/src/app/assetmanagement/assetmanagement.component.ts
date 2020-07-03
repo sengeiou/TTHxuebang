@@ -15,7 +15,7 @@ import { AppUtil } from '../app.util';
   providers: [InstApi, MemberApi,UserbApi,WechatApi]
 })
 export class AssetmanagementComponent extends AppBase {
-
+  static paycheck=null;
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
@@ -125,4 +125,31 @@ export class AssetmanagementComponent extends AppBase {
     this.mechanism_id='';
     this.onMyShow();
   } 
+
+  kk=0;
+  jg_id='';
+  xuanze(){
+
+    this.jg_id=this.mechanism_id;
+    this.kk=(new Date()).getTime();
+    AssetmanagementComponent.paycheck=this.kk;
+    this.checkifpay();
+  }
+  checkifpay(){
+   
+    this.userbApi.instdetail({id:this.jg_id}).then((instdetail:any)=>{
+      console.log(instdetail);
+      console.log(instdetail.advancepayment>0);
+      if(instdetail.advancepayment>0){
+        this.hidemodel();
+        this.onMyShow();
+      }else {
+        if(AssetmanagementComponent.paycheck==this.kk){
+          setTimeout(()=>{
+            this.checkifpay();
+          },1000);
+        }
+      }
+    })
+  }
 }
