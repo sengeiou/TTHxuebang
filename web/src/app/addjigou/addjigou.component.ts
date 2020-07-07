@@ -145,7 +145,9 @@ export class AddjigouComponent extends AppBase {
     shenhe:'',
     status:'',
     qrcode:'',
-    status2:'A'
+    status2:'A',
+    yinliunum:'',
+    chapinnum:'',
   }
   afterupload(e) {
     console.log(e)

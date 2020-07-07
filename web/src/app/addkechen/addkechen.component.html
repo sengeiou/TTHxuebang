@@ -36,7 +36,7 @@
 
                 <div class="row">
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail2" class=" col-form-label col-form-label-sm">机构
+                    <label for="inputEmail2" class=" col-form-label col-form-label-sm">机构门店/校区名称
                       <!-- <img src="{{uploadpath}}resource/{{quanjigou?res.xuanzhon:res.xuanze}}"
                       class="icon-15" (click)='quanxuan2()'/> -->
                     </label>
@@ -55,7 +55,7 @@
                     </select>
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程名</label>
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">课程名称（建议不超过13个字）</label>
                     <input type="text" class="form-control form-control-sm" id="inputEmail3" placeholder="必填项"
                       name='name' [(ngModel)]='kcdetail.name' />
                   </div>
@@ -83,7 +83,7 @@
                       [(ngModel)]='kcdetail.class_hours' />
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">单节时长(分钟)</label>
+                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">单节时长（分钟）</label>
                     <input type="text" class="form-control form-control-sm" id="inputEmail3" 
                       name='duration' [(ngModel)]='kcdetail.duration' />
                   </div>
@@ -100,7 +100,7 @@
                       <span *ngIf="errorprice!=''" class="error invalid-feedback">{{errorprice}}</span>
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程年龄</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程招生年龄段（岁）</label>
                     <input type="text" class="form-control form-control-sm" id="inputEmail3" placeholder="必填项"
                       name='agename' [(ngModel)]='kcdetail.age_name' />
                   </div>
@@ -118,7 +118,7 @@
                     </nz-upload>
                   </div> -->
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程图片</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程封面</label>
                     <div class="flex-row2 flex-bottom2">
                       <nz-upload class="avatar-uploader" style="width: 102px;"
                       nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
@@ -145,12 +145,12 @@
                       [(ngModel)]='kcdetail.teacherwechatid' />
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">限购数量（0不限）</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程限购数量（0表示不限购）</label>
                     <input type="number" class="form-control form-control-sm" id="inputEmail3" name='limitcount'
                       [(ngModel)]='kcdetail.limitcount' />
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">详情背景图</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情轮播图的背景图</label>
                     <div class="flex-row2 flex-bottom2">
                       <nz-upload class="avatar-uploader" style="width: 102px;"
                       nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
@@ -167,7 +167,7 @@
                     
                   </div>
                   <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情插画图片</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情长图</label>
                     <div class="flex-row2 flex-bottom2">
                       <nz-upload class="avatar-uploader" style="width: 102px;"
                       nzAction="{{uploadapi}}?module=curriculum&field=file&rettype=json" nzListType="picture-card"
@@ -186,7 +186,7 @@
                     
                   </div>
                   <div class="form-group  col-lg-12 col-md-12  col-sm-12">
-                    <label for="inputEmail" class=" col-form-label  col-form-label-sm">标签
+                    <label for="inputEmail" class=" col-form-label  col-form-label-sm">课程标签 
                       <!-- <img src="{{uploadpath}}resource/{{quanlabels?res.xuanzhon:res.xuanze}}"
                       class="icon-15" (click)='quanxuan()'/> -->
                     </label>
@@ -290,7 +290,7 @@
                     </select>
                   </div>
                   <div class="form-group  col-lg-12 col-md-12  col-sm-12">
-                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">轮播列表</label>
+                    <label for="inputEmail3" class=" col-form-label  col-form-label-sm">课程详情轮播图</label>
                     <table class="table text-center h5" style="min-width: 768px;">
                       <thead>
                           <tr>

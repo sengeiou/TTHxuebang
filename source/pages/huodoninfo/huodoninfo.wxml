@@ -12,7 +12,7 @@
 
       <view class="padding-20 flex-row  ">
 
-        <image src="{{uploadpath}}activity/{{huodoninfo.activity_detail_top}}"  style="width:280rpx;height:280rpx"></image>
+        <image src="{{uploadpath}}activity/{{huodoninfo.detail_suo}}"  style="width:280rpx;height:280rpx"></image>
 
         <view class="padding-40">
           <view class="flex-1"></view>

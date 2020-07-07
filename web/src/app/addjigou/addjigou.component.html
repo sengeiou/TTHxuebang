@@ -36,7 +36,7 @@
 
                                 <div class="row">
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构名称</label>
+                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构门店/校区名称（建议不超过12个字）</label>
                                         <input type="text" class="form-control form-control-sm" id="inputEmail3"
                                             name='name' [(ngModel)]='jgdetail.jigou' placeholder="必填项"/>
                                     </div>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
                                         <label for="inputEmail3"
-                                            class=" col-form-label col-form-label-sm">无视频显示图</label>
+                                            class=" col-form-label col-form-label-sm">没有机构介绍视频就显示为这个图片</label>
                                             <div class="flex-row2 flex-bottom2">
                                                 <nz-upload class="avatar-uploader" style="width: 102px;"
                                                 nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
@@ -104,13 +104,13 @@
                                     </div>
                                    
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构介绍</label>
+                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构门店/校区介绍文字（建议不超过200个字）</label>
                                         <textarea class="form-control form-control-sm" id="inputEmail3" name='jieshao'
                                             [(ngModel)]='jgdetail.jieshao' cols="30" rows="5"></textarea>
                                     </div>
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构视频</label>
+                                        <label for="inputEmail3" class=" col-form-label col-form-label-sm">机构门店/校区介绍视频</label>
                                         <div class="flex-row2 flex-bottom2">
                                             <nz-upload class="avatar-uploader" style="width: 102px;"
                                             nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
@@ -159,12 +159,12 @@
                                         <div class="form-control form-control-sm" id="inputEmail3">{{jgdetail.street_id_name}}</div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">详细地址</label>
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">机构门店/校区详细地址</label>
                                         <input type="text" class="form-control form-control-sm" id="inputEmail3"
                                             name='address' [(ngModel)]='jgdetail.address' />
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">显示地址</label>
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">前端显示地址（建议不超过20个字）</label>
                                         <input type="text" class="form-control form-control-sm" id="inputEmail3"
                                             name='showaddress' [(ngModel)]='jgdetail.showaddress' placeholder="必填项"/>
                                     </div>
@@ -174,7 +174,7 @@
                                             name='up_time' [(ngModel)]='jgdetail.up_time' placeholder="必填项"/>
                                     </div>
                                     <div class="form-group  col-lg-12 col-md-12  col-sm-12">
-                                        <label for="inputEmail" class=" col-form-label  col-form-label-sm">标签
+                                        <label for="inputEmail" class=" col-form-label  col-form-label-sm">机构标签（请不要选择超过5个标签）
                                         </label>
                                         <div class="flex-row2 flex-wrap2">
                                             <div class="flex-row2 flex-center2 margin-right-10"
@@ -187,7 +187,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">背景色</label>
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">机构详情页背景色</label>
                                         <div class="form-control input-group  form-control-sm flex-row2 flex-center2">
                                             <input type="text" class="flex-1" name='bgcolor' [(ngModel)]='jgdetail.bgcolor' [(colorPicker)]="jgdetail.bgcolor" >
                                             <i class="fas fa-square" [style.color]="jgdetail.bgcolor"></i>
@@ -207,7 +207,7 @@
                                             rows="3" placeholder="必填项"></textarea>
                                     </div> -->
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">长图</label>
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">机构详情长图</label>
                                         <div class="flex-row2 flex-bottom2">
                                             <nz-upload class="avatar-uploader" style="width: 102px;"
                                             nzAction="{{uploadapi}}?module=mechanism&field=file&rettype=json"
@@ -228,14 +228,24 @@
                                     </div>
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8">
-                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">适合年龄</label>
-                                        <input type="email" class="form-control form-control-sm" id="inputEmail3"
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">机构招生年龄段（岁）</label>
+                                        <input type="text" class="form-control form-control-sm" id="inputEmail3"
                                             name='jg_age' [(ngModel)]='jgdetail.jg_age' placeholder="必填项"/>
+                                    </div>
+
+                                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">已引流人数</label>
+                                            <div class="form-control form-control-sm">{{jgdetail.yinliunum}}</div>
+                                    </div>
+
+                                    <div class="form-group  col-lg-6 col-md-7  col-sm-8">
+                                        <label for="inputEmail3" class=" col-form-label  col-form-label-sm">当前差评总数</label>
+                                        <div class="form-control form-control-sm">{{jgdetail.chapinnum}}</div>
                                     </div>
 
                                     <div class="form-group  col-lg-6 col-md-7  col-sm-8 ">
                                         <label for="inputEmail3"
-                                            class=" col-form-label  col-form-label-sm">启用/禁用</label>
+                                            class=" col-form-label  col-form-label-sm">机构门店/校区状态</label>
                                         <select name="status2" class="form-control form-control-sm" id="inputEmail3" [(ngModel)]='jgdetail.status2' [disabled]='isdisabled'>
                                             <option value="A">启用</option>
                                             <option value="I">禁用</option>
@@ -245,7 +255,7 @@
                                         <div class="form-group   col-lg-12 col-md-12  col-sm-12"
                                             style="overflow-x: auto;">
                                             <label for="inputEmail3"
-                                                class=" col-form-label col-form-label-sm">机构轮播图列表</label>
+                                                class=" col-form-label col-form-label-sm">机构详情页轮播图</label>
                                             <table class="table text-center h5" style="min-width: 768px;">
                                                 <thead>
                                                     <tr>

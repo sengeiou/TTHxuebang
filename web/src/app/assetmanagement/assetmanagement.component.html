@@ -25,7 +25,7 @@
 
             <h4>预付款余额：￥{{instdetail.advancepayment}}</h4>
             <div class="margin-left-20">
-                <button class="btn btn-default bg-gray-d"  data-toggle="modal" data-target="#saoma"  (click)='xuanze()'>充值</button>
+                <button class="btn btn-default bg-gray-d" *ngIf='instdetail.advancepayment<=0' data-toggle="modal" data-target="#saoma"  (click)='xuanze()'>充值</button>
                 <button class="btn btn-default margin-left-20 bg-gray-d" [disabled]="isdisabled">提现</button>
             </div>
         </div>
@@ -131,7 +131,7 @@
                     <th>订单评分</th>
                     <!-- <th>订单所属机构</th> -->
                     <th>订单包含课程</th>
-                    <th>当前差评总个数</th>
+                    <!-- <th>当前差评总个数</th> -->
                     <th>扣款类型</th>
                     <th>扣款原因</th>
                     <th>扣款金额/元 </th>
@@ -151,7 +151,7 @@
                      <td>{{item.pingjia_pingfen==''?'-':item.pingjia_pingfen+"分"}}</td>
                      <!-- <td>{{item.mechanism_jigou}}</td> -->
                      <td>{{item.kecheng_id_name==''?'无':item.kecheng_id_name}}</td>
-                     <td>{{item.chapinum}}</td>
+                     <!-- <td>{{item.chapinum}}</td> -->
                      <td>
                        {{item.deductiontype_name}}
                       </td>
