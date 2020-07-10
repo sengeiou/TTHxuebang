@@ -111,6 +111,7 @@ class Content extends AppBase {
 
   todetails(e) {
     var name = e.currentTarget.dataset.name;
+    var instinfo = this.Base.getMyData().instinfo;
     // if (name == "cj") {
     //   wx.navigateTo({
     //     url: '/pages/myorder/myorder',

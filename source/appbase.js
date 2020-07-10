@@ -273,12 +273,12 @@ export class AppBase {
 
     var instapi = new InstApi();
     
-    if (AppBase.InstInfo != null) {
-      var instinfo = AppBase.InstInfo;
-      if (instinfo == null || instinfo == false) {
+    // if (AppBase.InstInfo != null) {
+    //   var instinfo = AppBase.InstInfo;
+    //   if (instinfo == null || instinfo == false) {
 
-        return;
-      }
+    //     return;
+    //   }
 
       // if (this.Base.inmaintain == false && instinfo.instswitch == '否') {
       //   wx.reLaunch({
@@ -286,16 +286,16 @@ export class AppBase {
       //   })
       //   return;
       // }
-      AppBase.InstInfo = instinfo;
-      this.Base.setMyData({
-        instinfo: instinfo
-      });
-      if (this.Base.pagetitle == null) {
-        this.Base.setPageTitle(instinfo);
-      } else {
+    //   AppBase.InstInfo = instinfo;
+    //   this.Base.setMyData({
+    //     instinfo: instinfo
+    //   });
+    //   if (this.Base.pagetitle == null) {
+    //     this.Base.setPageTitle(instinfo);
+    //   } else {
 
-      }
-    } else {
+    //   }
+    // } else {
 
       instapi.info({}, (instinfo) => {
         if (instinfo == null || instinfo == false) {
@@ -312,7 +312,7 @@ export class AppBase {
 
         }
       }, false);
-    }
+    // }
     //AppBase.UserInfo.openid ="ozqQo4y4CUIXHIf0c2aJ7V9gd_Lo";
     //ApiConfig.SetToken(AppBase.UserInfo.openid);
     if (AppBase.UserInfo.openid == undefined) {
