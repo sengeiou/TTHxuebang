@@ -184,6 +184,9 @@ class Content extends AppBase {
               daojishilistdd.push(pintuanlist[i]);
             }
           }
+          if (pintuanrenshu>0){
+            this.daojishi();
+          }
      
           this.Base.setMyData({
             pintuanlist: pintuanlist,

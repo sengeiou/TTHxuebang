@@ -1,6 +1,6 @@
 <!--pages/myorder/myorder.wxml-->
-<back-component></back-component>
-<view class=' to_top' >
+<!-- <back-component></back-component> -->
+<view class=' to_top' hidden='{{!floorstatus}}'>
  <image src='{{uploadpath}}resource/{{res.totop}}' class='icon-50' bindtap='backtotop'></image>
 </view>
 <view class=' flex-row flex-center  bg-white bor_bot top'>
@@ -404,7 +404,7 @@
           <view wx:if="{{item.type=='SP'}}">{{item.onlineclassroom_name}}</view>
 
           <view class="flex-1"></view>
-          <image class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}'></image>
+          <!-- <image class='yiwanchen ' lazy-load='{{true}}' src='{{uploadpath}}resource/{{res.yiwanchen}}'></image> -->
           <view class="h6 " style="color:#FF5252" wx:if="{{item.pstatus=='W'||item.pstatus=='PT'||item.pstatus=='C'}}">{{item.pstatus_name}}</view>
         </view>
 

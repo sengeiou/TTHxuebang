@@ -37,6 +37,7 @@ class Content extends AppBase {
     purchaseapi.scanpurchaseinfo({
       usecode: this.Base.options.usecode
     }, (info) => {
+     
       this.Base.setMyData({
         info
       });

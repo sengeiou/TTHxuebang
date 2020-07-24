@@ -7,11 +7,19 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"preloadBackgroundData": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false
 	},
@@ -134,10 +142,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 12,
 					"name": "邀请好友",
 					"pathName": "pages/myinvite/myinvite",
 					"query": "id=363",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/yaoqinhaibao/yaoqinhaibao",
+					"pathName": "pages/yaoqinhaibao/yaoqinhaibao",
+					"query": "name=45857_ttxhbyq.png",
 					"scene": null
 				}
 			]

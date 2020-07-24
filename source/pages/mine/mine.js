@@ -90,6 +90,7 @@ class Content extends AppBase {
   }
   startscan() {
     var that = this;
+    var purchaseapi = new PurchaseApi();
     wx.scanCode({
       scanType: ['qrCode'],
       success(res) {
@@ -98,9 +99,23 @@ class Content extends AppBase {
           that.Base.info("扫码内容不正确~" + result);
           return;
         }
-        wx.navigateTo({
-          url: '/pages/hexiao/hexiao?usecode=' + result,
+
+        purchaseapi.scanpurchaseinfo({
+          usecode: result
+        }, (info) => {
+          if(info.id=='0'){
+            wx.showToast({
+              title: '您不是该机构的核销人员，无法进行核销',
+              icon:'none'
+            })
+            return
+          }else {
+            wx.navigateTo({
+              url: '/pages/hexiao/hexiao?usecode=' + result,
+            })
+          }
         })
+       
       }
     })
   }

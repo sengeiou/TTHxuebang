@@ -33,11 +33,17 @@ class Content extends AppBase {
 
     console.log(ApiConfig.GetUploadurl() + this.options.name);
           console.log("那真的牛逼");
-    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl() + this.options.name })
+    this.Base.setMyData({ lujin: ApiConfig.GetUploadurl()+ this.options.name })
     this.Base.setMyData({ erweima: ApiConfig.GetApiUrl()+ "inst/qrcode?inst_id=1&url=/pages/home/home?id=" + this.Base.getMyData().memberinfo.id })
   }
   baocun() {
-    this.download(this.Base.getMyData().lujin, {}, true);
+    var that = this;
+    var url ="https://tthxb2.artxb.cn/Users/upload/tthxb/" + this.options.name;
+    console.log("uuu1",url);
+    // url = "https://tthxb2.artxb.cn/Users/upload/tthxb/23695_ttxhbyq.png";
+    // console.log("uuu2", url);
+    this.download(url);
+  
   }
   onShareAppMessage(e) {
     return {

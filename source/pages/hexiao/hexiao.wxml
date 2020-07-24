@@ -1,10 +1,10 @@
 <!--pages/hexiao/hexiao.wxml-->
 <back-component></back-component>
-<view wx:if="{{info.id=='0'}}">
+<view wx:if="{{ info.id=='0'}}">
   无法获取订单数据，你可能是不是该机构的核销员{{usecode}}
 </view>
 
-<block  wx:if="{{info.id!='0'}}">
+<block  wx:if="{{ info.id!='0'}}">
 
 <view class=''>
   <view class=' padding-left-20 bg-white bor_bot bor_top' style=''>

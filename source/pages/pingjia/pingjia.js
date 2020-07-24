@@ -124,9 +124,18 @@ class Content extends AppBase {
     var niming = this.Base.getMyData().niming;
     console.log(this.Base.getMyData().check + "是否匿名");
     console.log(niming + "是否匿名");
-
+    if (pingfen == 0) {
+      this.Base.info("请对课程进行评分");
+      return;
+    }
     if (data.text == null || data.text == "") {
       this.Base.info("请输入您的评价");
+      return;
+    }
+
+    
+    if (jgpingfen == 0) {
+      this.Base.info("请对机构进行评分");
       return;
     }
 

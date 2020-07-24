@@ -38,7 +38,7 @@ class Content extends AppBase {
     super.onLoad(options);
 
     this.Base.setMyData({
-      show: "all"
+      show: "wc"
     });
 
   }
